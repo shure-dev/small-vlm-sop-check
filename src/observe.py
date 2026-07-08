@@ -85,7 +85,8 @@ class Observer:
                 ids[v] = enc[0] if len(enc) == 1 else None  # 複数トークンに割れる語は計測不能扱い
             self._cand_ids[c["id"]] = ids
 
-    def ask(self, image_path: str, t: float, domain_hint: str, max_tokens: int = 200) -> dict:
+    def ask(self, image_path: str, t: float, domain_hint: str, max_tokens: int = 200,
+            prefill: str = "") -> dict:
         from mlx_vlm.generate import stream_generate
         from mlx_vlm.prompt_utils import apply_chat_template
 
@@ -95,13 +96,18 @@ class Observer:
         if self.enable_thinking is not None:
             tmpl_kwargs["enable_thinking"] = self.enable_thinking
         formatted = apply_chat_template(self.processor, self.config, prompt, num_images=1, **tmpl_kwargs)
+        # アシスタント応答をprefill(例: "{")で始めさせる。Molmoのように
+        # プロンプト末尾が"}"で終わると「JSONは完成済み」と誤解して最初のトークンで
+        # EOSを出し、空応答になるモデルがある。prefillで生成の口火を切らせる。
+        if prefill:
+            formatted = formatted + prefill
         try:
             mx.reset_peak_memory()
         except Exception:
             pass
 
         tok = self.processor.tokenizer
-        full_text = ""
+        full_text = prefill  # prefillぶんも含めて有効なJSONとしてパースできるようにする
         confidence: dict[str, dict] = {}
         pending_question = None  # 直前が `"question_id":"` で終わっていれば、次トークンがその値
 

@@ -18,12 +18,14 @@ from judge import judge, JudgeResult
 # ここに無いモデルも --model にフルIDを直接渡せば使える。
 # 実測の所見は experiments 側で確認したもの。「基準」= konro sop.yaml で総合PASSする。
 MODELS = {
-    "qwen3-2b":   ("mlx-community/Qwen3-VL-2B-Instruct-4bit",  "Qwen3-VL 2B。軽量・非思考"),
+    "qwen3-2b":   ("mlx-community/Qwen3-VL-2B-Instruct-4bit",  "Qwen3-VL 2B。軽量"),
     "qwen3-4b":   ("mlx-community/Qwen3-VL-4B-Instruct-4bit",  "Qwen3-VL 4B。既定・基準(konroでPASS)"),
     "qwen2.5-3b": ("mlx-community/Qwen2.5-VL-3B-Instruct-4bit", "Qwen2.5-VL 3B"),
     "internvl3-2b": ("mlx-community/InternVL3-2B-4bit",        "InternVL3 2B。pointing等でyesを出しすぎる傾向"),
     "gemma4-e2b": ("mlx-community/gemma-4-e2b-it-4bit",        "Gemma4 E2B。形式はOKだがロードが遅い"),
-    "minicpm-4.6": ("mlx-community/MiniCPM-V-4.6-4bit",        "MiniCPM-V 4.6 1.3B。思考モデル: --max-tokens 1024 推奨"),
+    "minicpm-4.6": ("mlx-community/MiniCPM-V-4.6-4bit",        "MiniCPM-V 4.6 1.3B(思考モデル。prefill既定で全フレーム回答)"),
+    "molmo-7b":   ("mlx-community/Molmo-7B-D-0924-4bit",       "Molmo 7B(prefill無しだと空応答が多い)"),
+    "cosmos-7b":  ("mlx-community/Cosmos-Reason1-7B-4bit",     "Cosmos-Reason1 7B(NVIDIA物理推論。思考モデル)"),
 }
 # 旧来のエイリアス(README/CLAUDE.mdが参照)を後方互換で維持。
 LEGACY_ALIASES = {"2b": "qwen3-2b", "4b": "qwen3-4b"}
@@ -58,7 +60,8 @@ def _print_result(sop_name: str, result: JudgeResult) -> None:
     print(f"\n>>> 総合判定: {result.verdict} <<<\n")
 
 
-def _run_observer(sop, meta_or_paths, model_key, out_path, max_tokens=200, thinking="auto"):
+def _run_observer(sop, meta_or_paths, model_key, out_path, max_tokens=200,
+                  thinking="auto", prefill="{"):
     """meta_or_pathsは[{"idx","t","path"}] または [path,...](idxはenumerateで振る)。"""
     from observe import Observer
 
@@ -78,7 +81,8 @@ def _run_observer(sop, meta_or_paths, model_key, out_path, max_tokens=200, think
     for m in meta:
         if m["idx"] in done_idx:
             continue
-        rec = obs.ask(m["path"], t=m["t"], domain_hint=domain_hint, max_tokens=max_tokens)
+        rec = obs.ask(m["path"], t=m["t"], domain_hint=domain_hint,
+                      max_tokens=max_tokens, prefill=prefill)
         results.append({"idx": m["idx"], "t": m["t"], "raw": rec["raw"],
                          "confidence": rec["confidence"], **rec["mem"]})
         conf_str = " ".join(f"{k}={v['argmax']}({v['probs'].get(v['argmax'], 0):.2f})"
@@ -104,7 +108,7 @@ def cmd_run(args):
 
     print(f"[run] 2/3 VLMで観察中... (model={args.model})")
     _run_observer(sop, meta, args.model, answer_log_path,
-                  max_tokens=args.max_tokens, thinking=args.thinking)
+                  max_tokens=args.max_tokens, thinking=args.thinking, prefill=args.prefill)
     print(f"[run]   観察ログ -> {answer_log_path}")
 
     print("[run] 3/3 判定中...")
@@ -120,7 +124,7 @@ def cmd_observe(args):
     sop = load_sop(args.sop)
     meta = [{"idx": i, "t": round(i / args.fps, 2), "path": p} for i, p in enumerate(frame_paths)]
     _run_observer(sop, meta, args.model, args.out,
-                  max_tokens=args.max_tokens, thinking=args.thinking)
+                  max_tokens=args.max_tokens, thinking=args.thinking, prefill=args.prefill)
     print(f"[observe] saved -> {args.out}")
 
 
@@ -146,6 +150,9 @@ def _add_model_args(p):
                    help="1フレームあたりの最大生成トークン(既定: 200)。思考モデルは1024程度に上げる")
     p.add_argument("--thinking", choices=["auto", "on", "off"], default="auto",
                    help="思考モードの明示指定(既定: auto=モデル任せ)。テンプレートが対応する場合のみ有効")
+    p.add_argument("--prefill", default="{",
+                   help="アシスタント応答の先頭に差し込む文字列(既定: '{')。"
+                        "Molmo等の空応答やMiniCPM等の思考切り詰めを防ぐ。思考させたい時は '' で無効化")
 
 
 def main():

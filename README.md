@@ -54,10 +54,11 @@ python src/cli.py judge \
 
 同じ動画・同じSOPでも、観察するVLMを変えると結果は割れる。小型モデルほど「yes」を出しすぎたり短いノイズを拾ったりして、決定論的なjudgeがそれを（入力に忠実に）誤判定に変える。観察品質（Phase 1）がそのまま最終判定を左右する、という観察と判定の分離ならではの挙動が見える。
 
-観察の生成まわりは2つのオプションで調整する：
+観察の生成まわりは3つのオプションで調整する：
 
-- `--max-tokens N`（既定200）— 1フレームあたりの最大生成トークン。**思考（reasoning）モデルは思考ぶんでトークンを使い切りJSONに到達できないことがある**ので、`minicpm-4.6` のような思考モデルでは `--max-tokens 1024` 程度に上げる。
-- `--thinking {auto,on,off}`（既定auto）— 思考モードの明示指定。チャットテンプレートが対応する場合のみ有効（MiniCPM-Vのように無視するモデルもあり、その場合は `--max-tokens` で吸収する）。
+- `--prefill STR`（既定 `{`）— アシスタント応答の先頭に差し込む文字列。JSONの開き括弧を先に置くことで、**Molmoのように最初のトークンでEOSを出して空応答になるモデルや、MiniCPM-V/Cosmosのように思考（`<think>`）でトークンを使い切ってJSONに届かないモデルでも、既定のまま全フレーム回答させられる**。思考の連鎖をあえて使いたい場合は `--prefill ''` で無効化する。
+- `--max-tokens N`（既定200）— 1フレームあたりの最大生成トークン。`--prefill ''` で思考モデルを回す場合は1024程度に上げる。
+- `--thinking {auto,on,off}`（既定auto）— 思考モードの明示指定。チャットテンプレートが対応する場合のみ有効。
 
 ### 試せるモデル
 
@@ -69,11 +70,11 @@ python src/cli.py judge \
 | `qwen2.5-3b` | Qwen2.5-VL-3B |
 | `internvl3-2b` | InternVL3-2B |
 | `gemma4-e2b` | Gemma4-E2B |
-| `minicpm-4.6` | MiniCPM-V 4.6（思考モデル: `--max-tokens 1024`） |
-| `mlx-community/Molmo-7B-D-0924-4bit` | Molmo-7B |
-| `mlx-community/Cosmos-Reason1-7B-4bit` | Cosmos-Reason1-7B（思考モデル: `--max-tokens 1024`） |
+| `minicpm-4.6` | MiniCPM-V 4.6（思考モデル・1.3B） |
+| `molmo-7b` | Molmo-7B |
+| `cosmos-7b` | Cosmos-Reason1-7B（NVIDIA物理推論・思考モデル） |
 
-SmolVLM・LFM2-VL は torch 必須で動かない。同梱動画で総合PASSするのは基準の `qwen3-4b` のみ。
+思考モデル（`minicpm-4.6` / `cosmos-7b`）も既定の `--prefill '{'` のおかげで追加設定なしに全フレーム回答する。SmolVLM・LFM2-VL は torch 必須で動かない。同梱動画で総合PASSするのは基準の `qwen3-4b` のみ。
 
 ## 結果の再生ビューア
 

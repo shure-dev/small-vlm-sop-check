@@ -45,7 +45,8 @@ python src/cli.py run --sop examples/konro_inspection/sop.yaml \
 
 - **torch必須で不可**: SmolVLM・LFM2-VL（`.venv-vlm` は torch なしで画像プロセッサ生成に失敗）。
 - **JSON形式に追従できず不可**: Qwen2-VL-2B・Gemma-3n-E2B。`mlx-community/Perception-LM-*` は config.json 欠落でロード不可。
-- **思考(reasoning)モデルは `--max-tokens` を上げる**: MiniCPM-V 4.6・Cosmos-Reason1 は `<think>` で既定200トークンを使い切りJSONに届かない → `--max-tokens 1024`。
+
+`--prefill`（既定 `{`）でアシスタント応答をJSONの開き括弧から始めさせる。これで (1) Molmoのように末尾が`}`のプロンプトを見て最初のトークンでEOSを出す空応答、(2) MiniCPM-V/Cosmosのように`<think>`でトークンを使い切りJSONに届かない、の両方を既定のまま回避できる（思考の連鎖を使いたい時だけ `--prefill '' --max-tokens 1024`）。
 
 ## 検証のしかた
 
