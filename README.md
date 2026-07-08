@@ -1,4 +1,4 @@
-# small_vlm_video_analysis
+# small-vlm-sop-check
 
 <p align="right"><a href="#english"><b>English</b></a></p>
 
@@ -251,7 +251,7 @@ python tools/replay_viewer/build.py   # tools/replay_viewer/replay.html を生�
 ## リポジトリ構成
 
 ```
-small_vlm_video_analysis/
+small-vlm-sop-check/
 ├── src/
 │   ├── observe.py   # Phase 1: questionsからプロンプト生成 + VLM呼び出し + 信頼度抽出
 │   ├── judge.py     # Phase 2: events/relations ルールエンジン
@@ -265,7 +265,7 @@ small_vlm_video_analysis/
 
 ## English
 
-**small_vlm_video_analysis** checks whether a work video was performed according to a written procedure, using only a small local VLM (Qwen3-VL on Apple Silicon). No cloud, no large models.
+**small-vlm-sop-check** checks whether a work video was performed according to a written procedure (SOP), using only a small local VLM (Qwen3-VL on Apple Silicon). No cloud, no large models.
 
 Feed it a video of a task and it returns **PASS / FAIL** for whether the defined steps were followed (e.g. "ignition must come before the point-and-call check", "no gloves worn").
 
