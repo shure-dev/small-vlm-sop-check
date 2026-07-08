@@ -160,13 +160,13 @@ expect:
 
 ## 使えるモデル
 
-`--model` にはエイリアス（`qwen3-4b`・`internvl3-2b`・`minicpm-4.6` など）か HF / mlx-community のフルIDを渡せる。一覧は `python src/cli.py models`。既定は基準の `qwen3-4b`（同梱動画で総合 PASS する）。
+`--model` にはエイリアス（`qwen3-4b`・`internvl3-2b`・`minicpm-4.6` など）か HF / mlx-community のフルIDを渡せる。一覧は `python src/cli.py models`。既定は `qwen3-4b`（同梱動画で総合 PASS する）。
 
 実際に動くことを確認済みのモデル：
 
 | エイリアス / ID | モデル |
 |---|---|
-| `qwen3-2b` / `qwen3-4b` | Qwen3-VL 2B / 4B（`qwen3-4b` が基準。2B は JSON が崩れやすい・[ベンチマーク](#ベンチマーク)参照） |
+| `qwen3-2b` / `qwen3-4b` | Qwen3-VL 2B / 4B（`qwen3-4b` が既定。2B は JSON が崩れやすい・[ベンチマーク](#ベンチマーク)参照） |
 | `qwen3.5-0.8b` / `qwen3.5-2b` / `qwen3.5-4b` | Qwen3.5 0.8B / 2B / 4B（早期fusionのネイティブVLM） |
 | `lfm2.5-1.6b` | LFM2.5-VL 1.6B（**要 mlx-vlm ≥ 0.6.4**。0.6.3 は lfm2_vl 実装が layer_norm を無条件生成するバグでロード不可） |
 | `qwen2.5-3b` | Qwen2.5-VL-3B |
@@ -196,7 +196,7 @@ expect:
 
 | モデル | サイズ | 正解手順<br>→ PASS | 順序違反<br>→ 順序逆転を指摘 | ステップ欠落<br>→ 欠落を指摘 | 正答 |
 |---|---:|:---:|:---:|:---:|:---:|
-| **Qwen3-VL-4B**（基準） | 4B | ✅ | ✅ | ✅ | **3/3** |
+| Qwen3-VL-4B | 4B | ✅ | ✅ | ✅ | 3/3 |
 | Qwen3.5-4B | 4B | ❌ | ✅ | ✅ | 2/3 |
 | Qwen2.5-VL-3B | 3B | ❌ | ✅ | ✅ | 2/3 |
 | MiniCPM-V 4.6 | 1.3B | ❌ | ✅ | ✅ | 2/3 |
@@ -211,7 +211,7 @@ expect:
 
 *（✅ = その条件の正解を当てた。違反列は理由の一致まで要求する）*
 
-**正しい手順を PASS と見抜けるのは基準の Qwen3-VL-4B だけ**（過検出による偽陽性の FAIL を出さないのが難所）。さらに順序違反では、**Gemma4-E2B と Cosmos-Reason1-7B は順序逆転を捕まえたのではなく、電池を一度も検出できず（`battery_check` 未検出）に FAIL している**——どんな誤順序SOPでも「電池が見えない」だけで FAIL するので理由は当てていない。verdict の一致だけでは横並びに見える差が、理由の照合で表に出る。
+**正しい手順を PASS と見抜けたのは Qwen3-VL-4B だけ**（過検出による偽陽性の FAIL を出さないのが難所）。さらに順序違反では、**Gemma4-E2B と Cosmos-Reason1-7B は順序逆転を捕まえたのではなく、電池を一度も検出できず（`battery_check` 未検出）に FAIL している**——どんな誤順序SOPでも「電池が見えない」だけで FAIL するので理由は当てていない。verdict の一致だけでは横並びに見える差が、理由の照合で表に出る。
 
 2026年の新顔（Qwen3.5・LFM2.5-VL）で 1/3 のものも同型で、順序違反の FAIL はいずれも「2回目の指差し（`point2`）未検出」によるもので順序逆転は指摘できていない。注目は同サイズ対決の **Qwen3.5-4B vs Qwen3-VL-4B**：最新世代の早期fusionネイティブVLMでも 2/3（`battery` は完璧だが `point2` を取りこぼして正解手順を偽陽性 FAIL）で、この用途では視覚特化系の Qwen3-VL-4B に及ばなかった。Qwen3-VL-2B は回答の中身以前に **JSON 形式が半数のフレームで崩れる**（クォート欠落・同一キーの繰り返し。mlx-vlm 0.6.3 実測）ため表中最下位。
 
@@ -225,7 +225,7 @@ expect:
 
 | モデル | 関係<br>保存 | mean<br>tIoU | 総合 | 点火<br>`knob` | 炎<br>`flame` | 指差し<br>`pointing` | グリル<br>`grill` | 電池<br>`battery` | 手袋<br>`gloves` |
 |---|:---:|---:|---:|---:|---:|---:|---:|---:|---:|
-| **Qwen3-VL-4B**（基準） | **6/6** | 0.78 | 96% | 94% | 100% | 81% | 100% | 100% | 100% |
+| Qwen3-VL-4B | 6/6 | 0.78 | 96% | 94% | 100% | 81% | 100% | 100% | 100% |
 | Qwen2.5-VL-3B | 5/6 | 0.56 | 83% | 50% | 100% | 75% | 94% | 81% | 100% |
 | Cosmos-Reason1-7B | 4/6 | 0.58 | 81% | 44% | 100% | 100% | 62% | 81% | 100% |
 | Qwen3.5-4B | 4/6 | 0.51 | 77% | 38% | 100% | 75% | 50% | 100% | 100% |
@@ -238,9 +238,9 @@ expect:
 | Qwen3-VL-2B | 3/6 | 0.10 | 77% | 75% | 94% | 88% | 44% | 62% | 100% |
 | MiniCPM-V 4.6 | 2/6 | 0.51 | 83% | 44% | 100% | 69% | 88% | 100% | 100% |
 
-**関係を6/6保存できたのは基準の Qwen3-VL-4B だけで、これがそのまま唯一の PASS に対応する**（上の判定精度表と一致）。基準ですら100%ではない——指差しを正解区間外で3フレーム過検出している（`pointing` 81%）——が、順序関係が保存されるので判定には響かない。境界のズレやノイズは注釈ではなく指標側で吸収する、という設計の実例。
+**関係を6/6保存できたのは Qwen3-VL-4B だけで、これがそのまま唯一の PASS に対応する**（上の判定精度表と一致）。その Qwen3-VL-4B も100%ではない——指差しを正解区間外で3フレーム過検出している（`pointing` 81%）——が、順序関係が保存されるので判定には響かない。境界のズレやノイズは注釈ではなく指標側で吸収する、という設計の実例。
 
-3層を並べると乖離が見える。MiniCPM-V 4.6 はセル一致率83%と上位なのに関係保存は2/6で最下位——見た目はだいたい合っているが、**判定を分ける境目でちょうど間違える**。逆に Qwen3-VL-2B は JSON 崩壊で mean tIoU 0.10 なのにセル一致率は77%と高く出る（二値採点では「答えられなかった」が「no」と同じ扱いになり、大半のフレームが陰性なので稼げてしまう）。**セル一致率だけでモデルを選ぶのは危険で、合否に効くのは関係保存**。なおサイズは効かない（2Bの Gemma4 が総合82%で 7B の Molmo を上回る）のは基準を変えても変わらない。
+3層を並べると乖離が見える。MiniCPM-V 4.6 はセル一致率83%と上位なのに関係保存は2/6で最下位——見た目はだいたい合っているが、**判定を分ける境目でちょうど間違える**。逆に Qwen3-VL-2B は JSON 崩壊で mean tIoU 0.10 なのにセル一致率は77%と高く出る（二値採点では「答えられなかった」が「no」と同じ扱いになり、大半のフレームが陰性なので稼げてしまう）。**セル一致率だけでモデルを選ぶのは危険で、合否に効くのは関係保存**。なおサイズは効かない（2Bの Gemma4 が総合82%で 7B の Molmo を上回る）という結論は、採点を人手の正解基準に変えても変わらなかった。
 
 <details><summary>再現方法</summary>
 
@@ -361,7 +361,7 @@ python src/cli.py judge \
 
 ### Key finding
 
-Across three SOP conditions (correct / wrong-order / missing-step) on the bundled `konro_inspection` clip, every model can FAIL the two violation cases — but that is the 2/3 baseline you get from "always say FAIL". Only the reference **Qwen3-VL-4B** also recognises the correct run as PASS (3/3). Not over-detecting — avoiding false-positive FAILs — is the real difficulty, and it hinges on observation quality (Phase 1), not parameter count (the 2B Gemma4 beats the 7B Molmo/Cosmos on observation agreement).
+Across three SOP conditions (correct / wrong-order / missing-step) on the bundled `konro_inspection` clip, every model can FAIL the two violation cases — but that is the 2/3 baseline you get from "always say FAIL". Only **Qwen3-VL-4B** also recognises the correct run as PASS (3/3). Not over-detecting — avoiding false-positive FAILs — is the real difficulty, and it hinges on observation quality (Phase 1), not parameter count (the 2B Gemma4 beats the 7B Molmo/Cosmos on observation agreement).
 
 > For the SOP format, full benchmark tables, model list and the replay viewer, see the Japanese sections above.
 
