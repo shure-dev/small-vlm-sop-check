@@ -78,34 +78,57 @@ python src/cli.py judge \
 
 ## ベンチマーク
 
-同梱の `konro_inspection`（16フレーム / 1fps）で、各ローカルVLMの観察精度を測った。指標は **基準モデル Qwen3-VL-4B の観察との一致率**（6質問 × 16フレーム = 96セルの yes/no/unclear 一致率）。Qwen3-VL-4B は同梱動画で唯一 SOP 判定が PASS になるため、事実上の正解として扱う。「判定」は同じ SOP・同じルールエンジンが出す総合結果。全モデル既定の `--prefill '{'` で96セル全てに回答する。
+同梱の `konro_inspection`（同一の16フレーム / 1fps の作業動画）を **3つのSOP条件** で判定させ、各ローカルVLMを評価した。動画は正しい手順どおりなので、正解の判定は「正解手順=PASS / 順序違反=FAIL / ステップ欠落=FAIL」。観察は全モデル既定の `--prefill '{'` で96セル全てに回答する。
 
-| モデル | サイズ | 一致率 | 判定 |
-|---|---:|---:|:---:|
-| **Qwen3-VL-4B**（基準） | 4B | **100%** | ✅ PASS |
-| Gemma4-E2B | 2B | 91% | ❌ FAIL |
-| Cosmos-Reason1-7B | 7B | 86% | ❌ FAIL |
-| Qwen2.5-VL-3B | 3B | 75% | ❌ FAIL |
-| MiniCPM-V 4.6 | 1.3B | 70% | ❌ FAIL |
-| InternVL3-2B | 2B | 49% | ❌ FAIL |
-| Molmo-7B | 7B | 47% | ❌ FAIL |
+### 判定精度（3条件でいくつ正しく判定できるか）
 
-PASSするのは基準のみ。一致率が高くても、他モデルは「ある質問での過検出（yesを出しすぎ）」でイベントの時系列がずれ、決定論的なjudgeがそれを FAIL に変える。**サイズは効かない**（7BのMolmo/Cosmosより2BのGemma4のほうが一致率が高い）。観察品質（Phase 1）がそのまま判定を決める、という本デモの設計思想を裏づける結果。
+| モデル | サイズ | 正解手順<br>→ PASS | 順序違反<br>→ FAIL | ステップ欠落<br>→ FAIL | 正答 |
+|---|---:|:---:|:---:|:---:|:---:|
+| **Qwen3-VL-4B**（基準） | 4B | ✅ | ✅ | ✅ | **3/3** |
+| Gemma4-E2B | 2B | ❌ | ✅ | ✅ | 2/3 |
+| Cosmos-Reason1-7B | 7B | ❌ | ✅ | ✅ | 2/3 |
+| Qwen2.5-VL-3B | 3B | ❌ | ✅ | ✅ | 2/3 |
+| MiniCPM-V 4.6 | 1.3B | ❌ | ✅ | ✅ | 2/3 |
+| InternVL3-2B | 2B | ❌ | ✅ | ✅ | 2/3 |
+| Molmo-7B | 7B | ❌ | ✅ | ✅ | 2/3 |
+
+*（✅ = 期待どおりの判定を出せた）*
+
+違反2条件（順序違反・欠落）は全モデルがFAILにできるが、これは「常にFAILと言うだけ」でも当たる **2/3 のベースライン** にすぎない。**正しい手順を PASS と見抜けるのは基準の Qwen3-VL-4B だけ**。過検出による偽陽性のFAILを出さないことが、このタスクの本当の難所。
+
+### どの観察が弱いか（質問＝イベント別の基準一致率）
+
+各セルは基準モデル Qwen3-VL-4B の観察との一致率（16フレームの argmax 一致率。基準は3条件すべて正答するため事実上の正解として扱う）。
+
+| モデル | 点火<br>`knob` | 炎<br>`flame` | 指差し<br>`pointing` | グリル<br>`grill` | 電池<br>`battery` | 手袋<br>`gloves` |
+|---|---:|---:|---:|---:|---:|---:|
+| Qwen3-VL-4B（基準） | 100% | 100% | 100% | 100% | 100% | 100% |
+| Gemma4-E2B | 69% | 100% | **100%** | 88% | 88% | 100% |
+| Cosmos-Reason1-7B | 31% | 100% | **100%** | 88% | 100% | 100% |
+| Qwen2.5-VL-3B | 56% | 81% | 88% | 31% | 94% | 100% |
+| MiniCPM-V 4.6 | 31% | 94% | 44% | 94% | 56% | 100% |
+| InternVL3-2B | 31% | 100% | 25% | 12% | 25% | 100% |
+| Molmo-7B | 31% | 81% | 19% | 12% | 44% | 94% |
+
+弱点はモデルごとに違う：小型勢（InternVL3・Molmo）は `pointing`（指差し＝point1/point2 の分離）と `grill` で崩れ、Cosmos/Molmo は `knob`（点火）を全フレーム yes と過検出する。**サイズは効かない**（2BのGemma4が7BのMolmo/Cosmosより広く高い）。`gloves`（安全条件）はどのモデルも当てる——ずっと着けていない易しい質問だから。観察品質（Phase 1）がそのまま判定を決める、という本デモの設計思想を裏づける結果。
 
 <details><summary>再現方法</summary>
 
 ```bash
+# 観察(1回)→ 3条件で判定
 for m in qwen3-4b gemma4-e2b cosmos-7b qwen2.5-3b minicpm-4.6 internvl3-2b molmo-7b; do
   python src/cli.py observe \
     --sop examples/konro_inspection/sop.yaml \
     --frames-dir examples/konro_inspection/sample_output/frames \
     --model "$m" --out "out/al_$m.json"
-  python src/cli.py judge \
-    --sop examples/konro_inspection/sop.yaml --answer-log "out/al_$m.json"
+  for cond in sop sop_wrong_order sop_missing_step; do
+    python src/cli.py judge \
+      --sop "examples/konro_inspection/$cond.yaml" --answer-log "out/al_$m.json"
+  done
 done
 ```
 
-一致率は各 `out/al_<model>.json` を基準の `examples/konro_inspection/sample_output/answer_log.json` と突き合わせて算出（argmax の一致セル数 / 96）。
+questions は3つのSOPで共通なので観察は1回でよい。一致率は各 `out/al_<model>.json` を基準の `examples/konro_inspection/sample_output/answer_log.json` と突き合わせて算出（argmax の一致セル数 / 96）。
 </details>
 
 ## 結果の再生ビューア
