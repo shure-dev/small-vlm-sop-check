@@ -76,6 +76,38 @@ python src/cli.py judge \
 
 思考モデル（`minicpm-4.6` / `cosmos-7b`）も既定の `--prefill '{'` のおかげで追加設定なしに全フレーム回答する。SmolVLM・LFM2-VL は torch 必須で動かない。同梱動画で総合PASSするのは基準の `qwen3-4b` のみ。
 
+## ベンチマーク
+
+同梱の `konro_inspection`（16フレーム / 1fps）で、各ローカルVLMの観察精度を測った。指標は **基準モデル Qwen3-VL-4B の観察との一致率**（6質問 × 16フレーム = 96セルの yes/no/unclear 一致率）。Qwen3-VL-4B は同梱動画で唯一 SOP 判定が PASS になるため、事実上の正解として扱う。「判定」は同じ SOP・同じルールエンジンが出す総合結果。全モデル既定の `--prefill '{'` で96セル全てに回答する。
+
+| モデル | サイズ | 一致率 | 判定 |
+|---|---:|---:|:---:|
+| **Qwen3-VL-4B**（基準） | 4B | **100%** | ✅ PASS |
+| Gemma4-E2B | 2B | 91% | ❌ FAIL |
+| Cosmos-Reason1-7B | 7B | 86% | ❌ FAIL |
+| Qwen2.5-VL-3B | 3B | 75% | ❌ FAIL |
+| MiniCPM-V 4.6 | 1.3B | 70% | ❌ FAIL |
+| InternVL3-2B | 2B | 49% | ❌ FAIL |
+| Molmo-7B | 7B | 47% | ❌ FAIL |
+
+PASSするのは基準のみ。一致率が高くても、他モデルは「ある質問での過検出（yesを出しすぎ）」でイベントの時系列がずれ、決定論的なjudgeがそれを FAIL に変える。**サイズは効かない**（7BのMolmo/Cosmosより2BのGemma4のほうが一致率が高い）。観察品質（Phase 1）がそのまま判定を決める、という本デモの設計思想を裏づける結果。
+
+<details><summary>再現方法</summary>
+
+```bash
+for m in qwen3-4b gemma4-e2b cosmos-7b qwen2.5-3b minicpm-4.6 internvl3-2b molmo-7b; do
+  python src/cli.py observe \
+    --sop examples/konro_inspection/sop.yaml \
+    --frames-dir examples/konro_inspection/sample_output/frames \
+    --model "$m" --out "out/al_$m.json"
+  python src/cli.py judge \
+    --sop examples/konro_inspection/sop.yaml --answer-log "out/al_$m.json"
+done
+```
+
+一致率は各 `out/al_<model>.json` を基準の `examples/konro_inspection/sample_output/answer_log.json` と突き合わせて算出（argmax の一致セル数 / 96）。
+</details>
+
 ## 結果の再生ビューア
 
 観察・判定の結果を、フレーム画像と一緒にブラウザで再生できる:
