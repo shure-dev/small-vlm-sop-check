@@ -58,3 +58,10 @@ relations:
   - point1 before grill_open
   - grill_open before point2
   - not gloves_worn
+
+# --- Phase 0: 正解。この誤SOPが違反になる「理由」は電池確認と点火の順序が逆であること ---
+expect:
+  verdict: FAIL
+  because:
+    - relation: "battery_check before ignite"   # 電池確認は点火より後 = 順序が逆
+      kind: order_reversed

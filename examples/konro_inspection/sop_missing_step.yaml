@@ -57,3 +57,10 @@ relations:
   - point1 before grill_open
   - grill_open before point2
   - point2 overlaps battery_check
+
+# --- Phase 0: 正解。違反の「理由」は実施していない手袋着用確認(gloves_check)が未検出であること ---
+expect:
+  verdict: FAIL
+  because:
+    - event: gloves_check           # 存在しない工程は未検出であるべき
+      kind: missing

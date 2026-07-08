@@ -143,15 +143,22 @@ def not_only_events(relation_strs: list[str]) -> set[str]:
 
 
 def check_relations(relation_strs: list[str], events: dict[str, Run | None],
-                     tolerance_s: float = 0.0, gap_tolerance_s: float = 0.0) -> list[str]:
-    """relations(文字列のリスト)を評価し、違反メッセージのリストを返す。空なら違反なし。"""
+                     tolerance_s: float = 0.0, gap_tolerance_s: float = 0.0) -> list[dict]:
+    """relations(文字列のリスト)を評価し、違反の詳細dictのリストを返す。空なら違反なし。
+
+    各違反 = {"kind", "relation", "events":[...], "message"}。message は人間向け文字列(不変)。
+    kind: order_reversed / overlap_missing / overlap_forbidden / forbidden / missing
+      - missing は「関係の一方が未検出で評価できない」= coverage起因のFAIL。
+        「順序を実際に取り違えた(order_reversed)」とは別物として区別できるようにする。
+    """
     violations = []
     for rel in relation_strs:
         m_not = NOT_RE.match(rel)
         if m_not:
             name = m_not.group(1)
             if events.get(name) is not None:
-                violations.append(f"「{name}」は検出されてはいけないが、t={events[name].t}sで検出された")
+                violations.append({"kind": "forbidden", "relation": rel, "events": [name],
+                    "message": f"「{name}」は検出されてはいけないが、t={events[name].t}sで検出された"})
             continue
 
         m = REL_RE.match(rel)
@@ -161,25 +168,29 @@ def check_relations(relation_strs: list[str], events: dict[str, Run | None],
         a, b = events.get(a_name), events.get(b_name)
         if a is None or b is None:
             missing = a_name if a is None else b_name
-            violations.append(f"「{missing}」が検出されていないため関係「{rel}」を評価できない")
+            violations.append({"kind": "missing", "relation": rel, "events": [missing],
+                "message": f"「{missing}」が検出されていないため関係「{rel}」を評価できない"})
             continue
 
         if op == "before":
             if b.t < a.t - tolerance_s:
-                violations.append(f"「{a_name}」(t={a.t}s)の後に「{b_name}」(t={b.t}s)"
-                                   f"が来るはずが、検出順序は逆だった")
+                violations.append({"kind": "order_reversed", "relation": rel, "events": [a_name, b_name],
+                    "message": f"「{a_name}」(t={a.t}s)の後に「{b_name}」(t={b.t}s)"
+                               f"が来るはずが、検出順序は逆だった"})
         elif op == "overlaps":
             overlap = not (a.end_idx < b.start_idx or b.end_idx < a.start_idx)
             if not overlap and gap_tolerance_s > 0:
                 gap = max(a.start_idx, b.start_idx) - min(a.end_idx, b.end_idx)
                 overlap = gap <= gap_tolerance_s
             if not overlap:
-                violations.append(f"「{a_name}」(t={a.t}s)と「{b_name}」(t={b.t}s)は"
-                                   f"重なっているはずだが、検出区間が離れていた")
+                violations.append({"kind": "overlap_missing", "relation": rel, "events": [a_name, b_name],
+                    "message": f"「{a_name}」(t={a.t}s)と「{b_name}」(t={b.t}s)は"
+                               f"重なっているはずだが、検出区間が離れていた"})
         elif op == "not_overlaps":
             overlap = not (a.end_idx < b.start_idx or b.end_idx < a.start_idx)
             if overlap:
-                violations.append(f"「{a_name}」と「{b_name}」は同時に起きてはいけないが、重なっていた")
+                violations.append({"kind": "overlap_forbidden", "relation": rel, "events": [a_name, b_name],
+                    "message": f"「{a_name}」と「{b_name}」は同時に起きてはいけないが、重なっていた"})
     return violations
 
 
@@ -191,8 +202,9 @@ def check_relations(relation_strs: list[str], events: dict[str, Run | None],
 class JudgeResult:
     events: dict[str, Run | None]
     coverage: float
-    violations: list[str]
-    verdict: str  # "PASS" | "FAIL"
+    violations: list[str]           # 人間向けメッセージ(後方互換)
+    verdict: str                    # "PASS" | "FAIL"
+    violation_details: list[dict]   # {"kind","relation","events","message"} — 理由照合用
 
 
 def judge(sop_def: dict[str, Any], frames: list[dict]) -> JudgeResult:
@@ -207,7 +219,8 @@ def judge(sop_def: dict[str, Any], frames: list[dict]) -> JudgeResult:
     relations = sop_def.get("relations", [])
 
     events = detect_events(sop_def["events"], frames, defaults)
-    violations = check_relations(relations, events, tolerance_s=tolerance_s)
+    details = check_relations(relations, events, tolerance_s=tolerance_s)
+    violations = [d["message"] for d in details]
 
     excluded = not_only_events(relations)
     required = {k: v for k, v in events.items() if k not in excluded}
@@ -215,4 +228,39 @@ def judge(sop_def: dict[str, Any], frames: list[dict]) -> JudgeResult:
     coverage = n_done / len(required) if required else 1.0
 
     verdict = "PASS" if (coverage == 1.0 and not violations) else "FAIL"
-    return JudgeResult(events=events, coverage=coverage, violations=violations, verdict=verdict)
+    return JudgeResult(events=events, coverage=coverage, violations=violations,
+                       verdict=verdict, violation_details=details)
+
+
+def check_expectation(sop_def: dict[str, Any], result: JudgeResult) -> dict | None:
+    """SOPに `expect` があれば「verdict」と「なぜ違反か(理由)」の一致を採点する。
+
+    expect:
+      verdict: PASS | FAIL
+      because:                       # FAIL時、当てるべき違反理由(なくてもよい)
+        - relation: "A before B"     # relation式で指定 (順序・重なり系)
+          kind: order_reversed
+        - event: gloves_check        # or event名で指定 (missing系)
+          kind: missing
+
+    戻り値: None(expect未定義) or
+      {"verdict_ok": bool, "reasons": [{... , "caught": bool}], "localized": bool}
+      localized = verdict一致 かつ 期待した理由をすべて(正しいkindで)当てた。
+    """
+    exp = sop_def.get("expect")
+    if not exp:
+        return None
+    verdict_ok = (result.verdict == exp.get("verdict"))
+    reasons = []
+    for want in exp.get("because", []):
+        kind = want.get("kind")
+        if "relation" in want:
+            caught = any(d["kind"] == kind and d["relation"] == want["relation"]
+                         for d in result.violation_details)
+        else:
+            ev = want.get("event")
+            caught = any(d["kind"] == kind and ev in d["events"]
+                         for d in result.violation_details)
+        reasons.append({**want, "caught": caught})
+    localized = verdict_ok and all(r["caught"] for r in reasons)
+    return {"verdict_ok": verdict_ok, "reasons": reasons, "localized": localized}

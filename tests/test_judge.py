@@ -9,7 +9,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent.parent / "src"))
 from sop import load_sop, load_answer_log
-from judge import judge
+from judge import judge, check_expectation
 
 EXAMPLE_DIR = Path(__file__).parent.parent / "examples" / "konro_inspection"
 ANSWER_LOG = EXAMPLE_DIR / "sample_output" / "answer_log.json"
@@ -39,6 +39,34 @@ def test_missing_step_sop_fails_as_not_detected():
     assert result.verdict == "FAIL"
     assert result.events["gloves_check"] is None
     assert result.coverage < 1.0
+
+
+def test_reference_localizes_violation_reason():
+    """基準観察(Qwen3-VL-4B)は、3条件すべてで verdict だけでなく『なぜ違反か(理由)』も当てる。
+    - 正解手順   : PASS
+    - 順序違反   : battery_check before ignite が order_reversed で違反
+    - ステップ欠落: gloves_check が missing(未検出)で違反
+    """
+    frames = load_answer_log(ANSWER_LOG)
+    for name in ("sop.yaml", "sop_wrong_order.yaml", "sop_missing_step.yaml"):
+        sop = load_sop(EXAMPLE_DIR / name)
+        ev = check_expectation(sop, judge(sop, frames))
+        assert ev is not None, name
+        assert ev["localized"], (name, ev)
+
+
+def test_missing_detection_is_not_counted_as_localized():
+    """順序違反SOPで、電池を一度も検出しない観察は FAIL にはなるが『理由は当てていない』
+    (順序を取り違えた order_reversed ではなく、未検出 missing 起因のFAILだから)。"""
+    sop = load_sop(EXAMPLE_DIR / "sop_wrong_order.yaml")
+    frames = load_answer_log(ANSWER_LOG)
+    for f in frames:                      # battery を全フレーム no に潰す
+        f["answers"]["battery"] = "no"
+    result = judge(sop, frames)
+    ev = check_expectation(sop, result)
+    assert result.verdict == "FAIL"
+    assert ev["verdict_ok"] is True       # FAILではある
+    assert ev["localized"] is False       # だが理由(順序逆転)は当てていない
 
 
 def test_occurrence_is_order_independent():

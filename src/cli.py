@@ -12,7 +12,7 @@ import os
 import sys
 
 from sop import load_sop, load_answer_log
-from judge import judge, JudgeResult
+from judge import judge, JudgeResult, check_expectation
 
 # 動作確認済みモデル(alias -> (mlx-community等のID, 短い実測メモ))。
 # ここに無いモデルも --model にフルIDを直接渡せば使える。
@@ -58,6 +58,19 @@ def _print_result(sop_name: str, result: JudgeResult) -> None:
     else:
         print("違反: なし")
     print(f"\n>>> 総合判定: {result.verdict} <<<\n")
+
+
+def _print_expectation(sop_def, result: JudgeResult) -> None:
+    """SOPに expect(正解)があれば、verdict と『なぜ違反か(理由)』を当てられたかを表示。"""
+    ev = check_expectation(sop_def, result)
+    if ev is None:
+        return
+    parts = [f"verdict {'✓' if ev['verdict_ok'] else '✗'}"]
+    for r in ev["reasons"]:
+        target = r.get("relation") or r.get("event")
+        parts.append(f"理由「{target}」({r['kind']}) {'✓当てた' if r['caught'] else '✗外した'}")
+    mark = "✓" if ev["localized"] else "✗"
+    print(f"[正解照合] {'  /  '.join(parts)}  =>  箇所特定 {mark}\n")
 
 
 def _run_observer(sop, meta_or_paths, model_key, out_path, max_tokens=200,
@@ -114,6 +127,7 @@ def cmd_run(args):
     print("[run] 3/3 判定中...")
     result = judge(sop, load_answer_log(answer_log_path))
     _print_result(sop["sop"]["name"], result)
+    _print_expectation(sop, result)
 
 
 def cmd_observe(args):
@@ -132,6 +146,7 @@ def cmd_judge(args):
     sop = load_sop(args.sop)
     result = judge(sop, load_answer_log(args.answer_log))
     _print_result(sop["sop"]["name"], result)
+    _print_expectation(sop, result)
 
 
 def cmd_models(args):

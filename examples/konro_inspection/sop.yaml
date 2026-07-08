@@ -83,3 +83,7 @@ relations:
   - grill_open before point2
   - point2 overlaps battery_check   # 電池を指差して確認 = 同時に起きてよい
   - not gloves_worn                 # 手袋は一度も検出されてはいけない(安全条件)
+
+# --- Phase 0: この動画に対する期待判定(正解) ---
+expect:
+  verdict: PASS
