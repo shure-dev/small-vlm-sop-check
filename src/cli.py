@@ -17,16 +17,20 @@ from judge import judge, JudgeResult, check_expectation
 
 # 動作確認済みモデル(alias -> (mlx-community等のID, 短い実測メモ))。
 # ここに無いモデルも --model にフルIDを直接渡せば使える。
-# 実測の所見は experiments 側で確認したもの。「基準」= konro sop.yaml で総合PASSする。
+# 実測の所見は experiments 側で確認したもの。
 MODELS = {
-    "qwen3-2b":   ("mlx-community/Qwen3-VL-2B-Instruct-4bit",  "Qwen3-VL 2B。軽量"),
-    "qwen3-4b":   ("mlx-community/Qwen3-VL-4B-Instruct-4bit",  "Qwen3-VL 4B。既定・基準(konroでPASS)"),
+    "qwen3-2b":   ("mlx-community/Qwen3-VL-2B-Instruct-4bit",  "Qwen3-VL 2B。軽量だがJSONが崩れやすい(mlx-vlm 0.6.3実測: 半数のフレームで形式崩壊)"),
+    "qwen3-4b":   ("mlx-community/Qwen3-VL-4B-Instruct-4bit",  "Qwen3-VL 4B。既定(konroでPASS)"),
     "qwen2.5-3b": ("mlx-community/Qwen2.5-VL-3B-Instruct-4bit", "Qwen2.5-VL 3B"),
     "internvl3-2b": ("mlx-community/InternVL3-2B-4bit",        "InternVL3 2B。pointing等でyesを出しすぎる傾向"),
     "gemma4-e2b": ("mlx-community/gemma-4-e2b-it-4bit",        "Gemma4 E2B。形式はOKだがロードが遅い"),
     "minicpm-4.6": ("mlx-community/MiniCPM-V-4.6-4bit",        "MiniCPM-V 4.6 1.3B(思考モデル。prefill既定で全フレーム回答)"),
     "molmo-7b":   ("mlx-community/Molmo-7B-D-0924-4bit",       "Molmo 7B(prefill無しだと空応答が多い)"),
     "cosmos-7b":  ("mlx-community/Cosmos-Reason1-7B-4bit",     "Cosmos-Reason1 7B(NVIDIA物理推論。思考モデル)"),
+    "qwen3.5-4b": ("mlx-community/Qwen3.5-4B-MLX-4bit",        "Qwen3.5 4B(早期fusionのネイティブVLM)。batteryは完璧だがpoint2を取りこぼす"),
+    "qwen3.5-2b": ("mlx-community/Qwen3.5-2B-MLX-4bit",        "Qwen3.5 2B。grill/batteryを過検出"),
+    "qwen3.5-0.8b": ("mlx-community/Qwen3.5-0.8B-MLX-4bit",    "Qwen3.5 0.8B。超軽量。形式は安定"),
+    "lfm2.5-1.6b": ("mlx-community/LFM2.5-VL-1.6B-4bit",       "LFM2.5-VL 1.6B。要mlx-vlm>=0.6.4(0.6.3はlfm2_vl実装バグでロード不可)"),
 }
 # 旧来のエイリアス(README/CLAUDE.mdが参照)を後方互換で維持。
 LEGACY_ALIASES = {"2b": "qwen3-2b", "4b": "qwen3-4b"}

@@ -48,12 +48,16 @@ python src/cli.py run --sop examples/konro_inspection/sop.yaml \
 
 ## 試せるVLM（実測）
 
-`--model` にエイリアス（`python src/cli.py models` で一覧）かHF/mlx-communityのフルIDを渡す。mlx-vlm がロードでき単一画像で厳密なJSONを返せるモデルが対象。動作確認済み: Qwen3-VL 2B/4B（基準は `qwen3-4b`）・Qwen2.5-VL-3B・InternVL3-2B・Gemma4-E2B・MiniCPM-V 4.6・Molmo-7B・Cosmos-Reason1-7B。
+`--model` にエイリアス（`python src/cli.py models` で一覧）かHF/mlx-communityのフルIDを渡す。mlx-vlm がロードでき単一画像で厳密なJSONを返せるモデルが対象。動作確認済み: Qwen3-VL 2B/4B（既定は `qwen3-4b`）・Qwen3.5 0.8B/2B/4B・LFM2.5-VL-1.6B（要mlx-vlm>=0.6.4）・Qwen2.5-VL-3B・InternVL3-2B・Gemma4-E2B・MiniCPM-V 4.6・Molmo-7B・Cosmos-Reason1-7B。
 
-- **torch必須で不可**: SmolVLM・LFM2-VL（`.venv-vlm` は torch なしで画像プロセッサ生成に失敗）。
+- **torch必須で不可**: SmolVLM・LFM2-VL・FastVLM（mlx-communityのbf16版）（`.venv-vlm` は torch なしで画像プロセッサ生成に失敗）。
 - **JSON形式に追従できず不可**: Qwen2-VL-2B・Gemma-3n-E2B。`mlx-community/Perception-LM-*` は config.json 欠落でロード不可。
+- **重み名不一致でロード不可**: `InsightKeeper/FastVLM-*-MLX-4bit`（mlx-vlmのfastvlm実装は `mm_projector.*`、チェックポイントは `multi_modal_projector.linear_*`）。
+- **LFM2.5-VL-1.6B は mlx-vlm 0.6.3 でロード不可**（lfm2_vlが `layer_norm` を無条件生成する実装バグ。0.6.4で修正済みだが上記条件付き）。
+- **Qwen3-VL-2B は mlx-vlm 0.6.3 の再実測で半数のフレームのJSONが崩壊**（クォート欠落・同一キー繰り返し。一致率18%）。以前の「動作確認済み」から劣化しており要注意。
+- **InternVL3.5-30B-A3B は RAM 24GB では非現実的**（4bitでも重み約17GB）。8B級（Qwen3-VL-8B・Qwen3.5-9B・InternVL3-8B）は方針により未計測。
 
-**プロンプトは英語指示＋質問文をlegendに分離**（`observe.py::build_prompt`）。値スロットに質問文を入れると MiniCPM-V 等が値に質問文をエコーして yes/no が出ないため。`--prefill`（既定 `{"`）でアシスタント応答をJSONの最初のキーの途中まで固定する。これで (1) Molmoのように最初のトークンでEOSを出す空応答、(2) MiniCPM-V/Cosmosのように`<think>`でトークンを使い切りJSONに届かない、の両方を既定のまま回避でき、7モデル全てでクリーンな yes/no JSON が出る（実測）。思考の連鎖を使いたい時だけ `--prefill '' --max-tokens 1024`。
+**プロンプトは英語指示＋質問文をlegendに分離**（`observe.py::build_prompt`）。値スロットに質問文を入れると MiniCPM-V 等が値に質問文をエコーして yes/no が出ないため。`--prefill`（既定 `{"`）でアシスタント応答をJSONの最初のキーの途中まで固定する。これで (1) Molmoのように最初のトークンでEOSを出す空応答、(2) MiniCPM-V/Cosmosのように`<think>`でトークンを使い切りJSONに届かない、の両方を既定のまま回避でき、Qwen3-VL-2Bを除く全モデルでクリーンな yes/no JSON が出る（実測）。思考の連鎖を使いたい時だけ `--prefill '' --max-tokens 1024`。
 
 ## 検証のしかた
 

@@ -1,0 +1,818 @@
+[
+  {
+    "idx": 0,
+    "t": 0.0,
+    "raw": "{\"knob\": \"yes\", \"flame\": \"no\", \"pointing\": \"no\", \"grill\": \"yes\", \"battery\": \"no\", \"gloves\": \"no\"}<|im_end|>",
+    "confidence": {
+      "knob": {
+        "probs": {
+          "yes": 0.6514,
+          "no": 0.3486
+        },
+        "argmax": "yes"
+      },
+      "flame": {
+        "probs": {
+          "yes": 0.3775,
+          "no": 0.6225
+        },
+        "argmax": "no"
+      },
+      "pointing": {
+        "probs": {
+          "yes": 0.3208,
+          "no": 0.6792
+        },
+        "argmax": "no"
+      },
+      "grill": {
+        "probs": {
+          "yes": 0.6225,
+          "no": 0.3775
+        },
+        "argmax": "yes"
+      },
+      "battery": {
+        "probs": {
+          "yes": 0.5,
+          "no": 0.5
+        },
+        "argmax": "yes"
+      },
+      "gloves": {
+        "probs": {
+          "yes": 0.0421,
+          "no": 0.9579
+        },
+        "argmax": "no"
+      }
+    },
+    "active_mb": 713.6,
+    "peak_mb": 1541.8
+  },
+  {
+    "idx": 1,
+    "t": 1.0,
+    "raw": "{\"knob\": \"yes\", \"flame\": \"no\", \"pointing\": \"yes\", \"grill\": \"no\", \"battery\": \"no\", \"gloves\": \"no\"}<|im_end|>",
+    "confidence": {
+      "knob": {
+        "probs": {
+          "yes": 0.7549,
+          "no": 0.2451
+        },
+        "argmax": "yes"
+      },
+      "flame": {
+        "probs": {
+          "yes": 0.2018,
+          "no": 0.7982
+        },
+        "argmax": "no"
+      },
+      "pointing": {
+        "probs": {
+          "yes": 0.852,
+          "no": 0.148
+        },
+        "argmax": "yes"
+      },
+      "grill": {
+        "probs": {
+          "yes": 0.5,
+          "no": 0.5
+        },
+        "argmax": "yes"
+      },
+      "battery": {
+        "probs": {
+          "yes": 0.2227,
+          "no": 0.7773
+        },
+        "argmax": "no"
+      },
+      "gloves": {
+        "probs": {
+          "yes": 0.026,
+          "no": 0.974
+        },
+        "argmax": "no"
+      }
+    },
+    "active_mb": 713.6,
+    "peak_mb": 1754.5
+  },
+  {
+    "idx": 2,
+    "t": 2.0,
+    "raw": "{\"knob\": \"yes\", \"flame\": \"no\", \"pointing\": \"yes\", \"grill\": \"no\", \"battery\": \"no\", \"gloves\": \"no\"}<|im_end|>",
+    "confidence": {
+      "knob": {
+        "probs": {
+          "yes": 0.5927,
+          "no": 0.4073
+        },
+        "argmax": "yes"
+      },
+      "flame": {
+        "probs": {
+          "yes": 0.2942,
+          "no": 0.7058
+        },
+        "argmax": "no"
+      },
+      "pointing": {
+        "probs": {
+          "yes": 0.852,
+          "no": 0.148
+        },
+        "argmax": "yes"
+      },
+      "grill": {
+        "probs": {
+          "yes": 0.5,
+          "no": 0.5
+        },
+        "argmax": "yes"
+      },
+      "battery": {
+        "probs": {
+          "yes": 0.2942,
+          "no": 0.7058
+        },
+        "argmax": "no"
+      },
+      "gloves": {
+        "probs": {
+          "yes": 0.023,
+          "no": 0.977
+        },
+        "argmax": "no"
+      }
+    },
+    "active_mb": 713.6,
+    "peak_mb": 1754.5
+  },
+  {
+    "idx": 3,
+    "t": 3.0,
+    "raw": "{\"knob\": \"no\", \"flame\": \"no\", \"pointing\": \"yes\", \"grill\": \"no\", \"battery\": \"no\", \"gloves\": \"no\"}<|im_end|>",
+    "confidence": {
+      "knob": {
+        "probs": {
+          "yes": 0.5,
+          "no": 0.5
+        },
+        "argmax": "yes"
+      },
+      "flame": {
+        "probs": {
+          "yes": 0.3775,
+          "no": 0.6225
+        },
+        "argmax": "no"
+      },
+      "pointing": {
+        "probs": {
+          "yes": 0.5622,
+          "no": 0.4378
+        },
+        "argmax": "yes"
+      },
+      "grill": {
+        "probs": {
+          "yes": 0.4688,
+          "no": 0.5312
+        },
+        "argmax": "no"
+      },
+      "battery": {
+        "probs": {
+          "yes": 0.2942,
+          "no": 0.7058
+        },
+        "argmax": "no"
+      },
+      "gloves": {
+        "probs": {
+          "yes": 0.0534,
+          "no": 0.9466
+        },
+        "argmax": "no"
+      }
+    },
+    "active_mb": 713.6,
+    "peak_mb": 1754.5
+  },
+  {
+    "idx": 4,
+    "t": 4.0,
+    "raw": "{\"knob\": \"yes\", \"flame\": \"no\", \"pointing\": \"yes\", \"grill\": \"yes\", \"battery\": \"no\", \"gloves\": \"no\"}<|im_end|>",
+    "confidence": {
+      "knob": {
+        "probs": {
+          "yes": 0.7311,
+          "no": 0.2689
+        },
+        "argmax": "yes"
+      },
+      "flame": {
+        "probs": {
+          "yes": 0.2227,
+          "no": 0.7773
+        },
+        "argmax": "no"
+      },
+      "pointing": {
+        "probs": {
+          "yes": 0.852,
+          "no": 0.148
+        },
+        "argmax": "yes"
+      },
+      "grill": {
+        "probs": {
+          "yes": 0.5312,
+          "no": 0.4688
+        },
+        "argmax": "yes"
+      },
+      "battery": {
+        "probs": {
+          "yes": 0.4688,
+          "no": 0.5312
+        },
+        "argmax": "no"
+      },
+      "gloves": {
+        "probs": {
+          "yes": 0.026,
+          "no": 0.974
+        },
+        "argmax": "no"
+      }
+    },
+    "active_mb": 713.6,
+    "peak_mb": 1754.5
+  },
+  {
+    "idx": 5,
+    "t": 5.0,
+    "raw": "{\"knob\": \"yes\", \"flame\": \"no\", \"pointing\": \"yes\", \"grill\": \"yes\", \"battery\": \"no\", \"gloves\": \"no\"}<|im_end|>",
+    "confidence": {
+      "knob": {
+        "probs": {
+          "yes": 0.7058,
+          "no": 0.2942
+        },
+        "argmax": "yes"
+      },
+      "flame": {
+        "probs": {
+          "yes": 0.2227,
+          "no": 0.7773
+        },
+        "argmax": "no"
+      },
+      "pointing": {
+        "probs": {
+          "yes": 0.9954,
+          "no": 0.0046
+        },
+        "argmax": "yes"
+      },
+      "grill": {
+        "probs": {
+          "yes": 0.5312,
+          "no": 0.4688
+        },
+        "argmax": "yes"
+      },
+      "battery": {
+        "probs": {
+          "yes": 0.4688,
+          "no": 0.5312
+        },
+        "argmax": "no"
+      },
+      "gloves": {
+        "probs": {
+          "yes": 0.026,
+          "no": 0.974
+        },
+        "argmax": "no"
+      }
+    },
+    "active_mb": 713.6,
+    "peak_mb": 1754.5
+  },
+  {
+    "idx": 6,
+    "t": 6.0,
+    "raw": "{\"knob\": \"no\", \"flame\": \"no\", \"pointing\": \"yes\", \"grill\": \"no\", \"battery\": \"no\", \"gloves\": \"no\"}<|im_end|>",
+    "confidence": {
+      "knob": {
+        "probs": {
+          "yes": 0.5,
+          "no": 0.5
+        },
+        "argmax": "yes"
+      },
+      "flame": {
+        "probs": {
+          "yes": 0.1192,
+          "no": 0.8808
+        },
+        "argmax": "no"
+      },
+      "pointing": {
+        "probs": {
+          "yes": 0.7549,
+          "no": 0.2451
+        },
+        "argmax": "yes"
+      },
+      "grill": {
+        "probs": {
+          "yes": 0.5,
+          "no": 0.5
+        },
+        "argmax": "yes"
+      },
+      "battery": {
+        "probs": {
+          "yes": 0.2942,
+          "no": 0.7058
+        },
+        "argmax": "no"
+      },
+      "gloves": {
+        "probs": {
+          "yes": 0.0534,
+          "no": 0.9466
+        },
+        "argmax": "no"
+      }
+    },
+    "active_mb": 713.6,
+    "peak_mb": 1754.5
+  },
+  {
+    "idx": 7,
+    "t": 7.0,
+    "raw": "{\"knob\": \"no\", \"flame\": \"no\", \"pointing\": \"yes\", \"grill\": \"yes\", \"battery\": \"yes\", \"gloves\": \"no\"}<|im_end|>",
+    "confidence": {
+      "knob": {
+        "probs": {
+          "yes": 0.4378,
+          "no": 0.5622
+        },
+        "argmax": "no"
+      },
+      "flame": {
+        "probs": {
+          "yes": 0.1824,
+          "no": 0.8176
+        },
+        "argmax": "no"
+      },
+      "pointing": {
+        "probs": {
+          "yes": 0.5622,
+          "no": 0.4378
+        },
+        "argmax": "yes"
+      },
+      "grill": {
+        "probs": {
+          "yes": 0.6514,
+          "no": 0.3486
+        },
+        "argmax": "yes"
+      },
+      "battery": {
+        "probs": {
+          "yes": 0.5622,
+          "no": 0.4378
+        },
+        "argmax": "yes"
+      },
+      "gloves": {
+        "probs": {
+          "yes": 0.1824,
+          "no": 0.8176
+        },
+        "argmax": "no"
+      }
+    },
+    "active_mb": 713.6,
+    "peak_mb": 1754.5
+  },
+  {
+    "idx": 8,
+    "t": 8.0,
+    "raw": "{\"knob\": \"no\", \"flame\": \"no\", \"pointing\": \"yes\", \"grill\": \"yes\", \"battery\": \"yes\", \"gloves\": \"no\"}<|im_end|>",
+    "confidence": {
+      "knob": {
+        "probs": {
+          "yes": 0.3775,
+          "no": 0.6225
+        },
+        "argmax": "no"
+      },
+      "flame": {
+        "probs": {
+          "yes": 0.1067,
+          "no": 0.8933
+        },
+        "argmax": "no"
+      },
+      "pointing": {
+        "probs": {
+          "yes": 0.7311,
+          "no": 0.2689
+        },
+        "argmax": "yes"
+      },
+      "grill": {
+        "probs": {
+          "yes": 0.6514,
+          "no": 0.3486
+        },
+        "argmax": "yes"
+      },
+      "battery": {
+        "probs": {
+          "yes": 0.5312,
+          "no": 0.4688
+        },
+        "argmax": "yes"
+      },
+      "gloves": {
+        "probs": {
+          "yes": 0.0759,
+          "no": 0.9241
+        },
+        "argmax": "no"
+      }
+    },
+    "active_mb": 713.6,
+    "peak_mb": 1754.5
+  },
+  {
+    "idx": 9,
+    "t": 9.0,
+    "raw": "{\"knob\": \"no\", \"flame\": \"no\", \"pointing\": \"yes\", \"grill\": \"no\", \"battery\": \"no\", \"gloves\": \"no\"}<|im_end|>",
+    "confidence": {
+      "knob": {
+        "probs": {
+          "yes": 0.5,
+          "no": 0.5
+        },
+        "argmax": "yes"
+      },
+      "flame": {
+        "probs": {
+          "yes": 0.0851,
+          "no": 0.9149
+        },
+        "argmax": "no"
+      },
+      "pointing": {
+        "probs": {
+          "yes": 0.8355,
+          "no": 0.1645
+        },
+        "argmax": "yes"
+      },
+      "grill": {
+        "probs": {
+          "yes": 0.4688,
+          "no": 0.5312
+        },
+        "argmax": "no"
+      },
+      "battery": {
+        "probs": {
+          "yes": 0.2689,
+          "no": 0.7311
+        },
+        "argmax": "no"
+      },
+      "gloves": {
+        "probs": {
+          "yes": 0.0331,
+          "no": 0.9669
+        },
+        "argmax": "no"
+      }
+    },
+    "active_mb": 713.6,
+    "peak_mb": 1754.5
+  },
+  {
+    "idx": 10,
+    "t": 10.0,
+    "raw": "{\"knob\": \"yes\", \"flame\": \"no\", \"pointing\": \"yes\", \"grill\": \"no\", \"battery\": \"no\", \"gloves\": \"no\"}<|im_end|>",
+    "confidence": {
+      "knob": {
+        "probs": {
+          "yes": 0.5927,
+          "no": 0.4073
+        },
+        "argmax": "yes"
+      },
+      "flame": {
+        "probs": {
+          "yes": 0.1645,
+          "no": 0.8355
+        },
+        "argmax": "no"
+      },
+      "pointing": {
+        "probs": {
+          "yes": 0.9399,
+          "no": 0.0601
+        },
+        "argmax": "yes"
+      },
+      "grill": {
+        "probs": {
+          "yes": 0.4378,
+          "no": 0.5622
+        },
+        "argmax": "no"
+      },
+      "battery": {
+        "probs": {
+          "yes": 0.2689,
+          "no": 0.7311
+        },
+        "argmax": "no"
+      },
+      "gloves": {
+        "probs": {
+          "yes": 0.0203,
+          "no": 0.9797
+        },
+        "argmax": "no"
+      }
+    },
+    "active_mb": 713.6,
+    "peak_mb": 1756.0
+  },
+  {
+    "idx": 11,
+    "t": 11.0,
+    "raw": "{\"knob\": \"no\", \"flame\": \"no\", \"pointing\": \"yes\", \"grill\": \"yes\", \"battery\": \"yes\", \"gloves\": \"no\"}<|im_end|>",
+    "confidence": {
+      "knob": {
+        "probs": {
+          "yes": 0.4688,
+          "no": 0.5312
+        },
+        "argmax": "no"
+      },
+      "flame": {
+        "probs": {
+          "yes": 0.1067,
+          "no": 0.8933
+        },
+        "argmax": "no"
+      },
+      "pointing": {
+        "probs": {
+          "yes": 0.7982,
+          "no": 0.2018
+        },
+        "argmax": "yes"
+      },
+      "grill": {
+        "probs": {
+          "yes": 0.5312,
+          "no": 0.4688
+        },
+        "argmax": "yes"
+      },
+      "battery": {
+        "probs": {
+          "yes": 0.5927,
+          "no": 0.4073
+        },
+        "argmax": "yes"
+      },
+      "gloves": {
+        "probs": {
+          "yes": 0.0851,
+          "no": 0.9149
+        },
+        "argmax": "no"
+      }
+    },
+    "active_mb": 713.6,
+    "peak_mb": 1756.0
+  },
+  {
+    "idx": 12,
+    "t": 12.0,
+    "raw": "{\"knob\": \"no\", \"flame\": \"no\", \"pointing\": \"yes\", \"grill\": \"yes\", \"battery\": \"yes\", \"gloves\": \"no\"}<|im_end|>",
+    "confidence": {
+      "knob": {
+        "probs": {
+          "yes": 0.4378,
+          "no": 0.5622
+        },
+        "argmax": "no"
+      },
+      "flame": {
+        "probs": {
+          "yes": 0.1824,
+          "no": 0.8176
+        },
+        "argmax": "no"
+      },
+      "pointing": {
+        "probs": {
+          "yes": 0.9707,
+          "no": 0.0293
+        },
+        "argmax": "yes"
+      },
+      "grill": {
+        "probs": {
+          "yes": 0.7549,
+          "no": 0.2451
+        },
+        "argmax": "yes"
+      },
+      "battery": {
+        "probs": {
+          "yes": 0.8355,
+          "no": 0.1645
+        },
+        "argmax": "yes"
+      },
+      "gloves": {
+        "probs": {
+          "yes": 0.0373,
+          "no": 0.9627
+        },
+        "argmax": "no"
+      }
+    },
+    "active_mb": 713.6,
+    "peak_mb": 1756.0
+  },
+  {
+    "idx": 13,
+    "t": 13.0,
+    "raw": "{\"knob\": \"no\", \"flame\": \"no\", \"pointing\": \"yes\", \"grill\": \"yes\", \"battery\": \"yes\", \"gloves\": \"no\"}<|im_end|>",
+    "confidence": {
+      "knob": {
+        "probs": {
+          "yes": 0.4688,
+          "no": 0.5312
+        },
+        "argmax": "no"
+      },
+      "flame": {
+        "probs": {
+          "yes": 0.1824,
+          "no": 0.8176
+        },
+        "argmax": "no"
+      },
+      "pointing": {
+        "probs": {
+          "yes": 0.9579,
+          "no": 0.0421
+        },
+        "argmax": "yes"
+      },
+      "grill": {
+        "probs": {
+          "yes": 0.6792,
+          "no": 0.3208
+        },
+        "argmax": "yes"
+      },
+      "battery": {
+        "probs": {
+          "yes": 0.7549,
+          "no": 0.2451
+        },
+        "argmax": "yes"
+      },
+      "gloves": {
+        "probs": {
+          "yes": 0.0421,
+          "no": 0.9579
+        },
+        "argmax": "no"
+      }
+    },
+    "active_mb": 713.6,
+    "peak_mb": 1756.0
+  },
+  {
+    "idx": 14,
+    "t": 14.0,
+    "raw": "{\"knob\": \"no\", \"flame\": \"no\", \"pointing\": \"yes\", \"grill\": \"no\", \"battery\": \"no\", \"gloves\": \"no\"}<|im_end|>",
+    "confidence": {
+      "knob": {
+        "probs": {
+          "yes": 0.3775,
+          "no": 0.6225
+        },
+        "argmax": "no"
+      },
+      "flame": {
+        "probs": {
+          "yes": 0.133,
+          "no": 0.867
+        },
+        "argmax": "no"
+      },
+      "pointing": {
+        "probs": {
+          "yes": 0.7982,
+          "no": 0.2018
+        },
+        "argmax": "yes"
+      },
+      "grill": {
+        "probs": {
+          "yes": 0.4378,
+          "no": 0.5622
+        },
+        "argmax": "no"
+      },
+      "battery": {
+        "probs": {
+          "yes": 0.2451,
+          "no": 0.7549
+        },
+        "argmax": "no"
+      },
+      "gloves": {
+        "probs": {
+          "yes": 0.026,
+          "no": 0.974
+        },
+        "argmax": "no"
+      }
+    },
+    "active_mb": 713.6,
+    "peak_mb": 1756.0
+  },
+  {
+    "idx": 15,
+    "t": 15.0,
+    "raw": "{\"knob\": \"yes\", \"flame\": \"no\", \"pointing\": \"no\", \"grill\": \"yes\", \"battery\": \"no\", \"gloves\": \"no\"}<|im_end|>",
+    "confidence": {
+      "knob": {
+        "probs": {
+          "yes": 0.5622,
+          "no": 0.4378
+        },
+        "argmax": "yes"
+      },
+      "flame": {
+        "probs": {
+          "yes": 0.3775,
+          "no": 0.6225
+        },
+        "argmax": "no"
+      },
+      "pointing": {
+        "probs": {
+          "yes": 0.3775,
+          "no": 0.6225
+        },
+        "argmax": "no"
+      },
+      "grill": {
+        "probs": {
+          "yes": 0.6792,
+          "no": 0.3208
+        },
+        "argmax": "yes"
+      },
+      "battery": {
+        "probs": {
+          "yes": 0.4378,
+          "no": 0.5622
+        },
+        "argmax": "no"
+      },
+      "gloves": {
+        "probs": {
+          "yes": 0.0293,
+          "no": 0.9707
+        },
+        "argmax": "no"
+      }
+    },
+    "active_mb": 713.6,
+    "peak_mb": 1756.0
+  }
+]
