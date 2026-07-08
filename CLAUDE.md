@@ -39,17 +39,13 @@ python src/cli.py run --sop examples/konro_inspection/sop.yaml \
 - mlx-vlm実行中に稀にMetal GPU Hangが起きる。回答ログは1フレームごとに逐次保存しているので、再実行すれば途中から再開できる。
 - fpsを上げると精度が上がるとは限らない（短いノイズが単独検出として顕在化し、判定が反転した実測あり）。既定の1fpsを基準にする。
 
-## 試せるVLMと相性（実測）
+## 試せるVLM（実測）
 
-`--model` にエイリアス（`python src/cli.py models` で一覧）かHF/mlx-communityのフルIDを渡す。**mlx-vlm がロードでき、単一画像で厳密なJSONを返せるモデルだけが対象**。
+`--model` にエイリアス（`python src/cli.py models` で一覧）かHF/mlx-communityのフルIDを渡す。mlx-vlm がロードでき単一画像で厳密なJSONを返せるモデルが対象。動作確認済み: Qwen3-VL 2B/4B（基準は `qwen3-4b`）・Qwen2.5-VL-3B・InternVL3-2B・Gemma4-E2B・MiniCPM-V 4.6・Molmo-7B・Cosmos-Reason1-7B。
 
-- **動作する**: Qwen3-VL 2B/4B（基準は `qwen3-4b`）・Qwen2.5-VL-3B・InternVL3-2B・Gemma4-E2B・MiniCPM-V 4.6・Molmo-7B・Cosmos-Reason1-7B。
-- **torch必須で不可**: SmolVLM（`SmolVLM2-*-Video` も Idefics3系 `SmolVLM-Instruct` も）・LFM2-VL。`.venv-vlm` は torch なしのため transformers の画像プロセッサ生成で `image_processor_type` を解決できず落ちる。動かすには transformers+torch の第2バックエンドが要る（未実装）。
-- **JSON形式に追従できず不可**: Qwen2-VL-2B（質問文を値にエコー）・Gemma-3n-E2B（日本語の箇条書きで回答）。
-- **パッケージング不備で不可**: `mlx-community/Perception-LM-*` は Facebookネイティブ形式（`params.json`のみ）で `config.json` が無く mlx-vlm がロードできない。
-- **思考(reasoning)モデルは `--max-tokens` を上げる**: MiniCPM-V 4.6・Cosmos-Reason1 は `<think>` で既定200トークンを使い切りJSONに届かない → `--max-tokens 1024`。`enable_thinking` を無視するモデルもある（`--thinking off` が効かず、結局 max_tokens で吸収）。
-
-**観察品質(Phase 1)がそのまま判定を決める**: 同じ動画・同じSOP・同じプロンプトでも、基準一致率は Qwen3-VL-4B=100% に対し他は42〜81%で、基準以外は全て誤FAIL。失敗パターンは共通して「ある質問での過検出(yesを出しすぎ)」で、崩れる質問はモデルごとに違う（小型勢は `pointing`、Cosmos-Reason1 は `knob`、Molmo は `pointing`）。7Bにしても直らない。この比較は observe/judge 分離の効果を示す良い題材。
+- **torch必須で不可**: SmolVLM・LFM2-VL（`.venv-vlm` は torch なしで画像プロセッサ生成に失敗）。
+- **JSON形式に追従できず不可**: Qwen2-VL-2B・Gemma-3n-E2B。`mlx-community/Perception-LM-*` は config.json 欠落でロード不可。
+- **思考(reasoning)モデルは `--max-tokens` を上げる**: MiniCPM-V 4.6・Cosmos-Reason1 は `<think>` で既定200トークンを使い切りJSONに届かない → `--max-tokens 1024`。
 
 ## 検証のしかた
 
