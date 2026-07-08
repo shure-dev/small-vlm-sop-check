@@ -59,6 +59,17 @@ python src/cli.py judge \
 - `--max-tokens N`（既定200）— 1フレームあたりの最大生成トークン。**思考（reasoning）モデルは思考ぶんでトークンを使い切りJSONに到達できないことがある**ので、`minicpm-4.6` のような思考モデルでは `--max-tokens 1024` 程度に上げる。
 - `--thinking {auto,on,off}`（既定auto）— 思考モードの明示指定。チャットテンプレートが対応する場合のみ有効（MiniCPM-Vのように無視するモデルもあり、その場合は `--max-tokens` で吸収する）。
 
+### 動作確認したモデルと相性
+
+`python src/cli.py models` の一覧はいずれも mlx-vlm で torch なし・単一画像のJSON応答で動くことを実測済み。ほかのモデルもフルIDを渡せば試せるが、相性がある：
+
+- **動く**: Qwen3-VL（2B/4B）/ Qwen2.5-VL-3B / InternVL3-2B / Gemma4-E2B / MiniCPM-V 4.6 / Molmo-7B / Cosmos-Reason1-7B
+- **torch必須で不可**: SmolVLM（2系統とも）・LFM2-VL。観察に使う環境が torch なしだと transformers の画像プロセッサ生成で落ちる
+- **JSON形式に追従できず不可**: Qwen2-VL-2B（質問文をそのまま値にエコー）・Gemma-3n-E2B（箇条書きで回答）
+- **思考（reasoning）モデルは `--max-tokens` を上げる**: MiniCPM-V 4.6・Cosmos-Reason1 は `<think>` で既定の200トークンを使い切りJSONに届かないことがある（`--max-tokens 1024` 目安）
+
+なお同梱動画で総合PASSするのは基準の `qwen3-4b` のみ。ほかのモデルは「ある質問でyesを出しすぎる（過検出）」傾向があり、決定論的なjudgeがそれを誤判定に変える。どの質問で崩れるかはモデルごとに違う（小型モデルは `pointing`、Cosmos-Reason1 は `knob`）。
+
 ## 結果の再生ビューア
 
 観察・判定の結果を、フレーム画像と一緒にブラウザで再生できる:
