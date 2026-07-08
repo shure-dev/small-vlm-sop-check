@@ -1,0 +1,373 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>イベント区間アノテーター</title>
+<style>
+  :root {
+    --ok: #1a7f37;
+    --ok-bg: #e6f4ea;
+    --no: #6b7280;
+    --no-bg: #f1f2f4;
+    --warn: #b45309;
+    --warn-bg: #fef3e0;
+    --bad: #c0362c;
+    --accent: #2563eb;
+    --accent-bg: #e8effd;
+    --line: #ddd;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: -apple-system, "Hiragino Sans", "Yu Gothic", sans-serif;
+    background: #f7f7f5;
+    color: #1c1c1c;
+  }
+  header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 14px 20px;
+    background: #fff;
+    border-bottom: 1px solid var(--line);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+  }
+  header h1 { font-size: 17px; margin: 0; font-weight: 600; flex: 1; }
+  #progress { font-size: 13px; color: #666; white-space: nowrap; }
+  #saveStatus {
+    font-size: 13px;
+    padding: 4px 12px;
+    border-radius: 999px;
+    white-space: nowrap;
+    background: var(--no-bg);
+    color: var(--no);
+  }
+  #saveStatus.saved { background: var(--ok-bg); color: var(--ok); }
+  #saveStatus.error { background: #fbe9e7; color: var(--bad); }
+
+  main {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+    max-width: 1180px;
+    margin: 0 auto;
+  }
+  .left { flex: 0 0 480px; }
+  .right { flex: 1; min-width: 0; }
+
+  #frameImg {
+    width: 100%;
+    border-radius: 8px;
+    border: 1px solid var(--line);
+    background: #000;
+    aspect-ratio: 4/3;
+    object-fit: contain;
+  }
+  .controls { display: flex; align-items: center; gap: 8px; margin-top: 10px; }
+  .controls button {
+    font-size: 14px;
+    padding: 6px 12px;
+    border-radius: 6px;
+    border: 1px solid var(--line);
+    background: #fff;
+    cursor: pointer;
+  }
+  .controls button:hover { background: #f0f0f0; }
+  #scrubber { flex: 1; }
+  #timeLabel {
+    font-variant-numeric: tabular-nums;
+    font-size: 13px;
+    color: #444;
+    white-space: nowrap;
+    min-width: 108px;
+    text-align: right;
+  }
+  #strip { display: flex; gap: 2px; margin-top: 10px; }
+  #strip img {
+    flex: 1;
+    min-width: 0;
+    aspect-ratio: 4/3;
+    object-fit: cover;
+    border-radius: 3px;
+    border: 2px solid transparent;
+    cursor: pointer;
+    opacity: 0.75;
+  }
+  #strip img:hover { opacity: 1; }
+  #strip img.current { border-color: #1c1c1c; opacity: 1; }
+
+  .left h2, .right h2 {
+    font-size: 13px;
+    color: #666;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin: 0 0 8px;
+  }
+  .left h2 { margin-top: 18px; }
+  .hint { font-size: 12px; color: #888; line-height: 1.7; }
+  .hint kbd {
+    font-family: "SF Mono", Menlo, monospace;
+    font-size: 11px;
+    background: #fff;
+    border: 1px solid var(--line);
+    border-bottom-width: 2px;
+    border-radius: 4px;
+    padding: 0 5px;
+  }
+
+  #events { display: flex; flex-direction: column; gap: 10px; }
+  .erow {
+    padding: 8px 10px;
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    cursor: pointer;
+  }
+  .erow.selected { border-color: var(--accent); box-shadow: 0 0 0 2px var(--accent-bg) inset; }
+  .ehead { display: flex; justify-content: space-between; align-items: center; font-size: 13px; }
+  .ename { font-weight: 600; }
+  .estate { font-size: 12px; }
+  .estate.todo { color: var(--warn); }
+  .estate.absent { color: #888; }
+  .estate.done { color: var(--ok); }
+  .evidence { font-size: 11px; color: #999; font-family: "SF Mono", Menlo, monospace; margin-top: 2px; }
+  .timeline {
+    position: relative;
+    height: 12px;
+    background: var(--no-bg);
+    border-radius: 6px;
+    margin-top: 6px;
+  }
+  .timeline .span {
+    position: absolute;
+    top: 0; bottom: 0;
+    background: var(--accent);
+    opacity: 0.45;
+    border-radius: 6px;
+  }
+  .timeline .playhead {
+    position: absolute;
+    top: -3px; bottom: -3px;
+    width: 2px;
+    background: #1c1c1c;
+  }
+  .ebtns { display: flex; gap: 6px; margin-top: 8px; }
+  .ebtns button {
+    font-size: 12px;
+    padding: 4px 10px;
+    border-radius: 6px;
+    border: 1px solid var(--line);
+    background: #fff;
+    cursor: pointer;
+  }
+  .ebtns button:hover { background: #f0f0f0; }
+  .ebtns button.primary { border-color: var(--accent); color: var(--accent); }
+</style>
+</head>
+<body>
+  <header>
+    <h1 id="sopName"></h1>
+    <span id="progress"></span>
+    <span id="saveStatus">未保存の変更なし</span>
+  </header>
+
+  <main>
+    <section class="left">
+      <img id="frameImg" alt="frame">
+      <div class="controls">
+        <button id="prevBtn">◀</button>
+        <button id="nextBtn">▶</button>
+        <input type="range" id="scrubber" min="0" value="0" step="1">
+        <span id="timeLabel"></span>
+      </div>
+      <div id="strip"></div>
+
+      <h2>操作</h2>
+      <p class="hint">
+        イベントを選び(クリック / <kbd>↑</kbd><kbd>↓</kbd>)、フレームを合わせて
+        <kbd>i</kbd>=開始 <kbd>o</kbd>=終了 を打つ。起きないイベントは <kbd>n</kbd>。
+        <kbd>x</kbd>=注釈を消す。<kbd>←</kbd><kbd>→</kbd>=フレーム移動。
+        タイムラインのクリックでもシークできる。<b>操作のたびに自動保存される。</b><br>
+        occurrence付きイベント(1回目/2回目)は、それぞれの出現を別イベントとして注釈する。
+      </p>
+    </section>
+
+    <section class="right">
+      <h2>イベント区間(事実の記録: いつ何が起きたか)</h2>
+      <div id="events"></div>
+    </section>
+  </main>
+
+<script>
+const DATA = "__ANNOTATOR_DATA__";
+const N = DATA.frames.length;
+const gt = DATA.gt_events;             // {name: {start_idx,end_idx} | null}。キー無し=未注釈
+const notOnly = new Set(DATA.not_only);
+
+let idx = 0;
+let selected = DATA.events[0].name;
+
+document.getElementById("sopName").textContent = "アノテーション: " + DATA.sop.name;
+document.title = "アノテーター: " + DATA.sop.name;
+
+const scrubber = document.getElementById("scrubber");
+scrubber.max = N - 1;
+
+// ---- 自動保存 -------------------------------------------------------------
+const statusEl = document.getElementById("saveStatus");
+async function save() {
+  try {
+    const res = await fetch("/save", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ events: gt }),
+    });
+    const out = await res.json();
+    if (!out.ok) throw new Error(out.error);
+    const t = new Date().toLocaleTimeString();
+    statusEl.textContent = `✓ 保存済み ${t}`;
+    statusEl.className = "saved";
+  } catch (e) {
+    statusEl.textContent = "✗ 保存失敗: " + e.message;
+    statusEl.className = "error";
+  }
+}
+
+// ---- 注釈操作 -------------------------------------------------------------
+function setStart() {
+  const span = gt[selected];
+  gt[selected] = span ? { start_idx: idx, end_idx: Math.max(span.end_idx, idx) }
+                      : { start_idx: idx, end_idx: idx };
+  save(); render();
+}
+function setEnd() {
+  const span = gt[selected];
+  gt[selected] = span ? { start_idx: Math.min(span.start_idx, idx), end_idx: idx }
+                      : { start_idx: idx, end_idx: idx };
+  save(); render();
+}
+function setAbsent() { gt[selected] = null; save(); render(); }
+function clearAnno() { delete gt[selected]; save(); render(); }
+
+// ---- 描画 -----------------------------------------------------------------
+const strip = document.getElementById("strip");
+DATA.frames.forEach((name, i) => {
+  const img = document.createElement("img");
+  img.src = "/frames/" + name;
+  img.title = `t=${DATA.times[i]}s`;
+  img.addEventListener("click", () => { idx = i; render(); });
+  strip.appendChild(img);
+});
+
+function stateOf(name) {
+  if (!(name in gt)) return { text: "未注釈", cls: "todo" };
+  const span = gt[name];
+  if (span === null)
+    return { text: notOnly.has(name) ? "起きていない(このSOPでは正しい姿)" : "起きていない",
+             cls: "absent" };
+  return { text: `frame ${span.start_idx}-${span.end_idx} `
+                 + `(t=${DATA.times[span.start_idx]}-${DATA.times[span.end_idx]}s)`,
+           cls: "done" };
+}
+
+function renderEvents() {
+  const box = document.getElementById("events");
+  box.innerHTML = "";
+  DATA.events.forEach(ev => {
+    const st = stateOf(ev.name);
+    const row = document.createElement("div");
+    row.className = "erow" + (ev.name === selected ? " selected" : "");
+    const occ = ev.occurrence ? ` <span style="color:#999">(${ev.occurrence}回目)</span>` : "";
+    row.innerHTML = `
+      <div class="ehead">
+        <span class="ename">${ev.name}${occ}</span>
+        <span class="estate ${st.cls}">${st.text}</span>
+      </div>
+      <div class="evidence">${ev.evidence}</div>
+      <div class="timeline"></div>
+      <div class="ebtns">
+        <button class="primary" data-act="start">開始=このフレーム</button>
+        <button class="primary" data-act="end">終了=このフレーム</button>
+        <button data-act="absent">起きていない</button>
+        <button data-act="clear">クリア</button>
+      </div>
+    `;
+    row.addEventListener("click", () => {
+      if (selected !== ev.name) { selected = ev.name; render(); }
+    });
+    row.querySelectorAll("button").forEach(b => b.addEventListener("click", e => {
+      e.stopPropagation();
+      selected = ev.name;
+      ({ start: setStart, end: setEnd, absent: setAbsent, clear: clearAnno })[b.dataset.act]();
+    }));
+
+    const tl = row.querySelector(".timeline");
+    const span = gt[ev.name];
+    if (span) {
+      const el = document.createElement("div");
+      el.className = "span";
+      el.style.left = (span.start_idx / N * 100) + "%";
+      el.style.width = ((span.end_idx - span.start_idx + 1) / N * 100) + "%";
+      tl.appendChild(el);
+    }
+    const playhead = document.createElement("div");
+    playhead.className = "playhead";
+    playhead.style.left = (idx / Math.max(N - 1, 1) * 100) + "%";
+    tl.appendChild(playhead);
+    tl.addEventListener("click", e => {
+      e.stopPropagation();
+      const r = tl.getBoundingClientRect();
+      idx = Math.round((e.clientX - r.left) / r.width * (N - 1));
+      idx = Math.max(0, Math.min(N - 1, idx));
+      render();
+    });
+
+    box.appendChild(row);
+  });
+
+  const done = DATA.events.filter(ev => ev.name in gt).length;
+  document.getElementById("progress").textContent =
+    `注釈済み ${done}/${DATA.events.length}  →  ${DATA.out_path}`;
+}
+
+function render() {
+  document.getElementById("frameImg").src = "/frames/" + DATA.frames[idx];
+  document.getElementById("timeLabel").textContent =
+    `t=${DATA.times[idx].toFixed(1)}s  (${idx + 1}/${N})`;
+  scrubber.value = idx;
+  strip.querySelectorAll("img").forEach((img, i) =>
+    img.classList.toggle("current", i === idx));
+  renderEvents();
+}
+
+function step(d) {
+  idx = Math.max(0, Math.min(N - 1, idx + d));
+  render();
+}
+
+document.getElementById("prevBtn").addEventListener("click", () => step(-1));
+document.getElementById("nextBtn").addEventListener("click", () => step(1));
+scrubber.addEventListener("input", () => { idx = parseInt(scrubber.value, 10); render(); });
+
+window.addEventListener("keydown", e => {
+  if (e.key === "ArrowLeft") { e.preventDefault(); step(-1); }
+  if (e.key === "ArrowRight") { e.preventDefault(); step(1); }
+  if (e.key === "ArrowUp" || e.key === "ArrowDown") {
+    e.preventDefault();
+    const names = DATA.events.map(ev => ev.name);
+    const d = e.key === "ArrowUp" ? -1 : 1;
+    selected = names[(names.indexOf(selected) + d + names.length) % names.length];
+    render();
+  }
+  if (e.key === "i") setStart();
+  if (e.key === "o") setEnd();
+  if (e.key === "n") setAbsent();
+  if (e.key === "x") clearAnno();
+});
+
+render();
+</script>
+</body>
+</html>

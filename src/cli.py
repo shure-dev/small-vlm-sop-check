@@ -3,6 +3,7 @@
   python src/cli.py run     --sop SOP.yaml --video VIDEO.mp4 --out-dir out/   # 動画→抽出→観察→判定を1コマンドで
   python src/cli.py observe --sop SOP.yaml --frames-dir DIR --out answer_log.json  # 観察だけ(フレーム済みの場合)
   python src/cli.py judge   --sop SOP.yaml --answer-log answer_log.json               # 判定だけ(観察済みの場合)
+  python src/cli.py eval    --sop SOP.yaml --answer-log answer_log.json               # 正解アノテーションとの突き合わせ
 """
 from __future__ import annotations
 import argparse
@@ -149,6 +150,26 @@ def cmd_judge(args):
     _print_expectation(sop, result)
 
 
+def cmd_eval(args):
+    """観察ログを正解アノテーション(ground_truth.json)と突き合わせて観察精度を評価する。"""
+    from evaluate import load_ground_truth, evaluate, format_report
+
+    gt_path = args.ground_truth or os.path.join(os.path.dirname(args.sop), "ground_truth.json")
+    if not os.path.exists(gt_path):
+        print(f"[eval] 正解アノテーションが見つかりません: {gt_path}\n"
+              f"       まず python tools/annotator/serve.py で注釈してください", file=sys.stderr)
+        sys.exit(1)
+
+    sop = load_sop(args.sop)
+    gt = load_ground_truth(gt_path)
+    ev = evaluate(sop, gt, load_answer_log(args.answer_log))
+    print(f"[eval] SOP: {sop['sop']['name']} / GT: {gt_path}")
+    print(format_report(ev))
+    if args.out:
+        json.dump(ev, open(args.out, "w"), ensure_ascii=False, indent=2)
+        print(f"[eval] metrics -> {args.out}")
+
+
 def cmd_models(args):
     """--model に使える動作確認済みエイリアスと実測メモを一覧する。"""
     print("動作確認済みモデル(--model にエイリアス or フルIDを渡せる):\n")
@@ -194,6 +215,14 @@ def main():
     p_judge.add_argument("--sop", required=True)
     p_judge.add_argument("--answer-log", required=True)
     p_judge.set_defaults(func=cmd_judge)
+
+    p_eval = sub.add_parser("eval", help="観察ログを正解アノテーションと突き合わせて評価(tIoU・関係の保存)")
+    p_eval.add_argument("--sop", required=True)
+    p_eval.add_argument("--answer-log", required=True)
+    p_eval.add_argument("--ground-truth", default=None,
+                        help="ground_truth.json のパス(既定: SOPと同じディレクトリ)")
+    p_eval.add_argument("--out", default=None, help="評価結果をJSONでも保存する場合の出力先")
+    p_eval.set_defaults(func=cmd_eval)
 
     p_models = sub.add_parser("models", help="--model に使える動作確認済みエイリアス一覧")
     p_models.set_defaults(func=cmd_models)

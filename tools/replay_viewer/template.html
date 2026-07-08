@@ -194,6 +194,14 @@
     opacity: 0.35;
     border-radius: 5px;
   }
+  .timeline .span.gt {
+    background: transparent;
+    border: 2px solid #2563eb;
+    opacity: 0.9;
+  }
+  .legend { font-size: 11px; color: #999; text-transform: none; letter-spacing: 0; margin-left: 8px; }
+  .legend .sw-det { color: var(--ok); }
+  .legend .sw-gt { color: #2563eb; }
   .timeline .playhead {
     position: absolute;
     top: -3px; bottom: -3px;
@@ -251,7 +259,8 @@
     </section>
 
     <section class="right">
-      <h2>イベント検出</h2>
+      <h2>イベント検出<span id="gtLegend" class="legend" hidden>
+        <span class="sw-det">■</span> 検出 / <span class="sw-gt">□</span> 正解(人手アノテーション)</span></h2>
       <div id="events"></div>
       <ul id="violations"></ul>
     </section>
@@ -341,6 +350,16 @@ function renderQuestions(frame) {
   });
 }
 
+// 正解区間(あれば)。tIoU = フレームidx区間(両端含む)同士の temporal IoU。
+const GT = DATA.gt;
+document.getElementById("gtLegend").hidden = !GT;
+function tiou(gtSpan, ev) {
+  const inter = Math.min(gtSpan.end_idx, ev.end_idx) - Math.max(gtSpan.start_idx, ev.start_idx) + 1;
+  if (inter <= 0) return 0;
+  const union = (gtSpan.end_idx - gtSpan.start_idx + 1) + (ev.end_idx - ev.start_idx + 1) - inter;
+  return inter / union;
+}
+
 function renderEvents() {
   const box = document.getElementById("events");
   box.innerHTML = "";
@@ -348,6 +367,7 @@ function renderEvents() {
     const detected = ev.start_idx !== null;
     const isNotOnly = notOnly.has(name);
     const active = detected && idx >= ev.start_idx && idx <= ev.end_idx;
+    const gtSpan = GT ? GT[name] : undefined;   // undefined=未注釈 / null=起きていない
 
     let statusText, statusClass;
     if (detected && isNotOnly) {
@@ -361,6 +381,15 @@ function renderEvents() {
       statusClass = "correctly-absent";
     } else {
       statusText = "未検出";
+      statusClass = "missing";
+    }
+    if (gtSpan && detected) {
+      statusText += ` / tIoU ${tiou(gtSpan, ev).toFixed(2)}`;
+    } else if (gtSpan && !detected) {
+      statusText = `見逃し(正解: frame ${gtSpan.start_idx}-${gtSpan.end_idx})`;
+      statusClass = "missing";
+    } else if (gtSpan === null && detected && !isNotOnly) {
+      statusText += " / 誤検出(正解: 起きていない)";
       statusClass = "missing";
     }
 
@@ -382,6 +411,13 @@ function renderEvents() {
       const width = (ev.end_idx - ev.start_idx + 1) / DATA.n_frames * 100;
       span.style.left = left + "%";
       span.style.width = width + "%";
+      tl.appendChild(span);
+    }
+    if (gtSpan) {
+      const span = document.createElement("div");
+      span.className = "span gt";
+      span.style.left = (gtSpan.start_idx / DATA.n_frames * 100) + "%";
+      span.style.width = ((gtSpan.end_idx - gtSpan.start_idx + 1) / DATA.n_frames * 100) + "%";
       tl.appendChild(span);
     }
     const playhead = document.createElement("div");

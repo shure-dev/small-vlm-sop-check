@@ -94,8 +94,16 @@ def _ordered_model_names(names: list[str]) -> list[str]:
     return known + rest
 
 
+def load_gt_spans(gt_path: Path | None) -> dict | None:
+    """ground_truth.json(あれば)から {event: {start_idx,end_idx}|null} を取り出す。
+    正解区間はビューア上で検出区間と重ねて表示し、tIoUも出す。"""
+    if gt_path is None or not gt_path.exists():
+        return None
+    return json.loads(gt_path.read_text(encoding="utf-8"))["events"]
+
+
 def build_data(sop_path: Path, frames_dir: Path,
-               model_logs: dict[str, Path]) -> dict:
+               model_logs: dict[str, Path], gt_path: Path | None = None) -> dict:
     """model_logs = {表示名: 観察ログのパス}。複数渡すとプルダウンで切り替えられる。"""
     sop_def = load_sop(sop_path)
     order = _ordered_model_names(list(model_logs))
@@ -113,6 +121,7 @@ def build_data(sop_path: Path, frames_dir: Path,
         "times": times,
         "model_order": order,
         "models": models,
+        "gt": load_gt_spans(gt_path),
     }
 
 
@@ -136,10 +145,15 @@ def main():
                     help="モデル別観察ログ(<表示名>.json)を置いたディレクトリ。プルダウンで切替")
     ap.add_argument("--answer-log", default=None,
                     help="単一の観察ログだけを見る場合に指定(モデル切替なし)")
+    ap.add_argument("--ground-truth", default=None,
+                    help="ground_truth.json のパス(既定: SOPと同じディレクトリにあれば自動で重ねる)")
     ap.add_argument("--out", default=str(Path(__file__).parent / "replay.html"))
     args = ap.parse_args()
 
-    data = build_data(Path(args.sop), Path(args.frames_dir), _collect_model_logs(args))
+    gt_path = Path(args.ground_truth) if args.ground_truth \
+        else Path(args.sop).parent / "ground_truth.json"
+    data = build_data(Path(args.sop), Path(args.frames_dir), _collect_model_logs(args),
+                      gt_path=gt_path)
 
     template = (Path(__file__).parent / "template.html").read_text(encoding="utf-8")
     data_json = json.dumps(data, ensure_ascii=False).replace("</", "<\\/")  # </script>混入対策

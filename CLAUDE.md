@@ -5,20 +5,26 @@
 ## 構成
 
 - `src/` — モジュール直置き（パッケージ化していない。pip install不可・する予定もない）
-  - `cli.py`（`run`/`observe`/`judge`） / `observe.py`（Phase 1: VLM観察） / `judge.py`（Phase 2: ルールエンジン） / `extract.py`（動画→フレーム） / `sop.py`（SOP YAML読み込み）
-- `examples/konro_inspection/` — モザイク済み実動画・抽出フレーム・回答ログ・SOP YAML 3種（正解 / 順序違反 / ステップ欠落）
-- `tools/replay_viewer/` — 結果をフレーム画像ごと1枚のHTMLにして再生するビューア。`python tools/replay_viewer/build.py` で生成（`replay.html` はbase64画像を埋め込む生成物のためgit管理外。`frames/` は同梱済み）
+  - `cli.py`（`run`/`observe`/`judge`/`eval`） / `observe.py`（Phase 1: VLM観察） / `judge.py`（Phase 2: ルールエンジン） / `evaluate.py`（正解アノテーションとの突き合わせ評価） / `extract.py`（動画→フレーム） / `sop.py`（SOP YAML読み込み）
+- `examples/konro_inspection/` — モザイク済み実動画・抽出フレーム・回答ログ・SOP YAML 3種（正解 / 順序違反 / ステップ欠落）。人手注釈すると `ground_truth.json` もここに入る（コミット対象のデータ）
+- `tools/replay_viewer/` — 結果をフレーム画像ごと1枚のHTMLにして再生するビューア。`python tools/replay_viewer/build.py` で生成（`replay.html` はbase64画像を埋め込む生成物のためgit管理外。`frames/` は同梱済み）。SOPと同じディレクトリに `ground_truth.json` があれば正解区間を自動で重ねる
+- `tools/annotator/` — 正解区間をブラウザで注釈するツール（標準ライブラリのみ）。`python tools/annotator/serve.py` で起動。操作のたびに `ground_truth.json` へ自動保存・途中再開可
 - `tests/` — 実データに対する回帰テスト。VLM不要
 
 ## コマンド
 
 ```bash
 pip install -r requirements.txt   # judgeだけなら pyyaml のみでよい
-pytest                            # 4件。VLM・GPUなしで動く（src/へのパスはテスト内で追加済み）
+pytest                            # 12件。VLM・GPUなしで動く（src/へのパスはテスト内で追加済み）
 
 # VLMなしで動く判定のみの実行（動作確認はまずこれ）
 python src/cli.py judge \
   --sop examples/konro_inspection/sop.yaml \
+  --answer-log examples/konro_inspection/sample_output/answer_log.json
+
+# 正解アノテーション（ブラウザ・自動保存）と、それとの突き合わせ評価（どちらもVLM不要）
+python tools/annotator/serve.py
+python src/cli.py eval --sop examples/konro_inspection/sop.yaml \
   --answer-log examples/konro_inspection/sample_output/answer_log.json
 
 # フル実行（mlx-vlm必要・Apple Silicon限定・モデルDLが走る）
@@ -29,8 +35,9 @@ python src/cli.py run --sop examples/konro_inspection/sop.yaml \
 ## 設計原則（変更しないこと）
 
 - **観察と判定の分離**: VLMは質問（questions）にフレーム単位で答えるだけ（Phase 1）。順序や遵守の判定は決定論的なルールエンジンが行う（Phase 2）。判定をVLMの自然文推論に委ねない——検証で単純な時刻比較すら間違えることを確認済み。
-- **用語**: `questions`（VLMへの質問）/ `answers`・`answer_log.json`（回答）/ `events` / `relations`。旧称「cue」は廃止済みなので復活させない。
-- relationsは `before` / `overlaps` / `not` の3種類のみ。安易に増やさない。
+- **用語**: `questions`（VLMへの質問）/ `answers`・`answer_log.json`（回答）/ `events` / `relations` / `ground_truth.json`（人手の正解区間）。旧称「cue」は廃止済みなので復活させない。
+- relationsは `before` / `overlaps` / `not` の3種類のみ。安易に増やさない（Allenの13関係を境界ノイズで壊れない同値類まで潰したのがこの3つ、という整理。READMEのSOPフォーマット節に対応表あり）。
+- **アノテーションは事実（いつ何が起きたか＝区間）だけを記録する**。関係や遵守の「べき」を注釈に持ち込まない。観察精度の成功条件は一次が expect（verdict＋理由）の一致で、tIoU・関係の保存・フレーム一致は診断用（`src/evaluate.py` 冒頭のdocstring参照）。境界±数フレームのズレは注釈側でなく tIoU しきい値側で吸収する。
 
 ## ハマりどころ
 
