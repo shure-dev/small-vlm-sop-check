@@ -123,13 +123,14 @@
     color: #333;
   }
 
-  .right h2 {
+  .left h2, .right h2 {
     font-size: 13px;
     color: #666;
     text-transform: uppercase;
     letter-spacing: 0.06em;
     margin: 0 0 8px;
   }
+  .left h2 { margin-top: 18px; }
   #questions {
     display: flex;
     flex-direction: column;
@@ -244,12 +245,12 @@
         <summary>このフレームでVLMが実際に返したJSON(生出力)</summary>
         <pre id="rawOutput"></pre>
       </details>
+
+      <h2>質問への回答(このフレーム時点)</h2>
+      <div id="questions"></div>
     </section>
 
     <section class="right">
-      <h2>質問への回答(このフレーム時点)</h2>
-      <div id="questions"></div>
-
       <h2>イベント検出</h2>
       <div id="events"></div>
       <ul id="violations"></ul>
