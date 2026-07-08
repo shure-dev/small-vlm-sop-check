@@ -8,22 +8,37 @@
 
 <p align="center">
   <img src="docs/replay_demo.gif" alt="再生ビューアのデモ" width="560"><br>
-  <sub><a href="#結果の再生ビューア">再生ビューア</a>：フレーム毎のVLMの回答と検出イベント・総合判定を再生できる。同じ動画・同じSOPでも観察VLMを変えると判定は割れる（qwen3-4b=PASS → internvl3-2b=FAIL）。</sub>
+  <sub><a href="#結果を再生する">再生ビューア</a>：各フレームで VLM が何と答え、どのイベントが検出され（右のタイムライン）、総合判定が PASS / FAIL かを再生できる（同梱の qwen3-4b は PASS）。</sub>
 </p>
 
 ```mermaid
 flowchart LR
-    V([動画]) --> F[フレーム抽出]
-    subgraph P1["Phase 1 · observe"]
-        O["VLM<br/>フレーム毎に yes / no"]
+    V([動画]) --> F["フレーム抽出<br/>1 fps"]
+
+    subgraph P1["Phase 1 · observe（フレーム毎に VLM）"]
+        direction TB
+        f0["f0"] --> a0["質問に yes / no"]
+        f1["f1"] --> a1["質問に yes / no"]
+        fN["fN"] --> aN["質問に yes / no"]
     end
-    subgraph P2["Phase 2 · judge"]
-        J["ルールエンジン<br/>順序・遵守を機械判定"]
+
+    F --> f0
+    F --> f1
+    F --> fN
+
+    a0 --> L[("answer_log<br/>全フレーム × 質問")]
+    a1 --> L
+    aN --> L
+
+    subgraph P2["Phase 2 · judge（全体で1回）"]
+        J["events / relations を機械判定"]
     end
-    F --> O
-    O --> J
-    J --> R([PASS / FAIL])
-    style O fill:#e0ecff,stroke:#3b82f6
+
+    L --> J --> R([PASS / FAIL])
+
+    style a0 fill:#e0ecff,stroke:#3b82f6
+    style a1 fill:#e0ecff,stroke:#3b82f6
+    style aN fill:#e0ecff,stroke:#3b82f6
     style J fill:#e6f6ec,stroke:#22c55e
 ```
 
@@ -224,8 +239,6 @@ small_vlm_video_analysis/
 ├── tools/replay_viewer/         # 結果をブラウザで再生する1枚HTMLの生成（replay.htmlはbuild.pyで生成・git管理外）
 └── tests/                       # 実データに対する回帰テスト(VLM不要)
 ```
-
-より野心的なフォーマット（時相match木、非視覚ステップ、judgeモデルへのエスカレーション）の構想もあるが、本リポジトリはエンドツーエンドで検証済みの部分だけを実装している。
 
 ## ライセンス
 
