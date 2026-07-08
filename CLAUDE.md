@@ -37,7 +37,7 @@ python src/cli.py run --sop examples/konro_inspection/sop.yaml \
 - **観察と判定の分離**: VLMは質問（questions）にフレーム単位で答えるだけ（Phase 1）。順序や遵守の判定は決定論的なルールエンジンが行う（Phase 2）。判定をVLMの自然文推論に委ねない——検証で単純な時刻比較すら間違えることを確認済み。
 - **用語**: `questions`（VLMへの質問）/ `answers`・`answer_log.json`（回答）/ `events` / `relations` / `ground_truth.json`（人手の正解区間）。旧称「cue」は廃止済みなので復活させない。
 - relationsは `before` / `overlaps` / `not` の3種類のみ。安易に増やさない（Allenの13関係を境界ノイズで壊れない同値類まで潰したのがこの3つ、という整理。READMEのSOPフォーマット節に対応表あり）。
-- **アノテーションは事実（いつ何が起きたか＝区間）だけを記録する**。関係や遵守の「べき」を注釈に持ち込まない。観察精度の成功条件は一次が expect（verdict＋理由）の一致で、tIoU・関係の保存・フレーム一致は診断用（`src/evaluate.py` 冒頭のdocstring参照）。境界±数フレームのズレは注釈側でなく tIoU しきい値側で吸収する。
+- **アノテーションは事実（いつ何が起きたか＝区間）だけを記録する**。関係や遵守の「べき」を注釈に持ち込まない。観察精度の成功条件は一次が expect（verdict＋理由）の一致で、tIoU・relations正答・フレーム一致は診断用（`src/evaluate.py` 冒頭のdocstring参照）。境界±数フレームのズレは注釈側でなく tIoU しきい値側で吸収する。
 
 ## ハマりどころ
 

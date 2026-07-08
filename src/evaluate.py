@@ -5,8 +5,8 @@
   - イベント区間  : 検出区間 vs 正解区間の tIoU。境界の完全一致は要求しない
                     (Ego4D等の時間的アクション検出と同じく、許容誤差は注釈側ではなく
                     指標のしきい値側で吸収する)
-  - 関係の保存    : SOPのrelationsを正解区間で評価した結果と検出区間で評価した結果が
-                    一致するか。judgeの合否を実際に分けるのはここ
+  - relations正答 : SOPの各relationを正解区間で評価した結論と検出区間で評価した結論が
+                    同じか。judgeの合否を実際に分けるのはここ
   - フレーム回答  : 正解区間から導出したフレームラベルとVLM回答の一致(参考値)
 
 ground_truth.json のスキーマ(tools/annotator/serve.py が書き出す):
@@ -212,7 +212,7 @@ def format_report(ev: dict[str, Any]) -> str:
                         for k, v in s.items() if k.startswith("tiou@"))
         lines.append(f"mean tIoU = {s['mean_tiou']:.2f}   検出数(tIoU>=しきい値) {ths}")
 
-    lines += ["", "relationsの保存 (合否を分ける本質):"]
+    lines += ["", "relationsの正答 (正解区間と同じ結論を出せたか):"]
     for r in ev["relations"]:
         if r["agree"] is None:
             lines.append(f"  - {r['relation']}  (未注釈イベントを含むため評価不能)")
