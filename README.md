@@ -176,8 +176,6 @@ expect:
 | `molmo-7b` | Molmo-7B |
 | `cosmos-7b` | Cosmos-Reason1-7B（NVIDIA物理推論・思考モデル） |
 
-試して**動かなかった**もの：FastVLM は2ルートとも不可（mlx-community の bf16 版は画像プロセッサが torch 必須、InsightKeeper の MLX 4bit 版は重み名が mlx-vlm の fastvlm 実装と不一致）。InternVL3.5-30B-A3B は 4bit でも重みだけで約17GBあり、24GB RAM の Mac では非現実的。
-
 観察の生成まわりは3つのオプションで調整する：
 
 - `--prefill STR`（既定 `{"`）— アシスタント応答の先頭に差し込む文字列。JSONを最初のキーの途中まで固定することで、**Molmo のように最初のトークンで EOS を出して空応答になるモデルや、MiniCPM-V のように思考（`<think>`）でトークンを使い切るモデルでも、既定のまま全フレームでクリーンな yes/no JSON を返させられる**。思考の連鎖をあえて使いたい場合は `--prefill ''` で無効化する。
