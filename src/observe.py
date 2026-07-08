@@ -51,7 +51,8 @@ class Observer:
         # record = {"raw": "...", "confidence": {question_id: {"probs": {...}, "argmax": "..."}}}
     """
 
-    def __init__(self, model: str, questions: list[dict[str, Any]]):
+    def __init__(self, model: str, questions: list[dict[str, Any]],
+                 enable_thinking: bool | None = None):
         import mlx.core as mx
         from mlx_vlm import load
 
@@ -62,6 +63,12 @@ class Observer:
 
         self._mx = mx
         self.questions = questions
+        # 思考(reasoning)モデル向けの制御。None=モデル既定に任せる(mlx_vlmは
+        # テンプレートが対応していれば既定でenable_thinking=Falseにする)。
+        # True/Falseを渡すとチャットテンプレートへ明示的に伝える。
+        # 注意: MiniCPM-Vのように enable_thinking を無視して <think> を出すモデルもあり、
+        # その場合は思考ぶんを吐き切れるよう max_tokens を上げる必要がある。
+        self.enable_thinking = enable_thinking
         print(f"[observe] loading {model} ...", flush=True)
         t0 = time.time()
         self.model, self.processor = load(model)
@@ -84,7 +91,10 @@ class Observer:
 
         mx = self._mx
         prompt = build_prompt(self.questions, domain_hint, t)
-        formatted = apply_chat_template(self.processor, self.config, prompt, num_images=1)
+        tmpl_kwargs = {}
+        if self.enable_thinking is not None:
+            tmpl_kwargs["enable_thinking"] = self.enable_thinking
+        formatted = apply_chat_template(self.processor, self.config, prompt, num_images=1, **tmpl_kwargs)
         try:
             mx.reset_peak_memory()
         except Exception:

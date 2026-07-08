@@ -14,10 +14,30 @@ import sys
 from sop import load_sop, load_answer_log
 from judge import judge, JudgeResult
 
+# 動作確認済みモデル(alias -> (mlx-community等のID, 短い実測メモ))。
+# ここに無いモデルも --model にフルIDを直接渡せば使える。
+# 実測の所見は experiments 側で確認したもの。「基準」= konro sop.yaml で総合PASSする。
 MODELS = {
-    "2b": "mlx-community/Qwen3-VL-2B-Instruct-4bit",
-    "4b": "mlx-community/Qwen3-VL-4B-Instruct-4bit",
+    "qwen3-2b":   ("mlx-community/Qwen3-VL-2B-Instruct-4bit",  "Qwen3-VL 2B。軽量・非思考"),
+    "qwen3-4b":   ("mlx-community/Qwen3-VL-4B-Instruct-4bit",  "Qwen3-VL 4B。既定・基準(konroでPASS)"),
+    "qwen2.5-3b": ("mlx-community/Qwen2.5-VL-3B-Instruct-4bit", "Qwen2.5-VL 3B"),
+    "internvl3-2b": ("mlx-community/InternVL3-2B-4bit",        "InternVL3 2B。pointing等でyesを出しすぎる傾向"),
+    "gemma4-e2b": ("mlx-community/gemma-4-e2b-it-4bit",        "Gemma4 E2B。形式はOKだがロードが遅い"),
+    "minicpm-4.6": ("mlx-community/MiniCPM-V-4.6-4bit",        "MiniCPM-V 4.6 1.3B。思考モデル: --max-tokens 1024 推奨"),
 }
+# 旧来のエイリアス(README/CLAUDE.mdが参照)を後方互換で維持。
+LEGACY_ALIASES = {"2b": "qwen3-2b", "4b": "qwen3-4b"}
+
+
+def resolve_model(key: str) -> str:
+    """エイリアス or フルモデルIDのどちらを渡されてもmlx-vlmが読めるIDに解決する。"""
+    key = LEGACY_ALIASES.get(key, key)
+    entry = MODELS.get(key)
+    return entry[0] if entry else key  # 未知のキーはフルIDとみなす
+
+
+# 思考モード指定 -> Observerに渡すenable_thinking値。
+THINKING = {"auto": None, "on": True, "off": False}
 
 
 def _print_result(sop_name: str, result: JudgeResult) -> None:
@@ -38,13 +58,14 @@ def _print_result(sop_name: str, result: JudgeResult) -> None:
     print(f"\n>>> 総合判定: {result.verdict} <<<\n")
 
 
-def _run_observer(sop, meta_or_paths, model_key, out_path):
+def _run_observer(sop, meta_or_paths, model_key, out_path, max_tokens=200, thinking="auto"):
     """meta_or_pathsは[{"idx","t","path"}] または [path,...](idxはenumerateで振る)。"""
     from observe import Observer
 
     domain_hint = sop["sop"].get("domain_hint", "これは作業動画の1フレームです")
-    model_name = MODELS.get(model_key, model_key)  # エイリアス or フルモデルIDのどちらでも受ける
-    obs = Observer(model=model_name, questions=sop["questions"])
+    model_name = resolve_model(model_key)  # エイリアス or フルモデルIDのどちらでも受ける
+    obs = Observer(model=model_name, questions=sop["questions"],
+                   enable_thinking=THINKING[thinking])
 
     if meta_or_paths and isinstance(meta_or_paths[0], str):
         meta = [{"idx": i, "t": round(i, 2), "path": p} for i, p in enumerate(meta_or_paths)]
@@ -57,7 +78,7 @@ def _run_observer(sop, meta_or_paths, model_key, out_path):
     for m in meta:
         if m["idx"] in done_idx:
             continue
-        rec = obs.ask(m["path"], t=m["t"], domain_hint=domain_hint)
+        rec = obs.ask(m["path"], t=m["t"], domain_hint=domain_hint, max_tokens=max_tokens)
         results.append({"idx": m["idx"], "t": m["t"], "raw": rec["raw"],
                          "confidence": rec["confidence"], **rec["mem"]})
         conf_str = " ".join(f"{k}={v['argmax']}({v['probs'].get(v['argmax'], 0):.2f})"
@@ -82,7 +103,8 @@ def cmd_run(args):
     print(f"[run]   {len(meta)}フレーム -> {frames_dir}")
 
     print(f"[run] 2/3 VLMで観察中... (model={args.model})")
-    _run_observer(sop, meta, args.model, answer_log_path)
+    _run_observer(sop, meta, args.model, answer_log_path,
+                  max_tokens=args.max_tokens, thinking=args.thinking)
     print(f"[run]   観察ログ -> {answer_log_path}")
 
     print("[run] 3/3 判定中...")
@@ -97,7 +119,8 @@ def cmd_observe(args):
         sys.exit(1)
     sop = load_sop(args.sop)
     meta = [{"idx": i, "t": round(i / args.fps, 2), "path": p} for i, p in enumerate(frame_paths)]
-    _run_observer(sop, meta, args.model, args.out)
+    _run_observer(sop, meta, args.model, args.out,
+                  max_tokens=args.max_tokens, thinking=args.thinking)
     print(f"[observe] saved -> {args.out}")
 
 
@@ -105,6 +128,24 @@ def cmd_judge(args):
     sop = load_sop(args.sop)
     result = judge(sop, load_answer_log(args.answer_log))
     _print_result(sop["sop"]["name"], result)
+
+
+def cmd_models(args):
+    """--model に使える動作確認済みエイリアスと実測メモを一覧する。"""
+    print("動作確認済みモデル(--model にエイリアス or フルIDを渡せる):\n")
+    for alias, (mid, note) in MODELS.items():
+        print(f"  {alias:13s} {mid}")
+        print(f"  {'':13s} {note}\n")
+    print(f"後方互換エイリアス: " + ", ".join(f"{k}={v}" for k, v in LEGACY_ALIASES.items()))
+
+
+def _add_model_args(p):
+    """observe/run 共通のモデル関連オプション。"""
+    p.add_argument("--model", default="4b", help="'qwen3-4b'等のエイリアス or HF/mlx-communityのフルID(既定: 4b)")
+    p.add_argument("--max-tokens", type=int, default=200,
+                   help="1フレームあたりの最大生成トークン(既定: 200)。思考モデルは1024程度に上げる")
+    p.add_argument("--thinking", choices=["auto", "on", "off"], default="auto",
+                   help="思考モードの明示指定(既定: auto=モデル任せ)。テンプレートが対応する場合のみ有効")
 
 
 def main():
@@ -115,22 +156,25 @@ def main():
     p_run.add_argument("--sop", required=True)
     p_run.add_argument("--video", required=True)
     p_run.add_argument("--fps", type=float, default=1.0)
-    p_run.add_argument("--model", default="4b", help="'2b'/'4b' またはHF/mlx-communityのモデルID")
     p_run.add_argument("--out-dir", required=True)
+    _add_model_args(p_run)
     p_run.set_defaults(func=cmd_run)
 
     p_obs = sub.add_parser("observe", help="Phase1のみ: 抽出済みフレームをVLMで観察(信頼度付き)")
     p_obs.add_argument("--sop", required=True)
     p_obs.add_argument("--frames-dir", required=True)
     p_obs.add_argument("--fps", type=float, default=1.0)
-    p_obs.add_argument("--model", default="4b")
     p_obs.add_argument("--out", required=True)
+    _add_model_args(p_obs)
     p_obs.set_defaults(func=cmd_observe)
 
     p_judge = sub.add_parser("judge", help="Phase2のみ: 観察ログをSOPと突き合わせて判定")
     p_judge.add_argument("--sop", required=True)
     p_judge.add_argument("--answer-log", required=True)
     p_judge.set_defaults(func=cmd_judge)
+
+    p_models = sub.add_parser("models", help="--model に使える動作確認済みエイリアス一覧")
+    p_models.set_defaults(func=cmd_models)
 
     args = ap.parse_args()
     args.func(args)

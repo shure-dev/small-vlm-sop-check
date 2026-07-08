@@ -46,6 +46,18 @@ python src/cli.py judge \
 | `python src/cli.py run --sop --video --model --out-dir` | 抽出→観察→判定を一気通貫で実行 |
 | `python src/cli.py observe --sop --frames-dir --out` | Phase 1のみ |
 | `python src/cli.py judge --sop --answer-log` | Phase 2のみ |
+| `python src/cli.py models` | `--model` に使える動作確認済みエイリアス一覧 |
+
+## モデルを切り替える
+
+`--model` にはエイリアス（`qwen3-4b`・`internvl3-2b`・`minicpm-4.6` など）かHF/mlx-communityのフルIDを渡せる。使えるエイリアスは `python src/cli.py models` で一覧できる。既定は基準の `qwen3-4b`（同梱動画でPASSする）。
+
+同じ動画・同じSOPでも、観察するVLMを変えると結果は割れる。小型モデルほど「yes」を出しすぎたり短いノイズを拾ったりして、決定論的なjudgeがそれを（入力に忠実に）誤判定に変える。観察品質（Phase 1）がそのまま最終判定を左右する、という観察と判定の分離ならではの挙動が見える。
+
+観察の生成まわりは2つのオプションで調整する：
+
+- `--max-tokens N`（既定200）— 1フレームあたりの最大生成トークン。**思考（reasoning）モデルは思考ぶんでトークンを使い切りJSONに到達できないことがある**ので、`minicpm-4.6` のような思考モデルでは `--max-tokens 1024` 程度に上げる。
+- `--thinking {auto,on,off}`（既定auto）— 思考モードの明示指定。チャットテンプレートが対応する場合のみ有効（MiniCPM-Vのように無視するモデルもあり、その場合は `--max-tokens` で吸収する）。
 
 ## 結果の再生ビューア
 
