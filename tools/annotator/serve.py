@@ -36,6 +36,14 @@ sys.path.insert(0, str(ROOT / "src"))
 from sop import load_sop  # noqa: E402
 
 
+def display_path(p: Path) -> str:
+    """ヘッダー表示用の短いパス(カレントディレクトリ相対。外なら絶対のまま)。"""
+    try:
+        return str(p.resolve().relative_to(Path.cwd()))
+    except ValueError:
+        return str(p)
+
+
 def build_page_data(sop_def: dict, frame_files: list[str], fps: float,
                     out_path: Path, gt_events: dict) -> dict:
     events = []
@@ -50,7 +58,7 @@ def build_page_data(sop_def: dict, frame_files: list[str], fps: float,
                             if r.strip().startswith("not ")}),
         "frames": frame_files,
         "times": [round(i / fps, 2) for i in range(len(frame_files))],
-        "out_path": str(out_path),
+        "out_path": display_path(out_path),
         "gt_events": gt_events,   # 再開用: 保存済みの注釈
     }
 

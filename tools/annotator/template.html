@@ -35,7 +35,15 @@
     z-index: 10;
   }
   header h1 { font-size: 17px; margin: 0; font-weight: 600; flex: 1; }
-  #progress { font-size: 13px; color: #666; white-space: nowrap; }
+  #progress {
+    font-size: 13px;
+    color: #666;
+    white-space: nowrap;
+    min-width: 0;              /* 長い保存先パスでタイトルを潰さない */
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  header h1 { white-space: nowrap; }
   #saveStatus {
     font-size: 13px;
     padding: 4px 12px;
@@ -54,7 +62,7 @@
     max-width: 1180px;
     margin: 0 auto;
   }
-  .left { flex: 0 0 480px; }
+  .left { flex: 0 0 480px; min-width: 0; }  /* min-width:0 必須。無いとstripのサムネ(元画像幅×16)がmin-contentを1万px超に押し広げ、列が爆発する */
   .right { flex: 1; min-width: 0; }
 
   #frameImg {
@@ -84,9 +92,9 @@
     min-width: 108px;
     text-align: right;
   }
-  #strip { display: flex; gap: 2px; margin-top: 10px; }
+  #strip { display: flex; gap: 2px; margin-top: 10px; min-width: 0; }
   #strip img {
-    flex: 1;
+    flex: 1 1 0;   /* basis 0: 元画像の幅を主張させず、列幅を16等分するだけ */
     min-width: 0;
     aspect-ratio: 4/3;
     object-fit: cover;
