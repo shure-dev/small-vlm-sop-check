@@ -159,6 +159,87 @@ class Observer:
         return {"raw": full_text, "confidence": confidence, "mem": mem}
 
 
+class TransformersObserver:
+    """公式transformers実装で観察する代替バックエンド(要torch。--backend transformers)。
+
+    mlx-community変換 + mlx-vlm の経路で視覚入力が壊れるモデル(実測: SmolVLM2)を、
+    公式実装のまま同じプロンプト・同じanswer_log形式で観察するために使う。
+    プロンプト生成(build_prompt)・prefill・信頼度の計測方法(候補語のlogitを正規化)は
+    Observerと同一なので、結果はmlx経路と直接比較できる。
+    """
+
+    def __init__(self, model: str, questions: list[dict[str, Any]],
+                 enable_thinking: bool | None = None):  # enable_thinkingは互換のため受けて無視
+        import torch
+        from transformers import AutoModelForImageTextToText, AutoProcessor
+
+        self._torch = torch
+        self.questions = questions
+        print(f"[observe] loading {model} (transformers) ...", flush=True)
+        t0 = time.time()
+        self.processor = AutoProcessor.from_pretrained(model)
+        self.device = "mps" if torch.backends.mps.is_available() else "cpu"
+        self.dtype = torch.bfloat16 if self.device == "mps" else torch.float32
+        self.model = AutoModelForImageTextToText.from_pretrained(model, dtype=self.dtype)
+        self.model.to(self.device).eval()
+        print(f"[observe] loaded in {time.time()-t0:.1f}s (device={self.device})", flush=True)
+
+        tok = self.processor.tokenizer
+        self._cand_ids = {}
+        for c in questions:
+            values = [_as_yaml_safe_str(v) for v in c.get("values", ["yes", "no"])]
+            ids = {}
+            for v in values:
+                enc = tok.encode(v, add_special_tokens=False)
+                ids[v] = enc[0] if len(enc) == 1 else None
+            self._cand_ids[c["id"]] = ids
+
+    def ask(self, image_path: str, t: float, domain_hint: str, max_tokens: int = 200,
+            prefill: str = "") -> dict:
+        from PIL import Image
+
+        torch = self._torch
+        prompt = build_prompt(self.questions, domain_hint, t)
+        messages = [{"role": "user",
+                     "content": [{"type": "image"}, {"type": "text", "text": prompt}]}]
+        text = self.processor.apply_chat_template(messages, add_generation_prompt=True,
+                                                  tokenize=False)
+        if prefill:
+            text = text + prefill
+        inputs = self.processor(text=text, images=[Image.open(image_path).convert("RGB")],
+                                return_tensors="pt").to(self.device, self.dtype)
+        with torch.no_grad():
+            out = self.model.generate(**inputs, do_sample=False, max_new_tokens=max_tokens,
+                                      output_scores=True, return_dict_in_generate=True)
+
+        tok = self.processor.tokenizer
+        gen_ids = out.sequences[0, inputs["input_ids"].shape[1]:].tolist()
+        full_text = prefill
+        confidence: dict[str, dict] = {}
+        pending_question = None  # Observer.ask と同じ状態機械(直前が `"id":"` なら次トークンが値)
+
+        for i, tok_id in enumerate(gen_ids):
+            if pending_question:
+                ids = self._cand_ids.get(pending_question, {})
+                cand = {v: tid for v, tid in ids.items() if tid is not None}
+                if cand:
+                    logits = out.scores[i][0]
+                    vals = torch.tensor([float(logits[tid]) for tid in cand.values()])
+                    probs_t = torch.softmax(vals, dim=0)
+                    probs = {v: round(float(p), 4) for v, p in zip(cand, probs_t)}
+                    confidence[pending_question] = {"probs": probs,
+                                                    "argmax": max(probs, key=probs.get)}
+                pending_question = None
+
+            full_text += tok.decode([tok_id])
+            for c in self.questions:
+                if re.search(rf'"{re.escape(c["id"])}"\s*:\s*"$', full_text):
+                    pending_question = c["id"]
+                    break
+
+        return {"raw": full_text, "confidence": confidence, "mem": {}}
+
+
 def confidence_to_answers(confidence: dict[str, dict]) -> dict[str, str]:
     """judge が期待する {question_id: value} 形式に変換する(argmaxだけを取り出す)。"""
     return {question_id: c["argmax"] for question_id, c in confidence.items()}

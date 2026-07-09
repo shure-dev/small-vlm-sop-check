@@ -79,14 +79,15 @@ def _print_expectation(sop_def, result: JudgeResult) -> None:
 
 
 def _run_observer(sop, meta_or_paths, model_key, out_path, max_tokens=200,
-                  thinking="auto", prefill='{"'):
+                  thinking="auto", prefill='{"', backend="mlx"):
     """meta_or_pathsは[{"idx","t","path"}] または [path,...](idxはenumerateで振る)。"""
-    from observe import Observer
+    from observe import Observer, TransformersObserver
 
     domain_hint = sop["sop"].get("domain_hint", "これは作業動画の1フレームです")
     model_name = resolve_model(model_key)  # エイリアス or フルモデルIDのどちらでも受ける
-    obs = Observer(model=model_name, questions=sop["questions"],
-                   enable_thinking=THINKING[thinking])
+    cls = TransformersObserver if backend == "transformers" else Observer
+    obs = cls(model=model_name, questions=sop["questions"],
+              enable_thinking=THINKING[thinking])
 
     if meta_or_paths and isinstance(meta_or_paths[0], str):
         meta = [{"idx": i, "t": round(i, 2), "path": p} for i, p in enumerate(meta_or_paths)]
@@ -126,7 +127,8 @@ def cmd_run(args):
 
     print(f"[run] 2/3 VLMで観察中... (model={args.model})")
     _run_observer(sop, meta, args.model, answer_log_path,
-                  max_tokens=args.max_tokens, thinking=args.thinking, prefill=args.prefill)
+                  max_tokens=args.max_tokens, thinking=args.thinking, prefill=args.prefill,
+                  backend=args.backend)
     print(f"[run]   観察ログ -> {answer_log_path}")
 
     print("[run] 3/3 判定中...")
@@ -143,7 +145,8 @@ def cmd_observe(args):
     sop = load_sop(args.sop)
     meta = [{"idx": i, "t": round(i / args.fps, 2), "path": p} for i, p in enumerate(frame_paths)]
     _run_observer(sop, meta, args.model, args.out,
-                  max_tokens=args.max_tokens, thinking=args.thinking, prefill=args.prefill)
+                  max_tokens=args.max_tokens, thinking=args.thinking, prefill=args.prefill,
+                  backend=args.backend)
     print(f"[observe] saved -> {args.out}")
 
 
@@ -193,6 +196,9 @@ def _add_model_args(p):
     p.add_argument("--prefill", default='{"',
                    help="アシスタント応答の先頭に差し込む文字列(既定: '{\"')。JSONを最初のキーの"
                         "途中まで固定し、Molmoの空応答やMiniCPMの思考/エコーを防ぐ。思考させたい時は '' で無効化")
+    p.add_argument("--backend", choices=["mlx", "transformers"], default="mlx",
+                   help="推論バックエンド(既定: mlx)。transformersは要torch。mlx変換で視覚入力が"
+                        "壊れるモデル(例: SmolVLM2)を公式実装で観察するための代替経路")
 
 
 def main():

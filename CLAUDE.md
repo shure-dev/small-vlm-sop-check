@@ -51,6 +51,7 @@ python src/cli.py run --sop examples/konro_inspection/sop.yaml \
 `--model` にエイリアス（`python src/cli.py models` で一覧）かHF/mlx-communityのフルIDを渡す。mlx-vlm がロードでき単一画像で厳密なJSONを返せるモデルが対象。動作確認済み: Qwen3-VL 2B/4B（既定は `qwen3-4b`）・Qwen3.5 0.8B/2B/4B・LFM2.5-VL-1.6B（要mlx-vlm>=0.6.4）・Qwen2.5-VL-3B・InternVL3-2B・Gemma4-E2B・MiniCPM-V 4.6・Molmo-7B・Cosmos-Reason1-7B。
 
 - **torch必須で不可**: SmolVLM・LFM2-VL・FastVLM（mlx-communityのbf16版）（`.venv-vlm` は torch なしで画像プロセッサ生成に失敗）。
+- **SmolVLM2（mlx-community変換 256M/500M/2.2B）は torch を足しても実質不可**（2026-07実測）: transformers 5.12.1 は smolvlm系画像プロセッサが PIL 版まで torch+torchvision 必須で、torch なしでは3モデルともロード不可。torch を足すとロード・実行は通るが、mlx-vlm 0.6.3/0.6.4 の経路で視覚入力が潰れ（点火フレームを「白い壁」、青地の大きな赤丸を「Blue background」としか説明できない）、観察が全フレーム同一回答に退化する（256M=全yes、500M/2.2B=全no）。同じ256M重みを公式 transformers(torch/CPU) で動かすと点火フレームを正しく説明したため、モデルではなく mlx 側（変換または mlx-vlm 実装）の問題と切り分け済み。このため SmolVLM2 のベンチ値は `--backend transformers`（公式実装。observe.py の TransformersObserver）で計測した（READMEの†印）。2.2B は relations 4/6・tIoU 0.55 の中堅、256M/500M は視覚が正常でも yes/no 識別に追従できない（256M=ほぼ全yes、500M=空スキーマをエコーしロジット計測では全no）。**新モデル追加時はベンチ前に1フレームを自由記述で説明させ、視覚が生きているか確認する**。
 - **JSON形式に追従できず不可**: Qwen2-VL-2B・Gemma-3n-E2B。`mlx-community/Perception-LM-*` は config.json 欠落でロード不可。
 - **重み名不一致でロード不可**: `InsightKeeper/FastVLM-*-MLX-4bit`（mlx-vlmのfastvlm実装は `mm_projector.*`、チェックポイントは `multi_modal_projector.linear_*`）。
 - **LFM2.5-VL-1.6B は mlx-vlm 0.6.3 でロード不可**（lfm2_vlが `layer_norm` を無条件生成する実装バグ。0.6.4で修正済みだが上記条件付き）。

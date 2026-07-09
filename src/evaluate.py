@@ -60,12 +60,16 @@ def gt_runs(gt: dict[str, Any]) -> dict[str, Run | None]:
 
 
 def tiou(a: Run, b: Run) -> float:
-    """フレームidx区間(両端含む)同士の temporal IoU。"""
-    inter = min(a.end_idx, b.end_idx) - max(a.start_idx, b.start_idx) + 1
-    if inter <= 0:
+    """フレームidx集合同士の temporal IoU。idxs(実際に一致したフレーム)を持つRunは
+    その集合で数え、max_gapで橋渡しした隙間フレームは重なりにも母数にも入れない
+    (yes,no,yes を3フレーム連続の検出として扱わない)。idxsが無いRun(正解区間など)は
+    区間(両端含む)を連続集合とみなす。"""
+    a_set = set(range(a.start_idx, a.end_idx + 1)) if a.idxs is None else set(a.idxs)
+    b_set = set(range(b.start_idx, b.end_idx + 1)) if b.idxs is None else set(b.idxs)
+    inter = len(a_set & b_set)
+    if inter == 0:
         return 0.0
-    union = (a.end_idx - a.start_idx + 1) + (b.end_idx - b.start_idx + 1) - inter
-    return round(inter / union, 3)
+    return round(inter / len(a_set | b_set), 3)
 
 
 def _event_rows(sop_def: dict, gts: dict[str, Run | None],

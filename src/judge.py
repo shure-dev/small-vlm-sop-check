@@ -46,6 +46,8 @@ class Run:
     end_idx: int
     t: float       # 区間内フレームの時刻の平均(代表時刻)
     hits: int
+    idxs: tuple[int, ...] | None = None  # 実際に一致したフレームidx(max_gapで橋渡しした隙間は含まない)。
+                                         # None = 不明(正解区間のように連続とみなす場合)
 
 
 def find_runs(frames: list[dict], clauses: list[tuple[str, str]],
@@ -75,7 +77,7 @@ def find_runs(frames: list[dict], clauses: list[tuple[str, str]],
         idxs = [i for i, _ in r]
         ts = [t for _, t in r]
         out.append(Run(start_idx=min(idxs), end_idx=max(idxs),
-                        t=round(sum(ts) / len(ts), 2), hits=len(r)))
+                        t=round(sum(ts) / len(ts), 2), hits=len(r), idxs=tuple(idxs)))
     return out
 
 

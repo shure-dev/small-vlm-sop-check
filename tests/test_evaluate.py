@@ -31,7 +31,7 @@ GT_EVENTS = {
     "flame_seen":    {"start_idx": 3, "end_idx": 3},    # 一致 -> 1.0
     "point1":        {"start_idx": 4, "end_idx": 5},    # 一致 -> 1.0
     "grill_open":    {"start_idx": 6, "end_idx": 8},    # 検出7-8 -> 2/3
-    "point2":        {"start_idx": 10, "end_idx": 13},  # 検出10-14 -> 0.8
+    "point2":        {"start_idx": 10, "end_idx": 13},  # 検出10-14だが実一致は{10,12,13,14}(11は橋渡し) -> 0.6
     "battery_check": {"start_idx": 12, "end_idx": 13},  # 一致 -> 1.0
     "gloves_worn":   None,                              # 起きていない(注釈済み)
 }
@@ -43,6 +43,9 @@ def test_tiou_math():
     assert tiou(r(0, 2), r(5, 8)) == 0.0
     assert tiou(r(1, 4), r(1, 5)) == 0.8       # 4/5
     assert tiou(r(6, 8), r(7, 8)) == 0.667     # 2/3
+    # 検出が飛び飛び(yes,no,yes)の場合、橋渡しした隙間フレームは重なりにも母数にも入れない
+    gappy = Run(start_idx=1, end_idx=5, t=0, hits=3, idxs=(1, 2, 5))
+    assert tiou(r(1, 4), gappy) == 0.4         # {1,2} / {1,2,3,4,5}
 
 
 def test_boundary_shift_reduces_tiou_but_preserves_relations():
@@ -55,6 +58,7 @@ def test_boundary_shift_reduces_tiou_but_preserves_relations():
     by_name = {r["event"]: r for r in ev["events"]}
     assert by_name["ignite"]["tiou"] == 0.8
     assert by_name["grill_open"]["tiou"] == 0.667
+    assert by_name["point2"]["tiou"] == 0.6   # 橋渡しフレーム(11)を重なりに数えない
     assert by_name["gloves_worn"]["status"] == "true_absent"
     assert all(r["status"] in ("match", "true_absent") for r in ev["events"])
 

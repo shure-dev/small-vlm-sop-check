@@ -78,6 +78,8 @@ def build_model_data(sop_def: dict, raw_log: list) -> dict:
             "start_idx": run.start_idx if run else None,
             "end_idx": run.end_idx if run else None,
             "t": run.t if run else None,
+            # 実際に一致したフレーム(max_gapの橋渡しを含まない)。帯の描画とtIoUはこちらを使う
+            "idxs": list(run.idxs) if run else None,
         }
     return {
         "verdict": result.verdict,

@@ -350,14 +350,30 @@ function renderQuestions(frame) {
   });
 }
 
-// 正解区間(あれば)。tIoU = フレームidx区間(両端含む)同士の temporal IoU。
+// 正解区間(あれば)。tIoU = フレームidx集合同士の temporal IoU。
+// 検出側は実際に一致したフレーム(ev.idxs)で数え、max_gapで橋渡しした隙間は含めない。
 const GT = DATA.gt;
 document.getElementById("gtLegend").hidden = !GT;
 function tiou(gtSpan, ev) {
-  const inter = Math.min(gtSpan.end_idx, ev.end_idx) - Math.max(gtSpan.start_idx, ev.start_idx) + 1;
+  const det = new Set(ev.idxs);
+  let inter = 0;
+  for (let i = gtSpan.start_idx; i <= gtSpan.end_idx; i++) if (det.has(i)) inter++;
   if (inter <= 0) return 0;
-  const union = (gtSpan.end_idx - gtSpan.start_idx + 1) + (ev.end_idx - ev.start_idx + 1) - inter;
+  const union = (gtSpan.end_idx - gtSpan.start_idx + 1) + det.size - inter;
   return inter / union;
+}
+
+// 連続フレームをまとめた区間リスト: [3,4,6] -> [[3,4],[6,6]]
+function segments(idxs) {
+  const segs = [];
+  for (const i of idxs) {
+    const last = segs[segs.length - 1];
+    if (last && i === last[1] + 1) last[1] = i; else segs.push([i, i]);
+  }
+  return segs;
+}
+function segText(idxs) {
+  return segments(idxs).map(([s, e]) => s === e ? `${s}` : `${s}-${e}`).join(",");
 }
 
 function renderEvents() {
@@ -366,7 +382,7 @@ function renderEvents() {
   for (const [name, ev] of Object.entries(M().events)) {
     const detected = ev.start_idx !== null;
     const isNotOnly = notOnly.has(name);
-    const active = detected && idx >= ev.start_idx && idx <= ev.end_idx;
+    const active = detected && ev.idxs.includes(idx);
     const gtSpan = GT ? GT[name] : undefined;   // undefined=未注釈 / null=起きていない
 
     let statusText, statusClass;
@@ -374,7 +390,7 @@ function renderEvents() {
       statusText = `検出された(本来は起きてはいけない) t=${ev.t}s`;
       statusClass = "missing";
     } else if (detected) {
-      statusText = `検出 t=${ev.t}s (frame ${ev.start_idx}-${ev.end_idx})`;
+      statusText = `検出 t=${ev.t}s (frame ${segText(ev.idxs)})`;
       statusClass = "ok";
     } else if (isNotOnly) {
       statusText = "未検出(これが正しい)";
@@ -405,13 +421,13 @@ function renderEvents() {
     `;
     const tl = row.querySelector(".timeline");
     if (detected) {
-      const span = document.createElement("div");
-      span.className = "span";
-      const left = ev.start_idx / DATA.n_frames * 100;
-      const width = (ev.end_idx - ev.start_idx + 1) / DATA.n_frames * 100;
-      span.style.left = left + "%";
-      span.style.width = width + "%";
-      tl.appendChild(span);
+      for (const [s, e] of segments(ev.idxs)) {   // 橋渡しした隙間は塗らない
+        const span = document.createElement("div");
+        span.className = "span";
+        span.style.left = (s / DATA.n_frames * 100) + "%";
+        span.style.width = ((e - s + 1) / DATA.n_frames * 100) + "%";
+        tl.appendChild(span);
+      }
     }
     if (gtSpan) {
       const span = document.createElement("div");
