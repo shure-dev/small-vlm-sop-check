@@ -1,24 +1,23 @@
 """evaluate(正解アノテーションとの突き合わせ)の回帰テスト。VLM不要。
 
-観察ログは test_judge.py と同じ実データ(Qwen3-VL-4B)。正解アノテーションは
+回答ログは test_judge.py と同じ実データ(Qwen3-VL-4B)。正解アノテーションは
 「人間が付けたらこうなる」体の合成フィクスチャで、基準検出(ignite 1-5 / flame 3-3 /
 point1 4-5 / grill 7-8 / point2 10-14 / battery 12-13 / gloves なし)と境界を
 わざと1〜2フレームずらしてある。境界のズレがtIoUには出るが関係の保存・合否には
 影響しない、という設計上の主張をここで固定する。
 """
 import json
-import sys
 from pathlib import Path
 
 import pytest
 
-sys.path.insert(0, str(Path(__file__).parent.parent / "src"))
-from sop import load_sop, load_answer_log
-from judge import Run
-from evaluate import evaluate, tiou, load_ground_truth
+from small_vlm_sop_check.core.evaluate import evaluate, load_ground_truth, tiou
+from small_vlm_sop_check.core.judge import Run
+from small_vlm_sop_check.core.sop import load_answer_log, load_sop
 
-EXAMPLE_DIR = Path(__file__).parent.parent / "examples" / "konro_inspection"
-ANSWER_LOG = EXAMPLE_DIR / "sample_output" / "answer_log.json"
+DATASET_DIR = Path(__file__).resolve().parents[2] / "datasets" / "konro_inspection"
+SOP = DATASET_DIR / "sops" / "konro_inspection" / "correct.yaml"
+ANSWER_LOG = DATASET_DIR / "fixtures" / "reference_outputs" / "answer_log.json"
 
 
 def make_gt(events: dict) -> dict:
@@ -51,7 +50,7 @@ def test_tiou_math():
 def test_boundary_shift_reduces_tiou_but_preserves_relations():
     """境界が1〜2フレームずれた注釈: tIoUは1.0を切るが、関係の保存・verdictは満点。
     「成功条件は関係とverdictで定義し、tIoUは診断」という切り分けの根拠。"""
-    sop = load_sop(EXAMPLE_DIR / "sop.yaml")
+    sop = load_sop(SOP)
     ev = evaluate(sop, make_gt(GT_EVENTS), load_answer_log(ANSWER_LOG))
     s = ev["summary"]
 
@@ -71,7 +70,7 @@ def test_boundary_shift_reduces_tiou_but_preserves_relations():
 def test_miss_and_false_detection_statuses():
     """注釈と検出が食い違うケース: 見逃し(miss)・誤検出(false_detection)が
     区別され、関係の不一致・gt_verdictのFAILとして表面化する。"""
-    sop = load_sop(EXAMPLE_DIR / "sop.yaml")
+    sop = load_sop(SOP)
     events = dict(GT_EVENTS)
     events["gloves_worn"] = {"start_idx": 0, "end_idx": 1}   # 起きたと注釈(検出は無し)
     events["battery_check"] = None                           # 起きてないと注釈(検出は有り)
@@ -90,7 +89,7 @@ def test_miss_and_false_detection_statuses():
 
 def test_unannotated_event_is_excluded():
     """キーごと無い(未注釈)イベントは no_gt となり、それを含む関係は評価不能(None)。"""
-    sop = load_sop(EXAMPLE_DIR / "sop.yaml")
+    sop = load_sop(SOP)
     events = {k: v for k, v in GT_EVENTS.items() if k != "flame_seen"}
     ev = evaluate(sop, make_gt(events), load_answer_log(ANSWER_LOG))
 
@@ -104,7 +103,7 @@ def test_unannotated_event_is_excluded():
 def test_frame_level_diagnostics_derived_from_gt():
     """(question, value)ごとのフレーム診断が正解区間から導出される。
     point1/point2は同じ質問(pointing==yes)なので正例は両区間の和集合になる。"""
-    sop = load_sop(EXAMPLE_DIR / "sop.yaml")
+    sop = load_sop(SOP)
     ev = evaluate(sop, make_gt(GT_EVENTS), load_answer_log(ANSWER_LOG))
     rows = {(r["question"], r["value"]): r for r in ev["frames"]}
 

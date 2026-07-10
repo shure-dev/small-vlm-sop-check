@@ -1,0 +1,24 @@
+{
+  "schema_version": "1.0",
+  "dataset_id": "konro_inspection",
+  "unit_id": "konro_inspection",
+  "benchmark_status": "demo",
+  "source": {
+    "kind": "mosaicked_real_video",
+    "procedure": "procedure.md"
+  },
+  "sampling": {
+    "fps": 1.0,
+    "n_frames": 16,
+    "frame_path": "frames"
+  },
+  "media": {
+    "video_path": "media/konro_inspection.mp4"
+  },
+  "sop_refs": [
+    "../../sops/konro_inspection/correct.yaml",
+    "../../sops/konro_inspection/wrong_order.yaml",
+    "../../sops/konro_inspection/missing_step.yaml"
+  ],
+  "ground_truth_ref": "../../annotations/human-v001/konro_inspection.json"
+}

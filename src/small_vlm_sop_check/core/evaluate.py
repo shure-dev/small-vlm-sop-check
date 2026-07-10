@@ -1,4 +1,4 @@
-"""正解アノテーション(ground_truth.json) × 観察ログ → 観察精度の評価。
+"""正解アノテーション(ground_truth.json) × 回答ログ → 回答精度の評価。
 
 成功の一次定義はあくまで expect(verdict+違反理由)の一致(judge.check_expectation)。
 このモジュールはその「説明変数」を測る診断層で、3つのレイヤーを持つ:
@@ -9,7 +9,7 @@
                     同じか。judgeの合否を実際に分けるのはここ
   - フレーム回答  : 正解区間から導出したフレームラベルとVLM回答の一致(参考値)
 
-ground_truth.json のスキーマ(tools/annotator/serve.py が書き出す):
+ground_truth.json のスキーマ(sop-annotate が書き出す):
   {
     "schema_version": "0.1",
     "sop_id": "konro_inspection",
@@ -27,8 +27,8 @@ import json
 from pathlib import Path
 from typing import Any
 
-from judge import (Run, judge, check_relations, not_only_events, parse_clauses,
-                   JudgeResult, check_expectation)
+from .judge import (JudgeResult, Run, check_expectation, check_relations, judge,
+                    not_only_events, parse_clauses)
 
 
 def load_ground_truth(path: str | Path) -> dict[str, Any]:
@@ -158,7 +158,7 @@ def _frame_rows(sop_def: dict, gt: dict[str, Any], frames: list[dict]) -> list[d
 
 def evaluate(sop_def: dict[str, Any], gt: dict[str, Any],
              frames: list[dict]) -> dict[str, Any]:
-    """観察ログ(frames)を正解アノテーション(gt)と突き合わせた評価一式を返す。"""
+    """回答ログ(frames)を正解アノテーション(gt)と突き合わせた評価一式を返す。"""
     result = judge(sop_def, frames)
     gts = gt_runs(gt)
 

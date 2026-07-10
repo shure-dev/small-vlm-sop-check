@@ -10,31 +10,36 @@
 ダブルクリックで開くだけで動く。サーバ不要・fetch不要。
 
 使い方:
-  python tools/replay_viewer/build.py
-  # デフォルトで同梱の models/ 配下(複数モデルの観察ログ)を読み、ヘッダのプルダウンで
+  sop-replay
+  # デフォルトで同梱の models/ 配下(複数モデルの回答ログ)を読み、ヘッダのプルダウンで
   # モデルを切り替えられる1枚HTMLを作る。同じ動画・同じSOPをモデル別に見比べられる。
 
   # 別の判定(誤った手順など)を見たい場合はSOPを差し替える:
-  python tools/replay_viewer/build.py \
-    --sop examples/konro_inspection/sop_wrong_order.yaml \
-    --out tools/replay_viewer/replay_wrong_order.html
+  sop-replay \
+    --sop datasets/konro_inspection/sops/konro_inspection/wrong_order.yaml \
+    --out out/replay_wrong_order.html
 
-  # 単一の観察ログだけを見たい場合(モデル切替なし):
-  python tools/replay_viewer/build.py \
-    --answer-log examples/konro_inspection/sample_output/answer_log.json
+  # 単一の回答ログだけを見たい場合(モデル切替なし):
+  sop-replay \
+    --answer-log datasets/konro_inspection/fixtures/reference_outputs/answer_log.json
 """
 from __future__ import annotations
 import argparse
 import base64
 import json
-import sys
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parent.parent.parent  # リポジトリルート
-sys.path.insert(0, str(ROOT / "src"))
+from ..core.judge import judge, parse_clauses
+from ..core.sop import load_sop
+from .resources import repository_root, template_text
 
-from sop import load_sop  # noqa: E402
-from judge import judge, parse_clauses  # noqa: E402
+
+ROOT = repository_root()
+DEMO_ROOT = ROOT / "datasets" / "konro_inspection"
+DEFAULT_SOP = DEMO_ROOT / "sops" / "konro_inspection" / "correct.yaml"
+DEFAULT_FRAMES = DEMO_ROOT / "units" / "konro_inspection" / "frames"
+DEFAULT_MODELS = DEMO_ROOT / "fixtures" / "reference_outputs" / "models"
+DEFAULT_GT = DEMO_ROOT / "annotations" / "human-v001" / "konro_inspection.json"
 
 
 # モデル切替プルダウンの並び順(ベンチマーク順)。ここに無いモデルは末尾にソートして追加。
@@ -58,7 +63,7 @@ def build_frames_meta(raw_log: list, frames_dir: Path) -> tuple[list, list]:
 
 
 def build_model_data(sop_def: dict, raw_log: list) -> dict:
-    """1モデルぶんの観察・判定結果(画像は含めない。フレーム位置で共有画像と対応)。"""
+    """1モデルぶんの回答・判定結果(画像は含めない。フレーム位置で共有画像と対応)。"""
     log = sorted(raw_log, key=lambda x: x["idx"])
     frames = [{
         "raw": r.get("raw", ""),
@@ -106,7 +111,7 @@ def load_gt_spans(gt_path: Path | None) -> dict | None:
 
 def build_data(sop_path: Path, frames_dir: Path,
                model_logs: dict[str, Path], gt_path: Path | None = None) -> dict:
-    """model_logs = {表示名: 観察ログのパス}。複数渡すとプルダウンで切り替えられる。"""
+    """model_logs = {表示名: 回答ログのパス}。複数渡すとプルダウンで切り替えられる。"""
     sop_def = load_sop(sop_path)
     order = _ordered_model_names(list(model_logs))
 
@@ -141,27 +146,32 @@ def _collect_model_logs(args) -> dict[str, Path]:
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--sop", default=str(ROOT / "examples/konro_inspection/sop.yaml"))
-    ap.add_argument("--frames-dir", default=str(ROOT / "examples/konro_inspection/sample_output/frames"))
-    ap.add_argument("--models-dir", default=str(ROOT / "examples/konro_inspection/sample_output/models"),
-                    help="モデル別観察ログ(<表示名>.json)を置いたディレクトリ。プルダウンで切替")
+    ap.add_argument("--sop", default=str(DEFAULT_SOP))
+    ap.add_argument("--frames-dir", default=str(DEFAULT_FRAMES))
+    ap.add_argument("--models-dir", default=str(DEFAULT_MODELS),
+                    help="モデル別回答ログ(<表示名>.json)を置いたディレクトリ。プルダウンで切替")
     ap.add_argument("--answer-log", default=None,
-                    help="単一の観察ログだけを見る場合に指定(モデル切替なし)")
+                    help="単一の回答ログだけを見る場合に指定(モデル切替なし)")
     ap.add_argument("--ground-truth", default=None,
                     help="ground_truth.json のパス(既定: SOPと同じディレクトリにあれば自動で重ねる)")
-    ap.add_argument("--out", default=str(Path(__file__).parent / "replay.html"))
+    ap.add_argument("--out", default=str(ROOT / "out" / "replay.html"))
     args = ap.parse_args()
 
-    gt_path = Path(args.ground_truth) if args.ground_truth \
-        else Path(args.sop).parent / "ground_truth.json"
+    if args.ground_truth:
+        gt_path = Path(args.ground_truth)
+    elif Path(args.sop).resolve() == DEFAULT_SOP.resolve():
+        gt_path = DEFAULT_GT
+    else:
+        gt_path = Path(args.sop).parent / "ground_truth.json"
     data = build_data(Path(args.sop), Path(args.frames_dir), _collect_model_logs(args),
                       gt_path=gt_path)
 
-    template = (Path(__file__).parent / "template.html").read_text(encoding="utf-8")
+    template = template_text("replay.html")
     data_json = json.dumps(data, ensure_ascii=False).replace("</", "<\\/")  # </script>混入対策
     html = template.replace('"__REPLAY_DATA__"', data_json)
 
     out_path = Path(args.out)
+    out_path.parent.mkdir(parents=True, exist_ok=True)
     out_path.write_text(html, encoding="utf-8")
     verdicts = ", ".join(f"{n}={data['models'][n]['verdict']}" for n in data["model_order"])
     print(f"[replay_viewer] {out_path} を書き出しました "

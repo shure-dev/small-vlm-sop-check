@@ -1,7 +1,7 @@
-"""宣言的SOP定義 × 観察ログ → 遵守判定（決定論的・ルールベース）。
+"""宣言的SOP定義 × 回答ログ → 遵守判定（決定論的・ルールベース）。
 
 設計思想（experiments/sop_step_detect/confidence_judge/ での実験で確立）:
-  観察(質問への回答)はVLMにやらせるが、それを手順書と突き合わせて「守られているか」を
+  質問への回答はVLMにやらせるが、それを手順書と突き合わせて「守られているか」を
   判定する部分は、VLM(自然文推論)に投げるとよくある単純な数値・順序比較すら
   間違えることが実験で確認された。したがって判定は常にこの決定的なコードで行う。
 
@@ -210,7 +210,7 @@ class JudgeResult:
 
 
 def judge(sop_def: dict[str, Any], frames: list[dict]) -> JudgeResult:
-    """SOP定義(events/relations/defaults を含む dict)と観察フレーム列から判定する。
+    """SOP定義(events/relations/defaults を含む dict)とフレームごとの回答列から判定する。
 
     frames: [{"idx": int, "t": float, "answers": {question_id: value}}, ...]
             answers の値は "yes"/"no"/"unclear" 等の文字列(信頼度から argmax を取ったもの、

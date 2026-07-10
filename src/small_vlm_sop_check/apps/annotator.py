@@ -7,14 +7,14 @@
 
 注釈するのは事実(いつ何が起きたか=区間)だけ。順序や遵守の「べき」はSOPの
 relationsが持つので、ここには関係の概念を持ち込まない。評価(tIoU・関係の保存)は
-`python src/cli.py eval` が行う。
+`sop-check eval` が行う。
 
 使い方:
-  python tools/annotator/serve.py            # 同梱サンプルを注釈(既定値で全部埋まる)
-  python tools/annotator/serve.py \
-    --sop examples/konro_inspection/sop.yaml \
-    --frames-dir examples/konro_inspection/sample_output/frames \
-    --out examples/konro_inspection/ground_truth.json
+  sop-annotate            # 同梱サンプルを注釈(既定値で全部埋まる)
+  sop-annotate \
+    --sop datasets/konro_inspection/sops/konro_inspection/correct.yaml \
+    --frames-dir datasets/konro_inspection/units/konro_inspection/frames \
+    --out datasets/konro_inspection/annotations/human-v001/konro_inspection.json
 
 前提: フレームは extract.py が吐く連番jpg(f000.jpg, ...)で、t = idx / fps とみなす。
 occurrenceを持つイベント(1回目/2回目など)は全出現をそれぞれ注釈すること。
@@ -23,17 +23,21 @@ from __future__ import annotations
 import argparse
 import json
 import os
-import sys
 import threading
 import webbrowser
 from datetime import datetime, timezone
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parent.parent.parent  # リポジトリルート
-sys.path.insert(0, str(ROOT / "src"))
+from ..core.sop import load_sop
+from .resources import repository_root, template_text
 
-from sop import load_sop  # noqa: E402
+
+ROOT = repository_root()
+DEMO_ROOT = ROOT / "datasets" / "konro_inspection"
+DEFAULT_SOP = DEMO_ROOT / "sops" / "konro_inspection" / "correct.yaml"
+DEFAULT_FRAMES = DEMO_ROOT / "units" / "konro_inspection" / "frames"
+DEFAULT_GT = DEMO_ROOT / "annotations" / "human-v001" / "konro_inspection.json"
 
 
 def display_path(p: Path) -> str:
@@ -100,6 +104,7 @@ class Annotator(ThreadingHTTPServer):
             "annotated_at": datetime.now(timezone.utc).isoformat(timespec="seconds"),
             "events": events,
         }
+        self.out_path.parent.mkdir(parents=True, exist_ok=True)
         tmp = self.out_path.with_suffix(".json.tmp")
         tmp.write_text(json.dumps(doc, ensure_ascii=False, indent=2) + "\n",
                        encoding="utf-8")
@@ -127,7 +132,7 @@ class Handler(BaseHTTPRequestHandler):
             data = build_page_data(self.server.sop_def, self.server.frame_files,
                                    self.server.fps, self.server.out_path,
                                    self.server.load_gt_events())
-            template = (Path(__file__).parent / "template.html").read_text(encoding="utf-8")
+            template = template_text("annotator.html")
             data_json = json.dumps(data, ensure_ascii=False).replace("</", "<\\/")
             html = template.replace('"__ANNOTATOR_DATA__"', data_json)
             self._send(200, html.encode(), "text/html; charset=utf-8")
@@ -156,9 +161,9 @@ class Handler(BaseHTTPRequestHandler):
 
 def main():
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
-    ap.add_argument("--sop", default=str(ROOT / "examples/konro_inspection/sop.yaml"))
+    ap.add_argument("--sop", default=str(DEFAULT_SOP))
     ap.add_argument("--frames-dir",
-                    default=str(ROOT / "examples/konro_inspection/sample_output/frames"))
+                    default=str(DEFAULT_FRAMES))
     ap.add_argument("--fps", type=float, default=1.0,
                     help="フレーム抽出時のfps(t=idx/fpsの換算に使う。既定: 1.0)")
     ap.add_argument("--out", default=None,
@@ -172,7 +177,12 @@ def main():
     frame_files = sorted(p.name for p in frames_dir.glob("*.jpg"))
     if not frame_files:
         raise SystemExit(f"[annotator] {frames_dir} に.jpgが見つかりません")
-    out_path = Path(args.out) if args.out else Path(args.sop).parent / "ground_truth.json"
+    if args.out:
+        out_path = Path(args.out)
+    elif Path(args.sop).resolve() == DEFAULT_SOP.resolve():
+        out_path = DEFAULT_GT
+    else:
+        out_path = Path(args.sop).parent / "ground_truth.json"
 
     server = Annotator(("127.0.0.1", args.port), sop_def, frames_dir,
                        frame_files, args.fps, out_path)

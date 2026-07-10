@@ -1,8 +1,8 @@
 """SOP定義の questions: からプロンプトを自動生成し、
-ローカル小型VLM(Qwen3-VL, mlx_vlm)でフレームごとに観察する（Phase 1）。
+ローカル小型VLM(Qwen3-VL, mlx_vlm)にフレームごとの質問へ回答させる（Phase 1）。
 
 各質問への回答だけでなく、生成トークンのlogitから実測した信頼度(自己申告ではない)も
-一緒に返す。これによりPhase 2(judge)側で「低信頼な観察に頼った判定か」を
+一緒に返す。これによりPhase 2(judge)側で「低信頼な回答に頼った判定か」を
 可視化できる(experiments/sop_step_detect/confidence_judge/ での実験で技術検証済み)。
 
 ドメイン固有の知識(ガスコンロの点検作業など)は一切持たない。
@@ -28,7 +28,7 @@ def _as_yaml_safe_str(v: Any) -> str:
 
 
 def build_prompt(questions: list[dict[str, Any]], domain_hint: str, t: float) -> str:
-    """SOPの questions: 定義から、1フレーム分の観察プロンプトを自動生成する。
+    """SOPの questions: 定義から、1フレーム分の質問プロンプトを自動生成する。
 
     設計(experiments/ で7モデル実測):
     - 質問文は値スロットに入れず legend に分離する。値スロットに質問文を入れると
@@ -53,7 +53,7 @@ def build_prompt(questions: list[dict[str, Any]], domain_hint: str, t: float) ->
 
 
 class Observer:
-    """VLMをロードして、フレーム1枚ごとの観察+信頼度を返すオブジェクト。
+    """VLMをロードして、フレーム1枚ごとの回答+信頼度を返すオブジェクト。
 
     使い方:
         obs = Observer(model="mlx-community/Qwen3-VL-4B-Instruct-4bit", questions=sop["questions"])
@@ -160,10 +160,10 @@ class Observer:
 
 
 class TransformersObserver:
-    """公式transformers実装で観察する代替バックエンド(要torch。--backend transformers)。
+    """公式transformers実装で回答を収集する代替バックエンド(要torch。--backend transformers)。
 
     mlx-community変換 + mlx-vlm の経路で視覚入力が壊れるモデル(実測: SmolVLM2)を、
-    公式実装のまま同じプロンプト・同じanswer_log形式で観察するために使う。
+    公式実装のまま同じプロンプト・同じanswer_log形式で動かすために使う。
     プロンプト生成(build_prompt)・prefill・信頼度の計測方法(候補語のlogitを正規化)は
     Observerと同一なので、結果はmlx経路と直接比較できる。
     """

@@ -1,9 +1,9 @@
 """CLIエントリポイント。
 
-  python src/cli.py run     --sop SOP.yaml --video VIDEO.mp4 --out-dir out/   # 動画→抽出→観察→判定を1コマンドで
-  python src/cli.py observe --sop SOP.yaml --frames-dir DIR --out answer_log.json  # 観察だけ(フレーム済みの場合)
-  python src/cli.py judge   --sop SOP.yaml --answer-log answer_log.json               # 判定だけ(観察済みの場合)
-  python src/cli.py eval    --sop SOP.yaml --answer-log answer_log.json               # 正解アノテーションとの突き合わせ
+  sop-check run     --sop SOP.yaml --video VIDEO.mp4 --out-dir out/
+  sop-check observe --sop SOP.yaml --frames-dir DIR --out answer_log.json
+  sop-check judge   --sop SOP.yaml --answer-log answer_log.json
+  sop-check eval    --sop SOP.yaml --answer-log answer_log.json
 """
 from __future__ import annotations
 import argparse
@@ -12,8 +12,8 @@ import json
 import os
 import sys
 
-from sop import load_sop, load_answer_log
-from judge import judge, JudgeResult, check_expectation
+from .core.judge import JudgeResult, check_expectation, judge
+from .core.sop import load_answer_log, load_sop
 
 # 動作確認済みモデル(alias -> (mlx-community等のID, 短い実測メモ))。
 # ここに無いモデルも --model にフルIDを直接渡せば使える。
@@ -81,7 +81,7 @@ def _print_expectation(sop_def, result: JudgeResult) -> None:
 def _run_observer(sop, meta_or_paths, model_key, out_path, max_tokens=200,
                   thinking="auto", prefill='{"', backend="mlx"):
     """meta_or_pathsは[{"idx","t","path"}] または [path,...](idxはenumerateで振る)。"""
-    from observe import Observer, TransformersObserver
+    from .inference.observe import Observer, TransformersObserver
 
     domain_hint = sop["sop"].get("domain_hint", "これは作業動画の1フレームです")
     model_name = resolve_model(model_key)  # エイリアス or フルモデルIDのどちらでも受ける
@@ -113,8 +113,8 @@ def _run_observer(sop, meta_or_paths, model_key, out_path, max_tokens=200,
 
 
 def cmd_run(args):
-    """動画 -> フレーム抽出 -> VLM観察 -> 判定 を1コマンドで実行する(Macで完結)。"""
-    from extract import extract_frames
+    """動画 -> フレーム抽出 -> VLMの回答収集 -> 判定 を1コマンドで実行する(Macで完結)。"""
+    from .inference.extract import extract_frames
 
     sop = load_sop(args.sop)
     os.makedirs(args.out_dir, exist_ok=True)
@@ -125,11 +125,11 @@ def cmd_run(args):
     meta = extract_frames(args.video, frames_dir, fps=args.fps)
     print(f"[run]   {len(meta)}フレーム -> {frames_dir}")
 
-    print(f"[run] 2/3 VLMで観察中... (model={args.model})")
+    print(f"[run] 2/3 VLMがフレームごとの質問に回答中... (model={args.model})")
     _run_observer(sop, meta, args.model, answer_log_path,
                   max_tokens=args.max_tokens, thinking=args.thinking, prefill=args.prefill,
                   backend=args.backend)
-    print(f"[run]   観察ログ -> {answer_log_path}")
+    print(f"[run]   回答ログ -> {answer_log_path}")
 
     print("[run] 3/3 判定中...")
     result = judge(sop, load_answer_log(answer_log_path))
@@ -158,13 +158,13 @@ def cmd_judge(args):
 
 
 def cmd_eval(args):
-    """観察ログを正解アノテーション(ground_truth.json)と突き合わせて観察精度を評価する。"""
-    from evaluate import load_ground_truth, evaluate, format_report
+    """回答ログを正解アノテーション(ground_truth.json)と突き合わせて回答の精度を評価する。"""
+    from .core.evaluate import evaluate, format_report, load_ground_truth
 
     gt_path = args.ground_truth or os.path.join(os.path.dirname(args.sop), "ground_truth.json")
     if not os.path.exists(gt_path):
         print(f"[eval] 正解アノテーションが見つかりません: {gt_path}\n"
-              f"       まず python tools/annotator/serve.py で注釈してください", file=sys.stderr)
+              f"       まず sop-annotate で注釈してください", file=sys.stderr)
         sys.exit(1)
 
     sop = load_sop(args.sop)
@@ -198,14 +198,14 @@ def _add_model_args(p):
                         "途中まで固定し、Molmoの空応答やMiniCPMの思考/エコーを防ぐ。思考させたい時は '' で無効化")
     p.add_argument("--backend", choices=["mlx", "transformers"], default="mlx",
                    help="推論バックエンド(既定: mlx)。transformersは要torch。mlx変換で視覚入力が"
-                        "壊れるモデル(例: SmolVLM2)を公式実装で観察するための代替経路")
+                        "壊れるモデル(例: SmolVLM2)を公式実装で動かすための代替経路")
 
 
 def main():
-    ap = argparse.ArgumentParser(prog="python src/cli.py")
+    ap = argparse.ArgumentParser(prog="sop-check")
     sub = ap.add_subparsers(dest="command", required=True)
 
-    p_run = sub.add_parser("run", help="動画→抽出→観察→判定を1コマンドで実行")
+    p_run = sub.add_parser("run", help="動画→抽出→VLMの回答収集→判定を1コマンドで実行")
     p_run.add_argument("--sop", required=True)
     p_run.add_argument("--video", required=True)
     p_run.add_argument("--fps", type=float, default=1.0)
@@ -213,7 +213,7 @@ def main():
     _add_model_args(p_run)
     p_run.set_defaults(func=cmd_run)
 
-    p_obs = sub.add_parser("observe", help="Phase1のみ: 抽出済みフレームをVLMで観察(信頼度付き)")
+    p_obs = sub.add_parser("observe", help="Phase1のみ: 抽出済みフレームの質問にVLMが回答(信頼度付き)")
     p_obs.add_argument("--sop", required=True)
     p_obs.add_argument("--frames-dir", required=True)
     p_obs.add_argument("--fps", type=float, default=1.0)
@@ -221,12 +221,12 @@ def main():
     _add_model_args(p_obs)
     p_obs.set_defaults(func=cmd_observe)
 
-    p_judge = sub.add_parser("judge", help="Phase2のみ: 観察ログをSOPと突き合わせて判定")
+    p_judge = sub.add_parser("judge", help="Phase2のみ: 回答ログをSOPと突き合わせて判定")
     p_judge.add_argument("--sop", required=True)
     p_judge.add_argument("--answer-log", required=True)
     p_judge.set_defaults(func=cmd_judge)
 
-    p_eval = sub.add_parser("eval", help="観察ログを正解アノテーションと突き合わせて評価(tIoU・関係の保存)")
+    p_eval = sub.add_parser("eval", help="回答ログを正解アノテーションと突き合わせて評価(tIoU・relations正答)")
     p_eval.add_argument("--sop", required=True)
     p_eval.add_argument("--answer-log", required=True)
     p_eval.add_argument("--ground-truth", default=None,

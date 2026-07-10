@@ -1,7 +1,0 @@
-pyyaml>=6.0
-
-# 以下は run / observe コマンド（フレーム抽出とVLM観察）にのみ必要。
-# judge コマンドだけ使うなら pyyaml のみでよい。
-opencv-python>=4.8
-mlx-vlm>=0.6.0
-mlx>=0.20.0

@@ -1,0 +1,45 @@
+[build-system]
+requires = ["setuptools>=69"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "small-vlm-sop-check"
+version = "0.1.0"
+description = "Deterministic SOP compliance checks from small-VLM frame observations"
+readme = "README.md"
+requires-python = ">=3.10"
+license = "MIT"
+license-files = ["LICENSE"]
+dependencies = [
+  "PyYAML>=6.0",
+]
+
+[project.optional-dependencies]
+vlm = [
+  "opencv-python>=4.8",
+  "mlx-vlm>=0.6.0",
+  "mlx>=0.20.0",
+]
+fetch = [
+  "huggingface_hub>=0.30",
+  "opencv-python>=4.8",
+]
+test = [
+  "pytest>=8.0",
+]
+
+[project.scripts]
+sop-check = "small_vlm_sop_check.cli:main"
+sop-annotate = "small_vlm_sop_check.apps.annotator:main"
+sop-replay = "small_vlm_sop_check.apps.replay:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+"small_vlm_sop_check.apps" = ["templates/*.html"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
+addopts = "-ra"

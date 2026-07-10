@@ -16,7 +16,7 @@ def load_sop(path: str | Path) -> dict[str, Any]:
     if "id" not in doc["sop"] or "name" not in doc["sop"]:
         raise ValueError(f"{path}: sop.id / sop.name は必須です")
     if not doc["questions"]:
-        raise ValueError(f"{path}: questions が空です(観察プロンプトを生成できません)")
+        raise ValueError(f"{path}: questions が空です(VLMへのプロンプトを生成できません)")
     if not doc["events"]:
         raise ValueError(f"{path}: events が空です(判定対象がありません)")
     return doc
@@ -25,7 +25,7 @@ def load_sop(path: str | Path) -> dict[str, Any]:
 def load_answer_log(path: str | Path) -> list[dict[str, Any]]:
     """observe が出力したログを読み込み、judge が使う形に整形する。"""
     import json
-    from observe import confidence_to_answers
+    from ..inference.observe import confidence_to_answers
 
     raw = json.loads(Path(path).read_text(encoding="utf-8"))
     frames = []

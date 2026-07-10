@@ -1,0 +1,15 @@
+schema_version: "1.0"
+dataset_id: konro_inspection
+name: Konro inspection end-to-end demo
+purpose: reproducible demonstration and regression benchmark
+license: repository_license
+unit_count: 1
+split: demo
+benchmark_state:
+  human_ground_truth_available: true
+  formal_accuracy_available: true
+paths:
+  units: units/
+  sops: sops/
+  annotations: annotations/
+  non_authoritative_fixtures: fixtures/reference_outputs/

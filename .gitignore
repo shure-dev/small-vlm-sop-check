@@ -3,6 +3,9 @@ __pycache__/
 .pytest_cache/
 .venv/
 venv/
+build/
+dist/
+*.egg-info/
 
 # macOS
 .DS_Store
@@ -10,7 +13,10 @@ venv/
 # 実行結果の出力先（README クイックスタートの --out-dir out/）
 out/
 
-# 再生ビューアの生成物。フレーム画像をbase64で丸ごと埋め込むため約1MBと大きく、
-# 再生成のたびに全差分が変わる。frames/ は別途コミット済みなので build.py で再生成する。
-tools/replay_viewer/replay.html
-tools/replay_viewer/replay_*.html
+# 精度比較ベンチマークの再生成可能な一時物。run本体と予測は追跡対象。
+evaluations/**/cache/
+reports/generated/
+
+# Egocentric-10Kはgated dataset。公開repoには派生フレームを含めず、
+# meta・SHA manifest・SOP・予測のみを追跡する。
+datasets/factory_ego/units/*/frames/
