@@ -1,0 +1,37 @@
+{
+  "benchmark_status": "dev_seen",
+  "dataset_id": "factory_ego",
+  "ground_truth": {
+    "available": false,
+    "required_source": "human"
+  },
+  "legacy_summary": "作業者は黒い格子トレイと頭上の緑基板ラックの間に立ち、『トレイ上で小部品を両手で加工 → 腕を上げてラックに掛ける/取り付ける → 戻って次の部品』のサイクルを繰り返す。この20秒に掛け動作が2回含まれる。",
+  "media": {
+    "availability": "local_gated_source_not_committed",
+    "path": "frames",
+    "sha256_manifest": "frames.sha256.json"
+  },
+  "sampling": {
+    "fps": 1.0,
+    "n_frames": 20,
+    "output_naming": "f0000.jpg...f0019.jpg",
+    "source_frame_end": 45,
+    "source_frame_start": 26
+  },
+  "schema_version": "1.0",
+  "sop_ref": {
+    "id": "f051_w001_assembly",
+    "path": "../../sops/f051_w001_assembly/v001.yaml",
+    "status": "provisional",
+    "version": "v001"
+  },
+  "source": {
+    "clip_id": "factory051_worker001_00001",
+    "dataset": "builddotai/Egocentric-10K",
+    "end_second": 45,
+    "factory_id": "factory_051",
+    "start_second": 26,
+    "worker_id": "worker_001"
+  },
+  "unit_id": "f051_w001_assembly"
+}

@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://small-vlm-sop-check.local/schemas/benchmark/v1/unit.schema.json",
+  "title": "Factory Ego benchmark unit",
+  "type": "object",
+  "required": ["schema_version", "unit_id", "dataset_id", "benchmark_status", "source", "sampling", "media", "sop_ref"],
+  "properties": {
+    "schema_version": {"const": "1.0"},
+    "unit_id": {"type": "string", "pattern": "^f[0-9]{3}_w[0-9]{3}_[a-z0-9_]+$"},
+    "dataset_id": {"const": "factory_ego"},
+    "benchmark_status": {"enum": ["dev_seen", "validation", "test"]},
+    "source": {
+      "type": "object",
+      "required": ["dataset", "factory_id", "worker_id", "clip_id", "start_second", "end_second"]
+    },
+    "sampling": {
+      "type": "object",
+      "required": ["fps", "n_frames", "source_frame_start", "source_frame_end"]
+    },
+    "media": {
+      "type": "object",
+      "required": ["path", "sha256_manifest"]
+    },
+    "sop_ref": {
+      "type": "object",
+      "required": ["id", "version", "path", "status"]
+    }
+  },
+  "additionalProperties": true
+}

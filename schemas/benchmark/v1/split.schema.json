@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://small-vlm-sop-check.local/schemas/benchmark/v1/split.schema.json",
+  "title": "Group-safe benchmark split",
+  "type": "object",
+  "required": ["schema_version", "split_id", "group_by", "assignments", "policy"],
+  "properties": {
+    "schema_version": {"const": "1.0"},
+    "split_id": {"type": "string"},
+    "group_by": {"const": ["factory_id", "worker_id"]},
+    "assignments": {"type": "object"},
+    "policy": {"type": "object", "required": ["test_must_be_unseen", "current_units_never_promote_to_test"]}
+  },
+  "additionalProperties": true
+}

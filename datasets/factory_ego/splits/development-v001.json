@@ -1,0 +1,43 @@
+{
+  "assignments": {
+    "dev_seen": [
+      "f051_w001_assembly",
+      "f051_w001_board_cables",
+      "f051_w001_cable_tying",
+      "f051_w001_part_inspection",
+      "f051_w001_tray_handoff",
+      "f051_w001_assembly_cycle2",
+      "f051_w001_connector_seated",
+      "f051_w001_part_pick"
+    ],
+    "test": [],
+    "validation": []
+  },
+  "group_by": [
+    "factory_id",
+    "worker_id"
+  ],
+  "groups": {
+    "factory_051/worker_001": {
+      "split": "dev_seen",
+      "units": [
+        "f051_w001_assembly",
+        "f051_w001_board_cables",
+        "f051_w001_cable_tying",
+        "f051_w001_part_inspection",
+        "f051_w001_tray_handoff",
+        "f051_w001_assembly_cycle2",
+        "f051_w001_connector_seated",
+        "f051_w001_part_pick"
+      ]
+    }
+  },
+  "policy": {
+    "current_units_never_promote_to_test": true,
+    "test_must_be_unseen": true,
+    "test_predictions_must_not_influence_prompt_selection": true
+  },
+  "reason": "All current units share one factory and worker and have already been inspected by multiple models.",
+  "schema_version": "1.0",
+  "split_id": "development-v001"
+}

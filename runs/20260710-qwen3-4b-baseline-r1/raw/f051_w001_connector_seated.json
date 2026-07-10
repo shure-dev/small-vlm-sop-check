@@ -1,0 +1,602 @@
+[
+  {
+    "idx": 0,
+    "t": 0.0,
+    "raw": "{\"hold_connector\":\"yes\",\"both_hands\":\"yes\",\"rack_visible\":\"yes\"}<|im_end|>",
+    "confidence": {
+      "hold_connector": {
+        "probs": {
+          "yes": 1.0,
+          "no": 0.0
+        },
+        "argmax": "yes"
+      },
+      "both_hands": {
+        "probs": {
+          "yes": 0.9959,
+          "no": 0.0041
+        },
+        "argmax": "yes"
+      },
+      "rack_visible": {
+        "probs": {
+          "yes": 1.0,
+          "no": 0.0
+        },
+        "argmax": "yes"
+      }
+    },
+    "active_mb": 3095.8,
+    "peak_mb": 4176.7
+  },
+  {
+    "idx": 1,
+    "t": 1.0,
+    "raw": "{\"hold_connector\":\"yes\",\"both_hands\":\"yes\",\"rack_visible\":\"yes\"}<|im_end|>",
+    "confidence": {
+      "hold_connector": {
+        "probs": {
+          "yes": 1.0,
+          "no": 0.0
+        },
+        "argmax": "yes"
+      },
+      "both_hands": {
+        "probs": {
+          "yes": 1.0,
+          "no": 0.0
+        },
+        "argmax": "yes"
+      },
+      "rack_visible": {
+        "probs": {
+          "yes": 1.0,
+          "no": 0.0
+        },
+        "argmax": "yes"
+      }
+    },
+    "active_mb": 3095.8,
+    "peak_mb": 4176.7
+  },
+  {
+    "idx": 2,
+    "t": 2.0,
+    "raw": "{\"hold_connector\":\"yes\",\"both_hands\":\"yes\",\"rack_visible\":\"yes\"}<|im_end|>",
+    "confidence": {
+      "hold_connector": {
+        "probs": {
+          "yes": 0.9998,
+          "no": 0.0002
+        },
+        "argmax": "yes"
+      },
+      "both_hands": {
+        "probs": {
+          "yes": 0.9988,
+          "no": 0.0012
+        },
+        "argmax": "yes"
+      },
+      "rack_visible": {
+        "probs": {
+          "yes": 1.0,
+          "no": 0.0
+        },
+        "argmax": "yes"
+      }
+    },
+    "active_mb": 3095.8,
+    "peak_mb": 4176.7
+  },
+  {
+    "idx": 3,
+    "t": 3.0,
+    "raw": "{\"hold_connector\":\"yes\",\"both_hands\":\"yes\",\"rack_visible\":\"yes\"}<|im_end|>",
+    "confidence": {
+      "hold_connector": {
+        "probs": {
+          "yes": 1.0,
+          "no": 0.0
+        },
+        "argmax": "yes"
+      },
+      "both_hands": {
+        "probs": {
+          "yes": 1.0,
+          "no": 0.0
+        },
+        "argmax": "yes"
+      },
+      "rack_visible": {
+        "probs": {
+          "yes": 1.0,
+          "no": 0.0
+        },
+        "argmax": "yes"
+      }
+    },
+    "active_mb": 3095.8,
+    "peak_mb": 4176.7
+  },
+  {
+    "idx": 4,
+    "t": 4.0,
+    "raw": "{\"hold_connector\":\"yes\",\"both_hands\":\"yes\",\"rack_visible\":\"yes\"}<|im_end|>",
+    "confidence": {
+      "hold_connector": {
+        "probs": {
+          "yes": 1.0,
+          "no": 0.0
+        },
+        "argmax": "yes"
+      },
+      "both_hands": {
+        "probs": {
+          "yes": 0.9999,
+          "no": 0.0001
+        },
+        "argmax": "yes"
+      },
+      "rack_visible": {
+        "probs": {
+          "yes": 1.0,
+          "no": 0.0
+        },
+        "argmax": "yes"
+      }
+    },
+    "active_mb": 3095.8,
+    "peak_mb": 4176.7
+  },
+  {
+    "idx": 5,
+    "t": 5.0,
+    "raw": "{\"hold_connector\":\"yes\",\"both_hands\":\"yes\",\"rack_visible\":\"yes\"}<|im_end|>",
+    "confidence": {
+      "hold_connector": {
+        "probs": {
+          "yes": 1.0,
+          "no": 0.0
+        },
+        "argmax": "yes"
+      },
+      "both_hands": {
+        "probs": {
+          "yes": 1.0,
+          "no": 0.0
+        },
+        "argmax": "yes"
+      },
+      "rack_visible": {
+        "probs": {
+          "yes": 1.0,
+          "no": 0.0
+        },
+        "argmax": "yes"
+      }
+    },
+    "active_mb": 3095.8,
+    "peak_mb": 4176.7
+  },
+  {
+    "idx": 6,
+    "t": 6.0,
+    "raw": "{\"hold_connector\":\"yes\",\"both_hands\":\"yes\",\"rack_visible\":\"yes\"}<|im_end|>",
+    "confidence": {
+      "hold_connector": {
+        "probs": {
+          "yes": 1.0,
+          "no": 0.0
+        },
+        "argmax": "yes"
+      },
+      "both_hands": {
+        "probs": {
+          "yes": 1.0,
+          "no": 0.0
+        },
+        "argmax": "yes"
+      },
+      "rack_visible": {
+        "probs": {
+          "yes": 1.0,
+          "no": 0.0
+        },
+        "argmax": "yes"
+      }
+    },
+    "active_mb": 3095.8,
+    "peak_mb": 4176.7
+  },
+  {
+    "idx": 7,
+    "t": 7.0,
+    "raw": "{\"hold_connector\":\"yes\",\"both_hands\":\"yes\",\"rack_visible\":\"yes\"}<|im_end|>",
+    "confidence": {
+      "hold_connector": {
+        "probs": {
+          "yes": 0.9999,
+          "no": 0.0001
+        },
+        "argmax": "yes"
+      },
+      "both_hands": {
+        "probs": {
+          "yes": 1.0,
+          "no": 0.0
+        },
+        "argmax": "yes"
+      },
+      "rack_visible": {
+        "probs": {
+          "yes": 1.0,
+          "no": 0.0
+        },
+        "argmax": "yes"
+      }
+    },
+    "active_mb": 3095.8,
+    "peak_mb": 4176.7
+  },
+  {
+    "idx": 8,
+    "t": 8.0,
+    "raw": "{\"hold_connector\":\"yes\",\"both_hands\":\"no\",\"rack_visible\":\"yes\"}<|im_end|>",
+    "confidence": {
+      "hold_connector": {
+        "probs": {
+          "yes": 1.0,
+          "no": 0.0
+        },
+        "argmax": "yes"
+      },
+      "both_hands": {
+        "probs": {
+          "yes": 0.2689,
+          "no": 0.7311
+        },
+        "argmax": "no"
+      },
+      "rack_visible": {
+        "probs": {
+          "yes": 1.0,
+          "no": 0.0
+        },
+        "argmax": "yes"
+      }
+    },
+    "active_mb": 3095.8,
+    "peak_mb": 4176.7
+  },
+  {
+    "idx": 9,
+    "t": 9.0,
+    "raw": "{\"hold_connector\":\"yes\",\"both_hands\":\"yes\",\"rack_visible\":\"yes\"}<|im_end|>",
+    "confidence": {
+      "hold_connector": {
+        "probs": {
+          "yes": 1.0,
+          "no": 0.0
+        },
+        "argmax": "yes"
+      },
+      "both_hands": {
+        "probs": {
+          "yes": 0.9999,
+          "no": 0.0001
+        },
+        "argmax": "yes"
+      },
+      "rack_visible": {
+        "probs": {
+          "yes": 1.0,
+          "no": 0.0
+        },
+        "argmax": "yes"
+      }
+    },
+    "active_mb": 3095.8,
+    "peak_mb": 4176.7
+  },
+  {
+    "idx": 10,
+    "t": 10.0,
+    "raw": "{\"hold_connector\":\"yes\",\"both_hands\":\"yes\",\"rack_visible\":\"yes\"}<|im_end|>",
+    "confidence": {
+      "hold_connector": {
+        "probs": {
+          "yes": 1.0,
+          "no": 0.0
+        },
+        "argmax": "yes"
+      },
+      "both_hands": {
+        "probs": {
+          "yes": 0.9993,
+          "no": 0.0007
+        },
+        "argmax": "yes"
+      },
+      "rack_visible": {
+        "probs": {
+          "yes": 1.0,
+          "no": 0.0
+        },
+        "argmax": "yes"
+      }
+    },
+    "active_mb": 3095.8,
+    "peak_mb": 4178.0
+  },
+  {
+    "idx": 11,
+    "t": 11.0,
+    "raw": "{\"hold_connector\":\"yes\",\"both_hands\":\"yes\",\"rack_visible\":\"yes\"}<|im_end|>",
+    "confidence": {
+      "hold_connector": {
+        "probs": {
+          "yes": 1.0,
+          "no": 0.0
+        },
+        "argmax": "yes"
+      },
+      "both_hands": {
+        "probs": {
+          "yes": 0.9994,
+          "no": 0.0006
+        },
+        "argmax": "yes"
+      },
+      "rack_visible": {
+        "probs": {
+          "yes": 1.0,
+          "no": 0.0
+        },
+        "argmax": "yes"
+      }
+    },
+    "active_mb": 3095.8,
+    "peak_mb": 4178.0
+  },
+  {
+    "idx": 12,
+    "t": 12.0,
+    "raw": "{\"hold_connector\":\"yes\",\"both_hands\":\"yes\",\"rack_visible\":\"yes\"}<|im_end|>",
+    "confidence": {
+      "hold_connector": {
+        "probs": {
+          "yes": 1.0,
+          "no": 0.0
+        },
+        "argmax": "yes"
+      },
+      "both_hands": {
+        "probs": {
+          "yes": 1.0,
+          "no": 0.0
+        },
+        "argmax": "yes"
+      },
+      "rack_visible": {
+        "probs": {
+          "yes": 1.0,
+          "no": 0.0
+        },
+        "argmax": "yes"
+      }
+    },
+    "active_mb": 3095.8,
+    "peak_mb": 4178.0
+  },
+  {
+    "idx": 13,
+    "t": 13.0,
+    "raw": "{\"hold_connector\":\"yes\",\"both_hands\":\"yes\",\"rack_visible\":\"yes\"}<|im_end|>",
+    "confidence": {
+      "hold_connector": {
+        "probs": {
+          "yes": 1.0,
+          "no": 0.0
+        },
+        "argmax": "yes"
+      },
+      "both_hands": {
+        "probs": {
+          "yes": 0.852,
+          "no": 0.148
+        },
+        "argmax": "yes"
+      },
+      "rack_visible": {
+        "probs": {
+          "yes": 1.0,
+          "no": 0.0
+        },
+        "argmax": "yes"
+      }
+    },
+    "active_mb": 3095.8,
+    "peak_mb": 4178.0
+  },
+  {
+    "idx": 14,
+    "t": 14.0,
+    "raw": "{\"hold_connector\":\"yes\",\"both_hands\":\"yes\",\"rack_visible\":\"yes\"}<|im_end|>",
+    "confidence": {
+      "hold_connector": {
+        "probs": {
+          "yes": 1.0,
+          "no": 0.0
+        },
+        "argmax": "yes"
+      },
+      "both_hands": {
+        "probs": {
+          "yes": 0.9994,
+          "no": 0.0006
+        },
+        "argmax": "yes"
+      },
+      "rack_visible": {
+        "probs": {
+          "yes": 1.0,
+          "no": 0.0
+        },
+        "argmax": "yes"
+      }
+    },
+    "active_mb": 3095.8,
+    "peak_mb": 4132.1
+  },
+  {
+    "idx": 15,
+    "t": 15.0,
+    "raw": "{\"hold_connector\":\"yes\",\"both_hands\":\"yes\",\"rack_visible\":\"yes\"}<|im_end|>",
+    "confidence": {
+      "hold_connector": {
+        "probs": {
+          "yes": 1.0,
+          "no": 0.0
+        },
+        "argmax": "yes"
+      },
+      "both_hands": {
+        "probs": {
+          "yes": 0.9999,
+          "no": 0.0001
+        },
+        "argmax": "yes"
+      },
+      "rack_visible": {
+        "probs": {
+          "yes": 1.0,
+          "no": 0.0
+        },
+        "argmax": "yes"
+      }
+    },
+    "active_mb": 3095.8,
+    "peak_mb": 4132.1
+  },
+  {
+    "idx": 16,
+    "t": 16.0,
+    "raw": "{\"hold_connector\":\"yes\",\"both_hands\":\"yes\",\"rack_visible\":\"yes\"}<|im_end|>",
+    "confidence": {
+      "hold_connector": {
+        "probs": {
+          "yes": 1.0,
+          "no": 0.0
+        },
+        "argmax": "yes"
+      },
+      "both_hands": {
+        "probs": {
+          "yes": 1.0,
+          "no": 0.0
+        },
+        "argmax": "yes"
+      },
+      "rack_visible": {
+        "probs": {
+          "yes": 1.0,
+          "no": 0.0
+        },
+        "argmax": "yes"
+      }
+    },
+    "active_mb": 3095.8,
+    "peak_mb": 4178.0
+  },
+  {
+    "idx": 17,
+    "t": 17.0,
+    "raw": "{\"hold_connector\":\"yes\",\"both_hands\":\"yes\",\"rack_visible\":\"yes\"}<|im_end|>",
+    "confidence": {
+      "hold_connector": {
+        "probs": {
+          "yes": 1.0,
+          "no": 0.0
+        },
+        "argmax": "yes"
+      },
+      "both_hands": {
+        "probs": {
+          "yes": 1.0,
+          "no": 0.0
+        },
+        "argmax": "yes"
+      },
+      "rack_visible": {
+        "probs": {
+          "yes": 1.0,
+          "no": 0.0
+        },
+        "argmax": "yes"
+      }
+    },
+    "active_mb": 3095.8,
+    "peak_mb": 4178.0
+  },
+  {
+    "idx": 18,
+    "t": 18.0,
+    "raw": "{\"hold_connector\":\"yes\",\"both_hands\":\"yes\",\"rack_visible\":\"yes\"}<|im_end|>",
+    "confidence": {
+      "hold_connector": {
+        "probs": {
+          "yes": 1.0,
+          "no": 0.0
+        },
+        "argmax": "yes"
+      },
+      "both_hands": {
+        "probs": {
+          "yes": 1.0,
+          "no": 0.0
+        },
+        "argmax": "yes"
+      },
+      "rack_visible": {
+        "probs": {
+          "yes": 1.0,
+          "no": 0.0
+        },
+        "argmax": "yes"
+      }
+    },
+    "active_mb": 3095.8,
+    "peak_mb": 4178.0
+  },
+  {
+    "idx": 19,
+    "t": 19.0,
+    "raw": "{\"hold_connector\":\"yes\",\"both_hands\":\"yes\",\"rack_visible\":\"yes\"}<|im_end|>",
+    "confidence": {
+      "hold_connector": {
+        "probs": {
+          "yes": 1.0,
+          "no": 0.0
+        },
+        "argmax": "yes"
+      },
+      "both_hands": {
+        "probs": {
+          "yes": 1.0,
+          "no": 0.0
+        },
+        "argmax": "yes"
+      },
+      "rack_visible": {
+        "probs": {
+          "yes": 1.0,
+          "no": 0.0
+        },
+        "argmax": "yes"
+      }
+    },
+    "active_mb": 3095.8,
+    "peak_mb": 4178.0
+  }
+]

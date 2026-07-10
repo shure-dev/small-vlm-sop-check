@@ -1,0 +1,39 @@
+{
+  "schema_version": "0.1-frames",
+  "sop_id": "factory_board_cables",
+  "source": "Egocentric-10K / Voxel51 subset factory051_worker001_00010, 90-109s, 1fps",
+  "fps": 1.0,
+  "n_frames": 20,
+  "annotator": "Claude Fable 5",
+  "annotated_at": "2026-07-10",
+  "step1_summary": "金枠の作業台のそばで、ケーブル端子が並んだ緑ボードに対して作業する。ボードの縁の端子に断続的に触れ、途中でボード自体を引き寄せて(持ち上げて)位置を変え、手元での端子操作を続ける。",
+  "events_def": {
+    "touch_board": "手がボード上・縁のケーブル/端子に触れている",
+    "move_board": "ボード自体を掴んで動かしている",
+    "hold_item": "手に小部品/端子を持っている(ボードに触れず)"
+  },
+  "frames": [
+    {"idx": 0,  "touch_board": false, "move_board": false, "hold_item": false},
+    {"idx": 1,  "touch_board": false, "move_board": false, "hold_item": true},
+    {"idx": 2,  "touch_board": true,  "move_board": false, "hold_item": true},
+    {"idx": 3,  "touch_board": true,  "move_board": false, "hold_item": false},
+    {"idx": 4,  "touch_board": true,  "move_board": false, "hold_item": false},
+    {"idx": 5,  "touch_board": true,  "move_board": false, "hold_item": false},
+    {"idx": 6,  "touch_board": true,  "move_board": false, "hold_item": false},
+    {"idx": 7,  "touch_board": false, "move_board": false, "hold_item": false},
+    {"idx": 8,  "touch_board": false, "move_board": false, "hold_item": false},
+    {"idx": 9,  "touch_board": false, "move_board": false, "hold_item": false},
+    {"idx": 10, "touch_board": false, "move_board": false, "hold_item": false},
+    {"idx": 11, "touch_board": false, "move_board": false, "hold_item": false},
+    {"idx": 12, "touch_board": false, "move_board": false, "hold_item": false},
+    {"idx": 13, "touch_board": true,  "move_board": false, "hold_item": false},
+    {"idx": 14, "touch_board": true,  "move_board": true,  "hold_item": false},
+    {"idx": 15, "touch_board": true,  "move_board": true,  "hold_item": false},
+    {"idx": 16, "touch_board": false, "move_board": false, "hold_item": false},
+    {"idx": 17, "touch_board": true,  "move_board": false, "hold_item": false},
+    {"idx": 18, "touch_board": true,  "move_board": false, "hold_item": false},
+    {"idx": 19, "touch_board": true,  "move_board": false, "hold_item": false}
+  ],
+  "uncertain_frames": [0, 7, 8, 10, 16],
+  "notes": "手が画面下端で見切れるフレームが多く、touch_board の境界判定が難しいユニット。uncertain_frames はフル解像度での再確認か人手裁定が必要。作業の意味論(端子の検品なのか配線なのか)は映像からは断定できない。"
+}

@@ -1,0 +1,217 @@
+{
+  "frame_count": 20,
+  "frames": [
+    {
+      "answers": {
+        "hold_part": "yes",
+        "reach_rack": "no",
+        "tray_visible": "yes"
+      },
+      "idx": 0,
+      "t": 0.0
+    },
+    {
+      "answers": {
+        "hold_part": "yes",
+        "reach_rack": "no",
+        "tray_visible": "yes"
+      },
+      "idx": 1,
+      "t": 1.0
+    },
+    {
+      "answers": {
+        "hold_part": "yes",
+        "reach_rack": "no",
+        "tray_visible": "yes"
+      },
+      "idx": 2,
+      "t": 2.0
+    },
+    {
+      "answers": {
+        "hold_part": "yes",
+        "reach_rack": "no",
+        "tray_visible": "yes"
+      },
+      "idx": 3,
+      "t": 3.0
+    },
+    {
+      "answers": {
+        "hold_part": "yes",
+        "reach_rack": "no",
+        "tray_visible": "yes"
+      },
+      "idx": 4,
+      "t": 4.0
+    },
+    {
+      "answers": {
+        "hold_part": "yes",
+        "reach_rack": "no",
+        "tray_visible": "yes"
+      },
+      "idx": 5,
+      "t": 5.0
+    },
+    {
+      "answers": {
+        "hold_part": "no",
+        "reach_rack": "yes",
+        "tray_visible": "yes"
+      },
+      "idx": 6,
+      "t": 6.0
+    },
+    {
+      "answers": {
+        "hold_part": "no",
+        "reach_rack": "yes",
+        "tray_visible": "no"
+      },
+      "idx": 7,
+      "t": 7.0
+    },
+    {
+      "answers": {
+        "hold_part": "no",
+        "reach_rack": "yes",
+        "tray_visible": "no"
+      },
+      "idx": 8,
+      "t": 8.0
+    },
+    {
+      "answers": {
+        "hold_part": "yes",
+        "reach_rack": "no",
+        "tray_visible": "yes"
+      },
+      "idx": 9,
+      "t": 9.0
+    },
+    {
+      "answers": {
+        "hold_part": "yes",
+        "reach_rack": "no",
+        "tray_visible": "yes"
+      },
+      "idx": 10,
+      "t": 10.0
+    },
+    {
+      "answers": {
+        "hold_part": "yes",
+        "reach_rack": "no",
+        "tray_visible": "yes"
+      },
+      "idx": 11,
+      "t": 11.0
+    },
+    {
+      "answers": {
+        "hold_part": "yes",
+        "reach_rack": "no",
+        "tray_visible": "yes"
+      },
+      "idx": 12,
+      "t": 12.0
+    },
+    {
+      "answers": {
+        "hold_part": "yes",
+        "reach_rack": "no",
+        "tray_visible": "yes"
+      },
+      "idx": 13,
+      "t": 13.0
+    },
+    {
+      "answers": {
+        "hold_part": "yes",
+        "reach_rack": "no",
+        "tray_visible": "yes"
+      },
+      "idx": 14,
+      "t": 14.0
+    },
+    {
+      "answers": {
+        "hold_part": "yes",
+        "reach_rack": "no",
+        "tray_visible": "yes"
+      },
+      "idx": 15,
+      "t": 15.0
+    },
+    {
+      "answers": {
+        "hold_part": "no",
+        "reach_rack": "yes",
+        "tray_visible": "yes"
+      },
+      "idx": 16,
+      "t": 16.0
+    },
+    {
+      "answers": {
+        "hold_part": "no",
+        "reach_rack": "yes",
+        "tray_visible": "yes"
+      },
+      "idx": 17,
+      "t": 17.0
+    },
+    {
+      "answers": {
+        "hold_part": "no",
+        "reach_rack": "yes",
+        "tray_visible": "no"
+      },
+      "idx": 18,
+      "t": 18.0
+    },
+    {
+      "answers": {
+        "hold_part": "yes",
+        "reach_rack": "no",
+        "tray_visible": "yes"
+      },
+      "idx": 19,
+      "t": 19.0
+    }
+  ],
+  "legacy_metadata": {
+    "annotated_at": "2026-07-10",
+    "annotator": "Claude Fable 5",
+    "events_def": {
+      "hold_part": "手で小さな部品を持つ/操作している",
+      "reach_rack": "腕が頭上/側方の緑基板ラックへ伸びている",
+      "tray_visible": "格子状の黒トレイが画面内に見える"
+    },
+    "fps": 1.0,
+    "n_frames": 20,
+    "notes": "reach_rack が3回(6-8, 16-18)出るサイクル。unit_a と同じ events_def を使えるので『同一SOPの複数サンプル評価』のテスト材料になる。",
+    "schema_version": "0.1-frames",
+    "sop_id": "factory_assembly_cycle2",
+    "source": "Egocentric-10K / Voxel51 subset factory051_worker001_00001, 46-65s, 1fps",
+    "step1_summary": "factory_assembly(unit_a)と同じ作業者の続き。着席してトレイ上で部品を両手加工し、断続的に頭上/側方の緑ラックへ腕を伸ばして掛ける反復サイクル。unit_aと同一SOPが適用できる検証用の第2サンプル。",
+    "uncertain_frames": [
+      6,
+      16,
+      17,
+      19
+    ]
+  },
+  "prediction_type": "frame_question_answers",
+  "question_definitions": {
+    "hold_part": "手で小さな部品を持つ/操作している",
+    "reach_rack": "腕が頭上/側方の緑基板ラックへ伸びている",
+    "tray_visible": "格子状の黒トレイが画面内に見える"
+  },
+  "run_id": "20260710-fable5-reference-r1",
+  "schema_version": "1.0",
+  "source_format": "0.1-frames",
+  "unit_id": "f051_w001_assembly_cycle2"
+}

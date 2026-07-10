@@ -1,0 +1,39 @@
+sop:
+  id: f051_w001_assembly
+  name: 'Factory Ego: f051_w001_assembly'
+  domain_hint: First-person (head-mounted) camera footage of a worker in an electronics
+    factory, looking down at their own hands. The worker wears a blue smock.
+questions:
+- id: hold_part
+  ask: Is the worker holding or manipulating a small electronic part with the hands?
+  values:
+  - 'yes'
+  - 'no'
+- id: reach_rack
+  ask: Is one of the worker's arms extended toward the racks of green boards overhead
+    or to the side?
+  values:
+  - 'yes'
+  - 'no'
+- id: tray_visible
+  ask: Is a black grid tray with many small compartments visible in the frame?
+  values:
+  - 'yes'
+  - 'no'
+events:
+  hold_part:
+    evidence: hold_part==yes
+    min_frames: 2
+  reach_rack:
+    evidence: reach_rack==yes
+    min_frames: 2
+  tray_visible:
+    evidence: tray_visible==yes
+    min_frames: 2
+relations: []
+benchmark:
+  schema_version: '1.0'
+  version: v001
+  status: provisional
+  purpose: model_accuracy_comparison
+  provenance: migrated from the legacy Qwen comparison SOP; not ground truth

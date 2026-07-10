@@ -1,0 +1,38 @@
+sop:
+  id: f051_w001_part_pick
+  name: 'Factory Ego: f051_w001_part_pick'
+  domain_hint: First-person (head-mounted) camera footage of a worker in an electronics
+    factory, looking down at their own hands. The worker wears a blue smock.
+questions:
+- id: reach_up
+  ask: Is an arm extended up or forward to pick a part from a shelf or wall?
+  values:
+  - 'yes'
+  - 'no'
+- id: handle_part
+  ask: Is the worker seated and handling a part over a tray with both hands?
+  values:
+  - 'yes'
+  - 'no'
+- id: grid_tray
+  ask: Is a black grid tray with many small compartments visible in the frame?
+  values:
+  - 'yes'
+  - 'no'
+events:
+  reach_up:
+    evidence: reach_up==yes
+    min_frames: 2
+  handle_part:
+    evidence: handle_part==yes
+    min_frames: 2
+  grid_tray:
+    evidence: grid_tray==yes
+    min_frames: 2
+relations: []
+benchmark:
+  schema_version: '1.0'
+  version: v001
+  status: provisional
+  purpose: model_accuracy_comparison
+  provenance: migrated from the legacy Qwen comparison SOP; not ground truth

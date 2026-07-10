@@ -1,0 +1,39 @@
+{
+  "schema_version": "0.1-frames",
+  "sop_id": "factory_tray_handoff",
+  "source": "Egocentric-10K / Voxel51 subset factory051_worker001_00000, 105-124s, 1fps",
+  "fps": 1.0,
+  "n_frames": 20,
+  "annotator": "Claude Fable 5",
+  "annotated_at": "2026-07-10",
+  "step1_summary": "段ボール箱の前を離れて工場内を歩き(移動)、作業台に着いてピンク服の同僚から製品がぎっしり入った黒トレイを受け取り、両手で持ち上げて検分する。他の3ユニット(定点の反復作業)と違い『歩行→受け渡し→保持』という一方向の遷移を含む唯一のユニット。",
+  "events_def": {
+    "walking": "工場内を歩いて移動している(床が大きく流れ、手作業なし)",
+    "hold_tray": "製品入りの黒トレイを手で持っている",
+    "coworker_visible": "他の作業者(ピンク/白の服)が画面内に見える"
+  },
+  "frames": [
+    {"idx": 0,  "walking": true,  "hold_tray": false, "coworker_visible": true},
+    {"idx": 1,  "walking": true,  "hold_tray": false, "coworker_visible": true},
+    {"idx": 2,  "walking": true,  "hold_tray": false, "coworker_visible": true},
+    {"idx": 3,  "walking": true,  "hold_tray": false, "coworker_visible": false},
+    {"idx": 4,  "walking": true,  "hold_tray": false, "coworker_visible": true},
+    {"idx": 5,  "walking": true,  "hold_tray": false, "coworker_visible": true},
+    {"idx": 6,  "walking": false, "hold_tray": true,  "coworker_visible": true},
+    {"idx": 7,  "walking": false, "hold_tray": true,  "coworker_visible": true},
+    {"idx": 8,  "walking": false, "hold_tray": true,  "coworker_visible": true},
+    {"idx": 9,  "walking": false, "hold_tray": true,  "coworker_visible": true},
+    {"idx": 10, "walking": false, "hold_tray": true,  "coworker_visible": true},
+    {"idx": 11, "walking": false, "hold_tray": true,  "coworker_visible": true},
+    {"idx": 12, "walking": false, "hold_tray": true,  "coworker_visible": true},
+    {"idx": 13, "walking": false, "hold_tray": true,  "coworker_visible": true},
+    {"idx": 14, "walking": false, "hold_tray": true,  "coworker_visible": true},
+    {"idx": 15, "walking": false, "hold_tray": true,  "coworker_visible": false},
+    {"idx": 16, "walking": false, "hold_tray": true,  "coworker_visible": false},
+    {"idx": 17, "walking": false, "hold_tray": true,  "coworker_visible": false},
+    {"idx": 18, "walking": false, "hold_tray": true,  "coworker_visible": false},
+    {"idx": 19, "walking": false, "hold_tray": true,  "coworker_visible": false}
+  ],
+  "uncertain_frames": [0, 3, 5, 6],
+  "notes": "walking(0-5) before hold_tray(6-19) という明快な順序。移動区間はブラーが強く coworker_visible の判定が難しい。4ユニット中で唯一 locomotion を含み、konro型の順序SOPと相性が良い。"
+}

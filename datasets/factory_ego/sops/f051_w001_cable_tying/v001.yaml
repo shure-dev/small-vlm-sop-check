@@ -1,0 +1,39 @@
+sop:
+  id: f051_w001_cable_tying
+  name: 'Factory Ego: f051_w001_cable_tying'
+  domain_hint: First-person (head-mounted) camera footage of a worker in an electronics
+    factory, looking down at their own hands. The worker wears a blue smock.
+questions:
+- id: hold_cable
+  ask: Is the worker holding a cable, connector, or small part in the hands?
+  values:
+  - 'yes'
+  - 'no'
+- id: seated_work
+  ask: Is the worker seated and doing handwork over their lap, with body or knees
+    filling the lower half of the frame?
+  values:
+  - 'yes'
+  - 'no'
+- id: rack_visible
+  ask: Are multiple shelves of green circuit boards visible in the frame?
+  values:
+  - 'yes'
+  - 'no'
+events:
+  hold_cable:
+    evidence: hold_cable==yes
+    min_frames: 2
+  seated_work:
+    evidence: seated_work==yes
+    min_frames: 2
+  rack_visible:
+    evidence: rack_visible==yes
+    min_frames: 2
+relations: []
+benchmark:
+  schema_version: '1.0'
+  version: v001
+  status: provisional
+  purpose: model_accuracy_comparison
+  provenance: migrated from the legacy Qwen comparison SOP; not ground truth

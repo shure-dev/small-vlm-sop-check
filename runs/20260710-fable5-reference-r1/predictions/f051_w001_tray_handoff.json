@@ -1,0 +1,217 @@
+{
+  "frame_count": 20,
+  "frames": [
+    {
+      "answers": {
+        "coworker_visible": "yes",
+        "hold_tray": "no",
+        "walking": "yes"
+      },
+      "idx": 0,
+      "t": 0.0
+    },
+    {
+      "answers": {
+        "coworker_visible": "yes",
+        "hold_tray": "no",
+        "walking": "yes"
+      },
+      "idx": 1,
+      "t": 1.0
+    },
+    {
+      "answers": {
+        "coworker_visible": "yes",
+        "hold_tray": "no",
+        "walking": "yes"
+      },
+      "idx": 2,
+      "t": 2.0
+    },
+    {
+      "answers": {
+        "coworker_visible": "no",
+        "hold_tray": "no",
+        "walking": "yes"
+      },
+      "idx": 3,
+      "t": 3.0
+    },
+    {
+      "answers": {
+        "coworker_visible": "yes",
+        "hold_tray": "no",
+        "walking": "yes"
+      },
+      "idx": 4,
+      "t": 4.0
+    },
+    {
+      "answers": {
+        "coworker_visible": "yes",
+        "hold_tray": "no",
+        "walking": "yes"
+      },
+      "idx": 5,
+      "t": 5.0
+    },
+    {
+      "answers": {
+        "coworker_visible": "yes",
+        "hold_tray": "yes",
+        "walking": "no"
+      },
+      "idx": 6,
+      "t": 6.0
+    },
+    {
+      "answers": {
+        "coworker_visible": "yes",
+        "hold_tray": "yes",
+        "walking": "no"
+      },
+      "idx": 7,
+      "t": 7.0
+    },
+    {
+      "answers": {
+        "coworker_visible": "yes",
+        "hold_tray": "yes",
+        "walking": "no"
+      },
+      "idx": 8,
+      "t": 8.0
+    },
+    {
+      "answers": {
+        "coworker_visible": "yes",
+        "hold_tray": "yes",
+        "walking": "no"
+      },
+      "idx": 9,
+      "t": 9.0
+    },
+    {
+      "answers": {
+        "coworker_visible": "yes",
+        "hold_tray": "yes",
+        "walking": "no"
+      },
+      "idx": 10,
+      "t": 10.0
+    },
+    {
+      "answers": {
+        "coworker_visible": "yes",
+        "hold_tray": "yes",
+        "walking": "no"
+      },
+      "idx": 11,
+      "t": 11.0
+    },
+    {
+      "answers": {
+        "coworker_visible": "yes",
+        "hold_tray": "yes",
+        "walking": "no"
+      },
+      "idx": 12,
+      "t": 12.0
+    },
+    {
+      "answers": {
+        "coworker_visible": "yes",
+        "hold_tray": "yes",
+        "walking": "no"
+      },
+      "idx": 13,
+      "t": 13.0
+    },
+    {
+      "answers": {
+        "coworker_visible": "yes",
+        "hold_tray": "yes",
+        "walking": "no"
+      },
+      "idx": 14,
+      "t": 14.0
+    },
+    {
+      "answers": {
+        "coworker_visible": "no",
+        "hold_tray": "yes",
+        "walking": "no"
+      },
+      "idx": 15,
+      "t": 15.0
+    },
+    {
+      "answers": {
+        "coworker_visible": "no",
+        "hold_tray": "yes",
+        "walking": "no"
+      },
+      "idx": 16,
+      "t": 16.0
+    },
+    {
+      "answers": {
+        "coworker_visible": "no",
+        "hold_tray": "yes",
+        "walking": "no"
+      },
+      "idx": 17,
+      "t": 17.0
+    },
+    {
+      "answers": {
+        "coworker_visible": "no",
+        "hold_tray": "yes",
+        "walking": "no"
+      },
+      "idx": 18,
+      "t": 18.0
+    },
+    {
+      "answers": {
+        "coworker_visible": "no",
+        "hold_tray": "yes",
+        "walking": "no"
+      },
+      "idx": 19,
+      "t": 19.0
+    }
+  ],
+  "legacy_metadata": {
+    "annotated_at": "2026-07-10",
+    "annotator": "Claude Fable 5",
+    "events_def": {
+      "coworker_visible": "他の作業者(ピンク/白の服)が画面内に見える",
+      "hold_tray": "製品入りの黒トレイを手で持っている",
+      "walking": "工場内を歩いて移動している(床が大きく流れ、手作業なし)"
+    },
+    "fps": 1.0,
+    "n_frames": 20,
+    "notes": "walking(0-5) before hold_tray(6-19) という明快な順序。移動区間はブラーが強く coworker_visible の判定が難しい。4ユニット中で唯一 locomotion を含み、konro型の順序SOPと相性が良い。",
+    "schema_version": "0.1-frames",
+    "sop_id": "factory_tray_handoff",
+    "source": "Egocentric-10K / Voxel51 subset factory051_worker001_00000, 105-124s, 1fps",
+    "step1_summary": "段ボール箱の前を離れて工場内を歩き(移動)、作業台に着いてピンク服の同僚から製品がぎっしり入った黒トレイを受け取り、両手で持ち上げて検分する。他の3ユニット(定点の反復作業)と違い『歩行→受け渡し→保持』という一方向の遷移を含む唯一のユニット。",
+    "uncertain_frames": [
+      0,
+      3,
+      5,
+      6
+    ]
+  },
+  "prediction_type": "frame_question_answers",
+  "question_definitions": {
+    "coworker_visible": "他の作業者(ピンク/白の服)が画面内に見える",
+    "hold_tray": "製品入りの黒トレイを手で持っている",
+    "walking": "工場内を歩いて移動している(床が大きく流れ、手作業なし)"
+  },
+  "run_id": "20260710-fable5-reference-r1",
+  "schema_version": "1.0",
+  "source_format": "0.1-frames",
+  "unit_id": "f051_w001_tray_handoff"
+}

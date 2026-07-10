@@ -1,0 +1,37 @@
+{
+  "benchmark_status": "dev_seen",
+  "dataset_id": "factory_ego",
+  "ground_truth": {
+    "available": false,
+    "required_source": "human"
+  },
+  "legacy_summary": "factory_assembly(unit_a)と同じ作業者の続き。着席してトレイ上で部品を両手加工し、断続的に頭上/側方の緑ラックへ腕を伸ばして掛ける反復サイクル。unit_aと同一SOPが適用できる検証用の第2サンプル。",
+  "media": {
+    "availability": "local_gated_source_not_committed",
+    "path": "frames",
+    "sha256_manifest": "frames.sha256.json"
+  },
+  "sampling": {
+    "fps": 1.0,
+    "n_frames": 20,
+    "output_naming": "f0000.jpg...f0019.jpg",
+    "source_frame_end": 65,
+    "source_frame_start": 46
+  },
+  "schema_version": "1.0",
+  "sop_ref": {
+    "id": "f051_w001_assembly_cycle2",
+    "path": "../../sops/f051_w001_assembly_cycle2/v001.yaml",
+    "status": "provisional",
+    "version": "v001"
+  },
+  "source": {
+    "clip_id": "factory051_worker001_00001",
+    "dataset": "builddotai/Egocentric-10K",
+    "end_second": 65,
+    "factory_id": "factory_051",
+    "start_second": 46,
+    "worker_id": "worker_001"
+  },
+  "unit_id": "f051_w001_assembly_cycle2"
+}

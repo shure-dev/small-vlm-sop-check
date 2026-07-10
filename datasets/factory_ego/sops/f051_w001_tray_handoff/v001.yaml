@@ -1,0 +1,39 @@
+sop:
+  id: f051_w001_tray_handoff
+  name: 'Factory Ego: f051_w001_tray_handoff'
+  domain_hint: First-person (head-mounted) camera footage of a worker in an electronics
+    factory, looking down at their own hands. The worker wears a blue smock.
+questions:
+- id: walking
+  ask: Is the camera wearer walking through the factory, with the floor sweeping by
+    and no handwork happening?
+  values:
+  - 'yes'
+  - 'no'
+- id: hold_tray
+  ask: Is the worker holding a black tray full of products with the hands?
+  values:
+  - 'yes'
+  - 'no'
+- id: coworker_visible
+  ask: Is another worker in pink or white clothing visible in the frame?
+  values:
+  - 'yes'
+  - 'no'
+events:
+  walking:
+    evidence: walking==yes
+    min_frames: 2
+  hold_tray:
+    evidence: hold_tray==yes
+    min_frames: 2
+  coworker_visible:
+    evidence: coworker_visible==yes
+    min_frames: 2
+relations: []
+benchmark:
+  schema_version: '1.0'
+  version: v001
+  status: provisional
+  purpose: model_accuracy_comparison
+  provenance: migrated from the legacy Qwen comparison SOP; not ground truth

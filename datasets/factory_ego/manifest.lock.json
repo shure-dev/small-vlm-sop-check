@@ -1,0 +1,55 @@
+{
+  "dataset_id": "factory_ego",
+  "schema_version": "1.0",
+  "split_id": "development-v001",
+  "units": {
+    "f051_w001_assembly": {
+      "frame_count": 20,
+      "frames_manifest_sha256": "bc9ce6abb71a3d3695317c99c9efd4aae8c1e89f66c216b371a2f55dc5639a02",
+      "meta_sha256": "c5339444e7945ccc32e048f76c45ba1b364d46e76f50ad20ac1d1ce55d77e099",
+      "sop_sha256": "0c695a087e7b89cdf79f13c34b13246d5b7f6b6c7e3548844411512e812e9fe0"
+    },
+    "f051_w001_assembly_cycle2": {
+      "frame_count": 20,
+      "frames_manifest_sha256": "58c65b8510f09674b39398e90f61d552c5ce2bdc05f97eebefdabcbb8a417642",
+      "meta_sha256": "c61a57372f4ea23108111e2fa162451b18d9a4596ec6bfbf0dbdc236a7daaf75",
+      "sop_sha256": "a39c515b7318916bd9716e6591daa8b9309d7690541a78a7170b8da3f6576b43"
+    },
+    "f051_w001_board_cables": {
+      "frame_count": 20,
+      "frames_manifest_sha256": "06a08444e06bdbf83234641f4a86d7b7968117d1215eefc1fd3dc2dadcfe189d",
+      "meta_sha256": "b7214f91d58ccae587ae7a62fb9cc79e8b504d6c99a9a211cacb69aa2a5f9cc3",
+      "sop_sha256": "ffe9aa9784998277988203e4f265c70e8e822c0af3fa7ee8bc52ed49ad256427"
+    },
+    "f051_w001_cable_tying": {
+      "frame_count": 20,
+      "frames_manifest_sha256": "7065f67d0e8a668eca0963823974cfa24614f4c2777377efcb94d2315fb52611",
+      "meta_sha256": "e808e92509cc0d9d96f95325a0af07e7168027fe5815f25b6d708bd8b051967e",
+      "sop_sha256": "d6785d07e1b6915f0e6a36caca9f6301efa37de796a265e8ab4fe61ba302034f"
+    },
+    "f051_w001_connector_seated": {
+      "frame_count": 20,
+      "frames_manifest_sha256": "37b895e9f87702311440455bf61b163fa1c2640202c4eb493928e396749c14e6",
+      "meta_sha256": "50ee3a33cf7a9b3a5f2cc1182a29903279198ff589ef9c9f30b6fb32ea271b73",
+      "sop_sha256": "b42faa3522225852456ea89e614118d9b9723e3935ea8ebb8cbd19b55a3dc714"
+    },
+    "f051_w001_part_inspection": {
+      "frame_count": 20,
+      "frames_manifest_sha256": "72f87533823f87a700d02534ab6a088513b62b42656e79c282dc2ab38e6ba558",
+      "meta_sha256": "2a700c45d4496b602fdc63a0e6181206f332f4030b793325b993e087259d3155",
+      "sop_sha256": "90b0ee2136d6ebdc6ced2e63f2a7d0ddbddbf3bf03f455b2410016b63537071a"
+    },
+    "f051_w001_part_pick": {
+      "frame_count": 20,
+      "frames_manifest_sha256": "c0e73efd7ed936b6b3637465a2e1e2eed4437d6abeae50777158271f6488c0f1",
+      "meta_sha256": "ad701b6ac4b484dbb0e7f86d314354e2a63dcb363cc21d7b3f990d733f5ba99d",
+      "sop_sha256": "62ef45c2c1ade59fa538db5262300f447a78df18c6d836e75dce3c252ae2c172"
+    },
+    "f051_w001_tray_handoff": {
+      "frame_count": 20,
+      "frames_manifest_sha256": "6cbfb04e3d7134036d7e9f8d872e48bee008f885f7a7ad82f35a889ce1e4701a",
+      "meta_sha256": "031e89e5cde0945b5194d4c58f1d749a8a229ab465f1be63a0d69bc41ad870cb",
+      "sop_sha256": "3114809b851e93a3b6ba21dbdaecc652c5132f1c98bd56efc743dd0cee7a5988"
+    }
+  }
+}

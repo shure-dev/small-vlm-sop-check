@@ -1,0 +1,38 @@
+sop:
+  id: f051_w001_board_cables
+  name: 'Factory Ego: f051_w001_board_cables'
+  domain_hint: First-person (head-mounted) camera footage of a worker in an electronics
+    factory, looking down at their own hands. The worker wears a blue smock.
+questions:
+- id: touch_board
+  ask: Is a hand touching cables or connectors on a green board?
+  values:
+  - 'yes'
+  - 'no'
+- id: move_board
+  ask: Is the worker grasping and moving a whole board with the hands?
+  values:
+  - 'yes'
+  - 'no'
+- id: hold_item
+  ask: Is the worker holding a small part or connector in the hand?
+  values:
+  - 'yes'
+  - 'no'
+events:
+  touch_board:
+    evidence: touch_board==yes
+    min_frames: 2
+  move_board:
+    evidence: move_board==yes
+    min_frames: 2
+  hold_item:
+    evidence: hold_item==yes
+    min_frames: 2
+relations: []
+benchmark:
+  schema_version: '1.0'
+  version: v001
+  status: provisional
+  purpose: model_accuracy_comparison
+  provenance: migrated from the legacy Qwen comparison SOP; not ground truth

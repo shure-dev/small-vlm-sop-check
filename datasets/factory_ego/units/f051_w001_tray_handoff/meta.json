@@ -1,0 +1,37 @@
+{
+  "benchmark_status": "dev_seen",
+  "dataset_id": "factory_ego",
+  "ground_truth": {
+    "available": false,
+    "required_source": "human"
+  },
+  "legacy_summary": "段ボール箱の前を離れて工場内を歩き(移動)、作業台に着いてピンク服の同僚から製品がぎっしり入った黒トレイを受け取り、両手で持ち上げて検分する。他の3ユニット(定点の反復作業)と違い『歩行→受け渡し→保持』という一方向の遷移を含む唯一のユニット。",
+  "media": {
+    "availability": "local_gated_source_not_committed",
+    "path": "frames",
+    "sha256_manifest": "frames.sha256.json"
+  },
+  "sampling": {
+    "fps": 1.0,
+    "n_frames": 20,
+    "output_naming": "f0000.jpg...f0019.jpg",
+    "source_frame_end": 124,
+    "source_frame_start": 105
+  },
+  "schema_version": "1.0",
+  "sop_ref": {
+    "id": "f051_w001_tray_handoff",
+    "path": "../../sops/f051_w001_tray_handoff/v001.yaml",
+    "status": "provisional",
+    "version": "v001"
+  },
+  "source": {
+    "clip_id": "factory051_worker001_00000",
+    "dataset": "builddotai/Egocentric-10K",
+    "end_second": 124,
+    "factory_id": "factory_051",
+    "start_second": 105,
+    "worker_id": "worker_001"
+  },
+  "unit_id": "f051_w001_tray_handoff"
+}

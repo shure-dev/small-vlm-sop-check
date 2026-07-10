@@ -1,0 +1,602 @@
+[
+  {
+    "idx": 0,
+    "t": 0.0,
+    "raw": "{\"hold_part\":\"yes\",\"reach_rack\":\"no\",\"tray_visible\":\"yes\"}<|im_end|>",
+    "confidence": {
+      "hold_part": {
+        "probs": {
+          "yes": 1.0,
+          "no": 0.0
+        },
+        "argmax": "yes"
+      },
+      "reach_rack": {
+        "probs": {
+          "yes": 0.0,
+          "no": 1.0
+        },
+        "argmax": "no"
+      },
+      "tray_visible": {
+        "probs": {
+          "yes": 1.0,
+          "no": 0.0
+        },
+        "argmax": "yes"
+      }
+    },
+    "active_mb": 3095.8,
+    "peak_mb": 4197.9
+  },
+  {
+    "idx": 1,
+    "t": 1.0,
+    "raw": "{\"hold_part\":\"yes\",\"reach_rack\":\"no\",\"tray_visible\":\"yes\"}<|im_end|>",
+    "confidence": {
+      "hold_part": {
+        "probs": {
+          "yes": 1.0,
+          "no": 0.0
+        },
+        "argmax": "yes"
+      },
+      "reach_rack": {
+        "probs": {
+          "yes": 0.0,
+          "no": 1.0
+        },
+        "argmax": "no"
+      },
+      "tray_visible": {
+        "probs": {
+          "yes": 1.0,
+          "no": 0.0
+        },
+        "argmax": "yes"
+      }
+    },
+    "active_mb": 3095.8,
+    "peak_mb": 4197.9
+  },
+  {
+    "idx": 2,
+    "t": 2.0,
+    "raw": "{\"hold_part\":\"yes\",\"reach_rack\":\"no\",\"tray_visible\":\"yes\"}<|im_end|>",
+    "confidence": {
+      "hold_part": {
+        "probs": {
+          "yes": 1.0,
+          "no": 0.0
+        },
+        "argmax": "yes"
+      },
+      "reach_rack": {
+        "probs": {
+          "yes": 0.0,
+          "no": 1.0
+        },
+        "argmax": "no"
+      },
+      "tray_visible": {
+        "probs": {
+          "yes": 1.0,
+          "no": 0.0
+        },
+        "argmax": "yes"
+      }
+    },
+    "active_mb": 3095.8,
+    "peak_mb": 4197.9
+  },
+  {
+    "idx": 3,
+    "t": 3.0,
+    "raw": "{\"hold_part\":\"yes\",\"reach_rack\":\"no\",\"tray_visible\":\"yes\"}<|im_end|>",
+    "confidence": {
+      "hold_part": {
+        "probs": {
+          "yes": 1.0,
+          "no": 0.0
+        },
+        "argmax": "yes"
+      },
+      "reach_rack": {
+        "probs": {
+          "yes": 0.0,
+          "no": 1.0
+        },
+        "argmax": "no"
+      },
+      "tray_visible": {
+        "probs": {
+          "yes": 1.0,
+          "no": 0.0
+        },
+        "argmax": "yes"
+      }
+    },
+    "active_mb": 3095.8,
+    "peak_mb": 4197.9
+  },
+  {
+    "idx": 4,
+    "t": 4.0,
+    "raw": "{\"hold_part\":\"yes\",\"reach_rack\":\"no\",\"tray_visible\":\"yes\"}<|im_end|>",
+    "confidence": {
+      "hold_part": {
+        "probs": {
+          "yes": 1.0,
+          "no": 0.0
+        },
+        "argmax": "yes"
+      },
+      "reach_rack": {
+        "probs": {
+          "yes": 0.0,
+          "no": 1.0
+        },
+        "argmax": "no"
+      },
+      "tray_visible": {
+        "probs": {
+          "yes": 1.0,
+          "no": 0.0
+        },
+        "argmax": "yes"
+      }
+    },
+    "active_mb": 3095.8,
+    "peak_mb": 4197.9
+  },
+  {
+    "idx": 5,
+    "t": 5.0,
+    "raw": "{\"hold_part\":\"yes\",\"reach_rack\":\"no\",\"tray_visible\":\"yes\"}<|im_end|>",
+    "confidence": {
+      "hold_part": {
+        "probs": {
+          "yes": 1.0,
+          "no": 0.0
+        },
+        "argmax": "yes"
+      },
+      "reach_rack": {
+        "probs": {
+          "yes": 0.0,
+          "no": 1.0
+        },
+        "argmax": "no"
+      },
+      "tray_visible": {
+        "probs": {
+          "yes": 1.0,
+          "no": 0.0
+        },
+        "argmax": "yes"
+      }
+    },
+    "active_mb": 3095.8,
+    "peak_mb": 4197.9
+  },
+  {
+    "idx": 6,
+    "t": 6.0,
+    "raw": "{\"hold_part\":\"no\",\"reach_rack\":\"yes\",\"tray_visible\":\"yes\"}<|im_end|>",
+    "confidence": {
+      "hold_part": {
+        "probs": {
+          "yes": 0.5,
+          "no": 0.5
+        },
+        "argmax": "yes"
+      },
+      "reach_rack": {
+        "probs": {
+          "yes": 0.9968,
+          "no": 0.0032
+        },
+        "argmax": "yes"
+      },
+      "tray_visible": {
+        "probs": {
+          "yes": 0.7773,
+          "no": 0.2227
+        },
+        "argmax": "yes"
+      }
+    },
+    "active_mb": 3095.8,
+    "peak_mb": 4197.9
+  },
+  {
+    "idx": 7,
+    "t": 7.0,
+    "raw": "{\"hold_part\":\"no\",\"reach_rack\":\"yes\",\"tray_visible\":\"no\"}<|im_end|>",
+    "confidence": {
+      "hold_part": {
+        "probs": {
+          "yes": 0.0953,
+          "no": 0.9047
+        },
+        "argmax": "no"
+      },
+      "reach_rack": {
+        "probs": {
+          "yes": 1.0,
+          "no": 0.0
+        },
+        "argmax": "yes"
+      },
+      "tray_visible": {
+        "probs": {
+          "yes": 0.0,
+          "no": 1.0
+        },
+        "argmax": "no"
+      }
+    },
+    "active_mb": 3095.8,
+    "peak_mb": 4197.9
+  },
+  {
+    "idx": 8,
+    "t": 8.0,
+    "raw": "{\"hold_part\":\"no\",\"reach_rack\":\"no\",\"tray_visible\":\"no\"}<|im_end|>",
+    "confidence": {
+      "hold_part": {
+        "probs": {
+          "yes": 0.0953,
+          "no": 0.9047
+        },
+        "argmax": "no"
+      },
+      "reach_rack": {
+        "probs": {
+          "yes": 0.5,
+          "no": 0.5
+        },
+        "argmax": "yes"
+      },
+      "tray_visible": {
+        "probs": {
+          "yes": 0.0004,
+          "no": 0.9996
+        },
+        "argmax": "no"
+      }
+    },
+    "active_mb": 3095.8,
+    "peak_mb": 4197.9
+  },
+  {
+    "idx": 9,
+    "t": 9.0,
+    "raw": "{\"hold_part\":\"yes\",\"reach_rack\":\"no\",\"tray_visible\":\"yes\"}<|im_end|>",
+    "confidence": {
+      "hold_part": {
+        "probs": {
+          "yes": 1.0,
+          "no": 0.0
+        },
+        "argmax": "yes"
+      },
+      "reach_rack": {
+        "probs": {
+          "yes": 0.0,
+          "no": 1.0
+        },
+        "argmax": "no"
+      },
+      "tray_visible": {
+        "probs": {
+          "yes": 1.0,
+          "no": 0.0
+        },
+        "argmax": "yes"
+      }
+    },
+    "active_mb": 3095.8,
+    "peak_mb": 4197.9
+  },
+  {
+    "idx": 10,
+    "t": 10.0,
+    "raw": "{\"hold_part\":\"yes\",\"reach_rack\":\"no\",\"tray_visible\":\"yes\"}<|im_end|>",
+    "confidence": {
+      "hold_part": {
+        "probs": {
+          "yes": 1.0,
+          "no": 0.0
+        },
+        "argmax": "yes"
+      },
+      "reach_rack": {
+        "probs": {
+          "yes": 0.0,
+          "no": 1.0
+        },
+        "argmax": "no"
+      },
+      "tray_visible": {
+        "probs": {
+          "yes": 1.0,
+          "no": 0.0
+        },
+        "argmax": "yes"
+      }
+    },
+    "active_mb": 3095.8,
+    "peak_mb": 4199.3
+  },
+  {
+    "idx": 11,
+    "t": 11.0,
+    "raw": "{\"hold_part\":\"yes\",\"reach_rack\":\"no\",\"tray_visible\":\"yes\"}<|im_end|>",
+    "confidence": {
+      "hold_part": {
+        "probs": {
+          "yes": 0.9999,
+          "no": 0.0001
+        },
+        "argmax": "yes"
+      },
+      "reach_rack": {
+        "probs": {
+          "yes": 0.0,
+          "no": 1.0
+        },
+        "argmax": "no"
+      },
+      "tray_visible": {
+        "probs": {
+          "yes": 1.0,
+          "no": 0.0
+        },
+        "argmax": "yes"
+      }
+    },
+    "active_mb": 3095.8,
+    "peak_mb": 4199.3
+  },
+  {
+    "idx": 12,
+    "t": 12.0,
+    "raw": "{\"hold_part\":\"yes\",\"reach_rack\":\"no\",\"tray_visible\":\"yes\"}<|im_end|>",
+    "confidence": {
+      "hold_part": {
+        "probs": {
+          "yes": 1.0,
+          "no": 0.0
+        },
+        "argmax": "yes"
+      },
+      "reach_rack": {
+        "probs": {
+          "yes": 0.0,
+          "no": 1.0
+        },
+        "argmax": "no"
+      },
+      "tray_visible": {
+        "probs": {
+          "yes": 1.0,
+          "no": 0.0
+        },
+        "argmax": "yes"
+      }
+    },
+    "active_mb": 3095.8,
+    "peak_mb": 4199.3
+  },
+  {
+    "idx": 13,
+    "t": 13.0,
+    "raw": "{\"hold_part\":\"yes\",\"reach_rack\":\"no\",\"tray_visible\":\"yes\"}<|im_end|>",
+    "confidence": {
+      "hold_part": {
+        "probs": {
+          "yes": 1.0,
+          "no": 0.0
+        },
+        "argmax": "yes"
+      },
+      "reach_rack": {
+        "probs": {
+          "yes": 0.0,
+          "no": 1.0
+        },
+        "argmax": "no"
+      },
+      "tray_visible": {
+        "probs": {
+          "yes": 1.0,
+          "no": 0.0
+        },
+        "argmax": "yes"
+      }
+    },
+    "active_mb": 3095.8,
+    "peak_mb": 4199.3
+  },
+  {
+    "idx": 14,
+    "t": 14.0,
+    "raw": "{\"hold_part\":\"yes\",\"reach_rack\":\"no\",\"tray_visible\":\"yes\"}<|im_end|>",
+    "confidence": {
+      "hold_part": {
+        "probs": {
+          "yes": 1.0,
+          "no": 0.0
+        },
+        "argmax": "yes"
+      },
+      "reach_rack": {
+        "probs": {
+          "yes": 0.0001,
+          "no": 0.9999
+        },
+        "argmax": "no"
+      },
+      "tray_visible": {
+        "probs": {
+          "yes": 1.0,
+          "no": 0.0
+        },
+        "argmax": "yes"
+      }
+    },
+    "active_mb": 3095.8,
+    "peak_mb": 4199.3
+  },
+  {
+    "idx": 15,
+    "t": 15.0,
+    "raw": "{\"hold_part\":\"yes\",\"reach_rack\":\"yes\",\"tray_visible\":\"yes\"}<|im_end|>",
+    "confidence": {
+      "hold_part": {
+        "probs": {
+          "yes": 1.0,
+          "no": 0.0
+        },
+        "argmax": "yes"
+      },
+      "reach_rack": {
+        "probs": {
+          "yes": 0.6792,
+          "no": 0.3208
+        },
+        "argmax": "yes"
+      },
+      "tray_visible": {
+        "probs": {
+          "yes": 1.0,
+          "no": 0.0
+        },
+        "argmax": "yes"
+      }
+    },
+    "active_mb": 3095.8,
+    "peak_mb": 4199.3
+  },
+  {
+    "idx": 16,
+    "t": 16.0,
+    "raw": "{\"hold_part\":\"yes\",\"reach_rack\":\"yes\",\"tray_visible\":\"yes\"}<|im_end|>",
+    "confidence": {
+      "hold_part": {
+        "probs": {
+          "yes": 0.9997,
+          "no": 0.0003
+        },
+        "argmax": "yes"
+      },
+      "reach_rack": {
+        "probs": {
+          "yes": 0.9997,
+          "no": 0.0003
+        },
+        "argmax": "yes"
+      },
+      "tray_visible": {
+        "probs": {
+          "yes": 0.7773,
+          "no": 0.2227
+        },
+        "argmax": "yes"
+      }
+    },
+    "active_mb": 3095.8,
+    "peak_mb": 4199.3
+  },
+  {
+    "idx": 17,
+    "t": 17.0,
+    "raw": "{\"hold_part\":\"yes\",\"reach_rack\":\"yes\",\"tray_visible\":\"yes\"}<|im_end|>",
+    "confidence": {
+      "hold_part": {
+        "probs": {
+          "yes": 0.9959,
+          "no": 0.0041
+        },
+        "argmax": "yes"
+      },
+      "reach_rack": {
+        "probs": {
+          "yes": 0.9985,
+          "no": 0.0015
+        },
+        "argmax": "yes"
+      },
+      "tray_visible": {
+        "probs": {
+          "yes": 0.977,
+          "no": 0.023
+        },
+        "argmax": "yes"
+      }
+    },
+    "active_mb": 3095.8,
+    "peak_mb": 4199.3
+  },
+  {
+    "idx": 18,
+    "t": 18.0,
+    "raw": "{\"hold_part\":\"yes\",\"reach_rack\":\"yes\",\"tray_visible\":\"yes\"}<|im_end|>",
+    "confidence": {
+      "hold_part": {
+        "probs": {
+          "yes": 0.9997,
+          "no": 0.0003
+        },
+        "argmax": "yes"
+      },
+      "reach_rack": {
+        "probs": {
+          "yes": 0.9988,
+          "no": 0.0012
+        },
+        "argmax": "yes"
+      },
+      "tray_visible": {
+        "probs": {
+          "yes": 0.7311,
+          "no": 0.2689
+        },
+        "argmax": "yes"
+      }
+    },
+    "active_mb": 3095.8,
+    "peak_mb": 4199.3
+  },
+  {
+    "idx": 19,
+    "t": 19.0,
+    "raw": "{\"hold_part\":\"yes\",\"reach_rack\":\"yes\",\"tray_visible\":\"no\"}<|im_end|>",
+    "confidence": {
+      "hold_part": {
+        "probs": {
+          "yes": 0.6792,
+          "no": 0.3208
+        },
+        "argmax": "yes"
+      },
+      "reach_rack": {
+        "probs": {
+          "yes": 0.9968,
+          "no": 0.0032
+        },
+        "argmax": "yes"
+      },
+      "tray_visible": {
+        "probs": {
+          "yes": 0.0012,
+          "no": 0.9988
+        },
+        "argmax": "no"
+      }
+    },
+    "active_mb": 3095.8,
+    "peak_mb": 4199.3
+  }
+]

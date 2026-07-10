@@ -1,0 +1,51 @@
+{
+  "schema_version": "0.1-frames",
+  "sop_id": "factory_assembly",
+  "source": "Egocentric-10K (builddotai) / Voxel51 subset factory051_worker001_00001, 26-45s, 1fps",
+  "fps": 1.0,
+  "n_frames": 20,
+  "annotator": "Claude Fable 5",
+  "annotated_at": "2026-07-10",
+  "protocol": [
+    "STEP1: 動画全体(20フレーム全部+前後の文脈)を目視し、作業の構造を把握する",
+    "STEP2: その構造から、1fpsで視覚的に判別可能なイベントだけを定義する",
+    "STEP3: フレームごとに各イベントの true/false を付ける。境界・画面隅の曖昧フレームはフル解像度(1080p)で確認する"
+  ],
+  "step1_summary": "作業者は黒い格子トレイと頭上の緑基板ラックの間に立ち、『トレイ上で小部品を両手で加工 → 腕を上げてラックに掛ける/取り付ける → 戻って次の部品』のサイクルを繰り返す。この20秒に掛け動作が2回含まれる。",
+  "events_def": {
+    "hold_part": "手で小さな部品を持つ/操作している(状態)",
+    "reach_rack": "腕が頭上の緑基板ラックへ伸びている(動作)",
+    "tray_visible": "格子状の黒トレイが画面内に識別できる(シーン)"
+  },
+  "excluded_events": {
+    "pick_from_tray": "『トレイから取る』は1fpsでは hold_part と視覚的に区別できないため定義しない"
+  },
+  "frames": [
+    {"idx": 0,  "hold_part": true,  "reach_rack": false, "tray_visible": true},
+    {"idx": 1,  "hold_part": true,  "reach_rack": false, "tray_visible": true},
+    {"idx": 2,  "hold_part": true,  "reach_rack": false, "tray_visible": true},
+    {"idx": 3,  "hold_part": true,  "reach_rack": false, "tray_visible": true},
+    {"idx": 4,  "hold_part": true,  "reach_rack": false, "tray_visible": true},
+    {"idx": 5,  "hold_part": true,  "reach_rack": false, "tray_visible": true},
+    {"idx": 6,  "hold_part": false, "reach_rack": true,  "tray_visible": false},
+    {"idx": 7,  "hold_part": false, "reach_rack": true,  "tray_visible": false},
+    {"idx": 8,  "hold_part": false, "reach_rack": false, "tray_visible": false},
+    {"idx": 9,  "hold_part": true,  "reach_rack": false, "tray_visible": true},
+    {"idx": 10, "hold_part": true,  "reach_rack": false, "tray_visible": true},
+    {"idx": 11, "hold_part": true,  "reach_rack": false, "tray_visible": true},
+    {"idx": 12, "hold_part": true,  "reach_rack": false, "tray_visible": true},
+    {"idx": 13, "hold_part": true,  "reach_rack": false, "tray_visible": true},
+    {"idx": 14, "hold_part": true,  "reach_rack": false, "tray_visible": true},
+    {"idx": 15, "hold_part": true,  "reach_rack": true,  "tray_visible": false},
+    {"idx": 16, "hold_part": true,  "reach_rack": true,  "tray_visible": false},
+    {"idx": 17, "hold_part": true,  "reach_rack": true,  "tray_visible": false},
+    {"idx": 18, "hold_part": true,  "reach_rack": true,  "tray_visible": false},
+    {"idx": 19, "hold_part": true,  "reach_rack": true,  "tray_visible": false}
+  ],
+  "boundary_notes": [
+    "idx8: 掛け動作からの戻り(手が胸の高さ)。reach_rack=false としたが±1フレームは注釈者間で割れる境界",
+    "idx15: 部品を持って腕を上げ始める遷移。reach_rack=true とした",
+    "1回目の掛け(6-7)は手ぶらでラックを操作、2回目(15-19)は部品を持ったまま掛けるため hold_part の値が異なる"
+  ],
+  "vlm_comparison_note": "qwen3-4b は reach_rack 19/20, hold_part 18/20 と高一致だが、tray_visible は 13/20。掛け動作中(15-19)にトレイが画面外でも yes(0.9-1.0) を5連発しており、domain_hint の文脈につられた過検出の疑い。シーン質問は文脈バイアスに弱い。"
+}

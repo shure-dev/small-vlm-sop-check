@@ -1,0 +1,21 @@
+schema_version: '1.0'
+dataset_id: factory_ego
+name: Factory Ego VLM accuracy comparison
+purpose: frame-level VLM observation accuracy comparison
+upstream:
+  id: builddotai/Egocentric-10K
+  url: https://huggingface.co/datasets/builddotai/Egocentric-10K
+  license: Apache-2.0
+  access: gated_contact_information_required
+benchmark_state:
+  human_ground_truth_available: false
+  formal_accuracy_available: false
+  allowed_without_ground_truth:
+  - agreement
+  - answer_distribution
+  - boundary_difference
+unit_count: 8
+media_distribution: gated_source_frames_not_in_public_repository
+migration:
+  date: '2026-07-10'
+  code_revision: ed62e37b3d8d2c462492832a19c12cb576b21bdf

@@ -1,0 +1,25 @@
+{
+  "schema_version": "0.1-frames",
+  "sop_id": "factory_assembly",
+  "source": "Egocentric-10K (builddotai) / Voxel51 subset factory051_worker001_00001, 26-45s, 1fps",
+  "fps": 1.0,
+  "annotator": "Claude Opus 4.8 (大型VLMによる目視アノテーション。人手検証前のsilver品質)",
+  "annotated_at": "2026-07-10",
+  "events_def": {
+    "hold_part": "手で小さな部品を持つ/操作している",
+    "reach_rack": "腕が頭上の緑基板ラックへ伸びている",
+    "tray_visible": "格子状の黒トレイが画面内に見える"
+  },
+  "frames": [
+    {"idx": 0, "hold_part": true,  "reach_rack": false, "tray_visible": true},
+    {"idx": 1, "hold_part": true,  "reach_rack": false, "tray_visible": true},
+    {"idx": 2, "hold_part": true,  "reach_rack": false, "tray_visible": true},
+    {"idx": 3, "hold_part": true,  "reach_rack": false, "tray_visible": true},
+    {"idx": 4, "hold_part": true,  "reach_rack": false, "tray_visible": true},
+    {"idx": 5, "hold_part": true,  "reach_rack": false, "tray_visible": true},
+    {"idx": 6, "hold_part": false, "reach_rack": true,  "tray_visible": false},
+    {"idx": 7, "hold_part": false, "reach_rack": true,  "tray_visible": false},
+    {"idx": 8, "hold_part": false, "reach_rack": true,  "tray_visible": false},
+    {"idx": 9, "hold_part": true,  "reach_rack": false, "tray_visible": false}
+  ]
+}
