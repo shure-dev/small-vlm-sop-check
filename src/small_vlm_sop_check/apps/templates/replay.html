@@ -34,8 +34,8 @@
     z-index: 10;
   }
   header h1 { font-size: 17px; margin: 0; font-weight: 600; flex: 1; }
-  #modelPicker { font-size: 12px; color: #666; white-space: nowrap; }
-  #modelSelect {
+  #modelPicker, #unitPicker, #datasetPicker { font-size: 12px; color: #666; white-space: nowrap; }
+  #modelSelect, #unitSelect, #datasetSelect {
     font-size: 13px;
     padding: 4px 8px;
     margin-left: 4px;
@@ -43,6 +43,7 @@
     border: 1px solid var(--line);
     background: #fff;
     font-family: inherit;
+    max-width: 240px;
   }
   .badge {
     font-size: 15px;
@@ -234,6 +235,8 @@
 <body>
   <header>
     <h1 id="sopName"></h1>
+    <label id="datasetPicker" hidden>データセット<select id="datasetSelect"></select></label>
+    <label id="unitPicker" hidden>サンプル<select id="unitSelect"></select></label>
     <label id="modelPicker">モデル<select id="modelSelect"></select></label>
     <span id="coverage"></span>
     <span id="verdictBadge" class="badge"></span>
@@ -274,47 +277,103 @@
 <script>
 const DATA = "__REPLAY_DATA__";
 
-let model = DATA.model_order[0];   // 現在選択中のモデル名
-const M = () => DATA.models[model];  // そのモデルの判定・回答結果
+let dataset = DATA.dataset_order[0];          // 現在選択中のデータセット
+const D = () => DATA.datasets[dataset];
+let unit = D().unit_order[0];                 // 現在選択中のサンプル(unit)
+const U = () => D().units[unit];
+let model = U().model_order[0];               // 現在選択中のモデル名
+const M = () => U().models[model];            // そのモデルの判定・回答結果
 
-const notOnly = new Set(
-  DATA.relations
-    .map(r => /^\s*not\s+(\w+)\s*$/.exec(r))
-    .filter(Boolean)
-    .map(m => m[1])
-);
-
-document.getElementById("sopName").textContent = DATA.sop.name;
-
-// モデル切替プルダウン(判定バッジ付き)。relationsは全モデル共通なので下で一度だけ描く。
-const modelSelect = document.getElementById("modelSelect");
-DATA.model_order.forEach(name => {
-  const opt = document.createElement("option");
-  opt.value = name;
-  opt.textContent = name;   // 合否はヘッダのverdictBadgeに出す(一覧に❌を並べると驚くため付けない)
-  modelSelect.appendChild(opt);
-});
-modelSelect.value = model;
-modelSelect.addEventListener("change", () => { model = modelSelect.value; renderHeader(); render(); });
-
-const relUl = document.getElementById("relations");
-DATA.relations.forEach(r => {
-  const li = document.createElement("li");
-  li.innerHTML = `<code>${r}</code>`;
-  relUl.appendChild(li);
-});
-
-const scrubber = document.getElementById("scrubber");
-scrubber.max = DATA.n_frames - 1;
-
+let notOnly = new Set();   // unitごとにsetupUnit()で作り直す
+let GT = null;
 let idx = 0;
 let playing = false;
 let timer = null;
+
+const scrubber = document.getElementById("scrubber");
+
+// データセット切替プルダウン。1つだけなら隠す。
+const datasetSelect = document.getElementById("datasetSelect");
+document.getElementById("datasetPicker").hidden = DATA.dataset_order.length < 2;
+DATA.dataset_order.forEach(id => {
+  const opt = document.createElement("option");
+  opt.value = id;
+  opt.textContent = DATA.datasets[id].name;
+  datasetSelect.appendChild(opt);
+});
+datasetSelect.value = dataset;
+datasetSelect.addEventListener("change", () => {
+  dataset = datasetSelect.value;
+  idx = 0;
+  setupDataset();
+});
+
+// サンプル(unit)切替プルダウン。選択肢はデータセットごとに作り直す。
+const unitSelect = document.getElementById("unitSelect");
+unitSelect.addEventListener("change", () => {
+  unit = unitSelect.value;
+  idx = 0;
+  setupUnit();
+});
+
+// モデル切替プルダウン。選択肢はunitごとに作り直す(runがunitを部分的にしか持たない場合がある)。
+const modelSelect = document.getElementById("modelSelect");
+modelSelect.addEventListener("change", () => { model = modelSelect.value; renderHeader(); render(); });
 
 function pillClass(v) {
   if (v === "yes") return "pill yes";
   if (v === "unclear") return "pill unclear";
   return "pill no";
+}
+
+// データセット切替時: サンプル一覧を作り直してから、unitのセットアップへ。
+function setupDataset() {
+  unitSelect.innerHTML = "";
+  D().unit_order.forEach(id => {
+    const opt = document.createElement("option");
+    opt.value = id;
+    opt.textContent = D().units[id].label;
+    unitSelect.appendChild(opt);
+  });
+  document.getElementById("unitPicker").hidden = D().unit_order.length < 2;
+  if (!D().unit_order.includes(unit)) unit = D().unit_order[0];
+  unitSelect.value = unit;
+  setupUnit();
+}
+
+// unit切替時に作り直すもの: タイトル・モデル一覧・relations・正解区間・スクラバー範囲。
+function setupUnit() {
+  document.getElementById("sopName").textContent = U().sop.name;
+  notOnly = new Set(
+    U().relations
+      .map(r => /^\s*not\s+(\w+)\s*$/.exec(r))
+      .filter(Boolean)
+      .map(m => m[1])
+  );
+  GT = U().gt;
+  document.getElementById("gtLegend").hidden = !GT;
+
+  modelSelect.innerHTML = "";
+  U().model_order.forEach(name => {
+    const opt = document.createElement("option");
+    opt.value = name;
+    opt.textContent = name;   // 合否はヘッダのverdictBadgeに出す(一覧に❌を並べると驚くため付けない)
+    modelSelect.appendChild(opt);
+  });
+  if (!U().model_order.includes(model)) model = U().model_order[0];
+  modelSelect.value = model;
+
+  const relUl = document.getElementById("relations");
+  relUl.innerHTML = "";
+  U().relations.forEach(r => {
+    const li = document.createElement("li");
+    li.innerHTML = `<code>${r}</code>`;
+    relUl.appendChild(li);
+  });
+
+  scrubber.max = U().n_frames - 1;
+  renderHeader();
+  render();
 }
 
 // モデル依存のヘッダ(coverage/判定/違反)を選択モデルに合わせて描き直す。
@@ -336,7 +395,7 @@ function renderHeader() {
 function renderQuestions(frame) {
   const box = document.getElementById("questions");
   box.innerHTML = "";
-  DATA.questions.forEach(q => {
+  U().questions.forEach(q => {
     const val = frame.answers[q.id] ?? "?";
     const prob = frame.probs[q.id] ? frame.probs[q.id][val] : null;
     const row = document.createElement("div");
@@ -352,8 +411,6 @@ function renderQuestions(frame) {
 
 // 正解区間(あれば)。tIoU = フレームidx集合同士の temporal IoU。
 // 検出側は実際に一致したフレーム(ev.idxs)で数え、max_gapで橋渡しした隙間は含めない。
-const GT = DATA.gt;
-document.getElementById("gtLegend").hidden = !GT;
 function tiou(gtSpan, ev) {
   const det = new Set(ev.idxs);
   let inter = 0;
@@ -424,21 +481,21 @@ function renderEvents() {
       for (const [s, e] of segments(ev.idxs)) {   // 橋渡しした隙間は塗らない
         const span = document.createElement("div");
         span.className = "span";
-        span.style.left = (s / DATA.n_frames * 100) + "%";
-        span.style.width = ((e - s + 1) / DATA.n_frames * 100) + "%";
+        span.style.left = (s / U().n_frames * 100) + "%";
+        span.style.width = ((e - s + 1) / U().n_frames * 100) + "%";
         tl.appendChild(span);
       }
     }
     if (gtSpan) {
       const span = document.createElement("div");
       span.className = "span gt";
-      span.style.left = (gtSpan.start_idx / DATA.n_frames * 100) + "%";
-      span.style.width = ((gtSpan.end_idx - gtSpan.start_idx + 1) / DATA.n_frames * 100) + "%";
+      span.style.left = (gtSpan.start_idx / U().n_frames * 100) + "%";
+      span.style.width = ((gtSpan.end_idx - gtSpan.start_idx + 1) / U().n_frames * 100) + "%";
       tl.appendChild(span);
     }
     const playhead = document.createElement("div");
     playhead.className = "playhead";
-    playhead.style.left = (idx / Math.max(DATA.n_frames - 1, 1) * 100) + "%";
+    playhead.style.left = (idx / Math.max(U().n_frames - 1, 1) * 100) + "%";
     tl.appendChild(playhead);
 
     box.appendChild(row);
@@ -447,9 +504,9 @@ function renderEvents() {
 
 function render() {
   const frame = M().frames[idx];
-  document.getElementById("frameImg").src = DATA.images[idx];
+  document.getElementById("frameImg").src = U().images[idx];
   document.getElementById("timeLabel").textContent =
-    `t=${DATA.times[idx].toFixed(1)}s  (${idx + 1}/${DATA.n_frames})`;
+    `t=${U().times[idx].toFixed(1)}s  (${idx + 1}/${U().n_frames})`;
   document.getElementById("rawOutput").textContent = frame.raw;
   scrubber.value = idx;
   renderQuestions(frame);
@@ -462,20 +519,23 @@ function stop() {
   document.getElementById("playBtn").textContent = "▶ 再生";
 }
 
+// 末尾まで行ったら先頭に戻って回し続ける(ページを開いた時点で自動開始)。
+function startPlay() {
+  playing = true;
+  document.getElementById("playBtn").textContent = "⏸ 停止";
+  timer = setInterval(() => {
+    idx = (idx + 1) % U().n_frames;
+    render();
+  }, 650);
+}
+
 function step(delta) {
-  idx = Math.max(0, Math.min(DATA.n_frames - 1, idx + delta));
+  idx = Math.max(0, Math.min(U().n_frames - 1, idx + delta));
   render();
 }
 
 document.getElementById("playBtn").addEventListener("click", () => {
-  if (playing) { stop(); return; }
-  if (idx >= DATA.n_frames - 1) idx = 0;
-  playing = true;
-  document.getElementById("playBtn").textContent = "⏸ 停止";
-  timer = setInterval(() => {
-    if (idx >= DATA.n_frames - 1) { stop(); return; }
-    step(1);
-  }, 650);
+  playing ? stop() : startPlay();
 });
 document.getElementById("prevBtn").addEventListener("click", () => { stop(); step(-1); });
 document.getElementById("nextBtn").addEventListener("click", () => { stop(); step(1); });
@@ -486,8 +546,8 @@ window.addEventListener("keydown", (e) => {
   if (e.key === " ") { e.preventDefault(); document.getElementById("playBtn").click(); }
 });
 
-renderHeader();
-render();
+setupDataset();
+startPlay();   // 自動再生(ループ)
 </script>
 </body>
 </html>
