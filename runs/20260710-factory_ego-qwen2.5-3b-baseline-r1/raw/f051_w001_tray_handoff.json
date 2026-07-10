@@ -1,0 +1,536 @@
+[
+  {
+    "idx": 0,
+    "t": 0.0,
+    "raw": "{\"walking\":\"yes\",\"hold_tray\":\"no\",\"coworker_visible\":\"yes\"}<|im_end|>",
+    "confidence": {
+      "walking": {
+        "probs": {
+          "yes": 0.6261,
+          "no": 0.3739
+        },
+        "argmax": "yes"
+      },
+      "hold_tray": {
+        "probs": {
+          "yes": 0.248,
+          "no": 0.752
+        },
+        "argmax": "no"
+      },
+      "coworker_visible": {
+        "probs": {
+          "yes": 0.6826,
+          "no": 0.3174
+        },
+        "argmax": "yes"
+      }
+    },
+    "active_mb": 3075.0,
+    "peak_mb": 4130.9
+  },
+  {
+    "idx": 1,
+    "t": 1.0,
+    "raw": "{\"walking\":\"yes\",\"hold_tray\":\"no\",\"coworker_visible\":\"no\"}<|im_end|>",
+    "confidence": {
+      "walking": {
+        "probs": {
+          "yes": 0.7122,
+          "no": 0.2878
+        },
+        "argmax": "yes"
+      },
+      "hold_tray": {
+        "probs": {
+          "yes": 0.1582,
+          "no": 0.8418
+        },
+        "argmax": "no"
+      },
+      "coworker_visible": {
+        "probs": {
+          "yes": 0.0748,
+          "no": 0.9252
+        },
+        "argmax": "no"
+      }
+    },
+    "active_mb": 3075.0,
+    "peak_mb": 4130.8
+  },
+  {
+    "idx": 2,
+    "t": 2.0,
+    "raw": "{\"walking\":\"yes\",\"hold_tray\":\"no\",\"coworker_visible\":\"no\"}<|im_end|>",
+    "confidence": {
+      "walking": {
+        "probs": {
+          "yes": 0.7691,
+          "no": 0.2309
+        },
+        "argmax": "yes"
+      },
+      "hold_tray": {
+        "probs": {
+          "yes": 0.0804,
+          "no": 0.9196
+        },
+        "argmax": "no"
+      },
+      "coworker_visible": {
+        "probs": {
+          "yes": 0.2365,
+          "no": 0.7635
+        },
+        "argmax": "no"
+      }
+    },
+    "active_mb": 3075.0,
+    "peak_mb": 4130.9
+  },
+  {
+    "idx": 3,
+    "t": 3.0,
+    "raw": "{\"walking\":\"yes\",\"hold_tray\":\"no\",\"coworker_visible\":\"no\"}<|im_end|>",
+    "confidence": {
+      "walking": {
+        "probs": {
+          "yes": 0.8615,
+          "no": 0.1385
+        },
+        "argmax": "yes"
+      },
+      "hold_tray": {
+        "probs": {
+          "yes": 0.0496,
+          "no": 0.9504
+        },
+        "argmax": "no"
+      },
+      "coworker_visible": {
+        "probs": {
+          "yes": 0.0408,
+          "no": 0.9592
+        },
+        "argmax": "no"
+      }
+    },
+    "active_mb": 3075.0,
+    "peak_mb": 4130.8
+  },
+  {
+    "idx": 4,
+    "t": 4.0,
+    "raw": "{\"walking\":\"yes\",\"hold_tray\":\"no\",\"coworker_visible\":\"yes\"}<|im_end|>",
+    "confidence": {
+      "walking": {
+        "probs": {
+          "yes": 0.8267,
+          "no": 0.1733
+        },
+        "argmax": "yes"
+      },
+      "hold_tray": {
+        "probs": {
+          "yes": 0.0351,
+          "no": 0.9649
+        },
+        "argmax": "no"
+      },
+      "coworker_visible": {
+        "probs": {
+          "yes": 0.8418,
+          "no": 0.1582
+        },
+        "argmax": "yes"
+      }
+    },
+    "active_mb": 3075.0,
+    "peak_mb": 4130.9
+  },
+  {
+    "idx": 5,
+    "t": 5.0,
+    "raw": "{\"walking\":\"no\",\"hold_tray\":\"no\",\"coworker_visible\":\"yes\"}<|im_end|>",
+    "confidence": {
+      "walking": {
+        "probs": {
+          "yes": 0.5,
+          "no": 0.5
+        },
+        "argmax": "yes"
+      },
+      "hold_tray": {
+        "probs": {
+          "yes": 0.2878,
+          "no": 0.7122
+        },
+        "argmax": "no"
+      },
+      "coworker_visible": {
+        "probs": {
+          "yes": 0.7186,
+          "no": 0.2814
+        },
+        "argmax": "yes"
+      }
+    },
+    "active_mb": 3075.0,
+    "peak_mb": 4130.8
+  },
+  {
+    "idx": 6,
+    "t": 6.0,
+    "raw": "{\"walking\":\"no\",\"hold_tray\":\"no\",\"coworker_visible\":\"yes\"}<|im_end|>",
+    "confidence": {
+      "walking": {
+        "probs": {
+          "yes": 0.3558,
+          "no": 0.6442
+        },
+        "argmax": "no"
+      },
+      "hold_tray": {
+        "probs": {
+          "yes": 0.3558,
+          "no": 0.6442
+        },
+        "argmax": "no"
+      },
+      "coworker_visible": {
+        "probs": {
+          "yes": 0.7827,
+          "no": 0.2173
+        },
+        "argmax": "yes"
+      }
+    },
+    "active_mb": 3075.0,
+    "peak_mb": 4130.9
+  },
+  {
+    "idx": 7,
+    "t": 7.0,
+    "raw": "{\"walking\":\"no\",\"hold_tray\":\"no\",\"coworker_visible\":\"yes\"}<|im_end|>",
+    "confidence": {
+      "walking": {
+        "probs": {
+          "yes": 0.0981,
+          "no": 0.9019
+        },
+        "argmax": "no"
+      },
+      "hold_tray": {
+        "probs": {
+          "yes": 0.2254,
+          "no": 0.7746
+        },
+        "argmax": "no"
+      },
+      "coworker_visible": {
+        "probs": {
+          "yes": 0.85,
+          "no": 0.15
+        },
+        "argmax": "yes"
+      }
+    },
+    "active_mb": 3075.0,
+    "peak_mb": 4130.8
+  },
+  {
+    "idx": 8,
+    "t": 8.0,
+    "raw": "{\"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!",
+    "confidence": {},
+    "active_mb": 3075.0,
+    "peak_mb": 4130.9
+  },
+  {
+    "idx": 9,
+    "t": 9.0,
+    "raw": "{\"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!",
+    "confidence": {},
+    "active_mb": 3075.0,
+    "peak_mb": 4130.8
+  },
+  {
+    "idx": 10,
+    "t": 10.0,
+    "raw": "{\"walking\":\"no\",\"hold_tray\":\"yes\",\"coworker_visible\":\"yes\"}<|im_end|>",
+    "confidence": {
+      "walking": {
+        "probs": {
+          "yes": 0.1993,
+          "no": 0.8007
+        },
+        "argmax": "no"
+      },
+      "hold_tray": {
+        "probs": {
+          "yes": 0.9621,
+          "no": 0.0379
+        },
+        "argmax": "yes"
+      },
+      "coworker_visible": {
+        "probs": {
+          "yes": 0.9315,
+          "no": 0.0685
+        },
+        "argmax": "yes"
+      }
+    },
+    "active_mb": 3075.0,
+    "peak_mb": 4130.9
+  },
+  {
+    "idx": 11,
+    "t": 11.0,
+    "raw": "{\"walking\":\"no\",\"hold_tray\":\"yes\",\"coworker_visible\":\"yes\"}<|im_end|>",
+    "confidence": {
+      "walking": {
+        "probs": {
+          "yes": 0.272,
+          "no": 0.728
+        },
+        "argmax": "no"
+      },
+      "hold_tray": {
+        "probs": {
+          "yes": 0.9777,
+          "no": 0.0223
+        },
+        "argmax": "yes"
+      },
+      "coworker_visible": {
+        "probs": {
+          "yes": 0.923,
+          "no": 0.077
+        },
+        "argmax": "yes"
+      }
+    },
+    "active_mb": 3075.0,
+    "peak_mb": 4130.9
+  },
+  {
+    "idx": 12,
+    "t": 12.0,
+    "raw": "{\"walking\":\"no\",\"hold_tray\":\"yes\",\"coworker_visible\":\"yes\"}<|im_end|>",
+    "confidence": {
+      "walking": {
+        "probs": {
+          "yes": 0.1023,
+          "no": 0.8977
+        },
+        "argmax": "no"
+      },
+      "hold_tray": {
+        "probs": {
+          "yes": 0.9621,
+          "no": 0.0379
+        },
+        "argmax": "yes"
+      },
+      "coworker_visible": {
+        "probs": {
+          "yes": 0.9124,
+          "no": 0.0876
+        },
+        "argmax": "yes"
+      }
+    },
+    "active_mb": 3075.0,
+    "peak_mb": 4130.9
+  },
+  {
+    "idx": 13,
+    "t": 13.0,
+    "raw": "{\"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!",
+    "confidence": {},
+    "active_mb": 3075.0,
+    "peak_mb": 4130.9
+  },
+  {
+    "idx": 14,
+    "t": 14.0,
+    "raw": "{\"walking\":\"no\",\"hold_tray\":\"yes\",\"coworker_visible\":\"no\"}<|im_end|>",
+    "confidence": {
+      "walking": {
+        "probs": {
+          "yes": 0.1919,
+          "no": 0.8081
+        },
+        "argmax": "no"
+      },
+      "hold_tray": {
+        "probs": {
+          "yes": 0.9716,
+          "no": 0.0284
+        },
+        "argmax": "yes"
+      },
+      "coworker_visible": {
+        "probs": {
+          "yes": 0.3702,
+          "no": 0.6298
+        },
+        "argmax": "no"
+      }
+    },
+    "active_mb": 3075.0,
+    "peak_mb": 4130.9
+  },
+  {
+    "idx": 15,
+    "t": 15.0,
+    "raw": "{\"walking\":\"no\",\"hold_tray\":\"yes\",\"coworker_visible\":\"no\"}<|im_end|>",
+    "confidence": {
+      "walking": {
+        "probs": {
+          "yes": 0.22,
+          "no": 0.78
+        },
+        "argmax": "no"
+      },
+      "hold_tray": {
+        "probs": {
+          "yes": 0.9519,
+          "no": 0.0481
+        },
+        "argmax": "yes"
+      },
+      "coworker_visible": {
+        "probs": {
+          "yes": 0.0496,
+          "no": 0.9504
+        },
+        "argmax": "no"
+      }
+    },
+    "active_mb": 3075.0,
+    "peak_mb": 4130.9
+  },
+  {
+    "idx": 16,
+    "t": 16.0,
+    "raw": "{\"walking\":\"no\",\"hold_tray\":\"yes\",\"coworker_visible\":\"no\"}<|im_end|>",
+    "confidence": {
+      "walking": {
+        "probs": {
+          "yes": 0.077,
+          "no": 0.923
+        },
+        "argmax": "no"
+      },
+      "hold_tray": {
+        "probs": {
+          "yes": 0.9831,
+          "no": 0.0169
+        },
+        "argmax": "yes"
+      },
+      "coworker_visible": {
+        "probs": {
+          "yes": 0.0511,
+          "no": 0.9489
+        },
+        "argmax": "no"
+      }
+    },
+    "active_mb": 3075.0,
+    "peak_mb": 4130.9
+  },
+  {
+    "idx": 17,
+    "t": 17.0,
+    "raw": "{\"walking\":\"no\",\"hold_tray\":\"yes\",\"coworker_visible\":\"yes\"}<|im_end|>",
+    "confidence": {
+      "walking": {
+        "probs": {
+          "yes": 0.1919,
+          "no": 0.8081
+        },
+        "argmax": "no"
+      },
+      "hold_tray": {
+        "probs": {
+          "yes": 0.939,
+          "no": 0.061
+        },
+        "argmax": "yes"
+      },
+      "coworker_visible": {
+        "probs": {
+          "yes": 0.5583,
+          "no": 0.4417
+        },
+        "argmax": "yes"
+      }
+    },
+    "active_mb": 3075.0,
+    "peak_mb": 4130.9
+  },
+  {
+    "idx": 18,
+    "t": 18.0,
+    "raw": "{\"walking\":\"no\",\"hold_tray\":\"yes\",\"coworker_visible\":\"no\"}<|im_end|>",
+    "confidence": {
+      "walking": {
+        "probs": {
+          "yes": 0.1541,
+          "no": 0.8459
+        },
+        "argmax": "no"
+      },
+      "hold_tray": {
+        "probs": {
+          "yes": 0.9019,
+          "no": 0.0981
+        },
+        "argmax": "yes"
+      },
+      "coworker_visible": {
+        "probs": {
+          "yes": 0.2598,
+          "no": 0.7402
+        },
+        "argmax": "no"
+      }
+    },
+    "active_mb": 3075.0,
+    "peak_mb": 4130.9
+  },
+  {
+    "idx": 19,
+    "t": 19.0,
+    "raw": "{\"walking\":\"no\",\"hold_tray\":\"yes\",\"coworker_visible\":\"yes\"}<|im_end|>",
+    "confidence": {
+      "walking": {
+        "probs": {
+          "yes": 0.272,
+          "no": 0.728
+        },
+        "argmax": "no"
+      },
+      "hold_tray": {
+        "probs": {
+          "yes": 0.987,
+          "no": 0.013
+        },
+        "argmax": "yes"
+      },
+      "coworker_visible": {
+        "probs": {
+          "yes": 0.5583,
+          "no": 0.4417
+        },
+        "argmax": "yes"
+      }
+    },
+    "active_mb": 3075.0,
+    "peak_mb": 4130.9
+  }
+]

@@ -1,0 +1,580 @@
+[
+  {
+    "idx": 0,
+    "t": 0.0,
+    "raw": "{\"hold_part\":\"yes\",\"reach_rack\":\"yes\",\"tray_visible\":\"yes\"}<|im_end|>",
+    "confidence": {
+      "hold_part": {
+        "probs": {
+          "yes": 0.5851,
+          "no": 0.4149
+        },
+        "argmax": "yes"
+      },
+      "reach_rack": {
+        "probs": {
+          "yes": 0.6406,
+          "no": 0.3594
+        },
+        "argmax": "yes"
+      },
+      "tray_visible": {
+        "probs": {
+          "yes": 0.6758,
+          "no": 0.3242
+        },
+        "argmax": "yes"
+      }
+    },
+    "active_mb": 3075.0,
+    "peak_mb": 4130.9
+  },
+  {
+    "idx": 1,
+    "t": 1.0,
+    "raw": "{\"hold_part\":\"yes\",\"reach_rack\":\"yes\",\"tray_visible\":\"yes\"}<|im_end|>",
+    "confidence": {
+      "hold_part": {
+        "probs": {
+          "yes": 0.6261,
+          "no": 0.3739
+        },
+        "argmax": "yes"
+      },
+      "reach_rack": {
+        "probs": {
+          "yes": 0.6689,
+          "no": 0.3311
+        },
+        "argmax": "yes"
+      },
+      "tray_visible": {
+        "probs": {
+          "yes": 0.9533,
+          "no": 0.0467
+        },
+        "argmax": "yes"
+      }
+    },
+    "active_mb": 3075.0,
+    "peak_mb": 4130.9
+  },
+  {
+    "idx": 2,
+    "t": 2.0,
+    "raw": "{\"hold_part\":\"yes\",\"reach_rack\":\"yes\",\"tray_visible\":\"yes\"}<|im_end|>",
+    "confidence": {
+      "hold_part": {
+        "probs": {
+          "yes": 0.9196,
+          "no": 0.0804
+        },
+        "argmax": "yes"
+      },
+      "reach_rack": {
+        "probs": {
+          "yes": 0.6859,
+          "no": 0.3141
+        },
+        "argmax": "yes"
+      },
+      "tray_visible": {
+        "probs": {
+          "yes": 0.8991,
+          "no": 0.1009
+        },
+        "argmax": "yes"
+      }
+    },
+    "active_mb": 3075.0,
+    "peak_mb": 4130.9
+  },
+  {
+    "idx": 3,
+    "t": 3.0,
+    "raw": "{\"hold_part\":\"yes\",\"reach_rack\":\"yes\",\"tray_visible\":\"yes\"}<|im_end|>",
+    "confidence": {
+      "hold_part": {
+        "probs": {
+          "yes": 0.9399,
+          "no": 0.0601
+        },
+        "argmax": "yes"
+      },
+      "reach_rack": {
+        "probs": {
+          "yes": 0.6151,
+          "no": 0.3849
+        },
+        "argmax": "yes"
+      },
+      "tray_visible": {
+        "probs": {
+          "yes": 0.9219,
+          "no": 0.0781
+        },
+        "argmax": "yes"
+      }
+    },
+    "active_mb": 3075.0,
+    "peak_mb": 4130.9
+  },
+  {
+    "idx": 4,
+    "t": 4.0,
+    "raw": "{\"hold_part\":\"yes\",\"reach_rack\":\"yes\",\"tray_visible\":\"yes\"}<|im_end|>",
+    "confidence": {
+      "hold_part": {
+        "probs": {
+          "yes": 0.9698,
+          "no": 0.0302
+        },
+        "argmax": "yes"
+      },
+      "reach_rack": {
+        "probs": {
+          "yes": 0.5889,
+          "no": 0.4111
+        },
+        "argmax": "yes"
+      },
+      "tray_visible": {
+        "probs": {
+          "yes": 0.8007,
+          "no": 0.1993
+        },
+        "argmax": "yes"
+      }
+    },
+    "active_mb": 3075.0,
+    "peak_mb": 4130.9
+  },
+  {
+    "idx": 5,
+    "t": 5.0,
+    "raw": "{\"hold_part\":\"yes\",\"reach_rack\":\"yes\",\"tray_visible\":\"yes\"}<|im_end|>",
+    "confidence": {
+      "hold_part": {
+        "probs": {
+          "yes": 0.9627,
+          "no": 0.0373
+        },
+        "argmax": "yes"
+      },
+      "reach_rack": {
+        "probs": {
+          "yes": 0.6188,
+          "no": 0.3812
+        },
+        "argmax": "yes"
+      },
+      "tray_visible": {
+        "probs": {
+          "yes": 0.7663,
+          "no": 0.2337
+        },
+        "argmax": "yes"
+      }
+    },
+    "active_mb": 3075.0,
+    "peak_mb": 4130.9
+  },
+  {
+    "idx": 6,
+    "t": 6.0,
+    "raw": "{\"hold_part\":\"yes\",\"reach_rack\":\"yes\",\"tray_visible\":\"yes\"}<|im_end|>",
+    "confidence": {
+      "hold_part": {
+        "probs": {
+          "yes": 0.8578,
+          "no": 0.1422
+        },
+        "argmax": "yes"
+      },
+      "reach_rack": {
+        "probs": {
+          "yes": 0.6859,
+          "no": 0.3141
+        },
+        "argmax": "yes"
+      },
+      "tray_visible": {
+        "probs": {
+          "yes": 0.7773,
+          "no": 0.2227
+        },
+        "argmax": "yes"
+      }
+    },
+    "active_mb": 3075.0,
+    "peak_mb": 4130.9
+  },
+  {
+    "idx": 7,
+    "t": 7.0,
+    "raw": "{\"hold_part\":\"yes\",\"reach_rack\":\"yes\",\"tray_visible\":\"yes\"}<|im_end|>",
+    "confidence": {
+      "hold_part": {
+        "probs": {
+          "yes": 0.8888,
+          "no": 0.1112
+        },
+        "argmax": "yes"
+      },
+      "reach_rack": {
+        "probs": {
+          "yes": 0.7058,
+          "no": 0.2942
+        },
+        "argmax": "yes"
+      },
+      "tray_visible": {
+        "probs": {
+          "yes": 0.5775,
+          "no": 0.4225
+        },
+        "argmax": "yes"
+      }
+    },
+    "active_mb": 3075.0,
+    "peak_mb": 4130.9
+  },
+  {
+    "idx": 8,
+    "t": 8.0,
+    "raw": "{\"hold_part\":\"yes\",\"reach_rack\":\"yes\",\"tray_visible\":\"yes\"}<|im_end|>",
+    "confidence": {
+      "hold_part": {
+        "probs": {
+          "yes": 0.8007,
+          "no": 0.1993
+        },
+        "argmax": "yes"
+      },
+      "reach_rack": {
+        "probs": {
+          "yes": 0.7905,
+          "no": 0.2095
+        },
+        "argmax": "yes"
+      },
+      "tray_visible": {
+        "probs": {
+          "yes": 0.752,
+          "no": 0.248
+        },
+        "argmax": "yes"
+      }
+    },
+    "active_mb": 3075.0,
+    "peak_mb": 4130.9
+  },
+  {
+    "idx": 9,
+    "t": 9.0,
+    "raw": "{\"hold_part\":\"yes\",\"reach_rack\":\"yes\",\"tray_visible\":\"yes\"}<|im_end|>",
+    "confidence": {
+      "hold_part": {
+        "probs": {
+          "yes": 0.6549,
+          "no": 0.3451
+        },
+        "argmax": "yes"
+      },
+      "reach_rack": {
+        "probs": {
+          "yes": 0.6225,
+          "no": 0.3775
+        },
+        "argmax": "yes"
+      },
+      "tray_visible": {
+        "probs": {
+          "yes": 0.9664,
+          "no": 0.0336
+        },
+        "argmax": "yes"
+      }
+    },
+    "active_mb": 3075.0,
+    "peak_mb": 4130.9
+  },
+  {
+    "idx": 10,
+    "t": 10.0,
+    "raw": "{\"hold_part\":\"yes\",\"reach_rack\":\"yes\",\"tray_visible\":\"yes\"}<|im_end|>",
+    "confidence": {
+      "hold_part": {
+        "probs": {
+          "yes": 0.7879,
+          "no": 0.2121
+        },
+        "argmax": "yes"
+      },
+      "reach_rack": {
+        "probs": {
+          "yes": 0.696,
+          "no": 0.304
+        },
+        "argmax": "yes"
+      },
+      "tray_visible": {
+        "probs": {
+          "yes": 0.9504,
+          "no": 0.0496
+        },
+        "argmax": "yes"
+      }
+    },
+    "active_mb": 3075.0,
+    "peak_mb": 4130.9
+  },
+  {
+    "idx": 11,
+    "t": 11.0,
+    "raw": "{\"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!",
+    "confidence": {},
+    "active_mb": 3075.0,
+    "peak_mb": 4130.9
+  },
+  {
+    "idx": 12,
+    "t": 12.0,
+    "raw": "{\"hold_part\":\"yes\",\"reach_rack\":\"yes\",\"tray_visible\":\"yes\"}<|im_end|>",
+    "confidence": {
+      "hold_part": {
+        "probs": {
+          "yes": 0.8991,
+          "no": 0.1009
+        },
+        "argmax": "yes"
+      },
+      "reach_rack": {
+        "probs": {
+          "yes": 0.6549,
+          "no": 0.3451
+        },
+        "argmax": "yes"
+      },
+      "tray_visible": {
+        "probs": {
+          "yes": 0.852,
+          "no": 0.148
+        },
+        "argmax": "yes"
+      }
+    },
+    "active_mb": 3075.0,
+    "peak_mb": 4130.9
+  },
+  {
+    "idx": 13,
+    "t": 13.0,
+    "raw": "{\"hold_part\":\"yes\",\"reach_rack\":\"yes\",\"tray_visible\":\"yes\"}<|im_end|>",
+    "confidence": {
+      "hold_part": {
+        "probs": {
+          "yes": 0.9325,
+          "no": 0.0675
+        },
+        "argmax": "yes"
+      },
+      "reach_rack": {
+        "probs": {
+          "yes": 0.6298,
+          "no": 0.3702
+        },
+        "argmax": "yes"
+      },
+      "tray_visible": {
+        "probs": {
+          "yes": 0.9504,
+          "no": 0.0496
+        },
+        "argmax": "yes"
+      }
+    },
+    "active_mb": 3075.0,
+    "peak_mb": 4130.9
+  },
+  {
+    "idx": 14,
+    "t": 14.0,
+    "raw": "{\"hold_part\":\"yes\",\"reach_rack\":\"yes\",\"tray_visible\":\"yes\"}<|im_end|>",
+    "confidence": {
+      "hold_part": {
+        "probs": {
+          "yes": 0.9073,
+          "no": 0.0927
+        },
+        "argmax": "yes"
+      },
+      "reach_rack": {
+        "probs": {
+          "yes": 0.5622,
+          "no": 0.4378
+        },
+        "argmax": "yes"
+      },
+      "tray_visible": {
+        "probs": {
+          "yes": 0.9781,
+          "no": 0.0219
+        },
+        "argmax": "yes"
+      }
+    },
+    "active_mb": 3075.0,
+    "peak_mb": 4130.9
+  },
+  {
+    "idx": 15,
+    "t": 15.0,
+    "raw": "{\"hold_part\":\"yes\",\"reach_rack\":\"yes\",\"tray_visible\":\"yes\"}<|im_end|>",
+    "confidence": {
+      "hold_part": {
+        "probs": {
+          "yes": 0.8808,
+          "no": 0.1192
+        },
+        "argmax": "yes"
+      },
+      "reach_rack": {
+        "probs": {
+          "yes": 0.5039,
+          "no": 0.4961
+        },
+        "argmax": "yes"
+      },
+      "tray_visible": {
+        "probs": {
+          "yes": 0.9823,
+          "no": 0.0177
+        },
+        "argmax": "yes"
+      }
+    },
+    "active_mb": 3075.0,
+    "peak_mb": 4130.9
+  },
+  {
+    "idx": 16,
+    "t": 16.0,
+    "raw": "{\"hold_part\":\"yes\",\"reach_rack\":\"yes\",\"tray_visible\":\"yes\"}<|im_end|>",
+    "confidence": {
+      "hold_part": {
+        "probs": {
+          "yes": 0.9546,
+          "no": 0.0454
+        },
+        "argmax": "yes"
+      },
+      "reach_rack": {
+        "probs": {
+          "yes": 0.5813,
+          "no": 0.4187
+        },
+        "argmax": "yes"
+      },
+      "tray_visible": {
+        "probs": {
+          "yes": 0.8152,
+          "no": 0.1848
+        },
+        "argmax": "yes"
+      }
+    },
+    "active_mb": 3075.0,
+    "peak_mb": 4130.9
+  },
+  {
+    "idx": 17,
+    "t": 17.0,
+    "raw": "{\"hold_part\":\"yes\",\"reach_rack\":\"yes\",\"tray_visible\":\"yes\"}<|im_end|>",
+    "confidence": {
+      "hold_part": {
+        "probs": {
+          "yes": 0.6151,
+          "no": 0.3849
+        },
+        "argmax": "yes"
+      },
+      "reach_rack": {
+        "probs": {
+          "yes": 0.728,
+          "no": 0.272
+        },
+        "argmax": "yes"
+      },
+      "tray_visible": {
+        "probs": {
+          "yes": 0.7773,
+          "no": 0.2227
+        },
+        "argmax": "yes"
+      }
+    },
+    "active_mb": 3075.0,
+    "peak_mb": 4130.9
+  },
+  {
+    "idx": 18,
+    "t": 18.0,
+    "raw": "{\"hold_part\":\"yes\",\"reach_rack\":\"yes\",\"tray_visible\":\"yes\"}<|im_end|>",
+    "confidence": {
+      "hold_part": {
+        "probs": {
+          "yes": 0.9353,
+          "no": 0.0647
+        },
+        "argmax": "yes"
+      },
+      "reach_rack": {
+        "probs": {
+          "yes": 0.6514,
+          "no": 0.3486
+        },
+        "argmax": "yes"
+      },
+      "tray_visible": {
+        "probs": {
+          "yes": 0.7746,
+          "no": 0.2254
+        },
+        "argmax": "yes"
+      }
+    },
+    "active_mb": 3075.0,
+    "peak_mb": 4130.9
+  },
+  {
+    "idx": 19,
+    "t": 19.0,
+    "raw": "{\"hold_part\":\"yes\",\"reach_rack\":\"yes\",\"tray_visible\":\"yes\"}<|im_end|>",
+    "confidence": {
+      "hold_part": {
+        "probs": {
+          "yes": 0.7461,
+          "no": 0.2539
+        },
+        "argmax": "yes"
+      },
+      "reach_rack": {
+        "probs": {
+          "yes": 0.6893,
+          "no": 0.3107
+        },
+        "argmax": "yes"
+      },
+      "tray_visible": {
+        "probs": {
+          "yes": 0.7578,
+          "no": 0.2422
+        },
+        "argmax": "yes"
+      }
+    },
+    "active_mb": 3075.0,
+    "peak_mb": 4130.9
+  }
+]

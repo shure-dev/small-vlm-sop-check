@@ -17,4 +17,4 @@ def test_factory_ego_benchmark_integrity():
         check=False,
     )
     assert completed.returncode == 0, completed.stdout + completed.stderr
-    assert "units=8 runs=3" in completed.stdout
+    assert "units=8 runs=5" in completed.stdout

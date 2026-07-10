@@ -72,7 +72,6 @@ class Observer:
             pass
 
         self._mx = mx
-        self.questions = questions
         # 思考(reasoning)モデル向けの制御。None=モデル既定に任せる(mlx_vlmは
         # テンプレートが対応していれば既定でenable_thinking=Falseにする)。
         # True/Falseを渡すとチャットテンプレートへ明示的に伝える。
@@ -84,8 +83,12 @@ class Observer:
         self.model, self.processor = load(model)
         self.config = self.model.config
         print(f"[observe] loaded in {time.time()-t0:.1f}s", flush=True)
+        self.set_questions(questions)
 
+    def set_questions(self, questions: list[dict[str, Any]]) -> None:
+        """モデルは保持したまま質問セットを差し替える(候補トークンIDも再計算する)。"""
         tok = self.processor.tokenizer
+        self.questions = questions
         self._cand_ids = {}
         for c in questions:
             values = [_as_yaml_safe_str(v) for v in c.get("values", ["yes", "no"])]
@@ -174,7 +177,6 @@ class TransformersObserver:
         from transformers import AutoModelForImageTextToText, AutoProcessor
 
         self._torch = torch
-        self.questions = questions
         print(f"[observe] loading {model} (transformers) ...", flush=True)
         t0 = time.time()
         self.processor = AutoProcessor.from_pretrained(model)
@@ -183,8 +185,12 @@ class TransformersObserver:
         self.model = AutoModelForImageTextToText.from_pretrained(model, dtype=self.dtype)
         self.model.to(self.device).eval()
         print(f"[observe] loaded in {time.time()-t0:.1f}s (device={self.device})", flush=True)
+        self.set_questions(questions)
 
+    def set_questions(self, questions: list[dict[str, Any]]) -> None:
+        """モデルは保持したまま質問セットを差し替える(候補トークンIDも再計算する)。"""
         tok = self.processor.tokenizer
+        self.questions = questions
         self._cand_ids = {}
         for c in questions:
             values = [_as_yaml_safe_str(v) for v in c.get("values", ["yes", "no"])]

@@ -1,0 +1,730 @@
+{
+  "answer_source": "candidate-token probabilities; argmax normalized to yes/no",
+  "frame_count": 20,
+  "frames": [
+    {
+      "answers": {
+        "coworker_visible": "yes",
+        "hold_tray": "no",
+        "walking": "yes"
+      },
+      "confidence": {
+        "coworker_visible": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.0124,
+            "yes": 0.9876
+          }
+        },
+        "hold_tray": {
+          "argmax": "no",
+          "probs": {
+            "no": 0.7058,
+            "yes": 0.2942
+          }
+        },
+        "walking": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.3208,
+            "yes": 0.6792
+          }
+        }
+      },
+      "idx": 0,
+      "resource": {
+        "active_mb": 3465.7,
+        "peak_mb": 5368.7
+      },
+      "t": 0.0
+    },
+    {
+      "answers": {
+        "coworker_visible": "yes",
+        "hold_tray": "no",
+        "walking": "yes"
+      },
+      "confidence": {
+        "coworker_visible": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.1067,
+            "yes": 0.8933
+          }
+        },
+        "hold_tray": {
+          "argmax": "no",
+          "probs": {
+            "no": 0.8176,
+            "yes": 0.1824
+          }
+        },
+        "walking": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.2942,
+            "yes": 0.7058
+          }
+        }
+      },
+      "idx": 1,
+      "resource": {
+        "active_mb": 3465.7,
+        "peak_mb": 5368.7
+      },
+      "t": 1.0
+    },
+    {
+      "answers": {
+        "coworker_visible": "yes",
+        "hold_tray": "no",
+        "walking": "yes"
+      },
+      "confidence": {
+        "coworker_visible": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.0007,
+            "yes": 0.9993
+          }
+        },
+        "hold_tray": {
+          "argmax": "no",
+          "probs": {
+            "no": 0.9399,
+            "yes": 0.0601
+          }
+        },
+        "walking": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.0851,
+            "yes": 0.9149
+          }
+        }
+      },
+      "idx": 2,
+      "resource": {
+        "active_mb": 3465.7,
+        "peak_mb": 5368.7
+      },
+      "t": 2.0
+    },
+    {
+      "answers": {
+        "coworker_visible": "yes",
+        "hold_tray": "no",
+        "walking": "yes"
+      },
+      "confidence": {
+        "coworker_visible": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.3208,
+            "yes": 0.6792
+          }
+        },
+        "hold_tray": {
+          "argmax": "no",
+          "probs": {
+            "no": 0.867,
+            "yes": 0.133
+          }
+        },
+        "walking": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.0331,
+            "yes": 0.9669
+          }
+        }
+      },
+      "idx": 3,
+      "resource": {
+        "active_mb": 3465.7,
+        "peak_mb": 5368.8
+      },
+      "t": 3.0
+    },
+    {
+      "answers": {
+        "coworker_visible": "yes",
+        "hold_tray": "no",
+        "walking": "yes"
+      },
+      "confidence": {
+        "coworker_visible": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.0001,
+            "yes": 0.9999
+          }
+        },
+        "hold_tray": {
+          "argmax": "no",
+          "probs": {
+            "no": 0.9627,
+            "yes": 0.0373
+          }
+        },
+        "walking": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.0373,
+            "yes": 0.9627
+          }
+        }
+      },
+      "idx": 4,
+      "resource": {
+        "active_mb": 3465.7,
+        "peak_mb": 5368.7
+      },
+      "t": 4.0
+    },
+    {
+      "answers": {
+        "coworker_visible": "yes",
+        "hold_tray": "no",
+        "walking": "yes"
+      },
+      "confidence": {
+        "coworker_visible": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.0003,
+            "yes": 0.9997
+          }
+        },
+        "hold_tray": {
+          "argmax": "no",
+          "probs": {
+            "no": 0.7773,
+            "yes": 0.2227
+          }
+        },
+        "walking": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.3486,
+            "yes": 0.6514
+          }
+        }
+      },
+      "idx": 5,
+      "resource": {
+        "active_mb": 3465.7,
+        "peak_mb": 5368.7
+      },
+      "t": 5.0
+    },
+    {
+      "answers": {
+        "coworker_visible": "yes",
+        "hold_tray": "yes",
+        "walking": "no"
+      },
+      "confidence": {
+        "coworker_visible": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.0001,
+            "yes": 0.9999
+          }
+        },
+        "hold_tray": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.3208,
+            "yes": 0.6792
+          }
+        },
+        "walking": {
+          "argmax": "no",
+          "probs": {
+            "no": 0.7773,
+            "yes": 0.2227
+          }
+        }
+      },
+      "idx": 6,
+      "resource": {
+        "active_mb": 3465.7,
+        "peak_mb": 5368.7
+      },
+      "t": 6.0
+    },
+    {
+      "answers": {
+        "coworker_visible": "yes",
+        "hold_tray": "no",
+        "walking": "no"
+      },
+      "confidence": {
+        "coworker_visible": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.0019,
+            "yes": 0.9981
+          }
+        },
+        "hold_tray": {
+          "argmax": "no",
+          "probs": {
+            "no": 0.5622,
+            "yes": 0.4378
+          }
+        },
+        "walking": {
+          "argmax": "no",
+          "probs": {
+            "no": 0.9579,
+            "yes": 0.0421
+          }
+        }
+      },
+      "idx": 7,
+      "resource": {
+        "active_mb": 3465.7,
+        "peak_mb": 5368.7
+      },
+      "t": 7.0
+    },
+    {
+      "answers": {
+        "coworker_visible": "yes",
+        "hold_tray": "yes",
+        "walking": "no"
+      },
+      "confidence": {
+        "coworker_visible": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.0003,
+            "yes": 0.9997
+          }
+        },
+        "hold_tray": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.0203,
+            "yes": 0.9797
+          }
+        },
+        "walking": {
+          "argmax": "no",
+          "probs": {
+            "no": 0.9325,
+            "yes": 0.0675
+          }
+        }
+      },
+      "idx": 8,
+      "resource": {
+        "active_mb": 3465.7,
+        "peak_mb": 5368.7
+      },
+      "t": 8.0
+    },
+    {
+      "answers": {
+        "coworker_visible": "yes",
+        "hold_tray": "yes",
+        "walking": "no"
+      },
+      "confidence": {
+        "coworker_visible": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.0009,
+            "yes": 0.9991
+          }
+        },
+        "hold_tray": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.0028,
+            "yes": 0.9972
+          }
+        },
+        "walking": {
+          "argmax": "no",
+          "probs": {
+            "no": 0.9325,
+            "yes": 0.0675
+          }
+        }
+      },
+      "idx": 9,
+      "resource": {
+        "active_mb": 3465.7,
+        "peak_mb": 5368.7
+      },
+      "t": 9.0
+    },
+    {
+      "answers": {
+        "coworker_visible": "yes",
+        "hold_tray": "yes",
+        "walking": "no"
+      },
+      "confidence": {
+        "coworker_visible": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.0052,
+            "yes": 0.9948
+          }
+        },
+        "hold_tray": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.001,
+            "yes": 0.999
+          }
+        },
+        "walking": {
+          "argmax": "no",
+          "probs": {
+            "no": 0.9149,
+            "yes": 0.0851
+          }
+        }
+      },
+      "idx": 10,
+      "resource": {
+        "active_mb": 3465.7,
+        "peak_mb": 5368.7
+      },
+      "t": 10.0
+    },
+    {
+      "answers": {
+        "coworker_visible": "yes",
+        "hold_tray": "yes",
+        "walking": "no"
+      },
+      "confidence": {
+        "coworker_visible": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.0012,
+            "yes": 0.9988
+          }
+        },
+        "hold_tray": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.0006,
+            "yes": 0.9994
+          }
+        },
+        "walking": {
+          "argmax": "no",
+          "probs": {
+            "no": 0.7549,
+            "yes": 0.2451
+          }
+        }
+      },
+      "idx": 11,
+      "resource": {
+        "active_mb": 3465.7,
+        "peak_mb": 5368.8
+      },
+      "t": 11.0
+    },
+    {
+      "answers": {
+        "coworker_visible": "yes",
+        "hold_tray": "yes",
+        "walking": "no"
+      },
+      "confidence": {
+        "coworker_visible": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.0001,
+            "yes": 0.9999
+          }
+        },
+        "hold_tray": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.0015,
+            "yes": 0.9985
+          }
+        },
+        "walking": {
+          "argmax": "no",
+          "probs": {
+            "no": 0.8808,
+            "yes": 0.1192
+          }
+        }
+      },
+      "idx": 12,
+      "resource": {
+        "active_mb": 3465.7,
+        "peak_mb": 5368.7
+      },
+      "t": 12.0
+    },
+    {
+      "answers": {
+        "coworker_visible": "yes",
+        "hold_tray": "yes",
+        "walking": "no"
+      },
+      "confidence": {
+        "coworker_visible": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.0001,
+            "yes": 0.9999
+          }
+        },
+        "hold_tray": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.0003,
+            "yes": 0.9997
+          }
+        },
+        "walking": {
+          "argmax": "no",
+          "probs": {
+            "no": 0.7982,
+            "yes": 0.2018
+          }
+        }
+      },
+      "idx": 13,
+      "resource": {
+        "active_mb": 3465.7,
+        "peak_mb": 5368.7
+      },
+      "t": 13.0
+    },
+    {
+      "answers": {
+        "coworker_visible": "yes",
+        "hold_tray": "yes",
+        "walking": "no"
+      },
+      "confidence": {
+        "coworker_visible": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.018,
+            "yes": 0.982
+          }
+        },
+        "hold_tray": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.0002,
+            "yes": 0.9998
+          }
+        },
+        "walking": {
+          "argmax": "no",
+          "probs": {
+            "no": 0.8808,
+            "yes": 0.1192
+          }
+        }
+      },
+      "idx": 14,
+      "resource": {
+        "active_mb": 3465.7,
+        "peak_mb": 5368.7
+      },
+      "t": 14.0
+    },
+    {
+      "answers": {
+        "coworker_visible": "yes",
+        "hold_tray": "yes",
+        "walking": "no"
+      },
+      "confidence": {
+        "coworker_visible": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.0076,
+            "yes": 0.9924
+          }
+        },
+        "hold_tray": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.0001,
+            "yes": 0.9999
+          }
+        },
+        "walking": {
+          "argmax": "no",
+          "probs": {
+            "no": 0.6792,
+            "yes": 0.3208
+          }
+        }
+      },
+      "idx": 15,
+      "resource": {
+        "active_mb": 3465.7,
+        "peak_mb": 5368.7
+      },
+      "t": 15.0
+    },
+    {
+      "answers": {
+        "coworker_visible": "yes",
+        "hold_tray": "yes",
+        "walking": "no"
+      },
+      "confidence": {
+        "coworker_visible": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.0059,
+            "yes": 0.9941
+          }
+        },
+        "hold_tray": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.0001,
+            "yes": 0.9999
+          }
+        },
+        "walking": {
+          "argmax": "no",
+          "probs": {
+            "no": 0.867,
+            "yes": 0.133
+          }
+        }
+      },
+      "idx": 16,
+      "resource": {
+        "active_mb": 3465.7,
+        "peak_mb": 5368.8
+      },
+      "t": 16.0
+    },
+    {
+      "answers": {
+        "coworker_visible": "yes",
+        "hold_tray": "yes",
+        "walking": "no"
+      },
+      "confidence": {
+        "coworker_visible": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.0046,
+            "yes": 0.9954
+          }
+        },
+        "hold_tray": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.0001,
+            "yes": 0.9999
+          }
+        },
+        "walking": {
+          "argmax": "no",
+          "probs": {
+            "no": 0.8355,
+            "yes": 0.1645
+          }
+        }
+      },
+      "idx": 17,
+      "resource": {
+        "active_mb": 3465.7,
+        "peak_mb": 5368.7
+      },
+      "t": 17.0
+    },
+    {
+      "answers": {
+        "coworker_visible": "yes",
+        "hold_tray": "yes",
+        "walking": "no"
+      },
+      "confidence": {
+        "coworker_visible": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.0953,
+            "yes": 0.9047
+          }
+        },
+        "hold_tray": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.0001,
+            "yes": 0.9999
+          }
+        },
+        "walking": {
+          "argmax": "no",
+          "probs": {
+            "no": 0.5927,
+            "yes": 0.4073
+          }
+        }
+      },
+      "idx": 18,
+      "resource": {
+        "active_mb": 3465.7,
+        "peak_mb": 5368.8
+      },
+      "t": 18.0
+    },
+    {
+      "answers": {
+        "coworker_visible": "yes",
+        "hold_tray": "yes",
+        "walking": "yes"
+      },
+      "confidence": {
+        "coworker_visible": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.133,
+            "yes": 0.867
+          }
+        },
+        "hold_tray": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.0002,
+            "yes": 0.9998
+          }
+        },
+        "walking": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.2942,
+            "yes": 0.7058
+          }
+        }
+      },
+      "idx": 19,
+      "resource": {
+        "active_mb": 3465.7,
+        "peak_mb": 5368.8
+      },
+      "t": 19.0
+    }
+  ],
+  "prediction_type": "frame_question_answers",
+  "run_id": "20260710-factory_ego-qwen3.5-4b-baseline-r1",
+  "schema_version": "1.0",
+  "unit_id": "f051_w001_tray_handoff"
+}

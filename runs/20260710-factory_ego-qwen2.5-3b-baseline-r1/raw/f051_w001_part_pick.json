@@ -1,0 +1,558 @@
+[
+  {
+    "idx": 0,
+    "t": 0.0,
+    "raw": "{\"reach_up\":\"yes\",\"handle_part\":\"no\",\"grid_tray\":\"no\"}<|im_end|>",
+    "confidence": {
+      "reach_up": {
+        "probs": {
+          "yes": 0.6002,
+          "no": 0.3998
+        },
+        "argmax": "yes"
+      },
+      "handle_part": {
+        "probs": {
+          "yes": 0.3107,
+          "no": 0.6893
+        },
+        "argmax": "no"
+      },
+      "grid_tray": {
+        "probs": {
+          "yes": 0.4766,
+          "no": 0.5234
+        },
+        "argmax": "no"
+      }
+    },
+    "active_mb": 3075.0,
+    "peak_mb": 4130.9
+  },
+  {
+    "idx": 1,
+    "t": 1.0,
+    "raw": "{\"reach_up\":\"no\",\"handle_part\":\"yes\",\"grid_tray\":\"no\"}<|im_end|>",
+    "confidence": {
+      "reach_up": {
+        "probs": {
+          "yes": 0.4036,
+          "no": 0.5964
+        },
+        "argmax": "no"
+      },
+      "handle_part": {
+        "probs": {
+          "yes": 0.6002,
+          "no": 0.3998
+        },
+        "argmax": "yes"
+      },
+      "grid_tray": {
+        "probs": {
+          "yes": 0.2598,
+          "no": 0.7402
+        },
+        "argmax": "no"
+      }
+    },
+    "active_mb": 3075.0,
+    "peak_mb": 4130.8
+  },
+  {
+    "idx": 2,
+    "t": 2.0,
+    "raw": "{\"reach_up\":\"yes\",\"handle_part\":\"no\",\"grid_tray\":\"no\"}<|im_end|>",
+    "confidence": {
+      "reach_up": {
+        "probs": {
+          "yes": 0.5195,
+          "no": 0.4805
+        },
+        "argmax": "yes"
+      },
+      "handle_part": {
+        "probs": {
+          "yes": 0.3277,
+          "no": 0.6723
+        },
+        "argmax": "no"
+      },
+      "grid_tray": {
+        "probs": {
+          "yes": 0.4187,
+          "no": 0.5813
+        },
+        "argmax": "no"
+      }
+    },
+    "active_mb": 3075.0,
+    "peak_mb": 4130.9
+  },
+  {
+    "idx": 3,
+    "t": 3.0,
+    "raw": "{\"reach_up\":\"no\",\"handle_part\":\"yes\",\"grid_tray\":\"no\"}<|im_end|>",
+    "confidence": {
+      "reach_up": {
+        "probs": {
+          "yes": 0.4187,
+          "no": 0.5813
+        },
+        "argmax": "no"
+      },
+      "handle_part": {
+        "probs": {
+          "yes": 0.5851,
+          "no": 0.4149
+        },
+        "argmax": "yes"
+      },
+      "grid_tray": {
+        "probs": {
+          "yes": 0.363,
+          "no": 0.637
+        },
+        "argmax": "no"
+      }
+    },
+    "active_mb": 3075.0,
+    "peak_mb": 4130.8
+  },
+  {
+    "idx": 4,
+    "t": 4.0,
+    "raw": "{\"reach_up\":\"yes\",\"handle_part\":\"no\",\"grid_tray\":\"yes\"}<|im_end|>",
+    "confidence": {
+      "reach_up": {
+        "probs": {
+          "yes": 0.5117,
+          "no": 0.4883
+        },
+        "argmax": "yes"
+      },
+      "handle_part": {
+        "probs": {
+          "yes": 0.4263,
+          "no": 0.5737
+        },
+        "argmax": "no"
+      },
+      "grid_tray": {
+        "probs": {
+          "yes": 0.5273,
+          "no": 0.4727
+        },
+        "argmax": "yes"
+      }
+    },
+    "active_mb": 3075.0,
+    "peak_mb": 4130.9
+  },
+  {
+    "idx": 5,
+    "t": 5.0,
+    "raw": "{\"reach_up\":\"no\",\"handle_part\":\"no\",\"grid_tray\":\"no\"}<|im_end|>",
+    "confidence": {
+      "reach_up": {
+        "probs": {
+          "yes": 0.4301,
+          "no": 0.5699
+        },
+        "argmax": "no"
+      },
+      "handle_part": {
+        "probs": {
+          "yes": 0.4805,
+          "no": 0.5195
+        },
+        "argmax": "no"
+      },
+      "grid_tray": {
+        "probs": {
+          "yes": 0.4766,
+          "no": 0.5234
+        },
+        "argmax": "no"
+      }
+    },
+    "active_mb": 3075.0,
+    "peak_mb": 4130.8
+  },
+  {
+    "idx": 6,
+    "t": 6.0,
+    "raw": "{\"reach_up\":\"yes\",\"handle_part\":\"no\",\"grid_tray\":\"yes\"}<|im_end|>",
+    "confidence": {
+      "reach_up": {
+        "probs": {
+          "yes": 0.6298,
+          "no": 0.3702
+        },
+        "argmax": "yes"
+      },
+      "handle_part": {
+        "probs": {
+          "yes": 0.4187,
+          "no": 0.5813
+        },
+        "argmax": "no"
+      },
+      "grid_tray": {
+        "probs": {
+          "yes": 0.5889,
+          "no": 0.4111
+        },
+        "argmax": "yes"
+      }
+    },
+    "active_mb": 3075.0,
+    "peak_mb": 4130.9
+  },
+  {
+    "idx": 7,
+    "t": 7.0,
+    "raw": "{\"reach_up\":\"no\",\"handle_part\":\"yes\",\"grid_tray\":\"yes\"}<|im_end|>",
+    "confidence": {
+      "reach_up": {
+        "probs": {
+          "yes": 0.4225,
+          "no": 0.5775
+        },
+        "argmax": "no"
+      },
+      "handle_part": {
+        "probs": {
+          "yes": 0.637,
+          "no": 0.363
+        },
+        "argmax": "yes"
+      },
+      "grid_tray": {
+        "probs": {
+          "yes": 0.6723,
+          "no": 0.3277
+        },
+        "argmax": "yes"
+      }
+    },
+    "active_mb": 3075.0,
+    "peak_mb": 4130.8
+  },
+  {
+    "idx": 8,
+    "t": 8.0,
+    "raw": "{\"reach_up\":\"no\",\"handle_part\":\"yes\",\"grid_tray\":\"yes\"}<|im_end|>",
+    "confidence": {
+      "reach_up": {
+        "probs": {
+          "yes": 0.3346,
+          "no": 0.6654
+        },
+        "argmax": "no"
+      },
+      "handle_part": {
+        "probs": {
+          "yes": 0.6298,
+          "no": 0.3702
+        },
+        "argmax": "yes"
+      },
+      "grid_tray": {
+        "probs": {
+          "yes": 0.8397,
+          "no": 0.1603
+        },
+        "argmax": "yes"
+      }
+    },
+    "active_mb": 3075.0,
+    "peak_mb": 4130.9
+  },
+  {
+    "idx": 9,
+    "t": 9.0,
+    "raw": "{\"reach_up\":\"no\",\"handle_part\":\"yes\",\"grid_tray\":\"yes\"}<|im_end|>",
+    "confidence": {
+      "reach_up": {
+        "probs": {
+          "yes": 0.3074,
+          "no": 0.6926
+        },
+        "argmax": "no"
+      },
+      "handle_part": {
+        "probs": {
+          "yes": 0.7432,
+          "no": 0.2568
+        },
+        "argmax": "yes"
+      },
+      "grid_tray": {
+        "probs": {
+          "yes": 0.9643,
+          "no": 0.0357
+        },
+        "argmax": "yes"
+      }
+    },
+    "active_mb": 3075.0,
+    "peak_mb": 4130.8
+  },
+  {
+    "idx": 10,
+    "t": 10.0,
+    "raw": "{\"reach_up\":\"no\",\"handle_part\":\"yes\",\"grid_tray\":\"yes\"}<|im_end|>",
+    "confidence": {
+      "reach_up": {
+        "probs": {
+          "yes": 0.3416,
+          "no": 0.6584
+        },
+        "argmax": "no"
+      },
+      "handle_part": {
+        "probs": {
+          "yes": 0.848,
+          "no": 0.152
+        },
+        "argmax": "yes"
+      },
+      "grid_tray": {
+        "probs": {
+          "yes": 0.9598,
+          "no": 0.0402
+        },
+        "argmax": "yes"
+      }
+    },
+    "active_mb": 3075.0,
+    "peak_mb": 4130.9
+  },
+  {
+    "idx": 11,
+    "t": 11.0,
+    "raw": "{\"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!",
+    "confidence": {},
+    "active_mb": 3075.0,
+    "peak_mb": 4130.8
+  },
+  {
+    "idx": 12,
+    "t": 12.0,
+    "raw": "{\"reach_up\":\"no\",\"handle_part\":\"yes\",\"grid_tray\":\"yes\"}<|im_end|>",
+    "confidence": {
+      "reach_up": {
+        "probs": {
+          "yes": 0.4571,
+          "no": 0.5429
+        },
+        "argmax": "no"
+      },
+      "handle_part": {
+        "probs": {
+          "yes": 0.6442,
+          "no": 0.3558
+        },
+        "argmax": "yes"
+      },
+      "grid_tray": {
+        "probs": {
+          "yes": 0.9711,
+          "no": 0.0289
+        },
+        "argmax": "yes"
+      }
+    },
+    "active_mb": 3075.0,
+    "peak_mb": 4130.9
+  },
+  {
+    "idx": 13,
+    "t": 13.0,
+    "raw": "{\"reach_up\":\"no\",\"handle_part\":\"yes\",\"grid_tray\":\"yes\"}<|im_end|>",
+    "confidence": {
+      "reach_up": {
+        "probs": {
+          "yes": 0.3451,
+          "no": 0.6549
+        },
+        "argmax": "no"
+      },
+      "handle_part": {
+        "probs": {
+          "yes": 0.848,
+          "no": 0.152
+        },
+        "argmax": "yes"
+      },
+      "grid_tray": {
+        "probs": {
+          "yes": 0.9767,
+          "no": 0.0233
+        },
+        "argmax": "yes"
+      }
+    },
+    "active_mb": 3075.0,
+    "peak_mb": 4130.8
+  },
+  {
+    "idx": 14,
+    "t": 14.0,
+    "raw": "{\"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!",
+    "confidence": {},
+    "active_mb": 3075.0,
+    "peak_mb": 4130.9
+  },
+  {
+    "idx": 15,
+    "t": 15.0,
+    "raw": "{\"reach_up\":\"no\",\"handle_part\":\"yes\",\"grid_tray\":\"yes\"}<|im_end|>",
+    "confidence": {
+      "reach_up": {
+        "probs": {
+          "yes": 0.3277,
+          "no": 0.6723
+        },
+        "argmax": "no"
+      },
+      "handle_part": {
+        "probs": {
+          "yes": 0.8289,
+          "no": 0.1711
+        },
+        "argmax": "yes"
+      },
+      "grid_tray": {
+        "probs": {
+          "yes": 0.9627,
+          "no": 0.0373
+        },
+        "argmax": "yes"
+      }
+    },
+    "active_mb": 3075.0,
+    "peak_mb": 4130.8
+  },
+  {
+    "idx": 16,
+    "t": 16.0,
+    "raw": "{\"reach_up\":\"no\",\"handle_part\":\"yes\",\"grid_tray\":\"yes\"}<|im_end|>",
+    "confidence": {
+      "reach_up": {
+        "probs": {
+          "yes": 0.3074,
+          "no": 0.6926
+        },
+        "argmax": "no"
+      },
+      "handle_part": {
+        "probs": {
+          "yes": 0.8977,
+          "no": 0.1023
+        },
+        "argmax": "yes"
+      },
+      "grid_tray": {
+        "probs": {
+          "yes": 0.9659,
+          "no": 0.0341
+        },
+        "argmax": "yes"
+      }
+    },
+    "active_mb": 3075.0,
+    "peak_mb": 4130.9
+  },
+  {
+    "idx": 17,
+    "t": 17.0,
+    "raw": "{\"reach_up\":\"yes\",\"handle_part\":\"no\",\"grid_tray\":\"yes\"}<|im_end|>",
+    "confidence": {
+      "reach_up": {
+        "probs": {
+          "yes": 0.6261,
+          "no": 0.3739
+        },
+        "argmax": "yes"
+      },
+      "handle_part": {
+        "probs": {
+          "yes": 0.2846,
+          "no": 0.7154
+        },
+        "argmax": "no"
+      },
+      "grid_tray": {
+        "probs": {
+          "yes": 0.9086,
+          "no": 0.0914
+        },
+        "argmax": "yes"
+      }
+    },
+    "active_mb": 3075.0,
+    "peak_mb": 4130.8
+  },
+  {
+    "idx": 18,
+    "t": 18.0,
+    "raw": "{\"reach_up\":\"no\",\"handle_part\":\"yes\",\"grid_tray\":\"yes\"}<|im_end|>",
+    "confidence": {
+      "reach_up": {
+        "probs": {
+          "yes": 0.3886,
+          "no": 0.6114
+        },
+        "argmax": "no"
+      },
+      "handle_part": {
+        "probs": {
+          "yes": 0.5273,
+          "no": 0.4727
+        },
+        "argmax": "yes"
+      },
+      "grid_tray": {
+        "probs": {
+          "yes": 0.9408,
+          "no": 0.0592
+        },
+        "argmax": "yes"
+      }
+    },
+    "active_mb": 3075.0,
+    "peak_mb": 4130.9
+  },
+  {
+    "idx": 19,
+    "t": 19.0,
+    "raw": "{\"reach_up\":\"no\",\"handle_part\":\"no\",\"grid_tray\":\"yes\"}<|im_end|>",
+    "confidence": {
+      "reach_up": {
+        "probs": {
+          "yes": 0.3594,
+          "no": 0.6406
+        },
+        "argmax": "no"
+      },
+      "handle_part": {
+        "probs": {
+          "yes": 0.2628,
+          "no": 0.7372
+        },
+        "argmax": "no"
+      },
+      "grid_tray": {
+        "probs": {
+          "yes": 0.6689,
+          "no": 0.3311
+        },
+        "argmax": "yes"
+      }
+    },
+    "active_mb": 3075.0,
+    "peak_mb": 4130.8
+  }
+]

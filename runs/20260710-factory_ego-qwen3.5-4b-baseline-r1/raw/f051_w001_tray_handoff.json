@@ -1,0 +1,602 @@
+[
+  {
+    "idx": 0,
+    "t": 0.0,
+    "raw": "{\"walking\":\"yes\",\"hold_tray\":\"no\",\"coworker_visible\":\"yes\"}<|im_end|>",
+    "confidence": {
+      "walking": {
+        "probs": {
+          "yes": 0.6792,
+          "no": 0.3208
+        },
+        "argmax": "yes"
+      },
+      "hold_tray": {
+        "probs": {
+          "yes": 0.2942,
+          "no": 0.7058
+        },
+        "argmax": "no"
+      },
+      "coworker_visible": {
+        "probs": {
+          "yes": 0.9876,
+          "no": 0.0124
+        },
+        "argmax": "yes"
+      }
+    },
+    "active_mb": 3465.7,
+    "peak_mb": 5368.7
+  },
+  {
+    "idx": 1,
+    "t": 1.0,
+    "raw": "{\"walking\":\"yes\",\"hold_tray\":\"no\",\"coworker_visible\":\"yes\"}<|im_end|>",
+    "confidence": {
+      "walking": {
+        "probs": {
+          "yes": 0.7058,
+          "no": 0.2942
+        },
+        "argmax": "yes"
+      },
+      "hold_tray": {
+        "probs": {
+          "yes": 0.1824,
+          "no": 0.8176
+        },
+        "argmax": "no"
+      },
+      "coworker_visible": {
+        "probs": {
+          "yes": 0.8933,
+          "no": 0.1067
+        },
+        "argmax": "yes"
+      }
+    },
+    "active_mb": 3465.7,
+    "peak_mb": 5368.7
+  },
+  {
+    "idx": 2,
+    "t": 2.0,
+    "raw": "{\"walking\":\"yes\",\"hold_tray\":\"no\",\"coworker_visible\":\"yes\"}<|im_end|>",
+    "confidence": {
+      "walking": {
+        "probs": {
+          "yes": 0.9149,
+          "no": 0.0851
+        },
+        "argmax": "yes"
+      },
+      "hold_tray": {
+        "probs": {
+          "yes": 0.0601,
+          "no": 0.9399
+        },
+        "argmax": "no"
+      },
+      "coworker_visible": {
+        "probs": {
+          "yes": 0.9993,
+          "no": 0.0007
+        },
+        "argmax": "yes"
+      }
+    },
+    "active_mb": 3465.7,
+    "peak_mb": 5368.7
+  },
+  {
+    "idx": 3,
+    "t": 3.0,
+    "raw": "{\"walking\":\"yes\",\"hold_tray\":\"no\",\"coworker_visible\":\"yes\"}<|im_end|>",
+    "confidence": {
+      "walking": {
+        "probs": {
+          "yes": 0.9669,
+          "no": 0.0331
+        },
+        "argmax": "yes"
+      },
+      "hold_tray": {
+        "probs": {
+          "yes": 0.133,
+          "no": 0.867
+        },
+        "argmax": "no"
+      },
+      "coworker_visible": {
+        "probs": {
+          "yes": 0.6792,
+          "no": 0.3208
+        },
+        "argmax": "yes"
+      }
+    },
+    "active_mb": 3465.7,
+    "peak_mb": 5368.8
+  },
+  {
+    "idx": 4,
+    "t": 4.0,
+    "raw": "{\"walking\":\"yes\",\"hold_tray\":\"no\",\"coworker_visible\":\"yes\"}<|im_end|>",
+    "confidence": {
+      "walking": {
+        "probs": {
+          "yes": 0.9627,
+          "no": 0.0373
+        },
+        "argmax": "yes"
+      },
+      "hold_tray": {
+        "probs": {
+          "yes": 0.0373,
+          "no": 0.9627
+        },
+        "argmax": "no"
+      },
+      "coworker_visible": {
+        "probs": {
+          "yes": 0.9999,
+          "no": 0.0001
+        },
+        "argmax": "yes"
+      }
+    },
+    "active_mb": 3465.7,
+    "peak_mb": 5368.7
+  },
+  {
+    "idx": 5,
+    "t": 5.0,
+    "raw": "{\"walking\":\"yes\",\"hold_tray\":\"no\",\"coworker_visible\":\"yes\"}<|im_end|>",
+    "confidence": {
+      "walking": {
+        "probs": {
+          "yes": 0.6514,
+          "no": 0.3486
+        },
+        "argmax": "yes"
+      },
+      "hold_tray": {
+        "probs": {
+          "yes": 0.2227,
+          "no": 0.7773
+        },
+        "argmax": "no"
+      },
+      "coworker_visible": {
+        "probs": {
+          "yes": 0.9997,
+          "no": 0.0003
+        },
+        "argmax": "yes"
+      }
+    },
+    "active_mb": 3465.7,
+    "peak_mb": 5368.7
+  },
+  {
+    "idx": 6,
+    "t": 6.0,
+    "raw": "{\"walking\":\"no\",\"hold_tray\":\"yes\",\"coworker_visible\":\"yes\"}<|im_end|>",
+    "confidence": {
+      "walking": {
+        "probs": {
+          "yes": 0.2227,
+          "no": 0.7773
+        },
+        "argmax": "no"
+      },
+      "hold_tray": {
+        "probs": {
+          "yes": 0.6792,
+          "no": 0.3208
+        },
+        "argmax": "yes"
+      },
+      "coworker_visible": {
+        "probs": {
+          "yes": 0.9999,
+          "no": 0.0001
+        },
+        "argmax": "yes"
+      }
+    },
+    "active_mb": 3465.7,
+    "peak_mb": 5368.7
+  },
+  {
+    "idx": 7,
+    "t": 7.0,
+    "raw": "{\"walking\": \"no\", \"hold_tray\": \"no\", \"coworker_visible\": \"yes\"}<|im_end|>",
+    "confidence": {
+      "walking": {
+        "probs": {
+          "yes": 0.0421,
+          "no": 0.9579
+        },
+        "argmax": "no"
+      },
+      "hold_tray": {
+        "probs": {
+          "yes": 0.4378,
+          "no": 0.5622
+        },
+        "argmax": "no"
+      },
+      "coworker_visible": {
+        "probs": {
+          "yes": 0.9981,
+          "no": 0.0019
+        },
+        "argmax": "yes"
+      }
+    },
+    "active_mb": 3465.7,
+    "peak_mb": 5368.7
+  },
+  {
+    "idx": 8,
+    "t": 8.0,
+    "raw": "{\"walking\":\"no\",\"hold_tray\":\"yes\",\"coworker_visible\":\"yes\"}<|im_end|>",
+    "confidence": {
+      "walking": {
+        "probs": {
+          "yes": 0.0675,
+          "no": 0.9325
+        },
+        "argmax": "no"
+      },
+      "hold_tray": {
+        "probs": {
+          "yes": 0.9797,
+          "no": 0.0203
+        },
+        "argmax": "yes"
+      },
+      "coworker_visible": {
+        "probs": {
+          "yes": 0.9997,
+          "no": 0.0003
+        },
+        "argmax": "yes"
+      }
+    },
+    "active_mb": 3465.7,
+    "peak_mb": 5368.7
+  },
+  {
+    "idx": 9,
+    "t": 9.0,
+    "raw": "{\"walking\":\"no\",\"hold_tray\":\"yes\",\"coworker_visible\":\"yes\"}<|im_end|>",
+    "confidence": {
+      "walking": {
+        "probs": {
+          "yes": 0.0675,
+          "no": 0.9325
+        },
+        "argmax": "no"
+      },
+      "hold_tray": {
+        "probs": {
+          "yes": 0.9972,
+          "no": 0.0028
+        },
+        "argmax": "yes"
+      },
+      "coworker_visible": {
+        "probs": {
+          "yes": 0.9991,
+          "no": 0.0009
+        },
+        "argmax": "yes"
+      }
+    },
+    "active_mb": 3465.7,
+    "peak_mb": 5368.7
+  },
+  {
+    "idx": 10,
+    "t": 10.0,
+    "raw": "{\"walking\": \"no\", \"hold_tray\": \"yes\", \"coworker_visible\": \"yes\"}<|im_end|>",
+    "confidence": {
+      "walking": {
+        "probs": {
+          "yes": 0.0851,
+          "no": 0.9149
+        },
+        "argmax": "no"
+      },
+      "hold_tray": {
+        "probs": {
+          "yes": 0.999,
+          "no": 0.001
+        },
+        "argmax": "yes"
+      },
+      "coworker_visible": {
+        "probs": {
+          "yes": 0.9948,
+          "no": 0.0052
+        },
+        "argmax": "yes"
+      }
+    },
+    "active_mb": 3465.7,
+    "peak_mb": 5368.7
+  },
+  {
+    "idx": 11,
+    "t": 11.0,
+    "raw": "{\"walking\":\"no\",\"hold_tray\":\"yes\",\"coworker_visible\":\"yes\"}<|im_end|>",
+    "confidence": {
+      "walking": {
+        "probs": {
+          "yes": 0.2451,
+          "no": 0.7549
+        },
+        "argmax": "no"
+      },
+      "hold_tray": {
+        "probs": {
+          "yes": 0.9994,
+          "no": 0.0006
+        },
+        "argmax": "yes"
+      },
+      "coworker_visible": {
+        "probs": {
+          "yes": 0.9988,
+          "no": 0.0012
+        },
+        "argmax": "yes"
+      }
+    },
+    "active_mb": 3465.7,
+    "peak_mb": 5368.8
+  },
+  {
+    "idx": 12,
+    "t": 12.0,
+    "raw": "{\"walking\":\"no\",\"hold_tray\":\"yes\",\"coworker_visible\":\"yes\"}<|im_end|>",
+    "confidence": {
+      "walking": {
+        "probs": {
+          "yes": 0.1192,
+          "no": 0.8808
+        },
+        "argmax": "no"
+      },
+      "hold_tray": {
+        "probs": {
+          "yes": 0.9985,
+          "no": 0.0015
+        },
+        "argmax": "yes"
+      },
+      "coworker_visible": {
+        "probs": {
+          "yes": 0.9999,
+          "no": 0.0001
+        },
+        "argmax": "yes"
+      }
+    },
+    "active_mb": 3465.7,
+    "peak_mb": 5368.7
+  },
+  {
+    "idx": 13,
+    "t": 13.0,
+    "raw": "{\"walking\":\"no\",\"hold_tray\":\"yes\",\"coworker_visible\":\"yes\"}<|im_end|>",
+    "confidence": {
+      "walking": {
+        "probs": {
+          "yes": 0.2018,
+          "no": 0.7982
+        },
+        "argmax": "no"
+      },
+      "hold_tray": {
+        "probs": {
+          "yes": 0.9997,
+          "no": 0.0003
+        },
+        "argmax": "yes"
+      },
+      "coworker_visible": {
+        "probs": {
+          "yes": 0.9999,
+          "no": 0.0001
+        },
+        "argmax": "yes"
+      }
+    },
+    "active_mb": 3465.7,
+    "peak_mb": 5368.7
+  },
+  {
+    "idx": 14,
+    "t": 14.0,
+    "raw": "{\"walking\":\"no\",\"hold_tray\":\"yes\",\"coworker_visible\":\"yes\"}<|im_end|>",
+    "confidence": {
+      "walking": {
+        "probs": {
+          "yes": 0.1192,
+          "no": 0.8808
+        },
+        "argmax": "no"
+      },
+      "hold_tray": {
+        "probs": {
+          "yes": 0.9998,
+          "no": 0.0002
+        },
+        "argmax": "yes"
+      },
+      "coworker_visible": {
+        "probs": {
+          "yes": 0.982,
+          "no": 0.018
+        },
+        "argmax": "yes"
+      }
+    },
+    "active_mb": 3465.7,
+    "peak_mb": 5368.7
+  },
+  {
+    "idx": 15,
+    "t": 15.0,
+    "raw": "{\"walking\": \"no\", \"hold_tray\": \"yes\", \"coworker_visible\": \"yes\"}<|im_end|>",
+    "confidence": {
+      "walking": {
+        "probs": {
+          "yes": 0.3208,
+          "no": 0.6792
+        },
+        "argmax": "no"
+      },
+      "hold_tray": {
+        "probs": {
+          "yes": 0.9999,
+          "no": 0.0001
+        },
+        "argmax": "yes"
+      },
+      "coworker_visible": {
+        "probs": {
+          "yes": 0.9924,
+          "no": 0.0076
+        },
+        "argmax": "yes"
+      }
+    },
+    "active_mb": 3465.7,
+    "peak_mb": 5368.7
+  },
+  {
+    "idx": 16,
+    "t": 16.0,
+    "raw": "{\"walking\":\"no\",\"hold_tray\":\"yes\",\"coworker_visible\":\"yes\"}<|im_end|>",
+    "confidence": {
+      "walking": {
+        "probs": {
+          "yes": 0.133,
+          "no": 0.867
+        },
+        "argmax": "no"
+      },
+      "hold_tray": {
+        "probs": {
+          "yes": 0.9999,
+          "no": 0.0001
+        },
+        "argmax": "yes"
+      },
+      "coworker_visible": {
+        "probs": {
+          "yes": 0.9941,
+          "no": 0.0059
+        },
+        "argmax": "yes"
+      }
+    },
+    "active_mb": 3465.7,
+    "peak_mb": 5368.8
+  },
+  {
+    "idx": 17,
+    "t": 17.0,
+    "raw": "{\"walking\":\"no\",\"hold_tray\":\"yes\",\"coworker_visible\":\"yes\"}<|im_end|>",
+    "confidence": {
+      "walking": {
+        "probs": {
+          "yes": 0.1645,
+          "no": 0.8355
+        },
+        "argmax": "no"
+      },
+      "hold_tray": {
+        "probs": {
+          "yes": 0.9999,
+          "no": 0.0001
+        },
+        "argmax": "yes"
+      },
+      "coworker_visible": {
+        "probs": {
+          "yes": 0.9954,
+          "no": 0.0046
+        },
+        "argmax": "yes"
+      }
+    },
+    "active_mb": 3465.7,
+    "peak_mb": 5368.7
+  },
+  {
+    "idx": 18,
+    "t": 18.0,
+    "raw": "{\"walking\":\"no\",\"hold_tray\":\"yes\",\"coworker_visible\":\"yes\"}<|im_end|>",
+    "confidence": {
+      "walking": {
+        "probs": {
+          "yes": 0.4073,
+          "no": 0.5927
+        },
+        "argmax": "no"
+      },
+      "hold_tray": {
+        "probs": {
+          "yes": 0.9999,
+          "no": 0.0001
+        },
+        "argmax": "yes"
+      },
+      "coworker_visible": {
+        "probs": {
+          "yes": 0.9047,
+          "no": 0.0953
+        },
+        "argmax": "yes"
+      }
+    },
+    "active_mb": 3465.7,
+    "peak_mb": 5368.8
+  },
+  {
+    "idx": 19,
+    "t": 19.0,
+    "raw": "{\"walking\": \"yes\", \"hold_tray\": \"yes\", \"coworker_visible\": \"yes\"}<|im_end|>",
+    "confidence": {
+      "walking": {
+        "probs": {
+          "yes": 0.7058,
+          "no": 0.2942
+        },
+        "argmax": "yes"
+      },
+      "hold_tray": {
+        "probs": {
+          "yes": 0.9998,
+          "no": 0.0002
+        },
+        "argmax": "yes"
+      },
+      "coworker_visible": {
+        "probs": {
+          "yes": 0.867,
+          "no": 0.133
+        },
+        "argmax": "yes"
+      }
+    },
+    "active_mb": 3465.7,
+    "peak_mb": 5368.8
+  }
+]

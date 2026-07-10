@@ -1,0 +1,730 @@
+{
+  "answer_source": "candidate-token probabilities; argmax normalized to yes/no",
+  "frame_count": 20,
+  "frames": [
+    {
+      "answers": {
+        "hold_cable": "yes",
+        "rack_visible": "yes",
+        "seated_work": "yes"
+      },
+      "confidence": {
+        "hold_cable": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.0097,
+            "yes": 0.9903
+          }
+        },
+        "rack_visible": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.0002,
+            "yes": 0.9998
+          }
+        },
+        "seated_work": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.0534,
+            "yes": 0.9466
+          }
+        }
+      },
+      "idx": 0,
+      "resource": {
+        "active_mb": 3465.7,
+        "peak_mb": 5368.8
+      },
+      "t": 0.0
+    },
+    {
+      "answers": {
+        "hold_cable": "yes",
+        "rack_visible": "yes",
+        "seated_work": "no"
+      },
+      "confidence": {
+        "hold_cable": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.148,
+            "yes": 0.852
+          }
+        },
+        "rack_visible": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.0002,
+            "yes": 0.9998
+          }
+        },
+        "seated_work": {
+          "argmax": "no",
+          "probs": {
+            "no": 0.5312,
+            "yes": 0.4688
+          }
+        }
+      },
+      "idx": 1,
+      "resource": {
+        "active_mb": 3465.7,
+        "peak_mb": 5368.8
+      },
+      "t": 1.0
+    },
+    {
+      "answers": {
+        "hold_cable": "yes",
+        "rack_visible": "yes",
+        "seated_work": "no"
+      },
+      "confidence": {
+        "hold_cable": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.0474,
+            "yes": 0.9526
+          }
+        },
+        "rack_visible": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.0052,
+            "yes": 0.9948
+          }
+        },
+        "seated_work": {
+          "argmax": "no",
+          "probs": {
+            "no": 0.5312,
+            "yes": 0.4688
+          }
+        }
+      },
+      "idx": 2,
+      "resource": {
+        "active_mb": 3465.7,
+        "peak_mb": 5368.8
+      },
+      "t": 2.0
+    },
+    {
+      "answers": {
+        "hold_cable": "yes",
+        "rack_visible": "yes",
+        "seated_work": "yes"
+      },
+      "confidence": {
+        "hold_cable": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.148,
+            "yes": 0.852
+          }
+        },
+        "rack_visible": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.0002,
+            "yes": 0.9998
+          }
+        },
+        "seated_work": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.3775,
+            "yes": 0.6225
+          }
+        }
+      },
+      "idx": 3,
+      "resource": {
+        "active_mb": 3465.7,
+        "peak_mb": 5368.8
+      },
+      "t": 3.0
+    },
+    {
+      "answers": {
+        "hold_cable": "yes",
+        "rack_visible": "yes",
+        "seated_work": "no"
+      },
+      "confidence": {
+        "hold_cable": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.0601,
+            "yes": 0.9399
+          }
+        },
+        "rack_visible": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.0,
+            "yes": 1.0
+          }
+        },
+        "seated_work": {
+          "argmax": "no",
+          "probs": {
+            "no": 0.5312,
+            "yes": 0.4688
+          }
+        }
+      },
+      "idx": 4,
+      "resource": {
+        "active_mb": 3465.7,
+        "peak_mb": 5368.8
+      },
+      "t": 4.0
+    },
+    {
+      "answers": {
+        "hold_cable": "yes",
+        "rack_visible": "yes",
+        "seated_work": "yes"
+      },
+      "confidence": {
+        "hold_cable": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.148,
+            "yes": 0.852
+          }
+        },
+        "rack_visible": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.0001,
+            "yes": 0.9999
+          }
+        },
+        "seated_work": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.4378,
+            "yes": 0.5622
+          }
+        }
+      },
+      "idx": 5,
+      "resource": {
+        "active_mb": 3465.7,
+        "peak_mb": 5368.8
+      },
+      "t": 5.0
+    },
+    {
+      "answers": {
+        "hold_cable": "yes",
+        "rack_visible": "yes",
+        "seated_work": "yes"
+      },
+      "confidence": {
+        "hold_cable": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.0005,
+            "yes": 0.9995
+          }
+        },
+        "rack_visible": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.0,
+            "yes": 1.0
+          }
+        },
+        "seated_work": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.0046,
+            "yes": 0.9954
+          }
+        }
+      },
+      "idx": 6,
+      "resource": {
+        "active_mb": 3465.7,
+        "peak_mb": 5368.8
+      },
+      "t": 6.0
+    },
+    {
+      "answers": {
+        "hold_cable": "yes",
+        "rack_visible": "yes",
+        "seated_work": "yes"
+      },
+      "confidence": {
+        "hold_cable": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.0159,
+            "yes": 0.9841
+          }
+        },
+        "rack_visible": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.0,
+            "yes": 1.0
+          }
+        },
+        "seated_work": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.0025,
+            "yes": 0.9975
+          }
+        }
+      },
+      "idx": 7,
+      "resource": {
+        "active_mb": 3465.7,
+        "peak_mb": 5368.8
+      },
+      "t": 7.0
+    },
+    {
+      "answers": {
+        "hold_cable": "yes",
+        "rack_visible": "yes",
+        "seated_work": "yes"
+      },
+      "confidence": {
+        "hold_cable": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.0331,
+            "yes": 0.9669
+          }
+        },
+        "rack_visible": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.0,
+            "yes": 1.0
+          }
+        },
+        "seated_work": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.0022,
+            "yes": 0.9978
+          }
+        }
+      },
+      "idx": 8,
+      "resource": {
+        "active_mb": 3465.7,
+        "peak_mb": 5368.8
+      },
+      "t": 8.0
+    },
+    {
+      "answers": {
+        "hold_cable": "yes",
+        "rack_visible": "yes",
+        "seated_work": "yes"
+      },
+      "confidence": {
+        "hold_cable": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.0052,
+            "yes": 0.9948
+          }
+        },
+        "rack_visible": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.0,
+            "yes": 1.0
+          }
+        },
+        "seated_work": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.0022,
+            "yes": 0.9978
+          }
+        }
+      },
+      "idx": 9,
+      "resource": {
+        "active_mb": 3465.7,
+        "peak_mb": 5368.8
+      },
+      "t": 9.0
+    },
+    {
+      "answers": {
+        "hold_cable": "yes",
+        "rack_visible": "yes",
+        "seated_work": "yes"
+      },
+      "confidence": {
+        "hold_cable": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.2451,
+            "yes": 0.7549
+          }
+        },
+        "rack_visible": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.0,
+            "yes": 1.0
+          }
+        },
+        "seated_work": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.0041,
+            "yes": 0.9959
+          }
+        }
+      },
+      "idx": 10,
+      "resource": {
+        "active_mb": 3465.7,
+        "peak_mb": 5368.8
+      },
+      "t": 10.0
+    },
+    {
+      "answers": {
+        "hold_cable": "yes",
+        "rack_visible": "yes",
+        "seated_work": "yes"
+      },
+      "confidence": {
+        "hold_cable": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.1192,
+            "yes": 0.8808
+          }
+        },
+        "rack_visible": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.0,
+            "yes": 1.0
+          }
+        },
+        "seated_work": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.0076,
+            "yes": 0.9924
+          }
+        }
+      },
+      "idx": 11,
+      "resource": {
+        "active_mb": 3465.7,
+        "peak_mb": 5368.8
+      },
+      "t": 11.0
+    },
+    {
+      "answers": {
+        "hold_cable": "yes",
+        "rack_visible": "yes",
+        "seated_work": "yes"
+      },
+      "confidence": {
+        "hold_cable": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.0036,
+            "yes": 0.9964
+          }
+        },
+        "rack_visible": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.0,
+            "yes": 1.0
+          }
+        },
+        "seated_work": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.0019,
+            "yes": 0.9981
+          }
+        }
+      },
+      "idx": 12,
+      "resource": {
+        "active_mb": 3465.7,
+        "peak_mb": 5368.8
+      },
+      "t": 12.0
+    },
+    {
+      "answers": {
+        "hold_cable": "yes",
+        "rack_visible": "yes",
+        "seated_work": "yes"
+      },
+      "confidence": {
+        "hold_cable": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.0009,
+            "yes": 0.9991
+          }
+        },
+        "rack_visible": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.0,
+            "yes": 1.0
+          }
+        },
+        "seated_work": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.0003,
+            "yes": 0.9997
+          }
+        }
+      },
+      "idx": 13,
+      "resource": {
+        "active_mb": 3465.7,
+        "peak_mb": 5368.8
+      },
+      "t": 13.0
+    },
+    {
+      "answers": {
+        "hold_cable": "yes",
+        "rack_visible": "yes",
+        "seated_work": "yes"
+      },
+      "confidence": {
+        "hold_cable": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.0008,
+            "yes": 0.9992
+          }
+        },
+        "rack_visible": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.0,
+            "yes": 1.0
+          }
+        },
+        "seated_work": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.0001,
+            "yes": 0.9999
+          }
+        }
+      },
+      "idx": 14,
+      "resource": {
+        "active_mb": 3465.7,
+        "peak_mb": 5368.8
+      },
+      "t": 14.0
+    },
+    {
+      "answers": {
+        "hold_cable": "yes",
+        "rack_visible": "yes",
+        "seated_work": "yes"
+      },
+      "confidence": {
+        "hold_cable": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.0003,
+            "yes": 0.9997
+          }
+        },
+        "rack_visible": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.0,
+            "yes": 1.0
+          }
+        },
+        "seated_work": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.0002,
+            "yes": 0.9998
+          }
+        }
+      },
+      "idx": 15,
+      "resource": {
+        "active_mb": 3465.7,
+        "peak_mb": 5368.8
+      },
+      "t": 15.0
+    },
+    {
+      "answers": {
+        "hold_cable": "yes",
+        "rack_visible": "yes",
+        "seated_work": "yes"
+      },
+      "confidence": {
+        "hold_cable": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.0003,
+            "yes": 0.9997
+          }
+        },
+        "rack_visible": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.0,
+            "yes": 1.0
+          }
+        },
+        "seated_work": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.0002,
+            "yes": 0.9998
+          }
+        }
+      },
+      "idx": 16,
+      "resource": {
+        "active_mb": 3465.7,
+        "peak_mb": 5368.8
+      },
+      "t": 16.0
+    },
+    {
+      "answers": {
+        "hold_cable": "yes",
+        "rack_visible": "yes",
+        "seated_work": "yes"
+      },
+      "confidence": {
+        "hold_cable": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.0003,
+            "yes": 0.9997
+          }
+        },
+        "rack_visible": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.0,
+            "yes": 1.0
+          }
+        },
+        "seated_work": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.0001,
+            "yes": 0.9999
+          }
+        }
+      },
+      "idx": 17,
+      "resource": {
+        "active_mb": 3465.7,
+        "peak_mb": 5368.8
+      },
+      "t": 17.0
+    },
+    {
+      "answers": {
+        "hold_cable": "yes",
+        "rack_visible": "yes",
+        "seated_work": "yes"
+      },
+      "confidence": {
+        "hold_cable": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.0004,
+            "yes": 0.9996
+          }
+        },
+        "rack_visible": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.0,
+            "yes": 1.0
+          }
+        },
+        "seated_work": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.0003,
+            "yes": 0.9997
+          }
+        }
+      },
+      "idx": 18,
+      "resource": {
+        "active_mb": 3465.7,
+        "peak_mb": 5368.8
+      },
+      "t": 18.0
+    },
+    {
+      "answers": {
+        "hold_cable": "yes",
+        "rack_visible": "yes",
+        "seated_work": "yes"
+      },
+      "confidence": {
+        "hold_cable": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.0003,
+            "yes": 0.9997
+          }
+        },
+        "rack_visible": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.0,
+            "yes": 1.0
+          }
+        },
+        "seated_work": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.0003,
+            "yes": 0.9997
+          }
+        }
+      },
+      "idx": 19,
+      "resource": {
+        "active_mb": 3465.7,
+        "peak_mb": 5332.9
+      },
+      "t": 19.0
+    }
+  ],
+  "prediction_type": "frame_question_answers",
+  "run_id": "20260710-factory_ego-qwen3.5-4b-baseline-r1",
+  "schema_version": "1.0",
+  "unit_id": "f051_w001_cable_tying"
+}
