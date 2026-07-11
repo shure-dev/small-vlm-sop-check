@@ -2,49 +2,19 @@
 
 ## 現在地
 
-8 unit × 20 framesを対象に、reference（Fable 5、Opus 4.8）とローカル小型VLM 3本の予測を、同一形式の不変prediction runとして保持しています。ローカル3本はKonroベンチマーク上位から選定しました（SmolVLM2-2.2Bはtransformersバックエンド限定のため未実行、Cosmos-Reason1-7Bは対象外の判断）。
+データセットを刷新しました。旧構成（factory051/worker001の8 unit × 20フレーム）と、それに対するprediction run 5本・reference tIoU予備比較は廃止済みです（git履歴には残っています）。
 
-| run | role | unit coverage | formal accuracy |
-|---|---|---:|---|
-| `20260710-factory_ego-fable5-reference-r1` | large-model reference prediction | 8/8 | 未評価（人手GTなし） |
-| `20260710-factory_ego-opus48-reference-r1` | large-model reference prediction | 1/8、10 framesのみ | 未評価（人手GTなし） |
-| `20260710-factory_ego-qwen3-4b-baseline-r1` | local small-VLM baseline | 8/8 | 未評価（人手GTなし） |
-| `20260710-factory_ego-qwen2.5-3b-baseline-r1` | local small-VLM baseline | 8/8 | 未評価（人手GTなし） |
-| `20260710-factory_ego-qwen3.5-4b-baseline-r1` | local small-VLM baseline | 8/8 | 未評価（人手GTなし） |
+現行データセットは **6工場・18 worker・20作業種類の20 unit（各10秒・1fps・10フレーム）** で、SOPは手順判定向けのイベント定義を持ちます（[データセットREADME](../datasets/factory_ego/README.md)参照）。
 
-人手GT作成前に計算できるのは、一致率・回答分布・境界差などの予備比較です。precision、recall、F1、balanced accuracy、tIoUはhuman annotation revisionを入力にしたevaluation runで計算します。
+現時点のprediction runは0本です。今後の予定:
 
-## Reference tIoU（予備比較・精度ではない）
+1. SOPイベント定義の人手レビュー（進行中）
+2. reference prediction run（大型モデルによるフレーム閲覧・回答）の作成
+3. ローカル小型VLMのbaseline run作成（questionsが「直近数フレーム＋最新フレームの状態」を問う動画解析設計になったため、回答収集は複数画像入力への拡張が必要）
+4. モデル間一致・回答分布・境界差の予備比較（人手GTができるまで「精度」とは表記しない）
 
-各runの回答から決定論的judgeでイベント区間を導き、reference予測の区間との重なり（mean tIoU）を測りました。referenceは人手GTではないため、これは「大型モデルとどれだけ同じ区間を見たか」というモデル間一致であり、精度として読まないでください。比較は共通unit・共通フレームidxに制限します。
+## 評価の原則（変わらない）
 
-再現: `python3 tools/benchmark/reference_tiou.py --reference <run_id>`。イベント別の詳細は [`reports/data/`](data/) のJSONにあります。
-
-### vs Claude Fable 5（8 unit・24イベント）
-
-| model | mean tIoU |
-|---|---:|
-| Claude Opus 4.8 † | 0.89 |
-| Qwen3-VL-4B-Instruct 4-bit | 0.67 |
-| Qwen3.5-4B 4-bit | 0.65 |
-| Qwen2.5-VL-3B-Instruct 4-bit | 0.56 |
-
-† Opusは共通1 unit（assembly）・先頭10フレームのみの比較。
-
-なお、Qwen系はいずれも24イベント中1件だけ検出できなかったイベントがあり（Qwen3系: part_pickの`reach_up`、Qwen2.5: board_cablesの`move_board`）、その1件はtIoUの平均から除外しています。
-
-### vs Claude Opus 4.8（1 unit・3イベント・先頭10フレーム）
-
-| model | mean tIoU |
-|---|---:|
-| Claude Fable 5 | 0.89 |
-| Qwen3-VL-4B-Instruct 4-bit | 0.83 |
-| Qwen3.5-4B 4-bit | 0.73 |
-| Qwen2.5-VL-3B-Instruct 4-bit | 0.46 |
-
-## 読みかた
-
-- 大型モデル同士（Fable 5 × Opus 4.8）の一致0.89が、この課題での実質的な一致上限のアンカーになります。
-- ローカル勢ではQwen3-VL-4Bが両referenceに最も近く、Konroの人手GT評価（tIoU 0.80・判定3/3）での首位と整合します。
-- Qwen3.5-4BとQwen2.5-VL-3Bの順位はKonroのGT評価（Qwen2.5が上）と入れ替わっており、単一動画の結果が別ドメインでそのまま保たれるわけではないことを示しています。
-- 「イベントが起きたかどうか」の判断はほぼ全モデルで一致しており、差は区間の境界の取り方に出ています。
+- 正式なprecision、recall、F1、tIoUは人手GT revisionを固定したevaluation runでのみ計算する
+- reference予測との一致は「大型モデルとどれだけ同じ区間を見たか」であり精度ではない
+- 再現: `python3 tools/benchmark/reference_tiou.py --reference <run_id>`（run作成後）

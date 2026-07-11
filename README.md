@@ -182,23 +182,15 @@ sop-check eval \
 
 ### Factory Ego
 
-Egocentric-10Kから切り出した8 unit × 20 framesを使い、モデル間の精度比較を準備している開発用データセットです。
+Egocentric-10Kの6工場から作業種類が満遍なく入るよう層化抽出した20 unit（各10秒・1fps・10フレーム）で、手順判定に向けたモデル間の精度比較を準備している開発用データセットです。
 
-- 現在の8 unitは、すべて同じfactory / workerの `dev_seen`
-- Fable 5、Opus 4.8とローカル小型VLM（Qwen3-VL-4B、Qwen3.5-4B、Qwen2.5-VL-3B）の出力は、すべて対等なprediction run
+- クリップ選定と暫定SOP設計には[annotated-egocentric-10k-dataset](https://github.com/fit-alessandro-berti/annotated-egocentric-10k-dataset)（LLM生成・人手検証なし）のtranscriptionを使い、GTとしては扱いません
+- 各unitのSOPは手順ステップ粒度の3〜5イベントを持ち、questionsは「直近数フレームの動きを踏まえた最新フレーム時点の状態」を問う動画解析設計です
+- 現行unitは選定・アノテーション過程で閲覧されるため、すべて `dev_seen`
 - 人手ground truthは未作成のため、正式なprecision、recall、F1、tIoUは未計測
 - upstreamがgated datasetのため、抽出フレームは公開リポジトリに含めず、SHA manifestだけを追跡
 
-人手GTができるまでの予備比較として、reference予測（Fable 5）とのイベント区間一致（mean tIoU）を測っています。精度ではありません:
-
-| モデル | mean tIoU (vs Fable 5) |
-|---|---:|
-| Claude Opus 4.8 † | 0.89 |
-| Qwen3-VL-4B | 0.67 |
-| Qwen3.5-4B | 0.65 |
-| Qwen2.5-VL-3B | 0.56 |
-
-† Opusは共通1 unit・10フレームのみ。大型モデル同士のこの0.89が一致の上限アンカーで、ローカル勢ではKonro上位のQwen3-VL-4Bが最も近い区間を出します。詳細は[Factory Ego README](datasets/factory_ego/README.md)と[モデル比較レポート](reports/model_comparison.md)を参照してください。
+SOPイベント定義は現在人手レビュー待ちで、prediction runは未作成です。詳細は[Factory Ego README](datasets/factory_ego/README.md)と[モデル比較レポート](reports/model_comparison.md)を参照してください。
 
 ## データセットと実験結果の置き場
 

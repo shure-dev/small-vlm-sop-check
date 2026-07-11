@@ -12,7 +12,7 @@
 - `runs/` — Fable・Opus・Qwenを対等に扱う不変のprediction run。raw、正規化予測、入力lockを保持
 - `evaluations/` — 人手GT revisionとprediction runを入力にする評価run（Factory Egoは人手GT未作成のため現在は空）
 - `reports/` — 比較結果。人手GTがない間は一致率等を「精度」と表記しない
-- `tools/benchmark/` — Factory Egoの安全な移行（既定dry-run・上書き拒否）、整合性検証、ローカルモデルのprediction run作成（`run_local_prediction.py`）、referenceとの区間tIoU予備比較（`reference_tiou.py`）
+- `tools/benchmark/` — unitの層化サンプリング（`sample_units.py`・決定論的・追記型）、gated媒体の再構成（`fetch_factory_ego.py`・既定dry-run）、整合性検証（`validate.py`）、ローカルモデルのprediction run作成（`run_local_prediction.py`）、referenceとの区間tIoU予備比較（`reference_tiou.py`）
 - `tools/quality/` — Markdown link等のrepository品質検査。ユーザー向け機能は置かない
 - `schemas/benchmark/v1/` — unit・run・prediction・splitのversioned JSON Schema
 - `docs/` — 設計・評価ポリシー・運用・ADRの正本。READMEには概要とクイックスタートだけを置く
@@ -53,7 +53,7 @@ sop-check run --sop datasets/konro_inspection/sops/konro_inspection/correct.yaml
 - relationsは `before` / `overlaps` / `not` の3種類のみ。安易に増やさない（Allenの13関係を境界ノイズで壊れない同値類まで潰したのがこの3つ、という整理。READMEのSOPフォーマット節に対応表あり）。
 - **アノテーションは事実（いつ何が起きたか＝区間）だけを記録する**。関係や遵守の「べき」を注釈に持ち込まない。回答精度の成功条件は一次が expect（verdict＋理由）の一致で、tIoU・relations正答・フレーム一致は診断用（`src/small_vlm_sop_check/core/evaluate.py` 冒頭のdocstring参照）。境界±数フレームのズレは注釈側でなく tIoU しきい値側で吸収する。
 - **Factory Egoのモデル出力をground truthへ昇格しない**。Fable・Opus・Qwenは全て`runs/`のprediction。人手GTができるまではformal accuracyをnullのままにし、評価値はprediction runへ追記せず別evaluation runを作る。
-- **splitはfactory/worker単位**。現8 unitは既に閲覧済みなので`dev_seen`からtestへ昇格させない。
+- **splitはfactory/worker単位**。現行unitは選定・アノテーション過程で閲覧されるため`dev_seen`固定でtestへ昇格させない。真のtestは未閲覧クリップ＋人手GTで作る。
 
 ## ハマりどころ
 
