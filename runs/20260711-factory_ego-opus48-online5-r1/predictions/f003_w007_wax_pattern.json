@@ -34,8 +34,8 @@
     },
     {
       "answers": {
-        "assemble_parts_by_hand": "yes",
-        "join_parts_with_tool": "no",
+        "assemble_parts_by_hand": "no",
+        "join_parts_with_tool": "yes",
         "place_tree_on_rack": "no",
         "press_wax_with_fingers": "no"
       },
@@ -256,7 +256,7 @@
       "answers": {
         "assemble_parts_by_hand": "no",
         "join_parts_with_tool": "no",
-        "place_tree_on_rack": "no",
+        "place_tree_on_rack": "yes",
         "press_wax_with_fingers": "no"
       },
       "idx": 25,
@@ -274,8 +274,8 @@
     },
     {
       "answers": {
-        "assemble_parts_by_hand": "no",
-        "join_parts_with_tool": "yes",
+        "assemble_parts_by_hand": "yes",
+        "join_parts_with_tool": "no",
         "place_tree_on_rack": "no",
         "press_wax_with_fingers": "no"
       },
@@ -304,8 +304,8 @@
     },
     {
       "answers": {
-        "assemble_parts_by_hand": "yes",
-        "join_parts_with_tool": "no",
+        "assemble_parts_by_hand": "no",
+        "join_parts_with_tool": "yes",
         "place_tree_on_rack": "no",
         "press_wax_with_fingers": "no"
       },

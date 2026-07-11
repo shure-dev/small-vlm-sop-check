@@ -54,7 +54,7 @@
     },
     {
       "answers": {
-        "insert_garment_into_bag": "yes",
+        "insert_garment_into_bag": "no",
         "pick_garment_from_stack": "no",
         "place_package_right": "no",
         "seal_bag_flap": "no"
@@ -104,20 +104,20 @@
     },
     {
       "answers": {
-        "insert_garment_into_bag": "no",
+        "insert_garment_into_bag": "yes",
         "pick_garment_from_stack": "no",
         "place_package_right": "no",
-        "seal_bag_flap": "yes"
+        "seal_bag_flap": "no"
       },
       "idx": 10,
       "t": 5.0
     },
     {
       "answers": {
-        "insert_garment_into_bag": "no",
+        "insert_garment_into_bag": "yes",
         "pick_garment_from_stack": "no",
         "place_package_right": "no",
-        "seal_bag_flap": "yes"
+        "seal_bag_flap": "no"
       },
       "idx": 11,
       "t": 5.5
@@ -297,7 +297,7 @@
         "insert_garment_into_bag": "no",
         "pick_garment_from_stack": "no",
         "place_package_right": "no",
-        "seal_bag_flap": "yes"
+        "seal_bag_flap": "no"
       },
       "idx": 29,
       "t": 14.5
@@ -326,7 +326,7 @@
       "answers": {
         "insert_garment_into_bag": "no",
         "pick_garment_from_stack": "no",
-        "place_package_right": "no",
+        "place_package_right": "yes",
         "seal_bag_flap": "no"
       },
       "idx": 32,
@@ -356,7 +356,7 @@
       "answers": {
         "insert_garment_into_bag": "no",
         "pick_garment_from_stack": "no",
-        "place_package_right": "yes",
+        "place_package_right": "no",
         "seal_bag_flap": "no"
       },
       "idx": 35,

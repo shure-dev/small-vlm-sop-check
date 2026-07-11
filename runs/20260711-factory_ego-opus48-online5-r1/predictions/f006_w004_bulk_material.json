@@ -13,8 +13,8 @@
     },
     {
       "answers": {
-        "pick_parts_from_pile": "no",
-        "put_parts_into_box": "yes",
+        "pick_parts_from_pile": "yes",
+        "put_parts_into_box": "no",
         "reposition_parts_box": "no"
       },
       "idx": 1,
@@ -32,7 +32,7 @@
     {
       "answers": {
         "pick_parts_from_pile": "no",
-        "put_parts_into_box": "no",
+        "put_parts_into_box": "yes",
         "reposition_parts_box": "no"
       },
       "idx": 3,
@@ -40,8 +40,8 @@
     },
     {
       "answers": {
-        "pick_parts_from_pile": "yes",
-        "put_parts_into_box": "no",
+        "pick_parts_from_pile": "no",
+        "put_parts_into_box": "yes",
         "reposition_parts_box": "no"
       },
       "idx": 4,
@@ -68,7 +68,7 @@
     {
       "answers": {
         "pick_parts_from_pile": "no",
-        "put_parts_into_box": "no",
+        "put_parts_into_box": "yes",
         "reposition_parts_box": "no"
       },
       "idx": 7,
@@ -77,7 +77,7 @@
     {
       "answers": {
         "pick_parts_from_pile": "no",
-        "put_parts_into_box": "no",
+        "put_parts_into_box": "yes",
         "reposition_parts_box": "no"
       },
       "idx": 8,
@@ -86,7 +86,7 @@
     {
       "answers": {
         "pick_parts_from_pile": "no",
-        "put_parts_into_box": "yes",
+        "put_parts_into_box": "no",
         "reposition_parts_box": "no"
       },
       "idx": 9,
@@ -94,8 +94,8 @@
     },
     {
       "answers": {
-        "pick_parts_from_pile": "no",
-        "put_parts_into_box": "yes",
+        "pick_parts_from_pile": "yes",
+        "put_parts_into_box": "no",
         "reposition_parts_box": "no"
       },
       "idx": 10,
@@ -112,7 +112,7 @@
     },
     {
       "answers": {
-        "pick_parts_from_pile": "no",
+        "pick_parts_from_pile": "yes",
         "put_parts_into_box": "no",
         "reposition_parts_box": "no"
       },
@@ -122,7 +122,7 @@
     {
       "answers": {
         "pick_parts_from_pile": "no",
-        "put_parts_into_box": "no",
+        "put_parts_into_box": "yes",
         "reposition_parts_box": "no"
       },
       "idx": 13,
@@ -139,7 +139,7 @@
     },
     {
       "answers": {
-        "pick_parts_from_pile": "no",
+        "pick_parts_from_pile": "yes",
         "put_parts_into_box": "no",
         "reposition_parts_box": "no"
       },
@@ -148,8 +148,8 @@
     },
     {
       "answers": {
-        "pick_parts_from_pile": "yes",
-        "put_parts_into_box": "no",
+        "pick_parts_from_pile": "no",
+        "put_parts_into_box": "yes",
         "reposition_parts_box": "no"
       },
       "idx": 16,
@@ -167,7 +167,7 @@
     {
       "answers": {
         "pick_parts_from_pile": "no",
-        "put_parts_into_box": "yes",
+        "put_parts_into_box": "no",
         "reposition_parts_box": "no"
       },
       "idx": 18,
@@ -248,7 +248,7 @@
     {
       "answers": {
         "pick_parts_from_pile": "no",
-        "put_parts_into_box": "no",
+        "put_parts_into_box": "yes",
         "reposition_parts_box": "no"
       },
       "idx": 27,
@@ -292,7 +292,7 @@
     },
     {
       "answers": {
-        "pick_parts_from_pile": "no",
+        "pick_parts_from_pile": "yes",
         "put_parts_into_box": "no",
         "reposition_parts_box": "no"
       },
@@ -302,7 +302,7 @@
     {
       "answers": {
         "pick_parts_from_pile": "no",
-        "put_parts_into_box": "no",
+        "put_parts_into_box": "yes",
         "reposition_parts_box": "no"
       },
       "idx": 33,
@@ -310,7 +310,7 @@
     },
     {
       "answers": {
-        "pick_parts_from_pile": "no",
+        "pick_parts_from_pile": "yes",
         "put_parts_into_box": "no",
         "reposition_parts_box": "no"
       },

@@ -12,8 +12,8 @@
     {
       "idx": 1,
       "states": {
-        "pick_parts_from_pile": false,
-        "put_parts_into_box": true,
+        "pick_parts_from_pile": true,
+        "put_parts_into_box": false,
         "reposition_parts_box": false
       }
     },
@@ -29,15 +29,15 @@
       "idx": 3,
       "states": {
         "pick_parts_from_pile": false,
-        "put_parts_into_box": false,
+        "put_parts_into_box": true,
         "reposition_parts_box": false
       }
     },
     {
       "idx": 4,
       "states": {
-        "pick_parts_from_pile": true,
-        "put_parts_into_box": false,
+        "pick_parts_from_pile": false,
+        "put_parts_into_box": true,
         "reposition_parts_box": false
       }
     },
@@ -61,7 +61,7 @@
       "idx": 7,
       "states": {
         "pick_parts_from_pile": false,
-        "put_parts_into_box": false,
+        "put_parts_into_box": true,
         "reposition_parts_box": false
       }
     },
@@ -69,7 +69,7 @@
       "idx": 8,
       "states": {
         "pick_parts_from_pile": false,
-        "put_parts_into_box": false,
+        "put_parts_into_box": true,
         "reposition_parts_box": false
       }
     },
@@ -77,15 +77,15 @@
       "idx": 9,
       "states": {
         "pick_parts_from_pile": false,
-        "put_parts_into_box": true,
+        "put_parts_into_box": false,
         "reposition_parts_box": false
       }
     },
     {
       "idx": 10,
       "states": {
-        "pick_parts_from_pile": false,
-        "put_parts_into_box": true,
+        "pick_parts_from_pile": true,
+        "put_parts_into_box": false,
         "reposition_parts_box": false
       }
     },
@@ -100,7 +100,7 @@
     {
       "idx": 12,
       "states": {
-        "pick_parts_from_pile": false,
+        "pick_parts_from_pile": true,
         "put_parts_into_box": false,
         "reposition_parts_box": false
       }
@@ -109,7 +109,7 @@
       "idx": 13,
       "states": {
         "pick_parts_from_pile": false,
-        "put_parts_into_box": false,
+        "put_parts_into_box": true,
         "reposition_parts_box": false
       }
     },
@@ -124,7 +124,7 @@
     {
       "idx": 15,
       "states": {
-        "pick_parts_from_pile": false,
+        "pick_parts_from_pile": true,
         "put_parts_into_box": false,
         "reposition_parts_box": false
       }
@@ -132,8 +132,8 @@
     {
       "idx": 16,
       "states": {
-        "pick_parts_from_pile": true,
-        "put_parts_into_box": false,
+        "pick_parts_from_pile": false,
+        "put_parts_into_box": true,
         "reposition_parts_box": false
       }
     },
@@ -149,7 +149,7 @@
       "idx": 18,
       "states": {
         "pick_parts_from_pile": false,
-        "put_parts_into_box": true,
+        "put_parts_into_box": false,
         "reposition_parts_box": false
       }
     },
@@ -221,7 +221,7 @@
       "idx": 27,
       "states": {
         "pick_parts_from_pile": false,
-        "put_parts_into_box": false,
+        "put_parts_into_box": true,
         "reposition_parts_box": false
       }
     },
@@ -260,7 +260,7 @@
     {
       "idx": 32,
       "states": {
-        "pick_parts_from_pile": false,
+        "pick_parts_from_pile": true,
         "put_parts_into_box": false,
         "reposition_parts_box": false
       }
@@ -269,14 +269,14 @@
       "idx": 33,
       "states": {
         "pick_parts_from_pile": false,
-        "put_parts_into_box": false,
+        "put_parts_into_box": true,
         "reposition_parts_box": false
       }
     },
     {
       "idx": 34,
       "states": {
-        "pick_parts_from_pile": false,
+        "pick_parts_from_pile": true,
         "put_parts_into_box": false,
         "reposition_parts_box": false
       }

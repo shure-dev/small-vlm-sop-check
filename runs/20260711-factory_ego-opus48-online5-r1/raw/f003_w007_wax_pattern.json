@@ -31,8 +31,8 @@
     {
       "idx": 3,
       "states": {
-        "assemble_parts_by_hand": true,
-        "join_parts_with_tool": false,
+        "assemble_parts_by_hand": false,
+        "join_parts_with_tool": true,
         "place_tree_on_rack": false,
         "press_wax_with_fingers": false
       }
@@ -231,7 +231,7 @@
       "states": {
         "assemble_parts_by_hand": false,
         "join_parts_with_tool": false,
-        "place_tree_on_rack": false,
+        "place_tree_on_rack": true,
         "press_wax_with_fingers": false
       }
     },
@@ -247,8 +247,8 @@
     {
       "idx": 27,
       "states": {
-        "assemble_parts_by_hand": false,
-        "join_parts_with_tool": true,
+        "assemble_parts_by_hand": true,
+        "join_parts_with_tool": false,
         "place_tree_on_rack": false,
         "press_wax_with_fingers": false
       }
@@ -274,8 +274,8 @@
     {
       "idx": 30,
       "states": {
-        "assemble_parts_by_hand": true,
-        "join_parts_with_tool": false,
+        "assemble_parts_by_hand": false,
+        "join_parts_with_tool": true,
         "place_tree_on_rack": false,
         "press_wax_with_fingers": false
       }

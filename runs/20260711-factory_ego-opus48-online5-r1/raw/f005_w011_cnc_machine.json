@@ -4,8 +4,7 @@
     {
       "idx": 0,
       "states": {
-        "arrange_parts_on_table": false,
-        "carry_workpiece_to_machine": false,
+        "close_machine_door": false,
         "load_workpiece_into_chuck": false,
         "press_control_panel_button": false
       }
@@ -13,8 +12,7 @@
     {
       "idx": 1,
       "states": {
-        "arrange_parts_on_table": false,
-        "carry_workpiece_to_machine": false,
+        "close_machine_door": false,
         "load_workpiece_into_chuck": true,
         "press_control_panel_button": false
       }
@@ -22,17 +20,15 @@
     {
       "idx": 2,
       "states": {
-        "arrange_parts_on_table": false,
-        "carry_workpiece_to_machine": false,
-        "load_workpiece_into_chuck": false,
+        "close_machine_door": false,
+        "load_workpiece_into_chuck": true,
         "press_control_panel_button": false
       }
     },
     {
       "idx": 3,
       "states": {
-        "arrange_parts_on_table": false,
-        "carry_workpiece_to_machine": false,
+        "close_machine_door": false,
         "load_workpiece_into_chuck": true,
         "press_control_panel_button": false
       }
@@ -40,8 +36,7 @@
     {
       "idx": 4,
       "states": {
-        "arrange_parts_on_table": false,
-        "carry_workpiece_to_machine": false,
+        "close_machine_door": false,
         "load_workpiece_into_chuck": true,
         "press_control_panel_button": false
       }
@@ -49,8 +44,7 @@
     {
       "idx": 5,
       "states": {
-        "arrange_parts_on_table": false,
-        "carry_workpiece_to_machine": false,
+        "close_machine_door": false,
         "load_workpiece_into_chuck": true,
         "press_control_panel_button": false
       }
@@ -58,26 +52,23 @@
     {
       "idx": 6,
       "states": {
-        "arrange_parts_on_table": false,
-        "carry_workpiece_to_machine": false,
-        "load_workpiece_into_chuck": false,
+        "close_machine_door": false,
+        "load_workpiece_into_chuck": true,
         "press_control_panel_button": false
       }
     },
     {
       "idx": 7,
       "states": {
-        "arrange_parts_on_table": false,
-        "carry_workpiece_to_machine": false,
-        "load_workpiece_into_chuck": false,
+        "close_machine_door": false,
+        "load_workpiece_into_chuck": true,
         "press_control_panel_button": false
       }
     },
     {
       "idx": 8,
       "states": {
-        "arrange_parts_on_table": false,
-        "carry_workpiece_to_machine": false,
+        "close_machine_door": false,
         "load_workpiece_into_chuck": true,
         "press_control_panel_button": false
       }
@@ -85,17 +76,15 @@
     {
       "idx": 9,
       "states": {
-        "arrange_parts_on_table": false,
-        "carry_workpiece_to_machine": false,
-        "load_workpiece_into_chuck": false,
+        "close_machine_door": false,
+        "load_workpiece_into_chuck": true,
         "press_control_panel_button": false
       }
     },
     {
       "idx": 10,
       "states": {
-        "arrange_parts_on_table": false,
-        "carry_workpiece_to_machine": false,
+        "close_machine_door": true,
         "load_workpiece_into_chuck": false,
         "press_control_panel_button": false
       }
@@ -103,8 +92,7 @@
     {
       "idx": 11,
       "states": {
-        "arrange_parts_on_table": false,
-        "carry_workpiece_to_machine": false,
+        "close_machine_door": true,
         "load_workpiece_into_chuck": false,
         "press_control_panel_button": false
       }
@@ -112,8 +100,7 @@
     {
       "idx": 12,
       "states": {
-        "arrange_parts_on_table": false,
-        "carry_workpiece_to_machine": false,
+        "close_machine_door": true,
         "load_workpiece_into_chuck": false,
         "press_control_panel_button": false
       }
@@ -121,8 +108,7 @@
     {
       "idx": 13,
       "states": {
-        "arrange_parts_on_table": false,
-        "carry_workpiece_to_machine": false,
+        "close_machine_door": true,
         "load_workpiece_into_chuck": false,
         "press_control_panel_button": false
       }
@@ -130,8 +116,7 @@
     {
       "idx": 14,
       "states": {
-        "arrange_parts_on_table": false,
-        "carry_workpiece_to_machine": false,
+        "close_machine_door": false,
         "load_workpiece_into_chuck": false,
         "press_control_panel_button": true
       }
@@ -139,8 +124,7 @@
     {
       "idx": 15,
       "states": {
-        "arrange_parts_on_table": false,
-        "carry_workpiece_to_machine": false,
+        "close_machine_door": false,
         "load_workpiece_into_chuck": false,
         "press_control_panel_button": false
       }
@@ -148,8 +132,7 @@
     {
       "idx": 16,
       "states": {
-        "arrange_parts_on_table": false,
-        "carry_workpiece_to_machine": false,
+        "close_machine_door": false,
         "load_workpiece_into_chuck": true,
         "press_control_panel_button": false
       }
@@ -157,8 +140,7 @@
     {
       "idx": 17,
       "states": {
-        "arrange_parts_on_table": false,
-        "carry_workpiece_to_machine": false,
+        "close_machine_door": true,
         "load_workpiece_into_chuck": false,
         "press_control_panel_button": false
       }
@@ -166,8 +148,7 @@
     {
       "idx": 18,
       "states": {
-        "arrange_parts_on_table": false,
-        "carry_workpiece_to_machine": false,
+        "close_machine_door": false,
         "load_workpiece_into_chuck": false,
         "press_control_panel_button": false
       }
@@ -175,8 +156,7 @@
     {
       "idx": 19,
       "states": {
-        "arrange_parts_on_table": false,
-        "carry_workpiece_to_machine": false,
+        "close_machine_door": false,
         "load_workpiece_into_chuck": false,
         "press_control_panel_button": true
       }
@@ -184,8 +164,7 @@
     {
       "idx": 20,
       "states": {
-        "arrange_parts_on_table": false,
-        "carry_workpiece_to_machine": false,
+        "close_machine_door": false,
         "load_workpiece_into_chuck": false,
         "press_control_panel_button": false
       }
@@ -193,8 +172,7 @@
     {
       "idx": 21,
       "states": {
-        "arrange_parts_on_table": false,
-        "carry_workpiece_to_machine": false,
+        "close_machine_door": false,
         "load_workpiece_into_chuck": false,
         "press_control_panel_button": false
       }
@@ -202,8 +180,7 @@
     {
       "idx": 22,
       "states": {
-        "arrange_parts_on_table": false,
-        "carry_workpiece_to_machine": false,
+        "close_machine_door": false,
         "load_workpiece_into_chuck": false,
         "press_control_panel_button": false
       }
@@ -211,8 +188,7 @@
     {
       "idx": 23,
       "states": {
-        "arrange_parts_on_table": false,
-        "carry_workpiece_to_machine": false,
+        "close_machine_door": false,
         "load_workpiece_into_chuck": false,
         "press_control_panel_button": false
       }
@@ -220,8 +196,7 @@
     {
       "idx": 24,
       "states": {
-        "arrange_parts_on_table": false,
-        "carry_workpiece_to_machine": false,
+        "close_machine_door": false,
         "load_workpiece_into_chuck": false,
         "press_control_panel_button": false
       }
@@ -229,8 +204,7 @@
     {
       "idx": 25,
       "states": {
-        "arrange_parts_on_table": false,
-        "carry_workpiece_to_machine": false,
+        "close_machine_door": false,
         "load_workpiece_into_chuck": false,
         "press_control_panel_button": false
       }
@@ -238,8 +212,7 @@
     {
       "idx": 26,
       "states": {
-        "arrange_parts_on_table": false,
-        "carry_workpiece_to_machine": false,
+        "close_machine_door": false,
         "load_workpiece_into_chuck": false,
         "press_control_panel_button": false
       }
@@ -247,8 +220,7 @@
     {
       "idx": 27,
       "states": {
-        "arrange_parts_on_table": false,
-        "carry_workpiece_to_machine": false,
+        "close_machine_door": false,
         "load_workpiece_into_chuck": false,
         "press_control_panel_button": false
       }
@@ -256,8 +228,7 @@
     {
       "idx": 28,
       "states": {
-        "arrange_parts_on_table": false,
-        "carry_workpiece_to_machine": false,
+        "close_machine_door": false,
         "load_workpiece_into_chuck": false,
         "press_control_panel_button": false
       }
@@ -265,8 +236,7 @@
     {
       "idx": 29,
       "states": {
-        "arrange_parts_on_table": false,
-        "carry_workpiece_to_machine": false,
+        "close_machine_door": false,
         "load_workpiece_into_chuck": false,
         "press_control_panel_button": false
       }
@@ -274,8 +244,7 @@
     {
       "idx": 30,
       "states": {
-        "arrange_parts_on_table": false,
-        "carry_workpiece_to_machine": false,
+        "close_machine_door": false,
         "load_workpiece_into_chuck": false,
         "press_control_panel_button": false
       }
@@ -283,8 +252,7 @@
     {
       "idx": 31,
       "states": {
-        "arrange_parts_on_table": false,
-        "carry_workpiece_to_machine": false,
+        "close_machine_door": false,
         "load_workpiece_into_chuck": false,
         "press_control_panel_button": false
       }
@@ -292,8 +260,7 @@
     {
       "idx": 32,
       "states": {
-        "arrange_parts_on_table": true,
-        "carry_workpiece_to_machine": false,
+        "close_machine_door": false,
         "load_workpiece_into_chuck": false,
         "press_control_panel_button": false
       }
@@ -301,8 +268,7 @@
     {
       "idx": 33,
       "states": {
-        "arrange_parts_on_table": true,
-        "carry_workpiece_to_machine": false,
+        "close_machine_door": false,
         "load_workpiece_into_chuck": false,
         "press_control_panel_button": false
       }
@@ -310,8 +276,7 @@
     {
       "idx": 34,
       "states": {
-        "arrange_parts_on_table": true,
-        "carry_workpiece_to_machine": false,
+        "close_machine_door": false,
         "load_workpiece_into_chuck": false,
         "press_control_panel_button": false
       }
@@ -319,8 +284,7 @@
     {
       "idx": 35,
       "states": {
-        "arrange_parts_on_table": true,
-        "carry_workpiece_to_machine": false,
+        "close_machine_door": false,
         "load_workpiece_into_chuck": false,
         "press_control_panel_button": false
       }
@@ -328,8 +292,7 @@
     {
       "idx": 36,
       "states": {
-        "arrange_parts_on_table": true,
-        "carry_workpiece_to_machine": false,
+        "close_machine_door": false,
         "load_workpiece_into_chuck": false,
         "press_control_panel_button": false
       }
@@ -337,8 +300,7 @@
     {
       "idx": 37,
       "states": {
-        "arrange_parts_on_table": true,
-        "carry_workpiece_to_machine": false,
+        "close_machine_door": false,
         "load_workpiece_into_chuck": false,
         "press_control_panel_button": false
       }
@@ -346,8 +308,7 @@
     {
       "idx": 38,
       "states": {
-        "arrange_parts_on_table": true,
-        "carry_workpiece_to_machine": false,
+        "close_machine_door": false,
         "load_workpiece_into_chuck": false,
         "press_control_panel_button": false
       }
@@ -355,8 +316,7 @@
     {
       "idx": 39,
       "states": {
-        "arrange_parts_on_table": true,
-        "carry_workpiece_to_machine": false,
+        "close_machine_door": false,
         "load_workpiece_into_chuck": false,
         "press_control_panel_button": false
       }

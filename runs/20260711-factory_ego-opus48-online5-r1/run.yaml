@@ -33,7 +33,7 @@ target_units:
 - f006_w005_compression_molding
 ground_truth_used: false
 metrics: null
-inference_code_revision: 192d53aa3265c8f1cdb2c476fe9bb386651aeda0
+inference_code_revision: 0c18875d0d37efd560805006fa1ee38a812244a1
 notes:
 - 'Opus 4.8 online action detection: per-unit agent read the 40 frames in order and'
 - judged each event true/false at each frame using a causal 5-frame window (no future).

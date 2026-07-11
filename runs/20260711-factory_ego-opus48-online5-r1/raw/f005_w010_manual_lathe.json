@@ -4,6 +4,7 @@
     {
       "idx": 0,
       "states": {
+        "feed_cutting_tool": false,
         "place_wrench_on_carriage": false,
         "run_spindle": false,
         "start_spindle": false,
@@ -13,6 +14,7 @@
     {
       "idx": 1,
       "states": {
+        "feed_cutting_tool": false,
         "place_wrench_on_carriage": false,
         "run_spindle": false,
         "start_spindle": false,
@@ -22,6 +24,7 @@
     {
       "idx": 2,
       "states": {
+        "feed_cutting_tool": false,
         "place_wrench_on_carriage": false,
         "run_spindle": false,
         "start_spindle": false,
@@ -31,6 +34,7 @@
     {
       "idx": 3,
       "states": {
+        "feed_cutting_tool": false,
         "place_wrench_on_carriage": false,
         "run_spindle": false,
         "start_spindle": false,
@@ -40,6 +44,7 @@
     {
       "idx": 4,
       "states": {
+        "feed_cutting_tool": false,
         "place_wrench_on_carriage": false,
         "run_spindle": false,
         "start_spindle": false,
@@ -49,6 +54,7 @@
     {
       "idx": 5,
       "states": {
+        "feed_cutting_tool": false,
         "place_wrench_on_carriage": false,
         "run_spindle": false,
         "start_spindle": false,
@@ -58,6 +64,7 @@
     {
       "idx": 6,
       "states": {
+        "feed_cutting_tool": false,
         "place_wrench_on_carriage": false,
         "run_spindle": false,
         "start_spindle": false,
@@ -67,6 +74,7 @@
     {
       "idx": 7,
       "states": {
+        "feed_cutting_tool": false,
         "place_wrench_on_carriage": false,
         "run_spindle": false,
         "start_spindle": false,
@@ -76,6 +84,7 @@
     {
       "idx": 8,
       "states": {
+        "feed_cutting_tool": false,
         "place_wrench_on_carriage": false,
         "run_spindle": false,
         "start_spindle": false,
@@ -85,6 +94,7 @@
     {
       "idx": 9,
       "states": {
+        "feed_cutting_tool": false,
         "place_wrench_on_carriage": false,
         "run_spindle": false,
         "start_spindle": false,
@@ -94,6 +104,7 @@
     {
       "idx": 10,
       "states": {
+        "feed_cutting_tool": false,
         "place_wrench_on_carriage": false,
         "run_spindle": false,
         "start_spindle": false,
@@ -103,6 +114,7 @@
     {
       "idx": 11,
       "states": {
+        "feed_cutting_tool": false,
         "place_wrench_on_carriage": false,
         "run_spindle": false,
         "start_spindle": false,
@@ -112,6 +124,7 @@
     {
       "idx": 12,
       "states": {
+        "feed_cutting_tool": false,
         "place_wrench_on_carriage": false,
         "run_spindle": false,
         "start_spindle": false,
@@ -121,6 +134,7 @@
     {
       "idx": 13,
       "states": {
+        "feed_cutting_tool": false,
         "place_wrench_on_carriage": true,
         "run_spindle": false,
         "start_spindle": false,
@@ -130,7 +144,8 @@
     {
       "idx": 14,
       "states": {
-        "place_wrench_on_carriage": true,
+        "feed_cutting_tool": false,
+        "place_wrench_on_carriage": false,
         "run_spindle": false,
         "start_spindle": false,
         "tighten_workpiece_nut": false
@@ -139,6 +154,7 @@
     {
       "idx": 15,
       "states": {
+        "feed_cutting_tool": false,
         "place_wrench_on_carriage": false,
         "run_spindle": false,
         "start_spindle": false,
@@ -148,6 +164,7 @@
     {
       "idx": 16,
       "states": {
+        "feed_cutting_tool": false,
         "place_wrench_on_carriage": false,
         "run_spindle": false,
         "start_spindle": true,
@@ -157,15 +174,17 @@
     {
       "idx": 17,
       "states": {
+        "feed_cutting_tool": false,
         "place_wrench_on_carriage": false,
         "run_spindle": true,
-        "start_spindle": true,
+        "start_spindle": false,
         "tighten_workpiece_nut": false
       }
     },
     {
       "idx": 18,
       "states": {
+        "feed_cutting_tool": false,
         "place_wrench_on_carriage": false,
         "run_spindle": true,
         "start_spindle": false,
@@ -175,6 +194,7 @@
     {
       "idx": 19,
       "states": {
+        "feed_cutting_tool": false,
         "place_wrench_on_carriage": false,
         "run_spindle": true,
         "start_spindle": false,
@@ -184,6 +204,7 @@
     {
       "idx": 20,
       "states": {
+        "feed_cutting_tool": false,
         "place_wrench_on_carriage": false,
         "run_spindle": true,
         "start_spindle": false,
@@ -193,6 +214,7 @@
     {
       "idx": 21,
       "states": {
+        "feed_cutting_tool": false,
         "place_wrench_on_carriage": false,
         "run_spindle": true,
         "start_spindle": false,
@@ -202,6 +224,7 @@
     {
       "idx": 22,
       "states": {
+        "feed_cutting_tool": false,
         "place_wrench_on_carriage": false,
         "run_spindle": true,
         "start_spindle": false,
@@ -211,6 +234,7 @@
     {
       "idx": 23,
       "states": {
+        "feed_cutting_tool": false,
         "place_wrench_on_carriage": false,
         "run_spindle": true,
         "start_spindle": false,
@@ -220,6 +244,7 @@
     {
       "idx": 24,
       "states": {
+        "feed_cutting_tool": false,
         "place_wrench_on_carriage": false,
         "run_spindle": true,
         "start_spindle": false,
@@ -229,6 +254,7 @@
     {
       "idx": 25,
       "states": {
+        "feed_cutting_tool": false,
         "place_wrench_on_carriage": false,
         "run_spindle": true,
         "start_spindle": false,
@@ -238,6 +264,7 @@
     {
       "idx": 26,
       "states": {
+        "feed_cutting_tool": false,
         "place_wrench_on_carriage": false,
         "run_spindle": true,
         "start_spindle": false,
@@ -247,6 +274,7 @@
     {
       "idx": 27,
       "states": {
+        "feed_cutting_tool": false,
         "place_wrench_on_carriage": false,
         "run_spindle": true,
         "start_spindle": false,
@@ -256,6 +284,7 @@
     {
       "idx": 28,
       "states": {
+        "feed_cutting_tool": false,
         "place_wrench_on_carriage": false,
         "run_spindle": true,
         "start_spindle": false,
@@ -265,6 +294,7 @@
     {
       "idx": 29,
       "states": {
+        "feed_cutting_tool": false,
         "place_wrench_on_carriage": false,
         "run_spindle": true,
         "start_spindle": false,
@@ -274,6 +304,7 @@
     {
       "idx": 30,
       "states": {
+        "feed_cutting_tool": false,
         "place_wrench_on_carriage": false,
         "run_spindle": true,
         "start_spindle": false,
@@ -283,6 +314,7 @@
     {
       "idx": 31,
       "states": {
+        "feed_cutting_tool": false,
         "place_wrench_on_carriage": false,
         "run_spindle": true,
         "start_spindle": false,
@@ -292,6 +324,7 @@
     {
       "idx": 32,
       "states": {
+        "feed_cutting_tool": false,
         "place_wrench_on_carriage": false,
         "run_spindle": true,
         "start_spindle": false,
@@ -301,6 +334,7 @@
     {
       "idx": 33,
       "states": {
+        "feed_cutting_tool": false,
         "place_wrench_on_carriage": false,
         "run_spindle": true,
         "start_spindle": false,
@@ -310,6 +344,7 @@
     {
       "idx": 34,
       "states": {
+        "feed_cutting_tool": false,
         "place_wrench_on_carriage": false,
         "run_spindle": true,
         "start_spindle": false,
@@ -319,6 +354,7 @@
     {
       "idx": 35,
       "states": {
+        "feed_cutting_tool": false,
         "place_wrench_on_carriage": false,
         "run_spindle": true,
         "start_spindle": false,
@@ -328,6 +364,7 @@
     {
       "idx": 36,
       "states": {
+        "feed_cutting_tool": false,
         "place_wrench_on_carriage": false,
         "run_spindle": true,
         "start_spindle": false,
@@ -337,6 +374,7 @@
     {
       "idx": 37,
       "states": {
+        "feed_cutting_tool": false,
         "place_wrench_on_carriage": false,
         "run_spindle": true,
         "start_spindle": false,
@@ -346,6 +384,7 @@
     {
       "idx": 38,
       "states": {
+        "feed_cutting_tool": false,
         "place_wrench_on_carriage": false,
         "run_spindle": true,
         "start_spindle": false,
@@ -355,6 +394,7 @@
     {
       "idx": 39,
       "states": {
+        "feed_cutting_tool": false,
         "place_wrench_on_carriage": false,
         "run_spindle": true,
         "start_spindle": false,

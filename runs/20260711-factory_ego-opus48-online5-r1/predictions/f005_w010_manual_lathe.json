@@ -4,6 +4,7 @@
   "frames": [
     {
       "answers": {
+        "feed_cutting_tool": "no",
         "place_wrench_on_carriage": "no",
         "run_spindle": "no",
         "start_spindle": "no",
@@ -14,6 +15,7 @@
     },
     {
       "answers": {
+        "feed_cutting_tool": "no",
         "place_wrench_on_carriage": "no",
         "run_spindle": "no",
         "start_spindle": "no",
@@ -24,6 +26,7 @@
     },
     {
       "answers": {
+        "feed_cutting_tool": "no",
         "place_wrench_on_carriage": "no",
         "run_spindle": "no",
         "start_spindle": "no",
@@ -34,6 +37,7 @@
     },
     {
       "answers": {
+        "feed_cutting_tool": "no",
         "place_wrench_on_carriage": "no",
         "run_spindle": "no",
         "start_spindle": "no",
@@ -44,6 +48,7 @@
     },
     {
       "answers": {
+        "feed_cutting_tool": "no",
         "place_wrench_on_carriage": "no",
         "run_spindle": "no",
         "start_spindle": "no",
@@ -54,6 +59,7 @@
     },
     {
       "answers": {
+        "feed_cutting_tool": "no",
         "place_wrench_on_carriage": "no",
         "run_spindle": "no",
         "start_spindle": "no",
@@ -64,6 +70,7 @@
     },
     {
       "answers": {
+        "feed_cutting_tool": "no",
         "place_wrench_on_carriage": "no",
         "run_spindle": "no",
         "start_spindle": "no",
@@ -74,6 +81,7 @@
     },
     {
       "answers": {
+        "feed_cutting_tool": "no",
         "place_wrench_on_carriage": "no",
         "run_spindle": "no",
         "start_spindle": "no",
@@ -84,6 +92,7 @@
     },
     {
       "answers": {
+        "feed_cutting_tool": "no",
         "place_wrench_on_carriage": "no",
         "run_spindle": "no",
         "start_spindle": "no",
@@ -94,6 +103,7 @@
     },
     {
       "answers": {
+        "feed_cutting_tool": "no",
         "place_wrench_on_carriage": "no",
         "run_spindle": "no",
         "start_spindle": "no",
@@ -104,6 +114,7 @@
     },
     {
       "answers": {
+        "feed_cutting_tool": "no",
         "place_wrench_on_carriage": "no",
         "run_spindle": "no",
         "start_spindle": "no",
@@ -114,6 +125,7 @@
     },
     {
       "answers": {
+        "feed_cutting_tool": "no",
         "place_wrench_on_carriage": "no",
         "run_spindle": "no",
         "start_spindle": "no",
@@ -124,6 +136,7 @@
     },
     {
       "answers": {
+        "feed_cutting_tool": "no",
         "place_wrench_on_carriage": "no",
         "run_spindle": "no",
         "start_spindle": "no",
@@ -134,6 +147,7 @@
     },
     {
       "answers": {
+        "feed_cutting_tool": "no",
         "place_wrench_on_carriage": "yes",
         "run_spindle": "no",
         "start_spindle": "no",
@@ -144,7 +158,8 @@
     },
     {
       "answers": {
-        "place_wrench_on_carriage": "yes",
+        "feed_cutting_tool": "no",
+        "place_wrench_on_carriage": "no",
         "run_spindle": "no",
         "start_spindle": "no",
         "tighten_workpiece_nut": "no"
@@ -154,6 +169,7 @@
     },
     {
       "answers": {
+        "feed_cutting_tool": "no",
         "place_wrench_on_carriage": "no",
         "run_spindle": "no",
         "start_spindle": "no",
@@ -164,6 +180,7 @@
     },
     {
       "answers": {
+        "feed_cutting_tool": "no",
         "place_wrench_on_carriage": "no",
         "run_spindle": "no",
         "start_spindle": "yes",
@@ -174,9 +191,10 @@
     },
     {
       "answers": {
+        "feed_cutting_tool": "no",
         "place_wrench_on_carriage": "no",
         "run_spindle": "yes",
-        "start_spindle": "yes",
+        "start_spindle": "no",
         "tighten_workpiece_nut": "no"
       },
       "idx": 17,
@@ -184,6 +202,7 @@
     },
     {
       "answers": {
+        "feed_cutting_tool": "no",
         "place_wrench_on_carriage": "no",
         "run_spindle": "yes",
         "start_spindle": "no",
@@ -194,6 +213,7 @@
     },
     {
       "answers": {
+        "feed_cutting_tool": "no",
         "place_wrench_on_carriage": "no",
         "run_spindle": "yes",
         "start_spindle": "no",
@@ -204,6 +224,7 @@
     },
     {
       "answers": {
+        "feed_cutting_tool": "no",
         "place_wrench_on_carriage": "no",
         "run_spindle": "yes",
         "start_spindle": "no",
@@ -214,6 +235,7 @@
     },
     {
       "answers": {
+        "feed_cutting_tool": "no",
         "place_wrench_on_carriage": "no",
         "run_spindle": "yes",
         "start_spindle": "no",
@@ -224,6 +246,7 @@
     },
     {
       "answers": {
+        "feed_cutting_tool": "no",
         "place_wrench_on_carriage": "no",
         "run_spindle": "yes",
         "start_spindle": "no",
@@ -234,6 +257,7 @@
     },
     {
       "answers": {
+        "feed_cutting_tool": "no",
         "place_wrench_on_carriage": "no",
         "run_spindle": "yes",
         "start_spindle": "no",
@@ -244,6 +268,7 @@
     },
     {
       "answers": {
+        "feed_cutting_tool": "no",
         "place_wrench_on_carriage": "no",
         "run_spindle": "yes",
         "start_spindle": "no",
@@ -254,6 +279,7 @@
     },
     {
       "answers": {
+        "feed_cutting_tool": "no",
         "place_wrench_on_carriage": "no",
         "run_spindle": "yes",
         "start_spindle": "no",
@@ -264,6 +290,7 @@
     },
     {
       "answers": {
+        "feed_cutting_tool": "no",
         "place_wrench_on_carriage": "no",
         "run_spindle": "yes",
         "start_spindle": "no",
@@ -274,6 +301,7 @@
     },
     {
       "answers": {
+        "feed_cutting_tool": "no",
         "place_wrench_on_carriage": "no",
         "run_spindle": "yes",
         "start_spindle": "no",
@@ -284,6 +312,7 @@
     },
     {
       "answers": {
+        "feed_cutting_tool": "no",
         "place_wrench_on_carriage": "no",
         "run_spindle": "yes",
         "start_spindle": "no",
@@ -294,6 +323,7 @@
     },
     {
       "answers": {
+        "feed_cutting_tool": "no",
         "place_wrench_on_carriage": "no",
         "run_spindle": "yes",
         "start_spindle": "no",
@@ -304,6 +334,7 @@
     },
     {
       "answers": {
+        "feed_cutting_tool": "no",
         "place_wrench_on_carriage": "no",
         "run_spindle": "yes",
         "start_spindle": "no",
@@ -314,6 +345,7 @@
     },
     {
       "answers": {
+        "feed_cutting_tool": "no",
         "place_wrench_on_carriage": "no",
         "run_spindle": "yes",
         "start_spindle": "no",
@@ -324,6 +356,7 @@
     },
     {
       "answers": {
+        "feed_cutting_tool": "no",
         "place_wrench_on_carriage": "no",
         "run_spindle": "yes",
         "start_spindle": "no",
@@ -334,6 +367,7 @@
     },
     {
       "answers": {
+        "feed_cutting_tool": "no",
         "place_wrench_on_carriage": "no",
         "run_spindle": "yes",
         "start_spindle": "no",
@@ -344,6 +378,7 @@
     },
     {
       "answers": {
+        "feed_cutting_tool": "no",
         "place_wrench_on_carriage": "no",
         "run_spindle": "yes",
         "start_spindle": "no",
@@ -354,6 +389,7 @@
     },
     {
       "answers": {
+        "feed_cutting_tool": "no",
         "place_wrench_on_carriage": "no",
         "run_spindle": "yes",
         "start_spindle": "no",
@@ -364,6 +400,7 @@
     },
     {
       "answers": {
+        "feed_cutting_tool": "no",
         "place_wrench_on_carriage": "no",
         "run_spindle": "yes",
         "start_spindle": "no",
@@ -374,6 +411,7 @@
     },
     {
       "answers": {
+        "feed_cutting_tool": "no",
         "place_wrench_on_carriage": "no",
         "run_spindle": "yes",
         "start_spindle": "no",
@@ -384,6 +422,7 @@
     },
     {
       "answers": {
+        "feed_cutting_tool": "no",
         "place_wrench_on_carriage": "no",
         "run_spindle": "yes",
         "start_spindle": "no",
@@ -394,6 +433,7 @@
     },
     {
       "answers": {
+        "feed_cutting_tool": "no",
         "place_wrench_on_carriage": "no",
         "run_spindle": "yes",
         "start_spindle": "no",

@@ -49,7 +49,7 @@
     {
       "idx": 5,
       "states": {
-        "insert_garment_into_bag": true,
+        "insert_garment_into_bag": false,
         "pick_garment_from_stack": false,
         "place_package_right": false,
         "seal_bag_flap": false
@@ -94,19 +94,19 @@
     {
       "idx": 10,
       "states": {
-        "insert_garment_into_bag": false,
+        "insert_garment_into_bag": true,
         "pick_garment_from_stack": false,
         "place_package_right": false,
-        "seal_bag_flap": true
+        "seal_bag_flap": false
       }
     },
     {
       "idx": 11,
       "states": {
-        "insert_garment_into_bag": false,
+        "insert_garment_into_bag": true,
         "pick_garment_from_stack": false,
         "place_package_right": false,
-        "seal_bag_flap": true
+        "seal_bag_flap": false
       }
     },
     {
@@ -268,7 +268,7 @@
         "insert_garment_into_bag": false,
         "pick_garment_from_stack": false,
         "place_package_right": false,
-        "seal_bag_flap": true
+        "seal_bag_flap": false
       }
     },
     {
@@ -294,7 +294,7 @@
       "states": {
         "insert_garment_into_bag": false,
         "pick_garment_from_stack": false,
-        "place_package_right": false,
+        "place_package_right": true,
         "seal_bag_flap": false
       }
     },
@@ -321,7 +321,7 @@
       "states": {
         "insert_garment_into_bag": false,
         "pick_garment_from_stack": false,
-        "place_package_right": true,
+        "place_package_right": false,
         "seal_bag_flap": false
       }
     },
