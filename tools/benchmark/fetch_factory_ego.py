@@ -56,8 +56,9 @@ class FetchError(RuntimeError):
 class UnitPlan:
     unit_id: str
     clip_id: str
-    start_second: int
-    end_second: int
+    start_second: float
+    end_second: float
+    fps: float
     n_frames: int
     frames_dir: Path
     manifest_path: Path
@@ -98,6 +99,7 @@ def load_units(dataset_root: Path) -> list[UnitPlan]:
             clip_id=source["clip_id"],
             start_second=source["start_second"],
             end_second=source["end_second"],
+            fps=sampling["fps"],
             n_frames=sampling["n_frames"],
             frames_dir=unit_dir / meta["media"]["path"],
             manifest_path=unit_dir / meta["media"]["sha256_manifest"],
@@ -210,7 +212,10 @@ def fetch_clips(clip_ids: set[str], work_dir: Path, revision: str) -> dict[str, 
 # --- frame extraction --------------------------------------------------------
 
 def extract_unit_frames(clip_path: Path, plan: UnitPlan, out_dir: Path) -> dict[str, bytes]:
-    """秒 start..end(両端含む)ごとに round(t*fps) フレーム目をフル解像度JPEGで書き出す。"""
+    """t = start + k/fps (k=0..n_frames-1) の round(t*video_fps) フレーム目をフル解像度JPEGで書き出す。
+
+    窓がクリップ終端を超える場合は最終フレームで頭打ちにする(該当unitはmetaのnotesに明記)。
+    """
     try:
         import cv2
     except ImportError as exc:
@@ -223,16 +228,17 @@ def extract_unit_frames(clip_path: Path, plan: UnitPlan, out_dir: Path) -> dict[
     total = int(cap.get(cv2.CAP_PROP_FRAME_COUNT))
     out_dir.mkdir(parents=True, exist_ok=True)
     frames: dict[str, bytes] = {}
-    seconds = range(plan.start_second, plan.end_second + 1)
-    if len(seconds) != plan.n_frames:
+    expected = int(round((plan.end_second - plan.start_second) * plan.fps))
+    if expected != plan.n_frames:
         raise FetchError(f"{plan.unit_id}: meta sampling mismatch "
-                         f"({len(seconds)} seconds vs n_frames={plan.n_frames})")
-    for idx, second in enumerate(seconds):
-        frame_no = min(int(round(second * video_fps)), total - 1)
+                         f"((end-start)*fps={expected} vs n_frames={plan.n_frames})")
+    for idx in range(plan.n_frames):
+        t = plan.start_second + idx / plan.fps
+        frame_no = min(int(round(t * video_fps)), total - 1)
         cap.set(cv2.CAP_PROP_POS_FRAMES, frame_no)
         ok, frame = cap.read()
         if not ok:
-            raise FetchError(f"{plan.unit_id}: フレーム読み出し失敗 (second={second})")
+            raise FetchError(f"{plan.unit_id}: フレーム読み出し失敗 (t={t})")
         name = f"f{idx:04d}.jpg"
         path = out_dir / name
         if not cv2.imwrite(str(path), frame, [cv2.IMWRITE_JPEG_QUALITY, JPEG_QUALITY]):

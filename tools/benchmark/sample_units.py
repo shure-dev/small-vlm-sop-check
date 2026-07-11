@@ -4,8 +4,8 @@
 fit-alessandro-berti/annotated-egocentric-10k-dataset のローカルcloneを入力に、
 process_mining_event_logs のCSVからクリップごとの作業種類(process)を集計し、
 作業種類→工場→worker の優先度で決定論的に N クリップを選ぶ。
-各クリップでは「10秒間に3〜6個のイベント開始が入る遷移の多い区間」を
-窓候補としてスコアリングし、最良の10秒窓を採用する。
+各クリップでは「窓内に3〜6個のイベント開始が入る遷移の多い区間」を
+窓候補としてスコアリングし、最良の窓を採用する。
 
 設計方針:
 - 乱数を使わない決定論的選択(ソート順のみ)。再実行しても同じ結果になる。
@@ -38,7 +38,8 @@ DATASET_ROOT = REPO_ROOT / "datasets" / "factory_ego"
 UPSTREAM_DATASET = "builddotai/Egocentric-10K"
 ANNOTATIONS_REPO = "fit-alessandro-berti/annotated-egocentric-10k-dataset"
 EPOCH = datetime(2000, 1, 1)
-WINDOW_SECONDS = 10
+FPS = 2.0
+WINDOW_SECONDS = 20
 MIN_EVENTS, MAX_EVENTS = 3, 6
 WORKER_CAP = 2
 FACTORY_MIN = 2
@@ -61,8 +62,8 @@ class Window:
     activities: list[str]
 
     @property
-    def end(self) -> int:  # フレーム両端含む: start..end で n_frames 秒
-        return self.start + WINDOW_SECONDS - 1
+    def end(self) -> int:  # 窓の終端秒(排他)。フレームは t = start + k/FPS
+        return self.start + WINDOW_SECONDS
 
     @property
     def score(self) -> tuple:
@@ -259,7 +260,7 @@ def annotations_revision(root: Path) -> str:
 
 def build_meta(cand: Candidate, revision: str) -> dict:
     start, end = cand.window.start, cand.window.end
-    n_frames = WINDOW_SECONDS
+    n_frames = int(WINDOW_SECONDS * FPS)
     return {
         "schema_version": "1.0",
         "unit_id": cand.unit_id,
@@ -275,7 +276,7 @@ def build_meta(cand: Candidate, revision: str) -> dict:
             "end_second": end,
         },
         "sampling": {
-            "fps": 1.0,
+            "fps": FPS,
             "n_frames": n_frames,
             "output_naming": f"f0000.jpg...f{n_frames - 1:04d}.jpg",
             "source_frame_start": start,
