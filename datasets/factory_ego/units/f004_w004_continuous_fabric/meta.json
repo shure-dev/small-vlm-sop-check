@@ -1,0 +1,53 @@
+{
+  "benchmark_status": "dev_seen",
+  "dataset_id": "factory_ego",
+  "ground_truth": {
+    "available": false,
+    "required_source": "human"
+  },
+  "media": {
+    "availability": "local_gated_source_not_committed",
+    "path": "frames",
+    "sha256_manifest": "frames.sha256.json"
+  },
+  "sampling": {
+    "fps": 1.0,
+    "n_frames": 10,
+    "output_naming": "f0000.jpg...f0009.jpg",
+    "source_frame_end": 84,
+    "source_frame_start": 75
+  },
+  "schema_version": "1.0",
+  "selection": {
+    "annotations_repo": "fit-alessandro-berti/annotated-egocentric-10k-dataset",
+    "annotations_revision": "107f8fdc1aa4334da5eb1c6bc9ce8d52eaf6ce96",
+    "caveat": "window boundaries derive from LLM-generated timestamps; frames are canonical",
+    "main_process": "Continuous fabric chaining",
+    "method": "tools/benchmark/sample_units.py (deterministic stratified)",
+    "transcript_excerpt": [
+      "[0s-81s] The wearer sits at a sewing machine and sews a piece of black fabric. They manipulate the fabric with both hands, guiding it through the machine, pausing occasionally to adjust the alignment and folds. At the end, they pull the fabric from the machine, break the thread, and throw the finished piece onto a pile to their left.",
+      "[81s-264s] The wearer picks up another piece of black fabric from the right, unfolds it, and aligns the edges. They place the edges under the sewing machine foot and begin sewing. They continuously guide the fabric, pausing frequently to readjust the folds and keep the edges perfectly aligned. This repetitive sewing process continues until they finish the seam, break the thread, and drop the piece to the left."
+    ],
+    "window_activities": [
+      "Pull sewn piece out of machine",
+      "Snap thread chain by hand",
+      "Grab unsewn fabric from disorganized pile"
+    ],
+    "window_event_starts": 3
+  },
+  "sop_ref": {
+    "id": "f004_w004_continuous_fabric",
+    "path": "../../sops/f004_w004_continuous_fabric/v001.yaml",
+    "status": "provisional",
+    "version": "v001"
+  },
+  "source": {
+    "clip_id": "factory004_worker004_00001",
+    "dataset": "builddotai/Egocentric-10K",
+    "end_second": 84,
+    "factory_id": "factory_004",
+    "start_second": 75,
+    "worker_id": "worker_004"
+  },
+  "unit_id": "f004_w004_continuous_fabric"
+}

@@ -1,0 +1,53 @@
+{
+  "benchmark_status": "dev_seen",
+  "dataset_id": "factory_ego",
+  "ground_truth": {
+    "available": false,
+    "required_source": "human"
+  },
+  "media": {
+    "availability": "local_gated_source_not_committed",
+    "path": "frames",
+    "sha256_manifest": "frames.sha256.json"
+  },
+  "sampling": {
+    "fps": 1.0,
+    "n_frames": 10,
+    "output_naming": "f0000.jpg...f0009.jpg",
+    "source_frame_end": 332,
+    "source_frame_start": 323
+  },
+  "schema_version": "1.0",
+  "selection": {
+    "annotations_repo": "fit-alessandro-berti/annotated-egocentric-10k-dataset",
+    "annotations_revision": "107f8fdc1aa4334da5eb1c6bc9ce8d52eaf6ce96",
+    "caveat": "window boundaries derive from LLM-generated timestamps; frames are canonical",
+    "main_process": "Fabric folding",
+    "method": "tools/benchmark/sample_units.py (deterministic stratified)",
+    "transcript_excerpt": [
+      "[0s-322s] The person sits at a large white work table scattered with stacks of folded light blue garments, black plastic hanger components, and small red rubber bands. Their hands repeatedly perform a sequence to assemble the hangers: they pick up a long, main black hanger piece with one hand, pick up a smaller, secondary black clip component with the other hand, and snap or slide the two plastic pieces together. Once assembled, they reach for a small red rubber band, stretch it slightly, and loop it securely around the top hook portion of the hanger. The completed hanger is then placed onto a continuously growing pile on the right side of the workspace. This repetitive assembly cycle continues without interruption, while another worker's hands occasionally enter the left edge of the frame to handle the blue garments.",
+      "[323s-359s] The person transitions to a new task. They reach to a stack on their left, pick up a light blue garment (appearing to be pants), and lay it flat on the table. Using both hands, they fold the bottom leg section upwards toward the waistband area. They then fold the left and right outer edges inward to the center, narrowing the garment into a long rectangle. They fold this rectangle in half from bottom to top; a small green tag becomes visible on the garment as they do this. The person then picks up one of the assembled black hangers, pinches the clips open, and attaches them to the folded top edge of the garment. The hung garment is placed onto a new stack on the right. A co-worker in a pink patterned shirt is visible working on the opposite side of the table."
+    ],
+    "window_activities": [
+      "attach clip hanger to folded pants",
+      "fold bottom section of fabric",
+      "fold sides of fabric inward"
+    ],
+    "window_event_starts": 3
+  },
+  "sop_ref": {
+    "id": "f002_w003_fabric_folding",
+    "path": "../../sops/f002_w003_fabric_folding/v001.yaml",
+    "status": "provisional",
+    "version": "v001"
+  },
+  "source": {
+    "clip_id": "factory002_worker003_00004",
+    "dataset": "builddotai/Egocentric-10K",
+    "end_second": 332,
+    "factory_id": "factory_002",
+    "start_second": 323,
+    "worker_id": "worker_003"
+  },
+  "unit_id": "f002_w003_fabric_folding"
+}

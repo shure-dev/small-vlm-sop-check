@@ -1,0 +1,55 @@
+{
+  "benchmark_status": "dev_seen",
+  "dataset_id": "factory_ego",
+  "ground_truth": {
+    "available": false,
+    "required_source": "human"
+  },
+  "media": {
+    "availability": "local_gated_source_not_committed",
+    "path": "frames",
+    "sha256_manifest": "frames.sha256.json"
+  },
+  "sampling": {
+    "fps": 1.0,
+    "n_frames": 10,
+    "output_naming": "f0000.jpg...f0009.jpg",
+    "source_frame_end": 164,
+    "source_frame_start": 155
+  },
+  "schema_version": "1.0",
+  "selection": {
+    "annotations_repo": "fit-alessandro-berti/annotated-egocentric-10k-dataset",
+    "annotations_revision": "107f8fdc1aa4334da5eb1c6bc9ce8d52eaf6ce96",
+    "caveat": "window boundaries derive from LLM-generated timestamps; frames are canonical",
+    "main_process": "Mold preparation and cleaning",
+    "method": "tools/benchmark/sample_units.py (deterministic stratified)",
+    "transcript_excerpt": [
+      "[144s-155s] The person uses the bag of white powder to dust the open mold on the machine.",
+      "[155s-160s] The person places the large clay cup onto the center of the mold, places the top half of the mold over it, and pushes the assembly into the machine.",
+      "[160s-187s] The person steps away from the machine, walks around the busy workshop area observing other workers and equipment, and briefly approaches another machine before turning back."
+    ],
+    "window_activities": [
+      "load pre-manufactured insert into mold",
+      "close two-part mold assembly",
+      "actuate pressing machine",
+      "wait for machine press cycle completion"
+    ],
+    "window_event_starts": 4
+  },
+  "sop_ref": {
+    "id": "f003_w010_mold_preparation",
+    "path": "../../sops/f003_w010_mold_preparation/v001.yaml",
+    "status": "provisional",
+    "version": "v001"
+  },
+  "source": {
+    "clip_id": "factory003_worker010_00004",
+    "dataset": "builddotai/Egocentric-10K",
+    "end_second": 164,
+    "factory_id": "factory_003",
+    "start_second": 155,
+    "worker_id": "worker_010"
+  },
+  "unit_id": "f003_w010_mold_preparation"
+}

@@ -1,0 +1,55 @@
+{
+  "benchmark_status": "dev_seen",
+  "dataset_id": "factory_ego",
+  "ground_truth": {
+    "available": false,
+    "required_source": "human"
+  },
+  "media": {
+    "availability": "local_gated_source_not_committed",
+    "path": "frames",
+    "sha256_manifest": "frames.sha256.json"
+  },
+  "sampling": {
+    "fps": 1.0,
+    "n_frames": 10,
+    "output_naming": "f0000.jpg...f0009.jpg",
+    "source_frame_end": 166,
+    "source_frame_start": 157
+  },
+  "schema_version": "1.0",
+  "selection": {
+    "annotations_repo": "fit-alessandro-berti/annotated-egocentric-10k-dataset",
+    "annotations_revision": "107f8fdc1aa4334da5eb1c6bc9ce8d52eaf6ce96",
+    "caveat": "window boundaries derive from LLM-generated timestamps; frames are canonical",
+    "main_process": "Wax pattern assembly",
+    "method": "tools/benchmark/sample_units.py (deterministic stratified)",
+    "transcript_excerpt": [
+      "[147s-157s] They pick up a fifth piece and scrape it with the metal tool, rotating it continuously.",
+      "[157s-162s] They brush the liquid onto the fifth piece.",
+      "[162s-165s] They insert the fifth piece into the assembly mold.",
+      "[165s-180s] They pick up a sixth piece and clean it thoroughly with the metal tool."
+    ],
+    "window_activities": [
+      "apply paste with brush",
+      "assemble components in metal fixture",
+      "scrape component surface with metal tool"
+    ],
+    "window_event_starts": 3
+  },
+  "sop_ref": {
+    "id": "f003_w007_wax_pattern",
+    "path": "../../sops/f003_w007_wax_pattern/v001.yaml",
+    "status": "provisional",
+    "version": "v001"
+  },
+  "source": {
+    "clip_id": "factory003_worker007_00003",
+    "dataset": "builddotai/Egocentric-10K",
+    "end_second": 166,
+    "factory_id": "factory_003",
+    "start_second": 157,
+    "worker_id": "worker_007"
+  },
+  "unit_id": "f003_w007_wax_pattern"
+}

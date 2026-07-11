@@ -7,6 +7,13 @@ upstream:
   url: https://huggingface.co/datasets/builddotai/Egocentric-10K
   license: Apache-2.0
   access: gated_contact_information_required
+selection_source:
+  id: fit-alessandro-berti/annotated-egocentric-10k-dataset
+  url: https://github.com/fit-alessandro-berti/annotated-egocentric-10k-dataset
+  license: Apache-2.0
+  revision: 107f8fdc1aa4334da5eb1c6bc9ce8d52eaf6ce96
+  note: LLM-generated transcripts and event logs used only for clip selection and
+    provisional SOP design; never treated as ground truth.
 benchmark_state:
   human_ground_truth_available: false
   formal_accuracy_available: false
@@ -14,8 +21,10 @@ benchmark_state:
   - agreement
   - answer_distribution
   - boundary_difference
-unit_count: 8
+unit_count: 20
 media_distribution: gated_source_frames_not_in_public_repository
-migration:
-  date: '2026-07-10'
-  code_revision: ed62e37b3d8d2c462492832a19c12cb576b21bdf
+sampling_policy:
+  tool: tools/benchmark/sample_units.py
+  strategy: deterministic stratification by work type, factory, then worker
+  window: 10 seconds at 1 fps chosen where 3-6 procedure steps overlap
+  growth: rerun with a larger --n; existing selections never change

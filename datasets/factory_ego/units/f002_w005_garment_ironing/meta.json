@@ -1,0 +1,55 @@
+{
+  "benchmark_status": "dev_seen",
+  "dataset_id": "factory_ego",
+  "ground_truth": {
+    "available": false,
+    "required_source": "human"
+  },
+  "media": {
+    "availability": "local_gated_source_not_committed",
+    "path": "frames",
+    "sha256_manifest": "frames.sha256.json"
+  },
+  "sampling": {
+    "fps": 1.0,
+    "n_frames": 10,
+    "output_naming": "f0000.jpg...f0009.jpg",
+    "source_frame_end": 61,
+    "source_frame_start": 52
+  },
+  "schema_version": "1.0",
+  "selection": {
+    "annotations_repo": "fit-alessandro-berti/annotated-egocentric-10k-dataset",
+    "annotations_revision": "107f8fdc1aa4334da5eb1c6bc9ce8d52eaf6ce96",
+    "caveat": "window boundaries derive from LLM-generated timestamps; frames are canonical",
+    "main_process": "Garment ironing",
+    "method": "tools/benchmark/sample_units.py (deterministic stratified)",
+    "transcript_excerpt": [
+      "[45s-52s] They fold the bottom hem of the shirt up a few inches, then fold the entire lower section of the shirt upwards so the folded edge meets the collar area, completely enclosing the white folding board.",
+      "[52s-56s] They pick up the iron again, press the folded lower section of the shirt, and set the iron down.",
+      "[56s-61s] The wearer grasps the white folding board with their right hand and slides it smoothly out from the collar opening of the folded shirt.",
+      "[61s-68s] They flip the folded shirt over so the front side is facing up. They fold the shirt in half once more, smooth the fabric, and place the completed shirt onto the finished stack out of frame to the left."
+    ],
+    "window_activities": [
+      "press folded garment creases with iron",
+      "slide template out from folded t-shirt",
+      "freehand fold t-shirt"
+    ],
+    "window_event_starts": 3
+  },
+  "sop_ref": {
+    "id": "f002_w005_garment_ironing",
+    "path": "../../sops/f002_w005_garment_ironing/v001.yaml",
+    "status": "provisional",
+    "version": "v001"
+  },
+  "source": {
+    "clip_id": "factory002_worker005_00007",
+    "dataset": "builddotai/Egocentric-10K",
+    "end_second": 61,
+    "factory_id": "factory_002",
+    "start_second": 52,
+    "worker_id": "worker_005"
+  },
+  "unit_id": "f002_w005_garment_ironing"
+}
