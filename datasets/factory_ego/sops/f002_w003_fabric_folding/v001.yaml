@@ -1,32 +1,40 @@
 sop:
   id: f002_w003_fabric_folding
   name: 'Factory Ego: f002_w003_fabric_folding'
-  domain_hint: 'First-person camera of a worker at a large white table with stacks of light blue garments, black plastic hanger parts, and small red rubber bands.'
+  domain_hint: '工場の一人称視点（頭部装着カメラ）映像。衣類・ハンガー・輪ゴムが並ぶ大きな白い作業台。'
 questions:
-- id: lay_garment
-  ask: 'Considering the motion across the recent frames, is the worker picking up a light blue garment and laying it flat on the table in the latest frame?'
+- id: spread_garment_on_table
+  ask: '作業者は衣類を作業台の上に広げているか？'
   values:
   - 'yes'
   - 'no'
-- id: fold_bottom
-  ask: 'Considering the motion across the recent frames, is the worker folding the bottom or leg section of the garment upward toward the waistband in the latest frame?'
+- id: smooth_and_align_garment
+  ask: '作業者は広げた衣類を手でならして整えているか？'
   values:
   - 'yes'
   - 'no'
-- id: fold_sides
-  ask: 'Considering the motion across the recent frames, is the worker folding the left and right edges of the garment inward to the center in the latest frame?'
+- id: fold_garment
+  ask: '作業者は衣類を折りたたんでいるか？'
+  values:
+  - 'yes'
+  - 'no'
+- id: take_hanger
+  ask: '作業者はハンガーを手に取っているか？'
   values:
   - 'yes'
   - 'no'
 events:
-  lay_garment:
-    evidence: lay_garment==yes
-    min_frames: 1
-  fold_bottom:
-    evidence: fold_bottom==yes
+  spread_garment_on_table:
+    evidence: spread_garment_on_table==yes
     min_frames: 2
-  fold_sides:
-    evidence: fold_sides==yes
+  smooth_and_align_garment:
+    evidence: smooth_and_align_garment==yes
+    min_frames: 2
+  fold_garment:
+    evidence: fold_garment==yes
+    min_frames: 3
+  take_hanger:
+    evidence: take_hanger==yes
     min_frames: 2
 relations: []
 benchmark:
@@ -34,12 +42,4 @@ benchmark:
   version: v001
   status: provisional
   purpose: model_accuracy_comparison
-  provenance: 'events designed from the annotated-egocentric-10k transcription of factory002_worker003_00004; timestamps are LLM-generated estimates, not human ground truth'
-  review:
-    expected_sequence:
-    - event: lay_garment
-      window_offset_estimate: '0-2s'
-    - event: fold_bottom
-      window_offset_estimate: '2-6s'
-    - event: fold_sides
-      window_offset_estimate: '6-9s'
+  provenance: '抽出フレーム(2fps・20秒窓)を目視して定義(docs/benchmark/events.mdの方法論に従う)。人手GTではない'

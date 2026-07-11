@@ -1,45 +1,45 @@
 sop:
   id: f004_w004_continuous_fabric
   name: 'Factory Ego: f004_w004_continuous_fabric'
-  domain_hint: 'First-person camera of a worker at an industrial sewing machine chaining pieces of black fabric, with piles of unsewn and finished pieces at each side.'
+  domain_hint: '工場の一人称視点（頭部装着カメラ）映像。黒い生地とオーバーロックミシンの作業台。'
 questions:
-- id: sew_fabric
-  ask: 'Considering the motion across the recent frames, is the worker guiding black fabric through the running sewing machine with both hands in the latest frame?'
+- id: stow_black_fabric
+  ask: '作業者は黒い生地を作業台の上に広げて置いているか？'
   values:
   - 'yes'
   - 'no'
-- id: remove_piece
-  ask: 'Considering the motion across the recent frames, is the worker pulling the sewn piece away from the machine or snapping the thread chain in the latest frame?'
+- id: bring_garment_to_machine
+  ask: '作業者は黒い衣類を手に取ってミシン台へ引き寄せているか？'
   values:
   - 'yes'
   - 'no'
-- id: grab_new
-  ask: 'Considering the motion across the recent frames, is the worker picking up a new piece of black fabric from the pile in the latest frame?'
+- id: align_garment_edge
+  ask: '作業者は衣類の縁を両手で揃えているか？'
+  values:
+  - 'yes'
+  - 'no'
+- id: set_under_presser_foot
+  ask: '作業者は生地をミシンの押さえ金の下にセットしているか？'
   values:
   - 'yes'
   - 'no'
 events:
-  sew_fabric:
-    evidence: sew_fabric==yes
-    min_frames: 2
-  remove_piece:
-    evidence: remove_piece==yes
-    min_frames: 1
-  grab_new:
-    evidence: grab_new==yes
-    min_frames: 2
+  stow_black_fabric:
+    evidence: stow_black_fabric==yes
+    min_frames: 4
+  bring_garment_to_machine:
+    evidence: bring_garment_to_machine==yes
+    min_frames: 4
+  align_garment_edge:
+    evidence: align_garment_edge==yes
+    min_frames: 3
+  set_under_presser_foot:
+    evidence: set_under_presser_foot==yes
+    min_frames: 3
 relations: []
 benchmark:
   schema_version: '1.0'
   version: v001
   status: provisional
   purpose: model_accuracy_comparison
-  provenance: 'events designed from the annotated-egocentric-10k transcription of factory004_worker004_00001; timestamps are LLM-generated estimates, not human ground truth'
-  review:
-    expected_sequence:
-    - event: sew_fabric
-      window_offset_estimate: '0-5s'
-    - event: remove_piece
-      window_offset_estimate: '5-7s'
-    - event: grab_new
-      window_offset_estimate: '7-9s'
+  provenance: '抽出フレーム(2fps・20秒窓)を目視して定義(docs/benchmark/events.mdの方法論に従う)。人手GTではない'

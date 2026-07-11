@@ -1,45 +1,45 @@
 sop:
   id: f004_w005_heat_press
   name: 'Factory Ego: f004_w005_heat_press'
-  domain_hint: 'First-person camera of a worker at a heat press machine with an orange handle, transferring printed labels onto white onesies.'
+  domain_hint: '工場の一人称視点（頭部装着カメラ）映像。ヒートプレス機と隣接する作業台。'
 questions:
-- id: press_closed
-  ask: 'Considering the motion across the recent frames, is the worker waiting at the heat press while it is clamped shut on a garment in the latest frame?'
+- id: open_heat_press
+  ask: '作業者はヒートプレス機のハンドルを引いて上盤を開けているか？'
   values:
   - 'yes'
   - 'no'
-- id: remove_garment
-  ask: 'Considering the motion across the recent frames, is the worker lifting the press handle and taking the hot garment off the platen in the latest frame?'
+- id: move_fabric_to_table
+  ask: '作業者はプレス台から生地を取り出して作業台へ移しているか？'
   values:
   - 'yes'
   - 'no'
-- id: inspect_logo
-  ask: 'Considering the motion across the recent frames, is the worker unfolding the garment to look at the freshly transferred print in the latest frame?'
+- id: peel_transfer_paper
+  ask: '作業者はTシャツから転写紙を剥がしているか？'
+  values:
+  - 'yes'
+  - 'no'
+- id: smooth_arrange_shirt
+  ask: '作業者はTシャツを台の上に広げて手で整えているか？'
   values:
   - 'yes'
   - 'no'
 events:
-  press_closed:
-    evidence: press_closed==yes
+  open_heat_press:
+    evidence: open_heat_press==yes
     min_frames: 2
-  remove_garment:
-    evidence: remove_garment==yes
-    min_frames: 1
-  inspect_logo:
-    evidence: inspect_logo==yes
+  move_fabric_to_table:
+    evidence: move_fabric_to_table==yes
     min_frames: 2
+  peel_transfer_paper:
+    evidence: peel_transfer_paper==yes
+    min_frames: 3
+  smooth_arrange_shirt:
+    evidence: smooth_arrange_shirt==yes
+    min_frames: 4
 relations: []
 benchmark:
   schema_version: '1.0'
   version: v001
   status: provisional
   purpose: model_accuracy_comparison
-  provenance: 'events designed from the annotated-egocentric-10k transcription of factory004_worker005_00000; timestamps are LLM-generated estimates, not human ground truth'
-  review:
-    expected_sequence:
-    - event: press_closed
-      window_offset_estimate: '0-4s'
-    - event: remove_garment
-      window_offset_estimate: '4-6s'
-    - event: inspect_logo
-      window_offset_estimate: '6-9s'
+  provenance: '抽出フレーム(2fps・20秒窓)を目視して定義(docs/benchmark/events.mdの方法論に従う)。人手GTではない'

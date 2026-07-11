@@ -1,40 +1,40 @@
 sop:
   id: f003_w010_mold_preparation
   name: 'Factory Ego: f003_w010_mold_preparation'
-  domain_hint: 'First-person camera of a worker preparing a two-part mold at a pressing machine, with a large clay cup insert and white dusting powder.'
+  domain_hint: '工場の一人称視点（頭部装着カメラ）映像。砂型と成形機のある鋳造工場。'
 questions:
-- id: load_insert
-  ask: 'Considering the motion across the recent frames, is the worker placing the large clay cup onto the center of the open lower mold in the latest frame?'
+- id: lift_pattern_plate
+  ask: '作業者は黄色い型板を両手で持ち上げているか？'
   values:
   - 'yes'
   - 'no'
-- id: close_mold
-  ask: 'Considering the motion across the recent frames, is the worker placing the top half of the mold over the assembly in the latest frame?'
+- id: carry_sand_mold
+  ask: '作業者は砂の入った型枠を運んでいるか？'
   values:
   - 'yes'
   - 'no'
-- id: press_mold
-  ask: 'Considering the motion across the recent frames, is the worker pushing the closed mold assembly into the pressing machine in the latest frame?'
+- id: walk_between_benches
+  ask: '作業者は作業場内を歩いて移動しているか？'
   values:
   - 'yes'
   - 'no'
-- id: walk_away
-  ask: 'Considering the motion across the recent frames, is the worker stepping away from the machine and walking around the workshop in the latest frame?'
+- id: pick_parts_from_box
+  ask: '作業者は木箱から小さな部品を取り出しているか？'
   values:
   - 'yes'
   - 'no'
 events:
-  load_insert:
-    evidence: load_insert==yes
-    min_frames: 1
-  close_mold:
-    evidence: close_mold==yes
-    min_frames: 1
-  press_mold:
-    evidence: press_mold==yes
-    min_frames: 1
-  walk_away:
-    evidence: walk_away==yes
+  lift_pattern_plate:
+    evidence: lift_pattern_plate==yes
+    min_frames: 4
+  carry_sand_mold:
+    evidence: carry_sand_mold==yes
+    min_frames: 2
+  walk_between_benches:
+    evidence: walk_between_benches==yes
+    min_frames: 3
+  pick_parts_from_box:
+    evidence: pick_parts_from_box==yes
     min_frames: 2
 relations: []
 benchmark:
@@ -42,14 +42,4 @@ benchmark:
   version: v001
   status: provisional
   purpose: model_accuracy_comparison
-  provenance: 'events designed from the annotated-egocentric-10k transcription of factory003_worker010_00004; timestamps are LLM-generated estimates, not human ground truth'
-  review:
-    expected_sequence:
-    - event: load_insert
-      window_offset_estimate: '0-2s'
-    - event: close_mold
-      window_offset_estimate: '2-4s'
-    - event: press_mold
-      window_offset_estimate: '4-5s'
-    - event: walk_away
-      window_offset_estimate: '5-9s'
+  provenance: '抽出フレーム(2fps・20秒窓)を目視して定義(docs/benchmark/events.mdの方法論に従う)。人手GTではない'

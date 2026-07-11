@@ -1,45 +1,37 @@
 sop:
   id: f006_w004_bulk_material
   name: 'Factory Ego: f006_w004_bulk_material'
-  domain_hint: 'First-person camera of a worker moving finned metal casings across a factory floor with an orange wheelbarrow.'
+  domain_hint: '工場の一人称視点（頭部装着カメラ）映像。筒状部品の山と鉄箱のある工場の床。'
 questions:
-- id: push_barrow
-  ask: 'Considering the motion across the recent frames, is the worker pushing the loaded orange wheelbarrow across the factory floor in the latest frame?'
+- id: pick_parts_from_pile
+  ask: '作業者は山積みの部品の中から筒状の部品を拾い上げているか？'
   values:
   - 'yes'
   - 'no'
-- id: dump_load
-  ask: 'Considering the motion across the recent frames, is the worker tipping the wheelbarrow forward to dump the metal casings onto a floor pile in the latest frame?'
+- id: put_parts_into_box
+  ask: '作業者は筒状の部品を鉄製の箱の中に入れているか？'
   values:
   - 'yes'
   - 'no'
-- id: load_casing
-  ask: 'Considering the motion across the recent frames, is the worker picking metal casings up from the floor pile and tossing them into the wheelbarrow in the latest frame?'
+- id: reposition_parts_box
+  ask: '作業者は部品の入った鉄箱を引いて位置を直しているか？'
   values:
   - 'yes'
   - 'no'
 events:
-  push_barrow:
-    evidence: push_barrow==yes
+  pick_parts_from_pile:
+    evidence: pick_parts_from_pile==yes
+    min_frames: 3
+  put_parts_into_box:
+    evidence: put_parts_into_box==yes
     min_frames: 2
-  dump_load:
-    evidence: dump_load==yes
+  reposition_parts_box:
+    evidence: reposition_parts_box==yes
     min_frames: 2
-  load_casing:
-    evidence: load_casing==yes
-    min_frames: 1
 relations: []
 benchmark:
   schema_version: '1.0'
   version: v001
   status: provisional
   purpose: model_accuracy_comparison
-  provenance: 'events designed from the annotated-egocentric-10k transcription of factory006_worker004_00001; timestamps are LLM-generated estimates, not human ground truth'
-  review:
-    expected_sequence:
-    - event: push_barrow
-      window_offset_estimate: '0-5s'
-    - event: dump_load
-      window_offset_estimate: '5-8s'
-    - event: load_casing
-      window_offset_estimate: '8-9s'
+  provenance: '抽出フレーム(2fps・20秒窓)を目視して定義(docs/benchmark/events.mdの方法論に従う)。人手GTではない'

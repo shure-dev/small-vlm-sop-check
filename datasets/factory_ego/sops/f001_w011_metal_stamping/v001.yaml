@@ -1,45 +1,45 @@
 sop:
   id: f001_w011_metal_stamping
   name: 'Factory Ego: f001_w011_metal_stamping'
-  domain_hint: 'First-person camera of a worker at an industrial stamping press, with a blue scrap crate on the floor nearby and stacks of flat metal blanks by the machine.'
+  domain_hint: '工場の一人称視点（頭部装着カメラ）映像。プレス機が並ぶ金属加工工場のフロア。'
 questions:
-- id: carry_scrap
-  ask: 'Considering the motion across the recent frames, is the worker walking with scrap metal pieces or dropping them into a blue floor crate in the latest frame?'
+- id: bundle_scrap
+  ask: '作業者はスクラップをまとめているか？'
   values:
   - 'yes'
   - 'no'
-- id: stage_blanks
-  ask: 'Considering the motion across the recent frames, is the worker sliding or dragging a stack of flat metal pieces closer to the machine bed with both hands in the latest frame?'
+- id: walk_to_next_station
+  ask: '作業者は歩いて移動しているか？'
   values:
   - 'yes'
   - 'no'
-- id: press_cycle
-  ask: 'Considering the motion across the recent frames, is the worker seated at the press loading a flat metal blank into the die or operating the press in the latest frame?'
+- id: pick_up_metal_sheets
+  ask: '作業者は金属の板を手に取っているか？'
+  values:
+  - 'yes'
+  - 'no'
+- id: gather_metal_sheets
+  ask: '作業者は金属の板を揃えてまとめているか？'
   values:
   - 'yes'
   - 'no'
 events:
-  carry_scrap:
-    evidence: carry_scrap==yes
+  bundle_scrap:
+    evidence: bundle_scrap==yes
+    min_frames: 4
+  walk_to_next_station:
+    evidence: walk_to_next_station==yes
+    min_frames: 3
+  pick_up_metal_sheets:
+    evidence: pick_up_metal_sheets==yes
     min_frames: 2
-  stage_blanks:
-    evidence: stage_blanks==yes
+  gather_metal_sheets:
+    evidence: gather_metal_sheets==yes
     min_frames: 2
-  press_cycle:
-    evidence: press_cycle==yes
-    min_frames: 1
 relations: []
 benchmark:
   schema_version: '1.0'
   version: v001
   status: provisional
   purpose: model_accuracy_comparison
-  provenance: 'events designed from the annotated-egocentric-10k transcription of factory001_worker011_00000; timestamps are LLM-generated estimates, not human ground truth'
-  review:
-    expected_sequence:
-    - event: carry_scrap
-      window_offset_estimate: '0-5s'
-    - event: stage_blanks
-      window_offset_estimate: '5-8s'
-    - event: press_cycle
-      window_offset_estimate: '8-9s'
+  provenance: '抽出フレーム(2fps・20秒窓)を目視して定義(docs/benchmark/events.mdの方法論に従う)。人手GTではない'

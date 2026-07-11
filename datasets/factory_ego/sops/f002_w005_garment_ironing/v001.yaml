@@ -1,45 +1,45 @@
 sop:
   id: f002_w005_garment_ironing
   name: 'Factory Ego: f002_w005_garment_ironing'
-  domain_hint: 'First-person camera of a worker folding t-shirts at an ironing table using a white folding board and an iron.'
+  domain_hint: '工場の一人称視点（頭部装着カメラ）映像。折り畳み板とアイロンのある衣類仕上げ台。'
 questions:
-- id: iron_press
-  ask: 'Considering the motion across the recent frames, is the worker pressing the folded shirt with the iron in the latest frame?'
+- id: place_folding_board
+  ask: '作業者は白い折り畳み板をシャツの上に置いて位置を合わせているか？'
   values:
   - 'yes'
   - 'no'
-- id: remove_board
-  ask: 'Considering the motion across the recent frames, is the worker sliding the white folding board out of the folded shirt in the latest frame?'
+- id: fold_shirt_around_board
+  ask: '作業者はシャツを板に沿って折り畳んでいるか？'
   values:
   - 'yes'
   - 'no'
-- id: final_fold
-  ask: 'Considering the motion across the recent frames, is the worker flipping the folded shirt over or folding it in half again to finish in the latest frame?'
+- id: flip_and_neaten_folded_shirt
+  ask: '作業者は畳んだシャツを表に返して形を整えているか？'
+  values:
+  - 'yes'
+  - 'no'
+- id: stack_folded_shirt
+  ask: '作業者は畳んだシャツを完成品の山に重ねているか？'
   values:
   - 'yes'
   - 'no'
 events:
-  iron_press:
-    evidence: iron_press==yes
+  place_folding_board:
+    evidence: place_folding_board==yes
+    min_frames: 4
+  fold_shirt_around_board:
+    evidence: fold_shirt_around_board==yes
+    min_frames: 4
+  flip_and_neaten_folded_shirt:
+    evidence: flip_and_neaten_folded_shirt==yes
+    min_frames: 3
+  stack_folded_shirt:
+    evidence: stack_folded_shirt==yes
     min_frames: 2
-  remove_board:
-    evidence: remove_board==yes
-    min_frames: 2
-  final_fold:
-    evidence: final_fold==yes
-    min_frames: 1
 relations: []
 benchmark:
   schema_version: '1.0'
   version: v001
   status: provisional
   purpose: model_accuracy_comparison
-  provenance: 'events designed from the annotated-egocentric-10k transcription of factory002_worker005_00007; timestamps are LLM-generated estimates, not human ground truth'
-  review:
-    expected_sequence:
-    - event: iron_press
-      window_offset_estimate: '0-4s'
-    - event: remove_board
-      window_offset_estimate: '4-8s'
-    - event: final_fold
-      window_offset_estimate: '9s'
+  provenance: '抽出フレーム(2fps・20秒窓)を目視して定義(docs/benchmark/events.mdの方法論に従う)。人手GTではない'

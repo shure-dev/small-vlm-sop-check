@@ -1,45 +1,45 @@
 sop:
   id: f002_w002_garment_bagging
   name: 'Factory Ego: f002_w002_garment_bagging'
-  domain_hint: 'First-person camera of a worker at a packing table with a stack of light purple garments, white cardboard stiffeners, and clear plastic bags.'
+  domain_hint: '工場の一人称視点（頭部装着カメラ）映像。畳んだ服の山とビニール袋のある梱包台。'
 questions:
-- id: fold_garment
-  ask: 'Considering the motion across the recent frames, is the worker folding a light purple garment around a white cardboard stiffener in the latest frame?'
+- id: pick_garment_from_stack
+  ask: '作業者は積まれた服のスタックから服を1枚取っているか？'
   values:
   - 'yes'
   - 'no'
-- id: insert_bag
-  ask: 'Considering the motion across the recent frames, is the worker sliding a folded garment into a clear plastic bag in the latest frame?'
+- id: insert_garment_into_bag
+  ask: '作業者は服をプラスチックの袋に入れているか？'
   values:
   - 'yes'
   - 'no'
-- id: seal_bag
-  ask: 'Considering the motion across the recent frames, is the worker peeling the adhesive strip or pressing the bag flap shut to seal the package in the latest frame?'
+- id: seal_bag_flap
+  ask: '作業者は袋の口を折り込んで閉じているか？'
+  values:
+  - 'yes'
+  - 'no'
+- id: place_package_right
+  ask: '作業者は袋詰めした服を右側に置いているか？'
   values:
   - 'yes'
   - 'no'
 events:
-  fold_garment:
-    evidence: fold_garment==yes
+  pick_garment_from_stack:
+    evidence: pick_garment_from_stack==yes
     min_frames: 2
-  insert_bag:
-    evidence: insert_bag==yes
+  insert_garment_into_bag:
+    evidence: insert_garment_into_bag==yes
+    min_frames: 3
+  seal_bag_flap:
+    evidence: seal_bag_flap==yes
+    min_frames: 4
+  place_package_right:
+    evidence: place_package_right==yes
     min_frames: 2
-  seal_bag:
-    evidence: seal_bag==yes
-    min_frames: 1
 relations: []
 benchmark:
   schema_version: '1.0'
   version: v001
   status: provisional
   purpose: model_accuracy_comparison
-  provenance: 'events designed from the annotated-egocentric-10k transcription of factory002_worker002_00005; timestamps are LLM-generated estimates, not human ground truth'
-  review:
-    expected_sequence:
-    - event: fold_garment
-      window_offset_estimate: '0-4s'
-    - event: insert_bag
-      window_offset_estimate: '4-7s'
-    - event: seal_bag
-      window_offset_estimate: '7-9s'
+  provenance: '抽出フレーム(2fps・20秒窓)を目視して定義(docs/benchmark/events.mdの方法論に従う)。人手GTではない'

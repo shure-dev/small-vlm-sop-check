@@ -1,45 +1,45 @@
 sop:
   id: f005_w001_semi_automatic
   name: 'Factory Ego: f005_w001_semi_automatic'
-  domain_hint: 'First-person camera of a worker at a semi-automatic stator winding machine handling copper wire and stator cores, with a metal table nearby.'
+  domain_hint: '工場の一人称視点（頭部装着カメラ）映像。巻線機に載ったステータと制御盤。'
 questions:
-- id: unload_stator
-  ask: 'Considering the motion across the recent frames, is the worker removing the wound stator from the machine''s central fixture in the latest frame?'
+- id: adjust_coil_leads
+  ask: '作業者はコイルのリード線を手で整えているか？'
   values:
   - 'yes'
   - 'no'
-- id: carry_stator
-  ask: 'Considering the motion across the recent frames, is the worker walking or standing away from the machine while holding the stator in the latest frame?'
+- id: reach_machine_base
+  ask: '作業者は機械の下部に手を伸ばして作業しているか？'
   values:
   - 'yes'
   - 'no'
-- id: mount_stator
-  ask: 'Considering the motion across the recent frames, is the worker placing the stator back onto the machine fixture or threading the copper wire in the latest frame?'
+- id: lace_stator_cord
+  ask: '作業者は白い紐をステータに通しているか？'
+  values:
+  - 'yes'
+  - 'no'
+- id: press_panel_button
+  ask: '作業者は制御盤のボタンを押しているか？'
   values:
   - 'yes'
   - 'no'
 events:
-  unload_stator:
-    evidence: unload_stator==yes
+  adjust_coil_leads:
+    evidence: adjust_coil_leads==yes
+    min_frames: 2
+  reach_machine_base:
+    evidence: reach_machine_base==yes
+    min_frames: 3
+  lace_stator_cord:
+    evidence: lace_stator_cord==yes
+    min_frames: 4
+  press_panel_button:
+    evidence: press_panel_button==yes
     min_frames: 1
-  carry_stator:
-    evidence: carry_stator==yes
-    min_frames: 2
-  mount_stator:
-    evidence: mount_stator==yes
-    min_frames: 2
 relations: []
 benchmark:
   schema_version: '1.0'
   version: v001
   status: provisional
   purpose: model_accuracy_comparison
-  provenance: 'events designed from the annotated-egocentric-10k transcription of factory005_worker001_00002; timestamps are LLM-generated estimates, not human ground truth'
-  review:
-    expected_sequence:
-    - event: unload_stator
-      window_offset_estimate: '0-2s'
-    - event: carry_stator
-      window_offset_estimate: '2-6s'
-    - event: mount_stator
-      window_offset_estimate: '6-9s'
+  provenance: '抽出フレーム(2fps・20秒窓)を目視して定義(docs/benchmark/events.mdの方法論に従う)。人手GTではない'

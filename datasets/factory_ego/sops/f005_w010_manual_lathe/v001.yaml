@@ -1,45 +1,45 @@
 sop:
   id: f005_w010_manual_lathe
   name: 'Factory Ego: f005_w010_manual_lathe'
-  domain_hint: 'First-person camera of a worker at a manual lathe mounting parts with a washer, nut, and a large spanner wrench.'
+  domain_hint: '工場の一人称視点（頭部装着カメラ）映像。手動旋盤とスパナ、赤い鋳物部品。'
 questions:
-- id: hand_thread
-  ask: 'Considering the motion across the recent frames, is the worker threading the washer and nut onto the lathe''s central rod by hand in the latest frame?'
+- id: tighten_workpiece_nut
+  ask: '作業者はスパナでナットを締めているか？'
   values:
   - 'yes'
   - 'no'
-- id: wrench_tighten
-  ask: 'Considering the motion across the recent frames, is the worker tightening the nut with the large wrench in the latest frame?'
+- id: place_wrench_on_carriage
+  ask: '作業者はスパナを往復台の上に置いているか？'
   values:
   - 'yes'
   - 'no'
-- id: engage_spindle
-  ask: 'Considering the motion across the recent frames, is the worker turning handwheels or pulling the lever to start the lathe spindle in the latest frame?'
+- id: start_spindle
+  ask: '作業者は主軸のレバーを操作しているか？'
+  values:
+  - 'yes'
+  - 'no'
+- id: run_spindle
+  ask: '作業者は工作物を回転させているか？'
   values:
   - 'yes'
   - 'no'
 events:
-  hand_thread:
-    evidence: hand_thread==yes
+  tighten_workpiece_nut:
+    evidence: tighten_workpiece_nut==yes
+    min_frames: 4
+  place_wrench_on_carriage:
+    evidence: place_wrench_on_carriage==yes
     min_frames: 2
-  wrench_tighten:
-    evidence: wrench_tighten==yes
+  start_spindle:
+    evidence: start_spindle==yes
     min_frames: 2
-  engage_spindle:
-    evidence: engage_spindle==yes
-    min_frames: 1
+  run_spindle:
+    evidence: run_spindle==yes
+    min_frames: 4
 relations: []
 benchmark:
   schema_version: '1.0'
   version: v001
   status: provisional
   purpose: model_accuracy_comparison
-  provenance: 'events designed from the annotated-egocentric-10k transcription of factory005_worker010_00000; timestamps are LLM-generated estimates, not human ground truth'
-  review:
-    expected_sequence:
-    - event: hand_thread
-      window_offset_estimate: '0-5s'
-    - event: wrench_tighten
-      window_offset_estimate: '5-8s'
-    - event: engage_spindle
-      window_offset_estimate: '8-9s'
+  provenance: '抽出フレーム(2fps・20秒窓)を目視して定義(docs/benchmark/events.mdの方法論に従う)。人手GTではない'

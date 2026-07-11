@@ -1,55 +1,37 @@
 sop:
   id: f004_w006_curvilinear_seam
   name: 'Factory Ego: f004_w006_curvilinear_seam'
-  domain_hint: 'First-person camera of a worker at a sewing machine joining curved seams on grey fabric pieces, with small thread snips at hand.'
+  domain_hint: '工場の一人称視点（頭部装着カメラ）映像。ミシン台と灰色のニット生地。'
 questions:
-- id: cut_thread
-  ask: 'Considering the motion across the recent frames, is the worker cutting the thread with small snips after stopping the machine in the latest frame?'
+- id: align_fabric_edges
+  ask: '作業者は布の端を手で揃えているか？'
   values:
   - 'yes'
   - 'no'
-- id: set_aside
-  ask: 'Considering the motion across the recent frames, is the worker placing the finished grey fabric piece off to the side in the latest frame?'
+- id: position_fabric_under_needle
+  ask: '作業者は布をミシンの針の下に置いて位置を合わせているか？'
   values:
   - 'yes'
   - 'no'
-- id: pick_new
-  ask: 'Considering the motion across the recent frames, is the worker picking up a new grey fabric piece in the latest frame?'
-  values:
-  - 'yes'
-  - 'no'
-- id: align_edges
-  ask: 'Considering the motion across the recent frames, is the worker unfolding the new piece and aligning its edges with both hands in the latest frame?'
+- id: fine_finger_work_at_needle
+  ask: '作業者は針元で指先を使った細かい作業をしているか？'
   values:
   - 'yes'
   - 'no'
 events:
-  cut_thread:
-    evidence: cut_thread==yes
-    min_frames: 1
-  set_aside:
-    evidence: set_aside==yes
-    min_frames: 1
-  pick_new:
-    evidence: pick_new==yes
-    min_frames: 1
-  align_edges:
-    evidence: align_edges==yes
-    min_frames: 2
+  align_fabric_edges:
+    evidence: align_fabric_edges==yes
+    min_frames: 3
+  position_fabric_under_needle:
+    evidence: position_fabric_under_needle==yes
+    min_frames: 3
+  fine_finger_work_at_needle:
+    evidence: fine_finger_work_at_needle==yes
+    min_frames: 4
 relations: []
 benchmark:
   schema_version: '1.0'
   version: v001
   status: provisional
   purpose: model_accuracy_comparison
-  provenance: 'events designed from the annotated-egocentric-10k transcription of factory004_worker006_00002; timestamps are LLM-generated estimates, not human ground truth'
-  review:
-    expected_sequence:
-    - event: cut_thread
-      window_offset_estimate: '0-2s'
-    - event: set_aside
-      window_offset_estimate: '2-4s'
-    - event: pick_new
-      window_offset_estimate: '4-6s'
-    - event: align_edges
-      window_offset_estimate: '6-9s'
+  provenance: '抽出フレーム(2fps・20秒窓)を目視して定義(docs/benchmark/events.mdの方法論に従う)。人手GTではない'

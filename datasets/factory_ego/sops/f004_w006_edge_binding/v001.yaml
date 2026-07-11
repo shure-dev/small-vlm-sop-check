@@ -1,45 +1,37 @@
 sop:
   id: f004_w006_edge_binding
   name: 'Factory Ego: f004_w006_edge_binding'
-  domain_hint: 'First-person camera of a worker at a sewing machine attaching continuous blue edge binding to grey fabric pieces, with scissors at hand.'
+  domain_hint: '工場の一人称視点（頭部装着カメラ）映像。ミシン台と縁取りテープ付きの灰色生地、はさみ。'
 questions:
-- id: sew_binding
-  ask: 'Considering the motion across the recent frames, is the worker guiding grey fabric through the running sewing machine in the latest frame?'
+- id: handle_fabric_at_needle
+  ask: '作業者はミシンの針元で生地を扱っているか？'
   values:
   - 'yes'
   - 'no'
-- id: cut_thread
-  ask: 'Considering the motion across the recent frames, is the worker cutting the thread with scissors after finishing the seam in the latest frame?'
+- id: trim_thread_with_scissors
+  ask: '作業者ははさみで糸を切っているか？'
   values:
   - 'yes'
   - 'no'
-- id: swap_pieces
-  ask: 'Considering the motion across the recent frames, is the worker putting the finished piece on the pile or picking up a new grey piece in the latest frame?'
+- id: flip_and_check_binding
+  ask: '作業者は生地を手で裏返して縁を確かめているか？'
   values:
   - 'yes'
   - 'no'
 events:
-  sew_binding:
-    evidence: sew_binding==yes
+  handle_fabric_at_needle:
+    evidence: handle_fabric_at_needle==yes
     min_frames: 2
-  cut_thread:
-    evidence: cut_thread==yes
-    min_frames: 1
-  swap_pieces:
-    evidence: swap_pieces==yes
-    min_frames: 2
+  trim_thread_with_scissors:
+    evidence: trim_thread_with_scissors==yes
+    min_frames: 3
+  flip_and_check_binding:
+    evidence: flip_and_check_binding==yes
+    min_frames: 4
 relations: []
 benchmark:
   schema_version: '1.0'
   version: v001
   status: provisional
   purpose: model_accuracy_comparison
-  provenance: 'events designed from the annotated-egocentric-10k transcription of factory004_worker006_00003; timestamps are LLM-generated estimates, not human ground truth'
-  review:
-    expected_sequence:
-    - event: sew_binding
-      window_offset_estimate: '0-5s'
-    - event: cut_thread
-      window_offset_estimate: '5-7s'
-    - event: swap_pieces
-      window_offset_estimate: '7-9s'
+  provenance: '抽出フレーム(2fps・20秒窓)を目視して定義(docs/benchmark/events.mdの方法論に従う)。人手GTではない'

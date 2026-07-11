@@ -11,10 +11,10 @@
     "sha256_manifest": "frames.sha256.json"
   },
   "sampling": {
-    "fps": 1.0,
-    "n_frames": 10,
-    "output_naming": "f0000.jpg...f0009.jpg",
-    "source_frame_end": 59,
+    "fps": 2.0,
+    "n_frames": 40,
+    "output_naming": "f0000.jpg...f0039.jpg",
+    "source_frame_end": 70,
     "source_frame_start": 50
   },
   "schema_version": "1.0",
@@ -44,7 +44,7 @@
   "source": {
     "clip_id": "factory004_worker005_00000",
     "dataset": "builddotai/Egocentric-10K",
-    "end_second": 59,
+    "end_second": 70,
     "factory_id": "factory_004",
     "start_second": 50,
     "worker_id": "worker_005"

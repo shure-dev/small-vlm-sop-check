@@ -1,45 +1,37 @@
 sop:
   id: f001_w004_material_replenishment
   name: 'Factory Ego: f001_w004_material_replenishment'
-  domain_hint: 'First-person camera of a worker at a metal bracket assembly bench with an electric screwdriver, blue parts bins on the left, and small black fasteners.'
+  domain_hint: '工場の一人称視点（頭部装着カメラ）映像。電動ドライバーと部品ビンのある組立ベンチ。'
 questions:
-- id: scoop_parts
-  ask: 'Considering the motion across the recent frames, is the worker grabbing a handful of small black parts and dropping them into a blue bin in the latest frame?'
+- id: assemble_part_with_driver
+  ask: '作業者は電動ドライバーで部品を組み立てているか？'
   values:
   - 'yes'
   - 'no'
-- id: drive_fastener
-  ask: 'Considering the motion across the recent frames, is the worker holding a bracket and driving a fastener into it with the electric screwdriver in the latest frame?'
+- id: take_parts_from_bag
+  ask: '作業者は袋から部品を取り出しているか？'
   values:
   - 'yes'
   - 'no'
-- id: handle_bag
-  ask: 'Considering the motion across the recent frames, is the worker picking up or handling a small clear plastic bag of fasteners in the latest frame?'
+- id: roll_up_bag
+  ask: '作業者は袋を丸めているか？'
   values:
   - 'yes'
   - 'no'
 events:
-  scoop_parts:
-    evidence: scoop_parts==yes
+  assemble_part_with_driver:
+    evidence: assemble_part_with_driver==yes
+    min_frames: 4
+  take_parts_from_bag:
+    evidence: take_parts_from_bag==yes
     min_frames: 2
-  drive_fastener:
-    evidence: drive_fastener==yes
-    min_frames: 2
-  handle_bag:
-    evidence: handle_bag==yes
-    min_frames: 2
+  roll_up_bag:
+    evidence: roll_up_bag==yes
+    min_frames: 4
 relations: []
 benchmark:
   schema_version: '1.0'
   version: v001
   status: provisional
   purpose: model_accuracy_comparison
-  provenance: 'events designed from the annotated-egocentric-10k transcription of factory001_worker004_00000; timestamps are LLM-generated estimates, not human ground truth'
-  review:
-    expected_sequence:
-    - event: scoop_parts
-      window_offset_estimate: '0-2s'
-    - event: drive_fastener
-      window_offset_estimate: '2-6s'
-    - event: handle_bag
-      window_offset_estimate: '6-9s'
+  provenance: '抽出フレーム(2fps・20秒窓)を目視して定義(docs/benchmark/events.mdの方法論に従う)。人手GTではない'

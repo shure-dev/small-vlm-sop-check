@@ -1,45 +1,42 @@
 sop:
   id: f003_w005_metal_casting
   name: 'Factory Ego: f003_w005_metal_casting'
-  domain_hint: 'First-person camera of a worker separating metal castings at a sloped workstation, using a hammer, with a bulk bin of loose parts nearby.'
+  domain_hint: '工場の一人称視点（頭部装着カメラ）映像。金網状の大型ドラムと木箱のある鋳物仕上げ場。'
 questions:
-- id: sweep_bar
-  ask: 'Considering the motion across the recent frames, is the worker pushing a long flat metal guide bar upward along the sloped work surface in the latest frame?'
+- id: knock_parts_off_casting_q
+  ask: '作業者はハンマーで鋳物を叩いているか？'
   values:
   - 'yes'
   - 'no'
-- id: scoop_parts
-  ask: 'Considering the motion across the recent frames, is the worker walking to the bulk bin or scooping a handful of metal parts from it in the latest frame?'
+- id: carry_casting_bundle
+  ask: '作業者は鋳物の束を手に持って運んでいるか？'
   values:
   - 'yes'
   - 'no'
-- id: hammer_strike
-  ask: 'Considering the motion across the recent frames, is the worker placing a part on the work surface and striking it with a hammer in the latest frame?'
+- id: put_casting_into_crate
+  ask: '作業者は鋳物を木箱に入れているか？'
   values:
   - 'yes'
   - 'no'
 events:
-  sweep_bar:
-    evidence: sweep_bar==yes
+  knock_parts_off_casting:
+    evidence: knock_parts_off_casting_q==yes
     min_frames: 2
-  scoop_parts:
-    evidence: scoop_parts==yes
+    occurrence: 1
+  carry_casting_bundle:
+    evidence: carry_casting_bundle==yes
     min_frames: 2
-  hammer_strike:
-    evidence: hammer_strike==yes
+  put_casting_into_crate:
+    evidence: put_casting_into_crate==yes
     min_frames: 2
+  resume_hammering_on_drum:
+    evidence: knock_parts_off_casting_q==yes
+    min_frames: 4
+    occurrence: 2
 relations: []
 benchmark:
   schema_version: '1.0'
   version: v001
   status: provisional
   purpose: model_accuracy_comparison
-  provenance: 'events designed from the annotated-egocentric-10k transcription of factory003_worker005_00004; timestamps are LLM-generated estimates, not human ground truth'
-  review:
-    expected_sequence:
-    - event: sweep_bar
-      window_offset_estimate: '0-3s'
-    - event: scoop_parts
-      window_offset_estimate: '3-7s'
-    - event: hammer_strike
-      window_offset_estimate: '7-9s'
+  provenance: '抽出フレーム(2fps・20秒窓)を目視して定義(docs/benchmark/events.mdの方法論に従う)。人手GTではない'

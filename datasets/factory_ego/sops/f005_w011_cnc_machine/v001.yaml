@@ -1,55 +1,45 @@
 sop:
   id: f005_w011_cnc_machine
   name: 'Factory Ego: f005_w011_cnc_machine'
-  domain_hint: 'First-person camera of a worker tending a CNC lathe with a sliding door, swapping raw and finished parts at the chuck.'
+  domain_hint: '工場の一人称視点（頭部装着カメラ）映像。CNC機と操作盤、部品トレイ。'
 questions:
-- id: open_door
-  ask: 'Considering the motion across the recent frames, is the worker sliding open the CNC machine door in the latest frame?'
+- id: carry_workpiece_to_machine
+  ask: '作業者は部品を手に持って機械まで歩いているか？'
   values:
   - 'yes'
   - 'no'
-- id: swap_parts
-  ask: 'Considering the motion across the recent frames, is the worker exchanging the finished part for a raw part at the machine chuck in the latest frame?'
+- id: load_workpiece_into_chuck
+  ask: '作業者は機械のチャックに部品を取り付けているか？'
   values:
   - 'yes'
   - 'no'
-- id: close_door
-  ask: 'Considering the motion across the recent frames, is the worker sliding the CNC machine door closed in the latest frame?'
+- id: press_control_panel_button
+  ask: '作業者は操作盤のボタンを押しているか？'
   values:
   - 'yes'
   - 'no'
-- id: start_cycle
-  ask: 'Considering the motion across the recent frames, is the worker pressing the button or panel control to start the machining cycle in the latest frame?'
+- id: arrange_parts_on_table
+  ask: '作業者は作業台の上で部品を並べているか？'
   values:
   - 'yes'
   - 'no'
 events:
-  open_door:
-    evidence: open_door==yes
-    min_frames: 1
-  swap_parts:
-    evidence: swap_parts==yes
+  carry_workpiece_to_machine:
+    evidence: carry_workpiece_to_machine==yes
     min_frames: 2
-  close_door:
-    evidence: close_door==yes
+  load_workpiece_into_chuck:
+    evidence: load_workpiece_into_chuck==yes
+    min_frames: 4
+  press_control_panel_button:
+    evidence: press_control_panel_button==yes
     min_frames: 1
-  start_cycle:
-    evidence: start_cycle==yes
-    min_frames: 1
+  arrange_parts_on_table:
+    evidence: arrange_parts_on_table==yes
+    min_frames: 4
 relations: []
 benchmark:
   schema_version: '1.0'
   version: v001
   status: provisional
   purpose: model_accuracy_comparison
-  provenance: 'events designed from the annotated-egocentric-10k transcription of factory005_worker011_00000; timestamps are LLM-generated estimates, not human ground truth'
-  review:
-    expected_sequence:
-    - event: open_door
-      window_offset_estimate: '0-2s'
-    - event: swap_parts
-      window_offset_estimate: '2-6s'
-    - event: close_door
-      window_offset_estimate: '6-8s'
-    - event: start_cycle
-      window_offset_estimate: '8-9s'
+  provenance: '抽出フレーム(2fps・20秒窓)を目視して定義(docs/benchmark/events.mdの方法論に従う)。人手GTではない'

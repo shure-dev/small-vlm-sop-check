@@ -1,45 +1,45 @@
 sop:
   id: f003_w009_injection_molding
   name: 'Factory Ego: f003_w009_injection_molding'
-  domain_hint: 'First-person camera of a worker tending an injection molding machine, breaking molded plastic parts off runners into a small box and a bulk tray.'
+  domain_hint: '工場の一人称視点（頭部装着カメラ）映像。射出成形機の金型まわり。'
 questions:
-- id: extract_sprue
-  ask: 'Considering the motion across the recent frames, is the worker pulling a hot plastic sprue or molded cluster out of the molding machine in the latest frame?'
+- id: remove_molded_parts
+  ask: '作業者は金型から成形品を取り外しているか？'
   values:
   - 'yes'
   - 'no'
-- id: snap_parts
-  ask: 'Considering the motion across the recent frames, is the worker snapping plastic parts off the runner by hand into a box in the latest frame?'
+- id: place_parts_on_table
+  ask: '作業者は成形品を作業台に置いているか？'
   values:
   - 'yes'
   - 'no'
-- id: empty_box
-  ask: 'Considering the motion across the recent frames, is the worker tipping the small parts box out into the large bulk tray in the latest frame?'
+- id: walk_to_next_position
+  ask: '作業者は歩いて移動しているか？'
+  values:
+  - 'yes'
+  - 'no'
+- id: set_inserts_into_mold
+  ask: '作業者は金型の中に手を入れて部品をセットしているか？'
   values:
   - 'yes'
   - 'no'
 events:
-  extract_sprue:
-    evidence: extract_sprue==yes
+  remove_molded_parts:
+    evidence: remove_molded_parts==yes
+    min_frames: 3
+  place_parts_on_table:
+    evidence: place_parts_on_table==yes
     min_frames: 2
-  snap_parts:
-    evidence: snap_parts==yes
-    min_frames: 1
-  empty_box:
-    evidence: empty_box==yes
-    min_frames: 2
+  walk_to_next_position:
+    evidence: walk_to_next_position==yes
+    min_frames: 3
+  set_inserts_into_mold:
+    evidence: set_inserts_into_mold==yes
+    min_frames: 4
 relations: []
 benchmark:
   schema_version: '1.0'
   version: v001
   status: provisional
   purpose: model_accuracy_comparison
-  provenance: 'events designed from the annotated-egocentric-10k transcription of factory003_worker009_00003; timestamps are LLM-generated estimates, not human ground truth'
-  review:
-    expected_sequence:
-    - event: extract_sprue
-      window_offset_estimate: '0-4s'
-    - event: snap_parts
-      window_offset_estimate: '2-5s'
-    - event: empty_box
-      window_offset_estimate: '5-9s'
+  provenance: '抽出フレーム(2fps・20秒窓)を目視して定義(docs/benchmark/events.mdの方法論に従う)。人手GTではない'

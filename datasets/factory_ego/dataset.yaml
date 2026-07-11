@@ -26,5 +26,5 @@ media_distribution: gated_source_frames_not_in_public_repository
 sampling_policy:
   tool: tools/benchmark/sample_units.py
   strategy: deterministic stratification by work type, factory, then worker
-  window: 10 seconds at 1 fps chosen where 3-6 procedure steps overlap
+  window: 20 seconds at 2 fps chosen where 3-6 procedure steps overlap
   growth: rerun with a larger --n; existing selections never change

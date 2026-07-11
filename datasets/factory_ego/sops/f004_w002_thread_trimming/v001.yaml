@@ -1,45 +1,45 @@
 sop:
   id: f004_w002_thread_trimming
   name: 'Factory Ego: f004_w002_thread_trimming'
-  domain_hint: 'First-person camera of a worker at a garment finishing table trimming threads from white onesies with small blue snipping scissors.'
+  domain_hint: '工場の一人称視点（頭部装着カメラ）映像。白いベビー服と糸切りばさみのある仕上げ台。'
 questions:
-- id: fold_stack
-  ask: 'Considering the motion across the recent frames, is the worker folding a white garment and placing it onto the finished pile in the latest frame?'
+- id: spread_garment_flat
+  ask: '作業者は服を台の上に広げて平らに整えているか？'
   values:
   - 'yes'
   - 'no'
-- id: pick_new
-  ask: 'Considering the motion across the recent frames, is the worker pulling a new white garment from the unfinished pile and laying it out in the latest frame?'
+- id: pick_next_garment
+  ask: '作業者は次の服を布の山から取り上げているか？'
   values:
   - 'yes'
   - 'no'
-- id: snip_threads
-  ask: 'Considering the motion across the recent frames, is the worker trimming loose threads from the garment with small snipping scissors in the latest frame?'
+- id: trim_threads_upper
+  ask: '作業者は糸切りばさみで服の襟や肩まわりの糸を切っているか？'
+  values:
+  - 'yes'
+  - 'no'
+- id: trim_threads_hem
+  ask: '作業者は服の裾をめくり上げて糸を切っているか？'
   values:
   - 'yes'
   - 'no'
 events:
-  fold_stack:
-    evidence: fold_stack==yes
+  spread_garment_flat:
+    evidence: spread_garment_flat==yes
+    min_frames: 3
+  pick_next_garment:
+    evidence: pick_next_garment==yes
     min_frames: 2
-  pick_new:
-    evidence: pick_new==yes
-    min_frames: 2
-  snip_threads:
-    evidence: snip_threads==yes
-    min_frames: 1
+  trim_threads_upper:
+    evidence: trim_threads_upper==yes
+    min_frames: 4
+  trim_threads_hem:
+    evidence: trim_threads_hem==yes
+    min_frames: 3
 relations: []
 benchmark:
   schema_version: '1.0'
   version: v001
   status: provisional
   purpose: model_accuracy_comparison
-  provenance: 'events designed from the annotated-egocentric-10k transcription of factory004_worker002_00006; timestamps are LLM-generated estimates, not human ground truth'
-  review:
-    expected_sequence:
-    - event: fold_stack
-      window_offset_estimate: '0-4s'
-    - event: pick_new
-      window_offset_estimate: '4-8s'
-    - event: snip_threads
-      window_offset_estimate: '8-9s'
+  provenance: '抽出フレーム(2fps・20秒窓)を目視して定義(docs/benchmark/events.mdの方法論に従う)。人手GTではない'
