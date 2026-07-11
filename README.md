@@ -182,15 +182,15 @@ sop-check eval \
 
 ### Factory Ego
 
-Egocentric-10Kの6工場から作業種類が満遍なく入るよう層化抽出した20 unit（各10秒・1fps・10フレーム）で、手順判定に向けたモデル間の精度比較を準備している開発用データセットです。
+Egocentric-10Kの6工場から作業種類が満遍なく入るよう層化抽出した20 unit（各20秒・2fps・40フレーム）で、手順判定に向けたモデル間の精度比較を準備している開発用データセットです。
 
 - クリップ選定と暫定SOP設計には[annotated-egocentric-10k-dataset](https://github.com/fit-alessandro-berti/annotated-egocentric-10k-dataset)（LLM生成・人手検証なし）のtranscriptionを使い、GTとしては扱いません
-- 各unitのSOPは手順ステップ粒度の3〜5イベントを持ち、questionsは「直近数フレームの動きを踏まえた最新フレーム時点の状態」を問う動画解析設計です
+- 各unitのSOPは手順ステップ粒度の3〜4イベントを持ち、questionsは日本語の単文（「作業者は〜しているか？」）です。イベントは抽出フレームの目視で定義します（[イベント定義ガイド](docs/benchmark/events.md)）
 - 現行unitは選定・アノテーション過程で閲覧されるため、すべて `dev_seen`
 - 人手ground truthは未作成のため、正式なprecision、recall、F1、tIoUは未計測
 - upstreamがgated datasetのため、抽出フレームは公開リポジトリに含めず、SHA manifestだけを追跡
 
-SOPイベント定義は現在人手レビュー待ちで、prediction runは未作成です。詳細は[Factory Ego README](datasets/factory_ego/README.md)と[モデル比較レポート](reports/model_comparison.md)を参照してください。
+SOPイベント定義は実フレーム目視で日本語に再定義済み（人手レビュー待ち）で、prediction runは未作成です。詳細は[Factory Ego README](datasets/factory_ego/README.md)と[モデル比較レポート](reports/model_comparison.md)を参照してください。
 
 ## データセットと実験結果の置き場
 

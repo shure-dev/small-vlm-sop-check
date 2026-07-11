@@ -1,6 +1,37 @@
 # Event definitions
 
-イベントは動画unitごとのSOPで定義します。`questions:` がVLMへのフレームごとの質問、`events:` が回答からイベント区間を作る決定論的条件です。
+イベントは動画unitごとのSOPで定義します。`questions:` がVLMへのフレームごとの質問、`events:` が回答からイベント区間を作る決定論的条件です。このページは**イベントをどう定義するかの正本**（ベンチマーク作成時のアノテーション・イベント定義ガイド）を兼ねます。
+
+## イベント定義の方法論
+
+当初はannotated-egocentric-10kのLLM生成transcriptionだけからイベントを設計したが、実フレームと照合すると「窓内で起きていないイベント」「粒度のズレ」が多発した（2026-07-11のレビューで確認。例: garment_ironingのアイロン押し当ては窓内で発生していなかった）。以下はその修正指示から抽象化した作り方で、**新しいunitにイベントを付けるときは必ずこの手順に従う**。
+
+### 原則
+
+1. **実フレームを見て定義する**。transcription・イベントログ・他モデルの出力は「あたり」を付ける材料に過ぎない。定義は抽出済みフレームを時系列に数枚ずつ見て、実際に起きている動作を確認しながら行う（LLM生成timestampは±数秒ズレる前提）。
+2. **イベント＝手順の1ステップ（動作）**。「〜が見える」（物体の可視性）ではなく「作業者が〜する」。例:「袋から部品を取り出す」「金属板をまとめる」。
+3. **窓内で実際に起きた動作だけを定義する**。期待・推測でイベントを作らない。起きなかった動作は書かない。
+4. **粒度は手順として意味のある単位**。粗すぎる1イベントは分割する（例:「袋を扱う」→「袋から部品を取り出す」＋「袋を丸める」）。逆に、同種動作の連続反復（同じ縫製サイクルの繰り返し等）は1イベントにまとめる。歩行・運搬も手順の1ステップになりうる。
+5. **数は20秒窓で3〜4イベント**を目安にする。
+6. **日本語で書く**。質問は前置きなしの単文「作業者は〜しているか？」。「Considering the motion across the recent frames...」のような前置きは付けない。イベントidは機械可読性のため英語snake_case。
+7. **秒数はSOPに書かない**。SOPが持つのは定義（何が手順か）だけ。区間（いつ起きたか）は回答収集・人手アノテーションが記録する。
+8. **サンプリング基準は2fps（0.5秒刻み）・20秒窓**。`min_frames` は2fps基準で「その動作が最低続く時間×2」を目安に1〜4（既定は2＝1秒）。
+
+### 手順
+
+1. 対象クリップから2fps・20秒でフレームを抽出する（`tools/benchmark/fetch_factory_ego.py`）
+2. まず1枚おきに全フレームを流し見て、作業の流れを掴む
+3. 動作の変わり目付近は0.5秒刻みで見て、ステップの境界を確認する
+4. 手順を日本語で言語化し、上の原則でイベントに切る
+5. 定義後にもう一度フレームを見て、各イベントが実際に視認できるかを確認する
+
+### 基準例（データセット設計者の実指示から）
+
+| unit | イベント列 |
+|---|---|
+| f001_w004_material_replenishment | 部品を組み立てる → 袋から部品を取り出す → 袋を丸める |
+| f001_w011_metal_stamping | スクラップをまとめる → 歩いて移動する → 金属板を取ってまとめる |
+| f002_w002_garment_bagging | 積まれた服から1枚取る → プラスチック袋に入れる → 右側に置く |
 
 ## Konro Inspection
 
@@ -8,29 +39,4 @@
 
 ## Factory Ego
 
-手順判定を目的に、各イベントは手順の1ステップ（動作）に対応させています。questionsは「直近数フレームの動きを文脈に、最新フレーム時点の状態」を問う動画解析設計です。窓は10秒・1fps・10フレームで、unitあたり3〜5イベントが入ります。期待されるイベント順序の見立ては各SOPの `benchmark.review.expected_sequence`、選定根拠は[データセットREADME](../../datasets/factory_ego/README.md)のunit一覧を参照してください。
-
-| unit | events | SOP |
-|---|---|---|
-| f001_w004_material_replenishment | `scoop_parts`、`drive_fastener`、`handle_bag` | [v001](../../datasets/factory_ego/sops/f001_w004_material_replenishment/v001.yaml) |
-| f001_w011_metal_stamping | `carry_scrap`、`stage_blanks`、`press_cycle` | [v001](../../datasets/factory_ego/sops/f001_w011_metal_stamping/v001.yaml) |
-| f002_w002_garment_bagging | `fold_garment`、`insert_bag`、`seal_bag` | [v001](../../datasets/factory_ego/sops/f002_w002_garment_bagging/v001.yaml) |
-| f002_w003_fabric_folding | `lay_garment`、`fold_bottom`、`fold_sides` | [v001](../../datasets/factory_ego/sops/f002_w003_fabric_folding/v001.yaml) |
-| f002_w005_garment_ironing | `iron_press`、`remove_board`、`final_fold` | [v001](../../datasets/factory_ego/sops/f002_w005_garment_ironing/v001.yaml) |
-| f003_w005_metal_casting | `sweep_bar`、`scoop_parts`、`hammer_strike` | [v001](../../datasets/factory_ego/sops/f003_w005_metal_casting/v001.yaml) |
-| f003_w007_wax_pattern | `brush_paste`、`insert_mold`、`scrape_piece` | [v001](../../datasets/factory_ego/sops/f003_w007_wax_pattern/v001.yaml) |
-| f003_w009_injection_molding | `extract_sprue`、`snap_parts`、`empty_box` | [v001](../../datasets/factory_ego/sops/f003_w009_injection_molding/v001.yaml) |
-| f003_w010_mold_preparation | `load_insert`、`close_mold`、`press_mold`、`walk_away` | [v001](../../datasets/factory_ego/sops/f003_w010_mold_preparation/v001.yaml) |
-| f004_w002_thread_trimming | `fold_stack`、`pick_new`、`snip_threads` | [v001](../../datasets/factory_ego/sops/f004_w002_thread_trimming/v001.yaml) |
-| f004_w004_continuous_fabric | `sew_fabric`、`remove_piece`、`grab_new` | [v001](../../datasets/factory_ego/sops/f004_w004_continuous_fabric/v001.yaml) |
-| f004_w005_heat_press | `press_closed`、`remove_garment`、`inspect_logo` | [v001](../../datasets/factory_ego/sops/f004_w005_heat_press/v001.yaml) |
-| f004_w005_overlock_seaming | `finish_seam`、`remove_toss`、`pick_unfold` | [v001](../../datasets/factory_ego/sops/f004_w005_overlock_seaming/v001.yaml) |
-| f004_w006_curvilinear_seam | `cut_thread`、`set_aside`、`pick_new`、`align_edges` | [v001](../../datasets/factory_ego/sops/f004_w006_curvilinear_seam/v001.yaml) |
-| f004_w006_edge_binding | `sew_binding`、`cut_thread`、`swap_pieces` | [v001](../../datasets/factory_ego/sops/f004_w006_edge_binding/v001.yaml) |
-| f005_w001_semi_automatic | `unload_stator`、`carry_stator`、`mount_stator` | [v001](../../datasets/factory_ego/sops/f005_w001_semi_automatic/v001.yaml) |
-| f005_w010_manual_lathe | `hand_thread`、`wrench_tighten`、`engage_spindle` | [v001](../../datasets/factory_ego/sops/f005_w010_manual_lathe/v001.yaml) |
-| f005_w011_cnc_machine | `open_door`、`swap_parts`、`close_door`、`start_cycle` | [v001](../../datasets/factory_ego/sops/f005_w011_cnc_machine/v001.yaml) |
-| f006_w004_bulk_material | `push_barrow`、`dump_load`、`load_casing` | [v001](../../datasets/factory_ego/sops/f006_w004_bulk_material/v001.yaml) |
-| f006_w005_compression_molding | `eject_block`、`clean_mold`、`load_mold`、`press_controls` | [v001](../../datasets/factory_ego/sops/f006_w005_compression_molding/v001.yaml) |
-
-Factory EgoのSOPはすべて `status: provisional` です（人手レビュー前）。イベント定義はannotated-egocentric-10kのLLM生成transcriptionから設計したもので、区間の見立ては±数秒の誤差を前提とします。
+各unitのイベント一覧は `datasets/factory_ego/sops/<unit_id>/v001.yaml` が正本です（方法論改訂に伴い日本語で再定義済み。一覧は[データセットREADME](../../datasets/factory_ego/README.md)を参照）。SOPはすべて `status: provisional`（人手レビュー前）で、relationsは当面使いません（`relations: []`）。
