@@ -64,9 +64,19 @@ def hf_snapshot_revision(model_id: str) -> str:
     return snapshots[-1].name if snapshots else "unknown"
 
 
-def discover_units() -> list[str]:
+def discover_units(subset: str | None = None) -> list[str]:
     split = json.loads((DATASET_ROOT / "splits" / f"{SPLIT_ID}.json").read_text(encoding="utf-8"))
-    return sorted(split["assignments"]["dev_seen"])
+    split_units = set(split["assignments"]["dev_seen"])
+    if subset is None:
+        return sorted(split_units)
+    subset_path = DATASET_ROOT / "subsets" / f"{subset}.json"
+    if not subset_path.is_file():
+        raise SystemExit(f"subset定義がありません: {subset_path}")
+    subset_units = json.loads(subset_path.read_text(encoding="utf-8"))["unit_ids"]
+    unknown = set(subset_units) - split_units
+    if unknown:
+        raise SystemExit(f"subsetにsplit外のunitがあります: {sorted(unknown)}")
+    return sorted(subset_units)
 
 
 def unit_paths(unit_id: str) -> dict[str, Path]:
@@ -78,8 +88,14 @@ def unit_paths(unit_id: str) -> dict[str, Path]:
             "manifest": manifest_path, "frames": unit_dir / "frames"}
 
 
+def unit_fps(unit_id: str) -> float:
+    """unitの抽出fpsをmeta.jsonから読む(タイムスタンプ t=idx/fps の算出用)。"""
+    meta = json.loads((unit_paths(unit_id)["meta"]).read_text(encoding="utf-8"))
+    return float(meta.get("sampling", {}).get("fps", 1.0))
+
+
 def observe_unit(observer, sop: dict, frames_dir: Path, raw_path: Path,
-                 max_tokens: int, prefill: str) -> list[dict]:
+                 max_tokens: int, prefill: str, fps: float) -> list[dict]:
     """1 unitぶんの回答収集。rawへフレームごとに逐次保存し、再実行時は途中から再開。"""
     frame_files = sorted(frames_dir.glob("f*.jpg"))
     if not frame_files:
@@ -91,7 +107,7 @@ def observe_unit(observer, sop: dict, frames_dir: Path, raw_path: Path,
     for idx, path in enumerate(frame_files):
         if idx in done:
             continue
-        t = float(idx)  # sampling 1fps
+        t = round(idx / fps, 2)  # sampling fpsはunitのmeta由来(新データセットは2fps)
         rec = observer.ask(str(path), t=t, domain_hint=domain_hint,
                            max_tokens=max_tokens, prefill=prefill)
         results.append({"idx": idx, "t": t, "raw": rec["raw"],
@@ -157,22 +173,29 @@ def main() -> None:
     ap.add_argument("--role", default="local_small_vlm_baseline")
     ap.add_argument("--max-tokens", type=int, default=200)
     ap.add_argument("--prefill", default='{"')
+    ap.add_argument("--subset", default=None,
+                    help="datasets/factory_ego/subsets/<name>.json のunit_idsに対象を制限(既定: split全unit)")
+    ap.add_argument("--backend", choices=["mlx", "transformers"], default="mlx",
+                    help="推論バックエンド(既定: mlx)。transformersは要torch(SmolVLM2等)")
     args = ap.parse_args()
 
     run_dir = ROOT / "runs" / args.run_id
     if (run_dir / "run.yaml").exists():
         raise SystemExit(f"既存runは不変です。上書きしません: {run_dir}")
 
-    units = discover_units()
+    units = discover_units(args.subset)
     model_id = resolve_model(args.model)
     model_revision = hf_snapshot_revision(model_id)
-    print(f"[run] {args.run_id}: model={model_id} rev={model_revision} units={len(units)}", flush=True)
+    print(f"[run] {args.run_id}: model={model_id} rev={model_revision} "
+          f"units={len(units)} backend={args.backend}", flush=True)
 
-    from small_vlm_sop_check.inference.observe import Observer
-    import mlx_vlm
+    if args.backend == "transformers":
+        from small_vlm_sop_check.inference.observe import TransformersObserver as ObserverCls
+    else:
+        from small_vlm_sop_check.inference.observe import Observer as ObserverCls
 
     first_sop = load_sop(unit_paths(units[0])["sop"])
-    observer = Observer(model=model_id, questions=first_sop["questions"])
+    observer = ObserverCls(model=model_id, questions=first_sop["questions"])
 
     predictions: dict[str, dict] = {}
     for unit_id in units:
@@ -181,7 +204,7 @@ def main() -> None:
         observer.set_questions(sop["questions"])
         print(f"[run] unit {unit_id} ({len(sop['questions'])} questions)", flush=True)
         rows = observe_unit(observer, sop, paths["frames"], run_dir / "raw" / f"{unit_id}.json",
-                            args.max_tokens, args.prefill)
+                            args.max_tokens, args.prefill, unit_fps(unit_id))
         predictions[unit_id] = normalize(args.run_id, unit_id, rows,
                                          [q["id"] for q in sop["questions"]])
 
@@ -195,6 +218,24 @@ def main() -> None:
     (run_dir / "inputs.lock.json").write_text(
         json.dumps(lock, ensure_ascii=False, indent=2, sort_keys=True) + "\n", encoding="utf-8")
 
+    sampling_fps = sorted({unit_fps(u) for u in units})
+    inference = {
+        "backend": args.backend,
+        "prefill": args.prefill,
+        "sampling_fps": sampling_fps[0] if len(sampling_fps) == 1 else sampling_fps,
+        "max_tokens": args.max_tokens,
+        "prompt_builder": "small_vlm_sop_check.inference.observe.build_prompt",
+        "frame_input": "single (最新1フレームのみ。時間文脈なし)",
+    }
+    if args.backend == "transformers":
+        import torch
+        import transformers
+        inference["torch_version"] = torch.__version__
+        inference["transformers_version"] = transformers.__version__
+    else:
+        import mlx_vlm
+        inference["mlx_vlm_version"] = mlx_vlm.__version__
+
     run_doc = {
         "schema_version": SCHEMA_VERSION,
         "run_id": args.run_id,
@@ -205,19 +246,16 @@ def main() -> None:
         "model": {"name": args.model_name, "role": args.role,
                   "id": model_id, "revision": model_revision},
         "dataset": {"id": DATASET_ID, "split": SPLIT_ID},
+        "subset": args.subset,
         "target_units": units,
         "ground_truth_used": False,
         "metrics": None,
         "inference_code_revision": git_revision(),
-        "notes": ["Generated by tools/benchmark/run_local_prediction.py."],
-        "inference": {
-            "backend": "mlx-vlm",
-            "mlx_vlm_version": mlx_vlm.__version__,
-            "prefill": args.prefill,
-            "sampling_fps": 1.0,
-            "max_tokens": args.max_tokens,
-            "prompt_builder": "small_vlm_sop_check.inference.observe.build_prompt",
-        },
+        "notes": [
+            "Generated by tools/benchmark/run_local_prediction.py.",
+            "単一フレーム入力(最新1フレームのみ)。参照のOpus online5(直近5フレーム因果窓)とは方式が異なる。",
+        ],
+        "inference": inference,
     }
     (run_dir / "run.yaml").write_text(
         yaml.safe_dump(run_doc, allow_unicode=True, sort_keys=False), encoding="utf-8")

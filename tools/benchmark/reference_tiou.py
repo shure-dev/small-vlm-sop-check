@@ -55,17 +55,39 @@ def judge_events(sop: dict, prediction: dict, common_idx: set[int]) -> dict:
     return judge(sop, frames).events
 
 
+def answer_agreement(ref_pred: dict, cand_pred: dict, common_idx: set[int]) -> tuple[int, int]:
+    """共通フレーム×共通質問で回答(yes/no/unclear)が一致したスロット数と総スロット数を返す。
+
+    tIoUはイベント区間の一致だが、これは回答レベルの素の一致率。JSON崩壊(全unclear)や
+    全yes/全no退化しているモデルは、tIoUを測る前にここで低い一致率として表面化する。
+    """
+    ref_by_idx = {f["idx"]: f["answers"] for f in ref_pred["frames"]}
+    cand_by_idx = {f["idx"]: f["answers"] for f in cand_pred["frames"]}
+    matched = total = 0
+    for idx in common_idx:
+        ref_ans, cand_ans = ref_by_idx.get(idx, {}), cand_by_idx.get(idx, {})
+        for qid in set(ref_ans) & set(cand_ans):
+            total += 1
+            if ref_ans[qid] == cand_ans[qid]:
+                matched += 1
+    return matched, total
+
+
 def compare(reference: dict, candidate: dict) -> dict:
     """candidate runをreference runと突き合わせ、イベント区間tIoUの要約を返す。"""
     ref_units = set(reference["run"]["target_units"])
     cand_units = set(candidate["run"]["target_units"])
     rows = []
+    agree_matched = agree_total = 0
     for unit_id in sorted(ref_units & cand_units):
         sop = unit_sop(unit_id)
         ref_pred = reference["predictions"][unit_id]
         cand_pred = candidate["predictions"][unit_id]
         common_idx = ({f["idx"] for f in ref_pred["frames"]}
                       & {f["idx"] for f in cand_pred["frames"]})
+        m, t = answer_agreement(ref_pred, cand_pred, common_idx)
+        agree_matched += m
+        agree_total += t
         ref_events = judge_events(sop, ref_pred, common_idx)
         cand_events = judge_events(sop, cand_pred, common_idx)
         for name in sop["events"]:
@@ -93,6 +115,8 @@ def compare(reference: dict, candidate: dict) -> dict:
         "cand_only": count("cand_only"),
         "both_absent": count("both_absent"),
         "mean_tiou": round(sum(matched) / len(matched), 3) if matched else None,
+        "answer_agreement": round(agree_matched / agree_total, 3) if agree_total else None,
+        "answer_slots": agree_total,
         "rows": rows,
     }
 
@@ -115,12 +139,14 @@ def main() -> None:
 
     ref_model = reference["run"]["model"]["name"]
     print(f"reference: {args.reference} ({ref_model})")
-    print("referenceは人手GTではないため、以下は精度ではなくモデル間の区間一致(予備比較)。\n")
-    print("| model | units | mean tIoU |")
-    print("|---|---:|---:|")
+    print("referenceは人手GTではないため、以下は精度ではなくモデル間の一致(予備比較)。")
+    print("回答一致率=共通フレーム×共通質問でyes/no/unclearが一致した割合。mean tIoU=両者が検出したイベント区間の平均tIoU。\n")
+    print("| model | units | 回答一致率 | mean tIoU |")
+    print("|---|---:|---:|---:|")
     for r in results:
         mt = f"{r['mean_tiou']:.2f}" if r["mean_tiou"] is not None else "—"
-        print(f"| {r['candidate_model']} | {r['units']} | {mt} |")
+        aa = f"{r['answer_agreement']:.0%}" if r["answer_agreement"] is not None else "—"
+        print(f"| {r['candidate_model']} | {r['units']} | {aa} | {mt} |")
 
     # 片側しか検出しなかったイベントはtIoUを測れないので、表の外に注記する
     notes = []
