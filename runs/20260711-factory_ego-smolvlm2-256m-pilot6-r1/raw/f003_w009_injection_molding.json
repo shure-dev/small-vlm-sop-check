@@ -1,0 +1,518 @@
+[
+  {
+    "idx": 0,
+    "t": 0.0,
+    "raw": "{\"answer\":\"yes\"}<end_of_utterance>",
+    "confidence": {}
+  },
+  {
+    "idx": 1,
+    "t": 0.5,
+    "raw": "{\"answer\":\"yes\"}<end_of_utterance>",
+    "confidence": {}
+  },
+  {
+    "idx": 2,
+    "t": 1.0,
+    "raw": "{\"answer\":\"yes\"}<end_of_utterance>",
+    "confidence": {}
+  },
+  {
+    "idx": 3,
+    "t": 1.5,
+    "raw": "{\"remove_molded_parts\":\"\",\"place_parts_on_table\":\"\",\"walk_to_next_position\":\"\",\"set_inserts_into_mold\":\"\"}<end_of_utterance>",
+    "confidence": {
+      "remove_molded_parts": {
+        "probs": {
+          "yes": 0.4909,
+          "no": 0.5091
+        },
+        "argmax": "no"
+      },
+      "place_parts_on_table": {
+        "probs": {
+          "yes": 0.5169,
+          "no": 0.4831
+        },
+        "argmax": "yes"
+      },
+      "walk_to_next_position": {
+        "probs": {
+          "yes": 0.6539,
+          "no": 0.3461
+        },
+        "argmax": "yes"
+      },
+      "set_inserts_into_mold": {
+        "probs": {
+          "yes": 0.9598,
+          "no": 0.0402
+        },
+        "argmax": "yes"
+      }
+    }
+  },
+  {
+    "idx": 4,
+    "t": 2.0,
+    "raw": "{\"answer\":\"yes\"}<end_of_utterance>",
+    "confidence": {}
+  },
+  {
+    "idx": 5,
+    "t": 2.5,
+    "raw": "{\"answer\":\"yes\"}<end_of_utterance>",
+    "confidence": {}
+  },
+  {
+    "idx": 6,
+    "t": 3.0,
+    "raw": "{\"answer\":\"yes\"}<end_of_utterance>",
+    "confidence": {}
+  },
+  {
+    "idx": 7,
+    "t": 3.5,
+    "raw": "{\"remove_molded_parts\":\"\",\"place_parts_on_table\":\"\",\"walk_to_next_position\":\"\",\"set_inserts_into_mold\":\"\"}<end_of_utterance>",
+    "confidence": {
+      "remove_molded_parts": {
+        "probs": {
+          "yes": 0.4991,
+          "no": 0.5009
+        },
+        "argmax": "no"
+      },
+      "place_parts_on_table": {
+        "probs": {
+          "yes": 0.5124,
+          "no": 0.4876
+        },
+        "argmax": "yes"
+      },
+      "walk_to_next_position": {
+        "probs": {
+          "yes": 0.6478,
+          "no": 0.3522
+        },
+        "argmax": "yes"
+      }
+    }
+  },
+  {
+    "idx": 8,
+    "t": 4.0,
+    "raw": "{\"answer\":\"yes\"}<end_of_utterance>",
+    "confidence": {}
+  },
+  {
+    "idx": 9,
+    "t": 4.5,
+    "raw": "{\"answer\":\"yes\"}<end_of_utterance>",
+    "confidence": {}
+  },
+  {
+    "idx": 10,
+    "t": 5.0,
+    "raw": "{\"answer\":\"yes\"}<end_of_utterance>",
+    "confidence": {}
+  },
+  {
+    "idx": 11,
+    "t": 5.5,
+    "raw": "{\"fill\":[\"yes\",\"no\",\"unclear\"]}}<end_of_utterance>",
+    "confidence": {}
+  },
+  {
+    "idx": 12,
+    "t": 6.0,
+    "raw": "{\"answer\":\"yes\"}<end_of_utterance>",
+    "confidence": {}
+  },
+  {
+    "idx": 13,
+    "t": 6.5,
+    "raw": "{\"answer\":\"yes\"}<end_of_utterance>",
+    "confidence": {}
+  },
+  {
+    "idx": 14,
+    "t": 7.0,
+    "raw": "{\"answer\":\"yes\"}<end_of_utterance>",
+    "confidence": {}
+  },
+  {
+    "idx": 15,
+    "t": 7.5,
+    "raw": "{\"answer\":\"yes\"}<end_of_utterance>",
+    "confidence": {}
+  },
+  {
+    "idx": 16,
+    "t": 8.0,
+    "raw": "{\"answer\":\"yes\"}<end_of_utterance>",
+    "confidence": {}
+  },
+  {
+    "idx": 17,
+    "t": 8.5,
+    "raw": "{\"answer\":\"yes\"}<end_of_utterance>",
+    "confidence": {}
+  },
+  {
+    "idx": 18,
+    "t": 9.0,
+    "raw": "{\"answer\":\"yes\"}<end_of_utterance>",
+    "confidence": {}
+  },
+  {
+    "idx": 19,
+    "t": 9.5,
+    "raw": "{\"fill\":[\"yes\",\"no\",\"unclear\"]}}<end_of_utterance>",
+    "confidence": {}
+  },
+  {
+    "idx": 20,
+    "t": 10.0,
+    "raw": "{\"fill\":[\"yes\",\"no\",\"unclear\"]}}<end_of_utterance>",
+    "confidence": {}
+  },
+  {
+    "idx": 21,
+    "t": 10.5,
+    "raw": "{\"answer\":\"yes\"}<end_of_utterance>",
+    "confidence": {}
+  },
+  {
+    "idx": 22,
+    "t": 11.0,
+    "raw": "{\"remove_molded_parts\":\"\",\"place_parts_on_table\":\"\",\"walk_to_next_position\":\"\",\"set_inserts_into_mold\":\"\"}<end_of_utterance>",
+    "confidence": {
+      "remove_molded_parts": {
+        "probs": {
+          "yes": 0.5077,
+          "no": 0.4923
+        },
+        "argmax": "yes"
+      },
+      "place_parts_on_table": {
+        "probs": {
+          "yes": 0.5065,
+          "no": 0.4935
+        },
+        "argmax": "yes"
+      },
+      "walk_to_next_position": {
+        "probs": {
+          "yes": 0.6453,
+          "no": 0.3547
+        },
+        "argmax": "yes"
+      }
+    }
+  },
+  {
+    "idx": 23,
+    "t": 11.5,
+    "raw": "{\"remove_molded_parts\":\"\",\"place_parts_on_table\":\"\",\"walk_to_next_position\":\"\",\"set_inserts_into_mold\":\"\"}<end_of_utterance>",
+    "confidence": {
+      "remove_molded_parts": {
+        "probs": {
+          "yes": 0.4996,
+          "no": 0.5004
+        },
+        "argmax": "no"
+      },
+      "place_parts_on_table": {
+        "probs": {
+          "yes": 0.5089,
+          "no": 0.4911
+        },
+        "argmax": "yes"
+      },
+      "walk_to_next_position": {
+        "probs": {
+          "yes": 0.6382,
+          "no": 0.3618
+        },
+        "argmax": "yes"
+      },
+      "set_inserts_into_mold": {
+        "probs": {
+          "yes": 0.9685,
+          "no": 0.0315
+        },
+        "argmax": "yes"
+      }
+    }
+  },
+  {
+    "idx": 24,
+    "t": 12.0,
+    "raw": "{\"fields\":[\"12.0s\",\"12.0s\",\"12.0s\",\"12.0s\",\"12.0s\",\"12.0s\",\"12.0s\",\"12.0s\",\"12.0s\",\"12.0s\",\"12.0s\",\"12.0s\",\"12.0s\",\"12.0s\",\"12.0s\",\"12.0s\",\"12.0s\",\"12.0s\",\"12.0s\",\"12.0s\",\"12.0s\",\"12.0s\",\"12.0s\",\"12.0s\",\"12.0s\",\"12.0s\",\"12.0s\",\"12.0s\",\"12.0s\",\"12.0s\",\"12.0s\",\"12.0s\",\"12.0s",
+    "confidence": {}
+  },
+  {
+    "idx": 25,
+    "t": 12.5,
+    "raw": "{\"fill\":[\"yes\",\"no\",\"unclear\"]}}<end_of_utterance>",
+    "confidence": {}
+  },
+  {
+    "idx": 26,
+    "t": 13.0,
+    "raw": "{\"fields\":[\"13.0s\", \"作���������型����成�����を取����し��いる����\", \"作���������型����成�����を置い��いる����\", \"��い�������し��いる����\", \"��い�������し��いる����\", \"��い�������し��いる����\", \"��い�������し��いる����\", \"��い�������し��いる����\", \"��い�������し��",
+    "confidence": {}
+  },
+  {
+    "idx": 27,
+    "t": 13.5,
+    "raw": "{\"fill\":[\"yes\",\"no\",\"unclear\"]}}<end_of_utterance>",
+    "confidence": {}
+  },
+  {
+    "idx": 28,
+    "t": 14.0,
+    "raw": "{\"remove_molded_parts\":\"\",\"place_parts_on_table\":\"\",\"walk_to_next_position\":\"\",\"set_inserts_into_mold\":\"\"}<end_of_utterance>",
+    "confidence": {
+      "remove_molded_parts": {
+        "probs": {
+          "yes": 0.5348,
+          "no": 0.4652
+        },
+        "argmax": "yes"
+      },
+      "place_parts_on_table": {
+        "probs": {
+          "yes": 0.5125,
+          "no": 0.4875
+        },
+        "argmax": "yes"
+      },
+      "walk_to_next_position": {
+        "probs": {
+          "yes": 0.6471,
+          "no": 0.3529
+        },
+        "argmax": "yes"
+      },
+      "set_inserts_into_mold": {
+        "probs": {
+          "yes": 0.9566,
+          "no": 0.0434
+        },
+        "argmax": "yes"
+      }
+    }
+  },
+  {
+    "idx": 29,
+    "t": 14.5,
+    "raw": "{\"remove_molded_parts\":\"\",\"place_parts_on_table\":\"\",\"walk_to_next_position\":\"\",\"set_inserts_into_mold\":\"\"}<end_of_utterance>",
+    "confidence": {
+      "remove_molded_parts": {
+        "probs": {
+          "yes": 0.4996,
+          "no": 0.5004
+        },
+        "argmax": "no"
+      },
+      "place_parts_on_table": {
+        "probs": {
+          "yes": 0.5049,
+          "no": 0.4951
+        },
+        "argmax": "yes"
+      },
+      "walk_to_next_position": {
+        "probs": {
+          "yes": 0.6486,
+          "no": 0.3514
+        },
+        "argmax": "yes"
+      },
+      "set_inserts_into_mold": {
+        "probs": {
+          "yes": 0.9611,
+          "no": 0.0389
+        },
+        "argmax": "yes"
+      }
+    }
+  },
+  {
+    "idx": 30,
+    "t": 15.0,
+    "raw": "{\"remove_molded_parts\":\"\",\"place_parts_on_table\":\"\",\"walk_to_next_position\":\"\",\"set_inserts_into_mold\":\"\"}<end_of_utterance>",
+    "confidence": {
+      "remove_molded_parts": {
+        "probs": {
+          "yes": 0.5261,
+          "no": 0.4739
+        },
+        "argmax": "yes"
+      },
+      "place_parts_on_table": {
+        "probs": {
+          "yes": 0.5086,
+          "no": 0.4914
+        },
+        "argmax": "yes"
+      },
+      "walk_to_next_position": {
+        "probs": {
+          "yes": 0.6414,
+          "no": 0.3586
+        },
+        "argmax": "yes"
+      },
+      "set_inserts_into_mold": {
+        "probs": {
+          "yes": 0.9596,
+          "no": 0.0404
+        },
+        "argmax": "yes"
+      }
+    }
+  },
+  {
+    "idx": 31,
+    "t": 15.5,
+    "raw": "{\"remove_molded_parts\":\"\",\"place_parts_on_table\":\"\",\"walk_to_next_position\":\"\",\"set_inserts_into_mold\":\"\"}<end_of_utterance>",
+    "confidence": {
+      "remove_molded_parts": {
+        "probs": {
+          "yes": 0.5374,
+          "no": 0.4626
+        },
+        "argmax": "yes"
+      },
+      "place_parts_on_table": {
+        "probs": {
+          "yes": 0.4964,
+          "no": 0.5036
+        },
+        "argmax": "no"
+      },
+      "walk_to_next_position": {
+        "probs": {
+          "yes": 0.6384,
+          "no": 0.3616
+        },
+        "argmax": "yes"
+      },
+      "set_inserts_into_mold": {
+        "probs": {
+          "yes": 0.9558,
+          "no": 0.0442
+        },
+        "argmax": "yes"
+      }
+    }
+  },
+  {
+    "idx": 32,
+    "t": 16.0,
+    "raw": "{\"answer\":\"yes\"}<end_of_utterance>",
+    "confidence": {}
+  },
+  {
+    "idx": 33,
+    "t": 16.5,
+    "raw": "{\"fill\":[\"yes\",\"no\",\"unclear\"]}}<end_of_utterance>",
+    "confidence": {}
+  },
+  {
+    "idx": 34,
+    "t": 17.0,
+    "raw": "{\"answer\":\"yes\"}<end_of_utterance>",
+    "confidence": {}
+  },
+  {
+    "idx": 35,
+    "t": 17.5,
+    "raw": "{\"answer\":\"yes\"}<end_of_utterance>",
+    "confidence": {}
+  },
+  {
+    "idx": 36,
+    "t": 18.0,
+    "raw": "{\"fill\":[\"yes\",\"no\",\"unclear\"]}}<end_of_utterance>",
+    "confidence": {}
+  },
+  {
+    "idx": 37,
+    "t": 18.5,
+    "raw": "{\"remove_molded_parts\":\"\",\"place_parts_on_table\":\"\",\"walk_to_next_position\":\"\",\"set_inserts_into_mold\":\"\"}<end_of_utterance>",
+    "confidence": {
+      "remove_molded_parts": {
+        "probs": {
+          "yes": 0.5291,
+          "no": 0.4709
+        },
+        "argmax": "yes"
+      },
+      "place_parts_on_table": {
+        "probs": {
+          "yes": 0.4927,
+          "no": 0.5073
+        },
+        "argmax": "no"
+      },
+      "walk_to_next_position": {
+        "probs": {
+          "yes": 0.6272,
+          "no": 0.3728
+        },
+        "argmax": "yes"
+      },
+      "set_inserts_into_mold": {
+        "probs": {
+          "yes": 0.9613,
+          "no": 0.0387
+        },
+        "argmax": "yes"
+      }
+    }
+  },
+  {
+    "idx": 38,
+    "t": 19.0,
+    "raw": "{\"fill\":[\"yes\",\"no\",\"unclear\"]}}<end_of_utterance>",
+    "confidence": {}
+  },
+  {
+    "idx": 39,
+    "t": 19.5,
+    "raw": "{\"remove_molded_parts\":\"\",\"place_parts_on_table\":\"\",\"walk_to_next_position\":\"\",\"set_inserts_into_mold\":\"\"}<end_of_utterance>",
+    "confidence": {
+      "remove_molded_parts": {
+        "probs": {
+          "yes": 0.481,
+          "no": 0.519
+        },
+        "argmax": "no"
+      },
+      "place_parts_on_table": {
+        "probs": {
+          "yes": 0.5052,
+          "no": 0.4948
+        },
+        "argmax": "yes"
+      },
+      "walk_to_next_position": {
+        "probs": {
+          "yes": 0.6326,
+          "no": 0.3674
+        },
+        "argmax": "yes"
+      },
+      "set_inserts_into_mold": {
+        "probs": {
+          "yes": 0.9563,
+          "no": 0.0437
+        },
+        "argmax": "yes"
+      }
+    }
+  }
+]

@@ -181,7 +181,11 @@ class TransformersObserver:
         t0 = time.time()
         self.processor = AutoProcessor.from_pretrained(model)
         self.device = "mps" if torch.backends.mps.is_available() else "cpu"
-        self.dtype = torch.bfloat16 if self.device == "mps" else torch.float32
+        # float32固定。SmolVLM2-2.2B/500M/256Bはbfloat16×MPSだと視覚タワーが壊れ、
+        # 全フレームで文字化け(自由記述が「A--」など)に退化する実測(2026-07)。
+        # float32なら同じ重みで視覚が正常に働く(1フレーム自由記述で確認済み)。
+        # このバックエンドはmlxで視覚が壊れるモデル専用なので、数値的に安全なfloat32を既定にする。
+        self.dtype = torch.float32
         self.model = AutoModelForImageTextToText.from_pretrained(model, dtype=self.dtype)
         self.model.to(self.device).eval()
         print(f"[observe] loaded in {time.time()-t0:.1f}s (device={self.device})", flush=True)

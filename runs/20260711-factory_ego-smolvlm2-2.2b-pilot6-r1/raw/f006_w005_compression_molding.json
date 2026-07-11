@@ -1,0 +1,1122 @@
+[
+  {
+    "idx": 0,
+    "t": 0.0,
+    "raw": "{\"place_mold_on_press\":\"yes\",\"operate_control_panel\":\"yes\",\"stand_by_press\":\"no\"}<end_of_utterance>",
+    "confidence": {
+      "place_mold_on_press": {
+        "probs": {
+          "yes": 0.5403,
+          "no": 0.4597
+        },
+        "argmax": "yes"
+      },
+      "operate_control_panel": {
+        "probs": {
+          "yes": 0.5017,
+          "no": 0.4983
+        },
+        "argmax": "yes"
+      },
+      "stand_by_press": {
+        "probs": {
+          "yes": 0.2072,
+          "no": 0.7928
+        },
+        "argmax": "no"
+      }
+    }
+  },
+  {
+    "idx": 1,
+    "t": 0.5,
+    "raw": "{\"place_mold_on_press\":\"yes\",\"operate_control_panel\":\"no\",\"stand_by_press\":\"no\"}<end_of_utterance>",
+    "confidence": {
+      "place_mold_on_press": {
+        "probs": {
+          "yes": 0.5045,
+          "no": 0.4955
+        },
+        "argmax": "yes"
+      },
+      "operate_control_panel": {
+        "probs": {
+          "yes": 0.4664,
+          "no": 0.5336
+        },
+        "argmax": "no"
+      },
+      "stand_by_press": {
+        "probs": {
+          "yes": 0.2757,
+          "no": 0.7243
+        },
+        "argmax": "no"
+      }
+    }
+  },
+  {
+    "idx": 2,
+    "t": 1.0,
+    "raw": "{\"place_mold_on_press\":\"yes\",\"operate_control_panel\":\"no\",\"stand_by_press\":\"no\"}<end_of_utterance>",
+    "confidence": {
+      "place_mold_on_press": {
+        "probs": {
+          "yes": 0.555,
+          "no": 0.445
+        },
+        "argmax": "yes"
+      },
+      "operate_control_panel": {
+        "probs": {
+          "yes": 0.4606,
+          "no": 0.5394
+        },
+        "argmax": "no"
+      },
+      "stand_by_press": {
+        "probs": {
+          "yes": 0.2652,
+          "no": 0.7348
+        },
+        "argmax": "no"
+      }
+    }
+  },
+  {
+    "idx": 3,
+    "t": 1.5,
+    "raw": "{\"place_mold_on_press\":\"yes\",\"operate_control_panel\":\"no\",\"stand_by_press\":\"no\"}<end_of_utterance>",
+    "confidence": {
+      "place_mold_on_press": {
+        "probs": {
+          "yes": 0.6342,
+          "no": 0.3658
+        },
+        "argmax": "yes"
+      },
+      "operate_control_panel": {
+        "probs": {
+          "yes": 0.4595,
+          "no": 0.5405
+        },
+        "argmax": "no"
+      },
+      "stand_by_press": {
+        "probs": {
+          "yes": 0.3026,
+          "no": 0.6974
+        },
+        "argmax": "no"
+      }
+    }
+  },
+  {
+    "idx": 4,
+    "t": 2.0,
+    "raw": "{\"place_mold_on_press\":\"yes\",\"operate_control_panel\":\"no\",\"stand_by_press\":\"no\"}<end_of_utterance>",
+    "confidence": {
+      "place_mold_on_press": {
+        "probs": {
+          "yes": 0.663,
+          "no": 0.337
+        },
+        "argmax": "yes"
+      },
+      "operate_control_panel": {
+        "probs": {
+          "yes": 0.4388,
+          "no": 0.5612
+        },
+        "argmax": "no"
+      },
+      "stand_by_press": {
+        "probs": {
+          "yes": 0.2959,
+          "no": 0.7041
+        },
+        "argmax": "no"
+      }
+    }
+  },
+  {
+    "idx": 5,
+    "t": 2.5,
+    "raw": "{\"place_mold_on_press\":\"yes\",\"operate_control_panel\":\"no\",\"stand_by_press\":\"no\"}<end_of_utterance>",
+    "confidence": {
+      "place_mold_on_press": {
+        "probs": {
+          "yes": 0.5263,
+          "no": 0.4737
+        },
+        "argmax": "yes"
+      },
+      "operate_control_panel": {
+        "probs": {
+          "yes": 0.464,
+          "no": 0.536
+        },
+        "argmax": "no"
+      },
+      "stand_by_press": {
+        "probs": {
+          "yes": 0.2753,
+          "no": 0.7247
+        },
+        "argmax": "no"
+      }
+    }
+  },
+  {
+    "idx": 6,
+    "t": 3.0,
+    "raw": "{\"place_mold_on_press\":\"no\",\"operate_control_panel\":\"yes\",\"stand_by_press\":\"no\"}<end_of_utterance>",
+    "confidence": {
+      "place_mold_on_press": {
+        "probs": {
+          "yes": 0.4742,
+          "no": 0.5258
+        },
+        "argmax": "no"
+      },
+      "operate_control_panel": {
+        "probs": {
+          "yes": 0.5927,
+          "no": 0.4073
+        },
+        "argmax": "yes"
+      },
+      "stand_by_press": {
+        "probs": {
+          "yes": 0.333,
+          "no": 0.667
+        },
+        "argmax": "no"
+      }
+    }
+  },
+  {
+    "idx": 7,
+    "t": 3.5,
+    "raw": "{\"place_mold_on_press\":\"yes\",\"operate_control_panel\":\"no\",\"stand_by_press\":\"no\"}<end_of_utterance>",
+    "confidence": {
+      "place_mold_on_press": {
+        "probs": {
+          "yes": 0.5703,
+          "no": 0.4297
+        },
+        "argmax": "yes"
+      },
+      "operate_control_panel": {
+        "probs": {
+          "yes": 0.4088,
+          "no": 0.5912
+        },
+        "argmax": "no"
+      },
+      "stand_by_press": {
+        "probs": {
+          "yes": 0.2777,
+          "no": 0.7223
+        },
+        "argmax": "no"
+      }
+    }
+  },
+  {
+    "idx": 8,
+    "t": 4.0,
+    "raw": "{\"place_mold_on_press\":\"yes\",\"operate_control_panel\":\"no\",\"stand_by_press\":\"no\"}<end_of_utterance>",
+    "confidence": {
+      "place_mold_on_press": {
+        "probs": {
+          "yes": 0.6391,
+          "no": 0.3609
+        },
+        "argmax": "yes"
+      },
+      "operate_control_panel": {
+        "probs": {
+          "yes": 0.373,
+          "no": 0.627
+        },
+        "argmax": "no"
+      },
+      "stand_by_press": {
+        "probs": {
+          "yes": 0.2836,
+          "no": 0.7164
+        },
+        "argmax": "no"
+      }
+    }
+  },
+  {
+    "idx": 9,
+    "t": 4.5,
+    "raw": "{\"place_mold_on_press\":\"yes\",\"operate_control_panel\":\"no\",\"stand_by_press\":\"no\"}<end_of_utterance>",
+    "confidence": {
+      "place_mold_on_press": {
+        "probs": {
+          "yes": 0.6036,
+          "no": 0.3964
+        },
+        "argmax": "yes"
+      },
+      "operate_control_panel": {
+        "probs": {
+          "yes": 0.3854,
+          "no": 0.6146
+        },
+        "argmax": "no"
+      },
+      "stand_by_press": {
+        "probs": {
+          "yes": 0.2889,
+          "no": 0.7111
+        },
+        "argmax": "no"
+      }
+    }
+  },
+  {
+    "idx": 10,
+    "t": 5.0,
+    "raw": "{\"place_mold_on_press\":\"yes\",\"operate_control_panel\":\"no\",\"stand_by_press\":\"no\"}<end_of_utterance>",
+    "confidence": {
+      "place_mold_on_press": {
+        "probs": {
+          "yes": 0.637,
+          "no": 0.363
+        },
+        "argmax": "yes"
+      },
+      "operate_control_panel": {
+        "probs": {
+          "yes": 0.4182,
+          "no": 0.5818
+        },
+        "argmax": "no"
+      },
+      "stand_by_press": {
+        "probs": {
+          "yes": 0.3063,
+          "no": 0.6937
+        },
+        "argmax": "no"
+      }
+    }
+  },
+  {
+    "idx": 11,
+    "t": 5.5,
+    "raw": "{\"place_mold_on_press\":\"yes\",\"operate_control_panel\":\"no\",\"stand_by_press\":\"no\"}<end_of_utterance>",
+    "confidence": {
+      "place_mold_on_press": {
+        "probs": {
+          "yes": 0.6509,
+          "no": 0.3491
+        },
+        "argmax": "yes"
+      },
+      "operate_control_panel": {
+        "probs": {
+          "yes": 0.3791,
+          "no": 0.6209
+        },
+        "argmax": "no"
+      },
+      "stand_by_press": {
+        "probs": {
+          "yes": 0.2988,
+          "no": 0.7012
+        },
+        "argmax": "no"
+      }
+    }
+  },
+  {
+    "idx": 12,
+    "t": 6.0,
+    "raw": "{\"place_mold_on_press\":\"yes\",\"operate_control_panel\":\"no\",\"stand_by_press\":\"no\"}<end_of_utterance>",
+    "confidence": {
+      "place_mold_on_press": {
+        "probs": {
+          "yes": 0.6447,
+          "no": 0.3553
+        },
+        "argmax": "yes"
+      },
+      "operate_control_panel": {
+        "probs": {
+          "yes": 0.3774,
+          "no": 0.6226
+        },
+        "argmax": "no"
+      },
+      "stand_by_press": {
+        "probs": {
+          "yes": 0.2812,
+          "no": 0.7188
+        },
+        "argmax": "no"
+      }
+    }
+  },
+  {
+    "idx": 13,
+    "t": 6.5,
+    "raw": "{\"place_mold_on_press\":\"yes\",\"operate_control_panel\":\"no\",\"stand_by_press\":\"no\"}<end_of_utterance>",
+    "confidence": {
+      "place_mold_on_press": {
+        "probs": {
+          "yes": 0.6505,
+          "no": 0.3495
+        },
+        "argmax": "yes"
+      },
+      "operate_control_panel": {
+        "probs": {
+          "yes": 0.4001,
+          "no": 0.5999
+        },
+        "argmax": "no"
+      },
+      "stand_by_press": {
+        "probs": {
+          "yes": 0.3024,
+          "no": 0.6976
+        },
+        "argmax": "no"
+      }
+    }
+  },
+  {
+    "idx": 14,
+    "t": 7.0,
+    "raw": "{\"place_mold_on_press\":\"yes\",\"operate_control_panel\":\"no\",\"stand_by_press\":\"no\"}<end_of_utterance>",
+    "confidence": {
+      "place_mold_on_press": {
+        "probs": {
+          "yes": 0.6563,
+          "no": 0.3437
+        },
+        "argmax": "yes"
+      },
+      "operate_control_panel": {
+        "probs": {
+          "yes": 0.4337,
+          "no": 0.5663
+        },
+        "argmax": "no"
+      },
+      "stand_by_press": {
+        "probs": {
+          "yes": 0.2995,
+          "no": 0.7005
+        },
+        "argmax": "no"
+      }
+    }
+  },
+  {
+    "idx": 15,
+    "t": 7.5,
+    "raw": "{\"place_mold_on_press\":\"yes\",\"operate_control_panel\":\"no\",\"stand_by_press\":\"no\"}<end_of_utterance>",
+    "confidence": {
+      "place_mold_on_press": {
+        "probs": {
+          "yes": 0.6417,
+          "no": 0.3583
+        },
+        "argmax": "yes"
+      },
+      "operate_control_panel": {
+        "probs": {
+          "yes": 0.4014,
+          "no": 0.5986
+        },
+        "argmax": "no"
+      },
+      "stand_by_press": {
+        "probs": {
+          "yes": 0.298,
+          "no": 0.702
+        },
+        "argmax": "no"
+      }
+    }
+  },
+  {
+    "idx": 16,
+    "t": 8.0,
+    "raw": "{\"place_mold_on_press\":\"yes\",\"operate_control_panel\":\"no\",\"stand_by_press\":\"no\"}<end_of_utterance>",
+    "confidence": {
+      "place_mold_on_press": {
+        "probs": {
+          "yes": 0.6449,
+          "no": 0.3551
+        },
+        "argmax": "yes"
+      },
+      "operate_control_panel": {
+        "probs": {
+          "yes": 0.4035,
+          "no": 0.5965
+        },
+        "argmax": "no"
+      },
+      "stand_by_press": {
+        "probs": {
+          "yes": 0.294,
+          "no": 0.706
+        },
+        "argmax": "no"
+      }
+    }
+  },
+  {
+    "idx": 17,
+    "t": 8.5,
+    "raw": "{\"place_mold_on_press\":\"yes\",\"operate_control_panel\":\"no\",\"stand_by_press\":\"no\"}<end_of_utterance>",
+    "confidence": {
+      "place_mold_on_press": {
+        "probs": {
+          "yes": 0.6277,
+          "no": 0.3723
+        },
+        "argmax": "yes"
+      },
+      "operate_control_panel": {
+        "probs": {
+          "yes": 0.4132,
+          "no": 0.5868
+        },
+        "argmax": "no"
+      },
+      "stand_by_press": {
+        "probs": {
+          "yes": 0.2936,
+          "no": 0.7064
+        },
+        "argmax": "no"
+      }
+    }
+  },
+  {
+    "idx": 18,
+    "t": 9.0,
+    "raw": "{\"place_mold_on_press\":\"yes\",\"operate_control_panel\":\"no\",\"stand_by_press\":\"no\"}<end_of_utterance>",
+    "confidence": {
+      "place_mold_on_press": {
+        "probs": {
+          "yes": 0.6318,
+          "no": 0.3682
+        },
+        "argmax": "yes"
+      },
+      "operate_control_panel": {
+        "probs": {
+          "yes": 0.4307,
+          "no": 0.5693
+        },
+        "argmax": "no"
+      },
+      "stand_by_press": {
+        "probs": {
+          "yes": 0.2915,
+          "no": 0.7085
+        },
+        "argmax": "no"
+      }
+    }
+  },
+  {
+    "idx": 19,
+    "t": 9.5,
+    "raw": "{\"place_mold_on_press\":\"yes\",\"operate_control_panel\":\"no\",\"stand_by_press\":\"no\"}<end_of_utterance>",
+    "confidence": {
+      "place_mold_on_press": {
+        "probs": {
+          "yes": 0.6222,
+          "no": 0.3778
+        },
+        "argmax": "yes"
+      },
+      "operate_control_panel": {
+        "probs": {
+          "yes": 0.408,
+          "no": 0.592
+        },
+        "argmax": "no"
+      },
+      "stand_by_press": {
+        "probs": {
+          "yes": 0.2948,
+          "no": 0.7052
+        },
+        "argmax": "no"
+      }
+    }
+  },
+  {
+    "idx": 20,
+    "t": 10.0,
+    "raw": "{\"place_mold_on_press\":\"yes\",\"operate_control_panel\":\"no\",\"stand_by_press\":\"no\"}<end_of_utterance>",
+    "confidence": {
+      "place_mold_on_press": {
+        "probs": {
+          "yes": 0.5364,
+          "no": 0.4636
+        },
+        "argmax": "yes"
+      },
+      "operate_control_panel": {
+        "probs": {
+          "yes": 0.4176,
+          "no": 0.5824
+        },
+        "argmax": "no"
+      },
+      "stand_by_press": {
+        "probs": {
+          "yes": 0.2388,
+          "no": 0.7612
+        },
+        "argmax": "no"
+      }
+    }
+  },
+  {
+    "idx": 21,
+    "t": 10.5,
+    "raw": "{\"place_mold_on_press\":\"no\",\"operate_control_panel\":\"yes\",\"stand_by_press\":\"no\"}<end_of_utterance>",
+    "confidence": {
+      "place_mold_on_press": {
+        "probs": {
+          "yes": 0.4256,
+          "no": 0.5744
+        },
+        "argmax": "no"
+      },
+      "operate_control_panel": {
+        "probs": {
+          "yes": 0.7205,
+          "no": 0.2795
+        },
+        "argmax": "yes"
+      },
+      "stand_by_press": {
+        "probs": {
+          "yes": 0.309,
+          "no": 0.691
+        },
+        "argmax": "no"
+      }
+    }
+  },
+  {
+    "idx": 22,
+    "t": 11.0,
+    "raw": "{\"place_mold_on_press\":\"no\",\"operate_control_panel\":\"yes\",\"stand_by_press\":\"no\"}<end_of_utterance>",
+    "confidence": {
+      "place_mold_on_press": {
+        "probs": {
+          "yes": 0.3566,
+          "no": 0.6434
+        },
+        "argmax": "no"
+      },
+      "operate_control_panel": {
+        "probs": {
+          "yes": 0.7412,
+          "no": 0.2588
+        },
+        "argmax": "yes"
+      },
+      "stand_by_press": {
+        "probs": {
+          "yes": 0.3054,
+          "no": 0.6946
+        },
+        "argmax": "no"
+      }
+    }
+  },
+  {
+    "idx": 23,
+    "t": 11.5,
+    "raw": "{\"place_mold_on_press\":\"no\",\"operate_control_panel\":\"yes\",\"stand_by_press\":\"no\"}<end_of_utterance>",
+    "confidence": {
+      "place_mold_on_press": {
+        "probs": {
+          "yes": 0.3736,
+          "no": 0.6264
+        },
+        "argmax": "no"
+      },
+      "operate_control_panel": {
+        "probs": {
+          "yes": 0.8185,
+          "no": 0.1815
+        },
+        "argmax": "yes"
+      },
+      "stand_by_press": {
+        "probs": {
+          "yes": 0.3325,
+          "no": 0.6675
+        },
+        "argmax": "no"
+      }
+    }
+  },
+  {
+    "idx": 24,
+    "t": 12.0,
+    "raw": "{\"place_mold_on_press\":\"no\",\"operate_control_panel\":\"yes\",\"stand_by_press\":\"no\"}<end_of_utterance>",
+    "confidence": {
+      "place_mold_on_press": {
+        "probs": {
+          "yes": 0.395,
+          "no": 0.605
+        },
+        "argmax": "no"
+      },
+      "operate_control_panel": {
+        "probs": {
+          "yes": 0.8435,
+          "no": 0.1565
+        },
+        "argmax": "yes"
+      },
+      "stand_by_press": {
+        "probs": {
+          "yes": 0.3206,
+          "no": 0.6794
+        },
+        "argmax": "no"
+      }
+    }
+  },
+  {
+    "idx": 25,
+    "t": 12.5,
+    "raw": "{\"place_mold_on_press\":\"no\",\"operate_control_panel\":\"yes\",\"stand_by_press\":\"no\"}<end_of_utterance>",
+    "confidence": {
+      "place_mold_on_press": {
+        "probs": {
+          "yes": 0.3926,
+          "no": 0.6074
+        },
+        "argmax": "no"
+      },
+      "operate_control_panel": {
+        "probs": {
+          "yes": 0.6153,
+          "no": 0.3847
+        },
+        "argmax": "yes"
+      },
+      "stand_by_press": {
+        "probs": {
+          "yes": 0.3029,
+          "no": 0.6971
+        },
+        "argmax": "no"
+      }
+    }
+  },
+  {
+    "idx": 26,
+    "t": 13.0,
+    "raw": "{\"place_mold_on_press\":\"no\",\"operate_control_panel\":\"yes\",\"stand_by_press\":\"no\"}<end_of_utterance>",
+    "confidence": {
+      "place_mold_on_press": {
+        "probs": {
+          "yes": 0.3984,
+          "no": 0.6016
+        },
+        "argmax": "no"
+      },
+      "operate_control_panel": {
+        "probs": {
+          "yes": 0.6615,
+          "no": 0.3385
+        },
+        "argmax": "yes"
+      },
+      "stand_by_press": {
+        "probs": {
+          "yes": 0.2813,
+          "no": 0.7187
+        },
+        "argmax": "no"
+      }
+    }
+  },
+  {
+    "idx": 27,
+    "t": 13.5,
+    "raw": "{\"place_mold_on_press\":\"no\",\"operate_control_panel\":\"yes\",\"stand_by_press\":\"no\"}<end_of_utterance>",
+    "confidence": {
+      "place_mold_on_press": {
+        "probs": {
+          "yes": 0.4359,
+          "no": 0.5641
+        },
+        "argmax": "no"
+      },
+      "operate_control_panel": {
+        "probs": {
+          "yes": 0.5928,
+          "no": 0.4072
+        },
+        "argmax": "yes"
+      },
+      "stand_by_press": {
+        "probs": {
+          "yes": 0.3161,
+          "no": 0.6839
+        },
+        "argmax": "no"
+      }
+    }
+  },
+  {
+    "idx": 28,
+    "t": 14.0,
+    "raw": "{\"place_mold_on_press\":\"no\",\"operate_control_panel\":\"yes\",\"stand_by_press\":\"no\"}<end_of_utterance>",
+    "confidence": {
+      "place_mold_on_press": {
+        "probs": {
+          "yes": 0.4075,
+          "no": 0.5925
+        },
+        "argmax": "no"
+      },
+      "operate_control_panel": {
+        "probs": {
+          "yes": 0.5426,
+          "no": 0.4574
+        },
+        "argmax": "yes"
+      },
+      "stand_by_press": {
+        "probs": {
+          "yes": 0.2761,
+          "no": 0.7239
+        },
+        "argmax": "no"
+      }
+    }
+  },
+  {
+    "idx": 29,
+    "t": 14.5,
+    "raw": "{\"place_mold_on_press\":\"no\",\"operate_control_panel\":\"yes\",\"stand_by_press\":\"no\"}<end_of_utterance>",
+    "confidence": {
+      "place_mold_on_press": {
+        "probs": {
+          "yes": 0.4247,
+          "no": 0.5753
+        },
+        "argmax": "no"
+      },
+      "operate_control_panel": {
+        "probs": {
+          "yes": 0.5479,
+          "no": 0.4521
+        },
+        "argmax": "yes"
+      },
+      "stand_by_press": {
+        "probs": {
+          "yes": 0.2888,
+          "no": 0.7112
+        },
+        "argmax": "no"
+      }
+    }
+  },
+  {
+    "idx": 30,
+    "t": 15.0,
+    "raw": "{\"place_mold_on_press\":\"no\",\"operate_control_panel\":\"yes\",\"stand_by_press\":\"no\"}<end_of_utterance>",
+    "confidence": {
+      "place_mold_on_press": {
+        "probs": {
+          "yes": 0.438,
+          "no": 0.562
+        },
+        "argmax": "no"
+      },
+      "operate_control_panel": {
+        "probs": {
+          "yes": 0.5666,
+          "no": 0.4334
+        },
+        "argmax": "yes"
+      },
+      "stand_by_press": {
+        "probs": {
+          "yes": 0.2889,
+          "no": 0.7111
+        },
+        "argmax": "no"
+      }
+    }
+  },
+  {
+    "idx": 31,
+    "t": 15.5,
+    "raw": "{\"place_mold_on_press\":\"no\",\"operate_control_panel\":\"yes\",\"stand_by_press\":\"no\"}<end_of_utterance>",
+    "confidence": {
+      "place_mold_on_press": {
+        "probs": {
+          "yes": 0.4323,
+          "no": 0.5677
+        },
+        "argmax": "no"
+      },
+      "operate_control_panel": {
+        "probs": {
+          "yes": 0.633,
+          "no": 0.367
+        },
+        "argmax": "yes"
+      },
+      "stand_by_press": {
+        "probs": {
+          "yes": 0.3184,
+          "no": 0.6816
+        },
+        "argmax": "no"
+      }
+    }
+  },
+  {
+    "idx": 32,
+    "t": 16.0,
+    "raw": "{\"place_mold_on_press\":\"no\",\"operate_control_panel\":\"yes\",\"stand_by_press\":\"no\"}<end_of_utterance>",
+    "confidence": {
+      "place_mold_on_press": {
+        "probs": {
+          "yes": 0.4474,
+          "no": 0.5526
+        },
+        "argmax": "no"
+      },
+      "operate_control_panel": {
+        "probs": {
+          "yes": 0.5965,
+          "no": 0.4035
+        },
+        "argmax": "yes"
+      },
+      "stand_by_press": {
+        "probs": {
+          "yes": 0.3007,
+          "no": 0.6993
+        },
+        "argmax": "no"
+      }
+    }
+  },
+  {
+    "idx": 33,
+    "t": 16.5,
+    "raw": "{\"place_mold_on_press\":\"no\",\"operate_control_panel\":\"yes\",\"stand_by_press\":\"no\"}<end_of_utterance>",
+    "confidence": {
+      "place_mold_on_press": {
+        "probs": {
+          "yes": 0.4602,
+          "no": 0.5398
+        },
+        "argmax": "no"
+      },
+      "operate_control_panel": {
+        "probs": {
+          "yes": 0.5625,
+          "no": 0.4375
+        },
+        "argmax": "yes"
+      },
+      "stand_by_press": {
+        "probs": {
+          "yes": 0.2973,
+          "no": 0.7027
+        },
+        "argmax": "no"
+      }
+    }
+  },
+  {
+    "idx": 34,
+    "t": 17.0,
+    "raw": "{\"place_mold_on_press\":\"no\",\"operate_control_panel\":\"yes\",\"stand_by_press\":\"no\"}<end_of_utterance>",
+    "confidence": {
+      "place_mold_on_press": {
+        "probs": {
+          "yes": 0.3833,
+          "no": 0.6167
+        },
+        "argmax": "no"
+      },
+      "operate_control_panel": {
+        "probs": {
+          "yes": 0.7587,
+          "no": 0.2413
+        },
+        "argmax": "yes"
+      },
+      "stand_by_press": {
+        "probs": {
+          "yes": 0.2551,
+          "no": 0.7449
+        },
+        "argmax": "no"
+      }
+    }
+  },
+  {
+    "idx": 35,
+    "t": 17.5,
+    "raw": "{\"place_mold_on_press\":\"no\",\"operate_control_panel\":\"yes\",\"stand_by_press\":\"no\"}<end_of_utterance>",
+    "confidence": {
+      "place_mold_on_press": {
+        "probs": {
+          "yes": 0.3571,
+          "no": 0.6429
+        },
+        "argmax": "no"
+      },
+      "operate_control_panel": {
+        "probs": {
+          "yes": 0.8162,
+          "no": 0.1838
+        },
+        "argmax": "yes"
+      },
+      "stand_by_press": {
+        "probs": {
+          "yes": 0.2997,
+          "no": 0.7003
+        },
+        "argmax": "no"
+      }
+    }
+  },
+  {
+    "idx": 36,
+    "t": 18.0,
+    "raw": "{\"place_mold_on_press\":\"no\",\"operate_control_panel\":\"yes\",\"stand_by_press\":\"no\"}<end_of_utterance>",
+    "confidence": {
+      "place_mold_on_press": {
+        "probs": {
+          "yes": 0.3464,
+          "no": 0.6536
+        },
+        "argmax": "no"
+      },
+      "operate_control_panel": {
+        "probs": {
+          "yes": 0.8525,
+          "no": 0.1475
+        },
+        "argmax": "yes"
+      },
+      "stand_by_press": {
+        "probs": {
+          "yes": 0.2913,
+          "no": 0.7087
+        },
+        "argmax": "no"
+      }
+    }
+  },
+  {
+    "idx": 37,
+    "t": 18.5,
+    "raw": "{\"place_mold_on_press\":\"no\",\"operate_control_panel\":\"yes\",\"stand_by_press\":\"no\"}<end_of_utterance>",
+    "confidence": {
+      "place_mold_on_press": {
+        "probs": {
+          "yes": 0.3699,
+          "no": 0.6301
+        },
+        "argmax": "no"
+      },
+      "operate_control_panel": {
+        "probs": {
+          "yes": 0.8579,
+          "no": 0.1421
+        },
+        "argmax": "yes"
+      },
+      "stand_by_press": {
+        "probs": {
+          "yes": 0.3074,
+          "no": 0.6926
+        },
+        "argmax": "no"
+      }
+    }
+  },
+  {
+    "idx": 38,
+    "t": 19.0,
+    "raw": "{\"place_mold_on_press\":\"no\",\"operate_control_panel\":\"yes\",\"stand_by_press\":\"no\"}<end_of_utterance>",
+    "confidence": {
+      "place_mold_on_press": {
+        "probs": {
+          "yes": 0.4385,
+          "no": 0.5615
+        },
+        "argmax": "no"
+      },
+      "operate_control_panel": {
+        "probs": {
+          "yes": 0.7739,
+          "no": 0.2261
+        },
+        "argmax": "yes"
+      },
+      "stand_by_press": {
+        "probs": {
+          "yes": 0.3216,
+          "no": 0.6784
+        },
+        "argmax": "no"
+      }
+    }
+  },
+  {
+    "idx": 39,
+    "t": 19.5,
+    "raw": "{\"place_mold_on_press\":\"no\",\"operate_control_panel\":\"yes\",\"stand_by_press\":\"no\"}<end_of_utterance>",
+    "confidence": {
+      "place_mold_on_press": {
+        "probs": {
+          "yes": 0.4255,
+          "no": 0.5745
+        },
+        "argmax": "no"
+      },
+      "operate_control_panel": {
+        "probs": {
+          "yes": 0.8275,
+          "no": 0.1725
+        },
+        "argmax": "yes"
+      },
+      "stand_by_press": {
+        "probs": {
+          "yes": 0.2893,
+          "no": 0.7107
+        },
+        "argmax": "no"
+      }
+    }
+  }
+]

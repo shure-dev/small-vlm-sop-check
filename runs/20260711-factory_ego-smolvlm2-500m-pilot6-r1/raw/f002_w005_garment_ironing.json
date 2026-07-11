@@ -1,0 +1,1157 @@
+[
+  {
+    "idx": 0,
+    "t": 0.0,
+    "raw": "{\"place_folding_board\":\"\",\"fold_shirt_around_board\":\"\",\"flip_and_neaten_folded_shirt\":\"\",\"stack_folded_shirt\":\"\"}<end_of_utterance>",
+    "confidence": {
+      "place_folding_board": {
+        "probs": {
+          "yes": 0.2293,
+          "no": 0.7707
+        },
+        "argmax": "no"
+      },
+      "fold_shirt_around_board": {
+        "probs": {
+          "yes": 0.2767,
+          "no": 0.7233
+        },
+        "argmax": "no"
+      },
+      "flip_and_neaten_folded_shirt": {
+        "probs": {
+          "yes": 0.6685,
+          "no": 0.3315
+        },
+        "argmax": "yes"
+      }
+    }
+  },
+  {
+    "idx": 1,
+    "t": 0.5,
+    "raw": "{\"place_folding_board\":\"���い�����������を������の上に置い����置を��������いる����\",\"fold_shirt_around_board\":\"������を��に������������������いる����\",\"flip_and_neaten_folded_shirt\":\"�������������を表に��し����を������いる����\",\"stack_folded_shirt\":\"�������������を��成���の��に������いる����\"}<end_of_utterance>",
+    "confidence": {
+      "place_folding_board": {
+        "probs": {
+          "yes": 0.3381,
+          "no": 0.6619
+        },
+        "argmax": "no"
+      },
+      "fold_shirt_around_board": {
+        "probs": {
+          "yes": 0.3371,
+          "no": 0.6629
+        },
+        "argmax": "no"
+      },
+      "flip_and_neaten_folded_shirt": {
+        "probs": {
+          "yes": 0.2864,
+          "no": 0.7136
+        },
+        "argmax": "no"
+      },
+      "stack_folded_shirt": {
+        "probs": {
+          "yes": 0.1701,
+          "no": 0.8299
+        },
+        "argmax": "no"
+      }
+    }
+  },
+  {
+    "idx": 2,
+    "t": 1.0,
+    "raw": "{\"place_folding_board\":\"���い�����������を������の上に置い����置を��������いる����\",\"fold_shirt_around_board\":\"������ンの��る������上����。\",\"flip_and_neaten_folded_shirt\":\"�������������を表に��し����を������いる����\",\"stack_folded_shirt\":\"�������������を��成���の��に������いる����\"}<end_of_utterance>",
+    "confidence": {
+      "place_folding_board": {
+        "probs": {
+          "yes": 0.291,
+          "no": 0.709
+        },
+        "argmax": "no"
+      },
+      "fold_shirt_around_board": {
+        "probs": {
+          "yes": 0.3346,
+          "no": 0.6654
+        },
+        "argmax": "no"
+      },
+      "flip_and_neaten_folded_shirt": {
+        "probs": {
+          "yes": 0.3328,
+          "no": 0.6672
+        },
+        "argmax": "no"
+      },
+      "stack_folded_shirt": {
+        "probs": {
+          "yes": 0.2731,
+          "no": 0.7269
+        },
+        "argmax": "no"
+      }
+    }
+  },
+  {
+    "idx": 3,
+    "t": 1.5,
+    "raw": "{\"place_folding_board\":\"���い�����������を������の上に置い����置を��������いる����\",\"fold_shirt_around_board\":\"������ンの��る������上����。\",\"flip_and_neaten_folded_shirt\":\"�������������を表に��し����を������いる����\",\"stack_folded_shirt\":\"�������������を��成���の��に������いる����\"}<end_of_utterance>",
+    "confidence": {
+      "place_folding_board": {
+        "probs": {
+          "yes": 0.3052,
+          "no": 0.6948
+        },
+        "argmax": "no"
+      },
+      "fold_shirt_around_board": {
+        "probs": {
+          "yes": 0.3424,
+          "no": 0.6576
+        },
+        "argmax": "no"
+      },
+      "flip_and_neaten_folded_shirt": {
+        "probs": {
+          "yes": 0.3302,
+          "no": 0.6698
+        },
+        "argmax": "no"
+      },
+      "stack_folded_shirt": {
+        "probs": {
+          "yes": 0.2692,
+          "no": 0.7308
+        },
+        "argmax": "no"
+      }
+    }
+  },
+  {
+    "idx": 4,
+    "t": 2.0,
+    "raw": "{\"place_folding_board\":\"\",\"fold_shirt_around_board\":\"\",\"flip_and_neaten_folded_shirt\":\"\",\"stack_folded_shirt\":\"\"}<end_of_utterance>",
+    "confidence": {
+      "place_folding_board": {
+        "probs": {
+          "yes": 0.227,
+          "no": 0.773
+        },
+        "argmax": "no"
+      },
+      "fold_shirt_around_board": {
+        "probs": {
+          "yes": 0.2914,
+          "no": 0.7086
+        },
+        "argmax": "no"
+      },
+      "flip_and_neaten_folded_shirt": {
+        "probs": {
+          "yes": 0.6895,
+          "no": 0.3105
+        },
+        "argmax": "yes"
+      }
+    }
+  },
+  {
+    "idx": 5,
+    "t": 2.5,
+    "raw": "{\"place_folding_board\":\"\",\"fold_shirt_around_board\":\"\",\"flip_and_neaten_folded_shirt\":\"\",\"stack_folded_shirt\":\"\"}<end_of_utterance>",
+    "confidence": {
+      "place_folding_board": {
+        "probs": {
+          "yes": 0.2202,
+          "no": 0.7798
+        },
+        "argmax": "no"
+      },
+      "fold_shirt_around_board": {
+        "probs": {
+          "yes": 0.2912,
+          "no": 0.7088
+        },
+        "argmax": "no"
+      },
+      "flip_and_neaten_folded_shirt": {
+        "probs": {
+          "yes": 0.6834,
+          "no": 0.3166
+        },
+        "argmax": "yes"
+      }
+    }
+  },
+  {
+    "idx": 6,
+    "t": 3.0,
+    "raw": "{\"place_folding_board\":\"���い�����������を������の上に置い����置を��������いる����\",\"fold_shirt_around_board\":\"������ンの��る������上����\",\"flip_and_neaten_folded_shirt\":\"�������������を表に��し����を������いる����\",\"stack_folded_shirt\":\"�������������を��成���の��に������いる����\"}<end_of_utterance>",
+    "confidence": {
+      "place_folding_board": {
+        "probs": {
+          "yes": 0.1893,
+          "no": 0.8107
+        },
+        "argmax": "no"
+      },
+      "fold_shirt_around_board": {
+        "probs": {
+          "yes": 0.3027,
+          "no": 0.6973
+        },
+        "argmax": "no"
+      },
+      "flip_and_neaten_folded_shirt": {
+        "probs": {
+          "yes": 0.332,
+          "no": 0.668
+        },
+        "argmax": "no"
+      },
+      "stack_folded_shirt": {
+        "probs": {
+          "yes": 0.1939,
+          "no": 0.8061
+        },
+        "argmax": "no"
+      }
+    }
+  },
+  {
+    "idx": 7,
+    "t": 3.5,
+    "raw": "{\"place_folding_board\":\"\",\"fold_shirt_around_board\":\"\",\"flip_and_neaten_folded_shirt\":\"\",\"stack_folded_shirt\":\"\"}<end_of_utterance>",
+    "confidence": {
+      "place_folding_board": {
+        "probs": {
+          "yes": 0.1198,
+          "no": 0.8802
+        },
+        "argmax": "no"
+      },
+      "fold_shirt_around_board": {
+        "probs": {
+          "yes": 0.2165,
+          "no": 0.7835
+        },
+        "argmax": "no"
+      },
+      "flip_and_neaten_folded_shirt": {
+        "probs": {
+          "yes": 0.637,
+          "no": 0.363
+        },
+        "argmax": "yes"
+      }
+    }
+  },
+  {
+    "idx": 8,
+    "t": 4.0,
+    "raw": "{\"place_folding_board\":\"���い�����������を������の上に置い����置を��������いる����\",\"fold_shirt_around_board\":\"������を��に������������������いる����\",\"flip_and_neaten_folded_shirt\":\"�������������を表に��し����を������いる����\",\"stack_folded_shirt\":\"�������������を��成���の��に������いる����\"}<end_of_utterance>",
+    "confidence": {
+      "place_folding_board": {
+        "probs": {
+          "yes": 0.1604,
+          "no": 0.8396
+        },
+        "argmax": "no"
+      },
+      "fold_shirt_around_board": {
+        "probs": {
+          "yes": 0.3007,
+          "no": 0.6993
+        },
+        "argmax": "no"
+      },
+      "flip_and_neaten_folded_shirt": {
+        "probs": {
+          "yes": 0.2964,
+          "no": 0.7036
+        },
+        "argmax": "no"
+      },
+      "stack_folded_shirt": {
+        "probs": {
+          "yes": 0.1579,
+          "no": 0.8421
+        },
+        "argmax": "no"
+      }
+    }
+  },
+  {
+    "idx": 9,
+    "t": 4.5,
+    "raw": "{\"place_folding_board\":\"\",\"fold_shirt_around_board\":\"\",\"flip_and_neaten_folded_shirt\":\"\",\"stack_folded_shirt\":\"\"}<end_of_utterance>",
+    "confidence": {
+      "place_folding_board": {
+        "probs": {
+          "yes": 0.2238,
+          "no": 0.7762
+        },
+        "argmax": "no"
+      },
+      "fold_shirt_around_board": {
+        "probs": {
+          "yes": 0.284,
+          "no": 0.716
+        },
+        "argmax": "no"
+      },
+      "flip_and_neaten_folded_shirt": {
+        "probs": {
+          "yes": 0.6368,
+          "no": 0.3632
+        },
+        "argmax": "yes"
+      }
+    }
+  },
+  {
+    "idx": 10,
+    "t": 5.0,
+    "raw": "{\"place_folding_board\":\"���い�����������を������の上に置い����置を��������いる����\"}<end_of_utterance>",
+    "confidence": {
+      "place_folding_board": {
+        "probs": {
+          "yes": 0.2717,
+          "no": 0.7283
+        },
+        "argmax": "no"
+      }
+    }
+  },
+  {
+    "idx": 11,
+    "t": 5.5,
+    "raw": "{\"place_folding_board\":\"���い�����������を������の上に置い����置を��������いる����\",\"fold_shirt_around_board\":\"������を��に������������������いる����\",\"flip_and_neaten_folded_shirt\":\"�������������を表に��し����を������いる����\",\"stack_folded_shirt\":\"�������������を��成���の��に������いる����\"}<end_of_utterance>",
+    "confidence": {
+      "place_folding_board": {
+        "probs": {
+          "yes": 0.3384,
+          "no": 0.6616
+        },
+        "argmax": "no"
+      },
+      "fold_shirt_around_board": {
+        "probs": {
+          "yes": 0.3351,
+          "no": 0.6649
+        },
+        "argmax": "no"
+      },
+      "flip_and_neaten_folded_shirt": {
+        "probs": {
+          "yes": 0.334,
+          "no": 0.666
+        },
+        "argmax": "no"
+      },
+      "stack_folded_shirt": {
+        "probs": {
+          "yes": 0.2013,
+          "no": 0.7987
+        },
+        "argmax": "no"
+      }
+    }
+  },
+  {
+    "idx": 12,
+    "t": 6.0,
+    "raw": "{\"place_folding_board\":\"\",\"fold_shirt_around_board\":\"\",\"flip_and_neaten_folded_shirt\":\"\",\"stack_folded_shirt\":\"\"}<end_of_utterance>",
+    "confidence": {
+      "place_folding_board": {
+        "probs": {
+          "yes": 0.3759,
+          "no": 0.6241
+        },
+        "argmax": "no"
+      },
+      "fold_shirt_around_board": {
+        "probs": {
+          "yes": 0.384,
+          "no": 0.616
+        },
+        "argmax": "no"
+      },
+      "flip_and_neaten_folded_shirt": {
+        "probs": {
+          "yes": 0.7078,
+          "no": 0.2922
+        },
+        "argmax": "yes"
+      }
+    }
+  },
+  {
+    "idx": 13,
+    "t": 6.5,
+    "raw": "{\"place_folding_board\":\"\",\"fold_shirt_around_board\":\"\",\"flip_and_neaten_folded_shirt\":\"\",\"stack_folded_shirt\":\"\"}<end_of_utterance>",
+    "confidence": {
+      "place_folding_board": {
+        "probs": {
+          "yes": 0.4104,
+          "no": 0.5896
+        },
+        "argmax": "no"
+      },
+      "fold_shirt_around_board": {
+        "probs": {
+          "yes": 0.3715,
+          "no": 0.6285
+        },
+        "argmax": "no"
+      },
+      "flip_and_neaten_folded_shirt": {
+        "probs": {
+          "yes": 0.6623,
+          "no": 0.3377
+        },
+        "argmax": "yes"
+      }
+    }
+  },
+  {
+    "idx": 14,
+    "t": 7.0,
+    "raw": "{\"place_folding_board\":\"\",\"fold_shirt_around_board\":\"\",\"flip_and_neaten_folded_shirt\":\"\",\"stack_folded_shirt\":\"\"}<end_of_utterance>",
+    "confidence": {
+      "place_folding_board": {
+        "probs": {
+          "yes": 0.3989,
+          "no": 0.6011
+        },
+        "argmax": "no"
+      },
+      "fold_shirt_around_board": {
+        "probs": {
+          "yes": 0.3823,
+          "no": 0.6177
+        },
+        "argmax": "no"
+      },
+      "flip_and_neaten_folded_shirt": {
+        "probs": {
+          "yes": 0.662,
+          "no": 0.338
+        },
+        "argmax": "yes"
+      }
+    }
+  },
+  {
+    "idx": 15,
+    "t": 7.5,
+    "raw": "{\"place_folding_board\":\"\",\"fold_shirt_around_board\":\"\",\"flip_and_neaten_folded_shirt\":\"\",\"stack_folded_shirt\":\"\"}<end_of_utterance>",
+    "confidence": {
+      "place_folding_board": {
+        "probs": {
+          "yes": 0.3862,
+          "no": 0.6138
+        },
+        "argmax": "no"
+      },
+      "fold_shirt_around_board": {
+        "probs": {
+          "yes": 0.3686,
+          "no": 0.6314
+        },
+        "argmax": "no"
+      },
+      "flip_and_neaten_folded_shirt": {
+        "probs": {
+          "yes": 0.6783,
+          "no": 0.3217
+        },
+        "argmax": "yes"
+      }
+    }
+  },
+  {
+    "idx": 16,
+    "t": 8.0,
+    "raw": "{\"place_folding_board\":\"\",\"fold_shirt_around_board\":\"\",\"flip_and_neaten_folded_shirt\":\"\",\"stack_folded_shirt\":\"\"}<end_of_utterance>",
+    "confidence": {
+      "place_folding_board": {
+        "probs": {
+          "yes": 0.436,
+          "no": 0.564
+        },
+        "argmax": "no"
+      },
+      "fold_shirt_around_board": {
+        "probs": {
+          "yes": 0.3817,
+          "no": 0.6183
+        },
+        "argmax": "no"
+      },
+      "flip_and_neaten_folded_shirt": {
+        "probs": {
+          "yes": 0.6537,
+          "no": 0.3463
+        },
+        "argmax": "yes"
+      }
+    }
+  },
+  {
+    "idx": 17,
+    "t": 8.5,
+    "raw": "{\"place_folding_board\":\"\",\"fold_shirt_around_board\":\"\",\"flip_and_neaten_folded_shirt\":\"\",\"stack_folded_shirt\":\"\"}<end_of_utterance>",
+    "confidence": {
+      "place_folding_board": {
+        "probs": {
+          "yes": 0.3945,
+          "no": 0.6055
+        },
+        "argmax": "no"
+      },
+      "fold_shirt_around_board": {
+        "probs": {
+          "yes": 0.3939,
+          "no": 0.6061
+        },
+        "argmax": "no"
+      },
+      "flip_and_neaten_folded_shirt": {
+        "probs": {
+          "yes": 0.6798,
+          "no": 0.3202
+        },
+        "argmax": "yes"
+      }
+    }
+  },
+  {
+    "idx": 18,
+    "t": 9.0,
+    "raw": "{\"place_folding_board\":\"\",\"fold_shirt_around_board\":\"\",\"flip_and_neaten_folded_shirt\":\"\",\"stack_folded_shirt\":\"\"}<end_of_utterance>",
+    "confidence": {
+      "place_folding_board": {
+        "probs": {
+          "yes": 0.4088,
+          "no": 0.5912
+        },
+        "argmax": "no"
+      },
+      "fold_shirt_around_board": {
+        "probs": {
+          "yes": 0.387,
+          "no": 0.613
+        },
+        "argmax": "no"
+      },
+      "flip_and_neaten_folded_shirt": {
+        "probs": {
+          "yes": 0.6621,
+          "no": 0.3379
+        },
+        "argmax": "yes"
+      }
+    }
+  },
+  {
+    "idx": 19,
+    "t": 9.5,
+    "raw": "{\"place_folding_board\":\"\",\"fold_shirt_around_board\":\"\",\"flip_and_neaten_folded_shirt\":\"\",\"stack_folded_shirt\":\"\"}<end_of_utterance>",
+    "confidence": {
+      "place_folding_board": {
+        "probs": {
+          "yes": 0.4103,
+          "no": 0.5897
+        },
+        "argmax": "no"
+      },
+      "fold_shirt_around_board": {
+        "probs": {
+          "yes": 0.3973,
+          "no": 0.6027
+        },
+        "argmax": "no"
+      },
+      "flip_and_neaten_folded_shirt": {
+        "probs": {
+          "yes": 0.6632,
+          "no": 0.3368
+        },
+        "argmax": "yes"
+      }
+    }
+  },
+  {
+    "idx": 20,
+    "t": 10.0,
+    "raw": "{\"place_folding_board\":\"\",\"fold_shirt_around_board\":\"\",\"flip_and_neaten_folded_shirt\":\"\",\"stack_folded_shirt\":\"\"}<end_of_utterance>",
+    "confidence": {
+      "place_folding_board": {
+        "probs": {
+          "yes": 0.4441,
+          "no": 0.5559
+        },
+        "argmax": "no"
+      },
+      "fold_shirt_around_board": {
+        "probs": {
+          "yes": 0.3902,
+          "no": 0.6098
+        },
+        "argmax": "no"
+      },
+      "flip_and_neaten_folded_shirt": {
+        "probs": {
+          "yes": 0.6812,
+          "no": 0.3188
+        },
+        "argmax": "yes"
+      }
+    }
+  },
+  {
+    "idx": 21,
+    "t": 10.5,
+    "raw": "{\"place_folding_board\":\"\",\"fold_shirt_around_board\":\"\",\"flip_and_neaten_folded_shirt\":\"\",\"stack_folded_shirt\":\"\"}<end_of_utterance>",
+    "confidence": {
+      "place_folding_board": {
+        "probs": {
+          "yes": 0.3725,
+          "no": 0.6275
+        },
+        "argmax": "no"
+      },
+      "fold_shirt_around_board": {
+        "probs": {
+          "yes": 0.3675,
+          "no": 0.6325
+        },
+        "argmax": "no"
+      },
+      "flip_and_neaten_folded_shirt": {
+        "probs": {
+          "yes": 0.6308,
+          "no": 0.3692
+        },
+        "argmax": "yes"
+      }
+    }
+  },
+  {
+    "idx": 22,
+    "t": 11.0,
+    "raw": "{\"place_folding_board\":\"\",\"fold_shirt_around_board\":\"\",\"flip_and_neaten_folded_shirt\":\"\",\"stack_folded_shirt\":\"\"}<end_of_utterance>",
+    "confidence": {
+      "place_folding_board": {
+        "probs": {
+          "yes": 0.3729,
+          "no": 0.6271
+        },
+        "argmax": "no"
+      },
+      "fold_shirt_around_board": {
+        "probs": {
+          "yes": 0.3458,
+          "no": 0.6542
+        },
+        "argmax": "no"
+      },
+      "flip_and_neaten_folded_shirt": {
+        "probs": {
+          "yes": 0.6795,
+          "no": 0.3205
+        },
+        "argmax": "yes"
+      }
+    }
+  },
+  {
+    "idx": 23,
+    "t": 11.5,
+    "raw": "{\"place_folding_board\":\"\",\"fold_shirt_around_board\":\"\",\"flip_and_neaten_folded_shirt\":\"\",\"stack_folded_shirt\":\"\"}<end_of_utterance>",
+    "confidence": {
+      "place_folding_board": {
+        "probs": {
+          "yes": 0.3794,
+          "no": 0.6206
+        },
+        "argmax": "no"
+      },
+      "fold_shirt_around_board": {
+        "probs": {
+          "yes": 0.3527,
+          "no": 0.6473
+        },
+        "argmax": "no"
+      },
+      "flip_and_neaten_folded_shirt": {
+        "probs": {
+          "yes": 0.6412,
+          "no": 0.3588
+        },
+        "argmax": "yes"
+      }
+    }
+  },
+  {
+    "idx": 24,
+    "t": 12.0,
+    "raw": "{\"place_folding_board\":\"\",\"fold_shirt_around_board\":\"\",\"flip_and_neaten_folded_shirt\":\"\",\"stack_folded_shirt\":\"\"}<end_of_utterance>",
+    "confidence": {
+      "place_folding_board": {
+        "probs": {
+          "yes": 0.401,
+          "no": 0.599
+        },
+        "argmax": "no"
+      },
+      "fold_shirt_around_board": {
+        "probs": {
+          "yes": 0.3924,
+          "no": 0.6076
+        },
+        "argmax": "no"
+      },
+      "flip_and_neaten_folded_shirt": {
+        "probs": {
+          "yes": 0.7038,
+          "no": 0.2962
+        },
+        "argmax": "yes"
+      }
+    }
+  },
+  {
+    "idx": 25,
+    "t": 12.5,
+    "raw": "{\"place_folding_board\":\"\",\"fold_shirt_around_board\":\"\",\"flip_and_neaten_folded_shirt\":\"\",\"stack_folded_shirt\":\"\"}<end_of_utterance>",
+    "confidence": {
+      "place_folding_board": {
+        "probs": {
+          "yes": 0.249,
+          "no": 0.751
+        },
+        "argmax": "no"
+      },
+      "fold_shirt_around_board": {
+        "probs": {
+          "yes": 0.2934,
+          "no": 0.7066
+        },
+        "argmax": "no"
+      },
+      "flip_and_neaten_folded_shirt": {
+        "probs": {
+          "yes": 0.6568,
+          "no": 0.3432
+        },
+        "argmax": "yes"
+      }
+    }
+  },
+  {
+    "idx": 26,
+    "t": 13.0,
+    "raw": "{\"place_folding_board\":\"\",\"fold_shirt_around_board\":\"\",\"flip_and_neaten_folded_shirt\":\"\",\"stack_folded_shirt\":\"\"}<end_of_utterance>",
+    "confidence": {
+      "place_folding_board": {
+        "probs": {
+          "yes": 0.3816,
+          "no": 0.6184
+        },
+        "argmax": "no"
+      },
+      "fold_shirt_around_board": {
+        "probs": {
+          "yes": 0.3877,
+          "no": 0.6123
+        },
+        "argmax": "no"
+      },
+      "flip_and_neaten_folded_shirt": {
+        "probs": {
+          "yes": 0.6629,
+          "no": 0.3371
+        },
+        "argmax": "yes"
+      }
+    }
+  },
+  {
+    "idx": 27,
+    "t": 13.5,
+    "raw": "{\"place_folding_board\":\"\",\"fold_shirt_around_board\":\"\",\"flip_and_neaten_folded_shirt\":\"\",\"stack_folded_shirt\":\"\"}<end_of_utterance>",
+    "confidence": {
+      "place_folding_board": {
+        "probs": {
+          "yes": 0.3388,
+          "no": 0.6612
+        },
+        "argmax": "no"
+      },
+      "fold_shirt_around_board": {
+        "probs": {
+          "yes": 0.3211,
+          "no": 0.6789
+        },
+        "argmax": "no"
+      },
+      "flip_and_neaten_folded_shirt": {
+        "probs": {
+          "yes": 0.6573,
+          "no": 0.3427
+        },
+        "argmax": "yes"
+      }
+    }
+  },
+  {
+    "idx": 28,
+    "t": 14.0,
+    "raw": "{\"place_folding_board\":\"\",\"fold_shirt_around_board\":\"\",\"flip_and_neaten_folded_shirt\":\"\",\"stack_folded_shirt\":\"\"}<end_of_utterance>",
+    "confidence": {
+      "place_folding_board": {
+        "probs": {
+          "yes": 0.3262,
+          "no": 0.6738
+        },
+        "argmax": "no"
+      },
+      "fold_shirt_around_board": {
+        "probs": {
+          "yes": 0.3188,
+          "no": 0.6812
+        },
+        "argmax": "no"
+      },
+      "flip_and_neaten_folded_shirt": {
+        "probs": {
+          "yes": 0.6595,
+          "no": 0.3405
+        },
+        "argmax": "yes"
+      }
+    }
+  },
+  {
+    "idx": 29,
+    "t": 14.5,
+    "raw": "{\"place_folding_board\":\"\",\"fold_shirt_around_board\":\"\",\"flip_and_neaten_folded_shirt\":\"\",\"stack_folded_shirt\":\"\"}<end_of_utterance>",
+    "confidence": {
+      "place_folding_board": {
+        "probs": {
+          "yes": 0.3312,
+          "no": 0.6688
+        },
+        "argmax": "no"
+      },
+      "fold_shirt_around_board": {
+        "probs": {
+          "yes": 0.3165,
+          "no": 0.6835
+        },
+        "argmax": "no"
+      },
+      "flip_and_neaten_folded_shirt": {
+        "probs": {
+          "yes": 0.6539,
+          "no": 0.3461
+        },
+        "argmax": "yes"
+      }
+    }
+  },
+  {
+    "idx": 30,
+    "t": 15.0,
+    "raw": "{\"place_folding_board\":\"\",\"fold_shirt_around_board\":\"\",\"flip_and_neaten_folded_shirt\":\"\",\"stack_folded_shirt\":\"\"}<end_of_utterance>",
+    "confidence": {
+      "place_folding_board": {
+        "probs": {
+          "yes": 0.2813,
+          "no": 0.7187
+        },
+        "argmax": "no"
+      },
+      "fold_shirt_around_board": {
+        "probs": {
+          "yes": 0.2918,
+          "no": 0.7082
+        },
+        "argmax": "no"
+      },
+      "flip_and_neaten_folded_shirt": {
+        "probs": {
+          "yes": 0.6545,
+          "no": 0.3455
+        },
+        "argmax": "yes"
+      }
+    }
+  },
+  {
+    "idx": 31,
+    "t": 15.5,
+    "raw": "{\"place_folding_board\":\"\",\"fold_shirt_around_board\":\"\",\"flip_and_neaten_folded_shirt\":\"\",\"stack_folded_shirt\":\"\"}<end_of_utterance>",
+    "confidence": {
+      "place_folding_board": {
+        "probs": {
+          "yes": 0.3187,
+          "no": 0.6813
+        },
+        "argmax": "no"
+      },
+      "fold_shirt_around_board": {
+        "probs": {
+          "yes": 0.3571,
+          "no": 0.6429
+        },
+        "argmax": "no"
+      },
+      "flip_and_neaten_folded_shirt": {
+        "probs": {
+          "yes": 0.692,
+          "no": 0.308
+        },
+        "argmax": "yes"
+      }
+    }
+  },
+  {
+    "idx": 32,
+    "t": 16.0,
+    "raw": "{\"place_folding_board\":\"\",\"fold_shirt_around_board\":\"\",\"flip_and_neaten_folded_shirt\":\"\",\"stack_folded_shirt\":\"\"}<end_of_utterance>",
+    "confidence": {
+      "place_folding_board": {
+        "probs": {
+          "yes": 0.3462,
+          "no": 0.6538
+        },
+        "argmax": "no"
+      },
+      "fold_shirt_around_board": {
+        "probs": {
+          "yes": 0.3632,
+          "no": 0.6368
+        },
+        "argmax": "no"
+      },
+      "flip_and_neaten_folded_shirt": {
+        "probs": {
+          "yes": 0.702,
+          "no": 0.298
+        },
+        "argmax": "yes"
+      }
+    }
+  },
+  {
+    "idx": 33,
+    "t": 16.5,
+    "raw": "{\"place_folding_board\":\"���い�����������を������の上に置い����置を��������いる����\",\"fold_shirt_around_board\":\"������を��に������������������いる����\",\"flip_and_neaten_folded_shirt\":\"�������������を表に��し����を������いる����\",\"stack_folded_shirt\":\"�������������を��成���の��に������いる����\"}<end_of_utterance>",
+    "confidence": {
+      "place_folding_board": {
+        "probs": {
+          "yes": 0.2965,
+          "no": 0.7035
+        },
+        "argmax": "no"
+      },
+      "fold_shirt_around_board": {
+        "probs": {
+          "yes": 0.3379,
+          "no": 0.6621
+        },
+        "argmax": "no"
+      },
+      "flip_and_neaten_folded_shirt": {
+        "probs": {
+          "yes": 0.297,
+          "no": 0.703
+        },
+        "argmax": "no"
+      },
+      "stack_folded_shirt": {
+        "probs": {
+          "yes": 0.1876,
+          "no": 0.8124
+        },
+        "argmax": "no"
+      }
+    }
+  },
+  {
+    "idx": 34,
+    "t": 17.0,
+    "raw": "{\"place_folding_board\":\"\",\"fold_shirt_around_board\":\"\",\"flip_and_neaten_folded_shirt\":\"\",\"stack_folded_shirt\":\"\"}<end_of_utterance>",
+    "confidence": {
+      "place_folding_board": {
+        "probs": {
+          "yes": 0.2098,
+          "no": 0.7902
+        },
+        "argmax": "no"
+      },
+      "fold_shirt_around_board": {
+        "probs": {
+          "yes": 0.2298,
+          "no": 0.7702
+        },
+        "argmax": "no"
+      },
+      "flip_and_neaten_folded_shirt": {
+        "probs": {
+          "yes": 0.6738,
+          "no": 0.3262
+        },
+        "argmax": "yes"
+      }
+    }
+  },
+  {
+    "idx": 35,
+    "t": 17.5,
+    "raw": "{\"place_folding_board\":\"���い�����������を������の上に置い����置を��������いる����\",\"fold_shirt_around_board\":\"������を��に������������������いる����\",\"flip_and_neaten_folded_shirt\":\"�������������を表に��し����を������いる����\",\"stack_folded_shirt\":\"�������������を��成���の��に������いる����\"}<end_of_utterance>",
+    "confidence": {
+      "place_folding_board": {
+        "probs": {
+          "yes": 0.2576,
+          "no": 0.7424
+        },
+        "argmax": "no"
+      },
+      "fold_shirt_around_board": {
+        "probs": {
+          "yes": 0.3414,
+          "no": 0.6586
+        },
+        "argmax": "no"
+      },
+      "flip_and_neaten_folded_shirt": {
+        "probs": {
+          "yes": 0.3249,
+          "no": 0.6751
+        },
+        "argmax": "no"
+      },
+      "stack_folded_shirt": {
+        "probs": {
+          "yes": 0.1885,
+          "no": 0.8115
+        },
+        "argmax": "no"
+      }
+    }
+  },
+  {
+    "idx": 36,
+    "t": 18.0,
+    "raw": "{\"place_folding_board\":\"���い�����������を������の上に置い����置を��������いる����\"}<end_of_utterance>",
+    "confidence": {
+      "place_folding_board": {
+        "probs": {
+          "yes": 0.2897,
+          "no": 0.7103
+        },
+        "argmax": "no"
+      }
+    }
+  },
+  {
+    "idx": 37,
+    "t": 18.5,
+    "raw": "{\"place_folding_board\":\"���い�����������を������の上に置い����置を��������いる����\",\"fold_shirt_around_board\":\"������を��に������������������いる����\",\"flip_and_neaten_folded_shirt\":\"�������������を表に��し����を������いる����\",\"stack_folded_shirt\":\"�������������を��成���の��に������いる����\"}<end_of_utterance>",
+    "confidence": {
+      "place_folding_board": {
+        "probs": {
+          "yes": 0.3432,
+          "no": 0.6568
+        },
+        "argmax": "no"
+      },
+      "fold_shirt_around_board": {
+        "probs": {
+          "yes": 0.3863,
+          "no": 0.6137
+        },
+        "argmax": "no"
+      },
+      "flip_and_neaten_folded_shirt": {
+        "probs": {
+          "yes": 0.3318,
+          "no": 0.6682
+        },
+        "argmax": "no"
+      },
+      "stack_folded_shirt": {
+        "probs": {
+          "yes": 0.2025,
+          "no": 0.7975
+        },
+        "argmax": "no"
+      }
+    }
+  },
+  {
+    "idx": 38,
+    "t": 19.0,
+    "raw": "{\"place_folding_board\":\"\",\"fold_shirt_around_board\":\"\",\"flip_and_neaten_folded_shirt\":\"\",\"stack_folded_shirt\":\"\"}<end_of_utterance>",
+    "confidence": {
+      "place_folding_board": {
+        "probs": {
+          "yes": 0.4777,
+          "no": 0.5223
+        },
+        "argmax": "no"
+      },
+      "fold_shirt_around_board": {
+        "probs": {
+          "yes": 0.3904,
+          "no": 0.6096
+        },
+        "argmax": "no"
+      },
+      "flip_and_neaten_folded_shirt": {
+        "probs": {
+          "yes": 0.7311,
+          "no": 0.2689
+        },
+        "argmax": "yes"
+      }
+    }
+  },
+  {
+    "idx": 39,
+    "t": 19.5,
+    "raw": "{\"place_folding_board\":\"\",\"fold_shirt_around_board\":\"\",\"flip_and_neaten_folded_shirt\":\"\",\"stack_folded_shirt\":\"\"}<end_of_utterance>",
+    "confidence": {
+      "place_folding_board": {
+        "probs": {
+          "yes": 0.4337,
+          "no": 0.5663
+        },
+        "argmax": "no"
+      },
+      "fold_shirt_around_board": {
+        "probs": {
+          "yes": 0.3798,
+          "no": 0.6202
+        },
+        "argmax": "no"
+      },
+      "flip_and_neaten_folded_shirt": {
+        "probs": {
+          "yes": 0.7494,
+          "no": 0.2506
+        },
+        "argmax": "yes"
+      }
+    }
+  }
+]

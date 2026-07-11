@@ -1,0 +1,1525 @@
+{
+  "answer_source": "candidate-token probabilities; argmax normalized to yes/no",
+  "frame_count": 40,
+  "frames": [
+    {
+      "answers": {
+        "flip_and_neaten_folded_shirt": "yes",
+        "fold_shirt_around_board": "no",
+        "place_folding_board": "no",
+        "stack_folded_shirt": "unclear"
+      },
+      "confidence": {
+        "flip_and_neaten_folded_shirt": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.3315,
+            "yes": 0.6685
+          }
+        },
+        "fold_shirt_around_board": {
+          "argmax": "no",
+          "probs": {
+            "no": 0.7233,
+            "yes": 0.2767
+          }
+        },
+        "place_folding_board": {
+          "argmax": "no",
+          "probs": {
+            "no": 0.7707,
+            "yes": 0.2293
+          }
+        }
+      },
+      "idx": 0,
+      "resource": {
+        "active_mb": null,
+        "peak_mb": null
+      },
+      "t": 0.0
+    },
+    {
+      "answers": {
+        "flip_and_neaten_folded_shirt": "no",
+        "fold_shirt_around_board": "no",
+        "place_folding_board": "no",
+        "stack_folded_shirt": "no"
+      },
+      "confidence": {
+        "flip_and_neaten_folded_shirt": {
+          "argmax": "no",
+          "probs": {
+            "no": 0.7136,
+            "yes": 0.2864
+          }
+        },
+        "fold_shirt_around_board": {
+          "argmax": "no",
+          "probs": {
+            "no": 0.6629,
+            "yes": 0.3371
+          }
+        },
+        "place_folding_board": {
+          "argmax": "no",
+          "probs": {
+            "no": 0.6619,
+            "yes": 0.3381
+          }
+        },
+        "stack_folded_shirt": {
+          "argmax": "no",
+          "probs": {
+            "no": 0.8299,
+            "yes": 0.1701
+          }
+        }
+      },
+      "idx": 1,
+      "resource": {
+        "active_mb": null,
+        "peak_mb": null
+      },
+      "t": 0.5
+    },
+    {
+      "answers": {
+        "flip_and_neaten_folded_shirt": "no",
+        "fold_shirt_around_board": "no",
+        "place_folding_board": "no",
+        "stack_folded_shirt": "no"
+      },
+      "confidence": {
+        "flip_and_neaten_folded_shirt": {
+          "argmax": "no",
+          "probs": {
+            "no": 0.6672,
+            "yes": 0.3328
+          }
+        },
+        "fold_shirt_around_board": {
+          "argmax": "no",
+          "probs": {
+            "no": 0.6654,
+            "yes": 0.3346
+          }
+        },
+        "place_folding_board": {
+          "argmax": "no",
+          "probs": {
+            "no": 0.709,
+            "yes": 0.291
+          }
+        },
+        "stack_folded_shirt": {
+          "argmax": "no",
+          "probs": {
+            "no": 0.7269,
+            "yes": 0.2731
+          }
+        }
+      },
+      "idx": 2,
+      "resource": {
+        "active_mb": null,
+        "peak_mb": null
+      },
+      "t": 1.0
+    },
+    {
+      "answers": {
+        "flip_and_neaten_folded_shirt": "no",
+        "fold_shirt_around_board": "no",
+        "place_folding_board": "no",
+        "stack_folded_shirt": "no"
+      },
+      "confidence": {
+        "flip_and_neaten_folded_shirt": {
+          "argmax": "no",
+          "probs": {
+            "no": 0.6698,
+            "yes": 0.3302
+          }
+        },
+        "fold_shirt_around_board": {
+          "argmax": "no",
+          "probs": {
+            "no": 0.6576,
+            "yes": 0.3424
+          }
+        },
+        "place_folding_board": {
+          "argmax": "no",
+          "probs": {
+            "no": 0.6948,
+            "yes": 0.3052
+          }
+        },
+        "stack_folded_shirt": {
+          "argmax": "no",
+          "probs": {
+            "no": 0.7308,
+            "yes": 0.2692
+          }
+        }
+      },
+      "idx": 3,
+      "resource": {
+        "active_mb": null,
+        "peak_mb": null
+      },
+      "t": 1.5
+    },
+    {
+      "answers": {
+        "flip_and_neaten_folded_shirt": "yes",
+        "fold_shirt_around_board": "no",
+        "place_folding_board": "no",
+        "stack_folded_shirt": "unclear"
+      },
+      "confidence": {
+        "flip_and_neaten_folded_shirt": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.3105,
+            "yes": 0.6895
+          }
+        },
+        "fold_shirt_around_board": {
+          "argmax": "no",
+          "probs": {
+            "no": 0.7086,
+            "yes": 0.2914
+          }
+        },
+        "place_folding_board": {
+          "argmax": "no",
+          "probs": {
+            "no": 0.773,
+            "yes": 0.227
+          }
+        }
+      },
+      "idx": 4,
+      "resource": {
+        "active_mb": null,
+        "peak_mb": null
+      },
+      "t": 2.0
+    },
+    {
+      "answers": {
+        "flip_and_neaten_folded_shirt": "yes",
+        "fold_shirt_around_board": "no",
+        "place_folding_board": "no",
+        "stack_folded_shirt": "unclear"
+      },
+      "confidence": {
+        "flip_and_neaten_folded_shirt": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.3166,
+            "yes": 0.6834
+          }
+        },
+        "fold_shirt_around_board": {
+          "argmax": "no",
+          "probs": {
+            "no": 0.7088,
+            "yes": 0.2912
+          }
+        },
+        "place_folding_board": {
+          "argmax": "no",
+          "probs": {
+            "no": 0.7798,
+            "yes": 0.2202
+          }
+        }
+      },
+      "idx": 5,
+      "resource": {
+        "active_mb": null,
+        "peak_mb": null
+      },
+      "t": 2.5
+    },
+    {
+      "answers": {
+        "flip_and_neaten_folded_shirt": "no",
+        "fold_shirt_around_board": "no",
+        "place_folding_board": "no",
+        "stack_folded_shirt": "no"
+      },
+      "confidence": {
+        "flip_and_neaten_folded_shirt": {
+          "argmax": "no",
+          "probs": {
+            "no": 0.668,
+            "yes": 0.332
+          }
+        },
+        "fold_shirt_around_board": {
+          "argmax": "no",
+          "probs": {
+            "no": 0.6973,
+            "yes": 0.3027
+          }
+        },
+        "place_folding_board": {
+          "argmax": "no",
+          "probs": {
+            "no": 0.8107,
+            "yes": 0.1893
+          }
+        },
+        "stack_folded_shirt": {
+          "argmax": "no",
+          "probs": {
+            "no": 0.8061,
+            "yes": 0.1939
+          }
+        }
+      },
+      "idx": 6,
+      "resource": {
+        "active_mb": null,
+        "peak_mb": null
+      },
+      "t": 3.0
+    },
+    {
+      "answers": {
+        "flip_and_neaten_folded_shirt": "yes",
+        "fold_shirt_around_board": "no",
+        "place_folding_board": "no",
+        "stack_folded_shirt": "unclear"
+      },
+      "confidence": {
+        "flip_and_neaten_folded_shirt": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.363,
+            "yes": 0.637
+          }
+        },
+        "fold_shirt_around_board": {
+          "argmax": "no",
+          "probs": {
+            "no": 0.7835,
+            "yes": 0.2165
+          }
+        },
+        "place_folding_board": {
+          "argmax": "no",
+          "probs": {
+            "no": 0.8802,
+            "yes": 0.1198
+          }
+        }
+      },
+      "idx": 7,
+      "resource": {
+        "active_mb": null,
+        "peak_mb": null
+      },
+      "t": 3.5
+    },
+    {
+      "answers": {
+        "flip_and_neaten_folded_shirt": "no",
+        "fold_shirt_around_board": "no",
+        "place_folding_board": "no",
+        "stack_folded_shirt": "no"
+      },
+      "confidence": {
+        "flip_and_neaten_folded_shirt": {
+          "argmax": "no",
+          "probs": {
+            "no": 0.7036,
+            "yes": 0.2964
+          }
+        },
+        "fold_shirt_around_board": {
+          "argmax": "no",
+          "probs": {
+            "no": 0.6993,
+            "yes": 0.3007
+          }
+        },
+        "place_folding_board": {
+          "argmax": "no",
+          "probs": {
+            "no": 0.8396,
+            "yes": 0.1604
+          }
+        },
+        "stack_folded_shirt": {
+          "argmax": "no",
+          "probs": {
+            "no": 0.8421,
+            "yes": 0.1579
+          }
+        }
+      },
+      "idx": 8,
+      "resource": {
+        "active_mb": null,
+        "peak_mb": null
+      },
+      "t": 4.0
+    },
+    {
+      "answers": {
+        "flip_and_neaten_folded_shirt": "yes",
+        "fold_shirt_around_board": "no",
+        "place_folding_board": "no",
+        "stack_folded_shirt": "unclear"
+      },
+      "confidence": {
+        "flip_and_neaten_folded_shirt": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.3632,
+            "yes": 0.6368
+          }
+        },
+        "fold_shirt_around_board": {
+          "argmax": "no",
+          "probs": {
+            "no": 0.716,
+            "yes": 0.284
+          }
+        },
+        "place_folding_board": {
+          "argmax": "no",
+          "probs": {
+            "no": 0.7762,
+            "yes": 0.2238
+          }
+        }
+      },
+      "idx": 9,
+      "resource": {
+        "active_mb": null,
+        "peak_mb": null
+      },
+      "t": 4.5
+    },
+    {
+      "answers": {
+        "flip_and_neaten_folded_shirt": "unclear",
+        "fold_shirt_around_board": "unclear",
+        "place_folding_board": "no",
+        "stack_folded_shirt": "unclear"
+      },
+      "confidence": {
+        "place_folding_board": {
+          "argmax": "no",
+          "probs": {
+            "no": 0.7283,
+            "yes": 0.2717
+          }
+        }
+      },
+      "idx": 10,
+      "resource": {
+        "active_mb": null,
+        "peak_mb": null
+      },
+      "t": 5.0
+    },
+    {
+      "answers": {
+        "flip_and_neaten_folded_shirt": "no",
+        "fold_shirt_around_board": "no",
+        "place_folding_board": "no",
+        "stack_folded_shirt": "no"
+      },
+      "confidence": {
+        "flip_and_neaten_folded_shirt": {
+          "argmax": "no",
+          "probs": {
+            "no": 0.666,
+            "yes": 0.334
+          }
+        },
+        "fold_shirt_around_board": {
+          "argmax": "no",
+          "probs": {
+            "no": 0.6649,
+            "yes": 0.3351
+          }
+        },
+        "place_folding_board": {
+          "argmax": "no",
+          "probs": {
+            "no": 0.6616,
+            "yes": 0.3384
+          }
+        },
+        "stack_folded_shirt": {
+          "argmax": "no",
+          "probs": {
+            "no": 0.7987,
+            "yes": 0.2013
+          }
+        }
+      },
+      "idx": 11,
+      "resource": {
+        "active_mb": null,
+        "peak_mb": null
+      },
+      "t": 5.5
+    },
+    {
+      "answers": {
+        "flip_and_neaten_folded_shirt": "yes",
+        "fold_shirt_around_board": "no",
+        "place_folding_board": "no",
+        "stack_folded_shirt": "unclear"
+      },
+      "confidence": {
+        "flip_and_neaten_folded_shirt": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.2922,
+            "yes": 0.7078
+          }
+        },
+        "fold_shirt_around_board": {
+          "argmax": "no",
+          "probs": {
+            "no": 0.616,
+            "yes": 0.384
+          }
+        },
+        "place_folding_board": {
+          "argmax": "no",
+          "probs": {
+            "no": 0.6241,
+            "yes": 0.3759
+          }
+        }
+      },
+      "idx": 12,
+      "resource": {
+        "active_mb": null,
+        "peak_mb": null
+      },
+      "t": 6.0
+    },
+    {
+      "answers": {
+        "flip_and_neaten_folded_shirt": "yes",
+        "fold_shirt_around_board": "no",
+        "place_folding_board": "no",
+        "stack_folded_shirt": "unclear"
+      },
+      "confidence": {
+        "flip_and_neaten_folded_shirt": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.3377,
+            "yes": 0.6623
+          }
+        },
+        "fold_shirt_around_board": {
+          "argmax": "no",
+          "probs": {
+            "no": 0.6285,
+            "yes": 0.3715
+          }
+        },
+        "place_folding_board": {
+          "argmax": "no",
+          "probs": {
+            "no": 0.5896,
+            "yes": 0.4104
+          }
+        }
+      },
+      "idx": 13,
+      "resource": {
+        "active_mb": null,
+        "peak_mb": null
+      },
+      "t": 6.5
+    },
+    {
+      "answers": {
+        "flip_and_neaten_folded_shirt": "yes",
+        "fold_shirt_around_board": "no",
+        "place_folding_board": "no",
+        "stack_folded_shirt": "unclear"
+      },
+      "confidence": {
+        "flip_and_neaten_folded_shirt": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.338,
+            "yes": 0.662
+          }
+        },
+        "fold_shirt_around_board": {
+          "argmax": "no",
+          "probs": {
+            "no": 0.6177,
+            "yes": 0.3823
+          }
+        },
+        "place_folding_board": {
+          "argmax": "no",
+          "probs": {
+            "no": 0.6011,
+            "yes": 0.3989
+          }
+        }
+      },
+      "idx": 14,
+      "resource": {
+        "active_mb": null,
+        "peak_mb": null
+      },
+      "t": 7.0
+    },
+    {
+      "answers": {
+        "flip_and_neaten_folded_shirt": "yes",
+        "fold_shirt_around_board": "no",
+        "place_folding_board": "no",
+        "stack_folded_shirt": "unclear"
+      },
+      "confidence": {
+        "flip_and_neaten_folded_shirt": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.3217,
+            "yes": 0.6783
+          }
+        },
+        "fold_shirt_around_board": {
+          "argmax": "no",
+          "probs": {
+            "no": 0.6314,
+            "yes": 0.3686
+          }
+        },
+        "place_folding_board": {
+          "argmax": "no",
+          "probs": {
+            "no": 0.6138,
+            "yes": 0.3862
+          }
+        }
+      },
+      "idx": 15,
+      "resource": {
+        "active_mb": null,
+        "peak_mb": null
+      },
+      "t": 7.5
+    },
+    {
+      "answers": {
+        "flip_and_neaten_folded_shirt": "yes",
+        "fold_shirt_around_board": "no",
+        "place_folding_board": "no",
+        "stack_folded_shirt": "unclear"
+      },
+      "confidence": {
+        "flip_and_neaten_folded_shirt": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.3463,
+            "yes": 0.6537
+          }
+        },
+        "fold_shirt_around_board": {
+          "argmax": "no",
+          "probs": {
+            "no": 0.6183,
+            "yes": 0.3817
+          }
+        },
+        "place_folding_board": {
+          "argmax": "no",
+          "probs": {
+            "no": 0.564,
+            "yes": 0.436
+          }
+        }
+      },
+      "idx": 16,
+      "resource": {
+        "active_mb": null,
+        "peak_mb": null
+      },
+      "t": 8.0
+    },
+    {
+      "answers": {
+        "flip_and_neaten_folded_shirt": "yes",
+        "fold_shirt_around_board": "no",
+        "place_folding_board": "no",
+        "stack_folded_shirt": "unclear"
+      },
+      "confidence": {
+        "flip_and_neaten_folded_shirt": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.3202,
+            "yes": 0.6798
+          }
+        },
+        "fold_shirt_around_board": {
+          "argmax": "no",
+          "probs": {
+            "no": 0.6061,
+            "yes": 0.3939
+          }
+        },
+        "place_folding_board": {
+          "argmax": "no",
+          "probs": {
+            "no": 0.6055,
+            "yes": 0.3945
+          }
+        }
+      },
+      "idx": 17,
+      "resource": {
+        "active_mb": null,
+        "peak_mb": null
+      },
+      "t": 8.5
+    },
+    {
+      "answers": {
+        "flip_and_neaten_folded_shirt": "yes",
+        "fold_shirt_around_board": "no",
+        "place_folding_board": "no",
+        "stack_folded_shirt": "unclear"
+      },
+      "confidence": {
+        "flip_and_neaten_folded_shirt": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.3379,
+            "yes": 0.6621
+          }
+        },
+        "fold_shirt_around_board": {
+          "argmax": "no",
+          "probs": {
+            "no": 0.613,
+            "yes": 0.387
+          }
+        },
+        "place_folding_board": {
+          "argmax": "no",
+          "probs": {
+            "no": 0.5912,
+            "yes": 0.4088
+          }
+        }
+      },
+      "idx": 18,
+      "resource": {
+        "active_mb": null,
+        "peak_mb": null
+      },
+      "t": 9.0
+    },
+    {
+      "answers": {
+        "flip_and_neaten_folded_shirt": "yes",
+        "fold_shirt_around_board": "no",
+        "place_folding_board": "no",
+        "stack_folded_shirt": "unclear"
+      },
+      "confidence": {
+        "flip_and_neaten_folded_shirt": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.3368,
+            "yes": 0.6632
+          }
+        },
+        "fold_shirt_around_board": {
+          "argmax": "no",
+          "probs": {
+            "no": 0.6027,
+            "yes": 0.3973
+          }
+        },
+        "place_folding_board": {
+          "argmax": "no",
+          "probs": {
+            "no": 0.5897,
+            "yes": 0.4103
+          }
+        }
+      },
+      "idx": 19,
+      "resource": {
+        "active_mb": null,
+        "peak_mb": null
+      },
+      "t": 9.5
+    },
+    {
+      "answers": {
+        "flip_and_neaten_folded_shirt": "yes",
+        "fold_shirt_around_board": "no",
+        "place_folding_board": "no",
+        "stack_folded_shirt": "unclear"
+      },
+      "confidence": {
+        "flip_and_neaten_folded_shirt": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.3188,
+            "yes": 0.6812
+          }
+        },
+        "fold_shirt_around_board": {
+          "argmax": "no",
+          "probs": {
+            "no": 0.6098,
+            "yes": 0.3902
+          }
+        },
+        "place_folding_board": {
+          "argmax": "no",
+          "probs": {
+            "no": 0.5559,
+            "yes": 0.4441
+          }
+        }
+      },
+      "idx": 20,
+      "resource": {
+        "active_mb": null,
+        "peak_mb": null
+      },
+      "t": 10.0
+    },
+    {
+      "answers": {
+        "flip_and_neaten_folded_shirt": "yes",
+        "fold_shirt_around_board": "no",
+        "place_folding_board": "no",
+        "stack_folded_shirt": "unclear"
+      },
+      "confidence": {
+        "flip_and_neaten_folded_shirt": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.3692,
+            "yes": 0.6308
+          }
+        },
+        "fold_shirt_around_board": {
+          "argmax": "no",
+          "probs": {
+            "no": 0.6325,
+            "yes": 0.3675
+          }
+        },
+        "place_folding_board": {
+          "argmax": "no",
+          "probs": {
+            "no": 0.6275,
+            "yes": 0.3725
+          }
+        }
+      },
+      "idx": 21,
+      "resource": {
+        "active_mb": null,
+        "peak_mb": null
+      },
+      "t": 10.5
+    },
+    {
+      "answers": {
+        "flip_and_neaten_folded_shirt": "yes",
+        "fold_shirt_around_board": "no",
+        "place_folding_board": "no",
+        "stack_folded_shirt": "unclear"
+      },
+      "confidence": {
+        "flip_and_neaten_folded_shirt": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.3205,
+            "yes": 0.6795
+          }
+        },
+        "fold_shirt_around_board": {
+          "argmax": "no",
+          "probs": {
+            "no": 0.6542,
+            "yes": 0.3458
+          }
+        },
+        "place_folding_board": {
+          "argmax": "no",
+          "probs": {
+            "no": 0.6271,
+            "yes": 0.3729
+          }
+        }
+      },
+      "idx": 22,
+      "resource": {
+        "active_mb": null,
+        "peak_mb": null
+      },
+      "t": 11.0
+    },
+    {
+      "answers": {
+        "flip_and_neaten_folded_shirt": "yes",
+        "fold_shirt_around_board": "no",
+        "place_folding_board": "no",
+        "stack_folded_shirt": "unclear"
+      },
+      "confidence": {
+        "flip_and_neaten_folded_shirt": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.3588,
+            "yes": 0.6412
+          }
+        },
+        "fold_shirt_around_board": {
+          "argmax": "no",
+          "probs": {
+            "no": 0.6473,
+            "yes": 0.3527
+          }
+        },
+        "place_folding_board": {
+          "argmax": "no",
+          "probs": {
+            "no": 0.6206,
+            "yes": 0.3794
+          }
+        }
+      },
+      "idx": 23,
+      "resource": {
+        "active_mb": null,
+        "peak_mb": null
+      },
+      "t": 11.5
+    },
+    {
+      "answers": {
+        "flip_and_neaten_folded_shirt": "yes",
+        "fold_shirt_around_board": "no",
+        "place_folding_board": "no",
+        "stack_folded_shirt": "unclear"
+      },
+      "confidence": {
+        "flip_and_neaten_folded_shirt": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.2962,
+            "yes": 0.7038
+          }
+        },
+        "fold_shirt_around_board": {
+          "argmax": "no",
+          "probs": {
+            "no": 0.6076,
+            "yes": 0.3924
+          }
+        },
+        "place_folding_board": {
+          "argmax": "no",
+          "probs": {
+            "no": 0.599,
+            "yes": 0.401
+          }
+        }
+      },
+      "idx": 24,
+      "resource": {
+        "active_mb": null,
+        "peak_mb": null
+      },
+      "t": 12.0
+    },
+    {
+      "answers": {
+        "flip_and_neaten_folded_shirt": "yes",
+        "fold_shirt_around_board": "no",
+        "place_folding_board": "no",
+        "stack_folded_shirt": "unclear"
+      },
+      "confidence": {
+        "flip_and_neaten_folded_shirt": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.3432,
+            "yes": 0.6568
+          }
+        },
+        "fold_shirt_around_board": {
+          "argmax": "no",
+          "probs": {
+            "no": 0.7066,
+            "yes": 0.2934
+          }
+        },
+        "place_folding_board": {
+          "argmax": "no",
+          "probs": {
+            "no": 0.751,
+            "yes": 0.249
+          }
+        }
+      },
+      "idx": 25,
+      "resource": {
+        "active_mb": null,
+        "peak_mb": null
+      },
+      "t": 12.5
+    },
+    {
+      "answers": {
+        "flip_and_neaten_folded_shirt": "yes",
+        "fold_shirt_around_board": "no",
+        "place_folding_board": "no",
+        "stack_folded_shirt": "unclear"
+      },
+      "confidence": {
+        "flip_and_neaten_folded_shirt": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.3371,
+            "yes": 0.6629
+          }
+        },
+        "fold_shirt_around_board": {
+          "argmax": "no",
+          "probs": {
+            "no": 0.6123,
+            "yes": 0.3877
+          }
+        },
+        "place_folding_board": {
+          "argmax": "no",
+          "probs": {
+            "no": 0.6184,
+            "yes": 0.3816
+          }
+        }
+      },
+      "idx": 26,
+      "resource": {
+        "active_mb": null,
+        "peak_mb": null
+      },
+      "t": 13.0
+    },
+    {
+      "answers": {
+        "flip_and_neaten_folded_shirt": "yes",
+        "fold_shirt_around_board": "no",
+        "place_folding_board": "no",
+        "stack_folded_shirt": "unclear"
+      },
+      "confidence": {
+        "flip_and_neaten_folded_shirt": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.3427,
+            "yes": 0.6573
+          }
+        },
+        "fold_shirt_around_board": {
+          "argmax": "no",
+          "probs": {
+            "no": 0.6789,
+            "yes": 0.3211
+          }
+        },
+        "place_folding_board": {
+          "argmax": "no",
+          "probs": {
+            "no": 0.6612,
+            "yes": 0.3388
+          }
+        }
+      },
+      "idx": 27,
+      "resource": {
+        "active_mb": null,
+        "peak_mb": null
+      },
+      "t": 13.5
+    },
+    {
+      "answers": {
+        "flip_and_neaten_folded_shirt": "yes",
+        "fold_shirt_around_board": "no",
+        "place_folding_board": "no",
+        "stack_folded_shirt": "unclear"
+      },
+      "confidence": {
+        "flip_and_neaten_folded_shirt": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.3405,
+            "yes": 0.6595
+          }
+        },
+        "fold_shirt_around_board": {
+          "argmax": "no",
+          "probs": {
+            "no": 0.6812,
+            "yes": 0.3188
+          }
+        },
+        "place_folding_board": {
+          "argmax": "no",
+          "probs": {
+            "no": 0.6738,
+            "yes": 0.3262
+          }
+        }
+      },
+      "idx": 28,
+      "resource": {
+        "active_mb": null,
+        "peak_mb": null
+      },
+      "t": 14.0
+    },
+    {
+      "answers": {
+        "flip_and_neaten_folded_shirt": "yes",
+        "fold_shirt_around_board": "no",
+        "place_folding_board": "no",
+        "stack_folded_shirt": "unclear"
+      },
+      "confidence": {
+        "flip_and_neaten_folded_shirt": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.3461,
+            "yes": 0.6539
+          }
+        },
+        "fold_shirt_around_board": {
+          "argmax": "no",
+          "probs": {
+            "no": 0.6835,
+            "yes": 0.3165
+          }
+        },
+        "place_folding_board": {
+          "argmax": "no",
+          "probs": {
+            "no": 0.6688,
+            "yes": 0.3312
+          }
+        }
+      },
+      "idx": 29,
+      "resource": {
+        "active_mb": null,
+        "peak_mb": null
+      },
+      "t": 14.5
+    },
+    {
+      "answers": {
+        "flip_and_neaten_folded_shirt": "yes",
+        "fold_shirt_around_board": "no",
+        "place_folding_board": "no",
+        "stack_folded_shirt": "unclear"
+      },
+      "confidence": {
+        "flip_and_neaten_folded_shirt": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.3455,
+            "yes": 0.6545
+          }
+        },
+        "fold_shirt_around_board": {
+          "argmax": "no",
+          "probs": {
+            "no": 0.7082,
+            "yes": 0.2918
+          }
+        },
+        "place_folding_board": {
+          "argmax": "no",
+          "probs": {
+            "no": 0.7187,
+            "yes": 0.2813
+          }
+        }
+      },
+      "idx": 30,
+      "resource": {
+        "active_mb": null,
+        "peak_mb": null
+      },
+      "t": 15.0
+    },
+    {
+      "answers": {
+        "flip_and_neaten_folded_shirt": "yes",
+        "fold_shirt_around_board": "no",
+        "place_folding_board": "no",
+        "stack_folded_shirt": "unclear"
+      },
+      "confidence": {
+        "flip_and_neaten_folded_shirt": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.308,
+            "yes": 0.692
+          }
+        },
+        "fold_shirt_around_board": {
+          "argmax": "no",
+          "probs": {
+            "no": 0.6429,
+            "yes": 0.3571
+          }
+        },
+        "place_folding_board": {
+          "argmax": "no",
+          "probs": {
+            "no": 0.6813,
+            "yes": 0.3187
+          }
+        }
+      },
+      "idx": 31,
+      "resource": {
+        "active_mb": null,
+        "peak_mb": null
+      },
+      "t": 15.5
+    },
+    {
+      "answers": {
+        "flip_and_neaten_folded_shirt": "yes",
+        "fold_shirt_around_board": "no",
+        "place_folding_board": "no",
+        "stack_folded_shirt": "unclear"
+      },
+      "confidence": {
+        "flip_and_neaten_folded_shirt": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.298,
+            "yes": 0.702
+          }
+        },
+        "fold_shirt_around_board": {
+          "argmax": "no",
+          "probs": {
+            "no": 0.6368,
+            "yes": 0.3632
+          }
+        },
+        "place_folding_board": {
+          "argmax": "no",
+          "probs": {
+            "no": 0.6538,
+            "yes": 0.3462
+          }
+        }
+      },
+      "idx": 32,
+      "resource": {
+        "active_mb": null,
+        "peak_mb": null
+      },
+      "t": 16.0
+    },
+    {
+      "answers": {
+        "flip_and_neaten_folded_shirt": "no",
+        "fold_shirt_around_board": "no",
+        "place_folding_board": "no",
+        "stack_folded_shirt": "no"
+      },
+      "confidence": {
+        "flip_and_neaten_folded_shirt": {
+          "argmax": "no",
+          "probs": {
+            "no": 0.703,
+            "yes": 0.297
+          }
+        },
+        "fold_shirt_around_board": {
+          "argmax": "no",
+          "probs": {
+            "no": 0.6621,
+            "yes": 0.3379
+          }
+        },
+        "place_folding_board": {
+          "argmax": "no",
+          "probs": {
+            "no": 0.7035,
+            "yes": 0.2965
+          }
+        },
+        "stack_folded_shirt": {
+          "argmax": "no",
+          "probs": {
+            "no": 0.8124,
+            "yes": 0.1876
+          }
+        }
+      },
+      "idx": 33,
+      "resource": {
+        "active_mb": null,
+        "peak_mb": null
+      },
+      "t": 16.5
+    },
+    {
+      "answers": {
+        "flip_and_neaten_folded_shirt": "yes",
+        "fold_shirt_around_board": "no",
+        "place_folding_board": "no",
+        "stack_folded_shirt": "unclear"
+      },
+      "confidence": {
+        "flip_and_neaten_folded_shirt": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.3262,
+            "yes": 0.6738
+          }
+        },
+        "fold_shirt_around_board": {
+          "argmax": "no",
+          "probs": {
+            "no": 0.7702,
+            "yes": 0.2298
+          }
+        },
+        "place_folding_board": {
+          "argmax": "no",
+          "probs": {
+            "no": 0.7902,
+            "yes": 0.2098
+          }
+        }
+      },
+      "idx": 34,
+      "resource": {
+        "active_mb": null,
+        "peak_mb": null
+      },
+      "t": 17.0
+    },
+    {
+      "answers": {
+        "flip_and_neaten_folded_shirt": "no",
+        "fold_shirt_around_board": "no",
+        "place_folding_board": "no",
+        "stack_folded_shirt": "no"
+      },
+      "confidence": {
+        "flip_and_neaten_folded_shirt": {
+          "argmax": "no",
+          "probs": {
+            "no": 0.6751,
+            "yes": 0.3249
+          }
+        },
+        "fold_shirt_around_board": {
+          "argmax": "no",
+          "probs": {
+            "no": 0.6586,
+            "yes": 0.3414
+          }
+        },
+        "place_folding_board": {
+          "argmax": "no",
+          "probs": {
+            "no": 0.7424,
+            "yes": 0.2576
+          }
+        },
+        "stack_folded_shirt": {
+          "argmax": "no",
+          "probs": {
+            "no": 0.8115,
+            "yes": 0.1885
+          }
+        }
+      },
+      "idx": 35,
+      "resource": {
+        "active_mb": null,
+        "peak_mb": null
+      },
+      "t": 17.5
+    },
+    {
+      "answers": {
+        "flip_and_neaten_folded_shirt": "unclear",
+        "fold_shirt_around_board": "unclear",
+        "place_folding_board": "no",
+        "stack_folded_shirt": "unclear"
+      },
+      "confidence": {
+        "place_folding_board": {
+          "argmax": "no",
+          "probs": {
+            "no": 0.7103,
+            "yes": 0.2897
+          }
+        }
+      },
+      "idx": 36,
+      "resource": {
+        "active_mb": null,
+        "peak_mb": null
+      },
+      "t": 18.0
+    },
+    {
+      "answers": {
+        "flip_and_neaten_folded_shirt": "no",
+        "fold_shirt_around_board": "no",
+        "place_folding_board": "no",
+        "stack_folded_shirt": "no"
+      },
+      "confidence": {
+        "flip_and_neaten_folded_shirt": {
+          "argmax": "no",
+          "probs": {
+            "no": 0.6682,
+            "yes": 0.3318
+          }
+        },
+        "fold_shirt_around_board": {
+          "argmax": "no",
+          "probs": {
+            "no": 0.6137,
+            "yes": 0.3863
+          }
+        },
+        "place_folding_board": {
+          "argmax": "no",
+          "probs": {
+            "no": 0.6568,
+            "yes": 0.3432
+          }
+        },
+        "stack_folded_shirt": {
+          "argmax": "no",
+          "probs": {
+            "no": 0.7975,
+            "yes": 0.2025
+          }
+        }
+      },
+      "idx": 37,
+      "resource": {
+        "active_mb": null,
+        "peak_mb": null
+      },
+      "t": 18.5
+    },
+    {
+      "answers": {
+        "flip_and_neaten_folded_shirt": "yes",
+        "fold_shirt_around_board": "no",
+        "place_folding_board": "no",
+        "stack_folded_shirt": "unclear"
+      },
+      "confidence": {
+        "flip_and_neaten_folded_shirt": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.2689,
+            "yes": 0.7311
+          }
+        },
+        "fold_shirt_around_board": {
+          "argmax": "no",
+          "probs": {
+            "no": 0.6096,
+            "yes": 0.3904
+          }
+        },
+        "place_folding_board": {
+          "argmax": "no",
+          "probs": {
+            "no": 0.5223,
+            "yes": 0.4777
+          }
+        }
+      },
+      "idx": 38,
+      "resource": {
+        "active_mb": null,
+        "peak_mb": null
+      },
+      "t": 19.0
+    },
+    {
+      "answers": {
+        "flip_and_neaten_folded_shirt": "yes",
+        "fold_shirt_around_board": "no",
+        "place_folding_board": "no",
+        "stack_folded_shirt": "unclear"
+      },
+      "confidence": {
+        "flip_and_neaten_folded_shirt": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.2506,
+            "yes": 0.7494
+          }
+        },
+        "fold_shirt_around_board": {
+          "argmax": "no",
+          "probs": {
+            "no": 0.6202,
+            "yes": 0.3798
+          }
+        },
+        "place_folding_board": {
+          "argmax": "no",
+          "probs": {
+            "no": 0.5663,
+            "yes": 0.4337
+          }
+        }
+      },
+      "idx": 39,
+      "resource": {
+        "active_mb": null,
+        "peak_mb": null
+      },
+      "t": 19.5
+    }
+  ],
+  "prediction_type": "frame_question_answers",
+  "run_id": "20260711-factory_ego-smolvlm2-500m-pilot6-r1",
+  "schema_version": "1.0",
+  "unit_id": "f002_w005_garment_ironing"
+}

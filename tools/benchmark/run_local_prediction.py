@@ -251,8 +251,10 @@ def main() -> None:
     if args.backend == "transformers":
         import torch
         import transformers
-        inference["torch_version"] = torch.__version__
-        inference["transformers_version"] = transformers.__version__
+        # torch.__version__ はTorchVersion(str subclass)でyaml.safe_dumpが表現できないためstr()化
+        inference["torch_version"] = str(torch.__version__)
+        inference["transformers_version"] = str(transformers.__version__)
+        inference["dtype"] = "float32"
     else:
         import mlx_vlm
         inference["mlx_vlm_version"] = mlx_vlm.__version__
