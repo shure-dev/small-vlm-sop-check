@@ -21,9 +21,14 @@ import hashlib
 import json
 import subprocess
 import sys
+import time
 from pathlib import Path
 
 import yaml
+
+
+class TimeBudgetExceeded(Exception):
+    """--max-seconds に達したのでフレーム境界でクリーン終了する(rawは保存済み・run.yamlは書かない)。"""
 
 ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT / "src"))
@@ -95,8 +100,12 @@ def unit_fps(unit_id: str) -> float:
 
 
 def observe_unit(observer, sop: dict, frames_dir: Path, raw_path: Path,
-                 max_tokens: int, prefill: str, fps: float) -> list[dict]:
-    """1 unitぶんの回答収集。rawへフレームごとに逐次保存し、再実行時は途中から再開。"""
+                 max_tokens: int, prefill: str, fps: float, deadline: float | None = None) -> list[dict]:
+    """1 unitぶんの回答収集。rawへフレームごとに逐次保存し、再実行時は途中から再開。
+
+    deadline(time.monotonic基準)を渡すと、各フレームを処理する前に超過を確認し、
+    超過していればフレーム境界でTimeBudgetExceededを投げる(rawは保存済みで安全に再開できる)。
+    """
     frame_files = sorted(frames_dir.glob("f*.jpg"))
     if not frame_files:
         raise SystemExit(f"framesがありません(gated媒体を先にfetch): {frames_dir}")
@@ -107,6 +116,8 @@ def observe_unit(observer, sop: dict, frames_dir: Path, raw_path: Path,
     for idx, path in enumerate(frame_files):
         if idx in done:
             continue
+        if deadline is not None and time.monotonic() >= deadline:
+            raise TimeBudgetExceeded
         t = round(idx / fps, 2)  # sampling fpsはunitのmeta由来(新データセットは2fps)
         rec = observer.ask(str(path), t=t, domain_hint=domain_hint,
                            max_tokens=max_tokens, prefill=prefill)
@@ -177,6 +188,9 @@ def main() -> None:
                     help="datasets/factory_ego/subsets/<name>.json のunit_idsに対象を制限(既定: split全unit)")
     ap.add_argument("--backend", choices=["mlx", "transformers"], default="mlx",
                     help="推論バックエンド(既定: mlx)。transformersは要torch(SmolVLM2等)")
+    ap.add_argument("--max-seconds", type=float, default=None,
+                    help="この秒数に達したらフレーム境界でクリーン終了する(rawは保存済み。再実行で続きから)。"
+                         "長時間ジョブを短いチャンクに分割するための安全弁")
     args = ap.parse_args()
 
     run_dir = ROOT / "runs" / args.run_id
@@ -197,16 +211,23 @@ def main() -> None:
     first_sop = load_sop(unit_paths(units[0])["sop"])
     observer = ObserverCls(model=model_id, questions=first_sop["questions"])
 
+    deadline = time.monotonic() + args.max_seconds if args.max_seconds else None
     predictions: dict[str, dict] = {}
-    for unit_id in units:
-        paths = unit_paths(unit_id)
-        sop = load_sop(paths["sop"])
-        observer.set_questions(sop["questions"])
-        print(f"[run] unit {unit_id} ({len(sop['questions'])} questions)", flush=True)
-        rows = observe_unit(observer, sop, paths["frames"], run_dir / "raw" / f"{unit_id}.json",
-                            args.max_tokens, args.prefill, unit_fps(unit_id))
-        predictions[unit_id] = normalize(args.run_id, unit_id, rows,
-                                         [q["id"] for q in sop["questions"]])
+    try:
+        for unit_id in units:
+            paths = unit_paths(unit_id)
+            sop = load_sop(paths["sop"])
+            observer.set_questions(sop["questions"])
+            print(f"[run] unit {unit_id} ({len(sop['questions'])} questions)", flush=True)
+            rows = observe_unit(observer, sop, paths["frames"], run_dir / "raw" / f"{unit_id}.json",
+                                args.max_tokens, args.prefill, unit_fps(unit_id), deadline)
+            predictions[unit_id] = normalize(args.run_id, unit_id, rows,
+                                             [q["id"] for q in sop["questions"]])
+    except TimeBudgetExceeded:
+        done = sorted((run_dir / "raw").glob("*.json"))
+        print(f"[run] --max-seconds={args.max_seconds}s に到達。rawは保存済み(raw {len(done)}ファイル)。"
+              f"同じコマンドを再実行すれば続きから完了します。run.yamlは未作成。", flush=True)
+        sys.exit(0)
 
     for unit_id, prediction in predictions.items():
         out = run_dir / "predictions" / f"{unit_id}.json"
