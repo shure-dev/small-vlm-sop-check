@@ -39,7 +39,7 @@ from pathlib import Path
 
 import yaml
 
-from ..core.judge import judge
+from ..core.judge import frame_matches, judge, parse_clauses
 from ..core.sop import load_sop
 from .resources import repository_root, template_text
 
@@ -93,6 +93,29 @@ def build_frames_meta(frames_dir: Path, times: list[float],
     return images, times
 
 
+def _occurrence_spans(answers_by_idx: list[dict], evidence: str) -> list[dict]:
+    """evidence(question==value [and ...])が連続で真になる区間を、すべて列挙する。
+
+    judgeは1イベント=代表1区間しか返さないが、同じ動作は動画内で何度も起こりうる。
+    ビューアでは各出現を別々の帯として見せたいので、連続区間を全部(1フレームでも)拾う。
+    """
+    clauses = parse_clauses(evidence)
+    hits = [i for i, ans in enumerate(answers_by_idx)
+            if ans and frame_matches(ans, clauses)]
+    spans, start, prev = [], None, None
+    for i in hits:
+        if start is None:
+            start = prev = i
+        elif i == prev + 1:
+            prev = i
+        else:
+            spans.append({"start": start, "end": prev})
+            start = prev = i
+    if start is not None:
+        spans.append({"start": start, "end": prev})
+    return spans
+
+
 def build_model_data(sop_def: dict, raw_log: list, n_frames: int) -> dict:
     """1モデルぶんの回答・判定結果(画像は含めない。フレーム位置で共有画像と対応)。
 
@@ -119,6 +142,7 @@ def build_model_data(sop_def: dict, raw_log: list, n_frames: int) -> dict:
     result = judge(sop_def, judge_frames)
 
     asks = {q["id"]: q["ask"] for q in sop_def.get("questions", [])}
+    answers_by_idx = [f["answers"] for f in frames]
     events = {}
     for name, spec in sop_def["events"].items():
         run = result.events.get(name)
@@ -134,6 +158,10 @@ def build_model_data(sop_def: dict, raw_log: list, n_frames: int) -> dict:
             "t": run.t if run else None,
             # 実際に一致したフレーム(max_gapの橋渡しを含まない)。帯の描画とtIoUはこちらを使う
             "idxs": list(run.idxs) if run else None,
+            # 全出現区間(同じ動作が複数回起きたら各回を別区間として出す)。
+            # ビューアはmodelが検出した全区間をそのまま見せる(短い動作も落とさない)。
+            # 判定側のmin_framesはjudge/result.eventsが別途担う。
+            "spans": _occurrence_spans(answers_by_idx, evidence),
         }
     return {
         "verdict": result.verdict,

@@ -366,34 +366,25 @@ function tiou(gtSpan, ev) {
   return inter / union;
 }
 
-// 連続フレームをまとめた区間リスト: [3,4,6] -> [[3,4],[6,6]]
-function segments(idxs) {
-  const segs = [];
-  for (const i of idxs) {
-    const last = segs[segs.length - 1];
-    if (last && i === last[1] + 1) last[1] = i; else segs.push([i, i]);
-  }
-  return segs;
-}
-function segText(idxs) {
-  return segments(idxs).map(([s, e]) => s === e ? `${s}` : `${s}-${e}`).join(",");
-}
-
 function renderEvents() {
   const box = document.getElementById("events");
   box.innerHTML = "";
   for (const [name, ev] of Object.entries(M().events)) {
-    const detected = ev.start_idx !== null;
+    const spans = ev.spans || [];               // 全出現区間(同じ動作の複数回を各回別々に)
+    const detected = spans.length > 0;
     const isNotOnly = notOnly.has(name);
-    const active = detected && ev.idxs.includes(idx);
+    const active = spans.some(s => idx >= s.start && idx <= s.end);
     const gtSpan = GT ? GT[name] : undefined;   // undefined=未注釈 / null=起きていない
+    const spanText = spans.map(s => s.start === s.end ? `${s.start}` : `${s.start}-${s.end}`).join(", ");
 
     let statusText, statusClass;
     if (detected && isNotOnly) {
-      statusText = `検出された(本来は起きてはいけない) t=${ev.t}s`;
+      statusText = `検出された(本来は起きてはいけない) f${spanText}`;
       statusClass = "missing";
     } else if (detected) {
-      statusText = `検出 t=${ev.t}s (frame ${segText(ev.idxs)})`;
+      statusText = spans.length > 1
+        ? `検出 ${spans.length}回 (f${spanText})`
+        : `検出 (f${spanText})`;
       statusClass = "ok";
     } else if (isNotOnly) {
       statusText = "未検出(これが正しい)";
@@ -423,14 +414,12 @@ function renderEvents() {
       <div class="timeline"></div>
     `;
     const tl = row.querySelector(".timeline");
-    if (detected) {
-      for (const [s, e] of segments(ev.idxs)) {   // 橋渡しした隙間は塗らない
-        const span = document.createElement("div");
-        span.className = "span";
-        span.style.left = (s / U().n_frames * 100) + "%";
-        span.style.width = ((e - s + 1) / U().n_frames * 100) + "%";
-        tl.appendChild(span);
-      }
+    for (const s of spans) {                     // 各出現を別々の帯で描く
+      const bar = document.createElement("div");
+      bar.className = "span";
+      bar.style.left = (s.start / U().n_frames * 100) + "%";
+      bar.style.width = ((s.end - s.start + 1) / U().n_frames * 100) + "%";
+      tl.appendChild(bar);
     }
     if (gtSpan) {
       const span = document.createElement("div");
