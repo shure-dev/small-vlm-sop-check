@@ -3,11 +3,6 @@ sop:
   name: 'Factory Ego: f005_w011_cnc_machine'
   domain_hint: '工場の一人称視点（頭部装着カメラ）映像。CNC機と操作盤、部品トレイ。'
 questions:
-- id: carry_workpiece_to_machine
-  ask: '作業者は部品を手に持って機械まで歩いているか？'
-  values:
-  - 'yes'
-  - 'no'
 - id: load_workpiece_into_chuck
   ask: '作業者は機械のチャックに部品を取り付けているか？'
   values:
@@ -18,28 +13,24 @@ questions:
   values:
   - 'yes'
   - 'no'
-- id: arrange_parts_on_table
-  ask: '作業者は作業台の上で部品を並べているか？'
+- id: close_machine_door
+  ask: '作業者は機械の扉（カバー）を閉めているか？'
   values:
   - 'yes'
   - 'no'
 events:
-  carry_workpiece_to_machine:
-    name: '部品を持って機械へ移動'
-    evidence: carry_workpiece_to_machine==yes
-    min_frames: 2
   load_workpiece_into_chuck:
     name: 'チャックへの部品取り付け'
     evidence: load_workpiece_into_chuck==yes
-    min_frames: 4
+    min_frames: 2
   press_control_panel_button:
     name: '操作盤ボタンの押下'
     evidence: press_control_panel_button==yes
     min_frames: 1
-  arrange_parts_on_table:
-    name: '作業台での部品整理'
-    evidence: arrange_parts_on_table==yes
-    min_frames: 4
+  close_machine_door:
+    name: '扉を閉める'
+    evidence: close_machine_door==yes
+    min_frames: 1
 relations: []
 benchmark:
   schema_version: '1.0'

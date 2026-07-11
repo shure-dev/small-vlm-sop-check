@@ -103,13 +103,13 @@
       "frame_count": 40,
       "frames_manifest_sha256": "5be299f84bbce6efd91378b0af4a3132e52e1aaa3b02b9e41083d2660f1d383e",
       "meta_sha256": "2914d6f94985f65a97d20b376435a56c4fb74882d36135da4cfd45b055f1491d",
-      "sop_sha256": "65c513f871e285200b144e297c18e73f22e34e74012840461696e49dd2bd02ce"
+      "sop_sha256": "c67ea790ad37988f9915cd7e74f0bbedc8980ebe6119279daf7981cf93e16d35"
     },
     "f005_w011_cnc_machine": {
       "frame_count": 40,
       "frames_manifest_sha256": "19f8c1e12f923cbd6a6bec2085a07180ee8096e46fcf991f3171dc70a5a2dae1",
       "meta_sha256": "4e33696db372a861f577a6191204053f0dcc32aa4bdd1c14e481a88283ea52c9",
-      "sop_sha256": "1a14c0a7ffa793408ad43cf45e02cbf652d51df529516e15c3c24f8cfa13eec3"
+      "sop_sha256": "d31f78078326f4be730ad6e45f1c9cae6d563cb451957677827e211b06896699"
     },
     "f006_w004_bulk_material": {
       "frame_count": 40,

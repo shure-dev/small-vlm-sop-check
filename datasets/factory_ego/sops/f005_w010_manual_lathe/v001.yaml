@@ -23,6 +23,11 @@ questions:
   values:
   - 'yes'
   - 'no'
+- id: feed_cutting_tool
+  ask: '作業者は回転している工作物に刃物を近づけて削っているか？'
+  values:
+  - 'yes'
+  - 'no'
 events:
   tighten_workpiece_nut:
     name: '工作物のナット締め付け'
@@ -40,6 +45,10 @@ events:
     name: '回転運転と確認'
     evidence: run_spindle==yes
     min_frames: 4
+  feed_cutting_tool:
+    name: '刃物を送って削る'
+    evidence: feed_cutting_tool==yes
+    min_frames: 2
 relations: []
 benchmark:
   schema_version: '1.0'
