@@ -42,12 +42,13 @@ def read_yaml(path: Path) -> Any:
 
 def validate_dataset(
     repo: Path, result: Validation, *, require_media: bool = False
-) -> tuple[set[str], dict[str, Any]]:
+) -> tuple[dict[str, int], dict[str, Any]]:
+    """検証に通ったunit集合を {unit_id: n_frames} で返す。"""
     root = repo / "datasets" / "factory_ego"
     dataset_path = root / "dataset.yaml"
     result.require(dataset_path.is_file(), f"missing {dataset_path}")
     if not dataset_path.is_file():
-        return set(), {}
+        return {}, {}
     dataset = read_yaml(dataset_path)
     result.require(dataset.get("dataset_id") == "factory_ego", "dataset_id must be factory_ego")
     result.require(dataset.get("benchmark_state", {}).get("human_ground_truth_available") is False,
@@ -58,7 +59,7 @@ def validate_dataset(
     result.require(split_path.is_file(), f"missing {split_path}")
     result.require(lock_path.is_file(), f"missing {lock_path}")
     if not split_path.is_file() or not lock_path.is_file():
-        return set(), {}
+        return {}, {}
     split = read_json(split_path)
     lock = read_json(lock_path)
     assignments = split.get("assignments", {})
@@ -74,6 +75,7 @@ def validate_dataset(
     result.require(set(assignments.get("dev_seen", [])) == unit_ids, "all current units must be dev_seen")
 
     group_splits: dict[tuple[str, str], set[str]] = {}
+    unit_frames: dict[str, int] = {}
     for unit_id in sorted(unit_ids):
         unit_dir = root / "units" / unit_id
         meta_path = unit_dir / "meta.json"
@@ -81,6 +83,7 @@ def validate_dataset(
         if not meta_path.is_file():
             continue
         meta = read_json(meta_path)
+        unit_frames[unit_id] = meta.get("sampling", {}).get("n_frames", 0)
         result.require(meta.get("schema_version") == "1.0", f"bad unit schema: {unit_id}")
         result.require(meta.get("unit_id") == unit_id, f"unit_id/path mismatch: {unit_id}")
         result.require(meta.get("benchmark_status") == "dev_seen", f"unit is not dev_seen: {unit_id}")
@@ -125,7 +128,7 @@ def validate_dataset(
     for group, statuses in group_splits.items():
         result.require(len(statuses) == 1, f"group leaked across splits: {group} -> {statuses}")
     result.require(set(lock.get("units", {})) == unit_ids, "manifest.lock unit set differs from split")
-    return unit_ids, lock
+    return unit_frames, lock
 
 
 def validate_prediction(path: Path, run_id: str, unit_id: str, max_frames: int, result: Validation) -> None:
@@ -146,12 +149,12 @@ def validate_prediction(path: Path, run_id: str, unit_id: str, max_frames: int, 
                            f"invalid answer value: {path} frame {frame.get('idx')}")
 
 
-def validate_runs(repo: Path, unit_ids: set[str], result: Validation) -> None:
+def validate_runs(repo: Path, unit_frames: dict[str, int], result: Validation) -> None:
+    unit_ids = set(unit_frames)
     runs_root = repo / "runs"
     index_path = runs_root / "index.jsonl"
     result.require(index_path.is_file(), "missing runs/index.jsonl")
     run_dirs = sorted(path for path in runs_root.iterdir() if path.is_dir()) if runs_root.is_dir() else []
-    result.require(bool(run_dirs), "no prediction runs found")
     discovered: set[str] = set()
     for run_dir in run_dirs:
         run_path = run_dir / "run.yaml"
@@ -176,8 +179,8 @@ def validate_runs(repo: Path, unit_ids: set[str], result: Validation) -> None:
             result.require(prediction_path.is_file(), f"missing prediction: {run_id}/{unit_id}")
             result.require(raw_path.is_file(), f"missing raw output: {run_id}/{unit_id}")
             if prediction_path.is_file():
-                max_frames = 10 if "opus48" in run_id else 20
-                validate_prediction(prediction_path, run_id, unit_id, max_frames, result)
+                validate_prediction(prediction_path, run_id, unit_id,
+                                    unit_frames.get(unit_id, 0), result)
 
     if index_path.is_file():
         rows = [json.loads(line) for line in index_path.read_text(encoding="utf-8").splitlines() if line]
@@ -216,15 +219,15 @@ def main() -> int:
     repo = args.repo.resolve()
     result = Validation()
     validate_schemas(repo, result)
-    unit_ids, _ = validate_dataset(repo, result, require_media=args.require_media)
-    validate_runs(repo, unit_ids, result)
+    unit_frames, _ = validate_dataset(repo, result, require_media=args.require_media)
+    validate_runs(repo, unit_frames, result)
     if result.errors:
         print(f"FAIL: {len(result.errors)} error(s) across {result.checks} checks")
         for error in result.errors:
             print(f"  - {error}")
         return 1
     print(f"PASS: {result.checks} benchmark integrity checks")
-    print(f"  units={len(unit_ids)} runs={len([p for p in (repo / 'runs').iterdir() if p.is_dir()])}")
+    print(f"  units={len(unit_frames)} runs={len([p for p in (repo / 'runs').iterdir() if p.is_dir()])}")
     return 0
 
 

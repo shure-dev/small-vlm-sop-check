@@ -11,7 +11,7 @@ referenceは正解(ground truth)ではないため、この数値は精度では
   (core.evaluate の mean tIoU と同じ流儀)
 
 使い方:
-  python3 tools/benchmark/reference_tiou.py --reference 20260710-factory_ego-fable5-reference-r1
+  python3 tools/benchmark/reference_tiou.py --reference <reference run_id>
   python3 tools/benchmark/reference_tiou.py --reference <run_id> --json out.json
 """
 from __future__ import annotations

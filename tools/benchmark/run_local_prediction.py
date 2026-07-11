@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """ローカルmlx-vlmモデルでFactory Egoの不変prediction runを新規作成する。
 
-既存runの形式（migrate_factory_ego.pyが移行したものと同一）に合わせて、
+既存runと同一の形式で、
   runs/<run_id>/raw/<unit>.json          … 回答ログ(信頼度・リソース込み)
   runs/<run_id>/predictions/<unit>.json  … prediction schema準拠の正規化予測
   runs/<run_id>/run.yaml                 … run記述(モデルrevision・推論条件を固定)
@@ -16,6 +16,7 @@
 from __future__ import annotations
 
 import argparse
+import datetime
 import hashlib
 import json
 import subprocess
@@ -152,7 +153,7 @@ def main() -> None:
     ap = argparse.ArgumentParser(description=__doc__)
     ap.add_argument("--model", required=True, help="cli.MODELSのエイリアス or HF/mlx-communityフルID")
     ap.add_argument("--model-name", required=True, help="run.yaml/indexに載せる表示名(例: 'Qwen2.5-VL-3B-Instruct 4-bit')")
-    ap.add_argument("--run-id", required=True, help="例: 20260710-factory_ego-qwen2.5-3b-baseline-r1")
+    ap.add_argument("--run-id", required=True, help="例: <日付>-factory_ego-qwen2.5-3b-baseline-r1")
     ap.add_argument("--role", default="local_small_vlm_baseline")
     ap.add_argument("--max-tokens", type=int, default=200)
     ap.add_argument("--prefill", default='{"')
@@ -200,7 +201,7 @@ def main() -> None:
         "kind": "prediction",
         "status": "complete",
         "immutable": True,
-        "created_at": "2026-07-10",
+        "created_at": datetime.date.today().isoformat(),
         "model": {"name": args.model_name, "role": args.role,
                   "id": model_id, "revision": model_revision},
         "dataset": {"id": DATASET_ID, "split": SPLIT_ID},
@@ -222,8 +223,9 @@ def main() -> None:
         yaml.safe_dump(run_doc, allow_unicode=True, sort_keys=False), encoding="utf-8")
 
     index_path = ROOT / "runs" / "index.jsonl"
-    entry = {"formal_accuracy": None, "kind": "prediction", "model": args.model_name,
-             "role": args.role, "run_id": args.run_id, "unit_count": len(units)}
+    entry = {"dataset": DATASET_ID, "formal_accuracy": None, "kind": "prediction",
+             "model": args.model_name, "role": args.role, "run_id": args.run_id,
+             "split": SPLIT_ID, "unit_count": len(units)}
     with index_path.open("a", encoding="utf-8") as handle:
         handle.write(json.dumps(entry, ensure_ascii=False, sort_keys=True) + "\n")
 
