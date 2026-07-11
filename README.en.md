@@ -101,7 +101,7 @@ This is a result for one short demo video, not an estimate of general factory pe
 
 An in-progress comparison dataset of 20 units (20 seconds, 2 fps, 40 frames each) stratified across six factories and twenty work types in Egocentric-10K, aimed at procedure-compliance judgment. Clip selection uses the LLM-generated transcripts of [annotated-egocentric-10k-dataset](https://github.com/fit-alessandro-berti/annotated-egocentric-10k-dataset), which are never treated as ground truth; event definitions are authored by viewing the extracted frames (see docs/benchmark/events.md). Each SOP defines 3-4 procedure-step events with Japanese single-sentence questions. All current units are `dev_seen`. Human ground truth is not available yet, so formal precision, recall, F1, and tIoU are not reported. Because the upstream dataset is gated, extracted frames are excluded from the public repository and only SHA manifests are tracked. After accepting the upstream gated terms, `tools/benchmark/fetch_factory_ego.py` reconstructs byte-identical local media (see the [operations guide](docs/benchmark/operations.md)).
 
-See the [Factory Ego dataset notes](datasets/factory_ego/README.md) and [current comparison report](reports/model_comparison.md).
+One prediction run exists so far — Claude Opus 4.8 online inference over a causal window of the last five frames (20/20 units). Its formal accuracy stays unreported until human ground truth is available. See the [Factory Ego dataset notes](datasets/factory_ego/README.md) and [current comparison report](reports/model_comparison.md).
 
 ## Repository layout
 
