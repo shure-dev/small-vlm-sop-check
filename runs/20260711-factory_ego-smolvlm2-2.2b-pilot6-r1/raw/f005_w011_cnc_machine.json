@@ -1,0 +1,1122 @@
+[
+  {
+    "idx": 0,
+    "t": 0.0,
+    "raw": "{\"load_workpiece_into_chuck\":\"no\",\"press_control_panel_button\":\"no\",\"close_machine_door\":\"no\"}<end_of_utterance>",
+    "confidence": {
+      "load_workpiece_into_chuck": {
+        "probs": {
+          "yes": 0.2837,
+          "no": 0.7163
+        },
+        "argmax": "no"
+      },
+      "press_control_panel_button": {
+        "probs": {
+          "yes": 0.273,
+          "no": 0.727
+        },
+        "argmax": "no"
+      },
+      "close_machine_door": {
+        "probs": {
+          "yes": 0.223,
+          "no": 0.777
+        },
+        "argmax": "no"
+      }
+    }
+  },
+  {
+    "idx": 1,
+    "t": 0.5,
+    "raw": "{\"load_workpiece_into_chuck\":\"no\",\"press_control_panel_button\":\"no\",\"close_machine_door\":\"no\"}<end_of_utterance>",
+    "confidence": {
+      "load_workpiece_into_chuck": {
+        "probs": {
+          "yes": 0.4802,
+          "no": 0.5198
+        },
+        "argmax": "no"
+      },
+      "press_control_panel_button": {
+        "probs": {
+          "yes": 0.3191,
+          "no": 0.6809
+        },
+        "argmax": "no"
+      },
+      "close_machine_door": {
+        "probs": {
+          "yes": 0.344,
+          "no": 0.656
+        },
+        "argmax": "no"
+      }
+    }
+  },
+  {
+    "idx": 2,
+    "t": 1.0,
+    "raw": "{\"load_workpiece_into_chuck\":\"no\",\"press_control_panel_button\":\"no\",\"close_machine_door\":\"no\"}<end_of_utterance>",
+    "confidence": {
+      "load_workpiece_into_chuck": {
+        "probs": {
+          "yes": 0.352,
+          "no": 0.648
+        },
+        "argmax": "no"
+      },
+      "press_control_panel_button": {
+        "probs": {
+          "yes": 0.2538,
+          "no": 0.7462
+        },
+        "argmax": "no"
+      },
+      "close_machine_door": {
+        "probs": {
+          "yes": 0.2995,
+          "no": 0.7005
+        },
+        "argmax": "no"
+      }
+    }
+  },
+  {
+    "idx": 3,
+    "t": 1.5,
+    "raw": "{\"load_workpiece_into_chuck\":\"no\",\"press_control_panel_button\":\"no\",\"close_machine_door\":\"no\"}<end_of_utterance>",
+    "confidence": {
+      "load_workpiece_into_chuck": {
+        "probs": {
+          "yes": 0.4871,
+          "no": 0.5129
+        },
+        "argmax": "no"
+      },
+      "press_control_panel_button": {
+        "probs": {
+          "yes": 0.3749,
+          "no": 0.6251
+        },
+        "argmax": "no"
+      },
+      "close_machine_door": {
+        "probs": {
+          "yes": 0.4518,
+          "no": 0.5482
+        },
+        "argmax": "no"
+      }
+    }
+  },
+  {
+    "idx": 4,
+    "t": 2.0,
+    "raw": "{\"load_workpiece_into_chuck\":\"no\",\"press_control_panel_button\":\"no\",\"close_machine_door\":\"no\"}<end_of_utterance>",
+    "confidence": {
+      "load_workpiece_into_chuck": {
+        "probs": {
+          "yes": 0.3503,
+          "no": 0.6497
+        },
+        "argmax": "no"
+      },
+      "press_control_panel_button": {
+        "probs": {
+          "yes": 0.2869,
+          "no": 0.7131
+        },
+        "argmax": "no"
+      },
+      "close_machine_door": {
+        "probs": {
+          "yes": 0.3369,
+          "no": 0.6631
+        },
+        "argmax": "no"
+      }
+    }
+  },
+  {
+    "idx": 5,
+    "t": 2.5,
+    "raw": "{\"load_workpiece_into_chuck\":\"no\",\"press_control_panel_button\":\"no\",\"close_machine_door\":\"no\"}<end_of_utterance>",
+    "confidence": {
+      "load_workpiece_into_chuck": {
+        "probs": {
+          "yes": 0.3994,
+          "no": 0.6006
+        },
+        "argmax": "no"
+      },
+      "press_control_panel_button": {
+        "probs": {
+          "yes": 0.2779,
+          "no": 0.7221
+        },
+        "argmax": "no"
+      },
+      "close_machine_door": {
+        "probs": {
+          "yes": 0.3684,
+          "no": 0.6316
+        },
+        "argmax": "no"
+      }
+    }
+  },
+  {
+    "idx": 6,
+    "t": 3.0,
+    "raw": "{\"load_workpiece_into_chuck\":\"no\",\"press_control_panel_button\":\"no\",\"close_machine_door\":\"no\"}<end_of_utterance>",
+    "confidence": {
+      "load_workpiece_into_chuck": {
+        "probs": {
+          "yes": 0.3436,
+          "no": 0.6564
+        },
+        "argmax": "no"
+      },
+      "press_control_panel_button": {
+        "probs": {
+          "yes": 0.266,
+          "no": 0.734
+        },
+        "argmax": "no"
+      },
+      "close_machine_door": {
+        "probs": {
+          "yes": 0.419,
+          "no": 0.581
+        },
+        "argmax": "no"
+      }
+    }
+  },
+  {
+    "idx": 7,
+    "t": 3.5,
+    "raw": "{\"load_workpiece_into_chuck\":\"no\",\"press_control_panel_button\":\"no\",\"close_machine_door\":\"no\"}<end_of_utterance>",
+    "confidence": {
+      "load_workpiece_into_chuck": {
+        "probs": {
+          "yes": 0.3752,
+          "no": 0.6248
+        },
+        "argmax": "no"
+      },
+      "press_control_panel_button": {
+        "probs": {
+          "yes": 0.2475,
+          "no": 0.7525
+        },
+        "argmax": "no"
+      },
+      "close_machine_door": {
+        "probs": {
+          "yes": 0.273,
+          "no": 0.727
+        },
+        "argmax": "no"
+      }
+    }
+  },
+  {
+    "idx": 8,
+    "t": 4.0,
+    "raw": "{\"load_workpiece_into_chuck\":\"no\",\"press_control_panel_button\":\"no\",\"close_machine_door\":\"no\"}<end_of_utterance>",
+    "confidence": {
+      "load_workpiece_into_chuck": {
+        "probs": {
+          "yes": 0.4035,
+          "no": 0.5965
+        },
+        "argmax": "no"
+      },
+      "press_control_panel_button": {
+        "probs": {
+          "yes": 0.2489,
+          "no": 0.7511
+        },
+        "argmax": "no"
+      },
+      "close_machine_door": {
+        "probs": {
+          "yes": 0.273,
+          "no": 0.727
+        },
+        "argmax": "no"
+      }
+    }
+  },
+  {
+    "idx": 9,
+    "t": 4.5,
+    "raw": "{\"load_workpiece_into_chuck\":\"no\",\"press_control_panel_button\":\"no\",\"close_machine_door\":\"no\"}<end_of_utterance>",
+    "confidence": {
+      "load_workpiece_into_chuck": {
+        "probs": {
+          "yes": 0.372,
+          "no": 0.628
+        },
+        "argmax": "no"
+      },
+      "press_control_panel_button": {
+        "probs": {
+          "yes": 0.3274,
+          "no": 0.6726
+        },
+        "argmax": "no"
+      },
+      "close_machine_door": {
+        "probs": {
+          "yes": 0.3858,
+          "no": 0.6142
+        },
+        "argmax": "no"
+      }
+    }
+  },
+  {
+    "idx": 10,
+    "t": 5.0,
+    "raw": "{\"load_workpiece_into_chuck\":\"no\",\"press_control_panel_button\":\"no\",\"close_machine_door\":\"yes\"}<end_of_utterance>",
+    "confidence": {
+      "load_workpiece_into_chuck": {
+        "probs": {
+          "yes": 0.4777,
+          "no": 0.5223
+        },
+        "argmax": "no"
+      },
+      "press_control_panel_button": {
+        "probs": {
+          "yes": 0.3526,
+          "no": 0.6474
+        },
+        "argmax": "no"
+      },
+      "close_machine_door": {
+        "probs": {
+          "yes": 0.5258,
+          "no": 0.4742
+        },
+        "argmax": "yes"
+      }
+    }
+  },
+  {
+    "idx": 11,
+    "t": 5.5,
+    "raw": "{\"load_workpiece_into_chuck\":\"no\",\"press_control_panel_button\":\"no\",\"close_machine_door\":\"no\"}<end_of_utterance>",
+    "confidence": {
+      "load_workpiece_into_chuck": {
+        "probs": {
+          "yes": 0.4104,
+          "no": 0.5896
+        },
+        "argmax": "no"
+      },
+      "press_control_panel_button": {
+        "probs": {
+          "yes": 0.3829,
+          "no": 0.6171
+        },
+        "argmax": "no"
+      },
+      "close_machine_door": {
+        "probs": {
+          "yes": 0.4543,
+          "no": 0.5457
+        },
+        "argmax": "no"
+      }
+    }
+  },
+  {
+    "idx": 12,
+    "t": 6.0,
+    "raw": "{\"load_workpiece_into_chuck\":\"no\",\"press_control_panel_button\":\"no\",\"close_machine_door\":\"no\"}<end_of_utterance>",
+    "confidence": {
+      "load_workpiece_into_chuck": {
+        "probs": {
+          "yes": 0.3967,
+          "no": 0.6033
+        },
+        "argmax": "no"
+      },
+      "press_control_panel_button": {
+        "probs": {
+          "yes": 0.279,
+          "no": 0.721
+        },
+        "argmax": "no"
+      },
+      "close_machine_door": {
+        "probs": {
+          "yes": 0.3699,
+          "no": 0.6301
+        },
+        "argmax": "no"
+      }
+    }
+  },
+  {
+    "idx": 13,
+    "t": 6.5,
+    "raw": "{\"load_workpiece_into_chuck\":\"no\",\"press_control_panel_button\":\"no\",\"close_machine_door\":\"no\"}<end_of_utterance>",
+    "confidence": {
+      "load_workpiece_into_chuck": {
+        "probs": {
+          "yes": 0.3305,
+          "no": 0.6695
+        },
+        "argmax": "no"
+      },
+      "press_control_panel_button": {
+        "probs": {
+          "yes": 0.2194,
+          "no": 0.7806
+        },
+        "argmax": "no"
+      },
+      "close_machine_door": {
+        "probs": {
+          "yes": 0.2579,
+          "no": 0.7421
+        },
+        "argmax": "no"
+      }
+    }
+  },
+  {
+    "idx": 14,
+    "t": 7.0,
+    "raw": "{\"load_workpiece_into_chuck\":\"no\",\"press_control_panel_button\":\"yes\",\"close_machine_door\":\"no\"}<end_of_utterance>",
+    "confidence": {
+      "load_workpiece_into_chuck": {
+        "probs": {
+          "yes": 0.2198,
+          "no": 0.7802
+        },
+        "argmax": "no"
+      },
+      "press_control_panel_button": {
+        "probs": {
+          "yes": 0.6846,
+          "no": 0.3154
+        },
+        "argmax": "yes"
+      },
+      "close_machine_door": {
+        "probs": {
+          "yes": 0.1395,
+          "no": 0.8605
+        },
+        "argmax": "no"
+      }
+    }
+  },
+  {
+    "idx": 15,
+    "t": 7.5,
+    "raw": "{\"load_workpiece_into_chuck\":\"no\",\"press_control_panel_button\":\"no\",\"close_machine_door\":\"no\"}<end_of_utterance>",
+    "confidence": {
+      "load_workpiece_into_chuck": {
+        "probs": {
+          "yes": 0.3695,
+          "no": 0.6305
+        },
+        "argmax": "no"
+      },
+      "press_control_panel_button": {
+        "probs": {
+          "yes": 0.2602,
+          "no": 0.7398
+        },
+        "argmax": "no"
+      },
+      "close_machine_door": {
+        "probs": {
+          "yes": 0.3156,
+          "no": 0.6844
+        },
+        "argmax": "no"
+      }
+    }
+  },
+  {
+    "idx": 16,
+    "t": 8.0,
+    "raw": "{\"load_workpiece_into_chuck\":\"no\",\"press_control_panel_button\":\"no\",\"close_machine_door\":\"no\"}<end_of_utterance>",
+    "confidence": {
+      "load_workpiece_into_chuck": {
+        "probs": {
+          "yes": 0.3993,
+          "no": 0.6007
+        },
+        "argmax": "no"
+      },
+      "press_control_panel_button": {
+        "probs": {
+          "yes": 0.3364,
+          "no": 0.6636
+        },
+        "argmax": "no"
+      },
+      "close_machine_door": {
+        "probs": {
+          "yes": 0.3991,
+          "no": 0.6009
+        },
+        "argmax": "no"
+      }
+    }
+  },
+  {
+    "idx": 17,
+    "t": 8.5,
+    "raw": "{\"load_workpiece_into_chuck\":\"yes\",\"press_control_panel_button\":\"no\",\"close_machine_door\":\"no\"}<end_of_utterance>",
+    "confidence": {
+      "load_workpiece_into_chuck": {
+        "probs": {
+          "yes": 0.5451,
+          "no": 0.4549
+        },
+        "argmax": "yes"
+      },
+      "press_control_panel_button": {
+        "probs": {
+          "yes": 0.3797,
+          "no": 0.6203
+        },
+        "argmax": "no"
+      },
+      "close_machine_door": {
+        "probs": {
+          "yes": 0.1766,
+          "no": 0.8234
+        },
+        "argmax": "no"
+      }
+    }
+  },
+  {
+    "idx": 18,
+    "t": 9.0,
+    "raw": "{\"load_workpiece_into_chuck\":\"no\",\"press_control_panel_button\":\"no\",\"close_machine_door\":\"no\"}<end_of_utterance>",
+    "confidence": {
+      "load_workpiece_into_chuck": {
+        "probs": {
+          "yes": 0.3509,
+          "no": 0.6491
+        },
+        "argmax": "no"
+      },
+      "press_control_panel_button": {
+        "probs": {
+          "yes": 0.2661,
+          "no": 0.7339
+        },
+        "argmax": "no"
+      },
+      "close_machine_door": {
+        "probs": {
+          "yes": 0.2719,
+          "no": 0.7281
+        },
+        "argmax": "no"
+      }
+    }
+  },
+  {
+    "idx": 19,
+    "t": 9.5,
+    "raw": "{\"load_workpiece_into_chuck\":\"no\",\"press_control_panel_button\":\"yes\",\"close_machine_door\":\"no\"}<end_of_utterance>",
+    "confidence": {
+      "load_workpiece_into_chuck": {
+        "probs": {
+          "yes": 0.2512,
+          "no": 0.7488
+        },
+        "argmax": "no"
+      },
+      "press_control_panel_button": {
+        "probs": {
+          "yes": 0.5416,
+          "no": 0.4584
+        },
+        "argmax": "yes"
+      },
+      "close_machine_door": {
+        "probs": {
+          "yes": 0.1111,
+          "no": 0.8889
+        },
+        "argmax": "no"
+      }
+    }
+  },
+  {
+    "idx": 20,
+    "t": 10.0,
+    "raw": "{\"load_workpiece_into_chuck\":\"no\",\"press_control_panel_button\":\"no\",\"close_machine_door\":\"no\"}<end_of_utterance>",
+    "confidence": {
+      "load_workpiece_into_chuck": {
+        "probs": {
+          "yes": 0.4329,
+          "no": 0.5671
+        },
+        "argmax": "no"
+      },
+      "press_control_panel_button": {
+        "probs": {
+          "yes": 0.337,
+          "no": 0.663
+        },
+        "argmax": "no"
+      },
+      "close_machine_door": {
+        "probs": {
+          "yes": 0.3204,
+          "no": 0.6796
+        },
+        "argmax": "no"
+      }
+    }
+  },
+  {
+    "idx": 21,
+    "t": 10.5,
+    "raw": "{\"load_workpiece_into_chuck\":\"no\",\"press_control_panel_button\":\"no\",\"close_machine_door\":\"no\"}<end_of_utterance>",
+    "confidence": {
+      "load_workpiece_into_chuck": {
+        "probs": {
+          "yes": 0.4295,
+          "no": 0.5705
+        },
+        "argmax": "no"
+      },
+      "press_control_panel_button": {
+        "probs": {
+          "yes": 0.3158,
+          "no": 0.6842
+        },
+        "argmax": "no"
+      },
+      "close_machine_door": {
+        "probs": {
+          "yes": 0.3621,
+          "no": 0.6379
+        },
+        "argmax": "no"
+      }
+    }
+  },
+  {
+    "idx": 22,
+    "t": 11.0,
+    "raw": "{\"load_workpiece_into_chuck\":\"no\",\"press_control_panel_button\":\"no\",\"close_machine_door\":\"no\"}<end_of_utterance>",
+    "confidence": {
+      "load_workpiece_into_chuck": {
+        "probs": {
+          "yes": 0.3866,
+          "no": 0.6134
+        },
+        "argmax": "no"
+      },
+      "press_control_panel_button": {
+        "probs": {
+          "yes": 0.3683,
+          "no": 0.6317
+        },
+        "argmax": "no"
+      },
+      "close_machine_door": {
+        "probs": {
+          "yes": 0.369,
+          "no": 0.631
+        },
+        "argmax": "no"
+      }
+    }
+  },
+  {
+    "idx": 23,
+    "t": 11.5,
+    "raw": "{\"load_workpiece_into_chuck\":\"no\",\"press_control_panel_button\":\"no\",\"close_machine_door\":\"no\"}<end_of_utterance>",
+    "confidence": {
+      "load_workpiece_into_chuck": {
+        "probs": {
+          "yes": 0.3683,
+          "no": 0.6317
+        },
+        "argmax": "no"
+      },
+      "press_control_panel_button": {
+        "probs": {
+          "yes": 0.4003,
+          "no": 0.5997
+        },
+        "argmax": "no"
+      },
+      "close_machine_door": {
+        "probs": {
+          "yes": 0.3183,
+          "no": 0.6817
+        },
+        "argmax": "no"
+      }
+    }
+  },
+  {
+    "idx": 24,
+    "t": 12.0,
+    "raw": "{\"load_workpiece_into_chuck\":\"no\",\"press_control_panel_button\":\"no\",\"close_machine_door\":\"yes\"}<end_of_utterance>",
+    "confidence": {
+      "load_workpiece_into_chuck": {
+        "probs": {
+          "yes": 0.4246,
+          "no": 0.5754
+        },
+        "argmax": "no"
+      },
+      "press_control_panel_button": {
+        "probs": {
+          "yes": 0.2574,
+          "no": 0.7426
+        },
+        "argmax": "no"
+      },
+      "close_machine_door": {
+        "probs": {
+          "yes": 0.5145,
+          "no": 0.4855
+        },
+        "argmax": "yes"
+      }
+    }
+  },
+  {
+    "idx": 25,
+    "t": 12.5,
+    "raw": "{\"load_workpiece_into_chuck\":\"no\",\"press_control_panel_button\":\"no\",\"close_machine_door\":\"no\"}<end_of_utterance>",
+    "confidence": {
+      "load_workpiece_into_chuck": {
+        "probs": {
+          "yes": 0.4449,
+          "no": 0.5551
+        },
+        "argmax": "no"
+      },
+      "press_control_panel_button": {
+        "probs": {
+          "yes": 0.2886,
+          "no": 0.7114
+        },
+        "argmax": "no"
+      },
+      "close_machine_door": {
+        "probs": {
+          "yes": 0.4708,
+          "no": 0.5292
+        },
+        "argmax": "no"
+      }
+    }
+  },
+  {
+    "idx": 26,
+    "t": 13.0,
+    "raw": "{\"load_workpiece_into_chuck\":\"no\",\"press_control_panel_button\":\"no\",\"close_machine_door\":\"no\"}<end_of_utterance>",
+    "confidence": {
+      "load_workpiece_into_chuck": {
+        "probs": {
+          "yes": 0.3654,
+          "no": 0.6346
+        },
+        "argmax": "no"
+      },
+      "press_control_panel_button": {
+        "probs": {
+          "yes": 0.2562,
+          "no": 0.7438
+        },
+        "argmax": "no"
+      },
+      "close_machine_door": {
+        "probs": {
+          "yes": 0.2994,
+          "no": 0.7006
+        },
+        "argmax": "no"
+      }
+    }
+  },
+  {
+    "idx": 27,
+    "t": 13.5,
+    "raw": "{\"load_workpiece_into_chuck\":\"no\",\"press_control_panel_button\":\"no\",\"close_machine_door\":\"no\"}<end_of_utterance>",
+    "confidence": {
+      "load_workpiece_into_chuck": {
+        "probs": {
+          "yes": 0.369,
+          "no": 0.631
+        },
+        "argmax": "no"
+      },
+      "press_control_panel_button": {
+        "probs": {
+          "yes": 0.2409,
+          "no": 0.7591
+        },
+        "argmax": "no"
+      },
+      "close_machine_door": {
+        "probs": {
+          "yes": 0.2931,
+          "no": 0.7069
+        },
+        "argmax": "no"
+      }
+    }
+  },
+  {
+    "idx": 28,
+    "t": 14.0,
+    "raw": "{\"load_workpiece_into_chuck\":\"no\",\"press_control_panel_button\":\"no\",\"close_machine_door\":\"no\"}<end_of_utterance>",
+    "confidence": {
+      "load_workpiece_into_chuck": {
+        "probs": {
+          "yes": 0.4902,
+          "no": 0.5098
+        },
+        "argmax": "no"
+      },
+      "press_control_panel_button": {
+        "probs": {
+          "yes": 0.3361,
+          "no": 0.6639
+        },
+        "argmax": "no"
+      },
+      "close_machine_door": {
+        "probs": {
+          "yes": 0.3188,
+          "no": 0.6812
+        },
+        "argmax": "no"
+      }
+    }
+  },
+  {
+    "idx": 29,
+    "t": 14.5,
+    "raw": "{\"load_workpiece_into_chuck\":\"no\",\"press_control_panel_button\":\"no\",\"close_machine_door\":\"no\"}<end_of_utterance>",
+    "confidence": {
+      "load_workpiece_into_chuck": {
+        "probs": {
+          "yes": 0.256,
+          "no": 0.744
+        },
+        "argmax": "no"
+      },
+      "press_control_panel_button": {
+        "probs": {
+          "yes": 0.2348,
+          "no": 0.7652
+        },
+        "argmax": "no"
+      },
+      "close_machine_door": {
+        "probs": {
+          "yes": 0.3372,
+          "no": 0.6628
+        },
+        "argmax": "no"
+      }
+    }
+  },
+  {
+    "idx": 30,
+    "t": 15.0,
+    "raw": "{\"load_workpiece_into_chuck\":\"no\",\"press_control_panel_button\":\"no\",\"close_machine_door\":\"no\"}<end_of_utterance>",
+    "confidence": {
+      "load_workpiece_into_chuck": {
+        "probs": {
+          "yes": 0.3248,
+          "no": 0.6752
+        },
+        "argmax": "no"
+      },
+      "press_control_panel_button": {
+        "probs": {
+          "yes": 0.2185,
+          "no": 0.7815
+        },
+        "argmax": "no"
+      },
+      "close_machine_door": {
+        "probs": {
+          "yes": 0.3134,
+          "no": 0.6866
+        },
+        "argmax": "no"
+      }
+    }
+  },
+  {
+    "idx": 31,
+    "t": 15.5,
+    "raw": "{\"load_workpiece_into_chuck\":\"no\",\"press_control_panel_button\":\"no\",\"close_machine_door\":\"no\"}<end_of_utterance>",
+    "confidence": {
+      "load_workpiece_into_chuck": {
+        "probs": {
+          "yes": 0.3314,
+          "no": 0.6686
+        },
+        "argmax": "no"
+      },
+      "press_control_panel_button": {
+        "probs": {
+          "yes": 0.302,
+          "no": 0.698
+        },
+        "argmax": "no"
+      },
+      "close_machine_door": {
+        "probs": {
+          "yes": 0.3883,
+          "no": 0.6117
+        },
+        "argmax": "no"
+      }
+    }
+  },
+  {
+    "idx": 32,
+    "t": 16.0,
+    "raw": "{\"load_workpiece_into_chuck\":\"no\",\"press_control_panel_button\":\"no\",\"close_machine_door\":\"no\"}<end_of_utterance>",
+    "confidence": {
+      "load_workpiece_into_chuck": {
+        "probs": {
+          "yes": 0.2828,
+          "no": 0.7172
+        },
+        "argmax": "no"
+      },
+      "press_control_panel_button": {
+        "probs": {
+          "yes": 0.2844,
+          "no": 0.7156
+        },
+        "argmax": "no"
+      },
+      "close_machine_door": {
+        "probs": {
+          "yes": 0.3301,
+          "no": 0.6699
+        },
+        "argmax": "no"
+      }
+    }
+  },
+  {
+    "idx": 33,
+    "t": 16.5,
+    "raw": "{\"load_workpiece_into_chuck\":\"no\",\"press_control_panel_button\":\"no\",\"close_machine_door\":\"no\"}<end_of_utterance>",
+    "confidence": {
+      "load_workpiece_into_chuck": {
+        "probs": {
+          "yes": 0.3387,
+          "no": 0.6613
+        },
+        "argmax": "no"
+      },
+      "press_control_panel_button": {
+        "probs": {
+          "yes": 0.2906,
+          "no": 0.7094
+        },
+        "argmax": "no"
+      },
+      "close_machine_door": {
+        "probs": {
+          "yes": 0.393,
+          "no": 0.607
+        },
+        "argmax": "no"
+      }
+    }
+  },
+  {
+    "idx": 34,
+    "t": 17.0,
+    "raw": "{\"load_workpiece_into_chuck\":\"no\",\"press_control_panel_button\":\"no\",\"close_machine_door\":\"no\"}<end_of_utterance>",
+    "confidence": {
+      "load_workpiece_into_chuck": {
+        "probs": {
+          "yes": 0.2554,
+          "no": 0.7446
+        },
+        "argmax": "no"
+      },
+      "press_control_panel_button": {
+        "probs": {
+          "yes": 0.2698,
+          "no": 0.7302
+        },
+        "argmax": "no"
+      },
+      "close_machine_door": {
+        "probs": {
+          "yes": 0.3615,
+          "no": 0.6385
+        },
+        "argmax": "no"
+      }
+    }
+  },
+  {
+    "idx": 35,
+    "t": 17.5,
+    "raw": "{\"load_workpiece_into_chuck\":\"no\",\"press_control_panel_button\":\"no\",\"close_machine_door\":\"yes\"}<end_of_utterance>",
+    "confidence": {
+      "load_workpiece_into_chuck": {
+        "probs": {
+          "yes": 0.3559,
+          "no": 0.6441
+        },
+        "argmax": "no"
+      },
+      "press_control_panel_button": {
+        "probs": {
+          "yes": 0.3197,
+          "no": 0.6803
+        },
+        "argmax": "no"
+      },
+      "close_machine_door": {
+        "probs": {
+          "yes": 0.5126,
+          "no": 0.4874
+        },
+        "argmax": "yes"
+      }
+    }
+  },
+  {
+    "idx": 36,
+    "t": 18.0,
+    "raw": "{\"load_workpiece_into_chuck\":\"no\",\"press_control_panel_button\":\"no\",\"close_machine_door\":\"no\"}<end_of_utterance>",
+    "confidence": {
+      "load_workpiece_into_chuck": {
+        "probs": {
+          "yes": 0.4989,
+          "no": 0.5011
+        },
+        "argmax": "no"
+      },
+      "press_control_panel_button": {
+        "probs": {
+          "yes": 0.2707,
+          "no": 0.7293
+        },
+        "argmax": "no"
+      },
+      "close_machine_door": {
+        "probs": {
+          "yes": 0.2992,
+          "no": 0.7008
+        },
+        "argmax": "no"
+      }
+    }
+  },
+  {
+    "idx": 37,
+    "t": 18.5,
+    "raw": "{\"load_workpiece_into_chuck\":\"no\",\"press_control_panel_button\":\"no\",\"close_machine_door\":\"no\"}<end_of_utterance>",
+    "confidence": {
+      "load_workpiece_into_chuck": {
+        "probs": {
+          "yes": 0.4354,
+          "no": 0.5646
+        },
+        "argmax": "no"
+      },
+      "press_control_panel_button": {
+        "probs": {
+          "yes": 0.3343,
+          "no": 0.6657
+        },
+        "argmax": "no"
+      },
+      "close_machine_door": {
+        "probs": {
+          "yes": 0.3617,
+          "no": 0.6383
+        },
+        "argmax": "no"
+      }
+    }
+  },
+  {
+    "idx": 38,
+    "t": 19.0,
+    "raw": "{\"load_workpiece_into_chuck\":\"no\",\"press_control_panel_button\":\"no\",\"close_machine_door\":\"no\"}<end_of_utterance>",
+    "confidence": {
+      "load_workpiece_into_chuck": {
+        "probs": {
+          "yes": 0.3312,
+          "no": 0.6688
+        },
+        "argmax": "no"
+      },
+      "press_control_panel_button": {
+        "probs": {
+          "yes": 0.3342,
+          "no": 0.6658
+        },
+        "argmax": "no"
+      },
+      "close_machine_door": {
+        "probs": {
+          "yes": 0.3266,
+          "no": 0.6734
+        },
+        "argmax": "no"
+      }
+    }
+  },
+  {
+    "idx": 39,
+    "t": 19.5,
+    "raw": "{\"load_workpiece_into_chuck\":\"no\",\"press_control_panel_button\":\"no\",\"close_machine_door\":\"no\"}<end_of_utterance>",
+    "confidence": {
+      "load_workpiece_into_chuck": {
+        "probs": {
+          "yes": 0.4034,
+          "no": 0.5966
+        },
+        "argmax": "no"
+      },
+      "press_control_panel_button": {
+        "probs": {
+          "yes": 0.3514,
+          "no": 0.6486
+        },
+        "argmax": "no"
+      },
+      "close_machine_door": {
+        "probs": {
+          "yes": 0.343,
+          "no": 0.657
+        },
+        "argmax": "no"
+      }
+    }
+  }
+]

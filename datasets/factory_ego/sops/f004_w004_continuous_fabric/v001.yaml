@@ -1,0 +1,48 @@
+sop:
+  id: f004_w004_continuous_fabric
+  name: 'Factory Ego: f004_w004_continuous_fabric'
+  domain_hint: '工場の一人称視点（頭部装着カメラ）映像。黒い生地とオーバーロックミシンの作業台。'
+questions:
+- id: stow_black_fabric
+  ask: '作業者は黒い生地を作業台の上に広げて置いているか？'
+  values:
+  - 'yes'
+  - 'no'
+- id: bring_garment_to_machine
+  ask: '作業者は黒い衣類を手に取ってミシン台へ引き寄せているか？'
+  values:
+  - 'yes'
+  - 'no'
+- id: align_garment_edge
+  ask: '作業者は衣類の縁を両手で揃えているか？'
+  values:
+  - 'yes'
+  - 'no'
+- id: set_under_presser_foot
+  ask: '作業者は生地をミシンの押さえ金の下にセットしているか？'
+  values:
+  - 'yes'
+  - 'no'
+events:
+  stow_black_fabric:
+    name: '黒生地を広げて置き場へ移す'
+    evidence: stow_black_fabric==yes
+    min_frames: 4
+  bring_garment_to_machine:
+    name: '衣類をミシン台へ引き寄せる'
+    evidence: bring_garment_to_machine==yes
+    min_frames: 4
+  align_garment_edge:
+    name: '衣類の縁を両手で揃える'
+    evidence: align_garment_edge==yes
+    min_frames: 3
+  set_under_presser_foot:
+    name: '押さえ金の下に生地をセットする'
+    evidence: set_under_presser_foot==yes
+    min_frames: 3
+benchmark:
+  schema_version: '1.0'
+  version: v001
+  status: provisional
+  purpose: model_accuracy_comparison
+  provenance: '抽出フレーム(2fps・20秒窓)を目視して定義(docs/benchmark/events.mdの方法論に従う)。人手GTではない'

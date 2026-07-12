@@ -1,0 +1,48 @@
+sop:
+  id: f003_w007_wax_pattern
+  name: 'Factory Ego: f003_w007_wax_pattern'
+  domain_hint: '工場の一人称視点（頭部装着カメラ）映像。ワックス部品と金網ラックのある組立ベンチ。'
+questions:
+- id: assemble_parts_by_hand
+  ask: '作業者はワックス部品を手に持って組み付けているか？'
+  values:
+  - 'yes'
+  - 'no'
+- id: join_parts_with_tool
+  ask: '作業者は工具をワックス部品に当てて接合しているか？'
+  values:
+  - 'yes'
+  - 'no'
+- id: press_wax_with_fingers
+  ask: '作業者はワックス片を指で押し固めているか？'
+  values:
+  - 'yes'
+  - 'no'
+- id: place_tree_on_rack
+  ask: '作業者はワックスツリーを金網ラックの上で移し替えているか？'
+  values:
+  - 'yes'
+  - 'no'
+events:
+  assemble_parts_by_hand:
+    name: '手での部品組付け'
+    evidence: assemble_parts_by_hand==yes
+    min_frames: 3
+  join_parts_with_tool:
+    name: '工具による接合'
+    evidence: join_parts_with_tool==yes
+    min_frames: 4
+  press_wax_with_fingers:
+    name: '指での押し固め'
+    evidence: press_wax_with_fingers==yes
+    min_frames: 2
+  place_tree_on_rack:
+    name: 'ラックへの載せ替え'
+    evidence: place_tree_on_rack==yes
+    min_frames: 2
+benchmark:
+  schema_version: '1.0'
+  version: v001
+  status: provisional
+  purpose: model_accuracy_comparison
+  provenance: '抽出フレーム(2fps・20秒窓)を目視して定義(docs/benchmark/events.mdの方法論に従う)。人手GTではない'

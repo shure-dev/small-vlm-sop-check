@@ -1,0 +1,54 @@
+{
+  "benchmark_status": "dev_seen",
+  "dataset_id": "factory_ego",
+  "ground_truth": {
+    "available": false,
+    "required_source": "human"
+  },
+  "media": {
+    "availability": "local_gated_source_not_committed",
+    "path": "frames",
+    "sha256_manifest": "frames.sha256.json"
+  },
+  "sampling": {
+    "fps": 2.0,
+    "n_frames": 40,
+    "output_naming": "f0000.jpg...f0039.jpg",
+    "source_frame_end": 146,
+    "source_frame_start": 126
+  },
+  "schema_version": "1.0",
+  "selection": {
+    "annotations_repo": "fit-alessandro-berti/annotated-egocentric-10k-dataset",
+    "annotations_revision": "107f8fdc1aa4334da5eb1c6bc9ce8d52eaf6ce96",
+    "caveat": "window boundaries derive from LLM-generated timestamps; frames are canonical",
+    "main_process": "manual lathe machining",
+    "method": "tools/benchmark/sample_units.py (deterministic stratified)",
+    "transcript_excerpt": [
+      "[120s-131s] The person mounts the new part onto the lathe's fixture, adjusting it into place, then threads the washer and nut onto the central rod by hand.",
+      "[131s-139s] They pick up the large wrench to tighten the nut securely. They then turn handwheels and pull a lever to engage the machine, starting the spindle and the cutting process.",
+      "[139s-149s] The lathe runs, producing smoke or mist from the cutting fluid. The person stands and observes the operation."
+    ],
+    "window_activities": [
+      "thread loose washer and nut onto lathe rod",
+      "tighten lathe chuck bolts with spanner",
+      "engage lathe spindle rotation"
+    ],
+    "window_event_starts": 3
+  },
+  "sop_ref": {
+    "id": "f005_w010_manual_lathe",
+    "path": "../../sops/f005_w010_manual_lathe/v001.yaml",
+    "status": "provisional",
+    "version": "v001"
+  },
+  "source": {
+    "clip_id": "factory005_worker010_00000",
+    "dataset": "builddotai/Egocentric-10K",
+    "end_second": 146,
+    "factory_id": "factory_005",
+    "start_second": 126,
+    "worker_id": "worker_010"
+  },
+  "unit_id": "f005_w010_manual_lathe"
+}

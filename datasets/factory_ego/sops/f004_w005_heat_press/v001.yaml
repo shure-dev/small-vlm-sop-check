@@ -1,0 +1,48 @@
+sop:
+  id: f004_w005_heat_press
+  name: 'Factory Ego: f004_w005_heat_press'
+  domain_hint: '工場の一人称視点（頭部装着カメラ）映像。ヒートプレス機と隣接する作業台。'
+questions:
+- id: open_heat_press
+  ask: '作業者はヒートプレス機のハンドルを引いて上盤を開けているか？'
+  values:
+  - 'yes'
+  - 'no'
+- id: move_fabric_to_table
+  ask: '作業者はプレス台から生地を取り出して作業台へ移しているか？'
+  values:
+  - 'yes'
+  - 'no'
+- id: peel_transfer_paper
+  ask: '作業者はTシャツから転写紙を剥がしているか？'
+  values:
+  - 'yes'
+  - 'no'
+- id: smooth_arrange_shirt
+  ask: '作業者はTシャツを台の上に広げて手で整えているか？'
+  values:
+  - 'yes'
+  - 'no'
+events:
+  open_heat_press:
+    name: 'プレス機を開ける'
+    evidence: open_heat_press==yes
+    min_frames: 2
+  move_fabric_to_table:
+    name: '生地を作業台へ移す'
+    evidence: move_fabric_to_table==yes
+    min_frames: 2
+  peel_transfer_paper:
+    name: '転写紙を剥がす'
+    evidence: peel_transfer_paper==yes
+    min_frames: 3
+  smooth_arrange_shirt:
+    name: 'Tシャツを整える'
+    evidence: smooth_arrange_shirt==yes
+    min_frames: 4
+benchmark:
+  schema_version: '1.0'
+  version: v001
+  status: provisional
+  purpose: model_accuracy_comparison
+  provenance: '抽出フレーム(2fps・20秒窓)を目視して定義(docs/benchmark/events.mdの方法論に従う)。人手GTではない'

@@ -16,9 +16,7 @@
     "video_path": "media/konro_inspection.mp4"
   },
   "sop_refs": [
-    "../../sops/konro_inspection/correct.yaml",
-    "../../sops/konro_inspection/wrong_order.yaml",
-    "../../sops/konro_inspection/missing_step.yaml"
+    "../../sops/konro_inspection/konro_inspection.yaml"
   ],
   "ground_truth_ref": "../../annotations/human-v001/konro_inspection.json"
 }

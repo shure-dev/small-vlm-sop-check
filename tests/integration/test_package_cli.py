@@ -26,14 +26,14 @@ def run_module(*args: str) -> subprocess.CompletedProcess[str]:
     )
 
 
-def test_module_cli_judges_reference_fixture():
+def test_module_cli_detects_reference_fixture():
     completed = run_module(
-        "judge",
-        "--sop", str(DATASET / "sops" / "konro_inspection" / "correct.yaml"),
+        "detect",
+        "--sop", str(DATASET / "sops" / "konro_inspection" / "konro_inspection.yaml"),
         "--answer-log", str(DATASET / "fixtures" / "reference_outputs" / "answer_log.json"),
     )
     assert completed.returncode == 0, completed.stdout + completed.stderr
-    assert "総合判定: PASS" in completed.stdout
+    assert "検出: 6/7 イベント" in completed.stdout
 
 
 def test_browser_templates_are_packaged_resources():

@@ -1,0 +1,48 @@
+sop:
+  id: f003_w009_injection_molding
+  name: 'Factory Ego: f003_w009_injection_molding'
+  domain_hint: '工場の一人称視点（頭部装着カメラ）映像。射出成形機の金型まわり。'
+questions:
+- id: remove_molded_parts
+  ask: '作業者は金型から成形品を取り外しているか？'
+  values:
+  - 'yes'
+  - 'no'
+- id: place_parts_on_table
+  ask: '作業者は成形品を作業台に置いているか？'
+  values:
+  - 'yes'
+  - 'no'
+- id: walk_to_next_position
+  ask: '作業者は歩いて移動しているか？'
+  values:
+  - 'yes'
+  - 'no'
+- id: set_inserts_into_mold
+  ask: '作業者は金型の中に手を入れて部品をセットしているか？'
+  values:
+  - 'yes'
+  - 'no'
+events:
+  remove_molded_parts:
+    name: '成形品の取り出し'
+    evidence: remove_molded_parts==yes
+    min_frames: 3
+  place_parts_on_table:
+    name: '成形品を台に置く'
+    evidence: place_parts_on_table==yes
+    min_frames: 2
+  walk_to_next_position:
+    name: '立ち位置の移動'
+    evidence: walk_to_next_position==yes
+    min_frames: 3
+  set_inserts_into_mold:
+    name: '金属部品の金型セット'
+    evidence: set_inserts_into_mold==yes
+    min_frames: 4
+benchmark:
+  schema_version: '1.0'
+  version: v001
+  status: provisional
+  purpose: model_accuracy_comparison
+  provenance: '抽出フレーム(2fps・20秒窓)を目視して定義(docs/benchmark/events.mdの方法論に従う)。人手GTではない'

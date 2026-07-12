@@ -1,0 +1,48 @@
+sop:
+  id: f001_w011_metal_stamping
+  name: 'Factory Ego: f001_w011_metal_stamping'
+  domain_hint: '工場の一人称視点（頭部装着カメラ）映像。プレス機が並ぶ金属加工工場のフロア。'
+questions:
+- id: bundle_scrap
+  ask: '作業者はスクラップをまとめているか？'
+  values:
+  - 'yes'
+  - 'no'
+- id: walk_to_next_station
+  ask: '作業者は歩いて移動しているか？'
+  values:
+  - 'yes'
+  - 'no'
+- id: pick_up_metal_sheets
+  ask: '作業者は金属の板を手に取っているか？'
+  values:
+  - 'yes'
+  - 'no'
+- id: gather_metal_sheets
+  ask: '作業者は金属の板を揃えてまとめているか？'
+  values:
+  - 'yes'
+  - 'no'
+events:
+  bundle_scrap:
+    name: 'スクラップをまとめる'
+    evidence: bundle_scrap==yes
+    min_frames: 4
+  walk_to_next_station:
+    name: '歩いて移動する'
+    evidence: walk_to_next_station==yes
+    min_frames: 3
+  pick_up_metal_sheets:
+    name: '金属の板を取る'
+    evidence: pick_up_metal_sheets==yes
+    min_frames: 2
+  gather_metal_sheets:
+    name: '金属の板をまとめる'
+    evidence: gather_metal_sheets==yes
+    min_frames: 2
+benchmark:
+  schema_version: '1.0'
+  version: v001
+  status: provisional
+  purpose: model_accuracy_comparison
+  provenance: '抽出フレーム(2fps・20秒窓)を目視して定義(docs/benchmark/events.mdの方法論に従う)。人手GTではない'

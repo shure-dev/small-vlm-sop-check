@@ -1,10 +1,10 @@
-"""observe/judge の結果を、フレーム画像と一緒に再生できる1枚のHTMLにまとめる。
+"""observe の結果を、フレーム画像と一緒に再生できる1枚のHTMLにまとめる。
 
 なぜ作ったか:
-  ターミナルの表だけでは「結局PASSなのかFAILなのか」「VLMは本当は何と答えたのか」が
+  ターミナルの表だけでは「どの区間が検出されたのか」「VLMは本当は何と答えたのか」が
   パッと見で分かりにくい。この使い捨てツールは、動画のように再生しながら
   「今どのフレームで」「VLMは各質問にyes/no/unclearのどれと答え」「どのイベントが
-  検出/進行中で」「最終的にPASS/FAILか」を1画面で見られるようにする。
+  検出/進行中か」を1画面で見られるようにする。
 
 出力は依存ファイルの一切ないHTML1枚(フレーム画像もbase64で埋め込み済み)。
 ダブルクリックで開くだけで動く。サーバ不要・fetch不要。開くと自動で再生ループする。
@@ -17,11 +17,6 @@
   #  - Konro Inspection: 同梱fixturesの15モデル+人手GT
   #  - Factory Ego: runs/ の全prediction run(Fable/Opus/ローカルモデル)。
   #    gated媒体なのでframes未取得のunitはスキップ、フレームは幅720pxに縮小埋め込み
-
-  # 別の判定(誤った手順など)を見たい場合はSOPを差し替える(単一データセットモード):
-  sop-replay \
-    --sop datasets/konro_inspection/sops/konro_inspection/wrong_order.yaml \
-    --out out/replay_wrong_order.html
 
   # 単一の回答ログだけを見たい場合(モデル切替なし):
   sop-replay \
@@ -39,14 +34,14 @@ from pathlib import Path
 
 import yaml
 
-from ..core.judge import judge
+from ..core.events import detect_events, frame_matches, parse_clauses
 from ..core.sop import load_sop
 from .resources import repository_root, template_text
 
 
 ROOT = repository_root()
 DEMO_ROOT = ROOT / "datasets" / "konro_inspection"
-DEFAULT_SOP = DEMO_ROOT / "sops" / "konro_inspection" / "correct.yaml"
+DEFAULT_SOP = DEMO_ROOT / "sops" / "konro_inspection" / "konro_inspection.yaml"
 DEFAULT_FRAMES = DEMO_ROOT / "units" / "konro_inspection" / "frames"
 DEFAULT_MODELS = DEMO_ROOT / "fixtures" / "reference_outputs" / "models"
 DEFAULT_GT = DEMO_ROOT / "annotations" / "human-v001" / "konro_inspection.json"
@@ -93,11 +88,34 @@ def build_frames_meta(frames_dir: Path, times: list[float],
     return images, times
 
 
+def _occurrence_spans(answers_by_idx: list[dict], evidence: str) -> list[dict]:
+    """evidence(question==value [and ...])が連続で真になる区間を、すべて列挙する。
+
+    detect_eventsは1イベント=代表1区間しか返さないが、同じ動作は動画内で何度も起こりうる。
+    ビューアでは各出現を別々の帯として見せたいので、連続区間を全部(1フレームでも)拾う。
+    """
+    clauses = parse_clauses(evidence)
+    hits = [i for i, ans in enumerate(answers_by_idx)
+            if ans and frame_matches(ans, clauses)]
+    spans, start, prev = [], None, None
+    for i in hits:
+        if start is None:
+            start = prev = i
+        elif i == prev + 1:
+            prev = i
+        else:
+            spans.append({"start": start, "end": prev})
+            start = prev = i
+    if start is not None:
+        spans.append({"start": start, "end": prev})
+    return spans
+
+
 def build_model_data(sop_def: dict, raw_log: list, n_frames: int) -> dict:
-    """1モデルぶんの回答・判定結果(画像は含めない。フレーム位置で共有画像と対応)。
+    """1モデルぶんの回答・検出結果(画像は含めない。フレーム位置で共有画像と対応)。
 
     回答ログがunitより短い場合(例: Opus runは先頭10フレームのみ)は、
-    足りないフレームを「回答なし」として埋める。判定は実在する回答だけで行う。
+    足りないフレームを「回答なし」として埋める。区間検出は実在する回答だけで行う。
     """
     log = sorted(raw_log, key=lambda x: x["idx"])
     by_idx = {r["idx"]: r for r in log}
@@ -114,25 +132,33 @@ def build_model_data(sop_def: dict, raw_log: list, n_frames: int) -> dict:
             "probs": {qid: c["probs"] for qid, c in r.get("confidence", {}).items()},
         })
 
-    judge_frames = [{"idx": r["idx"], "t": r["t"],
-                     "answers": _confidence_to_answers(r.get("confidence", {}))} for r in log]
-    result = judge(sop_def, judge_frames)
+    det_frames = [{"idx": r["idx"], "t": r["t"],
+                   "answers": _confidence_to_answers(r.get("confidence", {}))} for r in log]
+    detected = detect_events(sop_def["events"], det_frames, sop_def.get("defaults"))
 
+    asks = {q["id"]: q["ask"] for q in sop_def.get("questions", [])}
+    answers_by_idx = [f["answers"] for f in frames]
     events = {}
     for name, spec in sop_def["events"].items():
-        run = result.events.get(name)
+        run = detected.get(name)
+        evidence = spec if isinstance(spec, str) else spec["evidence"]
+        question_id = evidence.split("==")[0].strip()
         events[name] = {
-            "evidence": spec if isinstance(spec, str) else spec["evidence"],
+            "evidence": evidence,
+            # 日本語ラベル(SOPのevent.name)と対応する質問文。英語idの代わりに表示に使う
+            "label": name if isinstance(spec, str) else spec.get("name", name),
+            "question": asks.get(question_id, ""),
             "start_idx": run.start_idx if run else None,
             "end_idx": run.end_idx if run else None,
             "t": run.t if run else None,
             # 実際に一致したフレーム(max_gapの橋渡しを含まない)。帯の描画とtIoUはこちらを使う
             "idxs": list(run.idxs) if run else None,
+            # 全出現区間(同じ動作が複数回起きたら各回を別区間として出す)。
+            # ビューアはmodelが検出した全区間をそのまま見せる(短い動作も落とさない)。
+            # 代表区間のmin_frames/max_gapはdetect_eventsが別途担う。
+            "spans": _occurrence_spans(answers_by_idx, evidence),
         }
     return {
-        "verdict": result.verdict,
-        "coverage": result.coverage,
-        "violations": result.violations,
         "events": events,
         "frames": frames,
     }
@@ -155,7 +181,7 @@ def load_gt_spans(gt_path: Path | None) -> dict | None:
 def build_unit_data(sop_def: dict, frames_dir: Path, model_rows: dict[str, list],
                     model_order: list[str], gt_path: Path | None,
                     max_width: int | None = None, label: str | None = None) -> dict:
-    """1 unit(サンプル)ぶんのビューアデータ(sop・画像・モデル別の回答/判定)を組み立てる。"""
+    """1 unit(サンプル)ぶんのビューアデータ(sop・画像・モデル別の回答/検出)を組み立てる。"""
     first_rows = model_rows[model_order[0]]
     times = [r["t"] for r in sorted(first_rows, key=lambda x: x["idx"])]
     images, times = build_frames_meta(frames_dir, times, max_width)
@@ -166,7 +192,6 @@ def build_unit_data(sop_def: dict, frames_dir: Path, model_rows: dict[str, list]
         "label": label or sop_def["sop"]["name"],
         "sop": {"id": sop_def["sop"]["id"], "name": sop_def["sop"]["name"]},
         "questions": sop_def["questions"],
-        "relations": sop_def.get("relations", []),
         "n_frames": n_frames,
         "images": images,
         "times": times,

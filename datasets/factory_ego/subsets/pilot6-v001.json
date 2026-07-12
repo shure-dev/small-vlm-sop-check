@@ -1,0 +1,25 @@
+{
+  "schema_version": "1.0",
+  "subset_id": "pilot6-v001",
+  "dataset_id": "factory_ego",
+  "split_id": "development-v001",
+  "purpose": "ローカル小型VLM(≤6B)のパイロット比較用に、6工場から各1 unitを抜いた6 unitサブセット。全モデル・全runがこの同一サブセットを参照して条件を揃える。",
+  "selection_rule": "各工場(f001..f006)から1 unit。基準は『Opus参照run(20260711-factory_ego-opus48-online5-r1)が定義イベントを全検出した最もクリーンなunit』。同点候補はイベント数が多い方を優先。f001はクリーンなunitが無いため最高検出率(3/4)のf001_w011を採用。",
+  "reference_run": "20260711-factory_ego-opus48-online5-r1",
+  "unit_ids": [
+    "f001_w011_metal_stamping",
+    "f002_w005_garment_ironing",
+    "f003_w009_injection_molding",
+    "f004_w005_heat_press",
+    "f005_w011_cnc_machine",
+    "f006_w005_compression_molding"
+  ],
+  "units": [
+    {"unit_id": "f001_w011_metal_stamping", "factory": "factory_001", "opus_detection": "3/4", "work_type": "金属プレス"},
+    {"unit_id": "f002_w005_garment_ironing", "factory": "factory_002", "opus_detection": "4/4", "work_type": "アイロン掛け"},
+    {"unit_id": "f003_w009_injection_molding", "factory": "factory_003", "opus_detection": "4/4", "work_type": "射出成形"},
+    {"unit_id": "f004_w005_heat_press", "factory": "factory_004", "opus_detection": "4/4", "work_type": "熱プレス"},
+    {"unit_id": "f005_w011_cnc_machine", "factory": "factory_005", "opus_detection": "3/3", "work_type": "CNC(FB反映済み定義)"},
+    {"unit_id": "f006_w005_compression_molding", "factory": "factory_006", "opus_detection": "3/3", "work_type": "圧縮成形"}
+  ]
+}

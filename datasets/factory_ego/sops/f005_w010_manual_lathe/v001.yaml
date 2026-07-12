@@ -1,0 +1,57 @@
+sop:
+  id: f005_w010_manual_lathe
+  name: 'Factory Ego: f005_w010_manual_lathe'
+  domain_hint: '工場の一人称視点（頭部装着カメラ）映像。手動旋盤とスパナ、赤い鋳物部品。'
+questions:
+- id: tighten_workpiece_nut
+  ask: '作業者はスパナでナットを締めているか？'
+  values:
+  - 'yes'
+  - 'no'
+- id: place_wrench_on_carriage
+  ask: '作業者はスパナを往復台の上に置いているか？'
+  values:
+  - 'yes'
+  - 'no'
+- id: start_spindle
+  ask: '作業者は主軸のレバーを操作しているか？'
+  values:
+  - 'yes'
+  - 'no'
+- id: run_spindle
+  ask: '作業者は工作物を回転させているか？'
+  values:
+  - 'yes'
+  - 'no'
+- id: feed_cutting_tool
+  ask: '作業者は回転している工作物に刃物を近づけて削っているか？'
+  values:
+  - 'yes'
+  - 'no'
+events:
+  tighten_workpiece_nut:
+    name: '工作物のナット締め付け'
+    evidence: tighten_workpiece_nut==yes
+    min_frames: 4
+  place_wrench_on_carriage:
+    name: 'スパナを往復台に置く'
+    evidence: place_wrench_on_carriage==yes
+    min_frames: 2
+  start_spindle:
+    name: '主軸の起動'
+    evidence: start_spindle==yes
+    min_frames: 2
+  run_spindle:
+    name: '回転運転と確認'
+    evidence: run_spindle==yes
+    min_frames: 4
+  feed_cutting_tool:
+    name: '刃物を送って削る'
+    evidence: feed_cutting_tool==yes
+    min_frames: 2
+benchmark:
+  schema_version: '1.0'
+  version: v001
+  status: provisional
+  purpose: model_accuracy_comparison
+  provenance: '抽出フレーム(2fps・20秒窓)を目視して定義(docs/benchmark/events.mdの方法論に従う)。人手GTではない'

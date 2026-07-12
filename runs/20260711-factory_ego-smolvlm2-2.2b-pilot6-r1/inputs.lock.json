@@ -1,0 +1,59 @@
+{
+  "schema_version": "1.0",
+  "units": {
+    "f001_w011_metal_stamping": {
+      "dataset_id": "factory_ego",
+      "frames_manifest_sha256": "59ce7716ea258a2d3f6a880d5c3a5204abdfe76f54ae5ba6f1022ce3a4260328",
+      "sop_id": "f001_w011_metal_stamping",
+      "sop_sha256": "798e45eb11a7f1685666d60d5a6ef548c7b0aeafce1a4f3a8c6dc03a053ecb7e",
+      "sop_version": "v001",
+      "split_id": "development-v001",
+      "unit_meta_sha256": "5aee6d4edfce3409c557da820806631ea868c068289200ca929cca6020c75b05"
+    },
+    "f002_w005_garment_ironing": {
+      "dataset_id": "factory_ego",
+      "frames_manifest_sha256": "5e08ba9cbfa850ba0cba6fa1ae50e5fcf922e51a088dbf01ef706afa7df257da",
+      "sop_id": "f002_w005_garment_ironing",
+      "sop_sha256": "fc7411ac23d32624587723aae2c926b4b980822ee472dcc8cf7b205111f59630",
+      "sop_version": "v001",
+      "split_id": "development-v001",
+      "unit_meta_sha256": "d11ac9ebe175a5a2b6ad44b89bca836e2d78729c700a2066236e64e6707f70a3"
+    },
+    "f003_w009_injection_molding": {
+      "dataset_id": "factory_ego",
+      "frames_manifest_sha256": "9c4ca865aee61e0ac2bd7e4186cfc1e2f7791916492aaa262cec7a811a40f6a0",
+      "sop_id": "f003_w009_injection_molding",
+      "sop_sha256": "a73397b39da3285adf803542c7beec40db97e34661fe041b356de35e59c0e1a4",
+      "sop_version": "v001",
+      "split_id": "development-v001",
+      "unit_meta_sha256": "64f9bfd601e8fb58bdcacf40080453af48ca9b301768f19ab892f8827a8f391c"
+    },
+    "f004_w005_heat_press": {
+      "dataset_id": "factory_ego",
+      "frames_manifest_sha256": "b20f8e12af0333289df308570f34cc3b55a147e47b9fafdd410a57cdffbc527c",
+      "sop_id": "f004_w005_heat_press",
+      "sop_sha256": "f17a14db9cf8279f9e75a149a21a7ad059348bcc249c116ba0d0b9adf863f612",
+      "sop_version": "v001",
+      "split_id": "development-v001",
+      "unit_meta_sha256": "57a84006689c5ca9a214bf5239faac45a89aa86809b2c6f02f81060fdd8e4f8a"
+    },
+    "f005_w011_cnc_machine": {
+      "dataset_id": "factory_ego",
+      "frames_manifest_sha256": "19f8c1e12f923cbd6a6bec2085a07180ee8096e46fcf991f3171dc70a5a2dae1",
+      "sop_id": "f005_w011_cnc_machine",
+      "sop_sha256": "d31f78078326f4be730ad6e45f1c9cae6d563cb451957677827e211b06896699",
+      "sop_version": "v001",
+      "split_id": "development-v001",
+      "unit_meta_sha256": "4e33696db372a861f577a6191204053f0dcc32aa4bdd1c14e481a88283ea52c9"
+    },
+    "f006_w005_compression_molding": {
+      "dataset_id": "factory_ego",
+      "frames_manifest_sha256": "19fa545755947fb67d2d7017478cb48344fa631013a8da3338a1c6831909e1aa",
+      "sop_id": "f006_w005_compression_molding",
+      "sop_sha256": "6117714ab6456bb86b30a26e6ba98e5b95e38ee0d0008d85faaa4f0341730170",
+      "sop_version": "v001",
+      "split_id": "development-v001",
+      "unit_meta_sha256": "4f4a862e58fc2da437a58d9f58334a42493b0354cd16162dcfd04c330e77e2cc"
+    }
+  }
+}

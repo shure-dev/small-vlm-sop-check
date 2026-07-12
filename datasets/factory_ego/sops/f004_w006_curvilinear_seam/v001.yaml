@@ -1,0 +1,39 @@
+sop:
+  id: f004_w006_curvilinear_seam
+  name: 'Factory Ego: f004_w006_curvilinear_seam'
+  domain_hint: '工場の一人称視点（頭部装着カメラ）映像。ミシン台と灰色のニット生地。'
+questions:
+- id: align_fabric_edges
+  ask: '作業者は布の端を手で揃えているか？'
+  values:
+  - 'yes'
+  - 'no'
+- id: position_fabric_under_needle
+  ask: '作業者は布をミシンの針の下に置いて位置を合わせているか？'
+  values:
+  - 'yes'
+  - 'no'
+- id: fine_finger_work_at_needle
+  ask: '作業者は針元で指先を使った細かい作業をしているか？'
+  values:
+  - 'yes'
+  - 'no'
+events:
+  align_fabric_edges:
+    name: '生地端の位置合わせ'
+    evidence: align_fabric_edges==yes
+    min_frames: 3
+  position_fabric_under_needle:
+    name: '針元への生地セット'
+    evidence: position_fabric_under_needle==yes
+    min_frames: 3
+  fine_finger_work_at_needle:
+    name: '針元での指先作業'
+    evidence: fine_finger_work_at_needle==yes
+    min_frames: 4
+benchmark:
+  schema_version: '1.0'
+  version: v001
+  status: provisional
+  purpose: model_accuracy_comparison
+  provenance: '抽出フレーム(2fps・20秒窓)を目視して定義(docs/benchmark/events.mdの方法論に従う)。人手GTではない'

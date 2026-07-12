@@ -1,0 +1,368 @@
+{
+  "annotator": "Claude Opus 4.8",
+  "frames": [
+    {
+      "idx": 0,
+      "states": {
+        "pick_next_garment": false,
+        "spread_garment_flat": true,
+        "trim_threads_hem": false,
+        "trim_threads_upper": false
+      }
+    },
+    {
+      "idx": 1,
+      "states": {
+        "pick_next_garment": true,
+        "spread_garment_flat": false,
+        "trim_threads_hem": false,
+        "trim_threads_upper": false
+      }
+    },
+    {
+      "idx": 2,
+      "states": {
+        "pick_next_garment": true,
+        "spread_garment_flat": false,
+        "trim_threads_hem": false,
+        "trim_threads_upper": false
+      }
+    },
+    {
+      "idx": 3,
+      "states": {
+        "pick_next_garment": false,
+        "spread_garment_flat": true,
+        "trim_threads_hem": false,
+        "trim_threads_upper": false
+      }
+    },
+    {
+      "idx": 4,
+      "states": {
+        "pick_next_garment": false,
+        "spread_garment_flat": true,
+        "trim_threads_hem": false,
+        "trim_threads_upper": false
+      }
+    },
+    {
+      "idx": 5,
+      "states": {
+        "pick_next_garment": false,
+        "spread_garment_flat": true,
+        "trim_threads_hem": false,
+        "trim_threads_upper": false
+      }
+    },
+    {
+      "idx": 6,
+      "states": {
+        "pick_next_garment": false,
+        "spread_garment_flat": true,
+        "trim_threads_hem": false,
+        "trim_threads_upper": false
+      }
+    },
+    {
+      "idx": 7,
+      "states": {
+        "pick_next_garment": false,
+        "spread_garment_flat": true,
+        "trim_threads_hem": false,
+        "trim_threads_upper": false
+      }
+    },
+    {
+      "idx": 8,
+      "states": {
+        "pick_next_garment": false,
+        "spread_garment_flat": true,
+        "trim_threads_hem": false,
+        "trim_threads_upper": false
+      }
+    },
+    {
+      "idx": 9,
+      "states": {
+        "pick_next_garment": false,
+        "spread_garment_flat": true,
+        "trim_threads_hem": false,
+        "trim_threads_upper": false
+      }
+    },
+    {
+      "idx": 10,
+      "states": {
+        "pick_next_garment": true,
+        "spread_garment_flat": false,
+        "trim_threads_hem": false,
+        "trim_threads_upper": false
+      }
+    },
+    {
+      "idx": 11,
+      "states": {
+        "pick_next_garment": true,
+        "spread_garment_flat": false,
+        "trim_threads_hem": false,
+        "trim_threads_upper": false
+      }
+    },
+    {
+      "idx": 12,
+      "states": {
+        "pick_next_garment": true,
+        "spread_garment_flat": false,
+        "trim_threads_hem": false,
+        "trim_threads_upper": false
+      }
+    },
+    {
+      "idx": 13,
+      "states": {
+        "pick_next_garment": false,
+        "spread_garment_flat": true,
+        "trim_threads_hem": false,
+        "trim_threads_upper": false
+      }
+    },
+    {
+      "idx": 14,
+      "states": {
+        "pick_next_garment": false,
+        "spread_garment_flat": true,
+        "trim_threads_hem": false,
+        "trim_threads_upper": false
+      }
+    },
+    {
+      "idx": 15,
+      "states": {
+        "pick_next_garment": false,
+        "spread_garment_flat": true,
+        "trim_threads_hem": false,
+        "trim_threads_upper": false
+      }
+    },
+    {
+      "idx": 16,
+      "states": {
+        "pick_next_garment": false,
+        "spread_garment_flat": false,
+        "trim_threads_hem": false,
+        "trim_threads_upper": false
+      }
+    },
+    {
+      "idx": 17,
+      "states": {
+        "pick_next_garment": false,
+        "spread_garment_flat": false,
+        "trim_threads_hem": false,
+        "trim_threads_upper": true
+      }
+    },
+    {
+      "idx": 18,
+      "states": {
+        "pick_next_garment": false,
+        "spread_garment_flat": false,
+        "trim_threads_hem": false,
+        "trim_threads_upper": true
+      }
+    },
+    {
+      "idx": 19,
+      "states": {
+        "pick_next_garment": false,
+        "spread_garment_flat": false,
+        "trim_threads_hem": false,
+        "trim_threads_upper": true
+      }
+    },
+    {
+      "idx": 20,
+      "states": {
+        "pick_next_garment": false,
+        "spread_garment_flat": false,
+        "trim_threads_hem": false,
+        "trim_threads_upper": true
+      }
+    },
+    {
+      "idx": 21,
+      "states": {
+        "pick_next_garment": false,
+        "spread_garment_flat": false,
+        "trim_threads_hem": false,
+        "trim_threads_upper": true
+      }
+    },
+    {
+      "idx": 22,
+      "states": {
+        "pick_next_garment": false,
+        "spread_garment_flat": false,
+        "trim_threads_hem": false,
+        "trim_threads_upper": true
+      }
+    },
+    {
+      "idx": 23,
+      "states": {
+        "pick_next_garment": false,
+        "spread_garment_flat": false,
+        "trim_threads_hem": false,
+        "trim_threads_upper": true
+      }
+    },
+    {
+      "idx": 24,
+      "states": {
+        "pick_next_garment": false,
+        "spread_garment_flat": false,
+        "trim_threads_hem": false,
+        "trim_threads_upper": true
+      }
+    },
+    {
+      "idx": 25,
+      "states": {
+        "pick_next_garment": false,
+        "spread_garment_flat": false,
+        "trim_threads_hem": false,
+        "trim_threads_upper": true
+      }
+    },
+    {
+      "idx": 26,
+      "states": {
+        "pick_next_garment": false,
+        "spread_garment_flat": false,
+        "trim_threads_hem": false,
+        "trim_threads_upper": true
+      }
+    },
+    {
+      "idx": 27,
+      "states": {
+        "pick_next_garment": false,
+        "spread_garment_flat": false,
+        "trim_threads_hem": false,
+        "trim_threads_upper": true
+      }
+    },
+    {
+      "idx": 28,
+      "states": {
+        "pick_next_garment": false,
+        "spread_garment_flat": false,
+        "trim_threads_hem": false,
+        "trim_threads_upper": true
+      }
+    },
+    {
+      "idx": 29,
+      "states": {
+        "pick_next_garment": false,
+        "spread_garment_flat": false,
+        "trim_threads_hem": true,
+        "trim_threads_upper": false
+      }
+    },
+    {
+      "idx": 30,
+      "states": {
+        "pick_next_garment": false,
+        "spread_garment_flat": false,
+        "trim_threads_hem": true,
+        "trim_threads_upper": false
+      }
+    },
+    {
+      "idx": 31,
+      "states": {
+        "pick_next_garment": false,
+        "spread_garment_flat": false,
+        "trim_threads_hem": true,
+        "trim_threads_upper": false
+      }
+    },
+    {
+      "idx": 32,
+      "states": {
+        "pick_next_garment": false,
+        "spread_garment_flat": false,
+        "trim_threads_hem": true,
+        "trim_threads_upper": false
+      }
+    },
+    {
+      "idx": 33,
+      "states": {
+        "pick_next_garment": false,
+        "spread_garment_flat": false,
+        "trim_threads_hem": true,
+        "trim_threads_upper": false
+      }
+    },
+    {
+      "idx": 34,
+      "states": {
+        "pick_next_garment": false,
+        "spread_garment_flat": false,
+        "trim_threads_hem": true,
+        "trim_threads_upper": false
+      }
+    },
+    {
+      "idx": 35,
+      "states": {
+        "pick_next_garment": false,
+        "spread_garment_flat": false,
+        "trim_threads_hem": true,
+        "trim_threads_upper": false
+      }
+    },
+    {
+      "idx": 36,
+      "states": {
+        "pick_next_garment": false,
+        "spread_garment_flat": false,
+        "trim_threads_hem": true,
+        "trim_threads_upper": false
+      }
+    },
+    {
+      "idx": 37,
+      "states": {
+        "pick_next_garment": false,
+        "spread_garment_flat": false,
+        "trim_threads_hem": true,
+        "trim_threads_upper": false
+      }
+    },
+    {
+      "idx": 38,
+      "states": {
+        "pick_next_garment": false,
+        "spread_garment_flat": false,
+        "trim_threads_hem": true,
+        "trim_threads_upper": false
+      }
+    },
+    {
+      "idx": 39,
+      "states": {
+        "pick_next_garment": false,
+        "spread_garment_flat": false,
+        "trim_threads_hem": true,
+        "trim_threads_upper": false
+      }
+    }
+  ],
+  "method": "online sliding 5-frame window, causal true/false per frame",
+  "schema_version": "opus-online5-v1",
+  "unit_id": "f004_w002_thread_trimming"
+}

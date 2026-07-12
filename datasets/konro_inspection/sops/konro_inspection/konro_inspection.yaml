@@ -1,0 +1,71 @@
+# 実例: ガスコンロ始業前点検（5工程）。
+# 手順の記述は ../../units/konro_inspection/procedure.md。
+#
+# 設計上のポイント（実験(confidence_judge/)で確立した知見をそのまま反映）:
+#   - min_frames の既定値は1(=1フレームでも検出とみなす)。
+#     「複数フレーム持続することを要求する」のは、実際に持続する動作(つまみ操作・
+#     グリル開閉)の質問だけに限定してevent側でmin_frames:2を明示する。
+#     逆に既定を2にすると、指差しのような一瞬の動作が1フレームしか
+#     観測されなかった時(1fpsサンプリングやVLMの実行間ブレで起こりうる)に
+#     正しい検出まで弾いてしまうことを実験で確認したため、この向きにした。
+#   - point1/point2 は同じ質問(pointing==yes)を参照するが、occurrenceで
+#     「1回目」「2回目」を宣言順に依存せず明示する
+#   - gloves(手袋)は本手順に存在しない動作。起きない動作を誤検出しないかを
+#     人手GT(null注釈)との突き合わせで確認するため、質問・イベントとして残す
+schema_version: "0.1"
+
+sop:
+  id: konro_inspection
+  name: コンロ始業前点検
+  domain_hint: "これはガスコンロの点検作業を上から撮った動画の1フレームです。コンロ手前には左右2つのつまみが並び、下部の引き出しは中央〜左寄りが魚焼きグリル、その右隣に電池ケースの小さな引き出しがある"
+
+defaults:
+  min_frames: 1
+  max_gap_frames: 2
+
+# --- Phase 1: VLMへのフレームごとの質問(プロンプトはここから自動生成される) ---
+# 質問の ask には「どこにあるか(左右関係)」を明示している。位置は実映像で目視確認済み
+# (左のつまみを操作→左バーナー点火、グリルは中央〜左寄り、電池ケースはグリルの
+# 右隣の別の小さな引き出し)。位置関係を明示しない版と比較したところ、
+# グリルの誤検出(閉じているのにyesと誤答するケース)が減ることを実験で確認したため、
+# 既定の書き方として採用している。
+questions:
+  - id: knob
+    ask: "コンロ手前に左右2つ並んだつまみのどちらかを手が操作しているか"
+    values: ["yes", "no"]
+  - id: flame
+    ask: "コンロ上部のバーナー(つまみの奥)に炎が見えるか"
+    values: ["yes", "no"]
+  - id: pointing
+    ask: "人差し指を立てた手(指差し)が写っているか"
+    values: ["yes", "no"]
+  - id: grill
+    ask: "コンロ下部引き出しのうち、中央〜左寄りにある魚焼きグリルが開いているか"
+    values: ["yes", "no", "unclear"]
+  - id: battery
+    ask: "コンロ下部引き出しのうち、グリルの右隣にある小さな電池ケースに乾電池が見えるか"
+    values: ["yes", "no"]
+  - id: gloves
+    ask: "手に手袋(軍手・ゴム手袋等)を着用しているか"
+    values: ["yes", "no"]
+
+# --- Phase 2: 何を検出対象とするか ---
+events:
+  ignite:
+    evidence: "knob==yes"
+    min_frames: 2       # つまみを持って回す/戻すので複数フレーム持続するはず
+  flame_seen:
+    evidence: "flame==yes"
+  point1:
+    evidence: "pointing==yes"
+    occurrence: 1
+  grill_open:
+    evidence: "grill==yes"
+    min_frames: 2       # 引き出しを開けている状態が複数フレーム持続するはず
+  point2:
+    evidence: "pointing==yes"
+    occurrence: 2
+  battery_check:
+    evidence: "battery==yes"
+  gloves_worn:
+    evidence: "gloves==yes"

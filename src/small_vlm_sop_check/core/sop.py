@@ -5,7 +5,7 @@ from typing import Any
 import yaml
 
 
-REQUIRED_TOP_KEYS = ("sop", "questions", "events", "relations")
+REQUIRED_TOP_KEYS = ("sop", "questions", "events")
 
 
 def load_sop(path: str | Path) -> dict[str, Any]:
@@ -18,12 +18,12 @@ def load_sop(path: str | Path) -> dict[str, Any]:
     if not doc["questions"]:
         raise ValueError(f"{path}: questions が空です(VLMへのプロンプトを生成できません)")
     if not doc["events"]:
-        raise ValueError(f"{path}: events が空です(判定対象がありません)")
+        raise ValueError(f"{path}: events が空です(検出対象がありません)")
     return doc
 
 
 def load_answer_log(path: str | Path) -> list[dict[str, Any]]:
-    """observe が出力したログを読み込み、judge が使う形に整形する。"""
+    """observe が出力したログを読み込み、detect_events が使う形に整形する。"""
     import json
     from ..inference.observe import confidence_to_answers
 

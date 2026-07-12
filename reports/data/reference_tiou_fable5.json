@@ -1,584 +1,468 @@
 {
   "note": "similarity to reference predictions; not accuracy",
   "reference_model": "Claude Fable 5",
-  "reference_run": "20260710-factory_ego-fable5-reference-r1",
+  "reference_run": "20260711-factory_ego-fable5-reference-r1",
   "results": [
     {
-      "both_absent": 0,
-      "both_detected": 3,
-      "cand_only": 0,
+      "both_absent": 16,
+      "both_detected": 38,
+      "cand_only": 6,
       "candidate_model": "Claude Opus 4.8",
-      "candidate_run": "20260710-factory_ego-opus48-reference-r1",
-      "events_total": 3,
-      "mean_tiou": 0.889,
-      "ref_only": 0,
+      "candidate_run": "20260711-factory_ego-opus48-reference-r1",
+      "events_total": 64,
+      "mean_tiou": 0.631,
+      "ref_only": 4,
       "rows": [
         {
-          "event": "hold_part",
+          "event": "scoop_parts",
           "n_frames": 10,
-          "status": "both",
-          "tiou": 1.0,
-          "unit": "f051_w001_assembly"
+          "status": "both_absent",
+          "tiou": null,
+          "unit": "f001_w004_material_replenishment"
         },
         {
-          "event": "reach_rack",
+          "event": "drive_fastener",
           "n_frames": 10,
-          "status": "both",
-          "tiou": 0.667,
-          "unit": "f051_w001_assembly"
+          "status": "both_absent",
+          "tiou": null,
+          "unit": "f001_w004_material_replenishment"
         },
         {
-          "event": "tray_visible",
+          "event": "handle_bag",
           "n_frames": 10,
-          "status": "both",
-          "tiou": 1.0,
-          "unit": "f051_w001_assembly"
-        }
-      ],
-      "units": 1
-    },
-    {
-      "both_absent": 0,
-      "both_detected": 23,
-      "cand_only": 0,
-      "candidate_model": "Qwen3-VL-4B-Instruct 4-bit",
-      "candidate_run": "20260710-factory_ego-qwen3-4b-baseline-r1",
-      "events_total": 24,
-      "mean_tiou": 0.67,
-      "ref_only": 1,
-      "rows": [
-        {
-          "event": "hold_part",
-          "n_frames": 20,
-          "status": "both",
-          "tiou": 0.333,
-          "unit": "f051_w001_assembly"
-        },
-        {
-          "event": "reach_rack",
-          "n_frames": 20,
-          "status": "both",
-          "tiou": 0.667,
-          "unit": "f051_w001_assembly"
-        },
-        {
-          "event": "tray_visible",
-          "n_frames": 20,
-          "status": "both",
-          "tiou": 0.353,
-          "unit": "f051_w001_assembly"
-        },
-        {
-          "event": "hold_part",
-          "n_frames": 20,
-          "status": "both",
-          "tiou": 0.263,
-          "unit": "f051_w001_assembly_cycle2"
-        },
-        {
-          "event": "reach_rack",
-          "n_frames": 20,
-          "status": "both",
-          "tiou": 0.667,
-          "unit": "f051_w001_assembly_cycle2"
-        },
-        {
-          "event": "tray_visible",
-          "n_frames": 20,
-          "status": "both",
-          "tiou": 0.889,
-          "unit": "f051_w001_assembly_cycle2"
-        },
-        {
-          "event": "touch_board",
-          "n_frames": 20,
-          "status": "both",
-          "tiou": 0.312,
-          "unit": "f051_w001_board_cables"
-        },
-        {
-          "event": "move_board",
-          "n_frames": 20,
-          "status": "both",
-          "tiou": 0.0,
-          "unit": "f051_w001_board_cables"
-        },
-        {
-          "event": "hold_item",
-          "n_frames": 20,
-          "status": "both",
-          "tiou": 1.0,
-          "unit": "f051_w001_board_cables"
-        },
-        {
-          "event": "hold_cable",
-          "n_frames": 20,
-          "status": "both",
-          "tiou": 0.579,
-          "unit": "f051_w001_cable_tying"
-        },
-        {
-          "event": "seated_work",
-          "n_frames": 20,
-          "status": "both",
-          "tiou": 0.765,
-          "unit": "f051_w001_cable_tying"
-        },
-        {
-          "event": "rack_visible",
-          "n_frames": 20,
-          "status": "both",
-          "tiou": 0.95,
-          "unit": "f051_w001_cable_tying"
-        },
-        {
-          "event": "hold_connector",
-          "n_frames": 20,
-          "status": "both",
-          "tiou": 1.0,
-          "unit": "f051_w001_connector_seated"
-        },
-        {
-          "event": "both_hands",
-          "n_frames": 20,
-          "status": "both",
-          "tiou": 0.95,
-          "unit": "f051_w001_connector_seated"
-        },
-        {
-          "event": "rack_visible",
-          "n_frames": 20,
-          "status": "both",
-          "tiou": 1.0,
-          "unit": "f051_w001_connector_seated"
-        },
-        {
-          "event": "reach_shelf",
-          "n_frames": 20,
-          "status": "both",
-          "tiou": 0.333,
-          "unit": "f051_w001_part_inspection"
-        },
-        {
-          "event": "inspect_part",
-          "n_frames": 20,
-          "status": "both",
-          "tiou": 0.647,
-          "unit": "f051_w001_part_inspection"
-        },
-        {
-          "event": "tray_visible",
-          "n_frames": 20,
-          "status": "both",
-          "tiou": 1.0,
-          "unit": "f051_w001_part_inspection"
-        },
-        {
-          "event": "reach_up",
-          "n_frames": 20,
-          "status": "ref_only",
-          "tiou": null,
-          "unit": "f051_w001_part_pick"
-        },
-        {
-          "event": "handle_part",
-          "n_frames": 20,
-          "status": "both",
-          "tiou": 0.684,
-          "unit": "f051_w001_part_pick"
-        },
-        {
-          "event": "grid_tray",
-          "n_frames": 20,
-          "status": "both",
-          "tiou": 0.923,
-          "unit": "f051_w001_part_pick"
-        },
-        {
-          "event": "walking",
-          "n_frames": 20,
-          "status": "both",
-          "tiou": 0.5,
-          "unit": "f051_w001_tray_handoff"
-        },
-        {
-          "event": "hold_tray",
-          "n_frames": 20,
-          "status": "both",
-          "tiou": 0.857,
-          "unit": "f051_w001_tray_handoff"
-        },
-        {
-          "event": "coworker_visible",
-          "n_frames": 20,
-          "status": "both",
-          "tiou": 0.737,
-          "unit": "f051_w001_tray_handoff"
-        }
-      ],
-      "units": 8
-    },
-    {
-      "both_absent": 0,
-      "both_detected": 23,
-      "cand_only": 0,
-      "candidate_model": "Qwen3.5-4B 4-bit",
-      "candidate_run": "20260710-factory_ego-qwen3.5-4b-baseline-r1",
-      "events_total": 24,
-      "mean_tiou": 0.645,
-      "ref_only": 1,
-      "rows": [
-        {
-          "event": "hold_part",
-          "n_frames": 20,
-          "status": "both",
-          "tiou": 0.3,
-          "unit": "f051_w001_assembly"
-        },
-        {
-          "event": "reach_rack",
-          "n_frames": 20,
-          "status": "both",
-          "tiou": 0.667,
-          "unit": "f051_w001_assembly"
-        },
-        {
-          "event": "tray_visible",
-          "n_frames": 20,
-          "status": "both",
-          "tiou": 0.3,
-          "unit": "f051_w001_assembly"
-        },
-        {
-          "event": "hold_part",
-          "n_frames": 20,
-          "status": "both",
-          "tiou": 0.3,
-          "unit": "f051_w001_assembly_cycle2"
-        },
-        {
-          "event": "reach_rack",
-          "n_frames": 20,
-          "status": "both",
-          "tiou": 0.5,
-          "unit": "f051_w001_assembly_cycle2"
-        },
-        {
-          "event": "tray_visible",
-          "n_frames": 20,
-          "status": "both",
-          "tiou": 0.85,
-          "unit": "f051_w001_assembly_cycle2"
-        },
-        {
-          "event": "touch_board",
-          "n_frames": 20,
-          "status": "both",
-          "tiou": 0.25,
-          "unit": "f051_w001_board_cables"
-        },
-        {
-          "event": "move_board",
-          "n_frames": 20,
-          "status": "both",
-          "tiou": 0.0,
-          "unit": "f051_w001_board_cables"
-        },
-        {
-          "event": "hold_item",
-          "n_frames": 20,
-          "status": "both",
-          "tiou": 0.125,
-          "unit": "f051_w001_board_cables"
-        },
-        {
-          "event": "hold_cable",
-          "n_frames": 20,
-          "status": "both",
-          "tiou": 0.7,
-          "unit": "f051_w001_cable_tying"
-        },
-        {
-          "event": "seated_work",
-          "n_frames": 20,
-          "status": "both",
-          "tiou": 0.765,
-          "unit": "f051_w001_cable_tying"
-        },
-        {
-          "event": "rack_visible",
-          "n_frames": 20,
-          "status": "both",
-          "tiou": 1.0,
-          "unit": "f051_w001_cable_tying"
-        },
-        {
-          "event": "hold_connector",
-          "n_frames": 20,
-          "status": "both",
-          "tiou": 1.0,
-          "unit": "f051_w001_connector_seated"
-        },
-        {
-          "event": "both_hands",
-          "n_frames": 20,
-          "status": "both",
-          "tiou": 1.0,
-          "unit": "f051_w001_connector_seated"
-        },
-        {
-          "event": "rack_visible",
-          "n_frames": 20,
-          "status": "both",
-          "tiou": 1.0,
-          "unit": "f051_w001_connector_seated"
-        },
-        {
-          "event": "reach_shelf",
-          "n_frames": 20,
-          "status": "both",
-          "tiou": 0.833,
-          "unit": "f051_w001_part_inspection"
-        },
-        {
-          "event": "inspect_part",
-          "n_frames": 20,
-          "status": "both",
-          "tiou": 0.632,
-          "unit": "f051_w001_part_inspection"
-        },
-        {
-          "event": "tray_visible",
-          "n_frames": 20,
-          "status": "both",
-          "tiou": 0.65,
-          "unit": "f051_w001_part_inspection"
-        },
-        {
-          "event": "reach_up",
-          "n_frames": 20,
-          "status": "ref_only",
-          "tiou": null,
-          "unit": "f051_w001_part_pick"
-        },
-        {
-          "event": "handle_part",
-          "n_frames": 20,
-          "status": "both",
-          "tiou": 0.65,
-          "unit": "f051_w001_part_pick"
-        },
-        {
-          "event": "grid_tray",
-          "n_frames": 20,
-          "status": "both",
-          "tiou": 0.684,
-          "unit": "f051_w001_part_pick"
-        },
-        {
-          "event": "walking",
-          "n_frames": 20,
-          "status": "both",
-          "tiou": 1.0,
-          "unit": "f051_w001_tray_handoff"
-        },
-        {
-          "event": "hold_tray",
-          "n_frames": 20,
-          "status": "both",
-          "tiou": 0.929,
-          "unit": "f051_w001_tray_handoff"
-        },
-        {
-          "event": "coworker_visible",
-          "n_frames": 20,
-          "status": "both",
-          "tiou": 0.7,
-          "unit": "f051_w001_tray_handoff"
-        }
-      ],
-      "units": 8
-    },
-    {
-      "both_absent": 0,
-      "both_detected": 23,
-      "cand_only": 0,
-      "candidate_model": "Qwen2.5-VL-3B-Instruct 4-bit",
-      "candidate_run": "20260710-factory_ego-qwen2.5-3b-baseline-r1",
-      "events_total": 24,
-      "mean_tiou": 0.562,
-      "ref_only": 1,
-      "rows": [
-        {
-          "event": "hold_part",
-          "n_frames": 20,
-          "status": "both",
-          "tiou": 0.25,
-          "unit": "f051_w001_assembly"
-        },
-        {
-          "event": "reach_rack",
-          "n_frames": 20,
-          "status": "both",
-          "tiou": 0.105,
-          "unit": "f051_w001_assembly"
-        },
-        {
-          "event": "tray_visible",
-          "n_frames": 20,
-          "status": "both",
-          "tiou": 0.263,
-          "unit": "f051_w001_assembly"
-        },
-        {
-          "event": "hold_part",
-          "n_frames": 20,
-          "status": "both",
-          "tiou": 0.316,
-          "unit": "f051_w001_assembly_cycle2"
-        },
-        {
-          "event": "reach_rack",
-          "n_frames": 20,
-          "status": "both",
-          "tiou": 0.158,
-          "unit": "f051_w001_assembly_cycle2"
-        },
-        {
-          "event": "tray_visible",
-          "n_frames": 20,
-          "status": "both",
-          "tiou": 0.8,
-          "unit": "f051_w001_assembly_cycle2"
-        },
-        {
-          "event": "touch_board",
-          "n_frames": 20,
-          "status": "both",
-          "tiou": 0.222,
-          "unit": "f051_w001_board_cables"
-        },
-        {
-          "event": "move_board",
-          "n_frames": 20,
-          "status": "ref_only",
-          "tiou": null,
-          "unit": "f051_w001_board_cables"
-        },
-        {
-          "event": "hold_item",
-          "n_frames": 20,
-          "status": "both",
-          "tiou": 1.0,
-          "unit": "f051_w001_board_cables"
-        },
-        {
-          "event": "hold_cable",
-          "n_frames": 20,
-          "status": "both",
-          "tiou": 0.55,
-          "unit": "f051_w001_cable_tying"
-        },
-        {
-          "event": "seated_work",
-          "n_frames": 20,
           "status": "both",
           "tiou": 0.6,
-          "unit": "f051_w001_cable_tying"
+          "unit": "f001_w004_material_replenishment"
         },
         {
-          "event": "rack_visible",
-          "n_frames": 20,
-          "status": "both",
-          "tiou": 0.8,
-          "unit": "f051_w001_cable_tying"
+          "event": "carry_scrap",
+          "n_frames": 10,
+          "status": "both_absent",
+          "tiou": null,
+          "unit": "f001_w011_metal_stamping"
         },
         {
-          "event": "hold_connector",
-          "n_frames": 20,
-          "status": "both",
-          "tiou": 0.9,
-          "unit": "f051_w001_connector_seated"
+          "event": "stage_blanks",
+          "n_frames": 10,
+          "status": "cand_only",
+          "tiou": null,
+          "unit": "f001_w011_metal_stamping"
         },
         {
-          "event": "both_hands",
-          "n_frames": 20,
-          "status": "both",
-          "tiou": 0.9,
-          "unit": "f051_w001_connector_seated"
-        },
-        {
-          "event": "rack_visible",
-          "n_frames": 20,
-          "status": "both",
-          "tiou": 0.9,
-          "unit": "f051_w001_connector_seated"
-        },
-        {
-          "event": "reach_shelf",
-          "n_frames": 20,
-          "status": "both",
-          "tiou": 0.5,
-          "unit": "f051_w001_part_inspection"
-        },
-        {
-          "event": "inspect_part",
-          "n_frames": 20,
-          "status": "both",
-          "tiou": 0.688,
-          "unit": "f051_w001_part_inspection"
-        },
-        {
-          "event": "tray_visible",
-          "n_frames": 20,
-          "status": "both",
-          "tiou": 0.667,
-          "unit": "f051_w001_part_inspection"
-        },
-        {
-          "event": "reach_up",
-          "n_frames": 20,
-          "status": "both",
-          "tiou": 0.429,
-          "unit": "f051_w001_part_pick"
-        },
-        {
-          "event": "handle_part",
-          "n_frames": 20,
-          "status": "both",
-          "tiou": 0.0,
-          "unit": "f051_w001_part_pick"
-        },
-        {
-          "event": "grid_tray",
-          "n_frames": 20,
-          "status": "both",
-          "tiou": 0.733,
-          "unit": "f051_w001_part_pick"
-        },
-        {
-          "event": "walking",
-          "n_frames": 20,
+          "event": "press_cycle",
+          "n_frames": 10,
           "status": "both",
           "tiou": 1.0,
-          "unit": "f051_w001_tray_handoff"
+          "unit": "f001_w011_metal_stamping"
         },
         {
-          "event": "hold_tray",
-          "n_frames": 20,
-          "status": "both",
-          "tiou": 0.643,
-          "unit": "f051_w001_tray_handoff"
+          "event": "fold_garment",
+          "n_frames": 10,
+          "status": "ref_only",
+          "tiou": null,
+          "unit": "f002_w002_garment_bagging"
         },
         {
-          "event": "coworker_visible",
-          "n_frames": 20,
+          "event": "insert_bag",
+          "n_frames": 10,
           "status": "both",
           "tiou": 0.5,
-          "unit": "f051_w001_tray_handoff"
+          "unit": "f002_w002_garment_bagging"
+        },
+        {
+          "event": "seal_bag",
+          "n_frames": 10,
+          "status": "both",
+          "tiou": 1.0,
+          "unit": "f002_w002_garment_bagging"
+        },
+        {
+          "event": "lay_garment",
+          "n_frames": 10,
+          "status": "both",
+          "tiou": 0.667,
+          "unit": "f002_w003_fabric_folding"
+        },
+        {
+          "event": "fold_bottom",
+          "n_frames": 10,
+          "status": "both_absent",
+          "tiou": null,
+          "unit": "f002_w003_fabric_folding"
+        },
+        {
+          "event": "fold_sides",
+          "n_frames": 10,
+          "status": "both_absent",
+          "tiou": null,
+          "unit": "f002_w003_fabric_folding"
+        },
+        {
+          "event": "iron_press",
+          "n_frames": 10,
+          "status": "both_absent",
+          "tiou": null,
+          "unit": "f002_w005_garment_ironing"
+        },
+        {
+          "event": "remove_board",
+          "n_frames": 10,
+          "status": "both",
+          "tiou": 0.333,
+          "unit": "f002_w005_garment_ironing"
+        },
+        {
+          "event": "final_fold",
+          "n_frames": 10,
+          "status": "both",
+          "tiou": 0.5,
+          "unit": "f002_w005_garment_ironing"
+        },
+        {
+          "event": "sweep_bar",
+          "n_frames": 10,
+          "status": "cand_only",
+          "tiou": null,
+          "unit": "f003_w005_metal_casting"
+        },
+        {
+          "event": "scoop_parts",
+          "n_frames": 10,
+          "status": "both",
+          "tiou": 1.0,
+          "unit": "f003_w005_metal_casting"
+        },
+        {
+          "event": "hammer_strike",
+          "n_frames": 10,
+          "status": "both",
+          "tiou": 0.0,
+          "unit": "f003_w005_metal_casting"
+        },
+        {
+          "event": "brush_paste",
+          "n_frames": 10,
+          "status": "both",
+          "tiou": 1.0,
+          "unit": "f003_w007_wax_pattern"
+        },
+        {
+          "event": "insert_mold",
+          "n_frames": 10,
+          "status": "ref_only",
+          "tiou": null,
+          "unit": "f003_w007_wax_pattern"
+        },
+        {
+          "event": "scrape_piece",
+          "n_frames": 10,
+          "status": "both_absent",
+          "tiou": null,
+          "unit": "f003_w007_wax_pattern"
+        },
+        {
+          "event": "extract_sprue",
+          "n_frames": 10,
+          "status": "both",
+          "tiou": 1.0,
+          "unit": "f003_w009_injection_molding"
+        },
+        {
+          "event": "snap_parts",
+          "n_frames": 10,
+          "status": "both_absent",
+          "tiou": null,
+          "unit": "f003_w009_injection_molding"
+        },
+        {
+          "event": "empty_box",
+          "n_frames": 10,
+          "status": "both_absent",
+          "tiou": null,
+          "unit": "f003_w009_injection_molding"
+        },
+        {
+          "event": "load_insert",
+          "n_frames": 10,
+          "status": "cand_only",
+          "tiou": null,
+          "unit": "f003_w010_mold_preparation"
+        },
+        {
+          "event": "close_mold",
+          "n_frames": 10,
+          "status": "both",
+          "tiou": 0.0,
+          "unit": "f003_w010_mold_preparation"
+        },
+        {
+          "event": "press_mold",
+          "n_frames": 10,
+          "status": "ref_only",
+          "tiou": null,
+          "unit": "f003_w010_mold_preparation"
+        },
+        {
+          "event": "walk_away",
+          "n_frames": 10,
+          "status": "both",
+          "tiou": 1.0,
+          "unit": "f003_w010_mold_preparation"
+        },
+        {
+          "event": "fold_stack",
+          "n_frames": 10,
+          "status": "both",
+          "tiou": 0.75,
+          "unit": "f004_w002_thread_trimming"
+        },
+        {
+          "event": "pick_new",
+          "n_frames": 10,
+          "status": "both",
+          "tiou": 0.5,
+          "unit": "f004_w002_thread_trimming"
+        },
+        {
+          "event": "snip_threads",
+          "n_frames": 10,
+          "status": "both",
+          "tiou": 1.0,
+          "unit": "f004_w002_thread_trimming"
+        },
+        {
+          "event": "sew_fabric",
+          "n_frames": 10,
+          "status": "both",
+          "tiou": 1.0,
+          "unit": "f004_w004_continuous_fabric"
+        },
+        {
+          "event": "remove_piece",
+          "n_frames": 10,
+          "status": "cand_only",
+          "tiou": null,
+          "unit": "f004_w004_continuous_fabric"
+        },
+        {
+          "event": "grab_new",
+          "n_frames": 10,
+          "status": "both",
+          "tiou": 0.0,
+          "unit": "f004_w004_continuous_fabric"
+        },
+        {
+          "event": "press_closed",
+          "n_frames": 10,
+          "status": "both",
+          "tiou": 1.0,
+          "unit": "f004_w005_heat_press"
+        },
+        {
+          "event": "remove_garment",
+          "n_frames": 10,
+          "status": "both",
+          "tiou": 0.667,
+          "unit": "f004_w005_heat_press"
+        },
+        {
+          "event": "inspect_logo",
+          "n_frames": 10,
+          "status": "both",
+          "tiou": 0.75,
+          "unit": "f004_w005_heat_press"
+        },
+        {
+          "event": "finish_seam",
+          "n_frames": 10,
+          "status": "both",
+          "tiou": 0.5,
+          "unit": "f004_w005_overlock_seaming"
+        },
+        {
+          "event": "remove_toss",
+          "n_frames": 10,
+          "status": "both",
+          "tiou": 0.333,
+          "unit": "f004_w005_overlock_seaming"
+        },
+        {
+          "event": "pick_unfold",
+          "n_frames": 10,
+          "status": "both",
+          "tiou": 0.857,
+          "unit": "f004_w005_overlock_seaming"
+        },
+        {
+          "event": "cut_thread",
+          "n_frames": 10,
+          "status": "both",
+          "tiou": 0.667,
+          "unit": "f004_w006_curvilinear_seam"
+        },
+        {
+          "event": "set_aside",
+          "n_frames": 10,
+          "status": "both_absent",
+          "tiou": null,
+          "unit": "f004_w006_curvilinear_seam"
+        },
+        {
+          "event": "pick_new",
+          "n_frames": 10,
+          "status": "both_absent",
+          "tiou": null,
+          "unit": "f004_w006_curvilinear_seam"
+        },
+        {
+          "event": "align_edges",
+          "n_frames": 10,
+          "status": "both",
+          "tiou": 0.5,
+          "unit": "f004_w006_curvilinear_seam"
+        },
+        {
+          "event": "sew_binding",
+          "n_frames": 10,
+          "status": "cand_only",
+          "tiou": null,
+          "unit": "f004_w006_edge_binding"
+        },
+        {
+          "event": "cut_thread",
+          "n_frames": 10,
+          "status": "both",
+          "tiou": 1.0,
+          "unit": "f004_w006_edge_binding"
+        },
+        {
+          "event": "swap_pieces",
+          "n_frames": 10,
+          "status": "both",
+          "tiou": 1.0,
+          "unit": "f004_w006_edge_binding"
+        },
+        {
+          "event": "unload_stator",
+          "n_frames": 10,
+          "status": "both",
+          "tiou": 1.0,
+          "unit": "f005_w001_semi_automatic"
+        },
+        {
+          "event": "carry_stator",
+          "n_frames": 10,
+          "status": "ref_only",
+          "tiou": null,
+          "unit": "f005_w001_semi_automatic"
+        },
+        {
+          "event": "mount_stator",
+          "n_frames": 10,
+          "status": "both",
+          "tiou": 1.0,
+          "unit": "f005_w001_semi_automatic"
+        },
+        {
+          "event": "hand_thread",
+          "n_frames": 10,
+          "status": "both",
+          "tiou": 0.8,
+          "unit": "f005_w010_manual_lathe"
+        },
+        {
+          "event": "wrench_tighten",
+          "n_frames": 10,
+          "status": "both",
+          "tiou": 0.333,
+          "unit": "f005_w010_manual_lathe"
+        },
+        {
+          "event": "engage_spindle",
+          "n_frames": 10,
+          "status": "both",
+          "tiou": 0.5,
+          "unit": "f005_w010_manual_lathe"
+        },
+        {
+          "event": "open_door",
+          "n_frames": 10,
+          "status": "both",
+          "tiou": 0.0,
+          "unit": "f005_w011_cnc_machine"
+        },
+        {
+          "event": "swap_parts",
+          "n_frames": 10,
+          "status": "both",
+          "tiou": 0.167,
+          "unit": "f005_w011_cnc_machine"
+        },
+        {
+          "event": "close_door",
+          "n_frames": 10,
+          "status": "both",
+          "tiou": 0.0,
+          "unit": "f005_w011_cnc_machine"
+        },
+        {
+          "event": "start_cycle",
+          "n_frames": 10,
+          "status": "cand_only",
+          "tiou": null,
+          "unit": "f005_w011_cnc_machine"
+        },
+        {
+          "event": "push_barrow",
+          "n_frames": 10,
+          "status": "both_absent",
+          "tiou": null,
+          "unit": "f006_w004_bulk_material"
+        },
+        {
+          "event": "dump_load",
+          "n_frames": 10,
+          "status": "both_absent",
+          "tiou": null,
+          "unit": "f006_w004_bulk_material"
+        },
+        {
+          "event": "load_casing",
+          "n_frames": 10,
+          "status": "both",
+          "tiou": 0.375,
+          "unit": "f006_w004_bulk_material"
+        },
+        {
+          "event": "eject_block",
+          "n_frames": 10,
+          "status": "both_absent",
+          "tiou": null,
+          "unit": "f006_w005_compression_molding"
+        },
+        {
+          "event": "clean_mold",
+          "n_frames": 10,
+          "status": "both_absent",
+          "tiou": null,
+          "unit": "f006_w005_compression_molding"
+        },
+        {
+          "event": "load_mold",
+          "n_frames": 10,
+          "status": "both",
+          "tiou": 0.667,
+          "unit": "f006_w005_compression_molding"
+        },
+        {
+          "event": "press_controls",
+          "n_frames": 10,
+          "status": "both_absent",
+          "tiou": null,
+          "unit": "f006_w005_compression_molding"
         }
       ],
-      "units": 8
+      "units": 20
     }
   ]
 }

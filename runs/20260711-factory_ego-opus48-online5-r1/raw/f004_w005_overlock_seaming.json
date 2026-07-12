@@ -1,0 +1,368 @@
+{
+  "annotator": "Claude Opus 4.8",
+  "frames": [
+    {
+      "idx": 0,
+      "states": {
+        "check_seam_edge_by_hand": false,
+        "pick_piece_from_pile": false,
+        "set_piece_under_needle": true,
+        "unfold_and_orient_piece": false
+      }
+    },
+    {
+      "idx": 1,
+      "states": {
+        "check_seam_edge_by_hand": false,
+        "pick_piece_from_pile": false,
+        "set_piece_under_needle": true,
+        "unfold_and_orient_piece": false
+      }
+    },
+    {
+      "idx": 2,
+      "states": {
+        "check_seam_edge_by_hand": false,
+        "pick_piece_from_pile": false,
+        "set_piece_under_needle": true,
+        "unfold_and_orient_piece": false
+      }
+    },
+    {
+      "idx": 3,
+      "states": {
+        "check_seam_edge_by_hand": false,
+        "pick_piece_from_pile": false,
+        "set_piece_under_needle": false,
+        "unfold_and_orient_piece": false
+      }
+    },
+    {
+      "idx": 4,
+      "states": {
+        "check_seam_edge_by_hand": false,
+        "pick_piece_from_pile": false,
+        "set_piece_under_needle": false,
+        "unfold_and_orient_piece": false
+      }
+    },
+    {
+      "idx": 5,
+      "states": {
+        "check_seam_edge_by_hand": false,
+        "pick_piece_from_pile": true,
+        "set_piece_under_needle": false,
+        "unfold_and_orient_piece": false
+      }
+    },
+    {
+      "idx": 6,
+      "states": {
+        "check_seam_edge_by_hand": false,
+        "pick_piece_from_pile": true,
+        "set_piece_under_needle": false,
+        "unfold_and_orient_piece": false
+      }
+    },
+    {
+      "idx": 7,
+      "states": {
+        "check_seam_edge_by_hand": false,
+        "pick_piece_from_pile": true,
+        "set_piece_under_needle": false,
+        "unfold_and_orient_piece": false
+      }
+    },
+    {
+      "idx": 8,
+      "states": {
+        "check_seam_edge_by_hand": false,
+        "pick_piece_from_pile": false,
+        "set_piece_under_needle": false,
+        "unfold_and_orient_piece": true
+      }
+    },
+    {
+      "idx": 9,
+      "states": {
+        "check_seam_edge_by_hand": false,
+        "pick_piece_from_pile": false,
+        "set_piece_under_needle": false,
+        "unfold_and_orient_piece": true
+      }
+    },
+    {
+      "idx": 10,
+      "states": {
+        "check_seam_edge_by_hand": false,
+        "pick_piece_from_pile": false,
+        "set_piece_under_needle": false,
+        "unfold_and_orient_piece": true
+      }
+    },
+    {
+      "idx": 11,
+      "states": {
+        "check_seam_edge_by_hand": false,
+        "pick_piece_from_pile": false,
+        "set_piece_under_needle": false,
+        "unfold_and_orient_piece": true
+      }
+    },
+    {
+      "idx": 12,
+      "states": {
+        "check_seam_edge_by_hand": false,
+        "pick_piece_from_pile": false,
+        "set_piece_under_needle": false,
+        "unfold_and_orient_piece": true
+      }
+    },
+    {
+      "idx": 13,
+      "states": {
+        "check_seam_edge_by_hand": false,
+        "pick_piece_from_pile": false,
+        "set_piece_under_needle": false,
+        "unfold_and_orient_piece": true
+      }
+    },
+    {
+      "idx": 14,
+      "states": {
+        "check_seam_edge_by_hand": false,
+        "pick_piece_from_pile": false,
+        "set_piece_under_needle": false,
+        "unfold_and_orient_piece": true
+      }
+    },
+    {
+      "idx": 15,
+      "states": {
+        "check_seam_edge_by_hand": true,
+        "pick_piece_from_pile": false,
+        "set_piece_under_needle": false,
+        "unfold_and_orient_piece": false
+      }
+    },
+    {
+      "idx": 16,
+      "states": {
+        "check_seam_edge_by_hand": true,
+        "pick_piece_from_pile": false,
+        "set_piece_under_needle": false,
+        "unfold_and_orient_piece": false
+      }
+    },
+    {
+      "idx": 17,
+      "states": {
+        "check_seam_edge_by_hand": true,
+        "pick_piece_from_pile": false,
+        "set_piece_under_needle": false,
+        "unfold_and_orient_piece": false
+      }
+    },
+    {
+      "idx": 18,
+      "states": {
+        "check_seam_edge_by_hand": true,
+        "pick_piece_from_pile": false,
+        "set_piece_under_needle": false,
+        "unfold_and_orient_piece": false
+      }
+    },
+    {
+      "idx": 19,
+      "states": {
+        "check_seam_edge_by_hand": true,
+        "pick_piece_from_pile": false,
+        "set_piece_under_needle": false,
+        "unfold_and_orient_piece": false
+      }
+    },
+    {
+      "idx": 20,
+      "states": {
+        "check_seam_edge_by_hand": true,
+        "pick_piece_from_pile": false,
+        "set_piece_under_needle": false,
+        "unfold_and_orient_piece": false
+      }
+    },
+    {
+      "idx": 21,
+      "states": {
+        "check_seam_edge_by_hand": true,
+        "pick_piece_from_pile": false,
+        "set_piece_under_needle": false,
+        "unfold_and_orient_piece": false
+      }
+    },
+    {
+      "idx": 22,
+      "states": {
+        "check_seam_edge_by_hand": true,
+        "pick_piece_from_pile": false,
+        "set_piece_under_needle": false,
+        "unfold_and_orient_piece": false
+      }
+    },
+    {
+      "idx": 23,
+      "states": {
+        "check_seam_edge_by_hand": true,
+        "pick_piece_from_pile": false,
+        "set_piece_under_needle": false,
+        "unfold_and_orient_piece": false
+      }
+    },
+    {
+      "idx": 24,
+      "states": {
+        "check_seam_edge_by_hand": true,
+        "pick_piece_from_pile": false,
+        "set_piece_under_needle": false,
+        "unfold_and_orient_piece": false
+      }
+    },
+    {
+      "idx": 25,
+      "states": {
+        "check_seam_edge_by_hand": true,
+        "pick_piece_from_pile": false,
+        "set_piece_under_needle": false,
+        "unfold_and_orient_piece": false
+      }
+    },
+    {
+      "idx": 26,
+      "states": {
+        "check_seam_edge_by_hand": true,
+        "pick_piece_from_pile": false,
+        "set_piece_under_needle": false,
+        "unfold_and_orient_piece": false
+      }
+    },
+    {
+      "idx": 27,
+      "states": {
+        "check_seam_edge_by_hand": false,
+        "pick_piece_from_pile": false,
+        "set_piece_under_needle": false,
+        "unfold_and_orient_piece": false
+      }
+    },
+    {
+      "idx": 28,
+      "states": {
+        "check_seam_edge_by_hand": false,
+        "pick_piece_from_pile": false,
+        "set_piece_under_needle": true,
+        "unfold_and_orient_piece": false
+      }
+    },
+    {
+      "idx": 29,
+      "states": {
+        "check_seam_edge_by_hand": false,
+        "pick_piece_from_pile": false,
+        "set_piece_under_needle": true,
+        "unfold_and_orient_piece": false
+      }
+    },
+    {
+      "idx": 30,
+      "states": {
+        "check_seam_edge_by_hand": false,
+        "pick_piece_from_pile": false,
+        "set_piece_under_needle": true,
+        "unfold_and_orient_piece": false
+      }
+    },
+    {
+      "idx": 31,
+      "states": {
+        "check_seam_edge_by_hand": false,
+        "pick_piece_from_pile": false,
+        "set_piece_under_needle": true,
+        "unfold_and_orient_piece": false
+      }
+    },
+    {
+      "idx": 32,
+      "states": {
+        "check_seam_edge_by_hand": false,
+        "pick_piece_from_pile": false,
+        "set_piece_under_needle": true,
+        "unfold_and_orient_piece": false
+      }
+    },
+    {
+      "idx": 33,
+      "states": {
+        "check_seam_edge_by_hand": false,
+        "pick_piece_from_pile": false,
+        "set_piece_under_needle": true,
+        "unfold_and_orient_piece": false
+      }
+    },
+    {
+      "idx": 34,
+      "states": {
+        "check_seam_edge_by_hand": false,
+        "pick_piece_from_pile": false,
+        "set_piece_under_needle": true,
+        "unfold_and_orient_piece": false
+      }
+    },
+    {
+      "idx": 35,
+      "states": {
+        "check_seam_edge_by_hand": false,
+        "pick_piece_from_pile": false,
+        "set_piece_under_needle": false,
+        "unfold_and_orient_piece": false
+      }
+    },
+    {
+      "idx": 36,
+      "states": {
+        "check_seam_edge_by_hand": false,
+        "pick_piece_from_pile": false,
+        "set_piece_under_needle": false,
+        "unfold_and_orient_piece": false
+      }
+    },
+    {
+      "idx": 37,
+      "states": {
+        "check_seam_edge_by_hand": false,
+        "pick_piece_from_pile": false,
+        "set_piece_under_needle": false,
+        "unfold_and_orient_piece": false
+      }
+    },
+    {
+      "idx": 38,
+      "states": {
+        "check_seam_edge_by_hand": false,
+        "pick_piece_from_pile": false,
+        "set_piece_under_needle": false,
+        "unfold_and_orient_piece": false
+      }
+    },
+    {
+      "idx": 39,
+      "states": {
+        "check_seam_edge_by_hand": false,
+        "pick_piece_from_pile": false,
+        "set_piece_under_needle": false,
+        "unfold_and_orient_piece": true
+      }
+    }
+  ],
+  "method": "online sliding 5-frame window, causal true/false per frame",
+  "schema_version": "opus-online5-v1",
+  "unit_id": "f004_w005_overlock_seaming"
+}

@@ -1,0 +1,368 @@
+{
+  "annotator": "Claude Opus 4.8",
+  "frames": [
+    {
+      "idx": 0,
+      "states": {
+        "assemble_parts_by_hand": true,
+        "join_parts_with_tool": false,
+        "place_tree_on_rack": false,
+        "press_wax_with_fingers": false
+      }
+    },
+    {
+      "idx": 1,
+      "states": {
+        "assemble_parts_by_hand": true,
+        "join_parts_with_tool": false,
+        "place_tree_on_rack": false,
+        "press_wax_with_fingers": false
+      }
+    },
+    {
+      "idx": 2,
+      "states": {
+        "assemble_parts_by_hand": true,
+        "join_parts_with_tool": false,
+        "place_tree_on_rack": false,
+        "press_wax_with_fingers": false
+      }
+    },
+    {
+      "idx": 3,
+      "states": {
+        "assemble_parts_by_hand": false,
+        "join_parts_with_tool": true,
+        "place_tree_on_rack": false,
+        "press_wax_with_fingers": false
+      }
+    },
+    {
+      "idx": 4,
+      "states": {
+        "assemble_parts_by_hand": false,
+        "join_parts_with_tool": true,
+        "place_tree_on_rack": false,
+        "press_wax_with_fingers": false
+      }
+    },
+    {
+      "idx": 5,
+      "states": {
+        "assemble_parts_by_hand": false,
+        "join_parts_with_tool": true,
+        "place_tree_on_rack": false,
+        "press_wax_with_fingers": false
+      }
+    },
+    {
+      "idx": 6,
+      "states": {
+        "assemble_parts_by_hand": false,
+        "join_parts_with_tool": true,
+        "place_tree_on_rack": false,
+        "press_wax_with_fingers": false
+      }
+    },
+    {
+      "idx": 7,
+      "states": {
+        "assemble_parts_by_hand": false,
+        "join_parts_with_tool": true,
+        "place_tree_on_rack": false,
+        "press_wax_with_fingers": false
+      }
+    },
+    {
+      "idx": 8,
+      "states": {
+        "assemble_parts_by_hand": false,
+        "join_parts_with_tool": true,
+        "place_tree_on_rack": false,
+        "press_wax_with_fingers": false
+      }
+    },
+    {
+      "idx": 9,
+      "states": {
+        "assemble_parts_by_hand": false,
+        "join_parts_with_tool": true,
+        "place_tree_on_rack": false,
+        "press_wax_with_fingers": false
+      }
+    },
+    {
+      "idx": 10,
+      "states": {
+        "assemble_parts_by_hand": false,
+        "join_parts_with_tool": false,
+        "place_tree_on_rack": false,
+        "press_wax_with_fingers": false
+      }
+    },
+    {
+      "idx": 11,
+      "states": {
+        "assemble_parts_by_hand": false,
+        "join_parts_with_tool": false,
+        "place_tree_on_rack": false,
+        "press_wax_with_fingers": true
+      }
+    },
+    {
+      "idx": 12,
+      "states": {
+        "assemble_parts_by_hand": false,
+        "join_parts_with_tool": false,
+        "place_tree_on_rack": false,
+        "press_wax_with_fingers": true
+      }
+    },
+    {
+      "idx": 13,
+      "states": {
+        "assemble_parts_by_hand": false,
+        "join_parts_with_tool": false,
+        "place_tree_on_rack": false,
+        "press_wax_with_fingers": true
+      }
+    },
+    {
+      "idx": 14,
+      "states": {
+        "assemble_parts_by_hand": false,
+        "join_parts_with_tool": false,
+        "place_tree_on_rack": false,
+        "press_wax_with_fingers": false
+      }
+    },
+    {
+      "idx": 15,
+      "states": {
+        "assemble_parts_by_hand": false,
+        "join_parts_with_tool": false,
+        "place_tree_on_rack": false,
+        "press_wax_with_fingers": false
+      }
+    },
+    {
+      "idx": 16,
+      "states": {
+        "assemble_parts_by_hand": false,
+        "join_parts_with_tool": false,
+        "place_tree_on_rack": true,
+        "press_wax_with_fingers": false
+      }
+    },
+    {
+      "idx": 17,
+      "states": {
+        "assemble_parts_by_hand": false,
+        "join_parts_with_tool": false,
+        "place_tree_on_rack": true,
+        "press_wax_with_fingers": false
+      }
+    },
+    {
+      "idx": 18,
+      "states": {
+        "assemble_parts_by_hand": false,
+        "join_parts_with_tool": false,
+        "place_tree_on_rack": false,
+        "press_wax_with_fingers": false
+      }
+    },
+    {
+      "idx": 19,
+      "states": {
+        "assemble_parts_by_hand": false,
+        "join_parts_with_tool": false,
+        "place_tree_on_rack": false,
+        "press_wax_with_fingers": false
+      }
+    },
+    {
+      "idx": 20,
+      "states": {
+        "assemble_parts_by_hand": true,
+        "join_parts_with_tool": false,
+        "place_tree_on_rack": false,
+        "press_wax_with_fingers": false
+      }
+    },
+    {
+      "idx": 21,
+      "states": {
+        "assemble_parts_by_hand": false,
+        "join_parts_with_tool": true,
+        "place_tree_on_rack": false,
+        "press_wax_with_fingers": false
+      }
+    },
+    {
+      "idx": 22,
+      "states": {
+        "assemble_parts_by_hand": false,
+        "join_parts_with_tool": true,
+        "place_tree_on_rack": false,
+        "press_wax_with_fingers": false
+      }
+    },
+    {
+      "idx": 23,
+      "states": {
+        "assemble_parts_by_hand": false,
+        "join_parts_with_tool": true,
+        "place_tree_on_rack": false,
+        "press_wax_with_fingers": false
+      }
+    },
+    {
+      "idx": 24,
+      "states": {
+        "assemble_parts_by_hand": false,
+        "join_parts_with_tool": false,
+        "place_tree_on_rack": false,
+        "press_wax_with_fingers": false
+      }
+    },
+    {
+      "idx": 25,
+      "states": {
+        "assemble_parts_by_hand": false,
+        "join_parts_with_tool": false,
+        "place_tree_on_rack": true,
+        "press_wax_with_fingers": false
+      }
+    },
+    {
+      "idx": 26,
+      "states": {
+        "assemble_parts_by_hand": false,
+        "join_parts_with_tool": false,
+        "place_tree_on_rack": false,
+        "press_wax_with_fingers": false
+      }
+    },
+    {
+      "idx": 27,
+      "states": {
+        "assemble_parts_by_hand": true,
+        "join_parts_with_tool": false,
+        "place_tree_on_rack": false,
+        "press_wax_with_fingers": false
+      }
+    },
+    {
+      "idx": 28,
+      "states": {
+        "assemble_parts_by_hand": true,
+        "join_parts_with_tool": false,
+        "place_tree_on_rack": false,
+        "press_wax_with_fingers": false
+      }
+    },
+    {
+      "idx": 29,
+      "states": {
+        "assemble_parts_by_hand": true,
+        "join_parts_with_tool": false,
+        "place_tree_on_rack": false,
+        "press_wax_with_fingers": false
+      }
+    },
+    {
+      "idx": 30,
+      "states": {
+        "assemble_parts_by_hand": false,
+        "join_parts_with_tool": true,
+        "place_tree_on_rack": false,
+        "press_wax_with_fingers": false
+      }
+    },
+    {
+      "idx": 31,
+      "states": {
+        "assemble_parts_by_hand": false,
+        "join_parts_with_tool": true,
+        "place_tree_on_rack": false,
+        "press_wax_with_fingers": false
+      }
+    },
+    {
+      "idx": 32,
+      "states": {
+        "assemble_parts_by_hand": false,
+        "join_parts_with_tool": true,
+        "place_tree_on_rack": false,
+        "press_wax_with_fingers": false
+      }
+    },
+    {
+      "idx": 33,
+      "states": {
+        "assemble_parts_by_hand": false,
+        "join_parts_with_tool": true,
+        "place_tree_on_rack": false,
+        "press_wax_with_fingers": false
+      }
+    },
+    {
+      "idx": 34,
+      "states": {
+        "assemble_parts_by_hand": false,
+        "join_parts_with_tool": true,
+        "place_tree_on_rack": false,
+        "press_wax_with_fingers": false
+      }
+    },
+    {
+      "idx": 35,
+      "states": {
+        "assemble_parts_by_hand": false,
+        "join_parts_with_tool": true,
+        "place_tree_on_rack": false,
+        "press_wax_with_fingers": false
+      }
+    },
+    {
+      "idx": 36,
+      "states": {
+        "assemble_parts_by_hand": false,
+        "join_parts_with_tool": true,
+        "place_tree_on_rack": false,
+        "press_wax_with_fingers": false
+      }
+    },
+    {
+      "idx": 37,
+      "states": {
+        "assemble_parts_by_hand": false,
+        "join_parts_with_tool": false,
+        "place_tree_on_rack": false,
+        "press_wax_with_fingers": false
+      }
+    },
+    {
+      "idx": 38,
+      "states": {
+        "assemble_parts_by_hand": false,
+        "join_parts_with_tool": false,
+        "place_tree_on_rack": false,
+        "press_wax_with_fingers": true
+      }
+    },
+    {
+      "idx": 39,
+      "states": {
+        "assemble_parts_by_hand": false,
+        "join_parts_with_tool": false,
+        "place_tree_on_rack": false,
+        "press_wax_with_fingers": true
+      }
+    }
+  ],
+  "method": "online sliding 5-frame window, causal true/false per frame",
+  "schema_version": "opus-online5-v1",
+  "unit_id": "f003_w007_wax_pattern"
+}

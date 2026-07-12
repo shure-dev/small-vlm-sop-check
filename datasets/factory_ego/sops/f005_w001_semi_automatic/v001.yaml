@@ -1,0 +1,48 @@
+sop:
+  id: f005_w001_semi_automatic
+  name: 'Factory Ego: f005_w001_semi_automatic'
+  domain_hint: '工場の一人称視点（頭部装着カメラ）映像。巻線機に載ったステータと制御盤。'
+questions:
+- id: adjust_coil_leads
+  ask: '作業者はコイルのリード線を手で整えているか？'
+  values:
+  - 'yes'
+  - 'no'
+- id: reach_machine_base
+  ask: '作業者は機械の下部に手を伸ばして作業しているか？'
+  values:
+  - 'yes'
+  - 'no'
+- id: lace_stator_cord
+  ask: '作業者は白い紐をステータに通しているか？'
+  values:
+  - 'yes'
+  - 'no'
+- id: press_panel_button
+  ask: '作業者は制御盤のボタンを押しているか？'
+  values:
+  - 'yes'
+  - 'no'
+events:
+  adjust_coil_leads:
+    name: 'リード線の整え'
+    evidence: adjust_coil_leads==yes
+    min_frames: 2
+  reach_machine_base:
+    name: '機械下部の操作'
+    evidence: reach_machine_base==yes
+    min_frames: 3
+  lace_stator_cord:
+    name: 'ステータの紐掛け'
+    evidence: lace_stator_cord==yes
+    min_frames: 4
+  press_panel_button:
+    name: '操作ボタンの押下'
+    evidence: press_panel_button==yes
+    min_frames: 1
+benchmark:
+  schema_version: '1.0'
+  version: v001
+  status: provisional
+  purpose: model_accuracy_comparison
+  provenance: '抽出フレーム(2fps・20秒窓)を目視して定義(docs/benchmark/events.mdの方法論に従う)。人手GTではない'

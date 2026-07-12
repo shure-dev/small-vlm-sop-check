@@ -1,10 +1,10 @@
 """evaluate(正解アノテーションとの突き合わせ)の回帰テスト。VLM不要。
 
-回答ログは test_judge.py と同じ実データ(Qwen3-VL-4B)。正解アノテーションは
+回答ログは test_events.py と同じ実データ(Qwen3-VL-4B)。正解アノテーションは
 「人間が付けたらこうなる」体の合成フィクスチャで、基準検出(ignite 1-5 / flame 3-3 /
 point1 4-5 / grill 7-8 / point2 10-14 / battery 12-13 / gloves なし)と境界を
-わざと1〜2フレームずらしてある。境界のズレがtIoUには出るが関係の保存・合否には
-影響しない、という設計上の主張をここで固定する。
+わざと1〜2フレームずらしてある。境界のズレは注釈側でなくtIoUしきい値側で吸収する、
+という設計上の主張をここで固定する。
 """
 import json
 from pathlib import Path
@@ -12,11 +12,11 @@ from pathlib import Path
 import pytest
 
 from small_vlm_sop_check.core.evaluate import evaluate, load_ground_truth, tiou
-from small_vlm_sop_check.core.judge import Run
+from small_vlm_sop_check.core.events import Run
 from small_vlm_sop_check.core.sop import load_answer_log, load_sop
 
 DATASET_DIR = Path(__file__).resolve().parents[2] / "datasets" / "konro_inspection"
-SOP = DATASET_DIR / "sops" / "konro_inspection" / "correct.yaml"
+SOP = DATASET_DIR / "sops" / "konro_inspection" / "konro_inspection.yaml"
 ANSWER_LOG = DATASET_DIR / "fixtures" / "reference_outputs" / "answer_log.json"
 
 
@@ -47,9 +47,9 @@ def test_tiou_math():
     assert tiou(r(1, 4), gappy) == 0.4         # {1,2} / {1,2,3,4,5}
 
 
-def test_boundary_shift_reduces_tiou_but_preserves_relations():
-    """境界が1〜2フレームずれた注釈: tIoUは1.0を切るが、関係の保存・verdictは満点。
-    「成功条件は関係とverdictで定義し、tIoUは診断」という切り分けの根拠。"""
+def test_boundary_shift_reduces_tiou_but_stays_above_threshold():
+    """境界が1〜2フレームずれた注釈: tIoUは1.0を切るが、ゆるいしきい値は全イベントが超える。
+    「境界ズレは注釈でなくしきい値側で吸収する」という切り分けの根拠。"""
     sop = load_sop(SOP)
     ev = evaluate(sop, make_gt(GT_EVENTS), load_answer_log(ANSWER_LOG))
     s = ev["summary"]
@@ -63,13 +63,10 @@ def test_boundary_shift_reduces_tiou_but_preserves_relations():
 
     assert s["mean_tiou"] < 1.0                      # 境界ズレはtIoUに出る
     assert s["tiou@0.3"] == s["n_gt_present"] == 6   # だが全部ゆるいしきい値は超える
-    assert s["relation_agree"] == s["relation_total"] == 6   # 関係は完全に保存
-    assert s["detected_verdict"] == s["gt_verdict"] == s["expect_verdict"] == "PASS"
 
 
 def test_miss_and_false_detection_statuses():
-    """注釈と検出が食い違うケース: 見逃し(miss)・誤検出(false_detection)が
-    区別され、関係の不一致・gt_verdictのFAILとして表面化する。"""
+    """注釈と検出が食い違うケース: 見逃し(miss)・誤検出(false_detection)が区別される。"""
     sop = load_sop(SOP)
     events = dict(GT_EVENTS)
     events["gloves_worn"] = {"start_idx": 0, "end_idx": 1}   # 起きたと注釈(検出は無し)
@@ -80,24 +77,17 @@ def test_miss_and_false_detection_statuses():
     assert by_name["gloves_worn"]["status"] == "miss"
     assert by_name["battery_check"]["status"] == "false_detection"
 
-    by_rel = {r["relation"]: r for r in ev["relations"]}
-    assert by_rel["not gloves_worn"]["agree"] is False           # GTでは違反・検出は成立
-    assert by_rel["point2 overlaps battery_check"]["agree"] is False
-    assert ev["summary"]["gt_verdict"] == "FAIL"
-    assert ev["summary"]["detected_verdict"] == "PASS"
-
 
 def test_unannotated_event_is_excluded():
-    """キーごと無い(未注釈)イベントは no_gt となり、それを含む関係は評価不能(None)。"""
+    """キーごと無い(未注釈)イベントは no_gt となり、tIoUの母数に入らない。"""
     sop = load_sop(SOP)
     events = {k: v for k, v in GT_EVENTS.items() if k != "flame_seen"}
     ev = evaluate(sop, make_gt(events), load_answer_log(ANSWER_LOG))
 
     by_name = {r["event"]: r for r in ev["events"]}
     assert by_name["flame_seen"]["status"] == "no_gt"
-    by_rel = {r["relation"]: r for r in ev["relations"]}
-    assert by_rel["flame_seen overlaps ignite"]["agree"] is None
-    assert ev["summary"]["relation_total"] == 5
+    assert by_name["flame_seen"]["tiou"] is None
+    assert ev["summary"]["n_gt_present"] == 5
 
 
 def test_frame_level_diagnostics_derived_from_gt():

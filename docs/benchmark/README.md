@@ -13,6 +13,6 @@ flowchart LR
 ## 現在のデータセット
 
 - [Konro Inspection](../../datasets/konro_inspection/README.md): 人手GTまで揃った完結デモ
-- [Factory Ego](../../datasets/factory_ego/README.md): 8 unitの精度比較データ。人手GT作成前
+- [Factory Ego](../../datasets/factory_ego/README.md): 6工場・20作業種類の20 unit（各20秒・2fps）の精度比較データ。人手GT作成前
 
 モデル間一致は予備比較であり、人手GTに対する評価とは区別します。詳細は[評価ポリシー](evaluation.md)を参照してください。

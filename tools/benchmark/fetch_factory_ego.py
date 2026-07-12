@@ -30,6 +30,7 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
+import re
 import sys
 import tarfile
 from dataclasses import dataclass
@@ -37,10 +38,9 @@ from pathlib import Path
 from typing import Any, BinaryIO, Iterator
 
 REPO_ID = "builddotai/Egocentric-10K"
-FACTORY = "factory_051"
-WORKER = "worker_001"
-TAR_TEMPLATE = f"{FACTORY}/workers/{WORKER}/factory051_worker001_part{{part:02d}}.tar"
-N_PARTS = 13
+# 上流のtar配置: <factory_xxx>/workers/<worker_xxx>/factoryXXX_workerXXX_partNN.tar
+# 対象factory/workerはunitのmeta.json(source)から導出し、part数は上流をlsして数える。
+CLIP_ID_RE = re.compile(r"^factory(\d{3})_worker(\d{3})_\d{5}$")
 SCHEMA_VERSION = "1.0"
 BLOCK = 512  # tar block size
 # 既存manifestとバイト一致する値を実測で逆算した(2026-07、q85で160/160一致)。
@@ -56,11 +56,14 @@ class FetchError(RuntimeError):
 class UnitPlan:
     unit_id: str
     clip_id: str
-    start_second: int
-    end_second: int
+    start_second: float
+    end_second: float
+    fps: float
     n_frames: int
     frames_dir: Path
     manifest_path: Path
+    meta_path: Path
+    sop_path: Path
 
 
 def load_json(path: Path) -> Any:
@@ -96,9 +99,12 @@ def load_units(dataset_root: Path) -> list[UnitPlan]:
             clip_id=source["clip_id"],
             start_second=source["start_second"],
             end_second=source["end_second"],
+            fps=sampling["fps"],
             n_frames=sampling["n_frames"],
             frames_dir=unit_dir / meta["media"]["path"],
             manifest_path=unit_dir / meta["media"]["sha256_manifest"],
+            meta_path=meta_path,
+            sop_path=(unit_dir / meta["sop_ref"]["path"]).resolve(),
         ))
     if not plans:
         raise FetchError(f"no unit meta.json found under {dataset_root}/units")
@@ -160,11 +166,19 @@ def copy_members(fh: BinaryIO, remaining: set[str], work_dir: Path) -> dict[str,
     return found
 
 
+def clip_source_dir(clip_id: str) -> tuple[str, str]:
+    """clip_id から上流の (factory_xxx, worker_xxx) ディレクトリ名を導出する。"""
+    match = CLIP_ID_RE.match(clip_id)
+    if match is None:
+        raise FetchError(f"unrecognized clip_id: {clip_id}")
+    return f"factory_{match.group(1)}", f"worker_{match.group(2)}"
+
+
 def fetch_clips(clip_ids: set[str], work_dir: Path, revision: str) -> dict[str, Path]:
     """必要なclipのmp4をwork_dirへ取得し {clip_id: path} を返す。取得済みは再利用。"""
     remaining = {c for c in clip_ids if not (work_dir / f"{c}.mp4").exists()}
     found = {c: work_dir / f"{c}.mp4" for c in clip_ids - remaining}
-    for clip_id, path in found.items():
+    for clip_id, path in sorted(found.items()):
         print(f"  cached: {clip_id} ({path.stat().st_size / 1e6:.1f} MB)")
     if not remaining:
         return found
@@ -176,22 +190,32 @@ def fetch_clips(clip_ids: set[str], work_dir: Path, revision: str) -> dict[str, 
 
     fs = HfFileSystem()
     work_dir.mkdir(parents=True, exist_ok=True)
-    for part in range(N_PARTS):
-        if not remaining:
-            break
-        tar_path = f"datasets/{REPO_ID}@{revision}/" + TAR_TEMPLATE.format(part=part)
-        print(f"  scanning {TAR_TEMPLATE.format(part=part)} ...", flush=True)
-        with fs.open(tar_path, "rb", block_size=1 << 20, cache_type="bytes") as fh:
-            found.update(copy_members(fh, remaining, work_dir))
-    if remaining:
-        raise FetchError(f"clips not found in upstream tars: {sorted(remaining)}")
+    groups: dict[tuple[str, str], set[str]] = {}
+    for clip_id in remaining:
+        groups.setdefault(clip_source_dir(clip_id), set()).add(clip_id)
+    for (factory, worker), wanted in sorted(groups.items()):
+        worker_dir = f"datasets/{REPO_ID}@{revision}/{factory}/workers/{worker}"
+        tar_paths = sorted(p for p in fs.ls(worker_dir, detail=False) if p.endswith(".tar"))
+        if not tar_paths:
+            raise FetchError(f"no tar parts under upstream {factory}/workers/{worker}")
+        for tar_path in tar_paths:
+            if not wanted:
+                break
+            print(f"  scanning {factory}/{worker}/{Path(tar_path).name} ...", flush=True)
+            with fs.open(tar_path, "rb", block_size=1 << 20, cache_type="bytes") as fh:
+                found.update(copy_members(fh, wanted, work_dir))
+        if wanted:
+            raise FetchError(f"clips not found in upstream tars: {sorted(wanted)}")
     return found
 
 
 # --- frame extraction --------------------------------------------------------
 
 def extract_unit_frames(clip_path: Path, plan: UnitPlan, out_dir: Path) -> dict[str, bytes]:
-    """秒 start..end(両端含む)ごとに round(t*fps) フレーム目をフル解像度JPEGで書き出す。"""
+    """t = start + k/fps (k=0..n_frames-1) の round(t*video_fps) フレーム目をフル解像度JPEGで書き出す。
+
+    窓がクリップ終端を超える場合は最終フレームで頭打ちにする(該当unitはmetaのnotesに明記)。
+    """
     try:
         import cv2
     except ImportError as exc:
@@ -204,16 +228,17 @@ def extract_unit_frames(clip_path: Path, plan: UnitPlan, out_dir: Path) -> dict[
     total = int(cap.get(cv2.CAP_PROP_FRAME_COUNT))
     out_dir.mkdir(parents=True, exist_ok=True)
     frames: dict[str, bytes] = {}
-    seconds = range(plan.start_second, plan.end_second + 1)
-    if len(seconds) != plan.n_frames:
+    expected = int(round((plan.end_second - plan.start_second) * plan.fps))
+    if expected != plan.n_frames:
         raise FetchError(f"{plan.unit_id}: meta sampling mismatch "
-                         f"({len(seconds)} seconds vs n_frames={plan.n_frames})")
-    for idx, second in enumerate(seconds):
-        frame_no = min(int(round(second * video_fps)), total - 1)
+                         f"((end-start)*fps={expected} vs n_frames={plan.n_frames})")
+    for idx in range(plan.n_frames):
+        t = plan.start_second + idx / plan.fps
+        frame_no = min(int(round(t * video_fps)), total - 1)
         cap.set(cv2.CAP_PROP_POS_FRAMES, frame_no)
         ok, frame = cap.read()
         if not ok:
-            raise FetchError(f"{plan.unit_id}: フレーム読み出し失敗 (second={second})")
+            raise FetchError(f"{plan.unit_id}: フレーム読み出し失敗 (t={t})")
         name = f"f{idx:04d}.jpg"
         path = out_dir / name
         if not cv2.imwrite(str(path), frame, [cv2.IMWRITE_JPEG_QUALITY, JPEG_QUALITY]):
@@ -238,10 +263,16 @@ def compare_unit(plan: UnitPlan, frames: dict[str, bytes]) -> tuple[dict[str, st
 
 
 def update_manifest_lock(dataset_root: Path, plan: UnitPlan) -> None:
+    """unitのlockエントリを現ファイルから再計算する(新規unitはエントリを作成)。"""
     lock_path = dataset_root / "manifest.lock.json"
     lock = load_json(lock_path)
-    unit_lock = lock["units"][plan.unit_id]
-    unit_lock["frames_manifest_sha256"] = sha256_file(plan.manifest_path)
+    manifest = load_json(plan.manifest_path)
+    lock.setdefault("units", {})[plan.unit_id] = {
+        "frame_count": len(manifest),
+        "frames_manifest_sha256": sha256_file(plan.manifest_path),
+        "meta_sha256": sha256_file(plan.meta_path),
+        "sop_sha256": sha256_file(plan.sop_path),
+    }
     lock_path.write_text(dump_json(lock), encoding="utf-8")
 
 

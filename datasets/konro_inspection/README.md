@@ -1,6 +1,6 @@
 # Konro Inspection
 
-ガスコンロの始業前点検を題材に、動画抽出、VLMの回答収集、決定論的判定、人手GT評価、replay viewerまでを再現する完結デモです。
+ガスコンロの始業前点検を題材に、動画抽出、VLMの回答収集、決定論的な区間検出、人手GT評価、replay viewerまでを再現する完結デモです。
 
 ```text
 konro_inspection/
@@ -11,9 +11,7 @@ konro_inspection/
 │   ├── procedure.md
 │   └── frames/
 ├── sops/konro_inspection/
-│   ├── correct.yaml
-│   ├── wrong_order.yaml
-│   └── missing_step.yaml
+│   └── konro_inspection.yaml
 ├── annotations/human-v001/konro_inspection.json
 └── fixtures/reference_outputs/
 ```

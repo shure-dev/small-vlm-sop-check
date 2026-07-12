@@ -5,14 +5,13 @@
   開始・終了フレームのクリック2回で注釈する。付けた注釈は操作のたびに即
   ground_truth.json へ保存される(保存ボタンは無い)。途中で閉じても再開できる。
 
-注釈するのは事実(いつ何が起きたか=区間)だけ。順序や遵守の「べき」はSOPの
-relationsが持つので、ここには関係の概念を持ち込まない。評価(tIoU・関係の保存)は
+注釈するのは事実(いつ何が起きたか=区間)だけ。評価(tIoU・フレーム一致)は
 `sop-check eval` が行う。
 
 使い方:
   sop-annotate            # 同梱サンプルを注釈(既定値で全部埋まる)
   sop-annotate \
-    --sop datasets/konro_inspection/sops/konro_inspection/correct.yaml \
+    --sop datasets/konro_inspection/sops/konro_inspection/konro_inspection.yaml \
     --frames-dir datasets/konro_inspection/units/konro_inspection/frames \
     --out datasets/konro_inspection/annotations/human-v001/konro_inspection.json
 
@@ -35,7 +34,7 @@ from .resources import repository_root, template_text
 
 ROOT = repository_root()
 DEMO_ROOT = ROOT / "datasets" / "konro_inspection"
-DEFAULT_SOP = DEMO_ROOT / "sops" / "konro_inspection" / "correct.yaml"
+DEFAULT_SOP = DEMO_ROOT / "sops" / "konro_inspection" / "konro_inspection.yaml"
 DEFAULT_FRAMES = DEMO_ROOT / "units" / "konro_inspection" / "frames"
 DEFAULT_GT = DEMO_ROOT / "annotations" / "human-v001" / "konro_inspection.json"
 
@@ -58,8 +57,6 @@ def build_page_data(sop_def: dict, frame_files: list[str], fps: float,
     return {
         "sop": {"id": sop_def["sop"]["id"], "name": sop_def["sop"]["name"]},
         "events": events,
-        "not_only": sorted({r.split()[1] for r in sop_def.get("relations", [])
-                            if r.strip().startswith("not ")}),
         "frames": frame_files,
         "times": [round(i / fps, 2) for i in range(len(frame_files))],
         "out_path": display_path(out_path),

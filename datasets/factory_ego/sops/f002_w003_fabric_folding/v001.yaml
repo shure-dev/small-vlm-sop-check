@@ -1,0 +1,48 @@
+sop:
+  id: f002_w003_fabric_folding
+  name: 'Factory Ego: f002_w003_fabric_folding'
+  domain_hint: '工場の一人称視点（頭部装着カメラ）映像。衣類・ハンガー・輪ゴムが並ぶ大きな白い作業台。'
+questions:
+- id: spread_garment_on_table
+  ask: '作業者は衣類を作業台の上に広げているか？'
+  values:
+  - 'yes'
+  - 'no'
+- id: smooth_and_align_garment
+  ask: '作業者は広げた衣類を手でならして整えているか？'
+  values:
+  - 'yes'
+  - 'no'
+- id: fold_garment
+  ask: '作業者は衣類を折りたたんでいるか？'
+  values:
+  - 'yes'
+  - 'no'
+- id: take_hanger
+  ask: '作業者はハンガーを手に取っているか？'
+  values:
+  - 'yes'
+  - 'no'
+events:
+  spread_garment_on_table:
+    name: '衣類を台に広げる'
+    evidence: spread_garment_on_table==yes
+    min_frames: 2
+  smooth_and_align_garment:
+    name: '衣類をならして整える'
+    evidence: smooth_and_align_garment==yes
+    min_frames: 2
+  fold_garment:
+    name: '衣類を畳む'
+    evidence: fold_garment==yes
+    min_frames: 3
+  take_hanger:
+    name: 'ハンガーを手に取る'
+    evidence: take_hanger==yes
+    min_frames: 2
+benchmark:
+  schema_version: '1.0'
+  version: v001
+  status: provisional
+  purpose: model_accuracy_comparison
+  provenance: '抽出フレーム(2fps・20秒窓)を目視して定義(docs/benchmark/events.mdの方法論に従う)。人手GTではない'

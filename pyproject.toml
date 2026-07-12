@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "small-vlm-sop-check"
 version = "0.1.0"
-description = "Deterministic SOP compliance checks from small-VLM frame observations"
+description = "Deterministic SOP step-interval detection from small-VLM frame answers"
 readme = "README.md"
 requires-python = ">=3.10"
 license = "MIT"

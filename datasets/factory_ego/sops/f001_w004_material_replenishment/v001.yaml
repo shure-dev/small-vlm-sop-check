@@ -1,0 +1,39 @@
+sop:
+  id: f001_w004_material_replenishment
+  name: 'Factory Ego: f001_w004_material_replenishment'
+  domain_hint: '工場の一人称視点（頭部装着カメラ）映像。電動ドライバーと部品ビンのある組立ベンチ。'
+questions:
+- id: assemble_part_with_driver
+  ask: '作業者は電動ドライバーで部品を組み立てているか？'
+  values:
+  - 'yes'
+  - 'no'
+- id: take_parts_from_bag
+  ask: '作業者は袋から部品を取り出しているか？'
+  values:
+  - 'yes'
+  - 'no'
+- id: roll_up_bag
+  ask: '作業者は袋を丸めているか？'
+  values:
+  - 'yes'
+  - 'no'
+events:
+  assemble_part_with_driver:
+    name: '部品を組み立てる'
+    evidence: assemble_part_with_driver==yes
+    min_frames: 4
+  take_parts_from_bag:
+    name: '袋から部品を取り出す'
+    evidence: take_parts_from_bag==yes
+    min_frames: 2
+  roll_up_bag:
+    name: '袋を丸める'
+    evidence: roll_up_bag==yes
+    min_frames: 4
+benchmark:
+  schema_version: '1.0'
+  version: v001
+  status: provisional
+  purpose: model_accuracy_comparison
+  provenance: '抽出フレーム(2fps・20秒窓)を目視して定義(docs/benchmark/events.mdの方法論に従う)。人手GTではない'

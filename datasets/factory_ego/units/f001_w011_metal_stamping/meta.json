@@ -1,0 +1,57 @@
+{
+  "benchmark_status": "dev_seen",
+  "dataset_id": "factory_ego",
+  "ground_truth": {
+    "available": false,
+    "required_source": "human"
+  },
+  "media": {
+    "availability": "local_gated_source_not_committed",
+    "path": "frames",
+    "sha256_manifest": "frames.sha256.json"
+  },
+  "sampling": {
+    "fps": 2.0,
+    "n_frames": 40,
+    "output_naming": "f0000.jpg...f0039.jpg",
+    "source_frame_end": 202,
+    "source_frame_start": 182
+  },
+  "schema_version": "1.0",
+  "selection": {
+    "annotations_repo": "fit-alessandro-berti/annotated-egocentric-10k-dataset",
+    "annotations_revision": "107f8fdc1aa4334da5eb1c6bc9ce8d52eaf6ce96",
+    "caveat": "window boundaries derive from LLM-generated timestamps; frames are canonical",
+    "main_process": "Metal stamping",
+    "method": "tools/benchmark/sample_units.py (deterministic stratified)",
+    "transcript_excerpt": [
+      "[175s-182s] The wearer stops the pressing cycle. They pull forward a tray of scrap metal pieces located behind the main die, gather a handful of the scraps using both hands, and turn to their right.",
+      "[182s-187s] The wearer walks a few steps, drops the scrap metal pieces into a blue plastic crate on the floor, and turns around to walk back to the machine.",
+      "[187s-190s] The wearer returns to the machine and uses both hands to slide a heavy stack of flat metal pieces closer to the working area on the left side of the machine bed.",
+      "[190s-433s] The wearer resumes the continuous, repetitive cycle of operating the machine. They repeatedly take flat metal pieces from the left, place them in the die, press the two green buttons to stamp them, and move the finished pieces to the bin on the right."
+    ],
+    "window_activities": [
+      "drop scrap metal into floor crate",
+      "drag unassembled metal parts closer to fixture",
+      "actuate machine press",
+      "load metal blank from staged stack into die",
+      "remove finished part from die"
+    ],
+    "window_event_starts": 5
+  },
+  "sop_ref": {
+    "id": "f001_w011_metal_stamping",
+    "path": "../../sops/f001_w011_metal_stamping/v001.yaml",
+    "status": "provisional",
+    "version": "v001"
+  },
+  "source": {
+    "clip_id": "factory001_worker011_00000",
+    "dataset": "builddotai/Egocentric-10K",
+    "end_second": 202,
+    "factory_id": "factory_001",
+    "start_second": 182,
+    "worker_id": "worker_011"
+  },
+  "unit_id": "f001_w011_metal_stamping"
+}

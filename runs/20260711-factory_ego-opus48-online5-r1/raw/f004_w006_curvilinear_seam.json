@@ -1,0 +1,328 @@
+{
+  "annotator": "Claude Opus 4.8",
+  "frames": [
+    {
+      "idx": 0,
+      "states": {
+        "align_fabric_edges": true,
+        "fine_finger_work_at_needle": false,
+        "position_fabric_under_needle": false
+      }
+    },
+    {
+      "idx": 1,
+      "states": {
+        "align_fabric_edges": true,
+        "fine_finger_work_at_needle": false,
+        "position_fabric_under_needle": false
+      }
+    },
+    {
+      "idx": 2,
+      "states": {
+        "align_fabric_edges": true,
+        "fine_finger_work_at_needle": false,
+        "position_fabric_under_needle": false
+      }
+    },
+    {
+      "idx": 3,
+      "states": {
+        "align_fabric_edges": true,
+        "fine_finger_work_at_needle": false,
+        "position_fabric_under_needle": false
+      }
+    },
+    {
+      "idx": 4,
+      "states": {
+        "align_fabric_edges": true,
+        "fine_finger_work_at_needle": false,
+        "position_fabric_under_needle": false
+      }
+    },
+    {
+      "idx": 5,
+      "states": {
+        "align_fabric_edges": true,
+        "fine_finger_work_at_needle": false,
+        "position_fabric_under_needle": false
+      }
+    },
+    {
+      "idx": 6,
+      "states": {
+        "align_fabric_edges": true,
+        "fine_finger_work_at_needle": false,
+        "position_fabric_under_needle": false
+      }
+    },
+    {
+      "idx": 7,
+      "states": {
+        "align_fabric_edges": false,
+        "fine_finger_work_at_needle": false,
+        "position_fabric_under_needle": false
+      }
+    },
+    {
+      "idx": 8,
+      "states": {
+        "align_fabric_edges": false,
+        "fine_finger_work_at_needle": true,
+        "position_fabric_under_needle": true
+      }
+    },
+    {
+      "idx": 9,
+      "states": {
+        "align_fabric_edges": false,
+        "fine_finger_work_at_needle": true,
+        "position_fabric_under_needle": true
+      }
+    },
+    {
+      "idx": 10,
+      "states": {
+        "align_fabric_edges": false,
+        "fine_finger_work_at_needle": true,
+        "position_fabric_under_needle": true
+      }
+    },
+    {
+      "idx": 11,
+      "states": {
+        "align_fabric_edges": false,
+        "fine_finger_work_at_needle": true,
+        "position_fabric_under_needle": true
+      }
+    },
+    {
+      "idx": 12,
+      "states": {
+        "align_fabric_edges": false,
+        "fine_finger_work_at_needle": true,
+        "position_fabric_under_needle": true
+      }
+    },
+    {
+      "idx": 13,
+      "states": {
+        "align_fabric_edges": false,
+        "fine_finger_work_at_needle": true,
+        "position_fabric_under_needle": true
+      }
+    },
+    {
+      "idx": 14,
+      "states": {
+        "align_fabric_edges": false,
+        "fine_finger_work_at_needle": true,
+        "position_fabric_under_needle": true
+      }
+    },
+    {
+      "idx": 15,
+      "states": {
+        "align_fabric_edges": false,
+        "fine_finger_work_at_needle": true,
+        "position_fabric_under_needle": true
+      }
+    },
+    {
+      "idx": 16,
+      "states": {
+        "align_fabric_edges": false,
+        "fine_finger_work_at_needle": true,
+        "position_fabric_under_needle": true
+      }
+    },
+    {
+      "idx": 17,
+      "states": {
+        "align_fabric_edges": false,
+        "fine_finger_work_at_needle": true,
+        "position_fabric_under_needle": true
+      }
+    },
+    {
+      "idx": 18,
+      "states": {
+        "align_fabric_edges": false,
+        "fine_finger_work_at_needle": true,
+        "position_fabric_under_needle": true
+      }
+    },
+    {
+      "idx": 19,
+      "states": {
+        "align_fabric_edges": false,
+        "fine_finger_work_at_needle": true,
+        "position_fabric_under_needle": true
+      }
+    },
+    {
+      "idx": 20,
+      "states": {
+        "align_fabric_edges": false,
+        "fine_finger_work_at_needle": true,
+        "position_fabric_under_needle": false
+      }
+    },
+    {
+      "idx": 21,
+      "states": {
+        "align_fabric_edges": false,
+        "fine_finger_work_at_needle": true,
+        "position_fabric_under_needle": false
+      }
+    },
+    {
+      "idx": 22,
+      "states": {
+        "align_fabric_edges": false,
+        "fine_finger_work_at_needle": true,
+        "position_fabric_under_needle": false
+      }
+    },
+    {
+      "idx": 23,
+      "states": {
+        "align_fabric_edges": false,
+        "fine_finger_work_at_needle": true,
+        "position_fabric_under_needle": false
+      }
+    },
+    {
+      "idx": 24,
+      "states": {
+        "align_fabric_edges": false,
+        "fine_finger_work_at_needle": true,
+        "position_fabric_under_needle": false
+      }
+    },
+    {
+      "idx": 25,
+      "states": {
+        "align_fabric_edges": false,
+        "fine_finger_work_at_needle": true,
+        "position_fabric_under_needle": false
+      }
+    },
+    {
+      "idx": 26,
+      "states": {
+        "align_fabric_edges": false,
+        "fine_finger_work_at_needle": true,
+        "position_fabric_under_needle": false
+      }
+    },
+    {
+      "idx": 27,
+      "states": {
+        "align_fabric_edges": false,
+        "fine_finger_work_at_needle": true,
+        "position_fabric_under_needle": false
+      }
+    },
+    {
+      "idx": 28,
+      "states": {
+        "align_fabric_edges": false,
+        "fine_finger_work_at_needle": true,
+        "position_fabric_under_needle": false
+      }
+    },
+    {
+      "idx": 29,
+      "states": {
+        "align_fabric_edges": false,
+        "fine_finger_work_at_needle": true,
+        "position_fabric_under_needle": false
+      }
+    },
+    {
+      "idx": 30,
+      "states": {
+        "align_fabric_edges": false,
+        "fine_finger_work_at_needle": true,
+        "position_fabric_under_needle": false
+      }
+    },
+    {
+      "idx": 31,
+      "states": {
+        "align_fabric_edges": false,
+        "fine_finger_work_at_needle": true,
+        "position_fabric_under_needle": false
+      }
+    },
+    {
+      "idx": 32,
+      "states": {
+        "align_fabric_edges": false,
+        "fine_finger_work_at_needle": true,
+        "position_fabric_under_needle": false
+      }
+    },
+    {
+      "idx": 33,
+      "states": {
+        "align_fabric_edges": false,
+        "fine_finger_work_at_needle": true,
+        "position_fabric_under_needle": false
+      }
+    },
+    {
+      "idx": 34,
+      "states": {
+        "align_fabric_edges": false,
+        "fine_finger_work_at_needle": true,
+        "position_fabric_under_needle": false
+      }
+    },
+    {
+      "idx": 35,
+      "states": {
+        "align_fabric_edges": false,
+        "fine_finger_work_at_needle": true,
+        "position_fabric_under_needle": false
+      }
+    },
+    {
+      "idx": 36,
+      "states": {
+        "align_fabric_edges": false,
+        "fine_finger_work_at_needle": true,
+        "position_fabric_under_needle": false
+      }
+    },
+    {
+      "idx": 37,
+      "states": {
+        "align_fabric_edges": false,
+        "fine_finger_work_at_needle": true,
+        "position_fabric_under_needle": false
+      }
+    },
+    {
+      "idx": 38,
+      "states": {
+        "align_fabric_edges": false,
+        "fine_finger_work_at_needle": true,
+        "position_fabric_under_needle": false
+      }
+    },
+    {
+      "idx": 39,
+      "states": {
+        "align_fabric_edges": false,
+        "fine_finger_work_at_needle": true,
+        "position_fabric_under_needle": false
+      }
+    }
+  ],
+  "method": "online sliding 5-frame window, causal true/false per frame",
+  "schema_version": "opus-online5-v1",
+  "unit_id": "f004_w006_curvilinear_seam"
+}

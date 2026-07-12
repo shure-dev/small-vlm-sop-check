@@ -1,0 +1,45 @@
+sop:
+  id: f003_w005_metal_casting
+  name: 'Factory Ego: f003_w005_metal_casting'
+  domain_hint: '工場の一人称視点（頭部装着カメラ）映像。金網状の大型ドラムと木箱のある鋳物仕上げ場。'
+questions:
+- id: knock_parts_off_casting_q
+  ask: '作業者はハンマーで鋳物を叩いているか？'
+  values:
+  - 'yes'
+  - 'no'
+- id: carry_casting_bundle
+  ask: '作業者は鋳物の束を手に持って運んでいるか？'
+  values:
+  - 'yes'
+  - 'no'
+- id: put_casting_into_crate
+  ask: '作業者は鋳物を木箱に入れているか？'
+  values:
+  - 'yes'
+  - 'no'
+events:
+  knock_parts_off_casting:
+    name: 'ハンマーで鋳物から部品を叩き外す'
+    evidence: knock_parts_off_casting_q==yes
+    min_frames: 2
+    occurrence: 1
+  carry_casting_bundle:
+    name: '外した鋳物の束を運ぶ'
+    evidence: carry_casting_bundle==yes
+    min_frames: 2
+  put_casting_into_crate:
+    name: '鋳物を木箱に入れる'
+    evidence: put_casting_into_crate==yes
+    min_frames: 2
+  resume_hammering_on_drum:
+    name: '作業台に戻り鋳物を叩き続ける'
+    evidence: knock_parts_off_casting_q==yes
+    min_frames: 4
+    occurrence: 2
+benchmark:
+  schema_version: '1.0'
+  version: v001
+  status: provisional
+  purpose: model_accuracy_comparison
+  provenance: '抽出フレーム(2fps・20秒窓)を目視して定義(docs/benchmark/events.mdの方法論に従う)。人手GTではない'

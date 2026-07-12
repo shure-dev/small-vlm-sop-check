@@ -1,0 +1,370 @@
+{
+  "answer_source": "Opus 4.8 online 5-frame causal true/false, mapped true->yes/false->no",
+  "frame_count": 40,
+  "frames": [
+    {
+      "answers": {
+        "flip_and_check_binding": "no",
+        "handle_fabric_at_needle": "yes",
+        "trim_thread_with_scissors": "no"
+      },
+      "idx": 0,
+      "t": 0.0
+    },
+    {
+      "answers": {
+        "flip_and_check_binding": "no",
+        "handle_fabric_at_needle": "yes",
+        "trim_thread_with_scissors": "no"
+      },
+      "idx": 1,
+      "t": 0.5
+    },
+    {
+      "answers": {
+        "flip_and_check_binding": "no",
+        "handle_fabric_at_needle": "yes",
+        "trim_thread_with_scissors": "no"
+      },
+      "idx": 2,
+      "t": 1.0
+    },
+    {
+      "answers": {
+        "flip_and_check_binding": "no",
+        "handle_fabric_at_needle": "no",
+        "trim_thread_with_scissors": "no"
+      },
+      "idx": 3,
+      "t": 1.5
+    },
+    {
+      "answers": {
+        "flip_and_check_binding": "no",
+        "handle_fabric_at_needle": "no",
+        "trim_thread_with_scissors": "yes"
+      },
+      "idx": 4,
+      "t": 2.0
+    },
+    {
+      "answers": {
+        "flip_and_check_binding": "no",
+        "handle_fabric_at_needle": "no",
+        "trim_thread_with_scissors": "yes"
+      },
+      "idx": 5,
+      "t": 2.5
+    },
+    {
+      "answers": {
+        "flip_and_check_binding": "no",
+        "handle_fabric_at_needle": "no",
+        "trim_thread_with_scissors": "yes"
+      },
+      "idx": 6,
+      "t": 3.0
+    },
+    {
+      "answers": {
+        "flip_and_check_binding": "no",
+        "handle_fabric_at_needle": "no",
+        "trim_thread_with_scissors": "yes"
+      },
+      "idx": 7,
+      "t": 3.5
+    },
+    {
+      "answers": {
+        "flip_and_check_binding": "no",
+        "handle_fabric_at_needle": "no",
+        "trim_thread_with_scissors": "yes"
+      },
+      "idx": 8,
+      "t": 4.0
+    },
+    {
+      "answers": {
+        "flip_and_check_binding": "no",
+        "handle_fabric_at_needle": "no",
+        "trim_thread_with_scissors": "yes"
+      },
+      "idx": 9,
+      "t": 4.5
+    },
+    {
+      "answers": {
+        "flip_and_check_binding": "no",
+        "handle_fabric_at_needle": "no",
+        "trim_thread_with_scissors": "no"
+      },
+      "idx": 10,
+      "t": 5.0
+    },
+    {
+      "answers": {
+        "flip_and_check_binding": "no",
+        "handle_fabric_at_needle": "no",
+        "trim_thread_with_scissors": "no"
+      },
+      "idx": 11,
+      "t": 5.5
+    },
+    {
+      "answers": {
+        "flip_and_check_binding": "no",
+        "handle_fabric_at_needle": "no",
+        "trim_thread_with_scissors": "no"
+      },
+      "idx": 12,
+      "t": 6.0
+    },
+    {
+      "answers": {
+        "flip_and_check_binding": "no",
+        "handle_fabric_at_needle": "no",
+        "trim_thread_with_scissors": "no"
+      },
+      "idx": 13,
+      "t": 6.5
+    },
+    {
+      "answers": {
+        "flip_and_check_binding": "no",
+        "handle_fabric_at_needle": "no",
+        "trim_thread_with_scissors": "no"
+      },
+      "idx": 14,
+      "t": 7.0
+    },
+    {
+      "answers": {
+        "flip_and_check_binding": "yes",
+        "handle_fabric_at_needle": "no",
+        "trim_thread_with_scissors": "no"
+      },
+      "idx": 15,
+      "t": 7.5
+    },
+    {
+      "answers": {
+        "flip_and_check_binding": "yes",
+        "handle_fabric_at_needle": "no",
+        "trim_thread_with_scissors": "no"
+      },
+      "idx": 16,
+      "t": 8.0
+    },
+    {
+      "answers": {
+        "flip_and_check_binding": "yes",
+        "handle_fabric_at_needle": "no",
+        "trim_thread_with_scissors": "no"
+      },
+      "idx": 17,
+      "t": 8.5
+    },
+    {
+      "answers": {
+        "flip_and_check_binding": "yes",
+        "handle_fabric_at_needle": "no",
+        "trim_thread_with_scissors": "no"
+      },
+      "idx": 18,
+      "t": 9.0
+    },
+    {
+      "answers": {
+        "flip_and_check_binding": "yes",
+        "handle_fabric_at_needle": "no",
+        "trim_thread_with_scissors": "no"
+      },
+      "idx": 19,
+      "t": 9.5
+    },
+    {
+      "answers": {
+        "flip_and_check_binding": "yes",
+        "handle_fabric_at_needle": "no",
+        "trim_thread_with_scissors": "no"
+      },
+      "idx": 20,
+      "t": 10.0
+    },
+    {
+      "answers": {
+        "flip_and_check_binding": "yes",
+        "handle_fabric_at_needle": "no",
+        "trim_thread_with_scissors": "no"
+      },
+      "idx": 21,
+      "t": 10.5
+    },
+    {
+      "answers": {
+        "flip_and_check_binding": "yes",
+        "handle_fabric_at_needle": "no",
+        "trim_thread_with_scissors": "no"
+      },
+      "idx": 22,
+      "t": 11.0
+    },
+    {
+      "answers": {
+        "flip_and_check_binding": "yes",
+        "handle_fabric_at_needle": "no",
+        "trim_thread_with_scissors": "no"
+      },
+      "idx": 23,
+      "t": 11.5
+    },
+    {
+      "answers": {
+        "flip_and_check_binding": "yes",
+        "handle_fabric_at_needle": "no",
+        "trim_thread_with_scissors": "no"
+      },
+      "idx": 24,
+      "t": 12.0
+    },
+    {
+      "answers": {
+        "flip_and_check_binding": "no",
+        "handle_fabric_at_needle": "no",
+        "trim_thread_with_scissors": "no"
+      },
+      "idx": 25,
+      "t": 12.5
+    },
+    {
+      "answers": {
+        "flip_and_check_binding": "no",
+        "handle_fabric_at_needle": "no",
+        "trim_thread_with_scissors": "no"
+      },
+      "idx": 26,
+      "t": 13.0
+    },
+    {
+      "answers": {
+        "flip_and_check_binding": "no",
+        "handle_fabric_at_needle": "yes",
+        "trim_thread_with_scissors": "no"
+      },
+      "idx": 27,
+      "t": 13.5
+    },
+    {
+      "answers": {
+        "flip_and_check_binding": "no",
+        "handle_fabric_at_needle": "yes",
+        "trim_thread_with_scissors": "no"
+      },
+      "idx": 28,
+      "t": 14.0
+    },
+    {
+      "answers": {
+        "flip_and_check_binding": "no",
+        "handle_fabric_at_needle": "yes",
+        "trim_thread_with_scissors": "no"
+      },
+      "idx": 29,
+      "t": 14.5
+    },
+    {
+      "answers": {
+        "flip_and_check_binding": "no",
+        "handle_fabric_at_needle": "yes",
+        "trim_thread_with_scissors": "no"
+      },
+      "idx": 30,
+      "t": 15.0
+    },
+    {
+      "answers": {
+        "flip_and_check_binding": "no",
+        "handle_fabric_at_needle": "yes",
+        "trim_thread_with_scissors": "no"
+      },
+      "idx": 31,
+      "t": 15.5
+    },
+    {
+      "answers": {
+        "flip_and_check_binding": "no",
+        "handle_fabric_at_needle": "no",
+        "trim_thread_with_scissors": "no"
+      },
+      "idx": 32,
+      "t": 16.0
+    },
+    {
+      "answers": {
+        "flip_and_check_binding": "yes",
+        "handle_fabric_at_needle": "no",
+        "trim_thread_with_scissors": "no"
+      },
+      "idx": 33,
+      "t": 16.5
+    },
+    {
+      "answers": {
+        "flip_and_check_binding": "yes",
+        "handle_fabric_at_needle": "no",
+        "trim_thread_with_scissors": "no"
+      },
+      "idx": 34,
+      "t": 17.0
+    },
+    {
+      "answers": {
+        "flip_and_check_binding": "yes",
+        "handle_fabric_at_needle": "no",
+        "trim_thread_with_scissors": "no"
+      },
+      "idx": 35,
+      "t": 17.5
+    },
+    {
+      "answers": {
+        "flip_and_check_binding": "yes",
+        "handle_fabric_at_needle": "no",
+        "trim_thread_with_scissors": "no"
+      },
+      "idx": 36,
+      "t": 18.0
+    },
+    {
+      "answers": {
+        "flip_and_check_binding": "yes",
+        "handle_fabric_at_needle": "no",
+        "trim_thread_with_scissors": "no"
+      },
+      "idx": 37,
+      "t": 18.5
+    },
+    {
+      "answers": {
+        "flip_and_check_binding": "yes",
+        "handle_fabric_at_needle": "no",
+        "trim_thread_with_scissors": "no"
+      },
+      "idx": 38,
+      "t": 19.0
+    },
+    {
+      "answers": {
+        "flip_and_check_binding": "yes",
+        "handle_fabric_at_needle": "no",
+        "trim_thread_with_scissors": "no"
+      },
+      "idx": 39,
+      "t": 19.5
+    }
+  ],
+  "prediction_type": "frame_question_answers",
+  "run_id": "20260711-factory_ego-opus48-online5-r1",
+  "schema_version": "1.0",
+  "unit_id": "f004_w006_edge_binding"
+}

@@ -1,0 +1,1482 @@
+[
+  {
+    "idx": 0,
+    "t": 0.0,
+    "raw": "{\"open_heat_press\":\"no\",\"move_fabric_to_table\":\"no\",\"peel_transfer_paper\":\"unclear\",\"smooth_arrange_shirt\":\"unclear\"}<turn|>",
+    "confidence": {
+      "open_heat_press": {
+        "probs": {
+          "yes": 0.0056,
+          "no": 0.9944
+        },
+        "argmax": "no"
+      },
+      "move_fabric_to_table": {
+        "probs": {
+          "yes": 0.0046,
+          "no": 0.9954
+        },
+        "argmax": "no"
+      },
+      "peel_transfer_paper": {
+        "probs": {
+          "yes": 0.0141,
+          "no": 0.9859
+        },
+        "argmax": "no"
+      },
+      "smooth_arrange_shirt": {
+        "probs": {
+          "yes": 0.0474,
+          "no": 0.9526
+        },
+        "argmax": "no"
+      }
+    },
+    "active_mb": 3551.1,
+    "peak_mb": 4524.6
+  },
+  {
+    "idx": 1,
+    "t": 0.5,
+    "raw": "{\"open_heat_press\":\"no\",\"move_fabric_to_table\":\"unclear\",\"peel_transfer_paper\":\"unclear\",\"smooth_arrange_shirt\":\"unclear\"}<turn|>",
+    "confidence": {
+      "open_heat_press": {
+        "probs": {
+          "yes": 0.0025,
+          "no": 0.9975
+        },
+        "argmax": "no"
+      },
+      "move_fabric_to_table": {
+        "probs": {
+          "yes": 0.0032,
+          "no": 0.9968
+        },
+        "argmax": "no"
+      },
+      "peel_transfer_paper": {
+        "probs": {
+          "yes": 0.0019,
+          "no": 0.9981
+        },
+        "argmax": "no"
+      },
+      "smooth_arrange_shirt": {
+        "probs": {
+          "yes": 0.1067,
+          "no": 0.8933
+        },
+        "argmax": "no"
+      }
+    },
+    "active_mb": 3551.1,
+    "peak_mb": 4524.6
+  },
+  {
+    "idx": 2,
+    "t": 1.0,
+    "raw": "{\"open_heat_press\":\"unclear\",\"move_fabric_to_table\":\"unclear\",\"peel_transfer_paper\":\"unclear\",\"smooth_arrange_shirt\":\"unclear\"}<turn|>",
+    "confidence": {
+      "open_heat_press": {
+        "probs": {
+          "yes": 0.0008,
+          "no": 0.9992
+        },
+        "argmax": "no"
+      },
+      "move_fabric_to_table": {
+        "probs": {
+          "yes": 0.0012,
+          "no": 0.9988
+        },
+        "argmax": "no"
+      },
+      "peel_transfer_paper": {
+        "probs": {
+          "yes": 0.0004,
+          "no": 0.9996
+        },
+        "argmax": "no"
+      },
+      "smooth_arrange_shirt": {
+        "probs": {
+          "yes": 0.3208,
+          "no": 0.6792
+        },
+        "argmax": "no"
+      }
+    },
+    "active_mb": 3551.1,
+    "peak_mb": 4524.6
+  },
+  {
+    "idx": 3,
+    "t": 1.5,
+    "raw": "{\"open_heat_press\":\"no\",\"move_fabric_to_table\":\"unclear\",\"peel_transfer_paper\":\"unclear\",\"smooth_arrange_shirt\":\"unclear\"}<turn|>",
+    "confidence": {
+      "open_heat_press": {
+        "probs": {
+          "yes": 0.2689,
+          "no": 0.7311
+        },
+        "argmax": "no"
+      },
+      "move_fabric_to_table": {
+        "probs": {
+          "yes": 0.0002,
+          "no": 0.9998
+        },
+        "argmax": "no"
+      },
+      "peel_transfer_paper": {
+        "probs": {
+          "yes": 0.0,
+          "no": 1.0
+        },
+        "argmax": "no"
+      },
+      "smooth_arrange_shirt": {
+        "probs": {
+          "yes": 0.0022,
+          "no": 0.9978
+        },
+        "argmax": "no"
+      }
+    },
+    "active_mb": 3551.1,
+    "peak_mb": 4524.6
+  },
+  {
+    "idx": 4,
+    "t": 2.0,
+    "raw": "{\"open_heat_press\":\"unclear\",\"move_fabric_to_table\":\"unclear\",\"peel_transfer_paper\":\"unclear\",\"smooth_arrange_shirt\":\"unclear\"}<turn|>",
+    "confidence": {
+      "open_heat_press": {
+        "probs": {
+          "yes": 0.003,
+          "no": 0.997
+        },
+        "argmax": "no"
+      },
+      "move_fabric_to_table": {
+        "probs": {
+          "yes": 0.0059,
+          "no": 0.9941
+        },
+        "argmax": "no"
+      },
+      "peel_transfer_paper": {
+        "probs": {
+          "yes": 0.0012,
+          "no": 0.9988
+        },
+        "argmax": "no"
+      },
+      "smooth_arrange_shirt": {
+        "probs": {
+          "yes": 0.0191,
+          "no": 0.9809
+        },
+        "argmax": "no"
+      }
+    },
+    "active_mb": 3551.1,
+    "peak_mb": 4524.6
+  },
+  {
+    "idx": 5,
+    "t": 2.5,
+    "raw": "{\"open_heat_press\":\"no\",\"move_fabric_to_table\":\"unclear\",\"peel_transfer_paper\":\"unclear\",\"smooth_arrange_shirt\":\"unclear\"}<turn|>",
+    "confidence": {
+      "open_heat_press": {
+        "probs": {
+          "yes": 0.5,
+          "no": 0.5
+        },
+        "argmax": "yes"
+      },
+      "move_fabric_to_table": {
+        "probs": {
+          "yes": 0.0002,
+          "no": 0.9998
+        },
+        "argmax": "no"
+      },
+      "peel_transfer_paper": {
+        "probs": {
+          "yes": 0.0,
+          "no": 1.0
+        },
+        "argmax": "no"
+      },
+      "smooth_arrange_shirt": {
+        "probs": {
+          "yes": 0.0003,
+          "no": 0.9997
+        },
+        "argmax": "no"
+      }
+    },
+    "active_mb": 3551.1,
+    "peak_mb": 4524.6
+  },
+  {
+    "idx": 6,
+    "t": 3.0,
+    "raw": "{\"open_heat_press\":\"no\",\"move_fabric_to_table\":\"unclear\",\"peel_transfer_paper\":\"unclear\",\"smooth_arrange_shirt\":\"unclear\"}<turn|>",
+    "confidence": {
+      "open_heat_press": {
+        "probs": {
+          "yes": 0.2942,
+          "no": 0.7058
+        },
+        "argmax": "no"
+      },
+      "move_fabric_to_table": {
+        "probs": {
+          "yes": 0.0001,
+          "no": 0.9999
+        },
+        "argmax": "no"
+      },
+      "peel_transfer_paper": {
+        "probs": {
+          "yes": 0.0,
+          "no": 1.0
+        },
+        "argmax": "no"
+      },
+      "smooth_arrange_shirt": {
+        "probs": {
+          "yes": 0.0003,
+          "no": 0.9997
+        },
+        "argmax": "no"
+      }
+    },
+    "active_mb": 3551.1,
+    "peak_mb": 4524.6
+  },
+  {
+    "idx": 7,
+    "t": 3.5,
+    "raw": "{\"open_heat_press\":\"no\",\"move_fabric_to_table\":\"unclear\",\"peel_transfer_paper\":\"unclear\",\"smooth_arrange_shirt\":\"unclear\"}<turn|>",
+    "confidence": {
+      "open_heat_press": {
+        "probs": {
+          "yes": 0.018,
+          "no": 0.982
+        },
+        "argmax": "no"
+      },
+      "move_fabric_to_table": {
+        "probs": {
+          "yes": 0.0141,
+          "no": 0.9859
+        },
+        "argmax": "no"
+      },
+      "peel_transfer_paper": {
+        "probs": {
+          "yes": 0.0015,
+          "no": 0.9985
+        },
+        "argmax": "no"
+      },
+      "smooth_arrange_shirt": {
+        "probs": {
+          "yes": 0.0067,
+          "no": 0.9933
+        },
+        "argmax": "no"
+      }
+    },
+    "active_mb": 3551.1,
+    "peak_mb": 4524.6
+  },
+  {
+    "idx": 8,
+    "t": 4.0,
+    "raw": "{\"open_heat_press\":\"no\",\"move_fabric_to_table\":\"no\",\"peel_transfer_paper\":\"unclear\",\"smooth_arrange_shirt\":\"unclear\"}<turn|>",
+    "confidence": {
+      "open_heat_press": {
+        "probs": {
+          "yes": 0.0012,
+          "no": 0.9988
+        },
+        "argmax": "no"
+      },
+      "move_fabric_to_table": {
+        "probs": {
+          "yes": 0.0001,
+          "no": 0.9999
+        },
+        "argmax": "no"
+      },
+      "peel_transfer_paper": {
+        "probs": {
+          "yes": 0.0,
+          "no": 1.0
+        },
+        "argmax": "no"
+      },
+      "smooth_arrange_shirt": {
+        "probs": {
+          "yes": 0.0019,
+          "no": 0.9981
+        },
+        "argmax": "no"
+      }
+    },
+    "active_mb": 3551.1,
+    "peak_mb": 4524.6
+  },
+  {
+    "idx": 9,
+    "t": 4.5,
+    "raw": "{\"open_heat_press\":\"unclear\",\"move_fabric_to_table\":\"unclear\",\"peel_transfer_paper\":\"unclear\",\"smooth_arrange_shirt\":\"unclear\"}<turn|>",
+    "confidence": {
+      "open_heat_press": {
+        "probs": {
+          "yes": 0.0011,
+          "no": 0.9989
+        },
+        "argmax": "no"
+      },
+      "move_fabric_to_table": {
+        "probs": {
+          "yes": 0.0006,
+          "no": 0.9994
+        },
+        "argmax": "no"
+      },
+      "peel_transfer_paper": {
+        "probs": {
+          "yes": 0.0028,
+          "no": 0.9972
+        },
+        "argmax": "no"
+      },
+      "smooth_arrange_shirt": {
+        "probs": {
+          "yes": 0.2337,
+          "no": 0.7663
+        },
+        "argmax": "no"
+      }
+    },
+    "active_mb": 3551.1,
+    "peak_mb": 4524.6
+  },
+  {
+    "idx": 10,
+    "t": 5.0,
+    "raw": "{\"open_heat_press\":\"unclear\",\"move_fabric_to_table\":\"unclear\",\"peel_transfer_paper\":\"unclear\",\"smooth_arrange_shirt\":\"unclear\"}<turn|>",
+    "confidence": {
+      "open_heat_press": {
+        "probs": {
+          "yes": 0.0124,
+          "no": 0.9876
+        },
+        "argmax": "no"
+      },
+      "move_fabric_to_table": {
+        "probs": {
+          "yes": 0.0036,
+          "no": 0.9964
+        },
+        "argmax": "no"
+      },
+      "peel_transfer_paper": {
+        "probs": {
+          "yes": 0.0016,
+          "no": 0.9984
+        },
+        "argmax": "no"
+      },
+      "smooth_arrange_shirt": {
+        "probs": {
+          "yes": 0.0675,
+          "no": 0.9325
+        },
+        "argmax": "no"
+      }
+    },
+    "active_mb": 3551.1,
+    "peak_mb": 4528.8
+  },
+  {
+    "idx": 11,
+    "t": 5.5,
+    "raw": "{\"open_heat_press\":\"unclear\",\"move_fabric_to_table\":\"unclear\",\"peel_transfer_paper\":\"unclear\",\"smooth_arrange_shirt\":\"unclear\"}<turn|>",
+    "confidence": {
+      "open_heat_press": {
+        "probs": {
+          "yes": 0.0026,
+          "no": 0.9974
+        },
+        "argmax": "no"
+      },
+      "move_fabric_to_table": {
+        "probs": {
+          "yes": 0.018,
+          "no": 0.982
+        },
+        "argmax": "no"
+      },
+      "peel_transfer_paper": {
+        "probs": {
+          "yes": 0.6225,
+          "no": 0.3775
+        },
+        "argmax": "yes"
+      },
+      "smooth_arrange_shirt": {
+        "probs": {
+          "yes": 0.637,
+          "no": 0.363
+        },
+        "argmax": "yes"
+      }
+    },
+    "active_mb": 3551.1,
+    "peak_mb": 4528.8
+  },
+  {
+    "idx": 12,
+    "t": 6.0,
+    "raw": "{\"open_heat_press\":\"unclear\",\"move_fabric_to_table\":\"unclear\",\"peel_transfer_paper\":\"unclear\",\"smooth_arrange_shirt\":\"unclear\"}<turn|>",
+    "confidence": {
+      "open_heat_press": {
+        "probs": {
+          "yes": 0.0052,
+          "no": 0.9948
+        },
+        "argmax": "no"
+      },
+      "move_fabric_to_table": {
+        "probs": {
+          "yes": 0.0059,
+          "no": 0.9941
+        },
+        "argmax": "no"
+      },
+      "peel_transfer_paper": {
+        "probs": {
+          "yes": 0.001,
+          "no": 0.999
+        },
+        "argmax": "no"
+      },
+      "smooth_arrange_shirt": {
+        "probs": {
+          "yes": 0.148,
+          "no": 0.852
+        },
+        "argmax": "no"
+      }
+    },
+    "active_mb": 3551.1,
+    "peak_mb": 4524.6
+  },
+  {
+    "idx": 13,
+    "t": 6.5,
+    "raw": "{\"open_heat_press\":\"unclear\",\"move_fabric_to_table\":\"unclear\",\"peel_transfer_paper\":\"unclear\",\"smooth_arrange_shirt\":\"unclear\"}<turn|>",
+    "confidence": {
+      "open_heat_press": {
+        "probs": {
+          "yes": 0.133,
+          "no": 0.867
+        },
+        "argmax": "no"
+      },
+      "move_fabric_to_table": {
+        "probs": {
+          "yes": 0.0013,
+          "no": 0.9987
+        },
+        "argmax": "no"
+      },
+      "peel_transfer_paper": {
+        "probs": {
+          "yes": 0.0025,
+          "no": 0.9975
+        },
+        "argmax": "no"
+      },
+      "smooth_arrange_shirt": {
+        "probs": {
+          "yes": 0.0675,
+          "no": 0.9325
+        },
+        "argmax": "no"
+      }
+    },
+    "active_mb": 3551.1,
+    "peak_mb": 4524.6
+  },
+  {
+    "idx": 14,
+    "t": 7.0,
+    "raw": "{\"open_heat_press\":\"no\",\"move_fabric_to_table\":\"unclear\",\"peel_transfer_paper\":\"unclear\",\"smooth_arrange_shirt\":\"unclear\"}<turn|>",
+    "confidence": {
+      "open_heat_press": {
+        "probs": {
+          "yes": 0.0001,
+          "no": 0.9999
+        },
+        "argmax": "no"
+      },
+      "move_fabric_to_table": {
+        "probs": {
+          "yes": 0.0331,
+          "no": 0.9669
+        },
+        "argmax": "no"
+      },
+      "peel_transfer_paper": {
+        "probs": {
+          "yes": 0.0012,
+          "no": 0.9988
+        },
+        "argmax": "no"
+      },
+      "smooth_arrange_shirt": {
+        "probs": {
+          "yes": 0.3486,
+          "no": 0.6514
+        },
+        "argmax": "no"
+      }
+    },
+    "active_mb": 3551.1,
+    "peak_mb": 4524.6
+  },
+  {
+    "idx": 15,
+    "t": 7.5,
+    "raw": "{\"open_heat_press\":\"no\",\"move_fabric_to_table\":\"no\",\"peel_transfer_paper\":\"unclear\",\"smooth_arrange_shirt\":\"unclear\"}<turn|>",
+    "confidence": {
+      "open_heat_press": {
+        "probs": {
+          "yes": 0.0001,
+          "no": 0.9999
+        },
+        "argmax": "no"
+      },
+      "move_fabric_to_table": {
+        "probs": {
+          "yes": 0.001,
+          "no": 0.999
+        },
+        "argmax": "no"
+      },
+      "peel_transfer_paper": {
+        "probs": {
+          "yes": 0.0001,
+          "no": 0.9999
+        },
+        "argmax": "no"
+      },
+      "smooth_arrange_shirt": {
+        "probs": {
+          "yes": 0.0097,
+          "no": 0.9903
+        },
+        "argmax": "no"
+      }
+    },
+    "active_mb": 3551.1,
+    "peak_mb": 4524.6
+  },
+  {
+    "idx": 16,
+    "t": 8.0,
+    "raw": "{\"open_heat_press\":\"no\",\"move_fabric_to_table\":\"no\",\"peel_transfer_paper\":\"unclear\",\"smooth_arrange_shirt\":\"unclear\"}<turn|>",
+    "confidence": {
+      "open_heat_press": {
+        "probs": {
+          "yes": 0.0025,
+          "no": 0.9975
+        },
+        "argmax": "no"
+      },
+      "move_fabric_to_table": {
+        "probs": {
+          "yes": 0.018,
+          "no": 0.982
+        },
+        "argmax": "no"
+      },
+      "peel_transfer_paper": {
+        "probs": {
+          "yes": 0.0,
+          "no": 1.0
+        },
+        "argmax": "no"
+      },
+      "smooth_arrange_shirt": {
+        "probs": {
+          "yes": 0.018,
+          "no": 0.982
+        },
+        "argmax": "no"
+      }
+    },
+    "active_mb": 3551.1,
+    "peak_mb": 4524.6
+  },
+  {
+    "idx": 17,
+    "t": 8.5,
+    "raw": "{\"open_heat_press\":\"no\",\"move_fabric_to_table\":\"no\",\"peel_transfer_paper\":\"unclear\",\"smooth_arrange_shirt\":\"unclear\"}<turn|>",
+    "confidence": {
+      "open_heat_press": {
+        "probs": {
+          "yes": 0.0009,
+          "no": 0.9991
+        },
+        "argmax": "no"
+      },
+      "move_fabric_to_table": {
+        "probs": {
+          "yes": 0.2018,
+          "no": 0.7982
+        },
+        "argmax": "no"
+      },
+      "peel_transfer_paper": {
+        "probs": {
+          "yes": 0.0016,
+          "no": 0.9984
+        },
+        "argmax": "no"
+      },
+      "smooth_arrange_shirt": {
+        "probs": {
+          "yes": 0.7549,
+          "no": 0.2451
+        },
+        "argmax": "yes"
+      }
+    },
+    "active_mb": 3551.1,
+    "peak_mb": 4524.6
+  },
+  {
+    "idx": 18,
+    "t": 9.0,
+    "raw": "{\"open_heat_press\":\"no\",\"move_fabric_to_table\":\"no\",\"peel_transfer_paper\":\"unclear\",\"smooth_arrange_shirt\":\"unclear\"}<turn|>",
+    "confidence": {
+      "open_heat_press": {
+        "probs": {
+          "yes": 0.0002,
+          "no": 0.9998
+        },
+        "argmax": "no"
+      },
+      "move_fabric_to_table": {
+        "probs": {
+          "yes": 0.0097,
+          "no": 0.9903
+        },
+        "argmax": "no"
+      },
+      "peel_transfer_paper": {
+        "probs": {
+          "yes": 0.0003,
+          "no": 0.9997
+        },
+        "argmax": "no"
+      },
+      "smooth_arrange_shirt": {
+        "probs": {
+          "yes": 0.0097,
+          "no": 0.9903
+        },
+        "argmax": "no"
+      }
+    },
+    "active_mb": 3551.1,
+    "peak_mb": 4524.6
+  },
+  {
+    "idx": 19,
+    "t": 9.5,
+    "raw": "{\"open_heat_press\":\"no\",\"move_fabric_to_table\":\"no\",\"peel_transfer_paper\":\"unclear\",\"smooth_arrange_shirt\":\"unclear\"}<turn|>",
+    "confidence": {
+      "open_heat_press": {
+        "probs": {
+          "yes": 0.0,
+          "no": 1.0
+        },
+        "argmax": "no"
+      },
+      "move_fabric_to_table": {
+        "probs": {
+          "yes": 0.0293,
+          "no": 0.9707
+        },
+        "argmax": "no"
+      },
+      "peel_transfer_paper": {
+        "probs": {
+          "yes": 0.0,
+          "no": 1.0
+        },
+        "argmax": "no"
+      },
+      "smooth_arrange_shirt": {
+        "probs": {
+          "yes": 0.2018,
+          "no": 0.7982
+        },
+        "argmax": "no"
+      }
+    },
+    "active_mb": 3551.1,
+    "peak_mb": 4524.6
+  },
+  {
+    "idx": 20,
+    "t": 10.0,
+    "raw": "{\"open_heat_press\":\"no\",\"move_fabric_to_table\":\"unclear\",\"peel_transfer_paper\":\"unclear\",\"smooth_arrange_shirt\":\"unclear\"}<turn|>",
+    "confidence": {
+      "open_heat_press": {
+        "probs": {
+          "yes": 0.0004,
+          "no": 0.9996
+        },
+        "argmax": "no"
+      },
+      "move_fabric_to_table": {
+        "probs": {
+          "yes": 0.0067,
+          "no": 0.9933
+        },
+        "argmax": "no"
+      },
+      "peel_transfer_paper": {
+        "probs": {
+          "yes": 0.0004,
+          "no": 0.9996
+        },
+        "argmax": "no"
+      },
+      "smooth_arrange_shirt": {
+        "probs": {
+          "yes": 0.1645,
+          "no": 0.8355
+        },
+        "argmax": "no"
+      }
+    },
+    "active_mb": 3551.1,
+    "peak_mb": 4525.8
+  },
+  {
+    "idx": 21,
+    "t": 10.5,
+    "raw": "{\"open_heat_press\":\"no\",\"move_fabric_to_table\":\"no\",\"peel_transfer_paper\":\"unclear\",\"smooth_arrange_shirt\":\"unclear\"}<turn|>",
+    "confidence": {
+      "open_heat_press": {
+        "probs": {
+          "yes": 0.0017,
+          "no": 0.9983
+        },
+        "argmax": "no"
+      },
+      "move_fabric_to_table": {
+        "probs": {
+          "yes": 0.3208,
+          "no": 0.6792
+        },
+        "argmax": "no"
+      },
+      "peel_transfer_paper": {
+        "probs": {
+          "yes": 0.0001,
+          "no": 0.9999
+        },
+        "argmax": "no"
+      },
+      "smooth_arrange_shirt": {
+        "probs": {
+          "yes": 0.3775,
+          "no": 0.6225
+        },
+        "argmax": "no"
+      }
+    },
+    "active_mb": 3551.1,
+    "peak_mb": 4525.8
+  },
+  {
+    "idx": 22,
+    "t": 11.0,
+    "raw": "{\"open_heat_press\":\"unclear\",\"move_fabric_to_table\":\"unclear\",\"peel_transfer_paper\":\"unclear\",\"smooth_arrange_shirt\":\"unclear\"}<turn|>",
+    "confidence": {
+      "open_heat_press": {
+        "probs": {
+          "yes": 0.0002,
+          "no": 0.9998
+        },
+        "argmax": "no"
+      },
+      "move_fabric_to_table": {
+        "probs": {
+          "yes": 0.0041,
+          "no": 0.9959
+        },
+        "argmax": "no"
+      },
+      "peel_transfer_paper": {
+        "probs": {
+          "yes": 0.0059,
+          "no": 0.9941
+        },
+        "argmax": "no"
+      },
+      "smooth_arrange_shirt": {
+        "probs": {
+          "yes": 0.1009,
+          "no": 0.8991
+        },
+        "argmax": "no"
+      }
+    },
+    "active_mb": 3551.1,
+    "peak_mb": 4525.8
+  },
+  {
+    "idx": 23,
+    "t": 11.5,
+    "raw": "{\"open_heat_press\":\"unclear\",\"move_fabric_to_table\":\"unclear\",\"peel_transfer_paper\":\"unclear\",\"smooth_arrange_shirt\":\"unclear\"}<turn|>",
+    "confidence": {
+      "open_heat_press": {
+        "probs": {
+          "yes": 0.0103,
+          "no": 0.9897
+        },
+        "argmax": "no"
+      },
+      "move_fabric_to_table": {
+        "probs": {
+          "yes": 0.0009,
+          "no": 0.9991
+        },
+        "argmax": "no"
+      },
+      "peel_transfer_paper": {
+        "probs": {
+          "yes": 0.0041,
+          "no": 0.9959
+        },
+        "argmax": "no"
+      },
+      "smooth_arrange_shirt": {
+        "probs": {
+          "yes": 0.1128,
+          "no": 0.8872
+        },
+        "argmax": "no"
+      }
+    },
+    "active_mb": 3551.1,
+    "peak_mb": 4525.8
+  },
+  {
+    "idx": 24,
+    "t": 12.0,
+    "raw": "{\"open_heat_press\":\"unclear\",\"move_fabric_to_table\":\"unclear\",\"peel_transfer_paper\":\"unclear\",\"smooth_arrange_shirt\":\"unclear\"}<turn|>",
+    "confidence": {
+      "open_heat_press": {
+        "probs": {
+          "yes": 0.0046,
+          "no": 0.9954
+        },
+        "argmax": "no"
+      },
+      "move_fabric_to_table": {
+        "probs": {
+          "yes": 0.0005,
+          "no": 0.9995
+        },
+        "argmax": "no"
+      },
+      "peel_transfer_paper": {
+        "probs": {
+          "yes": 0.0017,
+          "no": 0.9983
+        },
+        "argmax": "no"
+      },
+      "smooth_arrange_shirt": {
+        "probs": {
+          "yes": 0.9903,
+          "no": 0.0097
+        },
+        "argmax": "yes"
+      }
+    },
+    "active_mb": 3551.1,
+    "peak_mb": 4525.8
+  },
+  {
+    "idx": 25,
+    "t": 12.5,
+    "raw": "{\"open_heat_press\":\"unclear\",\"move_fabric_to_table\":\"unclear\",\"peel_transfer_paper\":\"unclear\",\"smooth_arrange_shirt\":\"unclear\"}<turn|>",
+    "confidence": {
+      "open_heat_press": {
+        "probs": {
+          "yes": 0.001,
+          "no": 0.999
+        },
+        "argmax": "no"
+      },
+      "move_fabric_to_table": {
+        "probs": {
+          "yes": 0.0008,
+          "no": 0.9992
+        },
+        "argmax": "no"
+      },
+      "peel_transfer_paper": {
+        "probs": {
+          "yes": 0.0026,
+          "no": 0.9974
+        },
+        "argmax": "no"
+      },
+      "smooth_arrange_shirt": {
+        "probs": {
+          "yes": 0.9149,
+          "no": 0.0851
+        },
+        "argmax": "yes"
+      }
+    },
+    "active_mb": 3551.1,
+    "peak_mb": 4525.8
+  },
+  {
+    "idx": 26,
+    "t": 13.0,
+    "raw": "{\"open_heat_press\":\"no\",\"move_fabric_to_table\":\"unclear\",\"peel_transfer_paper\":\"unclear\",\"smooth_arrange_shirt\":\"unclear\"}<turn|>",
+    "confidence": {
+      "open_heat_press": {
+        "probs": {
+          "yes": 0.0012,
+          "no": 0.9988
+        },
+        "argmax": "no"
+      },
+      "move_fabric_to_table": {
+        "probs": {
+          "yes": 0.0002,
+          "no": 0.9998
+        },
+        "argmax": "no"
+      },
+      "peel_transfer_paper": {
+        "probs": {
+          "yes": 0.0002,
+          "no": 0.9998
+        },
+        "argmax": "no"
+      },
+      "smooth_arrange_shirt": {
+        "probs": {
+          "yes": 0.0076,
+          "no": 0.9924
+        },
+        "argmax": "no"
+      }
+    },
+    "active_mb": 3551.1,
+    "peak_mb": 4525.8
+  },
+  {
+    "idx": 27,
+    "t": 13.5,
+    "raw": "{\"open_heat_press\":\"no\",\"move_fabric_to_table\":\"no\",\"peel_transfer_paper\":\"unclear\",\"smooth_arrange_shirt\":\"unclear\"}<turn|>",
+    "confidence": {
+      "open_heat_press": {
+        "probs": {
+          "yes": 0.0014,
+          "no": 0.9986
+        },
+        "argmax": "no"
+      },
+      "move_fabric_to_table": {
+        "probs": {
+          "yes": 0.0017,
+          "no": 0.9983
+        },
+        "argmax": "no"
+      },
+      "peel_transfer_paper": {
+        "probs": {
+          "yes": 0.0,
+          "no": 1.0
+        },
+        "argmax": "no"
+      },
+      "smooth_arrange_shirt": {
+        "probs": {
+          "yes": 0.4688,
+          "no": 0.5312
+        },
+        "argmax": "no"
+      }
+    },
+    "active_mb": 3551.1,
+    "peak_mb": 4525.8
+  },
+  {
+    "idx": 28,
+    "t": 14.0,
+    "raw": "{\"open_heat_press\":\"unclear\",\"move_fabric_to_table\":\"unclear\",\"peel_transfer_paper\":\"unclear\",\"smooth_arrange_shirt\":\"unclear\"}<turn|>",
+    "confidence": {
+      "open_heat_press": {
+        "probs": {
+          "yes": 0.0001,
+          "no": 0.9999
+        },
+        "argmax": "no"
+      },
+      "move_fabric_to_table": {
+        "probs": {
+          "yes": 0.0007,
+          "no": 0.9993
+        },
+        "argmax": "no"
+      },
+      "peel_transfer_paper": {
+        "probs": {
+          "yes": 0.0008,
+          "no": 0.9992
+        },
+        "argmax": "no"
+      },
+      "smooth_arrange_shirt": {
+        "probs": {
+          "yes": 0.7982,
+          "no": 0.2018
+        },
+        "argmax": "yes"
+      }
+    },
+    "active_mb": 3551.1,
+    "peak_mb": 4525.8
+  },
+  {
+    "idx": 29,
+    "t": 14.5,
+    "raw": "{\"open_heat_press\":\"no\",\"move_fabric_to_table\":\"no\",\"peel_transfer_paper\":\"unclear\",\"smooth_arrange_shirt\":\"unclear\"}<turn|>",
+    "confidence": {
+      "open_heat_press": {
+        "probs": {
+          "yes": 0.0004,
+          "no": 0.9996
+        },
+        "argmax": "no"
+      },
+      "move_fabric_to_table": {
+        "probs": {
+          "yes": 0.0001,
+          "no": 0.9999
+        },
+        "argmax": "no"
+      },
+      "peel_transfer_paper": {
+        "probs": {
+          "yes": 0.0001,
+          "no": 0.9999
+        },
+        "argmax": "no"
+      },
+      "smooth_arrange_shirt": {
+        "probs": {
+          "yes": 0.0203,
+          "no": 0.9797
+        },
+        "argmax": "no"
+      }
+    },
+    "active_mb": 3551.1,
+    "peak_mb": 4525.8
+  },
+  {
+    "idx": 30,
+    "t": 15.0,
+    "raw": "{\"open_heat_press\":\"unclear\",\"move_fabric_to_table\":\"unclear\",\"peel_transfer_paper\":\"unclear\",\"smooth_arrange_shirt\":\"unclear\"}<turn|>",
+    "confidence": {
+      "open_heat_press": {
+        "probs": {
+          "yes": 0.0071,
+          "no": 0.9929
+        },
+        "argmax": "no"
+      },
+      "move_fabric_to_table": {
+        "probs": {
+          "yes": 0.0038,
+          "no": 0.9962
+        },
+        "argmax": "no"
+      },
+      "peel_transfer_paper": {
+        "probs": {
+          "yes": 0.0076,
+          "no": 0.9924
+        },
+        "argmax": "no"
+      },
+      "smooth_arrange_shirt": {
+        "probs": {
+          "yes": 0.6514,
+          "no": 0.3486
+        },
+        "argmax": "yes"
+      }
+    },
+    "active_mb": 3551.1,
+    "peak_mb": 4525.8
+  },
+  {
+    "idx": 31,
+    "t": 15.5,
+    "raw": "{\"open_heat_press\":\"unclear\",\"move_fabric_to_table\":\"unclear\",\"peel_transfer_paper\":\"unclear\",\"smooth_arrange_shirt\":\"unclear\"}<turn|>",
+    "confidence": {
+      "open_heat_press": {
+        "probs": {
+          "yes": 0.0038,
+          "no": 0.9962
+        },
+        "argmax": "no"
+      },
+      "move_fabric_to_table": {
+        "probs": {
+          "yes": 0.0063,
+          "no": 0.9937
+        },
+        "argmax": "no"
+      },
+      "peel_transfer_paper": {
+        "probs": {
+          "yes": 0.0032,
+          "no": 0.9968
+        },
+        "argmax": "no"
+      },
+      "smooth_arrange_shirt": {
+        "probs": {
+          "yes": 0.4073,
+          "no": 0.5927
+        },
+        "argmax": "no"
+      }
+    },
+    "active_mb": 3551.1,
+    "peak_mb": 4525.8
+  },
+  {
+    "idx": 32,
+    "t": 16.0,
+    "raw": "{\"open_heat_press\":\"no\",\"move_fabric_to_table\":\"no\",\"peel_transfer_paper\":\"unclear\",\"smooth_arrange_shirt\":\"unclear\"}<turn|>",
+    "confidence": {
+      "open_heat_press": {
+        "probs": {
+          "yes": 0.003,
+          "no": 0.997
+        },
+        "argmax": "no"
+      },
+      "move_fabric_to_table": {
+        "probs": {
+          "yes": 0.4073,
+          "no": 0.5927
+        },
+        "argmax": "no"
+      },
+      "peel_transfer_paper": {
+        "probs": {
+          "yes": 0.0,
+          "no": 1.0
+        },
+        "argmax": "no"
+      },
+      "smooth_arrange_shirt": {
+        "probs": {
+          "yes": 0.0017,
+          "no": 0.9983
+        },
+        "argmax": "no"
+      }
+    },
+    "active_mb": 3551.1,
+    "peak_mb": 4525.8
+  },
+  {
+    "idx": 33,
+    "t": 16.5,
+    "raw": "{\"open_heat_press\":\"unclear\",\"move_fabric_to_table\":\"unclear\",\"peel_transfer_paper\":\"unclear\",\"smooth_arrange_shirt\":\"unclear\"}<turn|>",
+    "confidence": {
+      "open_heat_press": {
+        "probs": {
+          "yes": 0.0002,
+          "no": 0.9998
+        },
+        "argmax": "no"
+      },
+      "move_fabric_to_table": {
+        "probs": {
+          "yes": 0.0016,
+          "no": 0.9984
+        },
+        "argmax": "no"
+      },
+      "peel_transfer_paper": {
+        "probs": {
+          "yes": 0.003,
+          "no": 0.997
+        },
+        "argmax": "no"
+      },
+      "smooth_arrange_shirt": {
+        "probs": {
+          "yes": 0.5622,
+          "no": 0.4378
+        },
+        "argmax": "yes"
+      }
+    },
+    "active_mb": 3551.1,
+    "peak_mb": 4525.8
+  },
+  {
+    "idx": 34,
+    "t": 17.0,
+    "raw": "{\"open_heat_press\":\"no\",\"move_fabric_to_table\":\"unclear\",\"peel_transfer_paper\":\"unclear\",\"smooth_arrange_shirt\":\"unclear\"}<turn|>",
+    "confidence": {
+      "open_heat_press": {
+        "probs": {
+          "yes": 0.0007,
+          "no": 0.9993
+        },
+        "argmax": "no"
+      },
+      "move_fabric_to_table": {
+        "probs": {
+          "yes": 0.0003,
+          "no": 0.9997
+        },
+        "argmax": "no"
+      },
+      "peel_transfer_paper": {
+        "probs": {
+          "yes": 0.0002,
+          "no": 0.9998
+        },
+        "argmax": "no"
+      },
+      "smooth_arrange_shirt": {
+        "probs": {
+          "yes": 0.4073,
+          "no": 0.5927
+        },
+        "argmax": "no"
+      }
+    },
+    "active_mb": 3551.1,
+    "peak_mb": 4525.8
+  },
+  {
+    "idx": 35,
+    "t": 17.5,
+    "raw": "{\"open_heat_press\":\"no\",\"move_fabric_to_table\":\"unclear\",\"peel_transfer_paper\":\"unclear\",\"smooth_arrange_shirt\":\"unclear\"}<turn|>",
+    "confidence": {
+      "open_heat_press": {
+        "probs": {
+          "yes": 0.0006,
+          "no": 0.9994
+        },
+        "argmax": "no"
+      },
+      "move_fabric_to_table": {
+        "probs": {
+          "yes": 0.0001,
+          "no": 0.9999
+        },
+        "argmax": "no"
+      },
+      "peel_transfer_paper": {
+        "probs": {
+          "yes": 0.0,
+          "no": 1.0
+        },
+        "argmax": "no"
+      },
+      "smooth_arrange_shirt": {
+        "probs": {
+          "yes": 0.011,
+          "no": 0.989
+        },
+        "argmax": "no"
+      }
+    },
+    "active_mb": 3551.1,
+    "peak_mb": 4525.8
+  },
+  {
+    "idx": 36,
+    "t": 18.0,
+    "raw": "{\"open_heat_press\":\"no\",\"move_fabric_to_table\":\"unclear\",\"peel_transfer_paper\":\"unclear\",\"smooth_arrange_shirt\":\"unclear\"}<turn|>",
+    "confidence": {
+      "open_heat_press": {
+        "probs": {
+          "yes": 0.0005,
+          "no": 0.9995
+        },
+        "argmax": "no"
+      },
+      "move_fabric_to_table": {
+        "probs": {
+          "yes": 0.0002,
+          "no": 0.9998
+        },
+        "argmax": "no"
+      },
+      "peel_transfer_paper": {
+        "probs": {
+          "yes": 0.0,
+          "no": 1.0
+        },
+        "argmax": "no"
+      },
+      "smooth_arrange_shirt": {
+        "probs": {
+          "yes": 0.0041,
+          "no": 0.9959
+        },
+        "argmax": "no"
+      }
+    },
+    "active_mb": 3551.1,
+    "peak_mb": 4525.8
+  },
+  {
+    "idx": 37,
+    "t": 18.5,
+    "raw": "{\"open_heat_press\":\"no\",\"move_fabric_to_table\":\"unclear\",\"peel_transfer_paper\":\"unclear\",\"smooth_arrange_shirt\":\"unclear\"}<turn|>",
+    "confidence": {
+      "open_heat_press": {
+        "probs": {
+          "yes": 0.0005,
+          "no": 0.9995
+        },
+        "argmax": "no"
+      },
+      "move_fabric_to_table": {
+        "probs": {
+          "yes": 0.011,
+          "no": 0.989
+        },
+        "argmax": "no"
+      },
+      "peel_transfer_paper": {
+        "probs": {
+          "yes": 0.0003,
+          "no": 0.9997
+        },
+        "argmax": "no"
+      },
+      "smooth_arrange_shirt": {
+        "probs": {
+          "yes": 0.2451,
+          "no": 0.7549
+        },
+        "argmax": "no"
+      }
+    },
+    "active_mb": 3551.1,
+    "peak_mb": 4525.8
+  },
+  {
+    "idx": 38,
+    "t": 19.0,
+    "raw": "{\"open_heat_press\":\"no\",\"move_fabric_to_table\":\"no\",\"peel_transfer_paper\":\"unclear\",\"smooth_arrange_shirt\":\"yes\"}<turn|>",
+    "confidence": {
+      "open_heat_press": {
+        "probs": {
+          "yes": 0.0,
+          "no": 1.0
+        },
+        "argmax": "no"
+      },
+      "move_fabric_to_table": {
+        "probs": {
+          "yes": 0.0293,
+          "no": 0.9707
+        },
+        "argmax": "no"
+      },
+      "peel_transfer_paper": {
+        "probs": {
+          "yes": 0.0006,
+          "no": 0.9994
+        },
+        "argmax": "no"
+      },
+      "smooth_arrange_shirt": {
+        "probs": {
+          "yes": 0.9399,
+          "no": 0.0601
+        },
+        "argmax": "yes"
+      }
+    },
+    "active_mb": 3551.1,
+    "peak_mb": 4525.8
+  },
+  {
+    "idx": 39,
+    "t": 19.5,
+    "raw": "{\"open_heat_press\":\"unclear\",\"move_fabric_to_table\":\"unclear\",\"peel_transfer_paper\":\"unclear\",\"smooth_arrange_shirt\":\"unclear\"}<turn|>",
+    "confidence": {
+      "open_heat_press": {
+        "probs": {
+          "yes": 0.0086,
+          "no": 0.9914
+        },
+        "argmax": "no"
+      },
+      "move_fabric_to_table": {
+        "probs": {
+          "yes": 0.0067,
+          "no": 0.9933
+        },
+        "argmax": "no"
+      },
+      "peel_transfer_paper": {
+        "probs": {
+          "yes": 0.001,
+          "no": 0.999
+        },
+        "argmax": "no"
+      },
+      "smooth_arrange_shirt": {
+        "probs": {
+          "yes": 0.1009,
+          "no": 0.8991
+        },
+        "argmax": "no"
+      }
+    },
+    "active_mb": 3551.1,
+    "peak_mb": 4525.8
+  }
+]

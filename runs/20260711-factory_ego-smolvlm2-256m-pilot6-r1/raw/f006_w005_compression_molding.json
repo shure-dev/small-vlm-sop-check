@@ -1,0 +1,814 @@
+[
+  {
+    "idx": 0,
+    "t": 0.0,
+    "raw": "{\"place_mold_on_press\":\"\",\"operate_control_panel\":\"\",\"stand_by_press\":\"\"}<end_of_utterance>",
+    "confidence": {
+      "place_mold_on_press": {
+        "probs": {
+          "yes": 0.5322,
+          "no": 0.4678
+        },
+        "argmax": "yes"
+      },
+      "operate_control_panel": {
+        "probs": {
+          "yes": 0.7548,
+          "no": 0.2452
+        },
+        "argmax": "yes"
+      },
+      "stand_by_press": {
+        "probs": {
+          "yes": 0.9383,
+          "no": 0.0617
+        },
+        "argmax": "yes"
+      }
+    }
+  },
+  {
+    "idx": 1,
+    "t": 0.5,
+    "raw": "{\"place_mold_on_press\":\"\",\"operate_control_panel\":\"\",\"stand_by_press\":\"yes\"}<end_of_utterance>",
+    "confidence": {
+      "place_mold_on_press": {
+        "probs": {
+          "yes": 0.5487,
+          "no": 0.4513
+        },
+        "argmax": "yes"
+      },
+      "operate_control_panel": {
+        "probs": {
+          "yes": 0.7408,
+          "no": 0.2592
+        },
+        "argmax": "yes"
+      },
+      "stand_by_press": {
+        "probs": {
+          "yes": 0.9401,
+          "no": 0.0599
+        },
+        "argmax": "yes"
+      }
+    }
+  },
+  {
+    "idx": 2,
+    "t": 1.0,
+    "raw": "{\"place_mold_on_press\":\"\",\"operate_control_panel\":\"\",\"stand_by_press\":\"yes\"}<end_of_utterance>",
+    "confidence": {
+      "place_mold_on_press": {
+        "probs": {
+          "yes": 0.5753,
+          "no": 0.4247
+        },
+        "argmax": "yes"
+      },
+      "operate_control_panel": {
+        "probs": {
+          "yes": 0.699,
+          "no": 0.301
+        },
+        "argmax": "yes"
+      },
+      "stand_by_press": {
+        "probs": {
+          "yes": 0.9346,
+          "no": 0.0654
+        },
+        "argmax": "yes"
+      }
+    }
+  },
+  {
+    "idx": 3,
+    "t": 1.5,
+    "raw": "{\"place_mold_on_press\":\"\",\"operate_control_panel\":\"\",\"stand_by_press\":\"yes\"}<end_of_utterance>",
+    "confidence": {
+      "place_mold_on_press": {
+        "probs": {
+          "yes": 0.5937,
+          "no": 0.4063
+        },
+        "argmax": "yes"
+      },
+      "operate_control_panel": {
+        "probs": {
+          "yes": 0.7142,
+          "no": 0.2858
+        },
+        "argmax": "yes"
+      },
+      "stand_by_press": {
+        "probs": {
+          "yes": 0.9338,
+          "no": 0.0662
+        },
+        "argmax": "yes"
+      }
+    }
+  },
+  {
+    "idx": 4,
+    "t": 2.0,
+    "raw": "{\"place_mold_on_press\":\"\",\"operate_control_panel\":\"\",\"stand_by_press\":\"yes\"}<end_of_utterance>",
+    "confidence": {
+      "place_mold_on_press": {
+        "probs": {
+          "yes": 0.6029,
+          "no": 0.3971
+        },
+        "argmax": "yes"
+      },
+      "operate_control_panel": {
+        "probs": {
+          "yes": 0.7267,
+          "no": 0.2733
+        },
+        "argmax": "yes"
+      },
+      "stand_by_press": {
+        "probs": {
+          "yes": 0.9372,
+          "no": 0.0628
+        },
+        "argmax": "yes"
+      }
+    }
+  },
+  {
+    "idx": 5,
+    "t": 2.5,
+    "raw": "{\"place_mold_on_press\":\"\",\"operate_control_panel\":\"\",\"stand_by_press\":\"yes\"}<end_of_utterance>",
+    "confidence": {
+      "place_mold_on_press": {
+        "probs": {
+          "yes": 0.5526,
+          "no": 0.4474
+        },
+        "argmax": "yes"
+      },
+      "operate_control_panel": {
+        "probs": {
+          "yes": 0.7253,
+          "no": 0.2747
+        },
+        "argmax": "yes"
+      },
+      "stand_by_press": {
+        "probs": {
+          "yes": 0.9341,
+          "no": 0.0659
+        },
+        "argmax": "yes"
+      }
+    }
+  },
+  {
+    "idx": 6,
+    "t": 3.0,
+    "raw": "{\"place_mold_on_press\":\"\",\"operate_control_panel\":\"\",\"stand_by_press\":\"yes\"}<end_of_utterance>",
+    "confidence": {
+      "place_mold_on_press": {
+        "probs": {
+          "yes": 0.5403,
+          "no": 0.4597
+        },
+        "argmax": "yes"
+      },
+      "operate_control_panel": {
+        "probs": {
+          "yes": 0.7526,
+          "no": 0.2474
+        },
+        "argmax": "yes"
+      },
+      "stand_by_press": {
+        "probs": {
+          "yes": 0.9406,
+          "no": 0.0594
+        },
+        "argmax": "yes"
+      }
+    }
+  },
+  {
+    "idx": 7,
+    "t": 3.5,
+    "raw": "{\"place_mold_on_press\":\"\",\"operate_control_panel\":\"\",\"stand_by_press\":\"yes\"}<end_of_utterance>",
+    "confidence": {
+      "place_mold_on_press": {
+        "probs": {
+          "yes": 0.4935,
+          "no": 0.5065
+        },
+        "argmax": "no"
+      },
+      "operate_control_panel": {
+        "probs": {
+          "yes": 0.7412,
+          "no": 0.2588
+        },
+        "argmax": "yes"
+      },
+      "stand_by_press": {
+        "probs": {
+          "yes": 0.9406,
+          "no": 0.0594
+        },
+        "argmax": "yes"
+      }
+    }
+  },
+  {
+    "idx": 8,
+    "t": 4.0,
+    "raw": "{\"place_mold_on_press\":\"\",\"operate_control_panel\":\"\",\"stand_by_press\":\"yes\"}<end_of_utterance>",
+    "confidence": {
+      "place_mold_on_press": {
+        "probs": {
+          "yes": 0.5402,
+          "no": 0.4598
+        },
+        "argmax": "yes"
+      },
+      "operate_control_panel": {
+        "probs": {
+          "yes": 0.7553,
+          "no": 0.2447
+        },
+        "argmax": "yes"
+      },
+      "stand_by_press": {
+        "probs": {
+          "yes": 0.9463,
+          "no": 0.0537
+        },
+        "argmax": "yes"
+      }
+    }
+  },
+  {
+    "idx": 9,
+    "t": 4.5,
+    "raw": "{\"place_mold_on_press\":\"\",\"operate_control_panel\":\"\",\"stand_by_press\":\"yes\"}<end_of_utterance>",
+    "confidence": {
+      "place_mold_on_press": {
+        "probs": {
+          "yes": 0.516,
+          "no": 0.484
+        },
+        "argmax": "yes"
+      },
+      "operate_control_panel": {
+        "probs": {
+          "yes": 0.7238,
+          "no": 0.2762
+        },
+        "argmax": "yes"
+      },
+      "stand_by_press": {
+        "probs": {
+          "yes": 0.943,
+          "no": 0.057
+        },
+        "argmax": "yes"
+      }
+    }
+  },
+  {
+    "idx": 10,
+    "t": 5.0,
+    "raw": "{\"place_mold_on_press\":\"\",\"operate_control_panel\":\"\",\"stand_by_press\":\"yes\"}<end_of_utterance>",
+    "confidence": {
+      "place_mold_on_press": {
+        "probs": {
+          "yes": 0.5568,
+          "no": 0.4432
+        },
+        "argmax": "yes"
+      },
+      "operate_control_panel": {
+        "probs": {
+          "yes": 0.7403,
+          "no": 0.2597
+        },
+        "argmax": "yes"
+      },
+      "stand_by_press": {
+        "probs": {
+          "yes": 0.937,
+          "no": 0.063
+        },
+        "argmax": "yes"
+      }
+    }
+  },
+  {
+    "idx": 11,
+    "t": 5.5,
+    "raw": "{\"answer\":\"yes\"}<end_of_utterance>",
+    "confidence": {}
+  },
+  {
+    "idx": 12,
+    "t": 6.0,
+    "raw": "{\"place_mold_on_press\":\"\",\"operate_control_panel\":\"\",\"stand_by_press\":\"yes\"}<end_of_utterance>",
+    "confidence": {
+      "place_mold_on_press": {
+        "probs": {
+          "yes": 0.5747,
+          "no": 0.4253
+        },
+        "argmax": "yes"
+      },
+      "operate_control_panel": {
+        "probs": {
+          "yes": 0.7657,
+          "no": 0.2343
+        },
+        "argmax": "yes"
+      },
+      "stand_by_press": {
+        "probs": {
+          "yes": 0.9465,
+          "no": 0.0535
+        },
+        "argmax": "yes"
+      }
+    }
+  },
+  {
+    "idx": 13,
+    "t": 6.5,
+    "raw": "{\"name\":\"JIMMY\",\"age\":\"25\",\"gender\":\"male\",\"address\":\"123 Main St\",\"address\":\"New York City\",\"address\":\"New York\"}<end_of_utterance>",
+    "confidence": {}
+  },
+  {
+    "idx": 14,
+    "t": 7.0,
+    "raw": "{\"answer\":\"yes\"}<end_of_utterance>",
+    "confidence": {}
+  },
+  {
+    "idx": 15,
+    "t": 7.5,
+    "raw": "{\"place_mold_on_press\":\"\",\"operate_control_panel\":\"\",\"stand_by_press\":\"yes\"}<end_of_utterance>",
+    "confidence": {
+      "place_mold_on_press": {
+        "probs": {
+          "yes": 0.5976,
+          "no": 0.4024
+        },
+        "argmax": "yes"
+      },
+      "operate_control_panel": {
+        "probs": {
+          "yes": 0.708,
+          "no": 0.292
+        },
+        "argmax": "yes"
+      },
+      "stand_by_press": {
+        "probs": {
+          "yes": 0.9383,
+          "no": 0.0617
+        },
+        "argmax": "yes"
+      }
+    }
+  },
+  {
+    "idx": 16,
+    "t": 8.0,
+    "raw": "{\"place_mold_on_press\":\"\",\"operate_control_panel\":\"\",\"stand_by_press\":\"yes\"}<end_of_utterance>",
+    "confidence": {
+      "place_mold_on_press": {
+        "probs": {
+          "yes": 0.5587,
+          "no": 0.4413
+        },
+        "argmax": "yes"
+      },
+      "operate_control_panel": {
+        "probs": {
+          "yes": 0.7364,
+          "no": 0.2636
+        },
+        "argmax": "yes"
+      },
+      "stand_by_press": {
+        "probs": {
+          "yes": 0.9434,
+          "no": 0.0566
+        },
+        "argmax": "yes"
+      }
+    }
+  },
+  {
+    "idx": 17,
+    "t": 8.5,
+    "raw": "{\"place_mold_on_press\":\"\",\"operate_control_panel\":\"\",\"stand_by_press\":\"yes\"}<end_of_utterance>",
+    "confidence": {
+      "place_mold_on_press": {
+        "probs": {
+          "yes": 0.5378,
+          "no": 0.4622
+        },
+        "argmax": "yes"
+      },
+      "operate_control_panel": {
+        "probs": {
+          "yes": 0.7378,
+          "no": 0.2622
+        },
+        "argmax": "yes"
+      },
+      "stand_by_press": {
+        "probs": {
+          "yes": 0.9417,
+          "no": 0.0583
+        },
+        "argmax": "yes"
+      }
+    }
+  },
+  {
+    "idx": 18,
+    "t": 9.0,
+    "raw": "{\"answer\":\"\"}}<end_of_utterance>",
+    "confidence": {}
+  },
+  {
+    "idx": 19,
+    "t": 9.5,
+    "raw": "{\"name\":\"JIMMY\", \"age\":\"25\",\"gender\":\"male\",\"address\":\"JAPAN\",\"city\":\"HANGOI\",\"state\":\"KOREA\",\"zip\":\"98001\",\"city\":\"HANGOI\",\"state\":\"KOREA\",\"zip\":\"98001\",\"city\":\"HANGOI\",\"state\":\"KOREA\",\"zip\":\"98001\",\"city\":\"HANGOI\",\"state\":\"KOREA\",\"zip\":\"98001\",\"city\":\"HANGOI\",\"state\":\"KOREA\",\"zip\":\"98001\",\"city\":\"HANGOI\",\"state\":\"KOREA\",\"zip\":\"98001\",\"city\":\"HANGOI\",\"state\":\"KOREA\",\"zip\":\"98001\",\"city\":\"HANGOI\",\"state\":\"KOREA\",\"zip\":\"98001\",\"city\":\"HANGOI\",\"state\":\"K",
+    "confidence": {}
+  },
+  {
+    "idx": 20,
+    "t": 10.0,
+    "raw": "{\"answer\":\"yes\"}<end_of_utterance>",
+    "confidence": {}
+  },
+  {
+    "idx": 21,
+    "t": 10.5,
+    "raw": "{\"place_mold_on_press\":\"\",\"operate_control_panel\":\"\",\"stand_by_press\":\"yes\"}<end_of_utterance>",
+    "confidence": {
+      "place_mold_on_press": {
+        "probs": {
+          "yes": 0.4235,
+          "no": 0.5765
+        },
+        "argmax": "no"
+      },
+      "operate_control_panel": {
+        "probs": {
+          "yes": 0.7688,
+          "no": 0.2312
+        },
+        "argmax": "yes"
+      },
+      "stand_by_press": {
+        "probs": {
+          "yes": 0.9288,
+          "no": 0.0712
+        },
+        "argmax": "yes"
+      }
+    }
+  },
+  {
+    "idx": 22,
+    "t": 11.0,
+    "raw": "{\"answer\":\"yes\"}<end_of_utterance>",
+    "confidence": {}
+  },
+  {
+    "idx": 23,
+    "t": 11.5,
+    "raw": "{\"name\":\"JIMMY\",\"role\":\"operator\",\"role\":\"operator\",\"role\":\"operator\",\"role\":\"operator\",\"role\":\"operator\",\"role\":\"operator\",\"role\":\"operator\",\"role\":\"operator\",\"role\":\"operator\",\"role\":\"operator\",\"role\":\"operator\",\"role\":\"operator\",\"role\":\"operator\",\"role\":\"operator\",\"role\":\"operator\",\"role\":\"operator\",\"role\":\"operator\",\"role\":\"operator\",\"role\":\"operator\",\"role\":\"operator\",\"role\":\"operator\",\"role\":\"operator\",\"role\":\"operator\",\"role\":\"operator\",\"role\":\"operator\",\"role\":\"operator\",\"role\":\"operator\",\"role\":\"operator\",\"role\":\"operator\",\"role\":\"operator\",\"role\":\"operator\",\"role\":\"operator\",\"role\":\"operator\",\"role\":\"operator\",\"role\":\"operator\",\"role\":\"operator\",\"role\":\"operator\",\"role\":\"operator\",\"role\":\"operator\",\"role\":\"operator\",\"role\":\"operator\",\"role\":\"operator\",\"role\":\"operator\",\"role\":\"operator\",\"role\":\"operator\",\"role\":\"operator\",\"role\":\"operator\",\"role\":\"operator\",\"role\":\"",
+    "confidence": {}
+  },
+  {
+    "idx": 24,
+    "t": 12.0,
+    "raw": "{\"answer\":\"yes\",\"no\",\"unclear\",\"yes\",\"yes\",\"yes\",\"yes\",\"yes\",\"yes\",\"yes\",\"yes\",\"yes\",\"yes\",\"yes\",\"yes\",\"yes\",\"yes\",\"yes\",\"yes\",\"yes\",\"yes\",\"yes\",\"yes\",\"yes\",\"yes\",\"yes\",\"yes\",\"yes\",\"yes\",\"yes\",\"yes\",\"yes\",\"yes\",\"yes\",\"yes\",\"yes\",\"yes\",\"yes\",\"yes\",\"yes\",\"yes\",\"yes\",\"yes\",\"yes\",\"yes\",\"yes\",\"yes\",\"yes\",\"yes\",\"yes\",\"yes\",\"yes\",\"yes\",\"yes\",\"yes\",\"yes\",\"yes\",\"yes\",\"yes\",\"yes\",\"yes\",\"yes\",\"yes\",\"yes\",\"yes\",\"yes\",\"yes\",\"yes\",\"yes\",\"yes\",\"yes\",\"yes\",\"yes\",\"yes\",\"yes\",\"yes\",\"yes\",\"yes\",\"yes\",\"yes\",\"yes\",\"yes\",\"yes\",\"yes\",\"yes\",\"yes\",\"yes\",\"yes\",\"yes\",\"yes\",\"yes\",\"yes\",\"yes\",\"yes\",\"yes\",\"yes\",\"yes\",\"yes\",\"yes",
+    "confidence": {}
+  },
+  {
+    "idx": 25,
+    "t": 12.5,
+    "raw": "{\"place_mold_on_press\":\"\",\"operate_control_panel\":\"\",\"stand_by_press\":\"yes\"}<end_of_utterance>",
+    "confidence": {
+      "place_mold_on_press": {
+        "probs": {
+          "yes": 0.4139,
+          "no": 0.5861
+        },
+        "argmax": "no"
+      },
+      "operate_control_panel": {
+        "probs": {
+          "yes": 0.7767,
+          "no": 0.2233
+        },
+        "argmax": "yes"
+      },
+      "stand_by_press": {
+        "probs": {
+          "yes": 0.931,
+          "no": 0.069
+        },
+        "argmax": "yes"
+      }
+    }
+  },
+  {
+    "idx": 26,
+    "t": 13.0,
+    "raw": "{\"place_mold_on_press\":\"\",\"operate_control_panel\":\"\",\"stand_by_press\":\"yes\"}<end_of_utterance>",
+    "confidence": {
+      "place_mold_on_press": {
+        "probs": {
+          "yes": 0.4592,
+          "no": 0.5408
+        },
+        "argmax": "no"
+      },
+      "operate_control_panel": {
+        "probs": {
+          "yes": 0.7669,
+          "no": 0.2331
+        },
+        "argmax": "yes"
+      },
+      "stand_by_press": {
+        "probs": {
+          "yes": 0.9351,
+          "no": 0.0649
+        },
+        "argmax": "yes"
+      }
+    }
+  },
+  {
+    "idx": 27,
+    "t": 13.5,
+    "raw": "{\"place_mold_on_press\":\"\",\"operate_control_panel\":\"\",\"stand_by_press\":\"yes\"}<end_of_utterance>",
+    "confidence": {
+      "place_mold_on_press": {
+        "probs": {
+          "yes": 0.588,
+          "no": 0.412
+        },
+        "argmax": "yes"
+      },
+      "operate_control_panel": {
+        "probs": {
+          "yes": 0.7638,
+          "no": 0.2362
+        },
+        "argmax": "yes"
+      },
+      "stand_by_press": {
+        "probs": {
+          "yes": 0.9366,
+          "no": 0.0634
+        },
+        "argmax": "yes"
+      }
+    }
+  },
+  {
+    "idx": 28,
+    "t": 14.0,
+    "raw": "{\"place_mold_on_press\":\"\",\"operate_control_panel\":\"\",\"stand_by_press\":\"yes\"}<end_of_utterance>",
+    "confidence": {
+      "place_mold_on_press": {
+        "probs": {
+          "yes": 0.6994,
+          "no": 0.3006
+        },
+        "argmax": "yes"
+      },
+      "operate_control_panel": {
+        "probs": {
+          "yes": 0.765,
+          "no": 0.235
+        },
+        "argmax": "yes"
+      },
+      "stand_by_press": {
+        "probs": {
+          "yes": 0.937,
+          "no": 0.063
+        },
+        "argmax": "yes"
+      }
+    }
+  },
+  {
+    "idx": 29,
+    "t": 14.5,
+    "raw": "{\"place_mold_on_press\":\"\",\"operate_control_panel\":\"\",\"stand_by_press\":\"yes\"}<end_of_utterance>",
+    "confidence": {
+      "place_mold_on_press": {
+        "probs": {
+          "yes": 0.6762,
+          "no": 0.3238
+        },
+        "argmax": "yes"
+      },
+      "operate_control_panel": {
+        "probs": {
+          "yes": 0.7779,
+          "no": 0.2221
+        },
+        "argmax": "yes"
+      },
+      "stand_by_press": {
+        "probs": {
+          "yes": 0.941,
+          "no": 0.059
+        },
+        "argmax": "yes"
+      }
+    }
+  },
+  {
+    "idx": 30,
+    "t": 15.0,
+    "raw": "{\"place_mold_on_press\":\"\",\"operate_control_panel\":\"\",\"stand_by_press\":\"yes\"}<end_of_utterance>",
+    "confidence": {
+      "place_mold_on_press": {
+        "probs": {
+          "yes": 0.6488,
+          "no": 0.3512
+        },
+        "argmax": "yes"
+      },
+      "operate_control_panel": {
+        "probs": {
+          "yes": 0.7771,
+          "no": 0.2229
+        },
+        "argmax": "yes"
+      },
+      "stand_by_press": {
+        "probs": {
+          "yes": 0.9417,
+          "no": 0.0583
+        },
+        "argmax": "yes"
+      }
+    }
+  },
+  {
+    "idx": 31,
+    "t": 15.5,
+    "raw": "{\"place_mold_on_press\":\"\",\"operate_control_panel\":\"\",\"stand_by_press\":\"yes\"}<end_of_utterance>",
+    "confidence": {
+      "place_mold_on_press": {
+        "probs": {
+          "yes": 0.6256,
+          "no": 0.3744
+        },
+        "argmax": "yes"
+      },
+      "operate_control_panel": {
+        "probs": {
+          "yes": 0.7697,
+          "no": 0.2303
+        },
+        "argmax": "yes"
+      },
+      "stand_by_press": {
+        "probs": {
+          "yes": 0.945,
+          "no": 0.055
+        },
+        "argmax": "yes"
+      }
+    }
+  },
+  {
+    "idx": 32,
+    "t": 16.0,
+    "raw": "{\"place_mold_on_press\":\"\",\"operate_control_panel\":\"\",\"stand_by_press\":\"yes\"}<end_of_utterance>",
+    "confidence": {
+      "place_mold_on_press": {
+        "probs": {
+          "yes": 0.442,
+          "no": 0.558
+        },
+        "argmax": "no"
+      },
+      "operate_control_panel": {
+        "probs": {
+          "yes": 0.7738,
+          "no": 0.2262
+        },
+        "argmax": "yes"
+      },
+      "stand_by_press": {
+        "probs": {
+          "yes": 0.9372,
+          "no": 0.0628
+        },
+        "argmax": "yes"
+      }
+    }
+  },
+  {
+    "idx": 33,
+    "t": 16.5,
+    "raw": "{\"answer\":\"yes\"}<end_of_utterance>",
+    "confidence": {}
+  },
+  {
+    "idx": 34,
+    "t": 17.0,
+    "raw": "{\"answer\":\"yes\"}<end_of_utterance>",
+    "confidence": {}
+  },
+  {
+    "idx": 35,
+    "t": 17.5,
+    "raw": "{\"place_mold_on_press\":\"\",\"operate_control_panel\":\"\",\"stand_by_press\":\"yes\"}<end_of_utterance>",
+    "confidence": {
+      "place_mold_on_press": {
+        "probs": {
+          "yes": 0.4935,
+          "no": 0.5065
+        },
+        "argmax": "no"
+      },
+      "operate_control_panel": {
+        "probs": {
+          "yes": 0.7942,
+          "no": 0.2058
+        },
+        "argmax": "yes"
+      },
+      "stand_by_press": {
+        "probs": {
+          "yes": 0.9173,
+          "no": 0.0827
+        },
+        "argmax": "yes"
+      }
+    }
+  },
+  {
+    "idx": 36,
+    "t": 18.0,
+    "raw": "{\"answer\":\"yes\"}<end_of_utterance>",
+    "confidence": {}
+  },
+  {
+    "idx": 37,
+    "t": 18.5,
+    "raw": "{\"answer\":\"yes\"}<end_of_utterance>",
+    "confidence": {}
+  },
+  {
+    "idx": 38,
+    "t": 19.0,
+    "raw": "{\"name\":\"JIMMY\",\"role\":\"Manager\",\"role_name\":\"Manager\",\"role_description\":\"The manager is responsible for the production of the product.\"}<end_of_utterance>",
+    "confidence": {}
+  },
+  {
+    "idx": 39,
+    "t": 19.5,
+    "raw": "{\"place_mold_on_press\":\"\",\"operate_control_panel\":\"\",\"stand_by_press\":\"\"}<end_of_utterance>",
+    "confidence": {
+      "place_mold_on_press": {
+        "probs": {
+          "yes": 0.4277,
+          "no": 0.5723
+        },
+        "argmax": "no"
+      },
+      "operate_control_panel": {
+        "probs": {
+          "yes": 0.7543,
+          "no": 0.2457
+        },
+        "argmax": "yes"
+      },
+      "stand_by_press": {
+        "probs": {
+          "yes": 0.9081,
+          "no": 0.0919
+        },
+        "argmax": "yes"
+      }
+    }
+  }
+]

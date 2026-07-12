@@ -16,7 +16,7 @@
 
 gated datasetの媒体は公開repositoryへ再配布せず、取得条件・source pointer・SHA manifestを公開します。公開cloneで媒体が無い状態を正常とし、媒体必須の検査は明示的なlocal validationとして実行します。
 
-SOPは仕様であり、GTではありません。Factory EgoのSOPは現在 `provisional`、KonroのSOPは人手GTとexpectで回帰検証済みです。
+SOPは仕様であり、GTではありません。Factory EgoのSOPは現在 `provisional`、KonroのSOPは人手GTで回帰検証済みです。
 
 ## Run invariants
 

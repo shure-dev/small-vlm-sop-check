@@ -1,0 +1,39 @@
+sop:
+  id: f006_w005_compression_molding
+  name: 'Factory Ego: f006_w005_compression_molding'
+  domain_hint: '工場の一人称視点（頭部装着カメラ）映像。油圧プレスと操作盤。'
+questions:
+- id: place_mold_on_press
+  ask: '作業者は金型を手でプレスの台に置いて位置を合わせているか？'
+  values:
+  - 'yes'
+  - 'no'
+- id: operate_control_panel
+  ask: '作業者は操作盤のスイッチやバルブを手で操作しているか？'
+  values:
+  - 'yes'
+  - 'no'
+- id: stand_by_press
+  ask: '作業者はプレスに触れずに操作盤の前に立って様子を確認しているか？'
+  values:
+  - 'yes'
+  - 'no'
+events:
+  place_mold_on_press:
+    name: '金型のセット'
+    evidence: place_mold_on_press==yes
+    min_frames: 4
+  operate_control_panel:
+    name: '操作盤の操作'
+    evidence: operate_control_panel==yes
+    min_frames: 2
+  stand_by_press:
+    name: '操作盤前での待機・確認'
+    evidence: stand_by_press==yes
+    min_frames: 3
+benchmark:
+  schema_version: '1.0'
+  version: v001
+  status: provisional
+  purpose: model_accuracy_comparison
+  provenance: '抽出フレーム(2fps・20秒窓)を目視して定義(docs/benchmark/events.mdの方法論に従う)。人手GTではない'

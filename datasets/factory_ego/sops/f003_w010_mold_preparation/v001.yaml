@@ -1,0 +1,48 @@
+sop:
+  id: f003_w010_mold_preparation
+  name: 'Factory Ego: f003_w010_mold_preparation'
+  domain_hint: '工場の一人称視点（頭部装着カメラ）映像。砂型と成形機のある鋳造工場。'
+questions:
+- id: lift_pattern_plate
+  ask: '作業者は黄色い型板を両手で持ち上げているか？'
+  values:
+  - 'yes'
+  - 'no'
+- id: carry_sand_mold
+  ask: '作業者は砂の入った型枠を運んでいるか？'
+  values:
+  - 'yes'
+  - 'no'
+- id: walk_between_benches
+  ask: '作業者は作業場内を歩いて移動しているか？'
+  values:
+  - 'yes'
+  - 'no'
+- id: pick_parts_from_box
+  ask: '作業者は木箱から小さな部品を取り出しているか？'
+  values:
+  - 'yes'
+  - 'no'
+events:
+  lift_pattern_plate:
+    name: '型板の持ち上げ'
+    evidence: lift_pattern_plate==yes
+    min_frames: 4
+  carry_sand_mold:
+    name: '砂型の運搬'
+    evidence: carry_sand_mold==yes
+    min_frames: 2
+  walk_between_benches:
+    name: '作業台間の移動'
+    evidence: walk_between_benches==yes
+    min_frames: 3
+  pick_parts_from_box:
+    name: '木箱からの部品取り出し'
+    evidence: pick_parts_from_box==yes
+    min_frames: 2
+benchmark:
+  schema_version: '1.0'
+  version: v001
+  status: provisional
+  purpose: model_accuracy_comparison
+  provenance: '抽出フレーム(2fps・20秒窓)を目視して定義(docs/benchmark/events.mdの方法論に従う)。人手GTではない'

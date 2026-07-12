@@ -1,0 +1,368 @@
+{
+  "annotator": "Claude Opus 4.8",
+  "frames": [
+    {
+      "idx": 0,
+      "states": {
+        "flip_and_neaten_folded_shirt": false,
+        "fold_shirt_around_board": false,
+        "place_folding_board": true,
+        "stack_folded_shirt": false
+      }
+    },
+    {
+      "idx": 1,
+      "states": {
+        "flip_and_neaten_folded_shirt": false,
+        "fold_shirt_around_board": false,
+        "place_folding_board": true,
+        "stack_folded_shirt": false
+      }
+    },
+    {
+      "idx": 2,
+      "states": {
+        "flip_and_neaten_folded_shirt": false,
+        "fold_shirt_around_board": false,
+        "place_folding_board": true,
+        "stack_folded_shirt": false
+      }
+    },
+    {
+      "idx": 3,
+      "states": {
+        "flip_and_neaten_folded_shirt": false,
+        "fold_shirt_around_board": false,
+        "place_folding_board": true,
+        "stack_folded_shirt": false
+      }
+    },
+    {
+      "idx": 4,
+      "states": {
+        "flip_and_neaten_folded_shirt": false,
+        "fold_shirt_around_board": false,
+        "place_folding_board": true,
+        "stack_folded_shirt": false
+      }
+    },
+    {
+      "idx": 5,
+      "states": {
+        "flip_and_neaten_folded_shirt": false,
+        "fold_shirt_around_board": false,
+        "place_folding_board": true,
+        "stack_folded_shirt": false
+      }
+    },
+    {
+      "idx": 6,
+      "states": {
+        "flip_and_neaten_folded_shirt": false,
+        "fold_shirt_around_board": false,
+        "place_folding_board": true,
+        "stack_folded_shirt": false
+      }
+    },
+    {
+      "idx": 7,
+      "states": {
+        "flip_and_neaten_folded_shirt": false,
+        "fold_shirt_around_board": false,
+        "place_folding_board": true,
+        "stack_folded_shirt": false
+      }
+    },
+    {
+      "idx": 8,
+      "states": {
+        "flip_and_neaten_folded_shirt": false,
+        "fold_shirt_around_board": false,
+        "place_folding_board": true,
+        "stack_folded_shirt": false
+      }
+    },
+    {
+      "idx": 9,
+      "states": {
+        "flip_and_neaten_folded_shirt": false,
+        "fold_shirt_around_board": false,
+        "place_folding_board": true,
+        "stack_folded_shirt": false
+      }
+    },
+    {
+      "idx": 10,
+      "states": {
+        "flip_and_neaten_folded_shirt": false,
+        "fold_shirt_around_board": false,
+        "place_folding_board": true,
+        "stack_folded_shirt": false
+      }
+    },
+    {
+      "idx": 11,
+      "states": {
+        "flip_and_neaten_folded_shirt": false,
+        "fold_shirt_around_board": true,
+        "place_folding_board": false,
+        "stack_folded_shirt": false
+      }
+    },
+    {
+      "idx": 12,
+      "states": {
+        "flip_and_neaten_folded_shirt": false,
+        "fold_shirt_around_board": true,
+        "place_folding_board": false,
+        "stack_folded_shirt": false
+      }
+    },
+    {
+      "idx": 13,
+      "states": {
+        "flip_and_neaten_folded_shirt": false,
+        "fold_shirt_around_board": true,
+        "place_folding_board": false,
+        "stack_folded_shirt": false
+      }
+    },
+    {
+      "idx": 14,
+      "states": {
+        "flip_and_neaten_folded_shirt": false,
+        "fold_shirt_around_board": true,
+        "place_folding_board": false,
+        "stack_folded_shirt": false
+      }
+    },
+    {
+      "idx": 15,
+      "states": {
+        "flip_and_neaten_folded_shirt": false,
+        "fold_shirt_around_board": true,
+        "place_folding_board": false,
+        "stack_folded_shirt": false
+      }
+    },
+    {
+      "idx": 16,
+      "states": {
+        "flip_and_neaten_folded_shirt": false,
+        "fold_shirt_around_board": true,
+        "place_folding_board": false,
+        "stack_folded_shirt": false
+      }
+    },
+    {
+      "idx": 17,
+      "states": {
+        "flip_and_neaten_folded_shirt": false,
+        "fold_shirt_around_board": true,
+        "place_folding_board": false,
+        "stack_folded_shirt": false
+      }
+    },
+    {
+      "idx": 18,
+      "states": {
+        "flip_and_neaten_folded_shirt": false,
+        "fold_shirt_around_board": true,
+        "place_folding_board": false,
+        "stack_folded_shirt": false
+      }
+    },
+    {
+      "idx": 19,
+      "states": {
+        "flip_and_neaten_folded_shirt": false,
+        "fold_shirt_around_board": true,
+        "place_folding_board": false,
+        "stack_folded_shirt": false
+      }
+    },
+    {
+      "idx": 20,
+      "states": {
+        "flip_and_neaten_folded_shirt": false,
+        "fold_shirt_around_board": true,
+        "place_folding_board": false,
+        "stack_folded_shirt": false
+      }
+    },
+    {
+      "idx": 21,
+      "states": {
+        "flip_and_neaten_folded_shirt": false,
+        "fold_shirt_around_board": true,
+        "place_folding_board": false,
+        "stack_folded_shirt": false
+      }
+    },
+    {
+      "idx": 22,
+      "states": {
+        "flip_and_neaten_folded_shirt": false,
+        "fold_shirt_around_board": true,
+        "place_folding_board": false,
+        "stack_folded_shirt": false
+      }
+    },
+    {
+      "idx": 23,
+      "states": {
+        "flip_and_neaten_folded_shirt": true,
+        "fold_shirt_around_board": false,
+        "place_folding_board": false,
+        "stack_folded_shirt": false
+      }
+    },
+    {
+      "idx": 24,
+      "states": {
+        "flip_and_neaten_folded_shirt": true,
+        "fold_shirt_around_board": false,
+        "place_folding_board": false,
+        "stack_folded_shirt": false
+      }
+    },
+    {
+      "idx": 25,
+      "states": {
+        "flip_and_neaten_folded_shirt": true,
+        "fold_shirt_around_board": false,
+        "place_folding_board": false,
+        "stack_folded_shirt": false
+      }
+    },
+    {
+      "idx": 26,
+      "states": {
+        "flip_and_neaten_folded_shirt": true,
+        "fold_shirt_around_board": false,
+        "place_folding_board": false,
+        "stack_folded_shirt": false
+      }
+    },
+    {
+      "idx": 27,
+      "states": {
+        "flip_and_neaten_folded_shirt": true,
+        "fold_shirt_around_board": false,
+        "place_folding_board": false,
+        "stack_folded_shirt": false
+      }
+    },
+    {
+      "idx": 28,
+      "states": {
+        "flip_and_neaten_folded_shirt": true,
+        "fold_shirt_around_board": false,
+        "place_folding_board": false,
+        "stack_folded_shirt": false
+      }
+    },
+    {
+      "idx": 29,
+      "states": {
+        "flip_and_neaten_folded_shirt": true,
+        "fold_shirt_around_board": false,
+        "place_folding_board": false,
+        "stack_folded_shirt": false
+      }
+    },
+    {
+      "idx": 30,
+      "states": {
+        "flip_and_neaten_folded_shirt": true,
+        "fold_shirt_around_board": false,
+        "place_folding_board": false,
+        "stack_folded_shirt": false
+      }
+    },
+    {
+      "idx": 31,
+      "states": {
+        "flip_and_neaten_folded_shirt": false,
+        "fold_shirt_around_board": false,
+        "place_folding_board": false,
+        "stack_folded_shirt": true
+      }
+    },
+    {
+      "idx": 32,
+      "states": {
+        "flip_and_neaten_folded_shirt": false,
+        "fold_shirt_around_board": false,
+        "place_folding_board": false,
+        "stack_folded_shirt": true
+      }
+    },
+    {
+      "idx": 33,
+      "states": {
+        "flip_and_neaten_folded_shirt": false,
+        "fold_shirt_around_board": false,
+        "place_folding_board": false,
+        "stack_folded_shirt": true
+      }
+    },
+    {
+      "idx": 34,
+      "states": {
+        "flip_and_neaten_folded_shirt": false,
+        "fold_shirt_around_board": false,
+        "place_folding_board": false,
+        "stack_folded_shirt": false
+      }
+    },
+    {
+      "idx": 35,
+      "states": {
+        "flip_and_neaten_folded_shirt": false,
+        "fold_shirt_around_board": false,
+        "place_folding_board": false,
+        "stack_folded_shirt": false
+      }
+    },
+    {
+      "idx": 36,
+      "states": {
+        "flip_and_neaten_folded_shirt": false,
+        "fold_shirt_around_board": false,
+        "place_folding_board": false,
+        "stack_folded_shirt": false
+      }
+    },
+    {
+      "idx": 37,
+      "states": {
+        "flip_and_neaten_folded_shirt": false,
+        "fold_shirt_around_board": false,
+        "place_folding_board": false,
+        "stack_folded_shirt": false
+      }
+    },
+    {
+      "idx": 38,
+      "states": {
+        "flip_and_neaten_folded_shirt": false,
+        "fold_shirt_around_board": false,
+        "place_folding_board": false,
+        "stack_folded_shirt": false
+      }
+    },
+    {
+      "idx": 39,
+      "states": {
+        "flip_and_neaten_folded_shirt": false,
+        "fold_shirt_around_board": false,
+        "place_folding_board": false,
+        "stack_folded_shirt": false
+      }
+    }
+  ],
+  "method": "online sliding 5-frame window, causal true/false per frame",
+  "schema_version": "opus-online5-v1",
+  "unit_id": "f002_w005_garment_ironing"
+}

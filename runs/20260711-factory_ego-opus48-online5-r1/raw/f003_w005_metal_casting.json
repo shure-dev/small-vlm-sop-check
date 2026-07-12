@@ -1,0 +1,328 @@
+{
+  "annotator": "Claude Opus 4.8",
+  "frames": [
+    {
+      "idx": 0,
+      "states": {
+        "carry_casting_bundle": false,
+        "knock_parts_off_casting_q": false,
+        "put_casting_into_crate": false
+      }
+    },
+    {
+      "idx": 1,
+      "states": {
+        "carry_casting_bundle": false,
+        "knock_parts_off_casting_q": false,
+        "put_casting_into_crate": false
+      }
+    },
+    {
+      "idx": 2,
+      "states": {
+        "carry_casting_bundle": false,
+        "knock_parts_off_casting_q": false,
+        "put_casting_into_crate": false
+      }
+    },
+    {
+      "idx": 3,
+      "states": {
+        "carry_casting_bundle": false,
+        "knock_parts_off_casting_q": true,
+        "put_casting_into_crate": false
+      }
+    },
+    {
+      "idx": 4,
+      "states": {
+        "carry_casting_bundle": false,
+        "knock_parts_off_casting_q": true,
+        "put_casting_into_crate": false
+      }
+    },
+    {
+      "idx": 5,
+      "states": {
+        "carry_casting_bundle": false,
+        "knock_parts_off_casting_q": false,
+        "put_casting_into_crate": false
+      }
+    },
+    {
+      "idx": 6,
+      "states": {
+        "carry_casting_bundle": false,
+        "knock_parts_off_casting_q": false,
+        "put_casting_into_crate": false
+      }
+    },
+    {
+      "idx": 7,
+      "states": {
+        "carry_casting_bundle": true,
+        "knock_parts_off_casting_q": false,
+        "put_casting_into_crate": false
+      }
+    },
+    {
+      "idx": 8,
+      "states": {
+        "carry_casting_bundle": true,
+        "knock_parts_off_casting_q": false,
+        "put_casting_into_crate": false
+      }
+    },
+    {
+      "idx": 9,
+      "states": {
+        "carry_casting_bundle": true,
+        "knock_parts_off_casting_q": false,
+        "put_casting_into_crate": false
+      }
+    },
+    {
+      "idx": 10,
+      "states": {
+        "carry_casting_bundle": true,
+        "knock_parts_off_casting_q": false,
+        "put_casting_into_crate": false
+      }
+    },
+    {
+      "idx": 11,
+      "states": {
+        "carry_casting_bundle": false,
+        "knock_parts_off_casting_q": false,
+        "put_casting_into_crate": true
+      }
+    },
+    {
+      "idx": 12,
+      "states": {
+        "carry_casting_bundle": false,
+        "knock_parts_off_casting_q": false,
+        "put_casting_into_crate": false
+      }
+    },
+    {
+      "idx": 13,
+      "states": {
+        "carry_casting_bundle": false,
+        "knock_parts_off_casting_q": false,
+        "put_casting_into_crate": false
+      }
+    },
+    {
+      "idx": 14,
+      "states": {
+        "carry_casting_bundle": false,
+        "knock_parts_off_casting_q": false,
+        "put_casting_into_crate": false
+      }
+    },
+    {
+      "idx": 15,
+      "states": {
+        "carry_casting_bundle": false,
+        "knock_parts_off_casting_q": false,
+        "put_casting_into_crate": false
+      }
+    },
+    {
+      "idx": 16,
+      "states": {
+        "carry_casting_bundle": false,
+        "knock_parts_off_casting_q": false,
+        "put_casting_into_crate": false
+      }
+    },
+    {
+      "idx": 17,
+      "states": {
+        "carry_casting_bundle": false,
+        "knock_parts_off_casting_q": true,
+        "put_casting_into_crate": false
+      }
+    },
+    {
+      "idx": 18,
+      "states": {
+        "carry_casting_bundle": false,
+        "knock_parts_off_casting_q": true,
+        "put_casting_into_crate": false
+      }
+    },
+    {
+      "idx": 19,
+      "states": {
+        "carry_casting_bundle": false,
+        "knock_parts_off_casting_q": true,
+        "put_casting_into_crate": false
+      }
+    },
+    {
+      "idx": 20,
+      "states": {
+        "carry_casting_bundle": false,
+        "knock_parts_off_casting_q": true,
+        "put_casting_into_crate": false
+      }
+    },
+    {
+      "idx": 21,
+      "states": {
+        "carry_casting_bundle": false,
+        "knock_parts_off_casting_q": true,
+        "put_casting_into_crate": false
+      }
+    },
+    {
+      "idx": 22,
+      "states": {
+        "carry_casting_bundle": false,
+        "knock_parts_off_casting_q": true,
+        "put_casting_into_crate": false
+      }
+    },
+    {
+      "idx": 23,
+      "states": {
+        "carry_casting_bundle": false,
+        "knock_parts_off_casting_q": true,
+        "put_casting_into_crate": false
+      }
+    },
+    {
+      "idx": 24,
+      "states": {
+        "carry_casting_bundle": false,
+        "knock_parts_off_casting_q": true,
+        "put_casting_into_crate": false
+      }
+    },
+    {
+      "idx": 25,
+      "states": {
+        "carry_casting_bundle": false,
+        "knock_parts_off_casting_q": true,
+        "put_casting_into_crate": false
+      }
+    },
+    {
+      "idx": 26,
+      "states": {
+        "carry_casting_bundle": false,
+        "knock_parts_off_casting_q": true,
+        "put_casting_into_crate": false
+      }
+    },
+    {
+      "idx": 27,
+      "states": {
+        "carry_casting_bundle": false,
+        "knock_parts_off_casting_q": true,
+        "put_casting_into_crate": false
+      }
+    },
+    {
+      "idx": 28,
+      "states": {
+        "carry_casting_bundle": false,
+        "knock_parts_off_casting_q": true,
+        "put_casting_into_crate": false
+      }
+    },
+    {
+      "idx": 29,
+      "states": {
+        "carry_casting_bundle": false,
+        "knock_parts_off_casting_q": true,
+        "put_casting_into_crate": false
+      }
+    },
+    {
+      "idx": 30,
+      "states": {
+        "carry_casting_bundle": false,
+        "knock_parts_off_casting_q": false,
+        "put_casting_into_crate": false
+      }
+    },
+    {
+      "idx": 31,
+      "states": {
+        "carry_casting_bundle": false,
+        "knock_parts_off_casting_q": false,
+        "put_casting_into_crate": false
+      }
+    },
+    {
+      "idx": 32,
+      "states": {
+        "carry_casting_bundle": false,
+        "knock_parts_off_casting_q": false,
+        "put_casting_into_crate": false
+      }
+    },
+    {
+      "idx": 33,
+      "states": {
+        "carry_casting_bundle": false,
+        "knock_parts_off_casting_q": false,
+        "put_casting_into_crate": false
+      }
+    },
+    {
+      "idx": 34,
+      "states": {
+        "carry_casting_bundle": false,
+        "knock_parts_off_casting_q": true,
+        "put_casting_into_crate": false
+      }
+    },
+    {
+      "idx": 35,
+      "states": {
+        "carry_casting_bundle": false,
+        "knock_parts_off_casting_q": true,
+        "put_casting_into_crate": false
+      }
+    },
+    {
+      "idx": 36,
+      "states": {
+        "carry_casting_bundle": false,
+        "knock_parts_off_casting_q": false,
+        "put_casting_into_crate": false
+      }
+    },
+    {
+      "idx": 37,
+      "states": {
+        "carry_casting_bundle": false,
+        "knock_parts_off_casting_q": true,
+        "put_casting_into_crate": false
+      }
+    },
+    {
+      "idx": 38,
+      "states": {
+        "carry_casting_bundle": false,
+        "knock_parts_off_casting_q": true,
+        "put_casting_into_crate": false
+      }
+    },
+    {
+      "idx": 39,
+      "states": {
+        "carry_casting_bundle": false,
+        "knock_parts_off_casting_q": false,
+        "put_casting_into_crate": false
+      }
+    }
+  ],
+  "method": "online sliding 5-frame window, causal true/false per frame",
+  "schema_version": "opus-online5-v1",
+  "unit_id": "f003_w005_metal_casting"
+}

@@ -212,7 +212,6 @@
 const DATA = "__ANNOTATOR_DATA__";
 const N = DATA.frames.length;
 const gt = DATA.gt_events;             // {name: {start_idx,end_idx} | null}。キー無し=未注釈
-const notOnly = new Set(DATA.not_only);
 
 let idx = 0;
 let selected = DATA.events[0].name;
@@ -273,8 +272,7 @@ function stateOf(name) {
   if (!(name in gt)) return { text: "未注釈", cls: "todo" };
   const span = gt[name];
   if (span === null)
-    return { text: notOnly.has(name) ? "起きていない(このSOPでは正しい姿)" : "起きていない",
-             cls: "absent" };
+    return { text: "起きていない", cls: "absent" };
   return { text: `frame ${span.start_idx}-${span.end_idx} `
                  + `(t=${DATA.times[span.start_idx]}-${DATA.times[span.end_idx]}s)`,
            cls: "done" };

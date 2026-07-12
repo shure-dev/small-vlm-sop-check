@@ -1,13 +1,9 @@
 """正解アノテーション(ground_truth.json) × 回答ログ → 回答精度の評価。
 
-成功の一次定義はあくまで expect(verdict+違反理由)の一致(judge.check_expectation)。
-このモジュールはその「説明変数」を測る診断層で、3つのレイヤーを持つ:
-  - イベント区間  : 検出区間 vs 正解区間の tIoU。境界の完全一致は要求しない
-                    (Ego4D等の時間的アクション検出と同じく、許容誤差は注釈側ではなく
-                    指標のしきい値側で吸収する)
-  - relations正答 : SOPの各relationを正解区間で評価した結論と検出区間で評価した結論が
-                    同じか。judgeの合否を実際に分けるのはここ
-  - フレーム回答  : 正解区間から導出したフレームラベルとVLM回答の一致(参考値)
+一次指標はイベント区間の検出状態(match/miss/false_detection/true_absent)と
+tIoU。境界の完全一致は要求しない(Ego4D等の時間的アクション検出と同じく、
+許容誤差は注釈側ではなく指標のしきい値側で吸収する)。
+フレーム回答の一致は参考値の診断層として別に出す。
 
 ground_truth.json のスキーマ(sop-annotate が書き出す):
   {
@@ -27,8 +23,7 @@ import json
 from pathlib import Path
 from typing import Any
 
-from .judge import (JudgeResult, Run, check_expectation, check_relations, judge,
-                    not_only_events, parse_clauses)
+from .events import Run, detect_events, parse_clauses
 
 
 def load_ground_truth(path: str | Path) -> dict[str, Any]:
@@ -46,7 +41,7 @@ def load_ground_truth(path: str | Path) -> dict[str, Any]:
 
 
 def gt_runs(gt: dict[str, Any]) -> dict[str, Run | None]:
-    """正解区間を judge.Run に変換する(キーが無い=未注釈のイベントは含めない)。"""
+    """正解区間を Run に変換する(キーが無い=未注釈のイベントは含めない)。"""
     fps = gt["fps"]
     runs: dict[str, Run | None] = {}
     for name, span in gt["events"].items():
@@ -73,14 +68,14 @@ def tiou(a: Run, b: Run) -> float:
 
 
 def _event_rows(sop_def: dict, gts: dict[str, Run | None],
-                result: JudgeResult) -> list[dict]:
+                detected: dict[str, Run | None]) -> list[dict]:
     """イベントごとの GT×検出 の突き合わせ。status:
     match(両方あり) / miss(GTあり検出なし) / false_detection(GTなし検出あり) /
     true_absent(両方なし) / no_gt(未注釈=評価対象外)
     """
     rows = []
     for name in sop_def["events"]:
-        det = result.events.get(name)
+        det = detected.get(name)
         if name not in gts:
             status = "no_gt"
             gt_run = None
@@ -101,27 +96,6 @@ def _event_rows(sop_def: dict, gts: dict[str, Run | None],
             "tiou": tiou(gt_run, det) if (gt_run and det) else None,
             "status": status,
         })
-    return rows
-
-
-def _relation_rows(sop_def: dict, gts: dict[str, Run | None],
-                   result: JudgeResult) -> list[dict]:
-    """各relationについて「正解区間で評価した成否」と「検出区間で評価した成否」を比べる。
-    未注釈イベントを含むrelationは評価不能として agree=None。"""
-    relations = sop_def.get("relations", [])
-    tolerance = sop_def.get("defaults", {}).get("order_tolerance_s", 0.0)
-    det_violated = {d["relation"] for d in result.violation_details}
-    rows = []
-    for rel in relations:
-        names = [w for w in rel.replace("not_overlaps", " ").split()
-                 if w not in ("before", "overlaps", "not")]
-        if any(n not in gts for n in names):
-            rows.append({"relation": rel, "gt_ok": None, "detected_ok": None, "agree": None})
-            continue
-        gt_viol = check_relations([rel], gts, tolerance_s=tolerance)
-        gt_ok, det_ok = not gt_viol, rel not in det_violated
-        rows.append({"relation": rel, "gt_ok": gt_ok, "detected_ok": det_ok,
-                     "agree": gt_ok == det_ok})
     return rows
 
 
@@ -159,11 +133,10 @@ def _frame_rows(sop_def: dict, gt: dict[str, Any], frames: list[dict]) -> list[d
 def evaluate(sop_def: dict[str, Any], gt: dict[str, Any],
              frames: list[dict]) -> dict[str, Any]:
     """回答ログ(frames)を正解アノテーション(gt)と突き合わせた評価一式を返す。"""
-    result = judge(sop_def, frames)
+    detected = detect_events(sop_def["events"], frames, sop_def.get("defaults"))
     gts = gt_runs(gt)
 
-    events = _event_rows(sop_def, gts, result)
-    relations = _relation_rows(sop_def, gts, result)
+    events = _event_rows(sop_def, gts, detected)
     frame_rows = _frame_rows(sop_def, gt, frames)
 
     matched = [r["tiou"] for r in events if r["tiou"] is not None]
@@ -171,30 +144,13 @@ def evaluate(sop_def: dict[str, Any], gt: dict[str, Any],
     tiou_at = {f"tiou@{th}": sum(1 for t in matched if t >= th)
                for th in (0.1, 0.3, 0.5)}
 
-    # 正解区間そのものをjudgeの規則で評価した場合のverdict。
-    # アノテーションとSOPが両方正しければ expect.verdict と一致するはず(注釈の自己検証)。
-    excluded = not_only_events(sop_def.get("relations", []))
-    required = [n for n in sop_def["events"] if n not in excluded and n in gts]
-    gt_coverage = (sum(1 for n in required if gts[n] is not None) / len(required)
-                   if required else 1.0)
-    gt_violations = [r for r in relations if r["gt_ok"] is False]
-    gt_verdict = "PASS" if (gt_coverage == 1.0 and not gt_violations) else "FAIL"
-
-    exp = check_expectation(sop_def, result)
     return {
         "events": events,
-        "relations": relations,
         "frames": frame_rows,
         "summary": {
             "mean_tiou": round(sum(matched) / len(matched), 3) if matched else None,
             **tiou_at,
             "n_gt_present": n_gt_present,
-            "relation_agree": sum(1 for r in relations if r["agree"]),
-            "relation_total": sum(1 for r in relations if r["agree"] is not None),
-            "detected_verdict": result.verdict,
-            "gt_verdict": gt_verdict,
-            "expect_verdict": (sop_def.get("expect") or {}).get("verdict"),
-            "expect_localized": exp["localized"] if exp else None,
         },
     }
 
@@ -216,16 +172,6 @@ def format_report(ev: dict[str, Any]) -> str:
                         for k, v in s.items() if k.startswith("tiou@"))
         lines.append(f"mean tIoU = {s['mean_tiou']:.2f}   検出数(tIoU>=しきい値) {ths}")
 
-    lines += ["", "relationsの正答 (正解区間と同じ結論を出せたか):"]
-    for r in ev["relations"]:
-        if r["agree"] is None:
-            lines.append(f"  - {r['relation']}  (未注釈イベントを含むため評価不能)")
-        else:
-            ok = lambda b: "成立" if b else "違反"
-            mark = "✓" if r["agree"] else "✗"
-            lines.append(f"  {mark} {r['relation']}  GT:{ok(r['gt_ok'])} 検出:{ok(r['detected_ok'])}")
-    lines.append(f"  一致 {s['relation_agree']}/{s['relation_total']}")
-
     if ev["frames"]:
         lines += ["", "フレーム回答 (正解区間から導出・参考値):"]
         for r in ev["frames"]:
@@ -234,9 +180,5 @@ def format_report(ev: dict[str, Any]) -> str:
             lines.append(f"  {r['question']}=={r['value']:8s} precision {p}  recall {rc}"
                          f"  (GT {r['gt_frames']}フレーム / 偽陽性 {r['false_positives']})")
 
-    lines += ["", f"verdict: 検出={s['detected_verdict']} / 正解区間から={s['gt_verdict']}"
-                  + (f" / expect={s['expect_verdict']}" if s["expect_verdict"] else "")]
-    if s["gt_verdict"] != (s["expect_verdict"] or s["gt_verdict"]):
-        lines.append("  ⚠ 正解区間から導いたverdictがexpectと不一致 — アノテーションかSOPのどちらかを見直すこと")
     lines.append("")
     return "\n".join(lines)

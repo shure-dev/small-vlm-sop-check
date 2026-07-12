@@ -1,0 +1,55 @@
+{
+  "benchmark_status": "dev_seen",
+  "dataset_id": "factory_ego",
+  "ground_truth": {
+    "available": false,
+    "required_source": "human"
+  },
+  "media": {
+    "availability": "local_gated_source_not_committed",
+    "path": "frames",
+    "sha256_manifest": "frames.sha256.json"
+  },
+  "sampling": {
+    "fps": 2.0,
+    "n_frames": 40,
+    "output_naming": "f0000.jpg...f0039.jpg",
+    "source_frame_end": 983,
+    "source_frame_start": 963
+  },
+  "schema_version": "1.0",
+  "selection": {
+    "annotations_repo": "fit-alessandro-berti/annotated-egocentric-10k-dataset",
+    "annotations_revision": "107f8fdc1aa4334da5eb1c6bc9ce8d52eaf6ce96",
+    "caveat": "window boundaries derive from LLM-generated timestamps; frames are canonical",
+    "main_process": "CNC machine tending",
+    "method": "tools/benchmark/sample_units.py (deterministic stratified)",
+    "transcript_excerpt": [
+      "[952s-963s] The wearer walks to the bins, grabs a raw part, and brings it to the table.",
+      "[963s-976s] The wearer opens the machine door, swaps the parts, closes it, starts the machine, and brings the finished part to the table.",
+      "[976s-1005s] The wearer uses the dial indicator to measure the finished part, then stacks it."
+    ],
+    "window_activities": [
+      "open CNC machine door",
+      "extract finished part from CNC machine chuck",
+      "load raw part into CNC machine chuck",
+      "press button to initiate CNC cycle"
+    ],
+    "window_event_starts": 4
+  },
+  "sop_ref": {
+    "id": "f005_w011_cnc_machine",
+    "path": "../../sops/f005_w011_cnc_machine/v001.yaml",
+    "status": "provisional",
+    "version": "v001"
+  },
+  "source": {
+    "clip_id": "factory005_worker011_00000",
+    "dataset": "builddotai/Egocentric-10K",
+    "end_second": 983,
+    "factory_id": "factory_005",
+    "start_second": 963,
+    "worker_id": "worker_011"
+  },
+  "unit_id": "f005_w011_cnc_machine"
+}

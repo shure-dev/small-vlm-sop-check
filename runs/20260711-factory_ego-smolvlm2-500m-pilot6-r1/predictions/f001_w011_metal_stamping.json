@@ -1,0 +1,1490 @@
+{
+  "answer_source": "candidate-token probabilities; argmax normalized to yes/no",
+  "frame_count": 40,
+  "frames": [
+    {
+      "answers": {
+        "bundle_scrap": "yes",
+        "gather_metal_sheets": "unclear",
+        "pick_up_metal_sheets": "yes",
+        "walk_to_next_station": "yes"
+      },
+      "confidence": {
+        "bundle_scrap": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.2627,
+            "yes": 0.7373
+          }
+        },
+        "pick_up_metal_sheets": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.2459,
+            "yes": 0.7541
+          }
+        },
+        "walk_to_next_station": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.1675,
+            "yes": 0.8325
+          }
+        }
+      },
+      "idx": 0,
+      "resource": {
+        "active_mb": null,
+        "peak_mb": null
+      },
+      "t": 0.0
+    },
+    {
+      "answers": {
+        "bundle_scrap": "yes",
+        "gather_metal_sheets": "unclear",
+        "pick_up_metal_sheets": "yes",
+        "walk_to_next_station": "yes"
+      },
+      "confidence": {
+        "bundle_scrap": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.2072,
+            "yes": 0.7928
+          }
+        },
+        "pick_up_metal_sheets": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.2254,
+            "yes": 0.7746
+          }
+        },
+        "walk_to_next_station": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.1498,
+            "yes": 0.8502
+          }
+        }
+      },
+      "idx": 1,
+      "resource": {
+        "active_mb": null,
+        "peak_mb": null
+      },
+      "t": 0.5
+    },
+    {
+      "answers": {
+        "bundle_scrap": "yes",
+        "gather_metal_sheets": "unclear",
+        "pick_up_metal_sheets": "yes",
+        "walk_to_next_station": "yes"
+      },
+      "confidence": {
+        "bundle_scrap": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.2139,
+            "yes": 0.7861
+          }
+        },
+        "pick_up_metal_sheets": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.2608,
+            "yes": 0.7392
+          }
+        },
+        "walk_to_next_station": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.2072,
+            "yes": 0.7928
+          }
+        }
+      },
+      "idx": 2,
+      "resource": {
+        "active_mb": null,
+        "peak_mb": null
+      },
+      "t": 1.0
+    },
+    {
+      "answers": {
+        "bundle_scrap": "yes",
+        "gather_metal_sheets": "unclear",
+        "pick_up_metal_sheets": "yes",
+        "walk_to_next_station": "yes"
+      },
+      "confidence": {
+        "bundle_scrap": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.2601,
+            "yes": 0.7399
+          }
+        },
+        "pick_up_metal_sheets": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.2851,
+            "yes": 0.7149
+          }
+        },
+        "walk_to_next_station": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.2277,
+            "yes": 0.7723
+          }
+        }
+      },
+      "idx": 3,
+      "resource": {
+        "active_mb": null,
+        "peak_mb": null
+      },
+      "t": 1.5
+    },
+    {
+      "answers": {
+        "bundle_scrap": "yes",
+        "gather_metal_sheets": "unclear",
+        "pick_up_metal_sheets": "yes",
+        "walk_to_next_station": "yes"
+      },
+      "confidence": {
+        "bundle_scrap": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.2273,
+            "yes": 0.7727
+          }
+        },
+        "pick_up_metal_sheets": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.2469,
+            "yes": 0.7531
+          }
+        },
+        "walk_to_next_station": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.2244,
+            "yes": 0.7756
+          }
+        }
+      },
+      "idx": 4,
+      "resource": {
+        "active_mb": null,
+        "peak_mb": null
+      },
+      "t": 2.0
+    },
+    {
+      "answers": {
+        "bundle_scrap": "yes",
+        "gather_metal_sheets": "unclear",
+        "pick_up_metal_sheets": "yes",
+        "walk_to_next_station": "yes"
+      },
+      "confidence": {
+        "bundle_scrap": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.2255,
+            "yes": 0.7745
+          }
+        },
+        "pick_up_metal_sheets": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.2715,
+            "yes": 0.7285
+          }
+        },
+        "walk_to_next_station": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.2005,
+            "yes": 0.7995
+          }
+        }
+      },
+      "idx": 5,
+      "resource": {
+        "active_mb": null,
+        "peak_mb": null
+      },
+      "t": 2.5
+    },
+    {
+      "answers": {
+        "bundle_scrap": "yes",
+        "gather_metal_sheets": "unclear",
+        "pick_up_metal_sheets": "yes",
+        "walk_to_next_station": "yes"
+      },
+      "confidence": {
+        "bundle_scrap": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.2518,
+            "yes": 0.7482
+          }
+        },
+        "pick_up_metal_sheets": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.2663,
+            "yes": 0.7337
+          }
+        },
+        "walk_to_next_station": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.1982,
+            "yes": 0.8018
+          }
+        }
+      },
+      "idx": 6,
+      "resource": {
+        "active_mb": null,
+        "peak_mb": null
+      },
+      "t": 3.0
+    },
+    {
+      "answers": {
+        "bundle_scrap": "yes",
+        "gather_metal_sheets": "unclear",
+        "pick_up_metal_sheets": "yes",
+        "walk_to_next_station": "yes"
+      },
+      "confidence": {
+        "bundle_scrap": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.2426,
+            "yes": 0.7574
+          }
+        },
+        "pick_up_metal_sheets": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.2571,
+            "yes": 0.7429
+          }
+        },
+        "walk_to_next_station": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.18,
+            "yes": 0.82
+          }
+        }
+      },
+      "idx": 7,
+      "resource": {
+        "active_mb": null,
+        "peak_mb": null
+      },
+      "t": 3.5
+    },
+    {
+      "answers": {
+        "bundle_scrap": "yes",
+        "gather_metal_sheets": "unclear",
+        "pick_up_metal_sheets": "yes",
+        "walk_to_next_station": "yes"
+      },
+      "confidence": {
+        "bundle_scrap": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.2116,
+            "yes": 0.7884
+          }
+        },
+        "pick_up_metal_sheets": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.252,
+            "yes": 0.748
+          }
+        },
+        "walk_to_next_station": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.1982,
+            "yes": 0.8018
+          }
+        }
+      },
+      "idx": 8,
+      "resource": {
+        "active_mb": null,
+        "peak_mb": null
+      },
+      "t": 4.0
+    },
+    {
+      "answers": {
+        "bundle_scrap": "yes",
+        "gather_metal_sheets": "unclear",
+        "pick_up_metal_sheets": "yes",
+        "walk_to_next_station": "yes"
+      },
+      "confidence": {
+        "bundle_scrap": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.2728,
+            "yes": 0.7272
+          }
+        },
+        "pick_up_metal_sheets": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.2645,
+            "yes": 0.7355
+          }
+        },
+        "walk_to_next_station": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.2223,
+            "yes": 0.7777
+          }
+        }
+      },
+      "idx": 9,
+      "resource": {
+        "active_mb": null,
+        "peak_mb": null
+      },
+      "t": 4.5
+    },
+    {
+      "answers": {
+        "bundle_scrap": "yes",
+        "gather_metal_sheets": "unclear",
+        "pick_up_metal_sheets": "yes",
+        "walk_to_next_station": "yes"
+      },
+      "confidence": {
+        "bundle_scrap": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.2532,
+            "yes": 0.7468
+          }
+        },
+        "pick_up_metal_sheets": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.2859,
+            "yes": 0.7141
+          }
+        },
+        "walk_to_next_station": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.2263,
+            "yes": 0.7737
+          }
+        }
+      },
+      "idx": 10,
+      "resource": {
+        "active_mb": null,
+        "peak_mb": null
+      },
+      "t": 5.0
+    },
+    {
+      "answers": {
+        "bundle_scrap": "yes",
+        "gather_metal_sheets": "unclear",
+        "pick_up_metal_sheets": "yes",
+        "walk_to_next_station": "yes"
+      },
+      "confidence": {
+        "bundle_scrap": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.2235,
+            "yes": 0.7765
+          }
+        },
+        "pick_up_metal_sheets": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.2545,
+            "yes": 0.7455
+          }
+        },
+        "walk_to_next_station": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.1949,
+            "yes": 0.8051
+          }
+        }
+      },
+      "idx": 11,
+      "resource": {
+        "active_mb": null,
+        "peak_mb": null
+      },
+      "t": 5.5
+    },
+    {
+      "answers": {
+        "bundle_scrap": "yes",
+        "gather_metal_sheets": "unclear",
+        "pick_up_metal_sheets": "yes",
+        "walk_to_next_station": "yes"
+      },
+      "confidence": {
+        "bundle_scrap": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.2627,
+            "yes": 0.7373
+          }
+        },
+        "pick_up_metal_sheets": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.2522,
+            "yes": 0.7478
+          }
+        },
+        "walk_to_next_station": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.1992,
+            "yes": 0.8008
+          }
+        }
+      },
+      "idx": 12,
+      "resource": {
+        "active_mb": null,
+        "peak_mb": null
+      },
+      "t": 6.0
+    },
+    {
+      "answers": {
+        "bundle_scrap": "yes",
+        "gather_metal_sheets": "unclear",
+        "pick_up_metal_sheets": "yes",
+        "walk_to_next_station": "yes"
+      },
+      "confidence": {
+        "bundle_scrap": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.2789,
+            "yes": 0.7211
+          }
+        },
+        "pick_up_metal_sheets": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.3074,
+            "yes": 0.6926
+          }
+        },
+        "walk_to_next_station": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.2254,
+            "yes": 0.7746
+          }
+        }
+      },
+      "idx": 13,
+      "resource": {
+        "active_mb": null,
+        "peak_mb": null
+      },
+      "t": 6.5
+    },
+    {
+      "answers": {
+        "bundle_scrap": "yes",
+        "gather_metal_sheets": "unclear",
+        "pick_up_metal_sheets": "yes",
+        "walk_to_next_station": "yes"
+      },
+      "confidence": {
+        "bundle_scrap": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.2479,
+            "yes": 0.7521
+          }
+        },
+        "pick_up_metal_sheets": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.2619,
+            "yes": 0.7381
+          }
+        },
+        "walk_to_next_station": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.1989,
+            "yes": 0.8011
+          }
+        }
+      },
+      "idx": 14,
+      "resource": {
+        "active_mb": null,
+        "peak_mb": null
+      },
+      "t": 7.0
+    },
+    {
+      "answers": {
+        "bundle_scrap": "yes",
+        "gather_metal_sheets": "unclear",
+        "pick_up_metal_sheets": "yes",
+        "walk_to_next_station": "yes"
+      },
+      "confidence": {
+        "bundle_scrap": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.2322,
+            "yes": 0.7678
+          }
+        },
+        "pick_up_metal_sheets": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.2723,
+            "yes": 0.7277
+          }
+        },
+        "walk_to_next_station": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.1584,
+            "yes": 0.8416
+          }
+        }
+      },
+      "idx": 15,
+      "resource": {
+        "active_mb": null,
+        "peak_mb": null
+      },
+      "t": 7.5
+    },
+    {
+      "answers": {
+        "bundle_scrap": "yes",
+        "gather_metal_sheets": "unclear",
+        "pick_up_metal_sheets": "yes",
+        "walk_to_next_station": "yes"
+      },
+      "confidence": {
+        "bundle_scrap": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.211,
+            "yes": 0.789
+          }
+        },
+        "pick_up_metal_sheets": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.2589,
+            "yes": 0.7411
+          }
+        },
+        "walk_to_next_station": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.1987,
+            "yes": 0.8013
+          }
+        }
+      },
+      "idx": 16,
+      "resource": {
+        "active_mb": null,
+        "peak_mb": null
+      },
+      "t": 8.0
+    },
+    {
+      "answers": {
+        "bundle_scrap": "yes",
+        "gather_metal_sheets": "unclear",
+        "pick_up_metal_sheets": "yes",
+        "walk_to_next_station": "yes"
+      },
+      "confidence": {
+        "bundle_scrap": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.2529,
+            "yes": 0.7471
+          }
+        },
+        "pick_up_metal_sheets": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.2439,
+            "yes": 0.7561
+          }
+        },
+        "walk_to_next_station": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.2011,
+            "yes": 0.7989
+          }
+        }
+      },
+      "idx": 17,
+      "resource": {
+        "active_mb": null,
+        "peak_mb": null
+      },
+      "t": 8.5
+    },
+    {
+      "answers": {
+        "bundle_scrap": "yes",
+        "gather_metal_sheets": "unclear",
+        "pick_up_metal_sheets": "yes",
+        "walk_to_next_station": "yes"
+      },
+      "confidence": {
+        "bundle_scrap": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.2005,
+            "yes": 0.7995
+          }
+        },
+        "pick_up_metal_sheets": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.2107,
+            "yes": 0.7893
+          }
+        },
+        "walk_to_next_station": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.1577,
+            "yes": 0.8423
+          }
+        }
+      },
+      "idx": 18,
+      "resource": {
+        "active_mb": null,
+        "peak_mb": null
+      },
+      "t": 9.0
+    },
+    {
+      "answers": {
+        "bundle_scrap": "yes",
+        "gather_metal_sheets": "unclear",
+        "pick_up_metal_sheets": "yes",
+        "walk_to_next_station": "yes"
+      },
+      "confidence": {
+        "bundle_scrap": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.2099,
+            "yes": 0.7901
+          }
+        },
+        "pick_up_metal_sheets": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.2165,
+            "yes": 0.7835
+          }
+        },
+        "walk_to_next_station": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.1877,
+            "yes": 0.8123
+          }
+        }
+      },
+      "idx": 19,
+      "resource": {
+        "active_mb": null,
+        "peak_mb": null
+      },
+      "t": 9.5
+    },
+    {
+      "answers": {
+        "bundle_scrap": "yes",
+        "gather_metal_sheets": "unclear",
+        "pick_up_metal_sheets": "yes",
+        "walk_to_next_station": "yes"
+      },
+      "confidence": {
+        "bundle_scrap": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.208,
+            "yes": 0.792
+          }
+        },
+        "pick_up_metal_sheets": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.2146,
+            "yes": 0.7854
+          }
+        },
+        "walk_to_next_station": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.1808,
+            "yes": 0.8192
+          }
+        }
+      },
+      "idx": 20,
+      "resource": {
+        "active_mb": null,
+        "peak_mb": null
+      },
+      "t": 10.0
+    },
+    {
+      "answers": {
+        "bundle_scrap": "yes",
+        "gather_metal_sheets": "unclear",
+        "pick_up_metal_sheets": "yes",
+        "walk_to_next_station": "yes"
+      },
+      "confidence": {
+        "bundle_scrap": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.2555,
+            "yes": 0.7445
+          }
+        },
+        "pick_up_metal_sheets": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.2486,
+            "yes": 0.7514
+          }
+        },
+        "walk_to_next_station": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.2045,
+            "yes": 0.7955
+          }
+        }
+      },
+      "idx": 21,
+      "resource": {
+        "active_mb": null,
+        "peak_mb": null
+      },
+      "t": 10.5
+    },
+    {
+      "answers": {
+        "bundle_scrap": "yes",
+        "gather_metal_sheets": "unclear",
+        "pick_up_metal_sheets": "yes",
+        "walk_to_next_station": "yes"
+      },
+      "confidence": {
+        "bundle_scrap": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.2285,
+            "yes": 0.7715
+          }
+        },
+        "pick_up_metal_sheets": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.2222,
+            "yes": 0.7778
+          }
+        },
+        "walk_to_next_station": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.197,
+            "yes": 0.803
+          }
+        }
+      },
+      "idx": 22,
+      "resource": {
+        "active_mb": null,
+        "peak_mb": null
+      },
+      "t": 11.0
+    },
+    {
+      "answers": {
+        "bundle_scrap": "yes",
+        "gather_metal_sheets": "unclear",
+        "pick_up_metal_sheets": "yes",
+        "walk_to_next_station": "yes"
+      },
+      "confidence": {
+        "bundle_scrap": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.2151,
+            "yes": 0.7849
+          }
+        },
+        "pick_up_metal_sheets": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.2082,
+            "yes": 0.7918
+          }
+        },
+        "walk_to_next_station": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.2042,
+            "yes": 0.7958
+          }
+        }
+      },
+      "idx": 23,
+      "resource": {
+        "active_mb": null,
+        "peak_mb": null
+      },
+      "t": 11.5
+    },
+    {
+      "answers": {
+        "bundle_scrap": "yes",
+        "gather_metal_sheets": "unclear",
+        "pick_up_metal_sheets": "yes",
+        "walk_to_next_station": "yes"
+      },
+      "confidence": {
+        "bundle_scrap": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.2225,
+            "yes": 0.7775
+          }
+        },
+        "pick_up_metal_sheets": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.2187,
+            "yes": 0.7813
+          }
+        },
+        "walk_to_next_station": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.1719,
+            "yes": 0.8281
+          }
+        }
+      },
+      "idx": 24,
+      "resource": {
+        "active_mb": null,
+        "peak_mb": null
+      },
+      "t": 12.0
+    },
+    {
+      "answers": {
+        "bundle_scrap": "yes",
+        "gather_metal_sheets": "unclear",
+        "pick_up_metal_sheets": "yes",
+        "walk_to_next_station": "yes"
+      },
+      "confidence": {
+        "bundle_scrap": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.2127,
+            "yes": 0.7873
+          }
+        },
+        "pick_up_metal_sheets": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.2272,
+            "yes": 0.7728
+          }
+        },
+        "walk_to_next_station": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.2055,
+            "yes": 0.7945
+          }
+        }
+      },
+      "idx": 25,
+      "resource": {
+        "active_mb": null,
+        "peak_mb": null
+      },
+      "t": 12.5
+    },
+    {
+      "answers": {
+        "bundle_scrap": "yes",
+        "gather_metal_sheets": "unclear",
+        "pick_up_metal_sheets": "yes",
+        "walk_to_next_station": "yes"
+      },
+      "confidence": {
+        "bundle_scrap": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.2005,
+            "yes": 0.7995
+          }
+        },
+        "pick_up_metal_sheets": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.2613,
+            "yes": 0.7387
+          }
+        },
+        "walk_to_next_station": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.165,
+            "yes": 0.835
+          }
+        }
+      },
+      "idx": 26,
+      "resource": {
+        "active_mb": null,
+        "peak_mb": null
+      },
+      "t": 13.0
+    },
+    {
+      "answers": {
+        "bundle_scrap": "yes",
+        "gather_metal_sheets": "unclear",
+        "pick_up_metal_sheets": "yes",
+        "walk_to_next_station": "yes"
+      },
+      "confidence": {
+        "bundle_scrap": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.1812,
+            "yes": 0.8188
+          }
+        },
+        "pick_up_metal_sheets": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.2145,
+            "yes": 0.7855
+          }
+        },
+        "walk_to_next_station": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.1638,
+            "yes": 0.8362
+          }
+        }
+      },
+      "idx": 27,
+      "resource": {
+        "active_mb": null,
+        "peak_mb": null
+      },
+      "t": 13.5
+    },
+    {
+      "answers": {
+        "bundle_scrap": "yes",
+        "gather_metal_sheets": "unclear",
+        "pick_up_metal_sheets": "yes",
+        "walk_to_next_station": "yes"
+      },
+      "confidence": {
+        "bundle_scrap": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.2095,
+            "yes": 0.7905
+          }
+        },
+        "pick_up_metal_sheets": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.2214,
+            "yes": 0.7786
+          }
+        },
+        "walk_to_next_station": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.1657,
+            "yes": 0.8343
+          }
+        }
+      },
+      "idx": 28,
+      "resource": {
+        "active_mb": null,
+        "peak_mb": null
+      },
+      "t": 14.0
+    },
+    {
+      "answers": {
+        "bundle_scrap": "yes",
+        "gather_metal_sheets": "unclear",
+        "pick_up_metal_sheets": "yes",
+        "walk_to_next_station": "yes"
+      },
+      "confidence": {
+        "bundle_scrap": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.1845,
+            "yes": 0.8155
+          }
+        },
+        "pick_up_metal_sheets": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.2409,
+            "yes": 0.7591
+          }
+        },
+        "walk_to_next_station": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.177,
+            "yes": 0.823
+          }
+        }
+      },
+      "idx": 29,
+      "resource": {
+        "active_mb": null,
+        "peak_mb": null
+      },
+      "t": 14.5
+    },
+    {
+      "answers": {
+        "bundle_scrap": "yes",
+        "gather_metal_sheets": "unclear",
+        "pick_up_metal_sheets": "yes",
+        "walk_to_next_station": "yes"
+      },
+      "confidence": {
+        "bundle_scrap": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.2087,
+            "yes": 0.7913
+          }
+        },
+        "pick_up_metal_sheets": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.2354,
+            "yes": 0.7646
+          }
+        },
+        "walk_to_next_station": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.1825,
+            "yes": 0.8175
+          }
+        }
+      },
+      "idx": 30,
+      "resource": {
+        "active_mb": null,
+        "peak_mb": null
+      },
+      "t": 15.0
+    },
+    {
+      "answers": {
+        "bundle_scrap": "yes",
+        "gather_metal_sheets": "unclear",
+        "pick_up_metal_sheets": "yes",
+        "walk_to_next_station": "yes"
+      },
+      "confidence": {
+        "bundle_scrap": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.2214,
+            "yes": 0.7786
+          }
+        },
+        "pick_up_metal_sheets": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.2512,
+            "yes": 0.7488
+          }
+        },
+        "walk_to_next_station": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.1964,
+            "yes": 0.8036
+          }
+        }
+      },
+      "idx": 31,
+      "resource": {
+        "active_mb": null,
+        "peak_mb": null
+      },
+      "t": 15.5
+    },
+    {
+      "answers": {
+        "bundle_scrap": "yes",
+        "gather_metal_sheets": "unclear",
+        "pick_up_metal_sheets": "yes",
+        "walk_to_next_station": "yes"
+      },
+      "confidence": {
+        "bundle_scrap": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.2125,
+            "yes": 0.7875
+          }
+        },
+        "pick_up_metal_sheets": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.2317,
+            "yes": 0.7683
+          }
+        },
+        "walk_to_next_station": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.1782,
+            "yes": 0.8218
+          }
+        }
+      },
+      "idx": 32,
+      "resource": {
+        "active_mb": null,
+        "peak_mb": null
+      },
+      "t": 16.0
+    },
+    {
+      "answers": {
+        "bundle_scrap": "yes",
+        "gather_metal_sheets": "unclear",
+        "pick_up_metal_sheets": "yes",
+        "walk_to_next_station": "yes"
+      },
+      "confidence": {
+        "bundle_scrap": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.2697,
+            "yes": 0.7303
+          }
+        },
+        "pick_up_metal_sheets": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.2464,
+            "yes": 0.7536
+          }
+        },
+        "walk_to_next_station": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.2028,
+            "yes": 0.7972
+          }
+        }
+      },
+      "idx": 33,
+      "resource": {
+        "active_mb": null,
+        "peak_mb": null
+      },
+      "t": 16.5
+    },
+    {
+      "answers": {
+        "bundle_scrap": "yes",
+        "gather_metal_sheets": "unclear",
+        "pick_up_metal_sheets": "yes",
+        "walk_to_next_station": "yes"
+      },
+      "confidence": {
+        "bundle_scrap": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.2625,
+            "yes": 0.7375
+          }
+        },
+        "pick_up_metal_sheets": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.2218,
+            "yes": 0.7782
+          }
+        },
+        "walk_to_next_station": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.198,
+            "yes": 0.802
+          }
+        }
+      },
+      "idx": 34,
+      "resource": {
+        "active_mb": null,
+        "peak_mb": null
+      },
+      "t": 17.0
+    },
+    {
+      "answers": {
+        "bundle_scrap": "yes",
+        "gather_metal_sheets": "unclear",
+        "pick_up_metal_sheets": "yes",
+        "walk_to_next_station": "yes"
+      },
+      "confidence": {
+        "bundle_scrap": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.2324,
+            "yes": 0.7676
+          }
+        },
+        "pick_up_metal_sheets": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.2174,
+            "yes": 0.7826
+          }
+        },
+        "walk_to_next_station": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.1962,
+            "yes": 0.8038
+          }
+        }
+      },
+      "idx": 35,
+      "resource": {
+        "active_mb": null,
+        "peak_mb": null
+      },
+      "t": 17.5
+    },
+    {
+      "answers": {
+        "bundle_scrap": "yes",
+        "gather_metal_sheets": "unclear",
+        "pick_up_metal_sheets": "yes",
+        "walk_to_next_station": "yes"
+      },
+      "confidence": {
+        "bundle_scrap": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.2005,
+            "yes": 0.7995
+          }
+        },
+        "pick_up_metal_sheets": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.1989,
+            "yes": 0.8011
+          }
+        },
+        "walk_to_next_station": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.1879,
+            "yes": 0.8121
+          }
+        }
+      },
+      "idx": 36,
+      "resource": {
+        "active_mb": null,
+        "peak_mb": null
+      },
+      "t": 18.0
+    },
+    {
+      "answers": {
+        "bundle_scrap": "yes",
+        "gather_metal_sheets": "unclear",
+        "pick_up_metal_sheets": "yes",
+        "walk_to_next_station": "yes"
+      },
+      "confidence": {
+        "bundle_scrap": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.2236,
+            "yes": 0.7764
+          }
+        },
+        "pick_up_metal_sheets": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.2066,
+            "yes": 0.7934
+          }
+        },
+        "walk_to_next_station": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.1922,
+            "yes": 0.8078
+          }
+        }
+      },
+      "idx": 37,
+      "resource": {
+        "active_mb": null,
+        "peak_mb": null
+      },
+      "t": 18.5
+    },
+    {
+      "answers": {
+        "bundle_scrap": "yes",
+        "gather_metal_sheets": "unclear",
+        "pick_up_metal_sheets": "yes",
+        "walk_to_next_station": "yes"
+      },
+      "confidence": {
+        "bundle_scrap": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.2488,
+            "yes": 0.7512
+          }
+        },
+        "pick_up_metal_sheets": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.2664,
+            "yes": 0.7336
+          }
+        },
+        "walk_to_next_station": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.1834,
+            "yes": 0.8166
+          }
+        }
+      },
+      "idx": 38,
+      "resource": {
+        "active_mb": null,
+        "peak_mb": null
+      },
+      "t": 19.0
+    },
+    {
+      "answers": {
+        "bundle_scrap": "yes",
+        "gather_metal_sheets": "unclear",
+        "pick_up_metal_sheets": "yes",
+        "walk_to_next_station": "yes"
+      },
+      "confidence": {
+        "bundle_scrap": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.2228,
+            "yes": 0.7772
+          }
+        },
+        "pick_up_metal_sheets": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.2355,
+            "yes": 0.7645
+          }
+        },
+        "walk_to_next_station": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.198,
+            "yes": 0.802
+          }
+        }
+      },
+      "idx": 39,
+      "resource": {
+        "active_mb": null,
+        "peak_mb": null
+      },
+      "t": 19.5
+    }
+  ],
+  "prediction_type": "frame_question_answers",
+  "run_id": "20260711-factory_ego-smolvlm2-500m-pilot6-r1",
+  "schema_version": "1.0",
+  "unit_id": "f001_w011_metal_stamping"
+}

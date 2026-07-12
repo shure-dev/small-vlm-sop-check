@@ -2,7 +2,7 @@
 
   sop-check run     --sop SOP.yaml --video VIDEO.mp4 --out-dir out/
   sop-check observe --sop SOP.yaml --frames-dir DIR --out answer_log.json
-  sop-check judge   --sop SOP.yaml --answer-log answer_log.json
+  sop-check detect  --sop SOP.yaml --answer-log answer_log.json
   sop-check eval    --sop SOP.yaml --answer-log answer_log.json
 """
 from __future__ import annotations
@@ -12,7 +12,7 @@ import json
 import os
 import sys
 
-from .core.judge import JudgeResult, check_expectation, judge
+from .core.events import Run, detect_events
 from .core.sop import load_answer_log, load_sop
 
 # 動作確認済みモデル(alias -> (mlx-community等のID, 短い実測メモ))。
@@ -47,35 +47,16 @@ def resolve_model(key: str) -> str:
 THINKING = {"auto": None, "on": True, "off": False}
 
 
-def _print_result(sop_name: str, result: JudgeResult) -> None:
+def _print_result(sop_name: str, events: dict[str, Run | None]) -> None:
     print(f"\nSOP: {sop_name}")
     print(f"{'event':14s} {'status':13s} {'t(s)':>6s}  span(idx)")
-    for name, run in result.events.items():
+    for name, run in events.items():
         if run:
-            print(f"{name:14s} {'done':13s} {run.t:>6.1f}  {run.start_idx}-{run.end_idx}")
+            print(f"{name:14s} {'detected':13s} {run.t:>6.1f}  {run.start_idx}-{run.end_idx}")
         else:
             print(f"{name:14s} {'NOT_DETECTED':13s} {'  -':>6s}")
-    print(f"\ncoverage = {result.coverage:.0%}")
-    if result.violations:
-        print("違反:")
-        for v in result.violations:
-            print(f"  - {v}")
-    else:
-        print("違反: なし")
-    print(f"\n>>> 総合判定: {result.verdict} <<<\n")
-
-
-def _print_expectation(sop_def, result: JudgeResult) -> None:
-    """SOPに expect(正解)があれば、verdict と『なぜ違反か(理由)』を当てられたかを表示。"""
-    ev = check_expectation(sop_def, result)
-    if ev is None:
-        return
-    parts = [f"verdict {'✓' if ev['verdict_ok'] else '✗'}"]
-    for r in ev["reasons"]:
-        target = r.get("relation") or r.get("event")
-        parts.append(f"理由「{target}」({r['kind']}) {'✓当てた' if r['caught'] else '✗外した'}")
-    mark = "✓" if ev["localized"] else "✗"
-    print(f"[正解照合] {'  /  '.join(parts)}  =>  箇所特定 {mark}\n")
+    n_det = sum(1 for r in events.values() if r is not None)
+    print(f"\n検出: {n_det}/{len(events)} イベント\n")
 
 
 def _run_observer(sop, meta_or_paths, model_key, out_path, max_tokens=200,
@@ -113,7 +94,7 @@ def _run_observer(sop, meta_or_paths, model_key, out_path, max_tokens=200,
 
 
 def cmd_run(args):
-    """動画 -> フレーム抽出 -> VLMの回答収集 -> 判定 を1コマンドで実行する(Macで完結)。"""
+    """動画 -> フレーム抽出 -> VLMの回答収集 -> 区間検出 を1コマンドで実行する(Macで完結)。"""
     from .inference.extract import extract_frames
 
     sop = load_sop(args.sop)
@@ -131,10 +112,9 @@ def cmd_run(args):
                   backend=args.backend)
     print(f"[run]   回答ログ -> {answer_log_path}")
 
-    print("[run] 3/3 判定中...")
-    result = judge(sop, load_answer_log(answer_log_path))
-    _print_result(sop["sop"]["name"], result)
-    _print_expectation(sop, result)
+    print("[run] 3/3 区間検出中...")
+    events = detect_events(sop["events"], load_answer_log(answer_log_path), sop.get("defaults"))
+    _print_result(sop["sop"]["name"], events)
 
 
 def cmd_observe(args):
@@ -150,11 +130,10 @@ def cmd_observe(args):
     print(f"[observe] saved -> {args.out}")
 
 
-def cmd_judge(args):
+def cmd_detect(args):
     sop = load_sop(args.sop)
-    result = judge(sop, load_answer_log(args.answer_log))
-    _print_result(sop["sop"]["name"], result)
-    _print_expectation(sop, result)
+    events = detect_events(sop["events"], load_answer_log(args.answer_log), sop.get("defaults"))
+    _print_result(sop["sop"]["name"], events)
 
 
 def cmd_eval(args):
@@ -205,7 +184,7 @@ def main():
     ap = argparse.ArgumentParser(prog="sop-check")
     sub = ap.add_subparsers(dest="command", required=True)
 
-    p_run = sub.add_parser("run", help="動画→抽出→VLMの回答収集→判定を1コマンドで実行")
+    p_run = sub.add_parser("run", help="動画→抽出→VLMの回答収集→区間検出を1コマンドで実行")
     p_run.add_argument("--sop", required=True)
     p_run.add_argument("--video", required=True)
     p_run.add_argument("--fps", type=float, default=1.0)
@@ -221,12 +200,12 @@ def main():
     _add_model_args(p_obs)
     p_obs.set_defaults(func=cmd_observe)
 
-    p_judge = sub.add_parser("judge", help="Phase2のみ: 回答ログをSOPと突き合わせて判定")
-    p_judge.add_argument("--sop", required=True)
-    p_judge.add_argument("--answer-log", required=True)
-    p_judge.set_defaults(func=cmd_judge)
+    p_detect = sub.add_parser("detect", help="Phase2のみ: 回答ログからイベント区間を検出")
+    p_detect.add_argument("--sop", required=True)
+    p_detect.add_argument("--answer-log", required=True)
+    p_detect.set_defaults(func=cmd_detect)
 
-    p_eval = sub.add_parser("eval", help="回答ログを正解アノテーションと突き合わせて評価(tIoU・relations正答)")
+    p_eval = sub.add_parser("eval", help="回答ログを正解アノテーションと突き合わせて評価(tIoU・フレーム一致)")
     p_eval.add_argument("--sop", required=True)
     p_eval.add_argument("--answer-log", required=True)
     p_eval.add_argument("--ground-truth", default=None,

@@ -1,0 +1,1142 @@
+{
+  "answer_source": "candidate-token probabilities; argmax normalized to yes/no",
+  "frame_count": 40,
+  "frames": [
+    {
+      "answers": {
+        "operate_control_panel": "yes",
+        "place_mold_on_press": "yes",
+        "stand_by_press": "yes"
+      },
+      "confidence": {
+        "operate_control_panel": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.2452,
+            "yes": 0.7548
+          }
+        },
+        "place_mold_on_press": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.4678,
+            "yes": 0.5322
+          }
+        },
+        "stand_by_press": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.0617,
+            "yes": 0.9383
+          }
+        }
+      },
+      "idx": 0,
+      "resource": {
+        "active_mb": null,
+        "peak_mb": null
+      },
+      "t": 0.0
+    },
+    {
+      "answers": {
+        "operate_control_panel": "yes",
+        "place_mold_on_press": "yes",
+        "stand_by_press": "yes"
+      },
+      "confidence": {
+        "operate_control_panel": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.2592,
+            "yes": 0.7408
+          }
+        },
+        "place_mold_on_press": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.4513,
+            "yes": 0.5487
+          }
+        },
+        "stand_by_press": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.0599,
+            "yes": 0.9401
+          }
+        }
+      },
+      "idx": 1,
+      "resource": {
+        "active_mb": null,
+        "peak_mb": null
+      },
+      "t": 0.5
+    },
+    {
+      "answers": {
+        "operate_control_panel": "yes",
+        "place_mold_on_press": "yes",
+        "stand_by_press": "yes"
+      },
+      "confidence": {
+        "operate_control_panel": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.301,
+            "yes": 0.699
+          }
+        },
+        "place_mold_on_press": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.4247,
+            "yes": 0.5753
+          }
+        },
+        "stand_by_press": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.0654,
+            "yes": 0.9346
+          }
+        }
+      },
+      "idx": 2,
+      "resource": {
+        "active_mb": null,
+        "peak_mb": null
+      },
+      "t": 1.0
+    },
+    {
+      "answers": {
+        "operate_control_panel": "yes",
+        "place_mold_on_press": "yes",
+        "stand_by_press": "yes"
+      },
+      "confidence": {
+        "operate_control_panel": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.2858,
+            "yes": 0.7142
+          }
+        },
+        "place_mold_on_press": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.4063,
+            "yes": 0.5937
+          }
+        },
+        "stand_by_press": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.0662,
+            "yes": 0.9338
+          }
+        }
+      },
+      "idx": 3,
+      "resource": {
+        "active_mb": null,
+        "peak_mb": null
+      },
+      "t": 1.5
+    },
+    {
+      "answers": {
+        "operate_control_panel": "yes",
+        "place_mold_on_press": "yes",
+        "stand_by_press": "yes"
+      },
+      "confidence": {
+        "operate_control_panel": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.2733,
+            "yes": 0.7267
+          }
+        },
+        "place_mold_on_press": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.3971,
+            "yes": 0.6029
+          }
+        },
+        "stand_by_press": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.0628,
+            "yes": 0.9372
+          }
+        }
+      },
+      "idx": 4,
+      "resource": {
+        "active_mb": null,
+        "peak_mb": null
+      },
+      "t": 2.0
+    },
+    {
+      "answers": {
+        "operate_control_panel": "yes",
+        "place_mold_on_press": "yes",
+        "stand_by_press": "yes"
+      },
+      "confidence": {
+        "operate_control_panel": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.2747,
+            "yes": 0.7253
+          }
+        },
+        "place_mold_on_press": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.4474,
+            "yes": 0.5526
+          }
+        },
+        "stand_by_press": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.0659,
+            "yes": 0.9341
+          }
+        }
+      },
+      "idx": 5,
+      "resource": {
+        "active_mb": null,
+        "peak_mb": null
+      },
+      "t": 2.5
+    },
+    {
+      "answers": {
+        "operate_control_panel": "yes",
+        "place_mold_on_press": "yes",
+        "stand_by_press": "yes"
+      },
+      "confidence": {
+        "operate_control_panel": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.2474,
+            "yes": 0.7526
+          }
+        },
+        "place_mold_on_press": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.4597,
+            "yes": 0.5403
+          }
+        },
+        "stand_by_press": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.0594,
+            "yes": 0.9406
+          }
+        }
+      },
+      "idx": 6,
+      "resource": {
+        "active_mb": null,
+        "peak_mb": null
+      },
+      "t": 3.0
+    },
+    {
+      "answers": {
+        "operate_control_panel": "yes",
+        "place_mold_on_press": "no",
+        "stand_by_press": "yes"
+      },
+      "confidence": {
+        "operate_control_panel": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.2588,
+            "yes": 0.7412
+          }
+        },
+        "place_mold_on_press": {
+          "argmax": "no",
+          "probs": {
+            "no": 0.5065,
+            "yes": 0.4935
+          }
+        },
+        "stand_by_press": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.0594,
+            "yes": 0.9406
+          }
+        }
+      },
+      "idx": 7,
+      "resource": {
+        "active_mb": null,
+        "peak_mb": null
+      },
+      "t": 3.5
+    },
+    {
+      "answers": {
+        "operate_control_panel": "yes",
+        "place_mold_on_press": "yes",
+        "stand_by_press": "yes"
+      },
+      "confidence": {
+        "operate_control_panel": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.2447,
+            "yes": 0.7553
+          }
+        },
+        "place_mold_on_press": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.4598,
+            "yes": 0.5402
+          }
+        },
+        "stand_by_press": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.0537,
+            "yes": 0.9463
+          }
+        }
+      },
+      "idx": 8,
+      "resource": {
+        "active_mb": null,
+        "peak_mb": null
+      },
+      "t": 4.0
+    },
+    {
+      "answers": {
+        "operate_control_panel": "yes",
+        "place_mold_on_press": "yes",
+        "stand_by_press": "yes"
+      },
+      "confidence": {
+        "operate_control_panel": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.2762,
+            "yes": 0.7238
+          }
+        },
+        "place_mold_on_press": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.484,
+            "yes": 0.516
+          }
+        },
+        "stand_by_press": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.057,
+            "yes": 0.943
+          }
+        }
+      },
+      "idx": 9,
+      "resource": {
+        "active_mb": null,
+        "peak_mb": null
+      },
+      "t": 4.5
+    },
+    {
+      "answers": {
+        "operate_control_panel": "yes",
+        "place_mold_on_press": "yes",
+        "stand_by_press": "yes"
+      },
+      "confidence": {
+        "operate_control_panel": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.2597,
+            "yes": 0.7403
+          }
+        },
+        "place_mold_on_press": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.4432,
+            "yes": 0.5568
+          }
+        },
+        "stand_by_press": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.063,
+            "yes": 0.937
+          }
+        }
+      },
+      "idx": 10,
+      "resource": {
+        "active_mb": null,
+        "peak_mb": null
+      },
+      "t": 5.0
+    },
+    {
+      "answers": {
+        "operate_control_panel": "unclear",
+        "place_mold_on_press": "unclear",
+        "stand_by_press": "unclear"
+      },
+      "confidence": {},
+      "idx": 11,
+      "resource": {
+        "active_mb": null,
+        "peak_mb": null
+      },
+      "t": 5.5
+    },
+    {
+      "answers": {
+        "operate_control_panel": "yes",
+        "place_mold_on_press": "yes",
+        "stand_by_press": "yes"
+      },
+      "confidence": {
+        "operate_control_panel": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.2343,
+            "yes": 0.7657
+          }
+        },
+        "place_mold_on_press": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.4253,
+            "yes": 0.5747
+          }
+        },
+        "stand_by_press": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.0535,
+            "yes": 0.9465
+          }
+        }
+      },
+      "idx": 12,
+      "resource": {
+        "active_mb": null,
+        "peak_mb": null
+      },
+      "t": 6.0
+    },
+    {
+      "answers": {
+        "operate_control_panel": "unclear",
+        "place_mold_on_press": "unclear",
+        "stand_by_press": "unclear"
+      },
+      "confidence": {},
+      "idx": 13,
+      "resource": {
+        "active_mb": null,
+        "peak_mb": null
+      },
+      "t": 6.5
+    },
+    {
+      "answers": {
+        "operate_control_panel": "unclear",
+        "place_mold_on_press": "unclear",
+        "stand_by_press": "unclear"
+      },
+      "confidence": {},
+      "idx": 14,
+      "resource": {
+        "active_mb": null,
+        "peak_mb": null
+      },
+      "t": 7.0
+    },
+    {
+      "answers": {
+        "operate_control_panel": "yes",
+        "place_mold_on_press": "yes",
+        "stand_by_press": "yes"
+      },
+      "confidence": {
+        "operate_control_panel": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.292,
+            "yes": 0.708
+          }
+        },
+        "place_mold_on_press": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.4024,
+            "yes": 0.5976
+          }
+        },
+        "stand_by_press": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.0617,
+            "yes": 0.9383
+          }
+        }
+      },
+      "idx": 15,
+      "resource": {
+        "active_mb": null,
+        "peak_mb": null
+      },
+      "t": 7.5
+    },
+    {
+      "answers": {
+        "operate_control_panel": "yes",
+        "place_mold_on_press": "yes",
+        "stand_by_press": "yes"
+      },
+      "confidence": {
+        "operate_control_panel": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.2636,
+            "yes": 0.7364
+          }
+        },
+        "place_mold_on_press": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.4413,
+            "yes": 0.5587
+          }
+        },
+        "stand_by_press": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.0566,
+            "yes": 0.9434
+          }
+        }
+      },
+      "idx": 16,
+      "resource": {
+        "active_mb": null,
+        "peak_mb": null
+      },
+      "t": 8.0
+    },
+    {
+      "answers": {
+        "operate_control_panel": "yes",
+        "place_mold_on_press": "yes",
+        "stand_by_press": "yes"
+      },
+      "confidence": {
+        "operate_control_panel": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.2622,
+            "yes": 0.7378
+          }
+        },
+        "place_mold_on_press": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.4622,
+            "yes": 0.5378
+          }
+        },
+        "stand_by_press": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.0583,
+            "yes": 0.9417
+          }
+        }
+      },
+      "idx": 17,
+      "resource": {
+        "active_mb": null,
+        "peak_mb": null
+      },
+      "t": 8.5
+    },
+    {
+      "answers": {
+        "operate_control_panel": "unclear",
+        "place_mold_on_press": "unclear",
+        "stand_by_press": "unclear"
+      },
+      "confidence": {},
+      "idx": 18,
+      "resource": {
+        "active_mb": null,
+        "peak_mb": null
+      },
+      "t": 9.0
+    },
+    {
+      "answers": {
+        "operate_control_panel": "unclear",
+        "place_mold_on_press": "unclear",
+        "stand_by_press": "unclear"
+      },
+      "confidence": {},
+      "idx": 19,
+      "resource": {
+        "active_mb": null,
+        "peak_mb": null
+      },
+      "t": 9.5
+    },
+    {
+      "answers": {
+        "operate_control_panel": "unclear",
+        "place_mold_on_press": "unclear",
+        "stand_by_press": "unclear"
+      },
+      "confidence": {},
+      "idx": 20,
+      "resource": {
+        "active_mb": null,
+        "peak_mb": null
+      },
+      "t": 10.0
+    },
+    {
+      "answers": {
+        "operate_control_panel": "yes",
+        "place_mold_on_press": "no",
+        "stand_by_press": "yes"
+      },
+      "confidence": {
+        "operate_control_panel": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.2312,
+            "yes": 0.7688
+          }
+        },
+        "place_mold_on_press": {
+          "argmax": "no",
+          "probs": {
+            "no": 0.5765,
+            "yes": 0.4235
+          }
+        },
+        "stand_by_press": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.0712,
+            "yes": 0.9288
+          }
+        }
+      },
+      "idx": 21,
+      "resource": {
+        "active_mb": null,
+        "peak_mb": null
+      },
+      "t": 10.5
+    },
+    {
+      "answers": {
+        "operate_control_panel": "unclear",
+        "place_mold_on_press": "unclear",
+        "stand_by_press": "unclear"
+      },
+      "confidence": {},
+      "idx": 22,
+      "resource": {
+        "active_mb": null,
+        "peak_mb": null
+      },
+      "t": 11.0
+    },
+    {
+      "answers": {
+        "operate_control_panel": "unclear",
+        "place_mold_on_press": "unclear",
+        "stand_by_press": "unclear"
+      },
+      "confidence": {},
+      "idx": 23,
+      "resource": {
+        "active_mb": null,
+        "peak_mb": null
+      },
+      "t": 11.5
+    },
+    {
+      "answers": {
+        "operate_control_panel": "unclear",
+        "place_mold_on_press": "unclear",
+        "stand_by_press": "unclear"
+      },
+      "confidence": {},
+      "idx": 24,
+      "resource": {
+        "active_mb": null,
+        "peak_mb": null
+      },
+      "t": 12.0
+    },
+    {
+      "answers": {
+        "operate_control_panel": "yes",
+        "place_mold_on_press": "no",
+        "stand_by_press": "yes"
+      },
+      "confidence": {
+        "operate_control_panel": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.2233,
+            "yes": 0.7767
+          }
+        },
+        "place_mold_on_press": {
+          "argmax": "no",
+          "probs": {
+            "no": 0.5861,
+            "yes": 0.4139
+          }
+        },
+        "stand_by_press": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.069,
+            "yes": 0.931
+          }
+        }
+      },
+      "idx": 25,
+      "resource": {
+        "active_mb": null,
+        "peak_mb": null
+      },
+      "t": 12.5
+    },
+    {
+      "answers": {
+        "operate_control_panel": "yes",
+        "place_mold_on_press": "no",
+        "stand_by_press": "yes"
+      },
+      "confidence": {
+        "operate_control_panel": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.2331,
+            "yes": 0.7669
+          }
+        },
+        "place_mold_on_press": {
+          "argmax": "no",
+          "probs": {
+            "no": 0.5408,
+            "yes": 0.4592
+          }
+        },
+        "stand_by_press": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.0649,
+            "yes": 0.9351
+          }
+        }
+      },
+      "idx": 26,
+      "resource": {
+        "active_mb": null,
+        "peak_mb": null
+      },
+      "t": 13.0
+    },
+    {
+      "answers": {
+        "operate_control_panel": "yes",
+        "place_mold_on_press": "yes",
+        "stand_by_press": "yes"
+      },
+      "confidence": {
+        "operate_control_panel": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.2362,
+            "yes": 0.7638
+          }
+        },
+        "place_mold_on_press": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.412,
+            "yes": 0.588
+          }
+        },
+        "stand_by_press": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.0634,
+            "yes": 0.9366
+          }
+        }
+      },
+      "idx": 27,
+      "resource": {
+        "active_mb": null,
+        "peak_mb": null
+      },
+      "t": 13.5
+    },
+    {
+      "answers": {
+        "operate_control_panel": "yes",
+        "place_mold_on_press": "yes",
+        "stand_by_press": "yes"
+      },
+      "confidence": {
+        "operate_control_panel": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.235,
+            "yes": 0.765
+          }
+        },
+        "place_mold_on_press": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.3006,
+            "yes": 0.6994
+          }
+        },
+        "stand_by_press": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.063,
+            "yes": 0.937
+          }
+        }
+      },
+      "idx": 28,
+      "resource": {
+        "active_mb": null,
+        "peak_mb": null
+      },
+      "t": 14.0
+    },
+    {
+      "answers": {
+        "operate_control_panel": "yes",
+        "place_mold_on_press": "yes",
+        "stand_by_press": "yes"
+      },
+      "confidence": {
+        "operate_control_panel": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.2221,
+            "yes": 0.7779
+          }
+        },
+        "place_mold_on_press": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.3238,
+            "yes": 0.6762
+          }
+        },
+        "stand_by_press": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.059,
+            "yes": 0.941
+          }
+        }
+      },
+      "idx": 29,
+      "resource": {
+        "active_mb": null,
+        "peak_mb": null
+      },
+      "t": 14.5
+    },
+    {
+      "answers": {
+        "operate_control_panel": "yes",
+        "place_mold_on_press": "yes",
+        "stand_by_press": "yes"
+      },
+      "confidence": {
+        "operate_control_panel": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.2229,
+            "yes": 0.7771
+          }
+        },
+        "place_mold_on_press": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.3512,
+            "yes": 0.6488
+          }
+        },
+        "stand_by_press": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.0583,
+            "yes": 0.9417
+          }
+        }
+      },
+      "idx": 30,
+      "resource": {
+        "active_mb": null,
+        "peak_mb": null
+      },
+      "t": 15.0
+    },
+    {
+      "answers": {
+        "operate_control_panel": "yes",
+        "place_mold_on_press": "yes",
+        "stand_by_press": "yes"
+      },
+      "confidence": {
+        "operate_control_panel": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.2303,
+            "yes": 0.7697
+          }
+        },
+        "place_mold_on_press": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.3744,
+            "yes": 0.6256
+          }
+        },
+        "stand_by_press": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.055,
+            "yes": 0.945
+          }
+        }
+      },
+      "idx": 31,
+      "resource": {
+        "active_mb": null,
+        "peak_mb": null
+      },
+      "t": 15.5
+    },
+    {
+      "answers": {
+        "operate_control_panel": "yes",
+        "place_mold_on_press": "no",
+        "stand_by_press": "yes"
+      },
+      "confidence": {
+        "operate_control_panel": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.2262,
+            "yes": 0.7738
+          }
+        },
+        "place_mold_on_press": {
+          "argmax": "no",
+          "probs": {
+            "no": 0.558,
+            "yes": 0.442
+          }
+        },
+        "stand_by_press": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.0628,
+            "yes": 0.9372
+          }
+        }
+      },
+      "idx": 32,
+      "resource": {
+        "active_mb": null,
+        "peak_mb": null
+      },
+      "t": 16.0
+    },
+    {
+      "answers": {
+        "operate_control_panel": "unclear",
+        "place_mold_on_press": "unclear",
+        "stand_by_press": "unclear"
+      },
+      "confidence": {},
+      "idx": 33,
+      "resource": {
+        "active_mb": null,
+        "peak_mb": null
+      },
+      "t": 16.5
+    },
+    {
+      "answers": {
+        "operate_control_panel": "unclear",
+        "place_mold_on_press": "unclear",
+        "stand_by_press": "unclear"
+      },
+      "confidence": {},
+      "idx": 34,
+      "resource": {
+        "active_mb": null,
+        "peak_mb": null
+      },
+      "t": 17.0
+    },
+    {
+      "answers": {
+        "operate_control_panel": "yes",
+        "place_mold_on_press": "no",
+        "stand_by_press": "yes"
+      },
+      "confidence": {
+        "operate_control_panel": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.2058,
+            "yes": 0.7942
+          }
+        },
+        "place_mold_on_press": {
+          "argmax": "no",
+          "probs": {
+            "no": 0.5065,
+            "yes": 0.4935
+          }
+        },
+        "stand_by_press": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.0827,
+            "yes": 0.9173
+          }
+        }
+      },
+      "idx": 35,
+      "resource": {
+        "active_mb": null,
+        "peak_mb": null
+      },
+      "t": 17.5
+    },
+    {
+      "answers": {
+        "operate_control_panel": "unclear",
+        "place_mold_on_press": "unclear",
+        "stand_by_press": "unclear"
+      },
+      "confidence": {},
+      "idx": 36,
+      "resource": {
+        "active_mb": null,
+        "peak_mb": null
+      },
+      "t": 18.0
+    },
+    {
+      "answers": {
+        "operate_control_panel": "unclear",
+        "place_mold_on_press": "unclear",
+        "stand_by_press": "unclear"
+      },
+      "confidence": {},
+      "idx": 37,
+      "resource": {
+        "active_mb": null,
+        "peak_mb": null
+      },
+      "t": 18.5
+    },
+    {
+      "answers": {
+        "operate_control_panel": "unclear",
+        "place_mold_on_press": "unclear",
+        "stand_by_press": "unclear"
+      },
+      "confidence": {},
+      "idx": 38,
+      "resource": {
+        "active_mb": null,
+        "peak_mb": null
+      },
+      "t": 19.0
+    },
+    {
+      "answers": {
+        "operate_control_panel": "yes",
+        "place_mold_on_press": "no",
+        "stand_by_press": "yes"
+      },
+      "confidence": {
+        "operate_control_panel": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.2457,
+            "yes": 0.7543
+          }
+        },
+        "place_mold_on_press": {
+          "argmax": "no",
+          "probs": {
+            "no": 0.5723,
+            "yes": 0.4277
+          }
+        },
+        "stand_by_press": {
+          "argmax": "yes",
+          "probs": {
+            "no": 0.0919,
+            "yes": 0.9081
+          }
+        }
+      },
+      "idx": 39,
+      "resource": {
+        "active_mb": null,
+        "peak_mb": null
+      },
+      "t": 19.5
+    }
+  ],
+  "prediction_type": "frame_question_answers",
+  "run_id": "20260711-factory_ego-smolvlm2-256m-pilot6-r1",
+  "schema_version": "1.0",
+  "unit_id": "f006_w005_compression_molding"
+}

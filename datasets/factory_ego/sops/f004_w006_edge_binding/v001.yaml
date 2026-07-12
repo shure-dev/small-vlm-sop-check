@@ -1,0 +1,39 @@
+sop:
+  id: f004_w006_edge_binding
+  name: 'Factory Ego: f004_w006_edge_binding'
+  domain_hint: '工場の一人称視点（頭部装着カメラ）映像。ミシン台と縁取りテープ付きの灰色生地、はさみ。'
+questions:
+- id: handle_fabric_at_needle
+  ask: '作業者はミシンの針元で生地を扱っているか？'
+  values:
+  - 'yes'
+  - 'no'
+- id: trim_thread_with_scissors
+  ask: '作業者ははさみで糸を切っているか？'
+  values:
+  - 'yes'
+  - 'no'
+- id: flip_and_check_binding
+  ask: '作業者は生地を手で裏返して縁を確かめているか？'
+  values:
+  - 'yes'
+  - 'no'
+events:
+  handle_fabric_at_needle:
+    name: '針元への生地セット'
+    evidence: handle_fabric_at_needle==yes
+    min_frames: 2
+  trim_thread_with_scissors:
+    name: 'はさみで糸切り'
+    evidence: trim_thread_with_scissors==yes
+    min_frames: 3
+  flip_and_check_binding:
+    name: '生地の裏返し確認'
+    evidence: flip_and_check_binding==yes
+    min_frames: 4
+benchmark:
+  schema_version: '1.0'
+  version: v001
+  status: provisional
+  purpose: model_accuracy_comparison
+  provenance: '抽出フレーム(2fps・20秒窓)を目視して定義(docs/benchmark/events.mdの方法論に従う)。人手GTではない'

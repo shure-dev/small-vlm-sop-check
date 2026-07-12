@@ -1,0 +1,48 @@
+sop:
+  id: f002_w005_garment_ironing
+  name: 'Factory Ego: f002_w005_garment_ironing'
+  domain_hint: '工場の一人称視点（頭部装着カメラ）映像。折り畳み板とアイロンのある衣類仕上げ台。'
+questions:
+- id: place_folding_board
+  ask: '作業者は白い折り畳み板をシャツの上に置いて位置を合わせているか？'
+  values:
+  - 'yes'
+  - 'no'
+- id: fold_shirt_around_board
+  ask: '作業者はシャツを板に沿って折り畳んでいるか？'
+  values:
+  - 'yes'
+  - 'no'
+- id: flip_and_neaten_folded_shirt
+  ask: '作業者は畳んだシャツを表に返して形を整えているか？'
+  values:
+  - 'yes'
+  - 'no'
+- id: stack_folded_shirt
+  ask: '作業者は畳んだシャツを完成品の山に重ねているか？'
+  values:
+  - 'yes'
+  - 'no'
+events:
+  place_folding_board:
+    name: '折り畳み板を置く'
+    evidence: place_folding_board==yes
+    min_frames: 4
+  fold_shirt_around_board:
+    name: 'シャツを板に沿って畳む'
+    evidence: fold_shirt_around_board==yes
+    min_frames: 4
+  flip_and_neaten_folded_shirt:
+    name: '表に返して形を整える'
+    evidence: flip_and_neaten_folded_shirt==yes
+    min_frames: 3
+  stack_folded_shirt:
+    name: '完成品の山に重ねる'
+    evidence: stack_folded_shirt==yes
+    min_frames: 2
+benchmark:
+  schema_version: '1.0'
+  version: v001
+  status: provisional
+  purpose: model_accuracy_comparison
+  provenance: '抽出フレーム(2fps・20秒窓)を目視して定義(docs/benchmark/events.mdの方法論に従う)。人手GTではない'

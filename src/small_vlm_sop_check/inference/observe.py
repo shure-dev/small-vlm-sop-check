@@ -2,7 +2,7 @@
 ローカル小型VLM(Qwen3-VL, mlx_vlm)にフレームごとの質問へ回答させる（Phase 1）。
 
 各質問への回答だけでなく、生成トークンのlogitから実測した信頼度(自己申告ではない)も
-一緒に返す。これによりPhase 2(judge)側で「低信頼な回答に頼った判定か」を
+一緒に返す。これによりPhase 2(区間検出)側で「低信頼な回答に頼った検出か」を
 可視化できる(experiments/sop_step_detect/confidence_judge/ での実験で技術検証済み)。
 
 ドメイン固有の知識(ガスコンロの点検作業など)は一切持たない。
@@ -181,7 +181,11 @@ class TransformersObserver:
         t0 = time.time()
         self.processor = AutoProcessor.from_pretrained(model)
         self.device = "mps" if torch.backends.mps.is_available() else "cpu"
-        self.dtype = torch.bfloat16 if self.device == "mps" else torch.float32
+        # float32固定。SmolVLM2-2.2B/500M/256Bはbfloat16×MPSだと視覚タワーが壊れ、
+        # 全フレームで文字化け(自由記述が「A--」など)に退化する実測(2026-07)。
+        # float32なら同じ重みで視覚が正常に働く(1フレーム自由記述で確認済み)。
+        # このバックエンドはmlxで視覚が壊れるモデル専用なので、数値的に安全なfloat32を既定にする。
+        self.dtype = torch.float32
         self.model = AutoModelForImageTextToText.from_pretrained(model, dtype=self.dtype)
         self.model.to(self.device).eval()
         print(f"[observe] loaded in {time.time()-t0:.1f}s (device={self.device})", flush=True)
@@ -247,5 +251,5 @@ class TransformersObserver:
 
 
 def confidence_to_answers(confidence: dict[str, dict]) -> dict[str, str]:
-    """judge が期待する {question_id: value} 形式に変換する(argmaxだけを取り出す)。"""
+    """detect_events が期待する {question_id: value} 形式に変換する(argmaxだけを取り出す)。"""
     return {question_id: c["argmax"] for question_id, c in confidence.items()}
