@@ -4,25 +4,25 @@ sop:
   domain_hint: 工場の一人称視点（頭部装着カメラ）映像。プレス機が並ぶ金属加工工場のフロア。
 events:
 - id: bundle_scrap
-  ask: 作業者はスクラップを段ボールに入れてまとめているか？
+  ask: 作業者がスクラップを段ボールに入れてまとめている
   values:
   - 'yes'
   - 'no'
   min_frames: 4
 - id: walk_to_next_station
-  ask: 作業者は歩いて移動しているか？
+  ask: 作業者が歩いて移動している
   values:
   - 'yes'
   - 'no'
   min_frames: 3
 - id: pick_up_metal_sheets
-  ask: 作業者は金属の板を手に取っているか？
+  ask: 作業者が金属の板を手に取っている
   values:
   - 'yes'
   - 'no'
   min_frames: 2
 - id: gather_metal_sheets
-  ask: 作業者は金属の板を揃えてまとめているか？
+  ask: 作業者が金属の板を揃えてまとめている
   values:
   - 'yes'
   - 'no'

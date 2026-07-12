@@ -4,19 +4,19 @@ sop:
   domain_hint: 工場の一人称視点（頭部装着カメラ）映像。電動ドライバーと部品ビンのある組立ベンチ。
 events:
 - id: assemble_part_with_driver
-  ask: 作業者は電動ドライバーで部品を組み立てているか？
+  ask: 作業者が電動ドライバーで部品を組み立てている
   values:
   - 'yes'
   - 'no'
   min_frames: 4
 - id: take_parts_from_bag
-  ask: 作業者は袋から部品を取り出しているか？
+  ask: 作業者が袋から部品を取り出している
   values:
   - 'yes'
   - 'no'
   min_frames: 2
 - id: roll_up_bag
-  ask: 作業者は袋を丸めているか？
+  ask: 作業者が袋を丸めている
   values:
   - 'yes'
   - 'no'

@@ -89,7 +89,7 @@ flowchart LR
 
 ### 1. SOPを定義する
 
-SOPには、検出したいイベントを記述します。**イベント = VLMへのフレームごとの質問**で、回答が "yes" の連続区間が出現になります。
+SOPには、検出したいイベントを記述します。**イベント = 「〜している」という記述文**で、VLMが各フレームでその成否をyes/noで判定し、"yes" の連続区間が出現になります。
 
 ```yaml
 sop:
@@ -99,11 +99,11 @@ sop:
 
 events:
   - id: knob
-    ask: "手がつまみを操作しているか"
+    ask: "手がつまみを操作している"
     values: ["yes", "no"]
     min_frames: 2
   - id: pointing
-    ask: "人が対象を指差しているか"
+    ask: "人が対象を指差している"
     values: ["yes", "no"]
 ```
 
@@ -117,7 +117,7 @@ events:
 sop-annotate            # datasets/ 配下のunitを台帳化し、ヘッダのプルダウンで選ぶ
 ```
 
-ブラウザ上で「データセット → unit」を切り替えながら、複数unitを1プロセスで注釈できます。区間はタイムラインを**ドラッグ**して直接引き、本体を掴んで移動・両端のつまみで伸縮できます（キーボード <kbd>i</kbd>/<kbd>o</kbd> でも指定可）。イベントの追加・削除、VLMへ送る質問文、撮影状況のヒント（`domain_hint`）もカード上で直接編集でき、SOP YAML へ検証付きで即書き戻されます。すべて自動保存です。詳細は [注釈ツールの仕様](docs/reference/annotator.md) を参照。
+ブラウザ上で「データセット → unit」を切り替えながら、複数unitを1プロセスで注釈できます。区間はタイムラインを**ドラッグ**して直接引き、本体を掴んで移動・両端のつまみで伸縮できます（キーボード <kbd>i</kbd>/<kbd>o</kbd> でも指定可）。イベントの追加・削除、イベントの記述文、撮影状況のヒント（`domain_hint`）もカード上で直接編集でき、SOP YAML へ検証付きで即書き戻されます。すべて自動保存です。詳細は [注釈ツールの仕様](docs/reference/annotator.md) を参照。
 
 台帳を使わず単一unitだけ開くこともできます。
 
@@ -189,7 +189,7 @@ sop-check eval \
 Egocentric-10Kの6工場から作業種類が満遍なく入るよう層化抽出した20 unit（各20秒・2fps・40フレーム）で、手順判定に向けたモデル間の精度比較を準備している開発用データセットです。キッチンや日常系のegocentricデータセット（Ego4Dなど）ではなく工場の一人称視点データを使うのは、産業・製造の現場作業に特化するという本リポジトリの方針のためです。
 
 - クリップ選定と暫定SOP設計には[annotated-egocentric-10k-dataset](https://github.com/fit-alessandro-berti/annotated-egocentric-10k-dataset)（LLM生成・人手検証なし）のtranscriptionを使い、GTとしては扱いません
-- 各unitのSOPは手順ステップ粒度の3〜4イベントを持ち、質問は日本語の単文（「作業者は〜しているか？」）です。イベントは抽出フレームの目視で定義します（[イベント定義ガイド](docs/benchmark/events.md)）
+- 各unitのSOPは手順ステップ粒度の3〜4イベントを持ち、記述は日本語の単文（「作業者が〜している」）です。イベントは抽出フレームの目視で定義します（[イベント定義ガイド](docs/benchmark/events.md)）
 - 現行unitは選定・アノテーション過程で閲覧されるため、すべて `dev_seen`
 - 人手ground truthは未作成のため、正式なprecision、recall、F1、tIoUは未計測
 - upstreamがgated datasetのため、抽出フレームは公開リポジトリに含めず、SHA manifestだけを追跡

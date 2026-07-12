@@ -4,25 +4,25 @@ sop:
   domain_hint: 工場の一人称視点（頭部装着カメラ）映像。ヒートプレス機と隣接する作業台。
 events:
 - id: open_heat_press
-  ask: 作業者はヒートプレス機のハンドルを引いて上盤を開けているか？
+  ask: 作業者がヒートプレス機のハンドルを引いて上盤を開けている
   values:
   - 'yes'
   - 'no'
   min_frames: 2
 - id: move_fabric_to_table
-  ask: 作業者はプレス台から生地を取り出して作業台へ移しているか？
+  ask: 作業者がプレス台から生地を取り出して作業台へ移している
   values:
   - 'yes'
   - 'no'
   min_frames: 2
 - id: peel_transfer_paper
-  ask: 作業者はTシャツから転写紙を剥がしているか？
+  ask: 作業者がTシャツから転写紙を剥がしている
   values:
   - 'yes'
   - 'no'
   min_frames: 3
 - id: smooth_arrange_shirt
-  ask: 作業者はTシャツを台の上に広げて手で整えているか？
+  ask: 作業者がTシャツを台の上に広げて手で整えている
   values:
   - 'yes'
   - 'no'

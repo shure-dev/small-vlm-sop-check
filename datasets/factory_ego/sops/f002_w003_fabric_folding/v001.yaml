@@ -4,17 +4,22 @@ sop:
   domain_hint: 工場の一人称視点（頭部装着カメラ）映像。衣類・ハンガー・輪ゴムが並ぶ大きな白い作業台。
 events:
 - id: spread_garment_on_table
-  ask: 作業者は衣類を作業台の上に広げているか？
+  ask: 作業者が衣類を作業台の上に広げて折りたたんでいる
   values:
   - 'yes'
   - 'no'
   min_frames: 2
 - id: take_hanger
-  ask: 作業者はハンガーを手に取っているか？
+  ask: 作業者がハンガーを手に取っている
   values:
   - 'yes'
   - 'no'
   min_frames: 2
+- id: event_3
+  ask: 衣服を積まれた山から取り出している
+  values:
+  - 'yes'
+  - 'no'
 benchmark:
   schema_version: '1.0'
   version: v001

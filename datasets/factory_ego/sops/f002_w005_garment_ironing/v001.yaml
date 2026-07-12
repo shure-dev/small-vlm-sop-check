@@ -4,25 +4,25 @@ sop:
   domain_hint: 工場の一人称視点（頭部装着カメラ）映像。折り畳み板とアイロンのある衣類仕上げ台。
 events:
 - id: place_folding_board
-  ask: 作業者は白い折り畳み板をシャツの上に置いて位置を合わせているか？
+  ask: 作業者が白い折り畳み板をシャツの上に置いて位置を合わせている
   values:
   - 'yes'
   - 'no'
   min_frames: 4
 - id: fold_shirt_around_board
-  ask: 作業者はシャツを板に沿って折り畳んでいるか？
+  ask: 作業者がシャツを板に沿って折り畳んでいる
   values:
   - 'yes'
   - 'no'
   min_frames: 4
 - id: flip_and_neaten_folded_shirt
-  ask: 作業者は畳んだシャツを表に返して形を整えているか？
+  ask: 作業者が畳んだシャツを表に返して形を整えている
   values:
   - 'yes'
   - 'no'
   min_frames: 3
 - id: stack_folded_shirt
-  ask: 作業者は畳んだシャツを完成品の山に重ねているか？
+  ask: 作業者が畳んだシャツを完成品の山に重ねている
   values:
   - 'yes'
   - 'no'

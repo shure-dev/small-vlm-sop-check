@@ -4,13 +4,13 @@ sop:
   domain_hint: 工場の一人称視点（頭部装着カメラ）映像。ワックス部品と金網ラックのある組立ベンチ。
 events:
 - id: assemble_parts_by_hand
-  ask: 作業者はワックス部品を手に持って組み付けているか？
+  ask: 作業者がワックス部品を手に持って組み付けている
   values:
   - 'yes'
   - 'no'
   min_frames: 3
 - id: place_tree_on_rack
-  ask: 作業者はワックスツリーを金網ラックの上で移し替えているか？
+  ask: 作業者がワックスツリーを金網ラックの上で移し替えている
   values:
   - 'yes'
   - 'no'

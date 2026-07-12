@@ -4,25 +4,25 @@ sop:
   domain_hint: 工場の一人称視点（頭部装着カメラ）映像。白いミシンとピンク色の布の山。
 events:
 - id: pick_piece_from_pile
-  ask: 作業者は布の山から布を取り上げているか？
+  ask: 作業者が布の山から布を取り上げている
   values:
   - 'yes'
   - 'no'
   min_frames: 2
 - id: unfold_and_orient_piece
-  ask: 作業者は布を手元で広げて向きを整えているか？
+  ask: 作業者が布を手元で広げて向きを整えている
   values:
   - 'yes'
   - 'no'
   min_frames: 3
 - id: check_seam_edge_by_hand
-  ask: 作業者は布端の縫い目を指でつまんで確認しているか？
+  ask: 作業者が布端の縫い目を指でつまんで確認している
   values:
   - 'yes'
   - 'no'
   min_frames: 4
 - id: set_piece_under_needle
-  ask: 作業者は布をミシンの針元に合わせて置いているか？
+  ask: 作業者が布をミシンの針元に合わせて置いている
   values:
   - 'yes'
   - 'no'

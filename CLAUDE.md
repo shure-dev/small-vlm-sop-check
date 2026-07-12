@@ -48,9 +48,9 @@ sop-check run --sop datasets/konro_inspection/sops/konro_inspection/konro_inspec
 
 ## 設計原則（変更しないこと）
 
-- **回答と区間導出の分離**: VLMはイベント（=フレームごとの質問）にフレーム単位で答えるだけ（Phase 1）。回答列からイベント区間を導出するのは決定論的なルールエンジン（Phase 2）。区間や時刻の比較をVLMの自然文推論に委ねない——検証で単純な時刻比較すら間違えることを確認済み。日本語ドキュメントでこの工程を「観察」と呼ばない（わかりにくいため「（フレームごとの質問への）回答」「回答収集」と書く。回答ログ＝`answer_log.json`）。
-- **イベント = 質問（SOP v2・フラット）**: SOPの `events` は `{id, ask, values, min_frames?}` のリスト。旧v1の questions/events 2層・`evidence`式・`occurrence`・イベント表示名(name)は廃止済みなので復活させない。同じ動作が複数回起こる場合は、同じイベントidに区間を複数持たせる（GT v0.2 は `{id: [区間,...] | null}`。キー無し=未注釈）。評価は時系列順にk番目どうしを突き合わせる。
-- **用語**: `events`（イベント=VLMへの質問）/ `answers`・`answer_log.json`（回答）/ `ground_truth.json`（人手の正解区間）。旧称「cue」「questions」は廃止済みなので復活させない。
+- **回答と区間導出の分離**: VLMはイベント（=「〜している」という記述文）が各フレームで成り立つかをyes/noで答えるだけ（Phase 1）。回答列からイベント区間を導出するのは決定論的なルールエンジン（Phase 2）。区間や時刻の比較をVLMの自然文推論に委ねない——検証で単純な時刻比較すら間違えることを確認済み。日本語ドキュメントでこの工程を「観察」と呼ばない（わかりにくいため「（フレームごとの質問への）回答」「回答収集」と書く。回答ログ＝`answer_log.json`）。
+- **イベント = 記述文（SOP v2・フラット）**: SOPの `events` は `{id, ask, values, min_frames?}` のリスト。askは「作業者が〜している」という記述文で書く（疑問形「〜か？」にしない）。旧v1の questions/events 2層・`evidence`式・`occurrence`・イベント表示名(name)は廃止済みなので復活させない。同じ動作が複数回起こる場合は、同じイベントidに区間を複数持たせる（GT v0.2 は `{id: [区間,...] | null}`。キー無し=未注釈）。評価は時系列順にk番目どうしを突き合わせる。
+- **用語**: `events`（イベント=VLMがyes/no判定する記述文）/ `answers`・`answer_log.json`（回答）/ `ground_truth.json`（人手の正解区間）。旧称「cue」「questions」は廃止済みなので復活させない。
 - **アノテーションは事実（いつ何が起きたか＝区間）だけを記録する**。「べき」を注釈に持ち込まない。一次指標はイベント区間の検出状態とtIoUで、フレーム一致は診断用（`src/small_vlm_sop_check/core/evaluate.py` 冒頭のdocstring参照）。境界±数フレームのズレは注釈側でなく tIoU しきい値側で吸収する。
 - **Factory Egoのモデル出力をground truthへ昇格しない**。Fable・Opus・Qwenは全て`runs/`のprediction。人手GTができるまではformal accuracyをnullのままにし、評価値はprediction runへ追記せず別evaluation runを作る。
 - **splitはfactory/worker単位**。現行unitは選定・アノテーション過程で閲覧されるため`dev_seen`固定でtestへ昇格させない。真のtestは未閲覧クリップ＋人手GTで作る。
@@ -74,7 +74,7 @@ sop-check run --sop datasets/konro_inspection/sops/konro_inspection/konro_inspec
 - **Qwen3-VL-2B は mlx-vlm 0.6.3 の再実測で半数のフレームのJSONが崩壊**（クォート欠落・同一キー繰り返し。一致率18%）。以前の「動作確認済み」から劣化しており要注意。
 - **InternVL3.5-30B-A3B は RAM 24GB では非現実的**（4bitでも重み約17GB）。8B級（Qwen3-VL-8B・Qwen3.5-9B・InternVL3-8B）は方針により未計測。
 
-**プロンプトは英語指示＋質問文をlegendに分離**（`small_vlm_sop_check.inference.observe.build_prompt`）。値スロットに質問文を入れると MiniCPM-V 等が値に質問文をエコーして yes/no が出ないため。`--prefill`（既定 `{"`）でアシスタント応答をJSONの最初のキーの途中まで固定する。これで (1) Molmoのように最初のトークンでEOSを出す空応答、(2) MiniCPM-V/Cosmosのように`<think>`でトークンを使い切りJSONに届かない、の両方を既定のまま回避でき、Qwen3-VL-2Bを除く全モデルでクリーンな yes/no JSON が出る（実測）。思考の連鎖を使いたい時だけ `--prefill '' --max-tokens 1024`。
+**プロンプトは英語指示＋イベント記述文をlegendに分離**（`small_vlm_sop_check.inference.observe.build_prompt`）。値スロットに記述文を入れると MiniCPM-V 等が値に記述文をエコーして yes/no が出ないため。`--prefill`（既定 `{"`）でアシスタント応答をJSONの最初のキーの途中まで固定する。これで (1) Molmoのように最初のトークンでEOSを出す空応答、(2) MiniCPM-V/Cosmosのように`<think>`でトークンを使い切りJSONに届かない、の両方を既定のまま回避でき、Qwen3-VL-2Bを除く全モデルでクリーンな yes/no JSON が出る（実測）。思考の連鎖を使いたい時だけ `--prefill '' --max-tokens 1024`。
 
 ## 検証のしかた
 

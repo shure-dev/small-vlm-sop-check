@@ -4,25 +4,25 @@ sop:
   domain_hint: 工場の一人称視点（頭部装着カメラ）映像。畳んだ服の山とビニール袋のある梱包台。
 events:
 - id: pick_garment_from_stack
-  ask: 作業者は積まれた服のスタックから服を1枚取っているか？
+  ask: 作業者が積まれた服のスタックから服を1枚取っている
   values:
   - 'yes'
   - 'no'
   min_frames: 2
 - id: insert_garment_into_bag
-  ask: 作業者は服をプラスチックの袋に入れているか？
+  ask: 作業者が服をプラスチックの袋に入れている
   values:
   - 'yes'
   - 'no'
   min_frames: 3
 - id: seal_bag_flap
-  ask: 作業者は袋の口を折り込んで閉じているか？
+  ask: 作業者が袋の口を折り込んで閉じている
   values:
   - 'yes'
   - 'no'
   min_frames: 4
 - id: place_package_right
-  ask: 作業者は袋詰めした服を右側に置いているか？
+  ask: 作業者が袋詰めした服を右側に置いている
   values:
   - 'yes'
   - 'no'

@@ -4,25 +4,25 @@ sop:
   domain_hint: 工場の一人称視点（頭部装着カメラ）映像。巻線機に載ったステータと制御盤。
 events:
 - id: adjust_coil_leads
-  ask: 作業者はコイルのリード線を手で整えているか？
+  ask: 作業者がコイルのリード線を手で整えている
   values:
   - 'yes'
   - 'no'
   min_frames: 2
 - id: reach_machine_base
-  ask: 作業者は機械の下部に手を伸ばして作業しているか？
+  ask: 作業者が機械の下部に手を伸ばして作業している
   values:
   - 'yes'
   - 'no'
   min_frames: 3
 - id: lace_stator_cord
-  ask: 作業者は白い紐をステータに通しているか？
+  ask: 作業者が白い紐をステータに通している
   values:
   - 'yes'
   - 'no'
   min_frames: 4
 - id: press_panel_button
-  ask: 作業者は制御盤のボタンを押しているか？
+  ask: 作業者が制御盤のボタンを押している
   values:
   - 'yes'
   - 'no'

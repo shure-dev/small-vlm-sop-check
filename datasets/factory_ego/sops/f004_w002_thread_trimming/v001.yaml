@@ -4,25 +4,25 @@ sop:
   domain_hint: 工場の一人称視点（頭部装着カメラ）映像。白いベビー服と糸切りばさみのある仕上げ台。
 events:
 - id: spread_garment_flat
-  ask: 作業者は服を台の上に広げて平らに整えているか？
+  ask: 作業者が服を台の上に広げて平らに整えている
   values:
   - 'yes'
   - 'no'
   min_frames: 3
 - id: pick_next_garment
-  ask: 作業者は次の服を布の山から取り上げているか？
+  ask: 作業者が次の服を布の山から取り上げている
   values:
   - 'yes'
   - 'no'
   min_frames: 2
 - id: trim_threads_upper
-  ask: 作業者は糸切りばさみで服の襟や肩まわりの糸を切っているか？
+  ask: 作業者が糸切りばさみで服の襟や肩まわりの糸を切っている
   values:
   - 'yes'
   - 'no'
   min_frames: 4
 - id: trim_threads_hem
-  ask: 作業者は服の裾をめくり上げて糸を切っているか？
+  ask: 作業者が服の裾をめくり上げて糸を切っている
   values:
   - 'yes'
   - 'no'

@@ -4,31 +4,31 @@ sop:
   domain_hint: 工場の一人称視点（頭部装着カメラ）映像。手動旋盤とスパナ、赤い鋳物部品。
 events:
 - id: tighten_workpiece_nut
-  ask: 作業者はスパナでナットを締めているか？
+  ask: 作業者がスパナでナットを締めている
   values:
   - 'yes'
   - 'no'
   min_frames: 4
 - id: place_wrench_on_carriage
-  ask: 作業者はスパナを往復台の上に置いているか？
+  ask: 作業者がスパナを往復台の上に置いている
   values:
   - 'yes'
   - 'no'
   min_frames: 2
 - id: start_spindle
-  ask: 作業者は主軸のレバーを操作しているか？
+  ask: 作業者が主軸のレバーを操作している
   values:
   - 'yes'
   - 'no'
   min_frames: 2
 - id: run_spindle
-  ask: 作業者は工作物を回転させているか？
+  ask: 作業者が工作物を回転させている
   values:
   - 'yes'
   - 'no'
   min_frames: 4
 - id: feed_cutting_tool
-  ask: 作業者は回転している工作物に刃物を近づけて削っているか？
+  ask: 作業者が回転している工作物に刃物を近づけて削っている
   values:
   - 'yes'
   - 'no'

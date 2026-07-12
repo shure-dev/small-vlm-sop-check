@@ -4,19 +4,19 @@ sop:
   domain_hint: 工場の一人称視点（頭部装着カメラ）映像。CNC機と操作盤、部品トレイ。
 events:
 - id: load_workpiece_into_chuck
-  ask: 作業者は機械のチャックに部品を取り付けているか？
+  ask: 作業者が機械のチャックに部品を取り付けている
   values:
   - 'yes'
   - 'no'
   min_frames: 2
 - id: press_control_panel_button
-  ask: 作業者は操作盤のボタンを押しているか？
+  ask: 作業者が操作盤のボタンを押している
   values:
   - 'yes'
   - 'no'
   min_frames: 1
 - id: close_machine_door
-  ask: 作業者は機械の扉（カバー）を閉めているか？
+  ask: 作業者が機械の扉（カバー）を閉めている
   values:
   - 'yes'
   - 'no'

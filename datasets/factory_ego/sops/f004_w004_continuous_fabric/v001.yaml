@@ -4,25 +4,25 @@ sop:
   domain_hint: 工場の一人称視点（頭部装着カメラ）映像。黒い生地とオーバーロックミシンの作業台。
 events:
 - id: stow_black_fabric
-  ask: 作業者は黒い生地を作業台の上に広げて置いているか？
+  ask: 作業者が黒い生地を作業台の上に広げて置いている
   values:
   - 'yes'
   - 'no'
   min_frames: 4
 - id: bring_garment_to_machine
-  ask: 作業者は黒い衣類を手に取ってミシン台へ引き寄せているか？
+  ask: 作業者が黒い衣類を手に取ってミシン台へ引き寄せている
   values:
   - 'yes'
   - 'no'
   min_frames: 4
 - id: align_garment_edge
-  ask: 作業者は衣類の縁を両手で揃えているか？
+  ask: 作業者が衣類の縁を両手で揃えている
   values:
   - 'yes'
   - 'no'
   min_frames: 3
 - id: set_under_presser_foot
-  ask: 作業者は生地をミシンの押さえ金の下にセットしているか？
+  ask: 作業者が生地をミシンの押さえ金の下にセットしている
   values:
   - 'yes'
   - 'no'

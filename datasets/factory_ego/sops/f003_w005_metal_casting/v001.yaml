@@ -4,18 +4,18 @@ sop:
   domain_hint: 工場の一人称視点（頭部装着カメラ）映像。金網状の大型ドラムと木箱のある鋳物仕上げ場。
 events:
 - id: knock_parts_off_casting_q
-  ask: 作業者はハンマーで鋳物を叩いているか？
+  ask: 作業者がハンマーで鋳物を叩いている
   values:
   - 'yes'
   - 'no'
 - id: carry_casting_bundle
-  ask: 作業者は鋳物の束を手に持って運んでいるか？
+  ask: 作業者が鋳物の束を手に持って運んでいる
   values:
   - 'yes'
   - 'no'
   min_frames: 2
 - id: put_casting_into_crate
-  ask: 作業者は鋳物を木箱に入れているか？
+  ask: 作業者が鋳物を木箱に入れている
   values:
   - 'yes'
   - 'no'

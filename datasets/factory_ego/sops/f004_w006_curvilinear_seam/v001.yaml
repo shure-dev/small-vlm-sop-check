@@ -4,19 +4,19 @@ sop:
   domain_hint: 工場の一人称視点（頭部装着カメラ）映像。ミシン台と灰色のニット生地。
 events:
 - id: align_fabric_edges
-  ask: 作業者は布の端を手で揃えているか？
+  ask: 作業者が布の端を手で揃えている
   values:
   - 'yes'
   - 'no'
   min_frames: 3
 - id: position_fabric_under_needle
-  ask: 作業者は布をミシンの針の下に置いて位置を合わせているか？
+  ask: 作業者が布をミシンの針の下に置いて位置を合わせている
   values:
   - 'yes'
   - 'no'
   min_frames: 3
 - id: fine_finger_work_at_needle
-  ask: 作業者は針元で指先を使った細かい作業をしているか？
+  ask: 作業者が針元で指先を使った細かい作業をしている
   values:
   - 'yes'
   - 'no'

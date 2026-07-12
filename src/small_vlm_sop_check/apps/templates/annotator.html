@@ -170,7 +170,7 @@ main { display: flex; gap: var(--s5); padding: var(--s5); max-width: 1320px; mar
 .erow-top { display: flex; align-items: flex-start; gap: var(--s2); }
 .erow-top .badge { margin-top: 5px; }
 .erow-main { flex: 1; min-width: 0; }
-/* 質問行: 質問文(=VLMプロンプト)がカードの主役 */
+/* イベント行: 記述文(=VLMプロンプト)がカードの主役 */
 .qrow { display: flex; align-items: center; gap: var(--s2); }
 .q-input {
   flex: 1; min-width: 0; font-size: var(--fs-lg); font-weight: 600; color: var(--text);
@@ -491,8 +491,8 @@ function eventCard(ev) {
   const qrow = el("div", "qrow");
   const askIn = el("input", "q-input");
   askIn.value = ev.question || "";
-  askIn.placeholder = "VLMへ送る質問（yes/noで答えられる文。例: 作業者は袋を丸めているか？）";
-  askIn.title = "この文がフレームごとのVLMプロンプトになる";
+  askIn.placeholder = "イベントの記述文（例: 作業者が袋を丸めている）。VLMが各フレームで成り立つかをyes/noで判定";
+  askIn.title = "この記述文がフレームごとのVLMプロンプトになる（成り立つか yes/no で判定させる）";
   askIn.onkeydown = e => { if (e.key === "Enter" && !e.isComposing) askIn.blur(); e.stopPropagation(); };
   askIn.onblur = () => { if ((ev.question || "") !== askIn.value.trim()) sopOp({ op: "upsert_event", event_id: ev.id, ask: askIn.value.trim() }); };
   qrow.append(askIn);
@@ -690,7 +690,7 @@ $("#addBtn").onclick = async () => {
   const id = nextEventId();
   focusEventId = id;
   const ok = await sopOp({ op: "upsert_event", event_id: id, ask: "" },
-                         "追加しました。VLMへ送る質問を入力してください");
+                         "追加しました。イベントの記述文を入力してください");
   if (ok) selectEvent(id); else focusEventId = null;
 };
 

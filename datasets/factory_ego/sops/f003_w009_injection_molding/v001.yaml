@@ -4,13 +4,13 @@ sop:
   domain_hint: 工場の一人称視点（頭部装着カメラ）映像。射出成形機の金型まわり。
 events:
 - id: remove_molded_parts
-  ask: 作業者は金型から成形品を取り外しているか？
+  ask: 作業者が金型から成形品を取り外している
   values:
   - 'yes'
   - 'no'
   min_frames: 3
 - id: place_parts_on_table
-  ask: 作業者は成形品を作業台に置いているか？
+  ask: 作業者が成形品を作業台に置いている
   values:
   - 'yes'
   - 'no'

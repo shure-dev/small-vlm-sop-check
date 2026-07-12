@@ -4,19 +4,19 @@ sop:
   domain_hint: 工場の一人称視点（頭部装着カメラ）映像。筒状部品の山と鉄箱のある工場の床。
 events:
 - id: pick_parts_from_pile
-  ask: 作業者は山積みの部品の中から筒状の部品を拾い上げているか？
+  ask: 作業者が山積みの部品の中から筒状の部品を拾い上げている
   values:
   - 'yes'
   - 'no'
   min_frames: 3
 - id: put_parts_into_box
-  ask: 作業者は筒状の部品を鉄製の箱の中に入れているか？
+  ask: 作業者が筒状の部品を鉄製の箱の中に入れている
   values:
   - 'yes'
   - 'no'
   min_frames: 2
 - id: reposition_parts_box
-  ask: 作業者は部品の入った鉄箱を引いて位置を直しているか？
+  ask: 作業者が部品の入った鉄箱を引いて位置を直している
   values:
   - 'yes'
   - 'no'

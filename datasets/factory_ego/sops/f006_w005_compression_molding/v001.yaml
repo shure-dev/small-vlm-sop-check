@@ -4,19 +4,19 @@ sop:
   domain_hint: 工場の一人称視点（頭部装着カメラ）映像。油圧プレスと操作盤。
 events:
 - id: place_mold_on_press
-  ask: 作業者は金型を手でプレスの台に置いて位置を合わせているか？
+  ask: 作業者が金型を手でプレスの台に置いて位置を合わせている
   values:
   - 'yes'
   - 'no'
   min_frames: 4
 - id: operate_control_panel
-  ask: 作業者は操作盤のスイッチやバルブを手で操作しているか？
+  ask: 作業者が操作盤のスイッチやバルブを手で操作している
   values:
   - 'yes'
   - 'no'
   min_frames: 2
 - id: stand_by_press
-  ask: 作業者はプレスに触れずに操作盤の前に立って様子を確認しているか？
+  ask: 作業者がプレスに触れずに操作盤の前に立って様子を確認している
   values:
   - 'yes'
   - 'no'
