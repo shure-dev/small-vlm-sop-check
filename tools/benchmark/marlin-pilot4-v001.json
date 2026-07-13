@@ -1,0 +1,24 @@
+{
+  "f001_w004_material_replenishment": {
+    "assemble_part_with_driver": "a worker assembles a part using a driver tool",
+    "take_parts_from_bag": "a worker turns a bag upside down and pours the parts out",
+    "roll_up_bag": "a worker rolls up a bag"
+  },
+  "f001_w011_metal_stamping": {
+    "bundle_scrap": "a worker puts scrap metal into a cardboard box",
+    "walk_to_next_station": "a worker walks to the next station",
+    "pick_up_metal_sheets": "a worker picks up metal sheets",
+    "gather_metal_sheets": "a worker aligns and gathers metal sheets"
+  },
+  "f002_w002_garment_bagging": {
+    "pick_garment_from_stack": "a worker picks a garment from a stack",
+    "insert_garment_into_bag": "a worker puts a folded garment into a plastic bag",
+    "seal_bag_flap": "a worker folds the adhesive flap of a plastic bag to seal it",
+    "place_package_right": "a worker places a sealed package to the right"
+  },
+  "f002_w003_fabric_folding": {
+    "spread_garment_on_table": "a worker spreads a garment flat on the table",
+    "take_hanger": "a worker picks up a hanger",
+    "event_3": "a worker takes a garment from a stack"
+  }
+}

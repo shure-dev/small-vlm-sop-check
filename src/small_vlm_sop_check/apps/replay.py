@@ -144,7 +144,7 @@ def build_model_data(sop_def: dict, raw_log: list, n_frames: int) -> dict:
         idxs = [i for run in runs
                 for i in (run.idxs if run.idxs else range(run.start_idx, run.end_idx + 1))]
         events[name] = {
-            "label": name,
+            "label": ev_def.get("ask") or name,
             "question": ev_def.get("ask", ""),
             "idxs": idxs or None,
             # 全出現区間(同じ動作が複数回起きたら各回を別区間として出す)。

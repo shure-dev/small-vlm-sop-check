@@ -152,18 +152,18 @@
   .timeline .span {
     position: absolute;
     top: 0; bottom: 0;
-    background: var(--ok);
-    opacity: 0.35;
+    background: #1683d8;
+    opacity: 0.65;
     border-radius: 5px;
   }
   .timeline .span.gt {
     background: transparent;
-    border: 2px solid #2563eb;
-    opacity: 0.9;
+    border: 2px solid #f59e0b;
+    opacity: 1;
   }
   .legend { font-size: 11px; color: #999; text-transform: none; letter-spacing: 0; margin-left: 8px; }
-  .legend .sw-det { color: var(--ok); }
-  .legend .sw-gt { color: #2563eb; }
+  .legend .sw-det { color: #1683d8; }
+  .legend .sw-gt { color: #f59e0b; }
   .timeline .playhead {
     position: absolute;
     top: -3px; bottom: -3px;
@@ -199,7 +199,7 @@
 
     <section class="right">
       <h2>イベント検出<span id="gtLegend" class="legend" hidden>
-        <span class="sw-det">■</span> 検出 / <span class="sw-gt">□</span> 正解(人手アノテーション)</span></h2>
+        <span class="sw-det">■</span> モデル検出（青） / <span class="sw-gt">□</span> 人手GT（橙枠）</span></h2>
       <div id="events"></div>
     </section>
   </main>

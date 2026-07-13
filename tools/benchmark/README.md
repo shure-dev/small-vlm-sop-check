@@ -42,6 +42,32 @@ python3 tools/benchmark/reference_tiou.py \
 
 各runの回答から決定論的ルールでイベント区間を導き、reference runとの区間tIoUを測る。比較は共通unit・共通フレームidxに制限し、mean tIoUは両run検出ペアのみの平均（`core.evaluate` と同じ流儀）。referenceは人手GTではないため精度ではなく、[評価ポリシー](../../docs/benchmark/evaluation.md)の予備比較（モデル間一致・境界差）に当たる。VLM不要。
 
+## Marlin-2B temporal grounding
+
+Marlinはフレームごとの質問回答ではなく、動画とイベント文から開始・終了秒を直接返す。
+専用runnerはその区間を既存の `frame_question_answers` schemaへ正規化するため、生成後のrunは
+既存のvalidate・評価・replay viewerで扱える。コア検出・評価器は変更しない。
+
+```bash
+uv pip install --python ../../../.venv-vlm/bin/python -e '.[marlin]'
+
+../../../.venv-vlm/bin/python tools/benchmark/run_marlin_prediction.py \
+  --queries tools/benchmark/marlin-pilot4-v001.json \
+  --run-id <日付>-factory_ego-marlin-2b-pilot4-r1
+
+PYTHONPATH=src ../../../.venv/bin/python -m small_vlm_sop_check.apps.replay \
+  --runs-dir runs --dataset-root datasets/factory_ego \
+  --out out/replay_marlin.html
+```
+
+前提はgated framesの取得、`ffmpeg`、Apple SiliconではMPS対応PyTorch。query JSONは
+unitごとにSOPの全event IDをちょうど1回含める。rawはイベントごとに逐次保存されるので、
+中断時は同じコマンドで再開できる。完了済み `run.yaml` は他runnerと同様に上書きしない。
+モデル独自の `find()` を呼ぶため `trust_remote_code=True` を使用するが、既定では実験時の
+Hugging Face commitを `--revision` で固定する。別revisionを試す場合はコード差分を確認する。
+
+4 unitで実行した結果とqueryは[Marlin-2B pilot4レポート](../../reports/marlin-2b-pilot4.md)に記録する。
+
 ## Validate
 
 ```bash
