@@ -1,0 +1,41 @@
+{
+  "schema_version": "1.0",
+  "unit_id": "f002_w003_fabric_folding",
+  "model_id": "lunahr/Marlin-2B-ungated",
+  "model_revision": "de783b96b80f477c5e665d2202571a84cb0761da",
+  "events": {
+    "spread_garment_on_table": {
+      "query": "a worker spreads a garment flat on the table",
+      "result": {
+        "raw": "From 1.5 to 3.0.",
+        "span": [
+          1.5,
+          3.0
+        ],
+        "format_ok": true
+      }
+    },
+    "take_hanger": {
+      "query": "a worker picks up a hanger",
+      "result": {
+        "raw": "From 18.0 to 19.6.",
+        "span": [
+          18.0,
+          19.6
+        ],
+        "format_ok": true
+      }
+    },
+    "event_3": {
+      "query": "a worker takes a garment from a stack",
+      "result": {
+        "raw": "From 8.0 to 9.0.",
+        "span": [
+          8.0,
+          9.0
+        ],
+        "format_ok": true
+      }
+    }
+  }
+}

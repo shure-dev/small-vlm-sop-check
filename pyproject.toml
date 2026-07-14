@@ -20,6 +20,13 @@ vlm = [
   "mlx-vlm>=0.6.0",
   "mlx>=0.20.0",
 ]
+marlin = [
+  "av>=17.0",
+  "torch>=2.12",
+  "torchcodec>=0.14",
+  "torchvision>=0.27",
+  "transformers>=5.12,<6",
+]
 fetch = [
   "huggingface_hub>=0.30",
   "opencv-python>=4.8",

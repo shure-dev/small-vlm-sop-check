@@ -1,0 +1,41 @@
+{
+  "schema_version": "1.0",
+  "units": {
+    "f001_w004_material_replenishment": {
+      "dataset_id": "factory_ego",
+      "frames_manifest_sha256": "6dc6f1cde91f8fe3ed270b89e0e66b7a3924925684ac14cab25ba941c09cd035",
+      "sop_id": "f001_w004_material_replenishment",
+      "sop_sha256": "6a52a5e4d46df0d4553fc0bc9c281f2947c207e07ed76b3f18482eae156f180c",
+      "sop_version": "v001",
+      "split_id": "development-v001",
+      "unit_meta_sha256": "84dfe1da1c922763b66319960be4dfc86a195200de1d6b8f21b4677f615c291a"
+    },
+    "f001_w011_metal_stamping": {
+      "dataset_id": "factory_ego",
+      "frames_manifest_sha256": "59ce7716ea258a2d3f6a880d5c3a5204abdfe76f54ae5ba6f1022ce3a4260328",
+      "sop_id": "f001_w011_metal_stamping",
+      "sop_sha256": "f8fd98576d49d78a66befe15c8ef27022fedd4b2c6e421b49df72b1fc765844a",
+      "sop_version": "v001",
+      "split_id": "development-v001",
+      "unit_meta_sha256": "5aee6d4edfce3409c557da820806631ea868c068289200ca929cca6020c75b05"
+    },
+    "f002_w002_garment_bagging": {
+      "dataset_id": "factory_ego",
+      "frames_manifest_sha256": "d715b0d09cea06edeba77bbe9fc9e8099635e5d831b26ce92c20f69b571ef97f",
+      "sop_id": "f002_w002_garment_bagging",
+      "sop_sha256": "af5f1f63cbb98e9d8d03bf66ac1f60bc7eacac7a94df5bd0328539cc1e75686d",
+      "sop_version": "v001",
+      "split_id": "development-v001",
+      "unit_meta_sha256": "9a381823f837e1676ad71f2659570fdedda4b88efc5d4bf723f8db593f7dd83f"
+    },
+    "f002_w003_fabric_folding": {
+      "dataset_id": "factory_ego",
+      "frames_manifest_sha256": "df4d43ca205c1944f8715ac1641f33530aee2dd873ad67817cbde156390702ea",
+      "sop_id": "f002_w003_fabric_folding",
+      "sop_sha256": "767fc693573efc9b0d77dfab2eb4ca72b3039f7b80c0fa932c6edd2a1edb386c",
+      "sop_version": "v001",
+      "split_id": "development-v001",
+      "unit_meta_sha256": "ba3cf9c6928978c7d11c98dac72e9a62821a789c17dc14b1238d8b551c124423"
+    }
+  }
+}
