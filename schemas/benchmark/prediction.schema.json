@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://industrial-vlm-temporal-grounding.local/schemas/benchmark/prediction.schema.json",
+  "title": "Video event prediction",
+  "type": "object",
+  "required": ["run_id", "unit_id", "method", "interval_convention", "events"],
+  "properties": {
+    "run_id": {"type": "string", "minLength": 1},
+    "unit_id": {"type": "string", "minLength": 1},
+    "method": {"enum": ["temporal_grounding", "frame_classification"]},
+    "interval_convention": {"const": "half-open_seconds"},
+    "events": {
+      "type": "object",
+      "additionalProperties": {
+        "oneOf": [
+          {"type": "null"},
+          {
+            "type": "array",
+            "minItems": 1,
+            "items": {"$ref": "#/$defs/span"}
+          }
+        ]
+      }
+    }
+  },
+  "$defs": {
+    "span": {
+      "type": "object",
+      "required": ["start_s", "end_s"],
+      "properties": {
+        "start_s": {"type": "number", "minimum": 0},
+        "end_s": {"type": "number", "exclusiveMinimum": 0},
+        "score": {"type": "number", "minimum": 0, "maximum": 1}
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

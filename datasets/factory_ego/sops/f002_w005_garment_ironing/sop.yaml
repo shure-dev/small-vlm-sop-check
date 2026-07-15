@@ -1,0 +1,13 @@
+sop:
+  id: f002_w005_garment_ironing
+  name: 折り畳み板を使ったシャツの折り畳み
+  domain_hint: 作業者視点で、薄紫色のシャツと白い折り畳み板を扱う20秒の縫製工場動画
+events:
+  - id: place_folding_board
+    ask: 作業者が白い長方形の折り畳み板を薄紫色のシャツの中央に置き、両手で位置を合わせている
+  - id: fold_shirt_around_board
+    ask: 作業者が薄紫色のシャツの左右を白い折り畳み板に沿って内側へ折っている
+  - id: turn_and_neaten_folded_shirt
+    ask: 作業者が折り畳んだ薄紫色のシャツを持ち上げて表に返し、両手で形を整えている
+  - id: stack_folded_shirt
+    ask: 作業者が完成した薄紫色の折り畳みシャツを作業台上側の完成品の山へ重ねている

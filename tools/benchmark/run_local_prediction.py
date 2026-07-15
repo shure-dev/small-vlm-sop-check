@@ -35,10 +35,13 @@ sys.path.insert(0, str(ROOT / "src"))
 
 from small_vlm_sop_check.cli import resolve_model  # noqa: E402
 from small_vlm_sop_check.core.sop import load_sop  # noqa: E402
+from small_vlm_sop_check.core.temporal import (  # noqa: E402
+    frame_answers_to_spans,
+    prediction_document,
+)
 
-SCHEMA_VERSION = "1.0"
 DATASET_ID = "factory_ego"
-SPLIT_ID = "development-v001"
+SPLIT_ID = "development"
 DATASET_ROOT = ROOT / "datasets" / "factory_ego"
 
 
@@ -89,8 +92,9 @@ def unit_paths(unit_id: str) -> dict[str, Path]:
     meta = json.loads((unit_dir / "meta.json").read_text(encoding="utf-8"))
     sop_path = (unit_dir / meta["sop_ref"]["path"]).resolve()
     manifest_path = unit_dir / meta["media"]["sha256_manifest"]
+    frames_path = ROOT / "data" / DATASET_ID / "units" / unit_id / meta["media"]["path"]
     return {"dir": unit_dir, "meta": unit_dir / "meta.json", "sop": sop_path,
-            "manifest": manifest_path, "frames": unit_dir / "frames"}
+            "manifest": manifest_path, "frames": frames_path}
 
 
 def unit_fps(unit_id: str) -> float:
@@ -131,45 +135,33 @@ def observe_unit(observer, sop: dict, frames_dir: Path, raw_path: Path,
     return results
 
 
-def normalize(run_id: str, unit_id: str, rows: list[dict], question_ids: list[str]) -> dict:
-    """rawの信頼度argmaxをprediction schemaへ正規化する。
+def normalize(run_id: str, unit_id: str, rows: list[dict], sop: dict) -> dict:
+    """rawの信頼度argmaxを共通の秒区間predictionへ変換する。
 
     出力が崩壊して回答が取れなかった質問は "unclear" で埋める(全質問のキーを常に持つ)。
     実測: Qwen2.5-VL-3Bはロード直後の最初の推論でだけ '!' の羅列に退化することがある。
     """
+    question_ids = [event["id"] for event in sop["events"]]
     frames = []
     for row in rows:
         answers = {qid: "unclear" for qid in question_ids}
         for qid, conf in row["confidence"].items():
             value = conf.get("argmax", "unclear")
             answers[qid] = value if value in {"yes", "no", "unclear"} else "unclear"
-        frames.append({
-            "idx": row["idx"], "t": row["t"], "answers": answers,
-            "confidence": row["confidence"],
-            "resource": {"active_mb": row.get("active_mb"), "peak_mb": row.get("peak_mb")},
-        })
-    return {
-        "schema_version": SCHEMA_VERSION,
-        "run_id": run_id,
-        "unit_id": unit_id,
-        "prediction_type": "frame_question_answers",
-        "answer_source": "candidate-token probabilities; argmax normalized to yes/no",
-        "frame_count": len(frames),
-        "frames": frames,
-    }
+        frames.append({"idx": row["idx"], "t": row["t"], "answers": answers})
+    return prediction_document(run_id, unit_id, "frame_classification",
+                               frame_answers_to_spans(frames, sop))
 
 
 def build_inputs_lock(units: list[str]) -> dict:
-    lock: dict = {"schema_version": SCHEMA_VERSION, "units": {}}
+    lock: dict = {"units": {}}
     for unit_id in units:
         paths = unit_paths(unit_id)
-        sop_version = yaml.safe_load(paths["sop"].read_text(encoding="utf-8"))["benchmark"]["version"]
         lock["units"][unit_id] = {
             "dataset_id": DATASET_ID,
             "frames_manifest_sha256": sha256_file(paths["manifest"]),
             "sop_id": unit_id,
             "sop_sha256": sha256_file(paths["sop"]),
-            "sop_version": sop_version,
             "split_id": SPLIT_ID,
             "unit_meta_sha256": sha256_file(paths["meta"]),
         }
@@ -221,8 +213,7 @@ def main() -> None:
             print(f"[run] unit {unit_id} ({len(sop['events'])} events)", flush=True)
             rows = observe_unit(observer, sop, paths["frames"], run_dir / "raw" / f"{unit_id}.json",
                                 args.max_tokens, args.prefill, unit_fps(unit_id), deadline)
-            predictions[unit_id] = normalize(args.run_id, unit_id, rows,
-                                             [ev["id"] for ev in sop["events"]])
+            predictions[unit_id] = normalize(args.run_id, unit_id, rows, sop)
     except TimeBudgetExceeded:
         done = sorted((run_dir / "raw").glob("*.json"))
         print(f"[run] --max-seconds={args.max_seconds}s に到達。rawは保存済み(raw {len(done)}ファイル)。"
@@ -260,7 +251,6 @@ def main() -> None:
         inference["mlx_vlm_version"] = mlx_vlm.__version__
 
     run_doc = {
-        "schema_version": SCHEMA_VERSION,
         "run_id": args.run_id,
         "kind": "prediction",
         "status": "complete",

@@ -1,10 +1,6 @@
 {
   "benchmark_status": "dev_seen",
   "dataset_id": "factory_ego",
-  "ground_truth": {
-    "available": false,
-    "required_source": "human"
-  },
   "media": {
     "availability": "local_gated_source_not_committed",
     "path": "frames",
@@ -17,31 +13,9 @@
     "source_frame_end": 57,
     "source_frame_start": 37
   },
-  "schema_version": "1.0",
-  "selection": {
-    "annotations_repo": "fit-alessandro-berti/annotated-egocentric-10k-dataset",
-    "annotations_revision": "107f8fdc1aa4334da5eb1c6bc9ce8d52eaf6ce96",
-    "caveat": "window boundaries derive from LLM-generated timestamps; frames are canonical",
-    "main_process": "Thread trimming",
-    "method": "tools/benchmark/sample_units.py (deterministic stratified)",
-    "transcript_excerpt": [
-      "[0s-37s] The person holds a white onesie, manipulating it with their hands to inspect the seams. Using small blue snipping scissors in their right hand, they cut loose threads from various parts of the garment.",
-      "[37s-41s] The person folds the onesie in half and then again, placing the finished garment onto a neat pile on the right side of the table.",
-      "[41s-45s] The person reaches to the left, picks up a new white onesie from the unfinished pile, and lays it out in the center of the table.",
-      "[45s-66s] The person inspects the new garment, lifting and turning it while using the snipping scissors to carefully remove loose threads along the top and bottom seams."
-    ],
-    "window_activities": [
-      "Stack folded garment on table",
-      "Pull unmarked garment from pile",
-      "Snip loose threads with small clippers"
-    ],
-    "window_event_starts": 3
-  },
   "sop_ref": {
     "id": "f004_w002_thread_trimming",
-    "path": "../../sops/f004_w002_thread_trimming/v001.yaml",
-    "status": "provisional",
-    "version": "v001"
+    "path": "../../sops/f004_w002_thread_trimming/sop.yaml"
   },
   "source": {
     "clip_id": "factory004_worker002_00006",

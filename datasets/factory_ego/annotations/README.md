@@ -1,5 +1,5 @@
 # Human annotations
 
-ここには人手で確認・裁定した正解だけを置きます。モデル生成結果は置きません。
+このディレクトリには、人間が動画全体と区間境界を確認したannotationだけを置きます。
 
-Factory Egoの現行unitには、まだ人手ground truthがありません。未注釈を空JSONやモデル予測で埋めず、人手注釈が完了した時点で `human-v001/<unit_id>.json` を追加します。
+`human/<unit_id>.json` は `sop-app` によって作成されます。日本語イベント文はJSONの `event_labels` と対応する `sops/<unit_id>/sop.yaml` に同期されます。モデル出力、翻訳、外部annotationはここへ置きません。

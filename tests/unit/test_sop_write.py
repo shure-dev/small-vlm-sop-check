@@ -1,7 +1,7 @@
 """save_sop と SOP編集ヘルパー(annotatorがブラウザから呼ぶ)の回帰テスト。
 
 VLMもブラウザも不要。dict変換とYAML書き戻しの決定性だけを検証する。
-SOPはv2(フラット): events = [{id, ask, values, min_frames?}, ...]。
+現行SOP契約は events = [{id, ask, values, min_frames?}, ...]。
 """
 import copy
 
@@ -20,14 +20,14 @@ def _base_sop():
             {"id": "assemble", "ask": "組み立てているか？", "values": ["yes", "no"], "min_frames": 4},
             {"id": "wrap", "ask": "袋を丸めているか？", "values": ["yes", "no"], "min_frames": 2},
         ],
-        "benchmark": {"status": "provisional", "version": "v001"},
+        "benchmark": {"status": "provisional"},
     }
 
 
 def test_save_sop_roundtrip_and_yes_no_quoting(tmp_path):
     """save→loadで同値に戻り、yes/no はブール化せず文字列のまま残る。"""
     sop = _base_sop()
-    path = tmp_path / "sop" / "v001.yaml"
+    path = tmp_path / "sop" / "sop.yaml"
     save_sop(path, sop)
 
     text = path.read_text(encoding="utf-8")
@@ -41,37 +41,36 @@ def test_save_sop_roundtrip_and_yes_no_quoting(tmp_path):
 def test_save_sop_preserves_unknown_blocks(tmp_path):
     """benchmarkブロック等の未知キーは書き戻しても保持される。"""
     sop = _base_sop()
-    path = tmp_path / "v001.yaml"
+    path = tmp_path / "sop.yaml"
     save_sop(path, sop)
-    assert load_sop(path)["benchmark"] == {"status": "provisional", "version": "v001"}
+    assert load_sop(path)["benchmark"] == {"status": "provisional"}
 
 
 def test_save_sop_is_atomic_no_tmp_left(tmp_path):
     """書き込み後に .tmp が残らない(原子的置き換え)。"""
-    path = tmp_path / "v001.yaml"
+    path = tmp_path / "sop.yaml"
     save_sop(path, _base_sop())
     assert not list(tmp_path.glob("*.tmp"))
 
 
-def test_save_sop_rejects_invalid(tmp_path):
-    """eventsが空・id重複など不正なSOPは書き込まず例外を投げる。"""
+def test_save_sop_accepts_empty_manual_draft_and_rejects_duplicate_id(tmp_path):
+    """未着手annotationはevents空を許し、id重複は拒否する。"""
     sop = _base_sop()
     sop["events"] = []
-    with pytest.raises(ValueError):
-        save_sop(tmp_path / "bad.yaml", sop)
+    save_sop(tmp_path / "empty.yaml", sop)
+    assert load_sop(tmp_path / "empty.yaml")["events"] == []
     dup = _base_sop()
     dup["events"].append({"id": "wrap", "ask": "重複"})
     with pytest.raises(ValueError):
         save_sop(tmp_path / "dup.yaml", dup)
 
 
-def test_validate_rejects_legacy_two_layer_format():
-    """旧v1(questions/events 2層)のSOPは明確なエラーで拒否する。"""
-    legacy = {"sop": {"id": "x", "name": "X"},
+def test_validate_rejects_unsupported_questions_key():
+    unsupported = {"sop": {"id": "x", "name": "X"},
               "questions": [{"id": "q", "ask": "?", "values": ["yes", "no"]}],
               "events": {"e": {"evidence": "q==yes"}}}
-    with pytest.raises(ValueError, match="旧形式"):
-        validate_sop(legacy)
+    with pytest.raises(ValueError, match="questionsは未対応"):
+        validate_sop(unsupported)
 
 
 def test_load_sop_fills_defaults(tmp_path):
@@ -138,8 +137,8 @@ def test_delete_event():
     assert delete_event(sop, "wrap") is True
     assert [ev["id"] for ev in sop["events"]] == ["assemble"]
     assert delete_event(sop, "nope") is False       # 無いidはFalse
-    with pytest.raises(ValueError):
-        delete_event(sop, "assemble")               # 最後の1件は消せない
+    assert delete_event(sop, "assemble") is True
+    assert sop["events"] == []
 
 
 def test_validate_sop_accepts_base():

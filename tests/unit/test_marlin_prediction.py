@@ -11,6 +11,10 @@ assert SPEC.loader is not None
 SPEC.loader.exec_module(MODULE)
 
 
+def test_marlin_video_width_preserves_small_hand_actions():
+    assert MODULE.VIDEO_WIDTH >= 640
+
+
 def test_result_span_accepts_valid_marlin_result():
     assert MODULE.result_span({"span": [1.5, 3.0], "format_ok": True}) == (1.5, 3.0)
 
@@ -20,11 +24,7 @@ def test_result_span_rejects_invalid_ranges():
     assert MODULE.result_span({"raw": "not found"}) is None
 
 
-def test_normalize_prediction_maps_seconds_to_frame_answers(monkeypatch, tmp_path):
-    meta = tmp_path / "meta.json"
-    meta.write_text('{"sampling":{"n_frames":5}}', encoding="utf-8")
-    monkeypatch.setattr(MODULE, "unit_fps", lambda _unit: 2.0)
-    monkeypatch.setattr(MODULE, "unit_paths", lambda _unit: {"meta": meta})
+def test_normalize_prediction_preserves_seconds():
     raw = {"events": {
         "event_a": {"result": {"span": [0.5, 1.0]}},
         "event_b": {"result": {"span": None}},
@@ -32,21 +32,16 @@ def test_normalize_prediction_maps_seconds_to_frame_answers(monkeypatch, tmp_pat
 
     prediction = MODULE.normalize_prediction("run", "unit", raw)
 
-    assert [frame["answers"]["event_a"] for frame in prediction["frames"]] == [
-        "no", "yes", "yes", "no", "no"
-    ]
-    assert all(frame["answers"]["event_b"] == "unclear" for frame in prediction["frames"])
+    assert prediction["method"] == "temporal_grounding"
+    assert prediction["events"] == {
+        "event_a": [{"start_s": 0.5, "end_s": 1.0}],
+        "event_b": None,
+    }
 
 
-def test_normalize_prediction_covers_fractional_boundary_frames(monkeypatch, tmp_path):
-    meta = tmp_path / "meta.json"
-    meta.write_text('{"sampling":{"n_frames":6}}', encoding="utf-8")
-    monkeypatch.setattr(MODULE, "unit_fps", lambda _unit: 2.0)
-    monkeypatch.setattr(MODULE, "unit_paths", lambda _unit: {"meta": meta})
+def test_normalize_prediction_preserves_fractional_boundaries():
     raw = {"events": {"event": {"result": {"span": [0.6, 1.1]}}}}
 
     prediction = MODULE.normalize_prediction("run", "unit", raw)
 
-    assert [frame["answers"]["event"] for frame in prediction["frames"]] == [
-        "no", "yes", "yes", "yes", "no", "no"
-    ]
+    assert prediction["events"]["event"] == [{"start_s": 0.6, "end_s": 1.1}]

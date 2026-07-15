@@ -1,0 +1,51 @@
+{
+  "unit_id": "f002_w003_fabric_folding",
+  "model_id": "lunahr/Marlin-2B-ungated",
+  "model_revision": "de783b96b80f477c5e665d2202571a84cb0761da",
+  "events": {
+    "take_garment_from_stack": {
+      "query": "a worker grasps the top light-blue folded garment and removes it from the stack",
+      "result": {
+        "raw": "From 7.5 to 8.5.",
+        "span": [
+          7.5,
+          8.5
+        ],
+        "format_ok": true
+      }
+    },
+    "spread_garment_on_table": {
+      "query": "a worker places a light-blue garment in the center of the table and unfolds or spreads it flat",
+      "result": {
+        "raw": "From 0.0 to 3.0.",
+        "span": [
+          0.0,
+          3.0
+        ],
+        "format_ok": true
+      }
+    },
+    "fold_garment_sides": {
+      "query": "a worker folds the left and right sides of a light-blue garment inward and straightens the folded garment on the table",
+      "result": {
+        "raw": "From 12.0 to 17.0.",
+        "span": [
+          12.0,
+          17.0
+        ],
+        "format_ok": true
+      }
+    },
+    "pick_up_hanger": {
+      "query": "a worker reaches to the pile of black clothes hangers on the left and lifts one black hanger",
+      "result": {
+        "raw": "From 18.0 to 19.6.",
+        "span": [
+          18.0,
+          19.6
+        ],
+        "format_ok": true
+      }
+    }
+  }
+}

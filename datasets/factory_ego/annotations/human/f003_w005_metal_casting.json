@@ -1,0 +1,37 @@
+{
+  "unit_id": "f003_w005_metal_casting",
+  "annotation_revision": "human",
+  "interval_convention": "half-open_seconds",
+  "event_labels": {
+    "carry_casting_bundle": "作業者が連なった銀色の鋳物部品を片手で持ち、作業台から木箱まで運んでいる",
+    "put_casting_into_crate": "作業者が運んだ銀色の鋳物部品を正面の木箱の中へ入れている",
+    "pick_up_hammer": "作業者が作業台に置かれた木柄の金属ハンマーを右手で持ち上げている",
+    "hammer_casting": "作業者が木柄の金属ハンマーで作業台上の銀色の鋳物部品を繰り返し叩いている"
+  },
+  "events": {
+    "carry_casting_bundle": [
+      {
+        "start_s": 3.5,
+        "end_s": 5.5
+      }
+    ],
+    "put_casting_into_crate": [
+      {
+        "start_s": 5,
+        "end_s": 8
+      }
+    ],
+    "pick_up_hammer": [
+      {
+        "start_s": 8.5,
+        "end_s": 10
+      }
+    ],
+    "hammer_casting": [
+      {
+        "start_s": 13,
+        "end_s": 20
+      }
+    ]
+  }
+}

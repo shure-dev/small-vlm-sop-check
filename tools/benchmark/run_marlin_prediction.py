@@ -1,16 +1,14 @@
 #!/usr/bin/env python3
-"""Marlin-2Bの動画groundingを既存のFactory Ego prediction runへ正規化する。
+"""Marlin-2Bの動画groundingをFactory Egoの秒区間predictionとして保存する。
 
 Marlinの ``find(video, event)`` はイベントの開始・終了秒を返す。このスクリプトは
-その区間を各抽出フレームのyes/noに変換し、既存の検証・評価・replay viewerが読む
-``frame_question_answers`` schemaで保存する。コアの区間検出・評価方法は変更しない。
+その区間を量子化せず、共通のprediction契約で保存する。
 """
 from __future__ import annotations
 
 import argparse
 import datetime
 import json
-import math
 import os
 import subprocess
 import sys
@@ -24,19 +22,25 @@ ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT / "src"))
 
 from small_vlm_sop_check.core.sop import load_sop  # noqa: E402
+from small_vlm_sop_check.core.temporal import (  # noqa: E402
+    TimeSpan,
+    prediction_document,
+)
 from run_local_prediction import (  # noqa: E402
     DATASET_ID,
-    SCHEMA_VERSION,
     SPLIT_ID,
     build_inputs_lock,
     git_revision,
     hf_snapshot_revision,
+    sha256_file,
     unit_fps,
     unit_paths,
 )
 
 DEFAULT_MODEL = "lunahr/Marlin-2B-ungated"
 DEFAULT_REVISION = "de783b96b80f477c5e665d2202571a84cb0761da"
+VIDEO_WIDTH = 640
+MAX_MODEL_PARAMETERS_B = 4.0
 
 
 def write_json_atomic(path: Path, value: object) -> None:
@@ -46,18 +50,19 @@ def write_json_atomic(path: Path, value: object) -> None:
     os.replace(tmp, path)
 
 
-def validate_queries(queries: dict[str, dict[str, str]]) -> None:
+def validate_queries(queries: dict[str, dict[str, str]], *, require_sop_match: bool) -> None:
     if not queries:
         raise SystemExit("queriesが空です")
     for unit_id, events in queries.items():
-        sop = load_sop(unit_paths(unit_id)["sop"])
-        expected = {event["id"] for event in sop["events"]}
-        actual = set(events)
-        if actual != expected:
-            raise SystemExit(
-                f"queryのevent IDがSOPと一致しません: {unit_id} "
-                f"missing={sorted(expected - actual)} extra={sorted(actual - expected)}"
-            )
+        if require_sop_match:
+            sop = load_sop(unit_paths(unit_id)["sop"])
+            expected = {event["id"] for event in sop["events"]}
+            actual = set(events)
+            if actual != expected:
+                raise SystemExit(
+                    f"queryのevent IDがSOPと一致しません: {unit_id} "
+                    f"missing={sorted(expected - actual)} extra={sorted(actual - expected)}"
+                )
         if any(not isinstance(query, str) or not query.strip() for query in events.values()):
             raise SystemExit(f"空または文字列でないqueryがあります: {unit_id}")
 
@@ -65,22 +70,47 @@ def validate_queries(queries: dict[str, dict[str, str]]) -> None:
 def ensure_video(unit_id: str, video_dir: Path) -> Path:
     """gated framesからMarlin入力用MP4を決定論的に生成する。"""
     out = video_dir / f"{unit_id}.mp4"
-    if out.is_file():
-        return out
     paths = unit_paths(unit_id)
     if not any(paths["frames"].glob("f*.jpg")):
+        if out.is_file():
+            return out
         raise SystemExit(f"framesがありません(gated媒体を先にfetch): {paths['frames']}")
     out.parent.mkdir(parents=True, exist_ok=True)
+    temporary = out.with_name(out.stem + ".tmp" + out.suffix)
     command = [
         "ffmpeg", "-y", "-loglevel", "error", "-framerate", str(unit_fps(unit_id)),
         "-i", str(paths["frames"] / "f%04d.jpg"), "-c:v", "libx264", "-pix_fmt", "yuv420p",
-        str(out),
+        "-vf", f"scale={VIDEO_WIDTH}:-2",
+        str(temporary),
     ]
     try:
         subprocess.run(command, check=True)
     except FileNotFoundError as exc:
         raise SystemExit("ffmpegが必要です（macOS: brew install ffmpeg）") from exc
+    os.replace(temporary, out)
     return out
+
+
+def video_metadata(path: Path) -> dict[str, Any]:
+    """実際にモデルへ渡すMP4のハッシュと映像属性を記録する。"""
+    command = [
+        "ffprobe", "-v", "error", "-select_streams", "v:0",
+        "-show_entries", "stream=width,height,avg_frame_rate,nb_frames",
+        "-show_entries", "format=duration", "-of", "json", str(path),
+    ]
+    try:
+        value = json.loads(subprocess.check_output(command, text=True))
+    except FileNotFoundError as exc:
+        raise SystemExit("ffprobeが必要です（ffmpegに同梱）") from exc
+    stream = value["streams"][0]
+    return {
+        "sha256": sha256_file(path),
+        "width": int(stream["width"]),
+        "height": int(stream["height"]),
+        "avg_frame_rate": stream["avg_frame_rate"],
+        "n_frames": int(stream["nb_frames"]),
+        "duration_s": float(value["format"]["duration"]),
+    }
 
 
 def result_span(result: Any) -> tuple[float, float] | None:
@@ -97,38 +127,17 @@ def result_span(result: Any) -> tuple[float, float] | None:
     return start, end
 
 
-def normalize_prediction(run_id: str, unit_id: str, raw: dict[str, Any]) -> dict[str, Any]:
-    fps = unit_fps(unit_id)
-    meta = json.loads(unit_paths(unit_id)["meta"].read_text(encoding="utf-8"))
-    n_frames = int(meta["sampling"]["n_frames"])
-    spans = {
-        event_id: (
-            None if (span := result_span(record["result"])) is None
-            else (math.floor(span[0] * fps), math.ceil(span[1] * fps))
-        )
-        for event_id, record in raw["events"].items()
-    }
-    frames = []
-    for idx in range(n_frames):
-        timestamp = round(idx / fps, 3)
-        answers = {
-            event_id: (
-                "unclear" if span is None
-                else "yes" if span[0] <= idx <= span[1]
-                else "no"
-            )
-            for event_id, span in spans.items()
-        }
-        frames.append({"idx": idx, "t": timestamp, "answers": answers})
-    return {
-        "schema_version": SCHEMA_VERSION,
-        "run_id": run_id,
-        "unit_id": unit_id,
-        "prediction_type": "frame_question_answers",
-        "answer_source": "Marlin find() timestamp span quantized by floor(start*fps)/ceil(end*fps)",
-        "frame_count": n_frames,
-        "frames": frames,
-    }
+def normalize_prediction(run_id: str, unit_id: str,
+                         raw: dict[str, Any]) -> dict[str, Any]:
+    """Marlinの秒区間を量子化せず共通predictionとして保持する。"""
+    events = {}
+    for event_id, record in raw["events"].items():
+        span = result_span(record.get("result"))
+        if span is None or span[1] <= span[0]:
+            events[event_id] = None
+        else:
+            events[event_id] = [TimeSpan(span[0], span[1])]
+    return prediction_document(run_id, unit_id, "temporal_grounding", events)
 
 
 def resolve_device(device: str) -> str:
@@ -164,18 +173,26 @@ def main() -> None:
     parser.add_argument("--revision", default=DEFAULT_REVISION,
                         help="trust_remote_codeで読むモデルcommit（既定は実験時revision）")
     parser.add_argument("--model-name", default="Marlin-2B temporal grounding")
+    parser.add_argument("--model-parameters-b", type=float, default=2.0)
     parser.add_argument("--role", default="local_small_vlm_temporal_grounding")
     parser.add_argument("--device", choices=["auto", "mps", "cuda", "cpu"], default="auto")
     parser.add_argument("--video-dir", default=str(ROOT / "out" / "marlin-videos"))
     args = parser.parse_args()
+
+    if not 0 < args.model_parameters_b <= MAX_MODEL_PARAMETERS_B:
+        raise SystemExit(
+            f"このplatformは4B以下のみを標準実行します: {args.model_parameters_b}B"
+        )
 
     run_dir = ROOT / "runs" / args.run_id
     if (run_dir / "run.yaml").exists():
         raise SystemExit(f"既存runは不変です。上書きしません: {run_dir}")
     query_path = Path(args.queries).resolve()
     queries = json.loads(query_path.read_text(encoding="utf-8"))
-    validate_queries(queries)
+    validate_queries(queries, require_sop_match=True)
     units = list(queries)
+    query_snapshot = run_dir / "queries.json"
+    write_json_atomic(query_snapshot, queries)
 
     pending = []
     for unit_id, events in queries.items():
@@ -200,7 +217,6 @@ def main() -> None:
     for unit_id, events in queries.items():
         raw_path = run_dir / "raw" / f"{unit_id}.json"
         raw = json.loads(raw_path.read_text(encoding="utf-8")) if raw_path.exists() else {
-            "schema_version": SCHEMA_VERSION,
             "unit_id": unit_id,
             "model_id": args.model,
             "model_revision": args.revision,
@@ -218,17 +234,23 @@ def main() -> None:
         prediction = normalize_prediction(args.run_id, unit_id, raw)
         write_json_atomic(run_dir / "predictions" / f"{unit_id}.json", prediction)
 
-    write_json_atomic(run_dir / "inputs.lock.json", build_inputs_lock(units))
+    input_lock = build_inputs_lock(units)
+    input_lock["queries_sha256"] = sha256_file(query_snapshot)
+    input_lock["videos"] = {
+        unit_id: video_metadata(Path(args.video_dir) / f"{unit_id}.mp4")
+        for unit_id in units
+    }
+    write_json_atomic(run_dir / "inputs.lock.json", input_lock)
     model_revision = args.revision or hf_snapshot_revision(args.model)
     run_doc = {
-        "schema_version": SCHEMA_VERSION,
         "run_id": args.run_id,
         "kind": "prediction",
         "status": "complete",
         "immutable": True,
         "created_at": datetime.date.today().isoformat(),
         "model": {"name": args.model_name, "role": args.role,
-                  "id": args.model, "revision": model_revision},
+                  "id": args.model, "revision": model_revision,
+                  "parameters_b": args.model_parameters_b},
         "dataset": {"id": DATASET_ID, "split": SPLIT_ID},
         "target_units": units,
         "ground_truth_used": False,
@@ -236,16 +258,20 @@ def main() -> None:
         "inference_code_revision": git_revision(),
         "notes": [
             "Generated by tools/benchmark/run_marlin_prediction.py.",
-            "Marlin find()の単一区間をfloor(start*fps)/ceil(end*fps)でフレームyes/noへ正規化。人手GTは推論に不使用。",
+            "Marlin find()の秒区間をpredictions/へ量子化せず保存。人手GTは推論に不使用。",
         ],
         "inference": {
             "backend": "transformers_remote_code",
             "method": "Marlin.find(video, event)",
             "device": resolved_device,
-            "query_file": (str(query_path.relative_to(ROOT))
-                           if query_path.is_relative_to(ROOT) else str(query_path)),
+            "query_file": str(query_snapshot.relative_to(ROOT)),
+            "query_source": (str(query_path.relative_to(ROOT))
+                             if query_path.is_relative_to(ROOT) else str(query_path)),
+            "query_ontology": "unit_sop",
+            "decoding": "greedy",
             "sampling_fps": sorted({unit_fps(unit) for unit in units}),
             "frame_input": "full video encoded from canonical gated frames",
+            "video_width": VIDEO_WIDTH,
         },
     }
     (run_dir / "run.yaml").write_text(

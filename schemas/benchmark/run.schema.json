@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://industrial-vlm-temporal-grounding.local/schemas/benchmark/run.schema.json",
+  "title": "Prediction, evaluation, or training run",
+  "type": "object",
+  "required": ["run_id", "kind", "status", "immutable", "model", "dataset"],
+  "properties": {
+    "run_id": {"type": "string"},
+    "kind": {"enum": ["prediction", "evaluation", "training"]},
+    "status": {"enum": ["prepared", "running", "complete", "failed"]},
+    "immutable": {"type": "boolean"},
+    "model": {"type": "object"},
+    "dataset": {"type": "object", "required": ["id"]},
+    "target_units": {"type": "array", "items": {"type": "string"}, "minItems": 1}
+  },
+  "allOf": [
+    {
+      "if": {"properties": {"kind": {"const": "prediction"}}},
+      "then": {"required": ["target_units"], "properties": {"immutable": {"const": true}}}
+    },
+    {
+      "if": {"properties": {"status": {"enum": ["complete", "failed"]}}},
+      "then": {"properties": {"immutable": {"const": true}}}
+    }
+  ],
+  "additionalProperties": true
+}

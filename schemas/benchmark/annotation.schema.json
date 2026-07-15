@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://industrial-vlm-temporal-grounding.local/schemas/benchmark/annotation.schema.json",
+  "title": "Human video event intervals",
+  "type": "object",
+  "required": ["unit_id", "annotation_revision", "interval_convention", "event_labels", "events"],
+  "properties": {
+    "unit_id": {"type": "string", "minLength": 1},
+    "annotation_revision": {"type": "string", "minLength": 1},
+    "interval_convention": {"const": "half-open_seconds"},
+    "event_labels": {
+      "type": "object",
+      "additionalProperties": {"type": "string", "minLength": 1}
+    },
+    "events": {
+      "type": "object",
+      "additionalProperties": {
+        "oneOf": [
+          {"type": "null"},
+          {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "object",
+              "required": ["start_s", "end_s"],
+              "properties": {
+                "start_s": {"type": "number", "minimum": 0},
+                "end_s": {"type": "number", "minimum": 0}
+              },
+              "additionalProperties": false
+            }
+          }
+        ]
+      }
+    }
+  },
+  "additionalProperties": false
+}

@@ -1,6 +1,6 @@
 """SOP定義ファイル(YAML)の読み込み・検証・書き戻し。
 
-SOPフォーマット(v2・フラット):
+SOPフォーマット:
     sop: {id, name, domain_hint?}
     defaults: {min_frames?, max_gap_frames?}    # 任意
     events:
@@ -9,11 +9,10 @@ SOPフォーマット(v2・フラット):
         values: ["yes", "no"]   # 任意(既定 yes/no)。プロンプト生成に使う
         min_frames: 2           # 任意
 
-イベント = 質問。旧v1の questions/events 2層構造・evidence式・occurrence・
-イベントname(表示ラベル)は廃止した。同じ動作が複数回起こる場合は、GT側で
+イベント = 質問。同じ動作が複数回起こる場合は、GT側で
 同じイベントidに複数区間を注釈し、検出側も複数区間を返す。
 
-annotatorがブラウザからSOPを編集するための決定論的なdict変換
+annotation保存層がSOPを編集するための決定論的なdict変換
 (set_domain_hint / upsert_event / rename_event / delete_event)と、
 原子的なYAML書き出し(save_sop)もここに置く。書き出しはPyYAMLのsafe_dumpを
 使うため 'yes'/'no' は自動でクォートされ、YAML 1.1のブール化は起きない。
@@ -36,13 +35,12 @@ def validate_sop(doc: dict[str, Any], path: str | Path = "<sop>") -> dict[str, A
         raise ValueError(f"{path}: 必須キーが不足しています: {missing}")
     if "questions" in doc:
         raise ValueError(
-            f"{path}: 旧形式(questions/events 2層)のSOPです。"
-            "v2ではイベントが質問を直接持ちます(docs/reference/sop-format.md)")
+            f"{path}: questionsは未対応です。eventsの各要素にaskを指定してください")
     if "id" not in doc["sop"] or "name" not in doc["sop"]:
         raise ValueError(f"{path}: sop.id / sop.name は必須です")
     events = doc["events"]
-    if not isinstance(events, list) or not events:
-        raise ValueError(f"{path}: events はイベントのリスト(1件以上)です")
+    if not isinstance(events, list):
+        raise ValueError(f"{path}: events はイベントのリストです")
     seen: set[str] = set()
     for ev in events:
         if not isinstance(ev, dict) or "id" not in ev:
@@ -68,7 +66,7 @@ def save_sop(path: str | Path, sop_def: dict[str, Any]) -> None:
     """SOP dictを検証してYAMLへ原子的に書き込む(tmpに書いてから置き換え)。
 
     'yes'/'no' はsafe_dumpが自動でクォートするのでYAML 1.1のブール化は起きない。
-    benchmarkブロック等の未知キーもそのまま保存される(dictを丸ごとdumpするため)。
+    未知キーもそのまま保存される(dictを丸ごとdumpするため)。
     """
     validate_sop(sop_def, path)
     path = Path(path)
@@ -92,7 +90,7 @@ def load_answer_log(path: str | Path) -> list[dict[str, Any]]:
 
 
 # ---------------------------------------------------------------------------
-# SOP編集(annotatorがブラウザから呼ぶ決定論的なdict変換)
+# SOP編集（UIから独立した決定論的なdict変換）
 # ---------------------------------------------------------------------------
 
 def get_event(sop_def: dict[str, Any], event_id: str) -> dict[str, Any] | None:
@@ -133,7 +131,7 @@ def rename_event(sop_def: dict[str, Any], old_id: str, new_id: str) -> bool:
     """イベントidを変更する(宣言順は保持)。
 
     変更したらTrue、old_idが無い/同名ならFalse。衝突・不正idはValueError。
-    注意: GT jsonのキーはここでは触らない(呼び出し側=annotatorがカスケードする)。
+    注意: annotation JSONのキーはここでは触らない（呼び出し側が同期する）。
     既存のprediction runの回答キーは旧idのまま残る(runは不変の歴史記録)。
     """
     if old_id == new_id:
@@ -152,12 +150,10 @@ def rename_event(sop_def: dict[str, Any], old_id: str, new_id: str) -> bool:
 def delete_event(sop_def: dict[str, Any], event_id: str) -> bool:
     """イベントを削除する。削除したらTrue、元から無ければFalse。
 
-    最後の1イベントは削除しない(eventsが空だとSOPとして不正になるため)。
+    最後のイベントも削除できる。未着手の手動annotationでは空のeventsが正しい。
     """
     ev = get_event(sop_def, event_id)
     if ev is None:
         return False
-    if len(sop_def["events"]) <= 1:
-        raise ValueError("最後のイベントは削除できません(eventsが空になります)")
     sop_def["events"] = [e for e in sop_def["events"] if e["id"] != event_id]
     return True

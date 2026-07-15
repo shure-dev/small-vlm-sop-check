@@ -1,5 +1,4 @@
 {
-  "schema_version": "1.0",
   "dataset_id": "konro_inspection",
   "unit_id": "konro_inspection",
   "benchmark_status": "demo",
@@ -13,10 +12,12 @@
     "frame_path": "frames"
   },
   "media": {
-    "video_path": "media/konro_inspection.mp4"
+    "availability": "bundled",
+    "path": "frames"
   },
-  "sop_refs": [
-    "../../sops/konro_inspection/konro_inspection.yaml"
-  ],
-  "ground_truth_ref": "../../annotations/human-v001/konro_inspection.json"
+  "sop_ref": {
+    "id": "konro_inspection",
+    "path": "../../sops/konro_inspection/konro_inspection.yaml",
+    "status": "verified"
+  }
 }

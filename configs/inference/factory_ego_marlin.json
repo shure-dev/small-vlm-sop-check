@@ -1,0 +1,37 @@
+{
+  "f001_w004_material_replenishment": {
+    "fasten_part_with_driver": "a worker assembles a part using a driver tool",
+    "pour_parts_from_bag": "a worker turns a bag upside down and pours the parts out",
+    "roll_empty_bag": "a worker rolls up a bag"
+  },
+  "f001_w011_metal_stamping": {
+    "feed_metal_strip_into_press": "a worker feeds a long strip of metal into a press machine",
+    "walk_to_next_press": "a worker leaves one metal press and walks along the marked factory aisle to the neighboring press station",
+    "pick_up_metal_sheets": "a worker picks up metal sheets",
+    "align_metal_sheet_stack": "a worker aligns and gathers metal sheets"
+  },
+  "f002_w002_garment_bagging": {
+    "pick_garment_from_stack": "a worker grasps the top folded garment from a stack and lifts it away from the stack",
+    "insert_garment_into_bag": "a worker puts a folded garment into a plastic bag",
+    "seal_bag_flap": "after the garment is inside, a worker folds and presses the narrow adhesive edge of the clear plastic bag to seal it",
+    "place_package_to_right": "a worker lifts the finished sealed garment package from the table and carries it to the right"
+  },
+  "f002_w003_fabric_folding": {
+    "take_garment_from_stack": "a worker grasps the top light-blue folded garment and removes it from the stack",
+    "spread_garment_on_table": "a worker places a light-blue garment in the center of the table and unfolds or spreads it flat",
+    "fold_garment_sides": "a worker folds the left and right sides of a light-blue garment inward and straightens the folded garment on the table",
+    "pick_up_hanger": "a worker reaches to the pile of black clothes hangers on the left and lifts one black hanger"
+  },
+  "f002_w005_garment_ironing": {
+    "place_folding_board": "a worker places a white rectangular folding board in the center of a light-purple shirt and aligns the board with both hands",
+    "fold_shirt_around_board": "a worker folds the left and right sides of a light-purple shirt inward around a white folding board",
+    "turn_and_neaten_folded_shirt": "a worker lifts the folded light-purple shirt, turns it over to the front, and straightens its shape with both hands",
+    "stack_folded_shirt": "a worker places the finished folded light-purple shirt on top of the completed stack at the upper side of the table"
+  },
+  "f003_w005_metal_casting": {
+    "carry_casting_bundle": "a worker carries a connected bundle of silver cast-metal parts by hand from the work table toward a wooden crate",
+    "put_casting_into_crate": "a worker lowers the connected silver casting into the wooden crate directly in front of him",
+    "pick_up_hammer": "after returning from the crate, a worker reaches to the work table and lifts the wooden-handled hammer with his right hand",
+    "hammer_casting": "a worker repeatedly strikes silver cast-metal parts on the work table with a wooden-handled hammer"
+  }
+}

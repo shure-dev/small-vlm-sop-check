@@ -1,0 +1,103 @@
+{
+  "units": {
+    "f001_w004_material_replenishment": {
+      "dataset_id": "factory_ego",
+      "frames_manifest_sha256": "6dc6f1cde91f8fe3ed270b89e0e66b7a3924925684ac14cab25ba941c09cd035",
+      "sop_id": "f001_w004_material_replenishment",
+      "sop_sha256": "db27188ec971260f46feebb2398948739938fdd1f923e5df45e1c035761b3bd9",
+      "split_id": "development",
+      "unit_meta_sha256": "02e307286532c4e23a59f25e48012787c46da39aa07f2b642de49b70a3b45dda"
+    },
+    "f001_w011_metal_stamping": {
+      "dataset_id": "factory_ego",
+      "frames_manifest_sha256": "59ce7716ea258a2d3f6a880d5c3a5204abdfe76f54ae5ba6f1022ce3a4260328",
+      "sop_id": "f001_w011_metal_stamping",
+      "sop_sha256": "2655b3bc1008ff55ac1cac320ae8ac62b667c58b2375dc06d4e0495489654c4c",
+      "split_id": "development",
+      "unit_meta_sha256": "50e6642e07b581c0dbed3c6c724b2113bed02f1e997ba3a2c019a8a05928e0bd"
+    },
+    "f002_w002_garment_bagging": {
+      "dataset_id": "factory_ego",
+      "frames_manifest_sha256": "d715b0d09cea06edeba77bbe9fc9e8099635e5d831b26ce92c20f69b571ef97f",
+      "sop_id": "f002_w002_garment_bagging",
+      "sop_sha256": "502013d0f5ae9cac988e2f595e50df435363064426f1e275501ee8fd2e401c60",
+      "split_id": "development",
+      "unit_meta_sha256": "b9596464cd76dcf60c20fc06e1cfa3895b743b9ef1797c32cbff417e8f3aa990"
+    },
+    "f002_w003_fabric_folding": {
+      "dataset_id": "factory_ego",
+      "frames_manifest_sha256": "df4d43ca205c1944f8715ac1641f33530aee2dd873ad67817cbde156390702ea",
+      "sop_id": "f002_w003_fabric_folding",
+      "sop_sha256": "ab7a583a04f1daf330b306fab5ada3607847afce5a7727ad309b2dedbfaa1497",
+      "split_id": "development",
+      "unit_meta_sha256": "17bfe138541111045de837e0c482c38aeba11c16bb521bb0ebd8b5f13a045f24"
+    },
+    "f002_w005_garment_ironing": {
+      "dataset_id": "factory_ego",
+      "frames_manifest_sha256": "5e08ba9cbfa850ba0cba6fa1ae50e5fcf922e51a088dbf01ef706afa7df257da",
+      "sop_id": "f002_w005_garment_ironing",
+      "sop_sha256": "8eb6e90117078b7311efe5c08d4dd67797b9291245b8b725b3a1cc021c35e9f8",
+      "split_id": "development",
+      "unit_meta_sha256": "23ec7ca2e8c77f851e7e1324d5519dcb34bd71806a00d8800cb8fc7f71734c55"
+    },
+    "f003_w005_metal_casting": {
+      "dataset_id": "factory_ego",
+      "frames_manifest_sha256": "09d725410fd39aa337d741babe4150d9a2656fe63ce6c3e7c7b5476495853f6a",
+      "sop_id": "f003_w005_metal_casting",
+      "sop_sha256": "948be5d42d207ae5c6f075f7aacde4aa1943850fd8d5cbf7be6c71cd176ab2f3",
+      "split_id": "development",
+      "unit_meta_sha256": "0f5149c65110d199da3a5a423b13267ad1ebd80ecbbaf41aeea6790a60d600f3"
+    }
+  },
+  "queries_sha256": "f8438934f007fecccb1ba658a4c9e07992137f6dfae92f2491aaa2c1cb14a95e",
+  "videos": {
+    "f001_w004_material_replenishment": {
+      "sha256": "87dbcd4486ef46e353e6ae7dd80825fd9fc58ede205f905d6a010be674e0e217",
+      "width": 640,
+      "height": 360,
+      "avg_frame_rate": "2/1",
+      "n_frames": 40,
+      "duration_s": 20.0
+    },
+    "f001_w011_metal_stamping": {
+      "sha256": "b5c9a84d95c06570ad3e35f8cd7ab7b4bd859ffee09697266240bb3116a7e002",
+      "width": 640,
+      "height": 360,
+      "avg_frame_rate": "2/1",
+      "n_frames": 40,
+      "duration_s": 20.0
+    },
+    "f002_w002_garment_bagging": {
+      "sha256": "cc2a97857ad1d62242d3f3ba4128c31e73db53230ca26a174d83c66619709dc7",
+      "width": 640,
+      "height": 360,
+      "avg_frame_rate": "2/1",
+      "n_frames": 40,
+      "duration_s": 20.0
+    },
+    "f002_w003_fabric_folding": {
+      "sha256": "cd7f87ca1337ceee36f06965e859eac81b7deb2f76d3af77724f1f08c71ec58e",
+      "width": 640,
+      "height": 360,
+      "avg_frame_rate": "2/1",
+      "n_frames": 40,
+      "duration_s": 20.0
+    },
+    "f002_w005_garment_ironing": {
+      "sha256": "aa06d40fd55cbc0279b4c7c2a1913f2f3c5d26ebc0f6da0a008339b21c3ed00d",
+      "width": 640,
+      "height": 360,
+      "avg_frame_rate": "2/1",
+      "n_frames": 40,
+      "duration_s": 20.0
+    },
+    "f003_w005_metal_casting": {
+      "sha256": "4721dad9a063fc9ddf59795dd4816862a941143cb8bb82e484231613d29502a6",
+      "width": 640,
+      "height": 360,
+      "avg_frame_rate": "2/1",
+      "n_frames": 40,
+      "duration_s": 20.0
+    }
+  }
+}

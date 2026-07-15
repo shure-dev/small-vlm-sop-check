@@ -1,0 +1,40 @@
+{
+  "unit_id": "f001_w004_material_replenishment",
+  "model_id": "lunahr/Marlin-2B-ungated",
+  "model_revision": "de783b96b80f477c5e665d2202571a84cb0761da",
+  "events": {
+    "fasten_part_with_driver": {
+      "query": "a worker assembles a part using a driver tool",
+      "result": {
+        "raw": "From 1.5 to 3.5.",
+        "span": [
+          1.5,
+          3.5
+        ],
+        "format_ok": true
+      }
+    },
+    "pour_parts_from_bag": {
+      "query": "a worker turns a bag upside down and pours the parts out",
+      "result": {
+        "raw": "From 16.5 to 18.0.",
+        "span": [
+          16.5,
+          18.0
+        ],
+        "format_ok": true
+      }
+    },
+    "roll_empty_bag": {
+      "query": "a worker rolls up a bag",
+      "result": {
+        "raw": "From 16.5 to 19.6.",
+        "span": [
+          16.5,
+          19.6
+        ],
+        "format_ok": true
+      }
+    }
+  }
+}

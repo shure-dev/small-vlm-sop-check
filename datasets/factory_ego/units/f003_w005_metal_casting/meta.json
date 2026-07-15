@@ -1,10 +1,6 @@
 {
   "benchmark_status": "dev_seen",
   "dataset_id": "factory_ego",
-  "ground_truth": {
-    "available": false,
-    "required_source": "human"
-  },
   "media": {
     "availability": "local_gated_source_not_committed",
     "path": "frames",
@@ -17,31 +13,9 @@
     "source_frame_end": 66,
     "source_frame_start": 46
   },
-  "schema_version": "1.0",
-  "selection": {
-    "annotations_repo": "fit-alessandro-berti/annotated-egocentric-10k-dataset",
-    "annotations_revision": "107f8fdc1aa4334da5eb1c6bc9ce8d52eaf6ce96",
-    "caveat": "window boundaries derive from LLM-generated timestamps; frames are canonical",
-    "main_process": "Metal casting separation",
-    "method": "tools/benchmark/sample_units.py (deterministic stratified)",
-    "transcript_excerpt": [
-      "[38s-46s] The wearer turns right again, walks to the bin, and scoops another handful of metal parts with their left hand.",
-      "[46s-49s] Back at the workstation, the wearer pushes a long, flat metal guide bar upwards along the sloped surface using their left hand.",
-      "[49s-53s] They immediately turn right, walk to the bin, and scoop another handful of parts.",
-      "[53s-70s] At the workstation, the repetitive task continues: the wearer places individual parts on the surface with the left hand and strikes them firmly with the hammer held in the right hand."
-    ],
-    "window_activities": [
-      "sweep separated parts with metal guide bar",
-      "scoop loose parts from bulk bin",
-      "strike metal casting with hammer"
-    ],
-    "window_event_starts": 3
-  },
   "sop_ref": {
     "id": "f003_w005_metal_casting",
-    "path": "../../sops/f003_w005_metal_casting/v001.yaml",
-    "status": "provisional",
-    "version": "v001"
+    "path": "../../sops/f003_w005_metal_casting/sop.yaml"
   },
   "source": {
     "clip_id": "factory003_worker005_00004",

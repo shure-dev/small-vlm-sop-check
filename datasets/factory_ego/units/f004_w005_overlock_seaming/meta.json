@@ -1,10 +1,6 @@
 {
   "benchmark_status": "dev_seen",
   "dataset_id": "factory_ego",
-  "ground_truth": {
-    "available": false,
-    "required_source": "human"
-  },
   "media": {
     "availability": "local_gated_source_not_committed",
     "path": "frames",
@@ -17,30 +13,9 @@
     "source_frame_end": 38,
     "source_frame_start": 18
   },
-  "schema_version": "1.0",
-  "selection": {
-    "annotations_repo": "fit-alessandro-berti/annotated-egocentric-10k-dataset",
-    "annotations_revision": "107f8fdc1aa4334da5eb1c6bc9ce8d52eaf6ce96",
-    "caveat": "window boundaries derive from LLM-generated timestamps; frames are canonical",
-    "main_process": "Overlock seaming",
-    "method": "tools/benchmark/sample_units.py (deterministic stratified)",
-    "transcript_excerpt": [
-      "[0s-23s] The video begins with the wearer in the middle of sewing a seam on a piece of pink fabric using a white industrial sewing machine. They use both hands to guide the fabric under the needle, making minor finger adjustments to ensure the edges remain aligned as the machine operates. Upon finishing the seam, the wearer pulls the fabric away from the needle, breaks the thread, and tosses the sewn piece onto a growing pile of finished garments on the right side of the workspace.",
-      "[23s-52s] The wearer initiates a new sewing cycle by reaching to a large pile of unsewn pink fabric on their left. They pick up a single garment piece and use both hands to unfold and orient it, specifically locating two edges to be joined. They carefully align these edges perfectly flush with one another, place them under the machine's presser foot, and begin sewing. The wearer continuously makes micro-adjustments with their fingers to keep the fabric flat and the edges aligned as it feeds through the machine. Once the short seam is complete, they remove the fabric and throw it onto the right pile."
-    ],
-    "window_activities": [
-      "Pull sewn piece out of machine",
-      "Snap thread chain by hand",
-      "Grab unsewn fabric from disorganized pile",
-      "Unfold raw fabric edges"
-    ],
-    "window_event_starts": 4
-  },
   "sop_ref": {
     "id": "f004_w005_overlock_seaming",
-    "path": "../../sops/f004_w005_overlock_seaming/v001.yaml",
-    "status": "provisional",
-    "version": "v001"
+    "path": "../../sops/f004_w005_overlock_seaming/sop.yaml"
   },
   "source": {
     "clip_id": "factory004_worker005_00001",

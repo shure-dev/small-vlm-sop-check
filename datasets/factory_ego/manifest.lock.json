@@ -1,127 +1,126 @@
 {
   "dataset_id": "factory_ego",
-  "schema_version": "1.0",
-  "split_id": "development-v001",
+  "split_id": "development",
   "units": {
     "f001_w004_material_replenishment": {
       "frame_count": 40,
       "frames_manifest_sha256": "6dc6f1cde91f8fe3ed270b89e0e66b7a3924925684ac14cab25ba941c09cd035",
-      "meta_sha256": "84dfe1da1c922763b66319960be4dfc86a195200de1d6b8f21b4677f615c291a",
-      "sop_sha256": "6a52a5e4d46df0d4553fc0bc9c281f2947c207e07ed76b3f18482eae156f180c"
+      "meta_sha256": "77f46ae01de26be4a136dfc92ae9f67fc622ab2243b014d288b97f8136f13e1d",
+      "sop_sha256": "017658bf149867b05f9a35c8e54ae1b60c476e5102b1cbf9c677200b4fe5c354"
     },
     "f001_w011_metal_stamping": {
       "frame_count": 40,
       "frames_manifest_sha256": "59ce7716ea258a2d3f6a880d5c3a5204abdfe76f54ae5ba6f1022ce3a4260328",
-      "meta_sha256": "5aee6d4edfce3409c557da820806631ea868c068289200ca929cca6020c75b05",
-      "sop_sha256": "f8fd98576d49d78a66befe15c8ef27022fedd4b2c6e421b49df72b1fc765844a"
+      "meta_sha256": "a0ccbda2a3b52b61c5e2ee4d7a08a96722967c57c409914985b22a8f978792ef",
+      "sop_sha256": "4961b20bd6d0a083d745631ea6c9b3bf8dcbacbfd8446d86facafd7c898ee553"
     },
     "f002_w002_garment_bagging": {
       "frame_count": 40,
       "frames_manifest_sha256": "d715b0d09cea06edeba77bbe9fc9e8099635e5d831b26ce92c20f69b571ef97f",
-      "meta_sha256": "9a381823f837e1676ad71f2659570fdedda4b88efc5d4bf723f8db593f7dd83f",
-      "sop_sha256": "af5f1f63cbb98e9d8d03bf66ac1f60bc7eacac7a94df5bd0328539cc1e75686d"
+      "meta_sha256": "5fe78cbd5ae78d486a1a1dfc4cbbb571aef052d70ac8d7250bad8f8458560892",
+      "sop_sha256": "d9ef48d1750978d53f088b489f9b837a3fdfb1778db84e09e535ffd5bcd21f01"
     },
     "f002_w003_fabric_folding": {
       "frame_count": 40,
       "frames_manifest_sha256": "df4d43ca205c1944f8715ac1641f33530aee2dd873ad67817cbde156390702ea",
-      "meta_sha256": "ba3cf9c6928978c7d11c98dac72e9a62821a789c17dc14b1238d8b551c124423",
-      "sop_sha256": "767fc693573efc9b0d77dfab2eb4ca72b3039f7b80c0fa932c6edd2a1edb386c"
+      "meta_sha256": "181f6bb66ed7bb078dcabfbdcf637b6770a54e9f491d6974ee2848da44389c53",
+      "sop_sha256": "65bfb1730fe72a119fa2fc38a9604111e416790a4d739cbaab9e2590c4a2f7de"
     },
     "f002_w005_garment_ironing": {
       "frame_count": 40,
       "frames_manifest_sha256": "5e08ba9cbfa850ba0cba6fa1ae50e5fcf922e51a088dbf01ef706afa7df257da",
-      "meta_sha256": "d11ac9ebe175a5a2b6ad44b89bca836e2d78729c700a2066236e64e6707f70a3",
-      "sop_sha256": "c9401063f56f246fae101ecaf0991e61941336bf140c7529929f2e18ff89a5aa"
+      "meta_sha256": "3e1f8b1b8d15fc5b0af9d9818481436486ff4e61726649741bee99902cd64aca",
+      "sop_sha256": "7ccde3e4049f03e21d21407f2e842aa65680ead8ff7aa3aed5be9e70d1aec684"
     },
     "f003_w005_metal_casting": {
       "frame_count": 40,
       "frames_manifest_sha256": "09d725410fd39aa337d741babe4150d9a2656fe63ce6c3e7c7b5476495853f6a",
-      "meta_sha256": "df6064d32e224c9d90bf9fc9432f931f379ba5b1b7843e811f778d398d5acde0",
-      "sop_sha256": "14dfba9fc5dfeab09b663f6afc6c2f51dc9568262e034de386bc8c787fa07ff3"
+      "meta_sha256": "f7ca39da27a4507da41110382ae5ae21a39907615c8e32d793a1cf95c4ce5eb1",
+      "sop_sha256": "ae5f54c899637027832f59435594f16db27d9ee39a11d9b16ed1c16b7c29b345"
     },
     "f003_w007_wax_pattern": {
       "frame_count": 40,
       "frames_manifest_sha256": "8058aa4f7bbf6374b3bd433c67cfcdf79ea9a3c7c2d012bdfe55820e4d6b2177",
-      "meta_sha256": "11685890732800dfaa2825d028cd76c3ab42385080fa39910e181038241cb3f8",
-      "sop_sha256": "28fdc5e585f4ed1c30535220fa1f7516eefb8dc6c4ca850dc2546d5cadf757f7"
+      "meta_sha256": "e6086279c88e84e58be7473e41ec1661f30f8f11e0bab102f01240d60fe06780",
+      "sop_sha256": "38197c74b5c4623a2aacd7d0ce0ae317a68792a9dbea5ecce1f5b0395a89a648"
     },
     "f003_w009_injection_molding": {
       "frame_count": 40,
       "frames_manifest_sha256": "9c4ca865aee61e0ac2bd7e4186cfc1e2f7791916492aaa262cec7a811a40f6a0",
-      "meta_sha256": "64f9bfd601e8fb58bdcacf40080453af48ca9b301768f19ab892f8827a8f391c",
-      "sop_sha256": "020b02ccb57e1dc17e5ae34262d414f457ddebf6906595709ccd942ba15d2adc"
+      "meta_sha256": "f4cd01eb2689e409b626733d9d4b4fbea730419eb4f1466eef4f88157701cdbd",
+      "sop_sha256": "b134d84d8fea40f224c0d432f1d043388750414902dfdd8deb4bd7870f2a38f3"
     },
     "f003_w010_mold_preparation": {
       "frame_count": 40,
       "frames_manifest_sha256": "71175039f7b7c244a4d26405f8b94f0e7723380624209ac8843f216907e54924",
-      "meta_sha256": "61e3d567532cbc3623abad539c04ba83efd2347756507e04af50e6c96df0cb1c",
-      "sop_sha256": "658a175e8cf529a9814db064a6ebd8f484b052b176cb909587126744c2ae61c9"
+      "meta_sha256": "ac9aa942ebdf1802c4fea8bc57babbd9fcff0c7f91f40dff800c2d9be8764c8a",
+      "sop_sha256": "df553df58b20fbb4c4ede447cba8bdbf0be9a1045c3e43247b8e5fa2b662962a"
     },
     "f004_w002_thread_trimming": {
       "frame_count": 40,
       "frames_manifest_sha256": "8b3497c89b62f79fc3dcad513fe7e623391fa683a2527355e8bf2dbc3afddd3d",
-      "meta_sha256": "cb71b7a282b4f0ac89c8abb10e4b1accf43147a2dbd1faeca5f5f242a7b382a1",
-      "sop_sha256": "c8f3015a56243ad04010249e5d23221030f5d35ad5eb81301473c1a326f50a20"
+      "meta_sha256": "1241f6fbc818650cfe803df01c83ddf23d8fb02ed20e6e622141b48f08877e2f",
+      "sop_sha256": "fb77d7583e4d49e9362412227b008efd7fbade8885ed1b4855e0e2aa81a0b62b"
     },
     "f004_w004_continuous_fabric": {
       "frame_count": 40,
       "frames_manifest_sha256": "987c0307e35bcb1e42ffe6a3965392f1fe16a78c5914c4114302dcc5533ac513",
-      "meta_sha256": "49935df7e9f02ce576e534b331f3e515fdf5f9224ebe5a38dce50c316be5ce57",
-      "sop_sha256": "adcff8f092a96c5cda29636d5b96d5506fa615965e71fce9ad28f48f3f0975e9"
+      "meta_sha256": "b001154fe2661861d8021ecfcd6f4167b110728e38a1dcf857f02b0313e128e5",
+      "sop_sha256": "f540e17b595e0071fe5e3363a9add0c9452bc0996ddf8dd5e1147d70fb52875b"
     },
     "f004_w005_heat_press": {
       "frame_count": 40,
       "frames_manifest_sha256": "b20f8e12af0333289df308570f34cc3b55a147e47b9fafdd410a57cdffbc527c",
-      "meta_sha256": "57a84006689c5ca9a214bf5239faac45a89aa86809b2c6f02f81060fdd8e4f8a",
-      "sop_sha256": "c945762ca2967f93ea47a6239cdacf30647443d06dcda470255b0f323bff98cd"
+      "meta_sha256": "c85e3ec0a888ec8ade2d687e3ed0c62b485f2feb5026789fbdec3073f6c88485",
+      "sop_sha256": "6b1f3bfb0914c1b1fec8837f10b8f9295b4e09bed0d1e1b91b358257648c977d"
     },
     "f004_w005_overlock_seaming": {
       "frame_count": 40,
       "frames_manifest_sha256": "cfc936a792108bd0a80abf513b925c50755f4259d2b3b61a8145eef01daaccfa",
-      "meta_sha256": "7f1e00aa7d2b97c3235016e1398c9dae341d3c43fd747b88271aa0eb05519116",
-      "sop_sha256": "82078c8901e052e43ceced1c5340948f216fcc70f53c54f88bdfe9bad05f1cee"
+      "meta_sha256": "661914769e07da2c17149fd2bd9818b70ff5b57d188522af87c33f59d3578771",
+      "sop_sha256": "3728facfa90c2a555fb71210717ab58b6b87faae2808b4569190d47e0ef1f59d"
     },
     "f004_w006_curvilinear_seam": {
       "frame_count": 40,
       "frames_manifest_sha256": "7c168e54b7cae1eb99c548299b59f10d27f94b943576cfd3fed76c11f3838265",
-      "meta_sha256": "7a25838ae304b042000228b932ad2eeb3c0f006aa3cce7f12c553906f9a0323e",
-      "sop_sha256": "9cd1c6e953bd1975903e8187e972df0d0fbf25517ebdf7659f9dcfc9ec6f9700"
+      "meta_sha256": "885980f84fff21983143dedf64333db87f196bed00657f08ac73d0dd8b5e9bac",
+      "sop_sha256": "e627ea11d5a16e991536229bb65bb000519b7943c92a6047754f97171b9dcc9e"
     },
     "f004_w006_edge_binding": {
       "frame_count": 40,
       "frames_manifest_sha256": "8be9bec537a9a9a15cdd175018ee66da8ab18c1c2e60d7070c94735a98fabd1d",
-      "meta_sha256": "1941d121efaba64b784e19041ba3893a1863b8a886efacc69dcecada811ac4c7",
-      "sop_sha256": "b7b3e65fa2bfee984df6fc15f297eab98635d9561f9153b20f3a354610749278"
+      "meta_sha256": "2e6c50f0f3fcb887ded1934e3f01e7c6df9423112530d49bf66a088fb18c04b8",
+      "sop_sha256": "37431b7fc821babf077645787a32dda3703e02f45a14026e50d7d58035bfdcaa"
     },
     "f005_w001_semi_automatic": {
       "frame_count": 40,
       "frames_manifest_sha256": "c5c0e0e1cfecd71510a07c7c5c3f36d7074640c43325b13d9525e76e6f2ac364",
-      "meta_sha256": "f7b5294fc8dc50bbd7d5091e6ee8dded5df96cd1d525c1fc5052cf415e93d6c5",
-      "sop_sha256": "a98f3234f513a82b872057043cb10ba1b70fd5db9bc61ecd4a3e37416536d99a"
+      "meta_sha256": "578481a019be82eca456fc675a6e0a13121cea02a933b580c0320cc8ed973011",
+      "sop_sha256": "fcf19d5910fbecd2492361e728054a361c2fb29dee61fdc362180488c97921b6"
     },
     "f005_w010_manual_lathe": {
       "frame_count": 40,
       "frames_manifest_sha256": "5be299f84bbce6efd91378b0af4a3132e52e1aaa3b02b9e41083d2660f1d383e",
-      "meta_sha256": "2914d6f94985f65a97d20b376435a56c4fb74882d36135da4cfd45b055f1491d",
-      "sop_sha256": "64da5f22876d75c6f4da7e1166c56a92131f6392f5ace74a0f0355f9220884f3"
+      "meta_sha256": "7383565fba1325272052fee818e3f66e3873063d7074d21ffb737e5ae8b38b33",
+      "sop_sha256": "9fa1a026ccdbe03ca5613b29126a8c3cef3b8743ffa75c3ae19b746b305a679a"
     },
     "f005_w011_cnc_machine": {
       "frame_count": 40,
       "frames_manifest_sha256": "19f8c1e12f923cbd6a6bec2085a07180ee8096e46fcf991f3171dc70a5a2dae1",
-      "meta_sha256": "4e33696db372a861f577a6191204053f0dcc32aa4bdd1c14e481a88283ea52c9",
-      "sop_sha256": "299e8f14e259cc8d1b592765b9ead6b530e5a30ed056cadc0d46e28fbb3fe005"
+      "meta_sha256": "ba44a8c4832c2b290a2e7bdf3caf0226e3c6c03dec1b6aeeb794175db7b4763d",
+      "sop_sha256": "93f0e9413df06d5b3348ce73b99ce680c0d18b2be78b4864e236884bdb12309c"
     },
     "f006_w004_bulk_material": {
       "frame_count": 40,
       "frames_manifest_sha256": "c814cb58848f323563ce2bb0465b098a9bd9660c5c7fd1e02d9fab7df82d1d62",
-      "meta_sha256": "6f84746533597deaaa46c572b90f84eddd9d949c2927cc184f1fc1dfcde98232",
-      "sop_sha256": "032105fd5719270360ae47de1d1fb092b4381f988838d05b22ee48ff30fe9b3c"
+      "meta_sha256": "e587ae84767f5ed219576152d35d6691e9c769c8cdf443585a3612efa2233e83",
+      "sop_sha256": "642fd45628f3f8a7281343c07b2b70d42f675a60ba939efa743b65a308185416"
     },
     "f006_w005_compression_molding": {
       "frame_count": 40,
       "frames_manifest_sha256": "19fa545755947fb67d2d7017478cb48344fa631013a8da3338a1c6831909e1aa",
-      "meta_sha256": "4f4a862e58fc2da437a58d9f58334a42493b0354cd16162dcfd04c330e77e2cc",
-      "sop_sha256": "f8bee2671559465c218de8b4feb36e9e9ea777b4c418ff5cf36488d225922846"
+      "meta_sha256": "d27d13517c3e3da7c38782ae2a409800bbaf6d6b81267aeef5aee5d47e58d8e8",
+      "sop_sha256": "1430fdb4fb1b9ef58b0eb7b0cb9ecf9986af330bd102463ad7584958b289be07"
     }
   }
 }

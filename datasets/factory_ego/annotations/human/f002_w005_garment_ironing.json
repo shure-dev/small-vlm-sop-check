@@ -1,0 +1,17 @@
+{
+  "unit_id": "f002_w005_garment_ironing",
+  "annotation_revision": "human",
+  "interval_convention": "half-open_seconds",
+  "event_labels": {
+    "place_folding_board": "作業者が白い長方形の折り畳み板を薄紫色のシャツの中央に置き、両手で位置を合わせている",
+    "fold_shirt_around_board": "作業者が薄紫色のシャツの左右を白い折り畳み板に沿って内側へ折っている",
+    "turn_and_neaten_folded_shirt": "作業者が折り畳んだ薄紫色のシャツを持ち上げて表に返し、両手で形を整えている",
+    "stack_folded_shirt": "作業者が完成した薄紫色の折り畳みシャツを作業台上側の完成品の山へ重ねている"
+  },
+  "events": {
+    "place_folding_board": [{"start_s": 0.0, "end_s": 5.5}],
+    "fold_shirt_around_board": [{"start_s": 5.5, "end_s": 12.5}],
+    "turn_and_neaten_folded_shirt": [{"start_s": 12.5, "end_s": 16.0}],
+    "stack_folded_shirt": [{"start_s": 16.0, "end_s": 17.0}]
+  }
+}

@@ -1,7 +1,11 @@
 # Schemas
 
-機械可読なデータ契約をversion単位で管理します。
+`benchmark/` が現在サポートする唯一の機械可読データ契約です。
 
-- `benchmark/v1/`: Factory Egoのunit、prediction、run、split
+- `annotation.schema.json`: 人手による秒単位イベント区間
+- `prediction.schema.json`: 推論方式に依存しない秒単位イベント区間
+- `unit.schema.json`: 媒体・sampling・SOP参照
+- `split.schema.json`: group-safeな分割
+- `run.schema.json`: 再現可能な実験run
 
-既存versionの意味を破壊的に変更せず、互換性のない変更は新しいversionディレクトリへ追加します。
+過去の形式は現行treeに併置せず、必要な場合はGit履歴を参照します。

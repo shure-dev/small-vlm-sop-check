@@ -1,6 +1,6 @@
 """SOP編集後に datasets/factory_ego/manifest.lock.json のSOPハッシュを更新する。
 
-SOPはprovisional(人手定義の暫定仕様)で、sop-annotateから編集される。
+SOPはprovisional（人手定義の暫定仕様）で、sop-appから編集される。
 一方 manifest.lock.json はデータセットの整合性台帳としてSOPのsha256を持つため、
 SOPを編集したらこのツールでハッシュを追随させる(tools/benchmark/validate.py が照合する)。
 

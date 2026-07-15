@@ -1,0 +1,17 @@
+{
+  "split_id": "demo",
+  "group_by": [
+    "kind"
+  ],
+  "assignments": {
+    "train": [
+      "konro_inspection"
+    ],
+    "validation": [],
+    "test": []
+  },
+  "policy": {
+    "purpose": "non_statistical_end_to_end_fixture",
+    "formal_train_test_claims_allowed": false
+  }
+}

@@ -1,0 +1,25 @@
+sop:
+  id: f003_w005_metal_casting
+  name: 鋳物部品の運搬とハンマー仕上げ
+  domain_hint: 作業者視点で、金属製の鋳物部品、木箱、作業台、木柄ハンマーを扱う20秒の工場動画
+events:
+- id: carry_casting_bundle
+  ask: 作業者が連なった銀色の鋳物部品を片手で持ち、作業台から木箱まで運んでいる
+  values:
+  - 'yes'
+  - 'no'
+- id: put_casting_into_crate
+  ask: 作業者が運んだ銀色の鋳物部品を正面の木箱の中へ入れている
+  values:
+  - 'yes'
+  - 'no'
+- id: pick_up_hammer
+  ask: 作業者が作業台に置かれた木柄の金属ハンマーを右手で持ち上げている
+  values:
+  - 'yes'
+  - 'no'
+- id: hammer_casting
+  ask: 作業者が木柄の金属ハンマーで作業台上の銀色の鋳物部品を繰り返し叩いている
+  values:
+  - 'yes'
+  - 'no'

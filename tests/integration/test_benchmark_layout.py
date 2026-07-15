@@ -20,7 +20,7 @@ def test_factory_ego_benchmark_integrity():
     assert completed.returncode == 0, completed.stdout + completed.stderr
     # unit数・run数はデータ側から導出する(データが増えてもテストを直書き修正しない)
     split = json.loads(
-        (ROOT / "datasets/factory_ego/splits/development-v001.json").read_text(encoding="utf-8")
+        (ROOT / "datasets/factory_ego/splits/development.json").read_text(encoding="utf-8")
     )
     n_units = sum(len(units) for units in split["assignments"].values())
     n_runs = len([path for path in (ROOT / "runs").iterdir() if path.is_dir()])

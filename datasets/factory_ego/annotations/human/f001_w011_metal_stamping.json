@@ -1,0 +1,17 @@
+{
+  "unit_id": "f001_w011_metal_stamping",
+  "annotation_revision": "human",
+  "interval_convention": "half-open_seconds",
+  "event_labels": {
+    "feed_metal_strip_into_press": "作業者が細長い帯状の金属材料を両手で支え、プレス機の加工位置へ送り込んでいる",
+    "walk_to_next_press": "作業者が最初のプレス機を離れ、通路を歩いて隣のプレス機へ移動している",
+    "pick_up_metal_sheets": "作業者がプレス機の材料置き場から薄い長方形の金属板を複数枚つかんで持ち上げている",
+    "align_metal_sheet_stack": "作業者が持ち上げた薄い金属板の束の端を両手で揃えている"
+  },
+  "events": {
+    "feed_metal_strip_into_press": [{"start_s": 0.0, "end_s": 7.0}],
+    "walk_to_next_press": [{"start_s": 8.0, "end_s": 13.5}],
+    "pick_up_metal_sheets": [{"start_s": 14.5, "end_s": 17.0}],
+    "align_metal_sheet_stack": [{"start_s": 16.5, "end_s": 19.5}]
+  }
+}

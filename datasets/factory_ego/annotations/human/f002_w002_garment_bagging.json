@@ -1,0 +1,17 @@
+{
+  "unit_id": "f002_w002_garment_bagging",
+  "annotation_revision": "human",
+  "interval_convention": "half-open_seconds",
+  "event_labels": {
+    "pick_garment_from_stack": "作業者が積み重なった折り畳み衣類の一番上を手でつかんで持ち上げている",
+    "insert_garment_into_bag": "作業者が折り畳まれた衣類を透明な包装袋の開口部から中へ滑り込ませている",
+    "seal_bag_flap": "作業者が透明な包装袋の粘着フラップを折り返し、指で押さえて封をしている",
+    "place_package_to_right": "作業者が封をした衣類の包装を持ち上げ、作業台の右側へ移して置いている"
+  },
+  "events": {
+    "pick_garment_from_stack": [{"start_s": 0.5, "end_s": 2.0}],
+    "insert_garment_into_bag": [{"start_s": 5.0, "end_s": 10.5}],
+    "seal_bag_flap": [{"start_s": 10.0, "end_s": 13.0}],
+    "place_package_to_right": [{"start_s": 17.0, "end_s": 19.5}]
+  }
+}

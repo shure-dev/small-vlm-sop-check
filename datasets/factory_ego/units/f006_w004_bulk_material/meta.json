@@ -1,10 +1,6 @@
 {
   "benchmark_status": "dev_seen",
   "dataset_id": "factory_ego",
-  "ground_truth": {
-    "available": false,
-    "required_source": "human"
-  },
   "media": {
     "availability": "local_gated_source_not_committed",
     "path": "frames",
@@ -17,30 +13,9 @@
     "source_frame_end": 535,
     "source_frame_start": 515
   },
-  "schema_version": "1.0",
-  "selection": {
-    "annotations_repo": "fit-alessandro-berti/annotated-egocentric-10k-dataset",
-    "annotations_revision": "107f8fdc1aa4334da5eb1c6bc9ce8d52eaf6ce96",
-    "caveat": "window boundaries derive from LLM-generated timestamps; frames are canonical",
-    "main_process": "Bulk material transport",
-    "method": "tools/benchmark/sample_units.py (deterministic stratified)",
-    "transcript_excerpt": [
-      "[480s-515s] The wearer changes his action and starts loading the finned casings into the orange wheelbarrow, repeatedly picking them up from the floor pile and tossing them into the cart.",
-      "[515s-524s] The wearer pushes the loaded wheelbarrow a short distance and tips it forward, dumping the finned casings onto a pile on the floor.",
-      "[524s-575s] The wearer returns to loading the wheelbarrow, continuously picking up finned casings from the floor and throwing them into the cart."
-    ],
-    "window_activities": [
-      "push loaded wheelbarrow across factory floor",
-      "dump metal casings onto floor pile",
-      "load metal casing into wheelbarrow"
-    ],
-    "window_event_starts": 3
-  },
   "sop_ref": {
     "id": "f006_w004_bulk_material",
-    "path": "../../sops/f006_w004_bulk_material/v001.yaml",
-    "status": "provisional",
-    "version": "v001"
+    "path": "../../sops/f006_w004_bulk_material/sop.yaml"
   },
   "source": {
     "clip_id": "factory006_worker004_00001",

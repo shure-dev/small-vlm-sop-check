@@ -1,0 +1,30 @@
+{
+  "unit_id": "f001_w004_material_replenishment",
+  "annotation_revision": "human",
+  "interval_convention": "half-open_seconds",
+  "event_labels": {
+    "fasten_part_with_driver": "作業者が吊り下げ式の電動ドライバーを金属部品に押し当てて締結している",
+    "pour_parts_from_bag": "作業者が透明な袋を逆さにして、中の黒い金属部品を作業台の容器へ振り落としている",
+    "roll_empty_bag": "作業者が空になった透明な袋を両手で巻いて小さくまとめている"
+  },
+  "events": {
+    "fasten_part_with_driver": [
+      {
+        "start_s": 0,
+        "end_s": 2
+      }
+    ],
+    "pour_parts_from_bag": [
+      {
+        "start_s": 5,
+        "end_s": 7
+      }
+    ],
+    "roll_empty_bag": [
+      {
+        "start_s": 17.5,
+        "end_s": 19.5
+      }
+    ]
+  }
+}

@@ -1,0 +1,64 @@
+{
+  "kind": "development_evaluation",
+  "created_at": "2026-07-15",
+  "dataset": {
+    "id": "factory_ego",
+    "split": "development",
+    "reference_revision": "human",
+    "reference_status": "partial",
+    "unit_count": 6
+  },
+  "prediction_run_id": "20260714-factory_ego-marlin-2b-reviewed6-tuned",
+  "model": "Marlin-2B temporal grounding",
+  "formal_accuracy": false,
+  "inputs": {
+    "queries_sha256": "f8438934f007fecccb1ba658a4c9e07992137f6dfae92f2491aaa2c1cb14a95e",
+    "run_manifest_sha256": "72a7a14abdc0051db511ef7000a5d105db30c45762262a2ec706a482b06c93aa",
+    "run_inputs_lock_sha256": "2227c0e9d53bafad86ca79c444984e049ecfb058969b55fa29250a1e8d7c7258",
+    "annotation_sha256": {
+      "f001_w004_material_replenishment": "a8a3275760c3e60c5935686a17775e45e6a8e90e682b832d8b9abf74caa0c40a",
+      "f001_w011_metal_stamping": "a7a856ea219fcc6b1c2e590ab0ce4aa8c4e8c8ac5e5cf8d3c3df0795af76252c",
+      "f002_w002_garment_bagging": "04bc67d3ecd4a9d4fb7c21b1e7f04bf3d8d05ee361e0f083a2333998ca7c86b3",
+      "f002_w003_fabric_folding": "143c5a71a5a3a03b56cd044446fecad8bc65e4588ac8255a97384033f556cdb2",
+      "f002_w005_garment_ironing": "7b0d49d2e0a0ef94758c8bd32a7b4096724887ff40e5097b81cd969c778d70dd",
+      "f003_w005_metal_casting": "39da8d474d6eb730b26215c0413147a6b611d9fe3743fd245c42144ae1b614e1"
+    },
+    "prediction_sha256": {
+      "f001_w004_material_replenishment": "b08c7e70ccc6e5211d8155e75e8525634e5e29513ef1a5cb499bfb9399465b45",
+      "f001_w011_metal_stamping": "89b3a16bab315a816f55950ef3b74f7ec04bfa72bd1bfb53b210b90e10d9bd4f",
+      "f002_w002_garment_bagging": "e5485ef6193146735ccba8880d5502b761aaef836585ca33a5929e1dd87b04f4",
+      "f002_w003_fabric_folding": "f57bb2bfa35bcb4fc13a4e0d141aaef197291e7d6de3c0d033c3071dee5fa618",
+      "f002_w005_garment_ironing": "8cd5d3f5c9aa5bb7e95f36194af12ae457f40c7c943be2de111aa4f2c9b81f20",
+      "f003_w005_metal_casting": "65d26d3410b468a3bf853a86dbe0c365bdbef9cbe2cc1c26401ccd147c88a6e6"
+    }
+  },
+  "metrics": {
+    "all_reference_occurrences": {
+      "reference_occurrences": 25,
+      "predicted_occurrences": 23,
+      "mean_tiou": 0.516169,
+      "tiou_at_0_5": {
+        "precision": 0.73913,
+        "recall": 0.68,
+        "f1": 0.708333
+      }
+    },
+    "single_span_event_ids": {
+      "event_id_count": 21,
+      "mean_tiou": 0.590677
+    }
+  },
+  "per_unit_mean_tiou": {
+    "f001_w004_material_replenishment": 0.262673,
+    "f001_w011_metal_stamping": 0.816162,
+    "f002_w002_garment_bagging": 0.725,
+    "f002_w003_fabric_folding": 0.335714,
+    "f002_w005_garment_ironing": 0.645427,
+    "f003_w005_metal_casting": 0.338889
+  },
+  "limitations": [
+    "This is a development score on clips and event definitions used during prompt iteration, not a held-out test score.",
+    "Marlin find() returns one span per event query; three additional reference occurrences in the repeated-action video cannot be emitted by this interface.",
+    "The single-span metric is reported separately to expose that interface limitation; it does not replace the all-occurrence metric."
+  ]
+}

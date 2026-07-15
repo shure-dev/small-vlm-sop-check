@@ -1,0 +1,13 @@
+sop:
+  id: f001_w011_metal_stamping
+  name: 金属プレス工程間の移動と材料供給
+  domain_hint: 作業者視点で、金属プレス機、回収箱、薄い金属板の束を撮影した20秒の工場動画
+events:
+  - id: feed_metal_strip_into_press
+    ask: 作業者が細長い帯状の金属材料を両手で支え、プレス機の加工位置へ送り込んでいる
+  - id: walk_to_next_press
+    ask: 作業者が最初のプレス機を離れ、通路を歩いて隣のプレス機へ移動している
+  - id: pick_up_metal_sheets
+    ask: 作業者がプレス機の材料置き場から薄い長方形の金属板を複数枚つかんで持ち上げている
+  - id: align_metal_sheet_stack
+    ask: 作業者が持ち上げた薄い金属板の束の端を両手で揃えている

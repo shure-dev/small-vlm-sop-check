@@ -1,0 +1,25 @@
+sop:
+  id: f002_w003_fabric_folding
+  name: 衣類の展開と折り畳み
+  domain_hint: 作業者視点で、畳まれた薄青色の衣類と黒いハンガーを扱う20秒の工場動画
+events:
+- id: take_garment_from_stack
+  ask: 作業者が積み重なった薄青色の衣類の一番上をつかみ、山から取り上げている
+  values:
+  - 'yes'
+  - 'no'
+- id: spread_garment_on_table
+  ask: 作業者が取り上げた薄青色の衣類を作業台の中央へ置き、平らに広げている
+  values:
+  - 'yes'
+  - 'no'
+- id: fold_garment_sides
+  ask: 作業者が作業台に広げた薄青色の衣類の左右を内側へ折り、形を整えている
+  values:
+  - 'yes'
+  - 'no'
+- id: pick_up_hanger
+  ask: 作業者が作業台左側に積まれた黒いハンガーを一本つかんで持ち上げている
+  values:
+  - 'yes'
+  - 'no'

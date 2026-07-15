@@ -2,8 +2,8 @@
 """Egocentric-10K -> Factory Ego local media, reproducibly.
 
 Gated upstream(builddotai/Egocentric-10K)から必要なclipだけを取得し、
-unit meta.json のsampling条件で1fpsフレームを抽出して
-``datasets/factory_ego/units/<unit>/frames/`` を再構成する。
+unit meta.json のsampling条件でフレームを抽出して、Git管理外の
+``data/factory_ego/units/<unit>/frames/`` を再構成する。
 
 The command is intentionally safe by default: without ``--apply`` it
 extracts into a work directory, compares SHA-256 against each unit's
@@ -41,7 +41,6 @@ REPO_ID = "builddotai/Egocentric-10K"
 # 上流のtar配置: <factory_xxx>/workers/<worker_xxx>/factoryXXX_workerXXX_partNN.tar
 # 対象factory/workerはunitのmeta.json(source)から導出し、part数は上流をlsして数える。
 CLIP_ID_RE = re.compile(r"^factory(\d{3})_worker(\d{3})_\d{5}$")
-SCHEMA_VERSION = "1.0"
 BLOCK = 512  # tar block size
 # 既存manifestとバイト一致する値を実測で逆算した(2026-07、q85で160/160一致)。
 # cv2既定の95ではないので変更しないこと。
@@ -87,7 +86,7 @@ def sha256_file(path: Path) -> str:
     return digest.hexdigest()
 
 
-def load_units(dataset_root: Path) -> list[UnitPlan]:
+def load_units(dataset_root: Path, data_root: Path) -> list[UnitPlan]:
     plans = []
     for meta_path in sorted(dataset_root.glob("units/*/meta.json")):
         meta = load_json(meta_path)
@@ -101,7 +100,7 @@ def load_units(dataset_root: Path) -> list[UnitPlan]:
             end_second=source["end_second"],
             fps=sampling["fps"],
             n_frames=sampling["n_frames"],
-            frames_dir=unit_dir / meta["media"]["path"],
+            frames_dir=data_root / "factory_ego" / "units" / meta["unit_id"] / meta["media"]["path"],
             manifest_path=unit_dir / meta["media"]["sha256_manifest"],
             meta_path=meta_path,
             sop_path=(unit_dir / meta["sop_ref"]["path"]).resolve(),
@@ -282,11 +281,13 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--repo", type=Path, default=Path(__file__).resolve().parents[2])
     parser.add_argument("--work-dir", type=Path, default=None,
                         help="clip mp4と抽出結果の置き場(既定: <repo>/out/factory_ego_fetch)")
+    parser.add_argument("--data-root", type=Path, default=None,
+                        help="非公開媒体の配置ルート(既定: <repo>/data)")
     parser.add_argument("--revision", default="main", help="upstream dataset revision")
     parser.add_argument("--unit", action="append", default=None,
                         help="対象unit id(複数可)。既定は全unit")
     parser.add_argument("--apply", action="store_true",
-                        help="照合済みフレームを datasets/ 配下へ書き込む(既定はdry-run)")
+                        help="照合済みフレームを data/ 配下へ書き込む(既定はdry-run)")
     parser.add_argument("--update-manifest", action="store_true",
                         help="不一致時に frames.sha256.json と manifest.lock.json を再生成して"
                              "抽出結果を正として採用する(要 --apply)")
@@ -299,9 +300,10 @@ def main() -> int:
         print("error: --update-manifest には --apply が必要です", file=sys.stderr)
         return 2
     dataset_root = args.repo / "datasets" / "factory_ego"
+    data_root = args.data_root or (args.repo / "data")
     work_dir = args.work_dir or (args.repo / "out" / "factory_ego_fetch")
 
-    plans = load_units(dataset_root)
+    plans = load_units(dataset_root, data_root)
     if args.unit:
         wanted = set(args.unit)
         unknown = wanted - {p.unit_id for p in plans}
@@ -312,6 +314,7 @@ def main() -> int:
 
     print(f"units: {len(plans)}, clips: {sorted({p.clip_id for p in plans})}")
     print(f"work dir: {work_dir}")
+    print(f"data root: {data_root}")
     try:
         clips = fetch_clips({p.clip_id for p in plans}, work_dir / "clips", args.revision)
     except FetchError as exc:

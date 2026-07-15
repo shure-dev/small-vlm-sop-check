@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://industrial-vlm-temporal-grounding.local/schemas/benchmark/unit.schema.json",
+  "title": "Video dataset unit",
+  "type": "object",
+  "required": ["unit_id", "dataset_id", "benchmark_status", "source", "sampling", "media", "sop_ref"],
+  "properties": {
+    "unit_id": {"type": "string", "minLength": 1},
+    "dataset_id": {"type": "string", "minLength": 1},
+    "benchmark_status": {"enum": ["dev_seen", "validation", "test"]},
+    "source": {
+      "type": "object"
+    },
+    "sampling": {
+      "type": "object",
+      "required": ["fps", "n_frames"]
+    },
+    "media": {
+      "type": "object",
+      "required": ["availability", "path", "sha256_manifest"]
+    },
+    "sop_ref": {
+      "type": "object",
+      "required": ["id", "path", "status"]
+    }
+  },
+  "additionalProperties": true
+}

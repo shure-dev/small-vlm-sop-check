@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://industrial-vlm-temporal-grounding.local/schemas/benchmark/split.schema.json",
+  "title": "Group-safe benchmark split",
+  "type": "object",
+  "required": ["split_id", "group_by", "assignments", "policy"],
+  "properties": {
+    "split_id": {"type": "string"},
+    "group_by": {"type": "array", "items": {"type": "string"}, "minItems": 1},
+    "assignments": {"type": "object"},
+    "policy": {"type": "object", "required": ["test_must_be_unseen", "current_units_never_promote_to_test"]}
+  },
+  "additionalProperties": true
+}

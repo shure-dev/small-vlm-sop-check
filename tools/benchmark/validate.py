@@ -51,10 +51,16 @@ def validate_dataset(
         return {}, {}
     dataset = read_yaml(dataset_path)
     result.require(dataset.get("dataset_id") == "factory_ego", "dataset_id must be factory_ego")
-    result.require(dataset.get("benchmark_state", {}).get("human_ground_truth_available") is False,
-                   "human_ground_truth_available must remain false until human annotations exist")
+    benchmark_state = dataset.get("benchmark_state", {})
+    human_state = benchmark_state.get("human_ground_truth", {})
+    result.require(
+        human_state.get("status") in {"none", "partial", "complete"},
+        "Factory Ego human ground-truth status is invalid",
+    )
+    result.require(benchmark_state.get("formal_accuracy_available") is False,
+                   "formal accuracy requires an independent test split")
 
-    split_path = root / "splits" / "development-v001.json"
+    split_path = root / "splits" / "development.json"
     lock_path = root / "manifest.lock.json"
     result.require(split_path.is_file(), f"missing {split_path}")
     result.require(lock_path.is_file(), f"missing {lock_path}")
@@ -84,11 +90,10 @@ def validate_dataset(
             continue
         meta = read_json(meta_path)
         unit_frames[unit_id] = meta.get("sampling", {}).get("n_frames", 0)
-        result.require(meta.get("schema_version") == "1.0", f"bad unit schema: {unit_id}")
         result.require(meta.get("unit_id") == unit_id, f"unit_id/path mismatch: {unit_id}")
         result.require(meta.get("benchmark_status") == "dev_seen", f"unit is not dev_seen: {unit_id}")
         result.require(not (unit_dir / "ground_truth.json").exists(),
-                       f"legacy ground_truth must not exist in unit: {unit_id}")
+                       f"ground_truth must live under annotations/: {unit_id}")
         source = meta.get("source", {})
         group = (source.get("factory_id"), source.get("worker_id"))
         group_splits.setdefault(group, set()).add(meta.get("benchmark_status"))
@@ -102,7 +107,8 @@ def validate_dataset(
             expected_names = [f"f{idx:04d}.jpg" for idx in range(len(frame_manifest))]
             result.require(sorted(frame_manifest) == expected_names, f"non-canonical frame names: {unit_id}")
             for name, expected_hash in frame_manifest.items():
-                frame_path = unit_dir / "frames" / name
+                data_frame = repo / "data" / "factory_ego" / "units" / unit_id / "frames" / name
+                frame_path = data_frame
                 if require_media:
                     result.require(frame_path.is_file(), f"missing frame: {unit_id}/{name}")
                 if frame_path.is_file():
@@ -114,8 +120,7 @@ def validate_dataset(
         if sop_path.is_file():
             sop = read_yaml(sop_path)
             result.require(sop.get("sop", {}).get("id") == unit_id, f"SOP id mismatch: {unit_id}")
-            result.require(sop.get("benchmark", {}).get("status") == "provisional",
-                           f"SOP must be provisional until reviewed: {unit_id}")
+            result.require(isinstance(sop.get("events"), list), f"SOP events are invalid: {unit_id}")
 
         unit_lock = lock.get("units", {}).get(unit_id)
         result.require(unit_lock is not None, f"unit missing from manifest.lock: {unit_id}")
@@ -128,25 +133,84 @@ def validate_dataset(
     for group, statuses in group_splits.items():
         result.require(len(statuses) == 1, f"group leaked across splits: {group} -> {statuses}")
     result.require(set(lock.get("units", {})) == unit_ids, "manifest.lock unit set differs from split")
+
+    annotation_revision = human_state.get("revision")
+    annotation_root = root / "annotations" / str(annotation_revision)
+    annotation_paths = sorted(annotation_root.glob("*.json")) if annotation_root.is_dir() else []
+    result.require({path.stem for path in annotation_paths}.issubset(unit_ids),
+                   "human annotations contain an unknown unit")
+    complete_count = 0
+    for gt_path in annotation_paths:
+        gt = read_json(gt_path)
+        unit_id = gt_path.stem
+        result.require(gt.get("unit_id") == unit_id, f"GT unit mismatch: {gt_path}")
+        result.require(gt.get("interval_convention") == "half-open_seconds",
+                       f"GT must use half-open seconds: {gt_path}")
+        result.require(
+            set(gt) == {"unit_id", "annotation_revision", "interval_convention", "event_labels", "events"},
+            f"GT contains unnecessary fields: {gt_path}",
+        )
+        meta = read_json(root / "units" / unit_id / "meta.json")
+        sop_path = (root / "units" / unit_id / meta["sop_ref"]["path"]).resolve()
+        sop = read_yaml(sop_path)
+        known_labels = {
+            str(event["id"]): str(event.get("ask", "")) for event in sop.get("events", [])
+        }
+        known_events = set(known_labels)
+        events = gt.get("events", {})
+        result.require(gt.get("event_labels") == known_labels,
+                       f"GT event_labels differ from SOP: {gt_path}")
+        result.require(set(events).issubset(known_events), f"unknown GT event: {gt_path}")
+        if set(events) == known_events:
+            complete_count += 1
+        for event_id, spans in events.items():
+            if spans is None:
+                continue
+            result.require(isinstance(spans, list) and bool(spans),
+                           f"GT spans must be a non-empty list: {gt_path}/{event_id}")
+            if not isinstance(spans, list):
+                continue
+            for span in spans:
+                start, end = span.get("start_s"), span.get("end_s")
+                duration = unit_frames.get(unit_id, 0) / float(meta["sampling"]["fps"])
+                valid = (isinstance(start, (int, float)) and isinstance(end, (int, float))
+                         and 0 <= start < end <= duration)
+                result.require(valid, f"invalid GT span: {gt_path}/{event_id}")
+
+    expected_human_status = (
+        "complete" if unit_ids and complete_count == len(unit_ids)
+        else "partial" if annotation_paths
+        else "none"
+    )
+    result.require(human_state.get("status") == expected_human_status,
+                   f"human annotation status must be {expected_human_status}")
+
     return unit_frames, lock
 
 
-def validate_prediction(path: Path, run_id: str, unit_id: str, max_frames: int, result: Validation) -> None:
+def validate_prediction(path: Path, run_id: str, unit_id: str, duration: float,
+                        result: Validation) -> None:
     prediction = read_json(path)
-    frames = prediction.get("frames", [])
-    result.require(prediction.get("schema_version") == "1.0", f"bad prediction schema: {path}")
     result.require(prediction.get("run_id") == run_id, f"prediction run mismatch: {path}")
     result.require(prediction.get("unit_id") == unit_id, f"prediction unit mismatch: {path}")
-    result.require(prediction.get("frame_count") == len(frames), f"prediction frame_count mismatch: {path}")
-    result.require(0 < len(frames) <= max_frames, f"prediction coverage invalid: {path}")
-    result.require([frame.get("idx") for frame in frames] == list(range(len(frames))),
-                   f"prediction indices are not contiguous: {path}")
-    for frame in frames:
-        answers = frame.get("answers")
-        result.require(isinstance(answers, dict) and bool(answers), f"missing answers: {path} frame {frame.get('idx')}")
-        if isinstance(answers, dict):
-            result.require(all(value in {"yes", "no", "unclear"} for value in answers.values()),
-                           f"invalid answer value: {path} frame {frame.get('idx')}")
+    result.require(prediction.get("method") in {"temporal_grounding", "frame_classification"},
+                   f"bad prediction method: {path}")
+    result.require(prediction.get("interval_convention") == "half-open_seconds",
+                   f"prediction must use half-open seconds: {path}")
+    events = prediction.get("events")
+    result.require(isinstance(events, dict) and bool(events), f"missing prediction events: {path}")
+    if isinstance(events, dict):
+        for event_id, spans in events.items():
+            if spans is None:
+                continue
+            result.require(isinstance(spans, list), f"prediction spans must be list: {path}/{event_id}")
+            if not isinstance(spans, list):
+                continue
+            for span in spans:
+                start, end = span.get("start_s"), span.get("end_s")
+                valid = (isinstance(start, (int, float)) and isinstance(end, (int, float))
+                         and 0 <= start < end <= duration)
+                result.require(valid, f"invalid prediction span: {path}/{event_id}")
 
 
 def validate_runs(repo: Path, unit_frames: dict[str, int], result: Validation) -> None:
@@ -179,19 +243,21 @@ def validate_runs(repo: Path, unit_frames: dict[str, int], result: Validation) -
             result.require(prediction_path.is_file(), f"missing prediction: {run_id}/{unit_id}")
             result.require(raw_path.is_file(), f"missing raw output: {run_id}/{unit_id}")
             if prediction_path.is_file():
-                validate_prediction(prediction_path, run_id, unit_id,
-                                    unit_frames.get(unit_id, 0), result)
+                meta = read_json(repo / "datasets" / "factory_ego" / "units" / unit_id / "meta.json")
+                duration = unit_frames.get(unit_id, 0) / float(meta["sampling"]["fps"])
+                validate_prediction(prediction_path, run_id, unit_id, duration, result)
 
     if index_path.is_file():
         rows = [json.loads(line) for line in index_path.read_text(encoding="utf-8").splitlines() if line]
         result.require({row.get("run_id") for row in rows} == discovered, "runs/index.jsonl is stale")
         result.require(all(row.get("formal_accuracy") is None for row in rows),
-                       "formal accuracy must remain null without human GT")
+                       "prediction index must not claim formal accuracy")
 
 
 def validate_schemas(repo: Path, result: Validation) -> None:
-    schema_root = repo / "schemas" / "benchmark" / "v1"
-    expected = {"unit.schema.json", "prediction.schema.json", "run.schema.json", "split.schema.json"}
+    schema_root = repo / "schemas" / "benchmark"
+    expected = {"annotation.schema.json", "unit.schema.json", "prediction.schema.json",
+                "run.schema.json", "split.schema.json"}
     result.require(schema_root.is_dir(), "missing benchmark schemas directory")
     if schema_root.is_dir():
         present = {path.name for path in schema_root.glob("*.json")}

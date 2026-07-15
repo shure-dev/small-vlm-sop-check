@@ -1,0 +1,20 @@
+sop:
+  id: f001_w004_material_replenishment
+  name: 金属部品の組立と補充
+  domain_hint: 作業者視点で、金属部品の組立台と部品袋を撮影した20秒の工場動画
+events:
+- id: fasten_part_with_driver
+  ask: 作業者が吊り下げ式の電動ドライバーを金属部品に押し当てて締結している
+  values:
+  - 'yes'
+  - 'no'
+- id: pour_parts_from_bag
+  ask: 作業者が透明な袋を逆さにして、中の黒い金属部品を作業台の容器へ振り落としている
+  values:
+  - 'yes'
+  - 'no'
+- id: roll_empty_bag
+  ask: 作業者が空になった透明な袋を両手で巻いて小さくまとめている
+  values:
+  - 'yes'
+  - 'no'
