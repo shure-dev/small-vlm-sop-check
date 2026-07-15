@@ -13,8 +13,6 @@
 | `internvl3-2b` | InternVL3-2B | — |
 | `gemma4-e2b` | Gemma4-E2B | — |
 | `minicpm-4.6` | MiniCPM-V 4.6 | 思考モデル |
-| `molmo-7b` | Molmo-7B | — |
-| `cosmos-7b` | Cosmos-Reason1-7B | 思考モデル |
 
 利用できるエイリアスは、インストール後に次のコマンドでも確認できます。
 
@@ -31,6 +29,8 @@ sop-check models
 | `--thinking {auto,on,off}` | `auto` | 対応モデルの思考モードを指定する |
 
 思考過程を使う場合は `--prefill '' --max-tokens 1024` などに変更します。ただし、このプロジェクトのフレームごとの質問回答では、短いyes/no JSONを安定して返す設定を優先しています。
+
+新規の標準実験は4B以下に限定します。過去に取得済みの7Bモデル結果は比較履歴として残しますが、CLIの推奨aliasからは外しています。必要な任意モデルはフルmodel IDで明示指定できます。
 
 ## SmolVLM2について
 

@@ -1,18 +1,19 @@
 # Benchmark architecture
 
-このリポジトリでは、デモと精度比較を同じデータ契約で扱います。`examples/` は設けず、すべての入力データを `datasets/` に統合します。
-
 ```mermaid
 flowchart LR
-  D["datasets/<br/>媒体・SOP・人手GT"] --> R["runs/<br/>モデル予測"]
-  D --> E["evaluations/<br/>人手GT revisionで評価"]
+  M["data/<br/>ローカル動画・フレーム"] --> A["Web app<br/>人手アノテーション"]
+  A --> D["datasets/<br/>日本語イベント・human GT"]
+  D --> R["runs/<br/>CLI推論"]
+  D --> E["evaluations/<br/>Temporal IoU"]
   R --> E
-  E --> P["reports/<br/>比較・考察"]
+  D --> T["training_runs/<br/>fine-tuning"]
+  T --> R
 ```
 
-## 現在のデータセット
+## データセット
 
-- [Konro Inspection](../../datasets/konro_inspection/README.md): 人手GTまで揃った完結デモ
-- [Factory Ego](../../datasets/factory_ego/README.md): 6工場・20作業種類の20 unit（各20秒・2fps）の精度比較データ。人手GT作成前
+- [Konro Inspection](../../datasets/konro_inspection/README.md): 人手GTと媒体を含む小さな完結デモ
+- [Factory Ego](../../datasets/factory_ego/README.md): 20本の工場一人称動画を人手アノテーションするpilot
 
-モデル間一致は予備比較であり、人手GTに対する評価とは区別します。詳細は[評価ポリシー](evaluation.md)を参照してください。
+Factory Egoは全unitが `dev_seen` です。20本でアノテーション方法と推論条件を固めた後、未見worker・未見clipからvalidation/testを作ります。開発中の結果を正式test精度として報告しません。

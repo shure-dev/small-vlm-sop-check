@@ -1,148 +1,169 @@
-# small-vlm-sop-check
+# industrial-vlm-temporal-grounding
 
 [日本語](README.md) | [Documentation](docs/README.md)
 
-![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue)
-![Apple Silicon / MLX](https://img.shields.io/badge/Apple%20Silicon-MLX-black)
+![Python 3.10+](https://img.shields.io/badge/python-3.10%2B-blue)
+![Task: Temporal Grounding](https://img.shields.io/badge/task-temporal%20grounding-155eef)
+![Models: ≤4B](https://img.shields.io/badge/models-%E2%89%A44B-7c3aed)
 ![License: MIT](https://img.shields.io/badge/license-MIT-green)
 ![Status: experimental](https://img.shields.io/badge/status-experimental-orange)
 
-**Small, offline VLMs for industrial egocentric video — detecting SOP step intervals, frame by frame, toward real-time streaming.**
-
-An experimental framework that detects when each step of a standard operating procedure (SOP) happens (event intervals) in a factory worker's first-person (egocentric) video, using only small local VLMs.
+**Toward a Connected Worker platform that understands factory procedures in real time and catches critical deviations before they cause harm.**
 
 <p align="center">
-  <img src="docs/assets/replay_demo.gif" alt="Replay viewer showing VLM answers, detected events, and ground-truth spans" width="640">
+  <img src="docs/assets/factory_ego_temporal_grounding.gif" alt="Factory Ego interface comparing video, human spans, Marlin-2B spans, and event-level tIoU" width="960"><br>
+  <sub>Three Factory Ego experiments. Orange shows human spans; blue shows Marlin-2B predictions.</sub>
 </p>
 
-## Why this exists
+## Catch procedural mistakes before they become incidents
 
-- 🏭 **Industrial focus** — video analysis specialized for factory and manufacturing work, not general video understanding such as movies, game streams, or kitchen egocentric datasets (e.g. Ego4D)
-- ✅ **Procedure first** — instead of captioning or summarizing the video, answer "did the worker perform this SOP step?" at **yes / no granularity** and detect the interval where each step happens. The local VLM only answers per-frame questions; deterministic rules derive the intervals
-- 🔒 **Fully offline** — footage never leaves the site; everything runs on a small local VLM on Apple Silicon
-- ⏱️ **Streaming-oriented** — frames are processed causally from the front rather than feeding the whole video at once, aiming at real-time streaming
-- 🎓 **Toward training** — beyond evaluation: build human ground-truth data and use it to train and improve small industrial VLMs
+In a factory, a skipped step, incorrect order, unsafe tool operation, or missed inspection can lead to life-threatening incidents, equipment damage, quality defects, or production downtime. Reviewing recorded footage after the event cannot support the worker at the moment it matters.
 
-## What it does
+The intended system continuously analyzes first-person video from a wearable camera with a small VLM. It should understand the current operation, completed steps, and steps that have not yet occurred, then notify a worker or supervisor when a critical deviation begins to emerge—before an incident or loss is final.
 
-- Detects the interval of each SOP step from a video and an SOP
-- Evaluates event intervals and per-frame answers against human ground truth
-- Provides CLI tools for annotation, inference, evaluation, and replay
-- Includes results from 15 local VLMs tested under the same demo conditions
+- **Support work as it happens** — frontline workers should be able to continue hands-free work while receiving an immediate indication of a skipped step or unsafe action
+- **Prevent incidents and loss** — supervisors and manufacturing engineers should be able to respond before a deviation becomes an injury, defect, or equipment stop
+- **Run locally with low latency** — models with at most 4B parameters are the primary target, allowing a future path to continuous inference on a wearable or nearby edge computer without sending sensitive footage to an external API
+- **Accumulate site-specific knowledge** — precise event descriptions and spans can capture tools, parts, grips, and placements, while human corrections flow into fine-tuning and re-evaluation
 
-## Quick start
-
-Python 3.10 or newer is required. The first example runs the deterministic rule engine against the bundled answer log, so no VLM dependency is needed.
-
-```bash
-python3 -m pip install -e .
-
-sop-check detect \
-  --sop datasets/konro_inspection/sops/konro_inspection/konro_inspection.yaml \
-  --answer-log datasets/konro_inspection/fixtures/reference_outputs/answer_log.json
-```
-
-Expected result:
+As a foundation for that system, this repository focuses on **temporal grounding**: locating an event in time.
 
 ```text
-event          status          t(s)  span(idx)
-ignite         detected         3.0  1-5
-flame_seen     detected         3.0  3-3
-...
-gloves_worn    NOT_DETECTED       -
-
-検出: 6/7 イベント
+Input:  video + "The worker turns a bag upside down and drops parts into a bin"
+Output: the event's start/end timestamps, or absent
 ```
 
-Generate a self-contained replay viewer with:
+Real-time procedure analysis requires more than recognizing an object or action. The system must know when each operation starts and ends, in what order it occurs, and what has not occurred. Accurate timestamps can feed higher-level logic for the current step, omissions, order violations, and abnormal duration.
 
-```bash
-sop-replay
-```
+The current work first establishes this temporal capability on short clips. Temporal IoU (tIoU) measures the difference from human spans and provides one contract for improving event definitions, prompts, models, and training data. The purpose is to support safe and correct work while it is happening.
 
-## Design
+**The source of advantage is not a larger general-purpose model. It is the ability to encode safety- and quality-critical site procedures as precise event definitions and timestamps, then continuously transfer that knowledge into a small model that can eventually run in real time.**
 
-The VLM only answers visual questions for each frame. A deterministic rule engine derives event intervals from the answer sequence (minimum duration, bridging short noise, assigning the n-th occurrence).
+## Validating temporal understanding with Factory Ego
+
+The primary pilot uses 20 fixed industrial first-person clips from [Egocentric-10K](https://huggingface.co/datasets/builddotai/Egocentric-10K). Each clip is 20 seconds at 2 fps. A human watches the footage, writes Japanese event descriptions, and marks the reference spans. External machine-generated annotations are not used as ground truth.
+
+Six clips with 25 reference occurrences are currently annotated and compared with Marlin-2B temporal-grounding output. The GIF above cycles through three examples.
+
+| Factory Ego experiment | Events | mean tIoU |
+|---|---:|---:|
+| Metal stamping | 4 | 0.816 |
+| Garment bagging | 4 | 0.725 |
+| Shirt folding | 4 | 0.645 |
+
+Across all 25 reference occurrences, mean tIoU is `0.516` and `tIoU@0.5` F1 is `0.708`. The current Marlin `find()` interface returns one span per query, so its mean tIoU on the 21 single-span event IDs is `0.591`.
+
+These are development diagnostics on clips and prompts used during iteration, not held-out benchmark accuracy. Fixed inputs and raw outputs are in [`runs/20260714-factory_ego-marlin-2b-reviewed6-tuned/`](runs/20260714-factory_ego-marlin-2b-reviewed6-tuned/); metrics and hashes are in [`evaluations/factory_ego_marlin_reviewed6.json`](evaluations/factory_ego_marlin_reviewed6.json).
+
+## Improvement loop
 
 ```mermaid
 flowchart LR
-    A[Video] --> B[Frame extraction]
-    B --> C[VLM answers<br/>yes / no per question]
-    C --> D[Deterministic rules<br/>detect event intervals]
-    D --> E[Evaluate against human spans<br/>tIoU / frame agreement]
+    A[Operational video] --> B[Record events and spans<br/>by hand]
+    B --> C[Video VLM<br/>predicts spans]
+    C --> D[Compare on a timeline<br/>and with tIoU]
+    D --> E[Improve definitions,<br/>prompts, and models]
+    E --> C
+    D --> F[Export training data]
+    F --> E
 ```
 
-This separation makes it possible to distinguish visual errors from rule errors, rerun event detection against a saved answer log, and keep human facts separate from model predictions. See [ADR 0001](docs/decisions/0001-separate-facts-predictions-evaluations.md) for the rationale.
+One web app switches between two workspaces:
 
-## Run with a local VLM
+- **Annotation** — save Japanese event descriptions, multiple spans, and an explicit absent state
+- **Results** — compare human and model spans on one timeline and inspect low-tIoU events first
 
-The reference MLX backend requires macOS on Apple Silicon.
+Translation, inference, and training remain reproducible CLI stages outside the app. The original Japanese annotation is human ground truth and is never overwritten by a model prediction.
+
+## Quick start
+
+Python 3.10+ and ffmpeg are required. Factory Ego also requires accepting the access terms for `builddotai/Egocentric-10K` on Hugging Face.
 
 ```bash
-python3 -m pip install -e ".[vlm]"
-
-sop-check run \
-  --sop datasets/konro_inspection/sops/konro_inspection/konro_inspection.yaml \
-  --video datasets/konro_inspection/units/konro_inspection/media/konro_inspection.mp4 \
-  --model qwen3-4b \
-  --out-dir out/qwen3-4b
+python3 -m venv .venv
+source .venv/bin/activate
+python -m pip install -e ".[test,fetch]"
+python tools/benchmark/fetch_factory_ego.py --apply
+python tools/benchmark/validate.py --require-media
+sop-app --dataset factory_ego
 ```
 
-The model is downloaded on first use. Run `sop-check models` to list registered model aliases.
+Annotation follows a video-first workflow:
 
-## Evaluation
+1. Watch the clip and decide which operational events need distinct labels.
+2. Describe the visible actor, object, and action precisely in Japanese.
+3. Add each occurrence at frame-level resolution.
+4. Use still frames and one-frame movement to refine boundaries.
+5. Review the full timeline for missing or overlapping events.
 
-Detected event intervals are compared against human `ground_truth.json` (detected / missed / false detection / correctly absent).
+Edits autosave to `datasets/<dataset>/annotations/human/<unit>.json`. See the [annotation guide](docs/reference/annotator.md) for details.
+
+Open the results in read-only mode with:
+
+```bash
+sop-view --dataset factory_ego
+```
+
+The writable `sop-app` is localhost-only. For network sharing, do not expose its unauthenticated editing API; use `sop-view --host 0.0.0.0`.
+
+## Two inference methods
+
+| Method | VLM input | VLM output | Span construction | Role |
+|---|---|---|---|---|
+| Temporal Grounding | Video + event description | Start/end timestamps, or absent | Preserve the VLM span output | **Primary** |
+| Frame Classification | One image at a time + question | Per-frame yes/no | Convert the answer sequence with rules | Baseline |
+
+The primary method gives a video to a Video VLM and asks the model to produce temporal spans directly. The frame-classification rule engine is a comparison experiment for handling duration, short noise, and repeated occurrences in a yes/no sequence; it does not replace temporal-grounding output.
+
+Both methods normalize to the same prediction format and use the same tIoU evaluation.
 
 ```bash
 sop-check eval \
-  --sop datasets/konro_inspection/sops/konro_inspection/konro_inspection.yaml \
-  --ground-truth datasets/konro_inspection/annotations/human-v001/konro_inspection.json \
-  --answer-log datasets/konro_inspection/fixtures/reference_outputs/answer_log.json
+  --ground-truth datasets/<dataset>/annotations/human/<unit>.json \
+  --prediction runs/<run-id>/predictions/<unit>.json
 ```
 
-Metrics include mean temporal IoU and per-question frame agreement.
-
-## Bundled benchmarks
-
-### Konro Inspection
-
-A complete demo with one 16-frame gas-stove inspection video and human ground truth. Among the 15 tested models, Qwen3-VL-4B was the only model that closely reproduced the human spans (mean tIoU 0.80, frame agreement 96%).
-
-This is a result for one short demo video, not an estimate of general factory performance. See the [full benchmark tables and reproduction commands](docs/benchmark/konro-results.md).
-
-### Factory Ego
-
-An in-progress comparison dataset of 20 units (20 seconds, 2 fps, 40 frames each) stratified across six factories and twenty work types in Egocentric-10K, aimed at procedure-compliance judgment. Factory first-person footage is chosen over kitchen or daily-life egocentric datasets (e.g. Ego4D) because this repository deliberately specializes in industrial and manufacturing work. Clip selection uses the LLM-generated transcripts of [annotated-egocentric-10k-dataset](https://github.com/fit-alessandro-berti/annotated-egocentric-10k-dataset), which are never treated as ground truth; event definitions are authored by viewing the extracted frames (see docs/benchmark/events.md). Each SOP defines 3-4 procedure-step events with Japanese single-sentence questions. All current units are `dev_seen`. Human ground truth is not available yet, so formal precision, recall, F1, and tIoU are not reported. Because the upstream dataset is gated, extracted frames are excluded from the public repository and only SHA manifests are tracked. After accepting the upstream gated terms, `tools/benchmark/fetch_factory_ego.py` reconstructs byte-identical local media (see the [operations guide](docs/benchmark/operations.md)).
-
-Prediction runs so far: one Claude Opus 4.8 online-inference run over a causal window of the last five frames (20/20 units), plus pilot6-subset runs of 12 small local VLMs. Formal accuracy stays unreported until human ground truth is available. See the [Factory Ego dataset notes](datasets/factory_ego/README.md) and [current comparison report](reports/model_comparison.md).
-
-## Repository layout
-
-```text
-src/            Python package and CLI
-datasets/       media units, SOPs, and human annotations
-runs/           immutable model predictions
-evaluations/    prediction-to-ground-truth evaluations
-reports/        cross-run comparisons
-schemas/        benchmark JSON Schemas
-tools/          migration and quality checks
-tests/          unit and integration tests
-docs/           design, operations, and decisions
-```
-
-Start with the [documentation index](docs/README.md), [SOP format](docs/reference/sop-format.md), and [benchmark overview](docs/benchmark/README.md).
-
-## Development checks
+## Bring your own video
 
 ```bash
-python3 -m pip install -e ".[test]"
-pytest
-python3 tools/benchmark/validate.py
-python3 tools/quality/check_docs.py
-python3 tools/quality/check_public.py
+sop-dataset init --dataset my_factory --name "My Factory"
+sop-dataset add-video --dataset my_factory --unit clip_001 \
+  --video /path/to/private.mp4
+sop-app --dataset my_factory
 ```
 
-## License
+Events do not need to be predefined on the command line. Reviewers create them while watching the video. See the [bring-your-own-data guide](docs/guides/bring-your-own-data.md).
 
-The code is released under the MIT License. See [LICENSE](LICENSE). External datasets and models remain subject to their respective licenses and terms.
+## Training and data contract
+
+Completed annotations can be exported with `sop-export-ms-swift` as video-SFT JSONL. LoRA/QLoRA runs use [ms-swift](docs/training/ms-swift.md) as the external backend, and pre/post-tuning models are compared under the same contract and split.
+
+```text
+datasets/       versioned metadata, event definitions, human GT, splits, hashes
+data/           ignored videos, frames, audio, and preview media
+runs/           immutable inference runs, raw output, normalized predictions
+evaluations/    metrics locked to annotation and prediction hashes
+training_runs/  training configuration and input locks; weights/logs ignored
+```
+
+Intervals use video-relative half-open seconds, `[start_s, end_s)`. Human facts, model predictions, and evaluations remain separate. See the [data contract](docs/benchmark/data-contract.md).
+
+## Current scope
+
+The current scope is offline annotation, prediction review, evaluation, and training export for short video clips. This stage builds the temporal model and ground truth required for real-time procedure analysis. Wearable deployment, streaming inference, alert logic, power consumption, and latency have not yet been validated.
+
+The repository output alone is not intended to automate life- or equipment-critical safety decisions. Production deployment requires site-specific risk assessment, fail-safe controls, human oversight, and a clear boundary with existing safety systems.
+
+Full videos, ordinary extracted frames, model weights, and personal data are not committed. The hero GIF is the only downsampled demonstration derivative containing Egocentric-10K imagery; attribution and terms are documented in [`docs/assets/README.md`](docs/assets/README.md).
+
+## Validation
+
+```bash
+python -m pytest -q
+python tools/benchmark/validate.py
+sop-dataset validate --dataset factory_ego
+python tools/quality/check_docs.py
+python tools/quality/check_public.py
+```
+
+Code is released under the [MIT License](LICENSE). External data, models, and checkpoints retain their own licenses and access terms.

@@ -11,9 +11,9 @@ python3 -m pytest -q
 
 ## Data
 
-- Konro: モザイク済みの公開デモ媒体と人手GTを同梱する
 - Factory Ego: upstreamがgatedのため、抽出フレームは同梱しない
-- Factory Egoで公開するのはsource metadata、SHA manifest、暫定SOP、モデル予測
+- Factory Egoで公開するのはsource metadata、SHA manifest、SOP、人手annotation、モデル予測
+- README冒頭の縮小GIFだけをデモ用派生物として同梱し、`docs/assets/README.md` に出典、変更内容、適用条件を記載する
 - upstream媒体の再配布は、最新license、アクセス時の同意条件、プライバシー要件を確認して別途判断する
 
 ## Repository hygiene

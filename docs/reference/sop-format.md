@@ -38,13 +38,9 @@ events:
 
 ```json
 "events": {
-  "pointing": [{"start_idx": 5, "end_idx": 5}, {"start_idx": 12, "end_idx": 13}],
+  "pointing": [{"start_s": 5.0, "end_s": 6.0}, {"start_s": 12.0, "end_s": 14.0}],
   "gloves": null
 }
 ```
 
-評価はGT・検出の両方を時系列順に並べ、k番目どうしを突き合わせます（余ったGT区間=見逃し、余った検出区間=誤検出）。
-
-## 旧v1形式からの変更
-
-旧形式（`questions:` と `events:` の2層 + `evidence` 式 + `occurrence`）は廃止しました。イベントが質問を直接持ちます。複数回の出現は `occurrence` 付きの別イベントではなく、上記のとおり同じイベントの区間リストで扱います。旧形式のSOPは `load_sop` が明確なエラーで拒否します。
+評価はTemporal IoUが最大になるone-to-one対応を作り、余ったGT区間を見逃し、余った予測区間を誤検出とします。
