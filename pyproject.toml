@@ -3,15 +3,17 @@ requires = ["setuptools>=69"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "small-vlm-sop-check"
+name = "industrial-vlm-temporal-grounding"
 version = "0.1.0"
-description = "Deterministic SOP step-interval detection from small-VLM frame answers"
+description = "Small-VLM platform for temporal events in industrial egocentric video"
 readme = "README.md"
 requires-python = ">=3.10"
 license = "MIT"
 license-files = ["LICENSE"]
 dependencies = [
   "PyYAML>=6.0",
+  "fastapi>=0.116,<1",
+  "uvicorn>=0.35,<1",
 ]
 
 [project.optional-dependencies]
@@ -33,18 +35,23 @@ fetch = [
 ]
 test = [
   "pytest>=8.0",
+  "httpx2>=2.5",
 ]
 
 [project.scripts]
+sop-app = "small_vlm_sop_check.apps.launcher:main"
 sop-check = "small_vlm_sop_check.cli:main"
-sop-annotate = "small_vlm_sop_check.apps.annotator:main"
-sop-replay = "small_vlm_sop_check.apps.replay:main"
+sop-view = "small_vlm_sop_check.apps.launcher:main"
+sop-export-ms-swift = "small_vlm_sop_check.training.ms_swift:main"
+sop-train = "small_vlm_sop_check.training.run:main"
+sop-compare = "small_vlm_sop_check.evaluation.compare:main"
+sop-dataset = "small_vlm_sop_check.dataset_cli:main"
 
 [tool.setuptools.packages.find]
 where = ["src"]
 
 [tool.setuptools.package-data]
-"small_vlm_sop_check.apps" = ["templates/*.html"]
+"small_vlm_sop_check.apps" = ["frontend_dist/index.html", "frontend_dist/assets/*"]
 
 [tool.pytest.ini_options]
 pythonpath = ["src"]

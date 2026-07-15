@@ -1,1 +1,1 @@
-"""Browser-based annotation and replay applications."""
+"""動画アノテーション・結果レビューWebアプリ。"""

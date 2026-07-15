@@ -1,13 +1,11 @@
-"""Installed-package boundaries: module CLI and packaged HTML resources."""
+"""Installed-package boundaries and Web app entrypoints."""
 from __future__ import annotations
 
 import os
 import subprocess
 import sys
+import tomllib
 from pathlib import Path
-
-from small_vlm_sop_check.apps.resources import template_text
-
 
 ROOT = Path(__file__).resolve().parents[2]
 DATASET = ROOT / "datasets" / "konro_inspection"
@@ -36,8 +34,11 @@ def test_module_cli_detects_reference_fixture():
     assert "検出: 5/6 イベント" in completed.stdout
 
 
-def test_browser_templates_are_packaged_resources():
-    annotator = template_text("annotator.html")
-    replay = template_text("replay.html")
-    assert "__ANNOTATOR_BOOT__" in annotator
-    assert "__REPLAY_DATA__" in replay
+def test_read_only_viewer_has_a_packaged_entrypoint():
+    project = tomllib.loads((ROOT / "pyproject.toml").read_text(encoding="utf-8"))["project"]
+    assert project["scripts"]["sop-app"] == "small_vlm_sop_check.apps.launcher:main"
+    assert project["scripts"]["sop-view"] == "small_vlm_sop_check.apps.launcher:main"
+    assert project["scripts"]["sop-export-ms-swift"] == \
+        "small_vlm_sop_check.training.ms_swift:main"
+    assert project["scripts"]["sop-train"] == "small_vlm_sop_check.training.run:main"
+    assert project["scripts"]["sop-compare"] == "small_vlm_sop_check.evaluation.compare:main"

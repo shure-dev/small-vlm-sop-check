@@ -7,15 +7,28 @@ build/
 dist/
 *.egg-info/
 
+# Frontend development cache. The source and production bundle are versioned.
+node_modules/
+*.tsbuildinfo
+
 # macOS
 .DS_Store
 
 # 実行結果の出力先（README クイックスタートの --out-dir out/）
 out/
 
+# ユーザー持ち込みの動画・抽出フレーム。公開repoにはメタデータ、SOP、
+# 注釈、hash manifestだけを置き、媒体は各自の環境で取得・配置する。
+data/*
+!data/README.md
+
 # 精度比較ベンチマークの再生成可能な一時物。run本体と予測は追跡対象。
 evaluations/**/cache/
 reports/generated/
+
+# 学習runのモデル重みと実行ログ。run.yaml/command.json/inputs.lock.jsonのみ共有可能。
+training_runs/*/artifacts/
+training_runs/*/training.log
 
 # Egocentric-10Kはgated dataset。公開repoには派生フレームを含めず、
 # meta・SHA manifest・SOP・予測のみを追跡する。

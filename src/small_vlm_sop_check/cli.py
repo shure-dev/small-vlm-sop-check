@@ -11,6 +11,7 @@ import glob
 import json
 import os
 import sys
+from pathlib import Path
 
 from .core.events import Run, detect_events
 from .core.sop import load_answer_log, load_sop
@@ -25,20 +26,13 @@ MODELS = {
     "internvl3-2b": ("mlx-community/InternVL3-2B-4bit",        "InternVL3 2B。pointing等でyesを出しすぎる傾向"),
     "gemma4-e2b": ("mlx-community/gemma-4-e2b-it-4bit",        "Gemma4 E2B。形式はOKだがロードが遅い"),
     "minicpm-4.6": ("mlx-community/MiniCPM-V-4.6-4bit",        "MiniCPM-V 4.6 1.3B(思考モデル。prefill既定で全フレーム回答)"),
-    "molmo-7b":   ("mlx-community/Molmo-7B-D-0924-4bit",       "Molmo 7B(prefill無しだと空応答が多い)"),
-    "cosmos-7b":  ("mlx-community/Cosmos-Reason1-7B-4bit",     "Cosmos-Reason1 7B(NVIDIA物理推論。思考モデル)"),
     "qwen3.5-4b": ("mlx-community/Qwen3.5-4B-MLX-4bit",        "Qwen3.5 4B(早期fusionのネイティブVLM)。batteryは完璧だがpoint2を取りこぼす"),
     "qwen3.5-2b": ("mlx-community/Qwen3.5-2B-MLX-4bit",        "Qwen3.5 2B。grill/batteryを過検出"),
     "qwen3.5-0.8b": ("mlx-community/Qwen3.5-0.8B-MLX-4bit",    "Qwen3.5 0.8B。超軽量。形式は安定"),
     "lfm2.5-1.6b": ("mlx-community/LFM2.5-VL-1.6B-4bit",       "LFM2.5-VL 1.6B。要mlx-vlm>=0.6.4(0.6.3はlfm2_vl実装バグでロード不可)"),
 }
-# 旧来のエイリアス(README/CLAUDE.mdが参照)を後方互換で維持。
-LEGACY_ALIASES = {"2b": "qwen3-2b", "4b": "qwen3-4b"}
-
-
 def resolve_model(key: str) -> str:
     """エイリアス or フルモデルIDのどちらを渡されてもmlx-vlmが読めるIDに解決する。"""
-    key = LEGACY_ALIASES.get(key, key)
     entry = MODELS.get(key)
     return entry[0] if entry else key  # 未知のキーはフルIDとみなす
 
@@ -115,8 +109,20 @@ def cmd_run(args):
     print(f"[run]   回答ログ -> {answer_log_path}")
 
     print("[run] 3/3 区間検出中...")
-    events = detect_events(sop["events"], load_answer_log(answer_log_path), sop.get("defaults"))
+    frames = load_answer_log(answer_log_path)
+    events = detect_events(sop["events"], frames, sop.get("defaults"))
     _print_result(sop["sop"]["name"], events)
+    from .core.temporal import frame_answers_to_spans, prediction_document
+    prediction = prediction_document(
+        args.run_id or Path(args.out_dir).name,
+        sop["sop"]["id"],
+        "frame_classification",
+        frame_answers_to_spans(frames, sop),
+    )
+    prediction_path = Path(args.out_dir) / "prediction.json"
+    prediction_path.write_text(json.dumps(prediction, ensure_ascii=False, indent=2) + "\n",
+                               encoding="utf-8")
+    print(f"[run]   秒区間prediction -> {prediction_path}")
 
 
 def cmd_observe(args):
@@ -134,27 +140,56 @@ def cmd_observe(args):
 
 def cmd_detect(args):
     sop = load_sop(args.sop)
-    events = detect_events(sop["events"], load_answer_log(args.answer_log), sop.get("defaults"))
+    frames = load_answer_log(args.answer_log)
+    events = detect_events(sop["events"], frames, sop.get("defaults"))
     _print_result(sop["sop"]["name"], events)
+    if args.out:
+        from .core.temporal import frame_answers_to_spans, prediction_document
+        prediction = prediction_document(
+            args.run_id or Path(args.answer_log).stem,
+            args.unit_id or sop["sop"]["id"],
+            "frame_classification",
+            frame_answers_to_spans(frames, sop),
+        )
+        out = Path(args.out)
+        out.parent.mkdir(parents=True, exist_ok=True)
+        out.write_text(json.dumps(prediction, ensure_ascii=False, indent=2) + "\n",
+                       encoding="utf-8")
+        print(f"[detect] prediction -> {out}")
 
 
 def cmd_eval(args):
-    """回答ログを正解アノテーション(ground_truth.json)と突き合わせて回答の精度を評価する。"""
-    from .core.evaluate import evaluate, format_report, load_ground_truth
+    """共通の秒区間annotationとpredictionをTemporal IoUで評価する。"""
+    from .core.temporal import (
+        evaluate_temporal,
+        format_temporal_report,
+        load_annotation,
+        load_json,
+        load_prediction,
+    )
 
-    gt_path = args.ground_truth or os.path.join(os.path.dirname(args.sop), "ground_truth.json")
-    if not os.path.exists(gt_path):
-        print(f"[eval] 正解アノテーションが見つかりません: {gt_path}\n"
-              f"       まず sop-annotate で注釈してください", file=sys.stderr)
-        sys.exit(1)
+    annotation_doc = load_json(args.ground_truth)
+    prediction_doc = load_json(args.prediction)
+    try:
+        annotation = load_annotation(annotation_doc)
+        prediction = load_prediction(prediction_doc)
+    except ValueError as exc:
+        raise SystemExit(f"[eval] {exc}") from exc
 
-    sop = load_sop(args.sop)
-    gt = load_ground_truth(gt_path)
-    ev = evaluate(sop, gt, load_answer_log(args.answer_log))
-    print(f"[eval] SOP: {sop['sop']['name']} / GT: {gt_path}")
-    print(format_report(ev))
+    if annotation_doc["unit_id"] != prediction_doc["unit_id"]:
+        raise SystemExit("[eval] annotationとpredictionのunit_idが一致しません")
+
+    result = evaluate_temporal(annotation, prediction)
+    result["inputs"] = {
+        "ground_truth": str(Path(args.ground_truth).resolve()),
+        "prediction": str(Path(args.prediction).resolve()),
+    }
+    print(format_temporal_report(result))
     if args.out:
-        json.dump(ev, open(args.out, "w"), ensure_ascii=False, indent=2)
+        out_path = Path(args.out)
+        out_path.parent.mkdir(parents=True, exist_ok=True)
+        out_path.write_text(json.dumps(result, ensure_ascii=False, indent=2) + "\n",
+                            encoding="utf-8")
         print(f"[eval] metrics -> {args.out}")
 
 
@@ -164,12 +199,11 @@ def cmd_models(args):
     for alias, (mid, note) in MODELS.items():
         print(f"  {alias:13s} {mid}")
         print(f"  {'':13s} {note}\n")
-    print(f"後方互換エイリアス: " + ", ".join(f"{k}={v}" for k, v in LEGACY_ALIASES.items()))
 
 
 def _add_model_args(p):
     """observe/run 共通のモデル関連オプション。"""
-    p.add_argument("--model", default="4b", help="'qwen3-4b'等のエイリアス or HF/mlx-communityのフルID(既定: 4b)")
+    p.add_argument("--model", default="qwen3-4b", help="'qwen3-4b'等のエイリアス or HF/mlx-communityのフルID")
     p.add_argument("--max-tokens", type=int, default=200,
                    help="1フレームあたりの最大生成トークン(既定: 200)。思考モデルは1024程度に上げる")
     p.add_argument("--thinking", choices=["auto", "on", "off"], default="auto",
@@ -191,6 +225,7 @@ def main():
     p_run.add_argument("--video", required=True)
     p_run.add_argument("--fps", type=float, default=1.0)
     p_run.add_argument("--out-dir", required=True)
+    p_run.add_argument("--run-id", default=None)
     _add_model_args(p_run)
     p_run.set_defaults(func=cmd_run)
 
@@ -205,13 +240,14 @@ def main():
     p_detect = sub.add_parser("detect", help="Phase2のみ: 回答ログからイベント区間を検出")
     p_detect.add_argument("--sop", required=True)
     p_detect.add_argument("--answer-log", required=True)
+    p_detect.add_argument("--out", default=None, help="共通の秒区間prediction JSON")
+    p_detect.add_argument("--run-id", default=None)
+    p_detect.add_argument("--unit-id", default=None)
     p_detect.set_defaults(func=cmd_detect)
 
-    p_eval = sub.add_parser("eval", help="回答ログを正解アノテーションと突き合わせて評価(tIoU・フレーム一致)")
-    p_eval.add_argument("--sop", required=True)
-    p_eval.add_argument("--answer-log", required=True)
-    p_eval.add_argument("--ground-truth", default=None,
-                        help="ground_truth.json のパス(既定: SOPと同じディレクトリ)")
+    p_eval = sub.add_parser("eval", help="秒単位の正解区間と予測区間をTemporal IoUで評価")
+    p_eval.add_argument("--ground-truth", required=True)
+    p_eval.add_argument("--prediction", required=True)
     p_eval.add_argument("--out", default=None, help="評価結果をJSONでも保存する場合の出力先")
     p_eval.set_defaults(func=cmd_eval)
 
