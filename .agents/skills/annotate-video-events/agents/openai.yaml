@@ -1,4 +1,4 @@
 interface:
-  display_name: "動画単一イベントアノテーション"
-  short_description: "一度だけ起きる代表イベントを一つの区間として注釈する"
-  default_prompt: "Use $annotate-video-events to select one sustained, non-repeating event from a video and annotate exactly one temporal span."
+  display_name: "動画イベントGT改善・拡張"
+  short_description: "全対象tIoU 0.5以上まで実推論と注釈改善を繰り返す"
+  default_prompt: "Use $annotate-video-events to run inference, iteratively improve every item below tIoU 0.5, and include new videos when requested."
