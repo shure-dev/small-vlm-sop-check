@@ -43,17 +43,20 @@
 
 主対象は、[Egocentric-10K](https://huggingface.co/datasets/builddotai/Egocentric-10K)から固定した20本の工場一人称動画です。各動画は20秒・2fpsで、人間が映像を見ながら日本語のイベント文と正解区間を作ります。外部の機械生成アノテーションは正解データとして使いません。
 
-現在は**20本すべてに75イベント・88正解区間**の人手アノテーションが完了し、Marlin-2BのTemporal Grounding出力と比較しています。development評価は、入力を固定した3つのrunで20本全体をカバーします。
+現在は**20本すべてに75イベント・88正解区間**の人手アノテーションが完了し、Marlin-2BのTemporal Grounding出力と比較しています。どのような映像を扱っているか分かるように、同じ未調整baseline条件で実行した10本から代表例を示します。mean tIoUは、モデル区間と人手区間が完全に重なると`1.0`、重ならないと`0.0`です。
 
-| development評価 | 対象 | 正解区間 | mean tIoU | tIoU@0.5 F1 |
-|---|---|---:|---:|---:|
-| [reviewed6](evaluations/factory_ego_marlin_reviewed6.json) | 定義とクエリを調整した最初の6本 | 23 | 0.561 | 0.756 |
-| [annotation-delta5](evaluations/factory_ego_marlin_annotation_delta5.json) | イベント定義を改訂した5本 | 13 | 0.474 | 0.750 |
-| [new10-baseline](evaluations/factory_ego_marlin_new10_baseline.json) | 追加した10本（調整前のbaseline） | 56 | 0.335 | 0.396 |
+| 20秒動画 | 映っている作業 | Marlin-2B<br>mean tIoU |
+|---|---|---:|
+| [ヒートプレス後の布製品](datasets/factory_ego/sops/f004_w005_heat_press/sop.yaml) | プレスを開き、白い布製品を取り出して、次の布を広げながら折り揃える | **0.654** |
+| [曲線状の生地端の縫製](datasets/factory_ego/sops/f004_w006_curvilinear_seam/sop.yaml) | 灰色生地の曲線端を揃え、ミシンの押さえ金へ運び、向きを変えながら縫い進める | **0.633** |
+| [圧縮成形プレスへの金型設置](datasets/factory_ego/sops/f006_w005_compression_molding/sop.yaml) | 銀色の金型をプレスへ運んで位置を合わせ、操作レバーを動かす | **0.551** |
+| [手動旋盤の操作](datasets/factory_ego/sops/f005_w010_manual_lathe/sop.yaml) | メガネレンチで治具を回し、レンチを置いて、操作部とハンドルを動かす | 0.424 |
+| [衣類の縁取り縫製](datasets/factory_ego/sops/f004_w006_edge_binding/sop.yaml) | 灰色衣類の縁を縫い、余分な縁材を鋏で切り、衣類を広げ直す | 0.240 |
+| [円筒形金属部品の仕分け](datasets/factory_ego/sops/f006_w004_bulk_material/sop.yaml) | 大型容器から似た金属部品を繰り返し持ち上げ、二つの置き場所へ移す | 0.035 |
 
-定義とクエリを調整した6本と未調整の10本ではmean tIoUに0.2以上の差があり、イベント文の質が精度を大きく左右します。また、同一イベントが複数回起きる動画に対し、現在のMarlin `find()`は1 queryにつき1区間しか返せないため、単一区間のevent IDに限るとmean tIoUはそれぞれ`0.591 / 0.571 / 0.450`です。
+同じbaseline 10本全体ではmean tIoU `0.335`、tIoU@0.5 F1 `0.396`でした。少なくともこのrunでは、まとまりのある一連の作業は比較的区間を合わせられる一方、似た部品を短時間に繰り返し移す作業はほとんど合わせられていません。アプリでは、人手区間とモデル区間を動画上で見比べ、どのイベントでずれたかを確認できます。
 
-これらはイベント定義とプロンプトの調整にも使ったdevelopmentデータ上の診断値であり、未見動画に対する正式なベンチマーク精度ではありません。固定した入力とraw出力は [`runs/`](runs/)、評価値と入力hashは [`evaluations/`](evaluations/) から確認できます。
+これらはイベント定義とプロンプトの調整にも使うdevelopmentデータ上の診断値であり、未見動画に対する正式なベンチマーク精度ではありません。固定した入力とraw出力は [`runs/`](runs/)、動画別の値を含む保存済み評価は[追加10本のbaseline](evaluations/factory_ego_marlin_new10_baseline.json)、[最初の6本](evaluations/factory_ego_marlin_reviewed6.json)、[定義を改訂した5本](evaluations/factory_ego_marlin_annotation_delta5.json)から確認できます。
 
 ## 改善ループ
 

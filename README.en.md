@@ -43,17 +43,20 @@ The current work first establishes this temporal capability on short clips. Temp
 
 The primary pilot uses 20 fixed industrial first-person clips from [Egocentric-10K](https://huggingface.co/datasets/builddotai/Egocentric-10K). Each clip is 20 seconds at 2 fps. A human watches the footage, writes Japanese event descriptions, and marks the reference spans. External machine-generated annotations are not used as ground truth.
 
-**All 20 clips are now annotated with 75 events and 88 reference spans**, compared against Marlin-2B temporal-grounding output. Development evaluations run on three frozen prediction runs that together cover all 20 clips.
+**All 20 clips are now annotated with 75 events and 88 reference spans**, compared against Marlin-2B temporal-grounding output. The examples below come from the same untuned baseline run so that a first-time reader can see what the footage contains and how closely the model localized each clip. A mean tIoU of `1.0` is a perfect overlap with the human spans; `0.0` means no overlap.
 
-| Development evaluation | Scope | Reference spans | mean tIoU | tIoU@0.5 F1 |
-|---|---|---:|---:|---:|
-| [reviewed6](evaluations/factory_ego_marlin_reviewed6.json) | first 6 clips with tuned definitions and queries | 23 | 0.561 | 0.756 |
-| [annotation-delta5](evaluations/factory_ego_marlin_annotation_delta5.json) | 5 clips with revised event definitions | 13 | 0.474 | 0.750 |
-| [new10-baseline](evaluations/factory_ego_marlin_new10_baseline.json) | 10 new clips, untuned baseline | 56 | 0.335 | 0.396 |
+| 20-second clip | What happens in the footage | Marlin-2B<br>mean tIoU |
+|---|---|---:|
+| [Handling fabric after heat pressing](datasets/factory_ego/sops/f004_w005_heat_press/sop.yaml) | Open the press, remove a white fabric item, then spread and fold the next piece | **0.654** |
+| [Sewing a curved fabric edge](datasets/factory_ego/sops/f004_w006_curvilinear_seam/sop.yaml) | Align a curved gray edge, position it under the presser foot, and guide it while sewing | **0.633** |
+| [Positioning a compression-molding die](datasets/factory_ego/sops/f006_w005_compression_molding/sop.yaml) | Carry a silver die into the press, align it under the upper tool, and move the control lever | **0.551** |
+| [Operating a manual lathe](datasets/factory_ego/sops/f005_w010_manual_lathe/sop.yaml) | Turn a fixture with a box wrench, put the wrench down, then operate the controls and handwheel | 0.424 |
+| [Binding a garment edge](datasets/factory_ego/sops/f004_w006_edge_binding/sop.yaml) | Sew the bound edge of a gray garment, cut excess binding, and spread the garment again | 0.240 |
+| [Sorting cylindrical metal parts](datasets/factory_ego/sops/f006_w004_bulk_material/sop.yaml) | Repeatedly lift similar parts from a large bin and move them to two destinations | 0.035 |
 
-The gap of more than 0.2 mean tIoU between the tuned 6 clips and the untuned 10 shows how much event wording drives accuracy. The current Marlin `find()` interface also returns one span per query, so mean tIoU restricted to single-span event IDs is `0.591 / 0.571 / 0.450` respectively.
+Across all 10 clips in this baseline, mean tIoU is `0.335` and tIoU@0.5 F1 is `0.396`. In this run, coherent multi-step actions are localized more closely, while repeated transfers of similar-looking parts are barely aligned. The app lets you inspect the human and model spans on the video to see which event caused each error.
 
-These are development diagnostics on clips and prompts used during iteration, not held-out benchmark accuracy. Fixed inputs and raw outputs are in [`runs/`](runs/); metrics and input hashes are in [`evaluations/`](evaluations/).
+These are development diagnostics on clips and prompts used during iteration, not held-out benchmark accuracy. Fixed inputs and raw outputs are in [`runs/`](runs/). Frozen evaluations with per-clip scores are available for the [10-clip baseline](evaluations/factory_ego_marlin_new10_baseline.json), the [first 6 clips](evaluations/factory_ego_marlin_reviewed6.json), and [5 clips with revised definitions](evaluations/factory_ego_marlin_annotation_delta5.json).
 
 ## Improvement loop
 
