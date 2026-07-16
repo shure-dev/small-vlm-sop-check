@@ -1,0 +1,106 @@
+{
+  "kind": "development_evaluation",
+  "created_at": "2026-07-17",
+  "dataset": {
+    "id": "factory_ego",
+    "split": "development",
+    "reference_revision": "human",
+    "reference_status": "complete",
+    "unit_count": 20
+  },
+  "prediction_run_id": "20260717-factory_ego-marlin-2b-final-det-r1",
+  "model": "Marlin-2B temporal grounding",
+  "formal_accuracy": false,
+  "inputs": {
+    "queries_sha256": "1c87666c94ebd977403bdab64537b2d0d67e097101ef50325ff1e6c7631a4461",
+    "run_manifest_sha256": "96193364416dabd030c87cb9749ed6def2c7cfbfa0cad6b74fa3d420f87a5e19",
+    "run_inputs_lock_sha256": "6db77418c4e5300a2e928455bc870f29381fc1910dcaffa518007a20fe5895a1",
+    "annotation_sha256": {
+      "f001_w004_material_replenishment": "a8a3275760c3e60c5935686a17775e45e6a8e90e682b832d8b9abf74caa0c40a",
+      "f001_w011_metal_stamping": "a7a856ea219fcc6b1c2e590ab0ce4aa8c4e8c8ac5e5cf8d3c3df0795af76252c",
+      "f002_w002_garment_bagging": "04bc67d3ecd4a9d4fb7c21b1e7f04bf3d8d05ee361e0f083a2333998ca7c86b3",
+      "f002_w003_fabric_folding": "d5d26829b1c8f377457d988325038472a451ffc3a394bfb5e50447e24920348b",
+      "f002_w005_garment_ironing": "7b0d49d2e0a0ef94758c8bd32a7b4096724887ff40e5097b81cd969c778d70dd",
+      "f003_w005_metal_casting": "39da8d474d6eb730b26215c0413147a6b611d9fe3743fd245c42144ae1b614e1",
+      "f003_w007_wax_pattern": "9a90d3a5bf502d06f9e54ecdf40c5f59d7c6b34d2afff271edd70065d6dcee3e",
+      "f003_w009_injection_molding": "b20afc44dcd20bd818c47c9fca804e923220dae3208e1bb1d6fd4ece1f738ab9",
+      "f003_w010_mold_preparation": "983706265af37103cd7fd238f9a536a42b6ad9e6f40c2ed0aa4ba8791f021efd",
+      "f004_w002_thread_trimming": "cde472e98b092e02ea16b94026a8239737b2e5ecf24aa55cabbbb50b68c34b6a",
+      "f004_w004_continuous_fabric": "651fbecbc5ebcb9a7a151ea295d829cd74ee0698cb0dc1034895315ad2de284c",
+      "f004_w005_heat_press": "a4683cc84cade5479886f78fe7376ebf81f7377367328eb06982099193c485f7",
+      "f004_w005_overlock_seaming": "da8c4b2b64bbf1c84940eb1a50e80a0a6b1343f44db9bb31a02879454b71b5ea",
+      "f004_w006_curvilinear_seam": "fc461add0227ae16a7aba3f1b9e52020e151cce23d956c94f3f0f71e5f278d1f",
+      "f004_w006_edge_binding": "599e2e6677652691be409fdf3a5752631309f8c9d9cfee8e7583137b8ecef211",
+      "f005_w001_semi_automatic": "2a12bc7e16339b0f9aadc62aa00b4c73d37688b1ad826dc04d6eea49a7887bbd",
+      "f005_w010_manual_lathe": "2a19a773d6271b61c40987081a2a39a1dceb6aac6d2c3bfcb2c2867e7f941ecb",
+      "f005_w011_cnc_machine": "57f7752bf03dc84ea7bb4c1995a98107202935e0f9f176a05f53c8330962a7af",
+      "f006_w004_bulk_material": "16ecba518e9be5cf92c548456504445101c35a4b12a8bea05bebb47a7637c1d9",
+      "f006_w005_compression_molding": "32b36510dd6a79259be075c2fb17b17acd0e00a7475fa4ace07895b4a36763c5"
+    },
+    "prediction_sha256": {
+      "f001_w004_material_replenishment": "440c9a60d6b66cfb3a7bed730ecda054cccdd1c53035ce929df62664d7a60326",
+      "f001_w011_metal_stamping": "4a1430dacd6a43ba14216a570212e27469754fb55d1549b8e36475086bec06d1",
+      "f002_w002_garment_bagging": "b4dd2eec725509634f82c19287c1fb1621df849a72bdabbce9ca1d8d84437d80",
+      "f002_w003_fabric_folding": "310dd852a234b7985e48b8c856a885da758b946fd1cd80fd0f89bb043d78a19a",
+      "f002_w005_garment_ironing": "55ae9d78272ad753914c7a8f65b8207ccf61a70f1b59803b7d7b43c521116d75",
+      "f003_w005_metal_casting": "8b98d764c1967c6968b213cd787e9a027831be15686e8119534c49a45d03daf9",
+      "f003_w007_wax_pattern": "59999242d2f0f94ae01f6f338730270ab1ef09f150f9b2aa2a023c9929d089ea",
+      "f003_w009_injection_molding": "2e7daf1913b6ca3f65b3ecb2a119fda1b08647ab123ab2aedf33cf0cbe03b42e",
+      "f003_w010_mold_preparation": "c5fccb213a52cb6383d3be8c709fd51f3ec8512ff6239ec7f3aee27c05b3d939",
+      "f004_w002_thread_trimming": "34f23c1ad2ce2f9da19587e546297526439c35d1634d5fd05501935c239cdcb8",
+      "f004_w004_continuous_fabric": "2f92a24dfee1487bdf5413f85b0eeb1c273bd185cec2240732a8f8cc87fa872b",
+      "f004_w005_heat_press": "6505e1657d0779b10980ceb1bb5a504d791e03c325b29c0936833e1fde451730",
+      "f004_w005_overlock_seaming": "fd0c4e61438581a1f0bb18a38be2e706d5ba442bc46497da5ad4c9657ef537ae",
+      "f004_w006_curvilinear_seam": "aabba1bd93873e58605c84b772e684f3cde719d560a43e5f9a34fe8b6bfa913d",
+      "f004_w006_edge_binding": "975aa3ca37801d7f70400852be2fb4b1025ec3393240a09659da4515c3441c32",
+      "f005_w001_semi_automatic": "0fbf41b46ec7d053deb92f83fcd8f46bcdfe7497531300b80406b9d7aca27283",
+      "f005_w010_manual_lathe": "f67166d06a57330702943ba61e10a330d91157686d459d9d8e6245c5c7cb199c",
+      "f005_w011_cnc_machine": "6ccea53b904f42b835f2ecb88ebabc7ab675ca84752390685dad43e9780bd908",
+      "f006_w004_bulk_material": "be806f9e3141d4b4ca2411d016a844522f6d280db4758902e42b336bea33a314",
+      "f006_w005_compression_molding": "575f9cb129d3a45d8204efb81bd7052b9796dfbb1bbf99b2025912935e0dc5f0"
+    }
+  },
+  "metrics": {
+    "all_reference_occurrences": {
+      "reference_occurrences": 88,
+      "predicted_occurrences": 75,
+      "mean_tiou": 0.383996,
+      "tiou_at_0_5": {
+        "precision": 0.52,
+        "recall": 0.443182,
+        "f1": 0.478528
+      }
+    },
+    "single_span_event_ids": {
+      "event_id_count": 67,
+      "mean_tiou": 0.463461
+    }
+  },
+  "per_unit_mean_tiou": {
+    "f001_w004_material_replenishment": 0.262673,
+    "f001_w011_metal_stamping": 0.802273,
+    "f002_w002_garment_bagging": 0.632576,
+    "f002_w003_fabric_folding": 0.503571,
+    "f002_w005_garment_ironing": 0.645427,
+    "f003_w005_metal_casting": 0.307143,
+    "f003_w007_wax_pattern": 0.304167,
+    "f003_w009_injection_molding": 0.3,
+    "f003_w010_mold_preparation": 0.71875,
+    "f004_w002_thread_trimming": 0.695263,
+    "f004_w004_continuous_fabric": 0.421016,
+    "f004_w005_heat_press": 0.292306,
+    "f004_w005_overlock_seaming": 0.304451,
+    "f004_w006_curvilinear_seam": 0.559524,
+    "f004_w006_edge_binding": 0.255967,
+    "f005_w001_semi_automatic": 0.333333,
+    "f005_w010_manual_lathe": 0.423187,
+    "f005_w011_cnc_machine": 0.436243,
+    "f006_w004_bulk_material": 0.085,
+    "f006_w005_compression_molding": 0.550976
+  },
+  "limitations": [
+    "Development score on clips and queries used during prompt iteration, not a held-out test score.",
+    "Marlin find() returns one span per event query; extra reference occurrences in repeated-action events cannot all be emitted.",
+    "single_span_event_ids reports events with a single reference occurrence to separate that interface limit."
+  ]
+}

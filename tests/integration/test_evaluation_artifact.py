@@ -14,8 +14,8 @@ from small_vlm_sop_check.core.temporal import (
 
 ROOT = Path(__file__).resolve().parents[2]
 EVALUATION_PATHS = [
-    ROOT / "evaluations/factory_ego_marlin_annotation_delta5.json",
     ROOT / "evaluations/factory_ego_marlin_new10_baseline.json",
+    ROOT / "evaluations/factory_ego_marlin_final.json",
 ]
 
 

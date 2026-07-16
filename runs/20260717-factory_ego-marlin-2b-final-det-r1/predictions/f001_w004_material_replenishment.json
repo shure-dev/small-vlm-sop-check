@@ -1,0 +1,26 @@
+{
+  "run_id": "20260717-factory_ego-marlin-2b-final-det-r1",
+  "unit_id": "f001_w004_material_replenishment",
+  "method": "temporal_grounding",
+  "interval_convention": "half-open_seconds",
+  "events": {
+    "fasten_part_with_driver": [
+      {
+        "start_s": 1.5,
+        "end_s": 3.5
+      }
+    ],
+    "pour_parts_from_bag": [
+      {
+        "start_s": 16.5,
+        "end_s": 19.6
+      }
+    ],
+    "roll_empty_bag": [
+      {
+        "start_s": 16.5,
+        "end_s": 19.6
+      }
+    ]
+  }
+}

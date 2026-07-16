@@ -1,0 +1,32 @@
+{
+  "run_id": "20260717-factory_ego-marlin-2b-final-det-r1",
+  "unit_id": "f005_w010_manual_lathe",
+  "method": "temporal_grounding",
+  "interval_convention": "half-open_seconds",
+  "events": {
+    "turn_center_hex_with_box_wrench": [
+      {
+        "start_s": 0.0,
+        "end_s": 6.1
+      }
+    ],
+    "place_box_wrench_on_carriage": [
+      {
+        "start_s": 0.0,
+        "end_s": 6.8
+      }
+    ],
+    "press_left_lathe_control": [
+      {
+        "start_s": 12.0,
+        "end_s": 13.0
+      }
+    ],
+    "operate_front_carriage_handle": [
+      {
+        "start_s": 11.8,
+        "end_s": 12.5
+      }
+    ]
+  }
+}
