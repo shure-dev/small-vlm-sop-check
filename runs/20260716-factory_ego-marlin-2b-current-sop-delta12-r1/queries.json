@@ -1,0 +1,74 @@
+{
+  "f001_w004_material_replenishment": {
+    "fasten_part_with_driver": "the worker presses a suspended electric driver against a metal part and tightens the fastener",
+    "pour_parts_from_bag": "the worker turns a transparent bag upside down and shakes the black metal parts out into a container on the worktable",
+    "roll_empty_bag": "the worker rolls the empty transparent bag with both hands into a small bundle"
+  },
+  "f001_w011_metal_stamping": {
+    "feed_metal_strip_into_press": "the worker supports a long narrow metal strip with both hands and feeds it into the working position of the press machine",
+    "walk_to_next_press": "the worker leaves the first press machine and walks along the aisle to the adjacent press machine",
+    "pick_up_metal_sheets": "the worker grasps and lifts several thin rectangular metal sheets from the material area of the press machine",
+    "align_metal_sheet_stack": "the worker aligns the edges of the lifted stack of thin metal sheets with both hands"
+  },
+  "f002_w002_garment_bagging": {
+    "pick_garment_from_stack": "the worker grasps and lifts the top folded garment from a stack",
+    "insert_garment_into_bag": "the worker slides a folded garment through the opening of a transparent packaging bag",
+    "seal_bag_flap": "the worker folds over the adhesive flap of the transparent packaging bag and presses it down with the fingers to seal it",
+    "place_package_to_right": "the worker lifts the sealed garment package, moves it to the right side of the worktable, and sets it down"
+  },
+  "f002_w005_garment_ironing": {
+    "place_folding_board": "the worker places a white rectangular folding board at the center of a light purple shirt and aligns it with both hands",
+    "fold_shirt_around_board": "the worker folds the left and right sides of a light purple shirt inward around a white folding board",
+    "turn_and_neaten_folded_shirt": "the worker lifts the folded light purple shirt, turns it face up, and straightens its shape with both hands",
+    "stack_folded_shirt": "the worker places the completed folded light purple shirt onto the finished stack at the upper side of the worktable"
+  },
+  "f003_w005_metal_casting": {
+    "carry_casting_bundle": "the worker carries a connected bundle of silver cast metal parts in one hand from the worktable to a wooden crate",
+    "put_casting_into_crate": "the worker places the carried silver cast metal parts into the wooden crate in front",
+    "pick_up_hammer": "the worker picks up a metal hammer with a wooden handle from the worktable using the right hand",
+    "hammer_casting": "the worker repeatedly strikes the silver cast metal parts on the worktable with a wooden-handled metal hammer"
+  },
+  "f003_w007_wax_pattern": {
+    "event_001": "the worker cleans a yellow component using a white rod-shaped tool",
+    "event_002": "the worker marks a yellow object with white chalk",
+    "event_003": "the worker places a yellow component into a tray"
+  },
+  "f003_w009_injection_molding": {
+    "event_001": "the worker removes a yellow plastic component from a metal mold",
+    "event_002": "the worker holds a metal rod"
+  },
+  "f004_w005_heat_press": {
+    "raise_heat_press_handle": "the worker lifts the orange-gripped handle of the heat press and opens the upper platen",
+    "remove_white_fabric_from_heat_press": "the worker pulls a white fabric item out from under the open heat press, moves it to the right worktable, and spreads it out",
+    "separate_white_fabric_from_stack": "the worker pinches the edge of one white fabric item from the stack on the left, separates it, and lifts it",
+    "align_and_fold_white_fabric_on_table": "the worker places the white fabric item on the center worktable, folds it over with both hands, and aligns its edges"
+  },
+  "f004_w005_overlock_seaming": {
+    "guide_pink_fabric_under_presser_foot": "the worker feeds the edge of pink fabric under the sewing-machine presser foot while guiding it with both hands",
+    "remove_pink_fabric_from_sewing_machine": "the worker pulls pink fabric away from the sewing-machine needle area and moves it aside",
+    "take_next_pink_fabric_from_pile": "the worker reaches to the fabric pile on the left and takes out the next piece of pink fabric",
+    "spread_and_align_pink_fabric_edges": "the worker spreads the pink fabric with both hands and follows its edge to align the overlapping fabric edges",
+    "position_pink_fabric_at_presser_foot": "the worker brings the aligned pink fabric edge to the sewing-machine needle area and positions it at the presser foot"
+  },
+  "f005_w001_semi_automatic": {
+    "place_ring_part_on_machine_spindle": "the worker places a ring-shaped part with visible red-orange windings onto the central vertical machine spindle and winds the white line around it",
+    "arrange_white_cord_by_hand": "the worker uses the fingers of both hands to guide and arrange the white cord between the windings of the ring-shaped part on the spindle",
+    "press_illuminated_control_switch": "the worker holds the ring-shaped part with the left hand while pressing the illuminated switch on the right control panel with the right hand",
+    "reach_and_return_with_black_tweezers": "the worker reaches the right arm above the control panel and returns to the ring-shaped part holding black tweezers",
+    "position_black_tweezers_at_white_cord": "the worker brings the tip of black tweezers toward the white cord on the ring-shaped part and aligns the tip with the cord",
+    "tuck_white_cord_with_black_tweezers": "the worker uses black tweezers and the fingers to push and arrange the white cord between the windings of the ring-shaped part",
+    "reach_toward_control_panel_top": "the worker holds the ring-shaped part with the left hand while reaching the right hand toward the top of the control panel"
+  },
+  "f005_w011_cnc_machine": {
+    "carry_square_fixture_to_cnc_opening": "the worker carries a square metal fixture with an orange face and central hole in the right hand while walking to the open CNC machine",
+    "position_square_fixture_inside_cnc": "the worker presses the square metal fixture against the vertical mounting area inside the CNC machine and adjusts its position with the right hand",
+    "press_illuminated_orange_control": "the worker presses the illuminated orange round button on the CNC control panel with the left hand",
+    "press_lower_right_silver_control": "the worker presses the silver round button at the lower-right of the CNC control panel with the left hand",
+    "close_cnc_sliding_door": "the worker grips the black vertical handle of the CNC machine with the left hand and closes the sliding door",
+    "move_orange_square_fixture_on_table": "the worker lifts an orange square metal fixture from the worktable with the right hand, moves it to the adjacent position, and sets it down"
+  },
+  "f006_w005_compression_molding": {
+    "carry_and_align_silver_mold_on_press_table": "the worker carries a two-level silver mold with both hands onto the press table, pushes it under the cylindrical upper press tool, aligns its position, and supports it with the left hand",
+    "operate_blue_lower_control_lever": "the worker reaches toward the blue lever-shaped control below the control panel, grips it, and moves it"
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "unit_id": "f001_w011_metal_stamping",
+  "model_id": "lunahr/Marlin-2B-ungated",
+  "model_revision": "de783b96b80f477c5e665d2202571a84cb0761da",
+  "events": {
+    "feed_metal_strip_into_press": {
+      "query": "the worker supports a long narrow metal strip with both hands and feeds it into the working position of the press machine",
+      "result": {
+        "raw": "From 16.4 to 18.9.",
+        "span": [
+          16.4,
+          18.9
+        ],
+        "format_ok": true
+      }
+    },
+    "walk_to_next_press": {
+      "query": "the worker leaves the first press machine and walks along the aisle to the adjacent press machine",
+      "result": {
+        "raw": "From 8.0 to 13.0.",
+        "span": [
+          8.0,
+          13.0
+        ],
+        "format_ok": true
+      }
+    },
+    "pick_up_metal_sheets": {
+      "query": "the worker grasps and lifts several thin rectangular metal sheets from the material area of the press machine",
+      "result": {
+        "raw": "From 14.8 to 15.6.",
+        "span": [
+          14.8,
+          15.6
+        ],
+        "format_ok": true
+      }
+    },
+    "align_metal_sheet_stack": {
+      "query": "the worker aligns the edges of the lifted stack of thin metal sheets with both hands",
+      "result": {
+        "raw": "From 16.5 to 18.9.",
+        "span": [
+          16.5,
+          18.9
+        ],
+        "format_ok": true
+      }
+    }
+  }
+}

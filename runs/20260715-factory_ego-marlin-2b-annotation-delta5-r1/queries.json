@@ -1,0 +1,23 @@
+{
+  "f002_w003_fabric_folding": {
+    "take_garment_from_stack": "a worker grasps the top light-blue folded garment and removes it from the stack",
+    "fold_garment_sides": "a worker folds the left and right sides of a light-blue garment inward and straightens the folded garment on the table",
+    "pick_up_hanger": "a worker reaches to the pile of black clothes hangers on the left and lifts one black hanger"
+  },
+  "f003_w007_wax_pattern": {
+    "event_001": "a worker cleans a cluster of small yellow wax parts using a thin handheld brush or rod",
+    "event_002": "a worker makes a white mark on the small yellow wax part held in their hands",
+    "event_003": "a worker places the cluster of small yellow wax parts onto the tray filled with similar yellow parts"
+  },
+  "f003_w009_injection_molding": {
+    "event_001": "a worker removes small yellow molded parts from the open metal mold and places them on the tray to the right",
+    "event_002": "a worker picks up and holds a thin metal rod beside the open mold"
+  },
+  "f003_w010_mold_preparation": {
+    "event_001": "a worker places a yellow rectangular mold cover over the metal mold box"
+  },
+  "f004_w002_thread_trimming": {
+    "event_001": "a worker uses blue-handled scissors to cut loose threads from a white garment on the table",
+    "event_002": "a worker unfolds and spreads a white garment flat on the work table"
+  }
+}

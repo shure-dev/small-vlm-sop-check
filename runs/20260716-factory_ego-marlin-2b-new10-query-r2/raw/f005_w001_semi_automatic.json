@@ -1,0 +1,95 @@
+{
+  "unit_id": "f005_w001_semi_automatic",
+  "model_id": "lunahr/Marlin-2B-ungated",
+  "model_revision": "de783b96b80f477c5e665d2202571a84cb0761da",
+  "events": {
+    "remove_ring_part_from_machine_spindle": {
+      "query": "both hands lift the red-copper-wound circular part completely off the central upright black spindle, leaving the spindle exposed, and move the detached part down toward the lower left",
+      "result": {
+        "raw": "From 14.0 to 18.0.",
+        "span": [
+          14.0,
+          18.0
+        ],
+        "format_ok": true
+      }
+    },
+    "place_ring_part_on_machine_spindle": {
+      "query": "the worker brings a red-copper-wound circular part up from below and lowers its center opening onto the upright black spindle until the part is seated on the machine",
+      "result": {
+        "raw": "From 0.0 to 1.9.",
+        "span": [
+          0.0,
+          1.9
+        ],
+        "format_ok": true
+      }
+    },
+    "arrange_white_cord_by_hand": {
+      "query": "with both hands simultaneously at the mounted circular part, the worker pinches a loose white cord with bare fingers and lays it into the gaps between the red-copper windings, before reaching for the controls or using tweezers",
+      "result": {
+        "raw": "From 6.5 to 19.6.",
+        "span": [
+          6.5,
+          19.6
+        ],
+        "format_ok": true
+      }
+    },
+    "press_illuminated_control_switch": {
+      "query": "the worker's right fingertip physically depresses the glowing pink-white round pushbutton on the right control panel while the left hand steadies the circular wound part",
+      "result": {
+        "raw": "From 10.0 to 13.0.",
+        "span": [
+          10.0,
+          13.0
+        ],
+        "format_ok": true
+      }
+    },
+    "reach_and_return_with_black_tweezers": {
+      "query": "starting with an empty right hand near the machine, the worker extends the right arm out above the control panel and then brings the arm back down holding black tweezers, before the tweezers approach the white cord",
+      "result": {
+        "raw": "From 14.0 to 18.0.",
+        "span": [
+          14.0,
+          18.0
+        ],
+        "format_ok": true
+      }
+    },
+    "position_black_tweezers_at_white_cord": {
+      "query": "a worker brings the tip of black tweezers toward the white cord on the ring-shaped part and aligns the tip with the cord",
+      "result": {
+        "raw": "From 14.0 to 17.0.",
+        "span": [
+          14.0,
+          17.0
+        ],
+        "format_ok": true
+      }
+    },
+    "tuck_white_cord_with_black_tweezers": {
+      "query": "the tips of black tweezers visibly contact the white cord and push it down into a gap between the red-copper windings, followed by a final finger adjustment of the cord",
+      "result": {
+        "raw": "From 14.0 to 18.0.",
+        "span": [
+          14.0,
+          18.0
+        ],
+        "format_ok": true
+      }
+    },
+    "reach_toward_control_panel_top": {
+      "query": "after finishing the white-cord adjustment with black tweezers, the worker keeps the left hand on the circular part and raises the right hand away from the cord toward the top surface of the control panel",
+      "result": {
+        "raw": "From 14.0 to 19.0.",
+        "span": [
+          14.0,
+          19.0
+        ],
+        "format_ok": true
+      }
+    }
+  }
+}

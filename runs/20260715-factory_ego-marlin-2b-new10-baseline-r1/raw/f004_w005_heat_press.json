@@ -1,0 +1,62 @@
+{
+  "unit_id": "f004_w005_heat_press",
+  "model_id": "lunahr/Marlin-2B-ungated",
+  "model_revision": "de783b96b80f477c5e665d2202571a84cb0761da",
+  "events": {
+    "adjust_white_fabric_edge": {
+      "query": "a worker pinches the edge of a white fabric item on the worktable with both hands and adjusts its position",
+      "result": {
+        "raw": "From 12.0 to 13.8.",
+        "span": [
+          12.0,
+          13.8
+        ],
+        "format_ok": true
+      }
+    },
+    "raise_heat_press_handle": {
+      "query": "a worker lifts the orange-gripped handle of a heat press and opens the upper platen",
+      "result": {
+        "raw": "From 2.0 to 3.5.",
+        "span": [
+          2.0,
+          3.5
+        ],
+        "format_ok": true
+      }
+    },
+    "remove_white_fabric_from_heat_press": {
+      "query": "a worker pulls a white fabric item out from under the open heat press, moves it to the worktable on the right, and spreads it out",
+      "result": {
+        "raw": "From 1.2 to 4.0.",
+        "span": [
+          1.2,
+          4.0
+        ],
+        "format_ok": true
+      }
+    },
+    "separate_white_fabric_from_stack": {
+      "query": "a worker pinches the edge of one white fabric item from the stack on the left, separates it, and lifts it",
+      "result": {
+        "raw": "From 8.0 to 10.6.",
+        "span": [
+          8.0,
+          10.6
+        ],
+        "format_ok": true
+      }
+    },
+    "align_and_fold_white_fabric_on_table": {
+      "query": "a worker places a white fabric item on the center worktable, folds its sides, and aligns the edges with both hands",
+      "result": {
+        "raw": "From 11.5 to 19.6.",
+        "span": [
+          11.5,
+          19.6
+        ],
+        "format_ok": true
+      }
+    }
+  }
+}

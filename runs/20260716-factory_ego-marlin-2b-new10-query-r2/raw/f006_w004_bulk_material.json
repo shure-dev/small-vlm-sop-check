@@ -1,0 +1,40 @@
+{
+  "unit_id": "f006_w004_bulk_material",
+  "model_id": "lunahr/Marlin-2B-ungated",
+  "model_revision": "de783b96b80f477c5e665d2202571a84cb0761da",
+  "events": {
+    "move_ribbed_cylinder_to_orange_cart": {
+      "query": "the complete pick-and-place cycle in which the right hand takes one vertically ribbed hollow metal cylinder from the central bin, carries it rightward over the orange cart, lowers it inside the orange cart, and releases it",
+      "result": {
+        "raw": "From 0.0 to 19.7.",
+        "span": [
+          0.0,
+          19.7
+        ],
+        "format_ok": true
+      }
+    },
+    "move_ribbed_cylinder_to_metal_table": {
+      "query": "the complete pick-and-place cycle in which the right hand takes one vertically ribbed hollow metal cylinder from the central bin, carries it leftward onto the adjacent flat silver table, and releases it on that table rather than inside the orange cart",
+      "result": {
+        "raw": "From 0.0 to 19.7.",
+        "span": [
+          0.0,
+          19.7
+        ],
+        "format_ok": true
+      }
+    },
+    "lift_ribbed_cylinder_from_bulk_container": {
+      "query": "the worker's right hand grasps one vertically ribbed hollow metal cylinder in the central bulk bin and lifts it upward, with the clip ending before its destination is visible",
+      "result": {
+        "raw": "From 14.0 to 15.0.",
+        "span": [
+          14.0,
+          15.0
+        ],
+        "format_ok": true
+      }
+    }
+  }
+}

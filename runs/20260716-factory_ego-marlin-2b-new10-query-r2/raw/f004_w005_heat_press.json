@@ -1,0 +1,62 @@
+{
+  "unit_id": "f004_w005_heat_press",
+  "model_id": "lunahr/Marlin-2B-ungated",
+  "model_revision": "de783b96b80f477c5e665d2202571a84cb0761da",
+  "events": {
+    "adjust_white_fabric_edge": {
+      "query": "before touching the heat-press handle, the worker uses both fingertips to make small local adjustments to the near edge of a white fabric item already lying flat on the right-hand worktable, without lifting or folding the item",
+      "result": {
+        "raw": "From 12.0 to 19.0.",
+        "span": [
+          12.0,
+          19.0
+        ],
+        "format_ok": true
+      }
+    },
+    "raise_heat_press_handle": {
+      "query": "a worker lifts the orange-gripped handle of a heat press and opens the upper platen",
+      "result": {
+        "raw": "From 2.0 to 3.5.",
+        "span": [
+          2.0,
+          3.5
+        ],
+        "format_ok": true
+      }
+    },
+    "remove_white_fabric_from_heat_press": {
+      "query": "after the upper platen is fully raised, the worker reaches under the open heat press, grasps the white fabric item rather than the orange handle, pulls it horizontally out from beneath the platen, carries it to the right-hand worktable, and spreads it flat",
+      "result": {
+        "raw": "From 1.2 to 19.7.",
+        "span": [
+          1.2,
+          19.7
+        ],
+        "format_ok": true
+      }
+    },
+    "separate_white_fabric_from_stack": {
+      "query": "the worker reaches to the pile of white fabric items on the left, catches the near edge of the top item, peels that single item away from the stack, and continues lifting it until the separated fabric is held free in both hands",
+      "result": {
+        "raw": "From 7.4 to 11.0.",
+        "span": [
+          7.4,
+          11.0
+        ],
+        "format_ok": true
+      }
+    },
+    "align_and_fold_white_fabric_on_table": {
+      "query": "a worker places a white fabric item on the center worktable, folds its sides, and aligns the edges with both hands",
+      "result": {
+        "raw": "From 11.5 to 19.6.",
+        "span": [
+          11.5,
+          19.6
+        ],
+        "format_ok": true
+      }
+    }
+  }
+}

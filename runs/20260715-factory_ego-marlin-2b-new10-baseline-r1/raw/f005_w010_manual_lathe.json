@@ -1,0 +1,51 @@
+{
+  "unit_id": "f005_w010_manual_lathe",
+  "model_id": "lunahr/Marlin-2B-ungated",
+  "model_revision": "de783b96b80f477c5e665d2202571a84cb0761da",
+  "events": {
+    "turn_center_hex_with_box_wrench": {
+      "query": "a worker steadies a circular metal fixture on the lathe spindle with the left hand and repeatedly turns its center hex using a silver box-end wrench in the right hand",
+      "result": {
+        "raw": "From 0.0 to 6.2.",
+        "span": [
+          0.0,
+          6.2
+        ],
+        "format_ok": true
+      }
+    },
+    "place_box_wrench_on_carriage": {
+      "query": "a worker removes a silver box-end wrench from the center hex on the lathe spindle and places the wrench on the carriage to the right",
+      "result": {
+        "raw": "From 0.0 to 6.7.",
+        "span": [
+          0.0,
+          6.7
+        ],
+        "format_ok": true
+      }
+    },
+    "press_left_lathe_control": {
+      "query": "a worker presses the red-and-white square control below the lathe spindle with the left hand",
+      "result": {
+        "raw": "From 12.0 to 13.0.",
+        "span": [
+          12.0,
+          13.0
+        ],
+        "format_ok": true
+      }
+    },
+    "operate_front_carriage_handle": {
+      "query": "a worker grips and operates the large black handwheel on the front side of the lathe carriage with the left hand",
+      "result": {
+        "raw": "From 11.8 to 12.5.",
+        "span": [
+          11.8,
+          12.5
+        ],
+        "format_ok": true
+      }
+    }
+  }
+}

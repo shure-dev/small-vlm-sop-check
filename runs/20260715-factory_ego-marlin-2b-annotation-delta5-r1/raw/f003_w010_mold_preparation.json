@@ -1,0 +1,18 @@
+{
+  "unit_id": "f003_w010_mold_preparation",
+  "model_id": "lunahr/Marlin-2B-ungated",
+  "model_revision": "de783b96b80f477c5e665d2202571a84cb0761da",
+  "events": {
+    "event_001": {
+      "query": "a worker places a yellow rectangular mold cover over the metal mold box",
+      "result": {
+        "raw": "From 1.8 to 4.3.",
+        "span": [
+          1.8,
+          4.3
+        ],
+        "format_ok": true
+      }
+    }
+  }
+}

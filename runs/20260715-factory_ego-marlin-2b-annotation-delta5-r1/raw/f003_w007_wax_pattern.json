@@ -1,0 +1,40 @@
+{
+  "unit_id": "f003_w007_wax_pattern",
+  "model_id": "lunahr/Marlin-2B-ungated",
+  "model_revision": "de783b96b80f477c5e665d2202571a84cb0761da",
+  "events": {
+    "event_001": {
+      "query": "a worker cleans a cluster of small yellow wax parts using a thin handheld brush or rod",
+      "result": {
+        "raw": "From 13.3 to 18.2.",
+        "span": [
+          13.3,
+          18.2
+        ],
+        "format_ok": true
+      }
+    },
+    "event_002": {
+      "query": "a worker makes a white mark on the small yellow wax part held in their hands",
+      "result": {
+        "raw": "From 15.4 to 17.9.",
+        "span": [
+          15.4,
+          17.9
+        ],
+        "format_ok": true
+      }
+    },
+    "event_003": {
+      "query": "a worker places the cluster of small yellow wax parts onto the tray filled with similar yellow parts",
+      "result": {
+        "raw": "From 7.5 to 9.0.",
+        "span": [
+          7.5,
+          9.0
+        ],
+        "format_ok": true
+      }
+    }
+  }
+}

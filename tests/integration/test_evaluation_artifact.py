@@ -2,6 +2,8 @@ import hashlib
 import json
 from pathlib import Path
 
+import pytest
+
 from small_vlm_sop_check.apps.comparison import RunComparison
 from small_vlm_sop_check.core.temporal import (
     evaluate_temporal,
@@ -11,15 +13,21 @@ from small_vlm_sop_check.core.temporal import (
 
 
 ROOT = Path(__file__).resolve().parents[2]
-EVALUATION_PATH = ROOT / "evaluations/factory_ego_marlin_reviewed6.json"
+EVALUATION_PATHS = [
+    ROOT / "evaluations/factory_ego_marlin_annotation_delta5.json",
+    ROOT / "evaluations/factory_ego_marlin_new10_baseline.json",
+]
 
 
 def _sha256(path: Path) -> str:
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
-def test_development_evaluation_matches_locked_inputs_and_current_metrics():
-    artifact = json.loads(EVALUATION_PATH.read_text(encoding="utf-8"))
+@pytest.mark.parametrize("evaluation_path", EVALUATION_PATHS, ids=lambda path: path.stem)
+def test_development_evaluation_matches_locked_inputs_and_current_metrics(
+    evaluation_path: Path,
+):
+    artifact = json.loads(evaluation_path.read_text(encoding="utf-8"))
     run_id = artifact["prediction_run_id"]
     run_dir = ROOT / "runs" / run_id
     annotation_dir = ROOT / "datasets/factory_ego/annotations/human"

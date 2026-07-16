@@ -1,0 +1,167 @@
+{
+  "units": {
+    "f004_w004_continuous_fabric": {
+      "dataset_id": "factory_ego",
+      "frames_manifest_sha256": "987c0307e35bcb1e42ffe6a3965392f1fe16a78c5914c4114302dcc5533ac513",
+      "sop_id": "f004_w004_continuous_fabric",
+      "sop_sha256": "1914547810e2ae7dc113b65e944a251e4005f4fed6efaeab6f7b8236b720763e",
+      "split_id": "development",
+      "unit_meta_sha256": "b001154fe2661861d8021ecfcd6f4167b110728e38a1dcf857f02b0313e128e5"
+    },
+    "f004_w005_heat_press": {
+      "dataset_id": "factory_ego",
+      "frames_manifest_sha256": "b20f8e12af0333289df308570f34cc3b55a147e47b9fafdd410a57cdffbc527c",
+      "sop_id": "f004_w005_heat_press",
+      "sop_sha256": "2658a098af9da18e864d82b8f731b262dd67066caf5e23ac8c2562914ebb532b",
+      "split_id": "development",
+      "unit_meta_sha256": "c85e3ec0a888ec8ade2d687e3ed0c62b485f2feb5026789fbdec3073f6c88485"
+    },
+    "f004_w005_overlock_seaming": {
+      "dataset_id": "factory_ego",
+      "frames_manifest_sha256": "cfc936a792108bd0a80abf513b925c50755f4259d2b3b61a8145eef01daaccfa",
+      "sop_id": "f004_w005_overlock_seaming",
+      "sop_sha256": "19f6ce0ab9a9ac15d2b33c8d906cfa97c958c164b059b6dd791515a043e21b31",
+      "split_id": "development",
+      "unit_meta_sha256": "661914769e07da2c17149fd2bd9818b70ff5b57d188522af87c33f59d3578771"
+    },
+    "f004_w006_curvilinear_seam": {
+      "dataset_id": "factory_ego",
+      "frames_manifest_sha256": "7c168e54b7cae1eb99c548299b59f10d27f94b943576cfd3fed76c11f3838265",
+      "sop_id": "f004_w006_curvilinear_seam",
+      "sop_sha256": "499fdc026ebe7849b9ed0111a2fdf41fd0159aac718d0b7f74cb46410d067e37",
+      "split_id": "development",
+      "unit_meta_sha256": "885980f84fff21983143dedf64333db87f196bed00657f08ac73d0dd8b5e9bac"
+    },
+    "f004_w006_edge_binding": {
+      "dataset_id": "factory_ego",
+      "frames_manifest_sha256": "8be9bec537a9a9a15cdd175018ee66da8ab18c1c2e60d7070c94735a98fabd1d",
+      "sop_id": "f004_w006_edge_binding",
+      "sop_sha256": "2cd8ee32c81293ecab72bc35f5bec473c61607f4533a472a9fe1ec540daa608c",
+      "split_id": "development",
+      "unit_meta_sha256": "2e6c50f0f3fcb887ded1934e3f01e7c6df9423112530d49bf66a088fb18c04b8"
+    },
+    "f005_w001_semi_automatic": {
+      "dataset_id": "factory_ego",
+      "frames_manifest_sha256": "c5c0e0e1cfecd71510a07c7c5c3f36d7074640c43325b13d9525e76e6f2ac364",
+      "sop_id": "f005_w001_semi_automatic",
+      "sop_sha256": "4ff8337b576b57825d2726f5b9422f6c8fca0a37486b3e6b56d08f256a538150",
+      "split_id": "development",
+      "unit_meta_sha256": "578481a019be82eca456fc675a6e0a13121cea02a933b580c0320cc8ed973011"
+    },
+    "f005_w010_manual_lathe": {
+      "dataset_id": "factory_ego",
+      "frames_manifest_sha256": "5be299f84bbce6efd91378b0af4a3132e52e1aaa3b02b9e41083d2660f1d383e",
+      "sop_id": "f005_w010_manual_lathe",
+      "sop_sha256": "f9c432699df4d23d77822cbda7b80f8a43d622e11c3e836521733d4bf48d29b0",
+      "split_id": "development",
+      "unit_meta_sha256": "7383565fba1325272052fee818e3f66e3873063d7074d21ffb737e5ae8b38b33"
+    },
+    "f005_w011_cnc_machine": {
+      "dataset_id": "factory_ego",
+      "frames_manifest_sha256": "19f8c1e12f923cbd6a6bec2085a07180ee8096e46fcf991f3171dc70a5a2dae1",
+      "sop_id": "f005_w011_cnc_machine",
+      "sop_sha256": "fa303c940201dfe3f9dc594adf28f8b2dc7695c4670d634ed6ee4da92b3b6855",
+      "split_id": "development",
+      "unit_meta_sha256": "ba44a8c4832c2b290a2e7bdf3caf0226e3c6c03dec1b6aeeb794175db7b4763d"
+    },
+    "f006_w004_bulk_material": {
+      "dataset_id": "factory_ego",
+      "frames_manifest_sha256": "c814cb58848f323563ce2bb0465b098a9bd9660c5c7fd1e02d9fab7df82d1d62",
+      "sop_id": "f006_w004_bulk_material",
+      "sop_sha256": "dbda6562ec5741793e0feafcf7eff2944576b2b8339088842042ded4af4aa697",
+      "split_id": "development",
+      "unit_meta_sha256": "e587ae84767f5ed219576152d35d6691e9c769c8cdf443585a3612efa2233e83"
+    },
+    "f006_w005_compression_molding": {
+      "dataset_id": "factory_ego",
+      "frames_manifest_sha256": "19fa545755947fb67d2d7017478cb48344fa631013a8da3338a1c6831909e1aa",
+      "sop_id": "f006_w005_compression_molding",
+      "sop_sha256": "8c2cf60a4d6ad63dcdbd9fa40d626f9338b66798013f04a82545ca3b31c57b96",
+      "split_id": "development",
+      "unit_meta_sha256": "d27d13517c3e3da7c38782ae2a409800bbaf6d6b81267aeef5aee5d47e58d8e8"
+    }
+  },
+  "queries_sha256": "093d0fed6863a8a594a959ee42333e6004af525ecdb16ba8a4d471fa5ad8ff95",
+  "videos": {
+    "f004_w004_continuous_fabric": {
+      "sha256": "fd43ecc2fcb35167f62ce093f796fd89ee93d9d7c1f3c9c081be3c5dae88aac6",
+      "width": 640,
+      "height": 360,
+      "avg_frame_rate": "2/1",
+      "n_frames": 40,
+      "duration_s": 20.0
+    },
+    "f004_w005_heat_press": {
+      "sha256": "5fd30163e738729502b11f340bab5afb879a6c0b4a8ecdd71961e364ee49b792",
+      "width": 640,
+      "height": 360,
+      "avg_frame_rate": "2/1",
+      "n_frames": 40,
+      "duration_s": 20.0
+    },
+    "f004_w005_overlock_seaming": {
+      "sha256": "4958e2d404e0ffce41b96d954ac41e861fa9b46d4392321d8b644246de949635",
+      "width": 640,
+      "height": 360,
+      "avg_frame_rate": "2/1",
+      "n_frames": 40,
+      "duration_s": 20.0
+    },
+    "f004_w006_curvilinear_seam": {
+      "sha256": "2345b94b0cafde8032d755e93f908c614cb3ee3b1e759c8c4794a2c09083b34e",
+      "width": 640,
+      "height": 360,
+      "avg_frame_rate": "2/1",
+      "n_frames": 40,
+      "duration_s": 20.0
+    },
+    "f004_w006_edge_binding": {
+      "sha256": "310bbc8efd0a335bc2f5762a9c77dd6e0d720332d69335cfac44b7eadab2725d",
+      "width": 640,
+      "height": 360,
+      "avg_frame_rate": "2/1",
+      "n_frames": 40,
+      "duration_s": 20.0
+    },
+    "f005_w001_semi_automatic": {
+      "sha256": "7f860ffa06a3c525411f749f3047b86f3324d55f0bee8c990e8f96ae885f7831",
+      "width": 640,
+      "height": 360,
+      "avg_frame_rate": "2/1",
+      "n_frames": 40,
+      "duration_s": 20.0
+    },
+    "f005_w010_manual_lathe": {
+      "sha256": "d18cfa9830bcefe1214d482eb37d1a113bf4c868daa8fc3a487301587c34501e",
+      "width": 640,
+      "height": 360,
+      "avg_frame_rate": "2/1",
+      "n_frames": 40,
+      "duration_s": 20.0
+    },
+    "f005_w011_cnc_machine": {
+      "sha256": "7f821caac6d6501fe04b68b27032f8e7a16bc4f4539e0720e11811a76aa5158d",
+      "width": 640,
+      "height": 360,
+      "avg_frame_rate": "2/1",
+      "n_frames": 40,
+      "duration_s": 20.0
+    },
+    "f006_w004_bulk_material": {
+      "sha256": "4b0a124b5c2fc31a45e3c957bbba06f5c6f27f134ff7e2e72863618802502cc1",
+      "width": 640,
+      "height": 360,
+      "avg_frame_rate": "2/1",
+      "n_frames": 40,
+      "duration_s": 20.0
+    },
+    "f006_w005_compression_molding": {
+      "sha256": "6279d834b271379beea7f775e0f86d8098f1fbcba7f8541749c912d06ef340e1",
+      "width": 640,
+      "height": 360,
+      "avg_frame_rate": "2/1",
+      "n_frames": 40,
+      "duration_s": 20.0
+    }
+  }
+}

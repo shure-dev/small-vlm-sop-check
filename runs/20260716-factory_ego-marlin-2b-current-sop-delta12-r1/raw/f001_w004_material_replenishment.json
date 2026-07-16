@@ -1,0 +1,40 @@
+{
+  "unit_id": "f001_w004_material_replenishment",
+  "model_id": "lunahr/Marlin-2B-ungated",
+  "model_revision": "de783b96b80f477c5e665d2202571a84cb0761da",
+  "events": {
+    "fasten_part_with_driver": {
+      "query": "the worker presses a suspended electric driver against a metal part and tightens the fastener",
+      "result": {
+        "raw": "From 14.8 to 16.4.",
+        "span": [
+          14.8,
+          16.4
+        ],
+        "format_ok": true
+      }
+    },
+    "pour_parts_from_bag": {
+      "query": "the worker turns a transparent bag upside down and shakes the black metal parts out into a container on the worktable",
+      "result": {
+        "raw": "From 16.5 to 19.0.",
+        "span": [
+          16.5,
+          19.0
+        ],
+        "format_ok": true
+      }
+    },
+    "roll_empty_bag": {
+      "query": "the worker rolls the empty transparent bag with both hands into a small bundle",
+      "result": {
+        "raw": "From 16.8 to 18.2.",
+        "span": [
+          16.8,
+          18.2
+        ],
+        "format_ok": true
+      }
+    }
+  }
+}
