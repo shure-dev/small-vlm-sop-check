@@ -24,7 +24,7 @@
       "frame_count": 40,
       "frames_manifest_sha256": "df4d43ca205c1944f8715ac1641f33530aee2dd873ad67817cbde156390702ea",
       "meta_sha256": "181f6bb66ed7bb078dcabfbdcf637b6770a54e9f491d6974ee2848da44389c53",
-      "sop_sha256": "65bfb1730fe72a119fa2fc38a9604111e416790a4d739cbaab9e2590c4a2f7de"
+      "sop_sha256": "0cc48347bb740ad8d8105f97b1c39503fe1b82012322cb457bc8798bc6d5806a"
     },
     "f002_w005_garment_ironing": {
       "frame_count": 40,
@@ -42,85 +42,85 @@
       "frame_count": 40,
       "frames_manifest_sha256": "8058aa4f7bbf6374b3bd433c67cfcdf79ea9a3c7c2d012bdfe55820e4d6b2177",
       "meta_sha256": "e6086279c88e84e58be7473e41ec1661f30f8f11e0bab102f01240d60fe06780",
-      "sop_sha256": "38197c74b5c4623a2aacd7d0ce0ae317a68792a9dbea5ecce1f5b0395a89a648"
+      "sop_sha256": "f4253812c02dbbdd8cf109fb556ab8cc643b2c728384a91786a9fde15d54a37d"
     },
     "f003_w009_injection_molding": {
       "frame_count": 40,
       "frames_manifest_sha256": "9c4ca865aee61e0ac2bd7e4186cfc1e2f7791916492aaa262cec7a811a40f6a0",
       "meta_sha256": "f4cd01eb2689e409b626733d9d4b4fbea730419eb4f1466eef4f88157701cdbd",
-      "sop_sha256": "b134d84d8fea40f224c0d432f1d043388750414902dfdd8deb4bd7870f2a38f3"
+      "sop_sha256": "b2a0cc5e1cfe2d35523b770eead45acb3dc17abc246674bb585eeaa58efa39cc"
     },
     "f003_w010_mold_preparation": {
       "frame_count": 40,
       "frames_manifest_sha256": "71175039f7b7c244a4d26405f8b94f0e7723380624209ac8843f216907e54924",
       "meta_sha256": "ac9aa942ebdf1802c4fea8bc57babbd9fcff0c7f91f40dff800c2d9be8764c8a",
-      "sop_sha256": "df553df58b20fbb4c4ede447cba8bdbf0be9a1045c3e43247b8e5fa2b662962a"
+      "sop_sha256": "e2273bd819b23cb3a4e03ad9e372b331cf88e320d5e39358fb5deeaa4899a4f1"
     },
     "f004_w002_thread_trimming": {
       "frame_count": 40,
       "frames_manifest_sha256": "8b3497c89b62f79fc3dcad513fe7e623391fa683a2527355e8bf2dbc3afddd3d",
       "meta_sha256": "1241f6fbc818650cfe803df01c83ddf23d8fb02ed20e6e622141b48f08877e2f",
-      "sop_sha256": "fb77d7583e4d49e9362412227b008efd7fbade8885ed1b4855e0e2aa81a0b62b"
+      "sop_sha256": "86b720af09b3e185623d6650d1505386916660c08f481e85b7e5ea3d76628be4"
     },
     "f004_w004_continuous_fabric": {
       "frame_count": 40,
       "frames_manifest_sha256": "987c0307e35bcb1e42ffe6a3965392f1fe16a78c5914c4114302dcc5533ac513",
       "meta_sha256": "b001154fe2661861d8021ecfcd6f4167b110728e38a1dcf857f02b0313e128e5",
-      "sop_sha256": "f540e17b595e0071fe5e3363a9add0c9452bc0996ddf8dd5e1147d70fb52875b"
+      "sop_sha256": "1914547810e2ae7dc113b65e944a251e4005f4fed6efaeab6f7b8236b720763e"
     },
     "f004_w005_heat_press": {
       "frame_count": 40,
       "frames_manifest_sha256": "b20f8e12af0333289df308570f34cc3b55a147e47b9fafdd410a57cdffbc527c",
       "meta_sha256": "c85e3ec0a888ec8ade2d687e3ed0c62b485f2feb5026789fbdec3073f6c88485",
-      "sop_sha256": "6b1f3bfb0914c1b1fec8837f10b8f9295b4e09bed0d1e1b91b358257648c977d"
+      "sop_sha256": "3000951e1d6a05975ef18af0317804b6b304a64eddd7aecebc1a3e89dfeb2150"
     },
     "f004_w005_overlock_seaming": {
       "frame_count": 40,
       "frames_manifest_sha256": "cfc936a792108bd0a80abf513b925c50755f4259d2b3b61a8145eef01daaccfa",
       "meta_sha256": "661914769e07da2c17149fd2bd9818b70ff5b57d188522af87c33f59d3578771",
-      "sop_sha256": "3728facfa90c2a555fb71210717ab58b6b87faae2808b4569190d47e0ef1f59d"
+      "sop_sha256": "4255121ba2a4c00d3486549f7d429cd470da5125fccdcbec74ec9546d8dac985"
     },
     "f004_w006_curvilinear_seam": {
       "frame_count": 40,
       "frames_manifest_sha256": "7c168e54b7cae1eb99c548299b59f10d27f94b943576cfd3fed76c11f3838265",
       "meta_sha256": "885980f84fff21983143dedf64333db87f196bed00657f08ac73d0dd8b5e9bac",
-      "sop_sha256": "e627ea11d5a16e991536229bb65bb000519b7943c92a6047754f97171b9dcc9e"
+      "sop_sha256": "499fdc026ebe7849b9ed0111a2fdf41fd0159aac718d0b7f74cb46410d067e37"
     },
     "f004_w006_edge_binding": {
       "frame_count": 40,
       "frames_manifest_sha256": "8be9bec537a9a9a15cdd175018ee66da8ab18c1c2e60d7070c94735a98fabd1d",
       "meta_sha256": "2e6c50f0f3fcb887ded1934e3f01e7c6df9423112530d49bf66a088fb18c04b8",
-      "sop_sha256": "37431b7fc821babf077645787a32dda3703e02f45a14026e50d7d58035bfdcaa"
+      "sop_sha256": "2cd8ee32c81293ecab72bc35f5bec473c61607f4533a472a9fe1ec540daa608c"
     },
     "f005_w001_semi_automatic": {
       "frame_count": 40,
       "frames_manifest_sha256": "c5c0e0e1cfecd71510a07c7c5c3f36d7074640c43325b13d9525e76e6f2ac364",
       "meta_sha256": "578481a019be82eca456fc675a6e0a13121cea02a933b580c0320cc8ed973011",
-      "sop_sha256": "fcf19d5910fbecd2492361e728054a361c2fb29dee61fdc362180488c97921b6"
+      "sop_sha256": "0c762f218a5c72e25717f59f443d7ddb314cb7f2976d1bcecf1b269817bd338c"
     },
     "f005_w010_manual_lathe": {
       "frame_count": 40,
       "frames_manifest_sha256": "5be299f84bbce6efd91378b0af4a3132e52e1aaa3b02b9e41083d2660f1d383e",
       "meta_sha256": "7383565fba1325272052fee818e3f66e3873063d7074d21ffb737e5ae8b38b33",
-      "sop_sha256": "9fa1a026ccdbe03ca5613b29126a8c3cef3b8743ffa75c3ae19b746b305a679a"
+      "sop_sha256": "f9c432699df4d23d77822cbda7b80f8a43d622e11c3e836521733d4bf48d29b0"
     },
     "f005_w011_cnc_machine": {
       "frame_count": 40,
       "frames_manifest_sha256": "19f8c1e12f923cbd6a6bec2085a07180ee8096e46fcf991f3171dc70a5a2dae1",
       "meta_sha256": "ba44a8c4832c2b290a2e7bdf3caf0226e3c6c03dec1b6aeeb794175db7b4763d",
-      "sop_sha256": "93f0e9413df06d5b3348ce73b99ce680c0d18b2be78b4864e236884bdb12309c"
+      "sop_sha256": "42cdd3a2ebda14471c9b4033dcbc65626eb35fd9936580571c2b41670da81a9e"
     },
     "f006_w004_bulk_material": {
       "frame_count": 40,
       "frames_manifest_sha256": "c814cb58848f323563ce2bb0465b098a9bd9660c5c7fd1e02d9fab7df82d1d62",
       "meta_sha256": "e587ae84767f5ed219576152d35d6691e9c769c8cdf443585a3612efa2233e83",
-      "sop_sha256": "642fd45628f3f8a7281343c07b2b70d42f675a60ba939efa743b65a308185416"
+      "sop_sha256": "dbda6562ec5741793e0feafcf7eff2944576b2b8339088842042ded4af4aa697"
     },
     "f006_w005_compression_molding": {
       "frame_count": 40,
       "frames_manifest_sha256": "19fa545755947fb67d2d7017478cb48344fa631013a8da3338a1c6831909e1aa",
       "meta_sha256": "d27d13517c3e3da7c38782ae2a409800bbaf6d6b81267aeef5aee5d47e58d8e8",
-      "sop_sha256": "1430fdb4fb1b9ef58b0eb7b0cb9ecf9986af330bd102463ad7584958b289be07"
+      "sop_sha256": "b1f032162969014b5dd853c7096efd5c6004e19749f47b05c80a9ce6b74f6f19"
     }
   }
 }

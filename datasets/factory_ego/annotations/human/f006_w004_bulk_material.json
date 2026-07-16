@@ -1,0 +1,15 @@
+{
+  "unit_id": "f006_w004_bulk_material",
+  "annotation_revision": "human",
+  "interval_convention": "half-open_seconds",
+  "event_labels": {
+    "move_ribbed_cylinder_to_orange_cart": "作業者が中央の大型容器から外周に縦溝のある中空円筒形金属部品を右手で持ち上げ、右側の橙色台車状容器へ移して置いている",
+    "move_ribbed_cylinder_to_metal_table": "作業者が中央の大型容器から外周に縦溝のある中空円筒形金属部品を右手で持ち上げ、隣の銀色作業台へ移して置いている",
+    "lift_ribbed_cylinder_from_bulk_container": "作業者が中央の大型容器から外周に縦溝のある中空円筒形金属部品を右手で持ち上げている"
+  },
+  "events": {
+    "move_ribbed_cylinder_to_orange_cart": [{"start_s": 0.5, "end_s": 1.5}, {"start_s": 5.0, "end_s": 6.0}, {"start_s": 9.5, "end_s": 10.5}, {"start_s": 15.0, "end_s": 16.0}],
+    "move_ribbed_cylinder_to_metal_table": [{"start_s": 3.0, "end_s": 4.0}, {"start_s": 7.0, "end_s": 8.5}, {"start_s": 11.0, "end_s": 11.5}, {"start_s": 12.5, "end_s": 14.0}, {"start_s": 17.5, "end_s": 18.5}],
+    "lift_ribbed_cylinder_from_bulk_container": [{"start_s": 19.5, "end_s": 20.0}]
+  }
+}

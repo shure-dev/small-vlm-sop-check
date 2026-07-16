@@ -2,4 +2,19 @@ sop:
   id: f003_w007_wax_pattern
   name: f003 w007 wax pattern
   domain_hint: 工場作業を作業者視点で撮影した動画
-events: []
+events:
+- id: event_001
+  ask: 白い棒状のもので黄色の部品を清掃する
+  values:
+  - 'yes'
+  - 'no'
+- id: event_002
+  ask: 白いチョークで黄色の物体に印をつける
+  values:
+  - 'yes'
+  - 'no'
+- id: event_003
+  ask: 黄色い部品をトレーに置く
+  values:
+  - 'yes'
+  - 'no'

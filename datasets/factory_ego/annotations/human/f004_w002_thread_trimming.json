@@ -1,0 +1,23 @@
+{
+  "unit_id": "f004_w002_thread_trimming",
+  "annotation_revision": "human",
+  "interval_convention": "half-open_seconds",
+  "event_labels": {
+    "event_001": "鋏を持って糸をカットする",
+    "event_002": "服を台に広げる"
+  },
+  "events": {
+    "event_001": [
+      {
+        "start_s": 7,
+        "end_s": 16.5
+      }
+    ],
+    "event_002": [
+      {
+        "start_s": 0.5,
+        "end_s": 5
+      }
+    ]
+  }
+}

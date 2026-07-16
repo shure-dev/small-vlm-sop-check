@@ -1,0 +1,37 @@
+{
+  "unit_id": "f004_w004_continuous_fabric",
+  "annotation_revision": "human",
+  "interval_convention": "half-open_seconds",
+  "event_labels": {
+    "move_black_garment_to_upper_left": "作業者が黒い衣類を両手で持ち上げ、作業台の左上側へ移している",
+    "spread_garment_in_front_of_sewing_machine": "作業者が作業台上の黒い衣類を両手で手元へ引き寄せ、ミシン前に広げている",
+    "align_garment_edge_layers": "作業者が黒い衣類の縁を両手でつまみ、端の重なりを揃えている",
+    "feed_garment_edge_under_presser_foot": "作業者が揃えた黒い衣類の縁をミシンの押さえ金の下へ送り込んでいる"
+  },
+  "events": {
+    "move_black_garment_to_upper_left": [
+      {
+        "start_s": 0,
+        "end_s": 12
+      }
+    ],
+    "spread_garment_in_front_of_sewing_machine": [
+      {
+        "start_s": 12,
+        "end_s": 15.5
+      }
+    ],
+    "align_garment_edge_layers": [
+      {
+        "start_s": 15.5,
+        "end_s": 18
+      }
+    ],
+    "feed_garment_edge_under_presser_foot": [
+      {
+        "start_s": 18,
+        "end_s": 20
+      }
+    ]
+  }
+}

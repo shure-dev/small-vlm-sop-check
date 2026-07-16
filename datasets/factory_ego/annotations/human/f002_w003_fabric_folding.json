@@ -4,29 +4,18 @@
   "interval_convention": "half-open_seconds",
   "event_labels": {
     "take_garment_from_stack": "作業者が積み重なった薄青色の衣類の一番上をつかみ、山から取り上げている",
-    "spread_garment_on_table": "作業者が取り上げた薄青色の衣類を作業台の中央へ置き、平らに広げている",
-    "fold_garment_sides": "作業者が作業台に広げた薄青色の衣類の左右を内側へ折り、形を整えている",
+    "fold_garment_sides": "作業者が薄青色の衣類の左右を内側へ折り、形を整えている",
     "pick_up_hanger": "作業者が作業台左側に積まれた黒いハンガーを一本つかんで持ち上げている"
   },
   "events": {
     "take_garment_from_stack": [
       {
-        "start_s": 1,
+        "start_s": 0.5,
         "end_s": 2.5
       },
       {
         "start_s": 7,
         "end_s": 9
-      }
-    ],
-    "spread_garment_on_table": [
-      {
-        "start_s": 3,
-        "end_s": 6
-      },
-      {
-        "start_s": 8.5,
-        "end_s": 10.5
       }
     ],
     "fold_garment_sides": [

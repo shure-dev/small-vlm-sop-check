@@ -1,5 +1,26 @@
 sop:
   id: f004_w006_edge_binding
-  name: f004 w006 edge binding
-  domain_hint: 工場作業を作業者視点で撮影した動画
-events: []
+  name: 灰色衣類の縁取り縫製と余分な縁材の切断
+  domain_hint: 作業者視点で、灰色の衣類、紺色の縁取り、ミシン、大型の鋏を扱う20秒の工場動画
+events:
+- id: guide_gray_garment_bound_edge_under_presser_foot
+  ask: 作業者が灰色の衣類の紺色で縁取られた端をミシンの押さえ金の下へ送り、両手で案内している
+  values: ['yes', 'no']
+- id: remove_gray_garment_from_sewing_machine
+  ask: 作業者が灰色の衣類をミシンの針元から手前へ引き離している
+  values: ['yes', 'no']
+- id: trim_excess_navy_binding_with_scissors
+  ask: 作業者が左手で灰色の衣類端を押さえ、右手の大きな赤茶色の鋏で突き出た紺色の縁取り部分を切っている
+  values: ['yes', 'no']
+- id: align_navy_bound_edge
+  ask: 作業者が灰色の衣類の紺色で縁取られた端を両手でつまみ、縁に沿って持ち替えながら形を揃えている
+  values: ['yes', 'no']
+- id: turn_and_spread_gray_garment
+  ask: 作業者が灰色の衣類を両手で返し、作業台上へ広げ直している
+  values: ['yes', 'no']
+- id: pull_loose_white_thread_from_seam
+  ask: 作業者が灰色の衣類の内側の縫い目から出た白い糸を指でつまみ、繰り返し手前へ引いている
+  values: ['yes', 'no']
+- id: position_gray_garment_edge_at_presser_foot
+  ask: 作業者が灰色の衣類端をミシンの針元へ運び、押さえ金の位置に合わせている
+  values: ['yes', 'no']

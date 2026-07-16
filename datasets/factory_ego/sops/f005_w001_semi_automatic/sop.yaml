@@ -1,5 +1,40 @@
 sop:
   id: f005_w001_semi_automatic
-  name: f005 w001 semi automatic
-  domain_hint: 工場作業を作業者視点で撮影した動画
-events: []
+  name: 円環状巻線部品の着脱とひも状材料の整形
+  domain_hint: 作業者視点で、円環状の巻線部品、縦軸治具、操作盤、黒いピンセットを扱う20秒の工場動画
+events:
+- id: place_ring_part_on_machine_spindle
+  ask: 作業者が赤橙色の巻線が見える円環状部品を機械中央の縦軸治具へ載せて白い線を巻き付けている
+  values:
+  - 'yes'
+  - 'no'
+- id: arrange_white_cord_by_hand
+  ask: 作業者が縦軸治具上の円環状部品から伸びる白いひも状材料を両手の指で巻線の間に沿わせて整えている
+  values:
+  - 'yes'
+  - 'no'
+- id: press_illuminated_control_switch
+  ask: 作業者が左手で円環状部品を押さえながら、右手で右側の操作盤の照光スイッチを押している
+  values:
+  - 'yes'
+  - 'no'
+- id: reach_and_return_with_black_tweezers
+  ask: 作業者が右腕を操作盤上方へ伸ばし、黒いピンセットを手にして円環状部品の手前へ戻している
+  values:
+  - 'yes'
+  - 'no'
+- id: position_black_tweezers_at_white_cord
+  ask: 作業者が黒いピンセットの先端を円環状部品の白いひも状材料へ近づけ、位置を合わせている
+  values:
+  - 'yes'
+  - 'no'
+- id: tuck_white_cord_with_black_tweezers
+  ask: 作業者が黒いピンセットと指で白いひも状材料を円環状部品の巻線の間へ押し込み、整えている
+  values:
+  - 'yes'
+  - 'no'
+- id: reach_toward_control_panel_top
+  ask: 作業者が左手で円環状部品を保持しながら、右手を操作盤上面方向へ伸ばしている
+  values:
+  - 'yes'
+  - 'no'

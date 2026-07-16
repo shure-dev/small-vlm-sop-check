@@ -1,5 +1,14 @@
 sop:
   id: f004_w006_curvilinear_seam
-  name: f004 w006 curvilinear seam
-  domain_hint: 工場作業を作業者視点で撮影した動画
-events: []
+  name: 灰色生地の曲線端の位置合わせとミシンへの送り
+  domain_hint: 作業者視点で、灰色の生地と工業用ミシンを扱う工場動画
+events:
+- id: align_curved_gray_fabric_edges
+  ask: 作業者が灰色の生地の曲線状の端を両手でつまみ、重ねた縁を揃えている
+  values: ['yes', 'no']
+- id: position_gray_fabric_at_presser_foot
+  ask: 作業者が揃えた灰色の生地端をミシンの針元へ運び、押さえ金の下へ合わせている
+  values: ['yes', 'no']
+- id: guide_gray_fabric_under_presser_foot
+  ask: 作業者が灰色の生地の曲線状の端をミシンの押さえ金の下へ送りながら、両手で向きを変えて案内している
+  values: ['yes', 'no']

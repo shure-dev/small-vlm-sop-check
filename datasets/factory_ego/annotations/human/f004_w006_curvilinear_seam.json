@@ -1,0 +1,15 @@
+{
+  "unit_id": "f004_w006_curvilinear_seam",
+  "annotation_revision": "human",
+  "interval_convention": "half-open_seconds",
+  "event_labels": {
+    "align_curved_gray_fabric_edges": "作業者が灰色の生地の曲線状の端を両手でつまみ、重ねた縁を揃えている",
+    "position_gray_fabric_at_presser_foot": "作業者が揃えた灰色の生地端をミシンの針元へ運び、押さえ金の下へ合わせている",
+    "guide_gray_fabric_under_presser_foot": "作業者が灰色の生地の曲線状の端をミシンの押さえ金の下へ送りながら、両手で向きを変えて案内している"
+  },
+  "events": {
+    "align_curved_gray_fabric_edges": [{"start_s": 0.0, "end_s": 3.5}],
+    "position_gray_fabric_at_presser_foot": [{"start_s": 3.5, "end_s": 4.5}],
+    "guide_gray_fabric_under_presser_foot": [{"start_s": 4.5, "end_s": 12.0}]
+  }
+}

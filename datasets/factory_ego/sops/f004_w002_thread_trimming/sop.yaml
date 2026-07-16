@@ -2,4 +2,14 @@ sop:
   id: f004_w002_thread_trimming
   name: f004 w002 thread trimming
   domain_hint: 工場作業を作業者視点で撮影した動画
-events: []
+events:
+- id: event_001
+  ask: 鋏を持って糸をカットする
+  values:
+  - 'yes'
+  - 'no'
+- id: event_002
+  ask: 服を台に広げる
+  values:
+  - 'yes'
+  - 'no'

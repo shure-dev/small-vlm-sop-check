@@ -1,0 +1,23 @@
+{
+  "unit_id": "f004_w006_edge_binding",
+  "annotation_revision": "human",
+  "interval_convention": "half-open_seconds",
+  "event_labels": {
+    "guide_gray_garment_bound_edge_under_presser_foot": "作業者が灰色の衣類の紺色で縁取られた端をミシンの押さえ金の下へ送り、両手で案内している",
+    "remove_gray_garment_from_sewing_machine": "作業者が灰色の衣類をミシンの針元から手前へ引き離している",
+    "trim_excess_navy_binding_with_scissors": "作業者が左手で灰色の衣類端を押さえ、右手の大きな赤茶色の鋏で突き出た紺色の縁取り部分を切っている",
+    "align_navy_bound_edge": "作業者が灰色の衣類の紺色で縁取られた端を両手でつまみ、縁に沿って持ち替えながら形を揃えている",
+    "turn_and_spread_gray_garment": "作業者が灰色の衣類を両手で返し、作業台上へ広げ直している",
+    "pull_loose_white_thread_from_seam": "作業者が灰色の衣類の内側の縫い目から出た白い糸を指でつまみ、繰り返し手前へ引いている",
+    "position_gray_garment_edge_at_presser_foot": "作業者が灰色の衣類端をミシンの針元へ運び、押さえ金の位置に合わせている"
+  },
+  "events": {
+    "guide_gray_garment_bound_edge_under_presser_foot": [{"start_s": 0.0, "end_s": 1.5}, {"start_s": 14.0, "end_s": 16.0}],
+    "remove_gray_garment_from_sewing_machine": [{"start_s": 1.5, "end_s": 2.0}, {"start_s": 16.0, "end_s": 16.5}],
+    "trim_excess_navy_binding_with_scissors": [{"start_s": 2.0, "end_s": 5.0}],
+    "align_navy_bound_edge": [{"start_s": 5.5, "end_s": 10.0}, {"start_s": 16.5, "end_s": 20.0}],
+    "turn_and_spread_gray_garment": [{"start_s": 10.0, "end_s": 10.5}],
+    "pull_loose_white_thread_from_seam": [{"start_s": 10.5, "end_s": 13.0}],
+    "position_gray_garment_edge_at_presser_foot": [{"start_s": 13.0, "end_s": 14.0}]
+  }
+}

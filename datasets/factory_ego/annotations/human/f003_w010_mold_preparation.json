@@ -1,0 +1,16 @@
+{
+  "unit_id": "f003_w010_mold_preparation",
+  "annotation_revision": "human",
+  "interval_convention": "half-open_seconds",
+  "event_labels": {
+    "event_001": "黄色の蓋を被せる"
+  },
+  "events": {
+    "event_001": [
+      {
+        "start_s": 2,
+        "end_s": 5
+      }
+    ]
+  }
+}

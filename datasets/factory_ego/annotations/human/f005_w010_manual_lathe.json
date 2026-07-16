@@ -1,0 +1,17 @@
+{
+  "unit_id": "f005_w010_manual_lathe",
+  "annotation_revision": "human",
+  "interval_convention": "half-open_seconds",
+  "event_labels": {
+    "turn_center_hex_with_box_wrench": "作業者が左手で旋盤主軸側の円形金属治具を押さえ、右手の銀色メガネレンチを中央の六角部へ掛け直しながら繰り返し回している",
+    "place_box_wrench_on_carriage": "作業者が銀色メガネレンチを主軸中央の六角部から外し、旋盤右側の往復台上へ置いている",
+    "press_left_lathe_control": "作業者が旋盤主軸下の赤白色の四角い操作部を左手で押している",
+    "operate_front_carriage_handle": "作業者が左手で旋盤往復台の手前側にある黒い大径ハンドルを握って操作している"
+  },
+  "events": {
+    "turn_center_hex_with_box_wrench": [{"start_s": 0.0, "end_s": 6.5}],
+    "place_box_wrench_on_carriage": [{"start_s": 6.5, "end_s": 7.5}],
+    "press_left_lathe_control": [{"start_s": 8.0, "end_s": 8.5}],
+    "operate_front_carriage_handle": [{"start_s": 12.0, "end_s": 12.5}]
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "unit_id": "f006_w005_compression_molding",
+  "annotation_revision": "human",
+  "interval_convention": "half-open_seconds",
+  "event_labels": {
+    "carry_and_align_silver_mold_on_press_table": "作業者が銀色の二段金型を両手でプレス機の台上へ運び、円筒状の上部押し型の下で押し動かして位置を合わせ、左手で支えている",
+    "operate_blue_lower_control_lever": "作業者が操作盤下部の青いレバー状部へ手を伸ばし、握って動かしている"
+  },
+  "events": {
+    "carry_and_align_silver_mold_on_press_table": [
+      {
+        "start_s": 0,
+        "end_s": 10
+      }
+    ],
+    "operate_blue_lower_control_lever": [
+      {
+        "start_s": 11.5,
+        "end_s": 19
+      }
+    ]
+  }
+}

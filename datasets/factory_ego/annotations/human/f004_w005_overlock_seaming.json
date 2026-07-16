@@ -1,0 +1,48 @@
+{
+  "unit_id": "f004_w005_overlock_seaming",
+  "annotation_revision": "human",
+  "interval_convention": "half-open_seconds",
+  "event_labels": {
+    "guide_pink_fabric_under_presser_foot": "作業者がピンク色の生地端をミシンの押さえ金の下へ送りながら両手で案内している",
+    "remove_pink_fabric_from_sewing_machine": "作業者がピンク色の生地をミシンの針元から引き抜き、脇へ移している",
+    "take_next_pink_fabric_from_pile": "作業者が左側の生地の山へ手を伸ばし、次のピンク色の生地を取り出している",
+    "spread_and_align_pink_fabric_edges": "作業者が取り出したピンク色の生地を両手で広げ、縁をたどりながら重なる生地端を揃えている",
+    "position_pink_fabric_at_presser_foot": "作業者が揃えたピンク色の生地端をミシンの針元へ運び、押さえ金の位置に合わせている"
+  },
+  "events": {
+    "guide_pink_fabric_under_presser_foot": [
+      {
+        "start_s": 15,
+        "end_s": 17
+      }
+    ],
+    "remove_pink_fabric_from_sewing_machine": [
+      {
+        "start_s": 1,
+        "end_s": 2.5
+      },
+      {
+        "start_s": 17,
+        "end_s": 18
+      }
+    ],
+    "take_next_pink_fabric_from_pile": [
+      {
+        "start_s": 2.5,
+        "end_s": 4
+      }
+    ],
+    "spread_and_align_pink_fabric_edges": [
+      {
+        "start_s": 4,
+        "end_s": 14
+      }
+    ],
+    "position_pink_fabric_at_presser_foot": [
+      {
+        "start_s": 14,
+        "end_s": 15
+      }
+    ]
+  }
+}

@@ -2,4 +2,14 @@ sop:
   id: f003_w009_injection_molding
   name: f003 w009 injection molding
   domain_hint: 工場作業を作業者視点で撮影した動画
-events: []
+events:
+- id: event_001
+  ask: 黄色のプラスチックの部品を金属の鋳型から取り出す
+  values:
+  - 'yes'
+  - 'no'
+- id: event_002
+  ask: 金属の棒を持つ
+  values:
+  - 'yes'
+  - 'no'

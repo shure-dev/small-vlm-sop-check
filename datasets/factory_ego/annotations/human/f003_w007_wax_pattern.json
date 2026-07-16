@@ -1,0 +1,34 @@
+{
+  "unit_id": "f003_w007_wax_pattern",
+  "annotation_revision": "human",
+  "interval_convention": "half-open_seconds",
+  "event_labels": {
+    "event_001": "白い棒状のもので黄色の部品を清掃する",
+    "event_002": "白いチョークで黄色の物体に印をつける",
+    "event_003": "黄色い部品をトレーに置く"
+  },
+  "events": {
+    "event_001": [
+      {
+        "start_s": 0,
+        "end_s": 5
+      },
+      {
+        "start_s": 15.5,
+        "end_s": 18.5
+      }
+    ],
+    "event_002": [
+      {
+        "start_s": 5,
+        "end_s": 7
+      }
+    ],
+    "event_003": [
+      {
+        "start_s": 7,
+        "end_s": 9
+      }
+    ]
+  }
+}

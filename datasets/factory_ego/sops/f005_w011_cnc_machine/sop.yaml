@@ -1,5 +1,35 @@
 sop:
   id: f005_w011_cnc_machine
-  name: f005 w011 cnc machine
-  domain_hint: 工場作業を作業者視点で撮影した動画
-events: []
+  name: CNC機への四角い金属治具の取り付けと操作盤の操作
+  domain_hint: 作業者視点で、CNC機、四角い金属治具、操作盤、スライド扉を扱う20秒の工場動画
+events:
+- id: carry_square_fixture_to_cnc_opening
+  ask: 作業者が橙色の面と中央穴がある四角い金属治具を右手で持ち、歩いてCNC機の開口部へ運んでいる
+  values:
+  - 'yes'
+  - 'no'
+- id: position_square_fixture_inside_cnc
+  ask: 作業者が四角い金属治具をCNC機内の縦向き取り付け部へ押し当て、右手で位置を合わせている
+  values:
+  - 'yes'
+  - 'no'
+- id: press_illuminated_orange_control
+  ask: 作業者がCNC機の操作盤にある点灯した橙色の丸ボタンを左手で押している
+  values:
+  - 'yes'
+  - 'no'
+- id: press_lower_right_silver_control
+  ask: 作業者がCNC機の操作盤右下にある銀色の丸ボタンを左手で押している
+  values:
+  - 'yes'
+  - 'no'
+- id: close_cnc_sliding_door
+  ask: 作業者がCNC機の黒い縦ハンドルを左手で握り、スライド扉を閉じている
+  values:
+  - 'yes'
+  - 'no'
+- id: move_orange_square_fixture_on_table
+  ask: 作業者が作業台上の橙色の四角い金属治具を右手で持ち上げ、隣の位置へ移して置いている
+  values:
+  - 'yes'
+  - 'no'

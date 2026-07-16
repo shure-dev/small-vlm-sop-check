@@ -1,0 +1,23 @@
+{
+  "unit_id": "f003_w009_injection_molding",
+  "annotation_revision": "human",
+  "interval_convention": "half-open_seconds",
+  "event_labels": {
+    "event_001": "黄色のプラスチックの部品を金属の鋳型から取り出す",
+    "event_002": "金属の棒を持つ"
+  },
+  "events": {
+    "event_001": [
+      {
+        "start_s": 0,
+        "end_s": 5.5
+      }
+    ],
+    "event_002": [
+      {
+        "start_s": 9.5,
+        "end_s": 12
+      }
+    ]
+  }
+}
