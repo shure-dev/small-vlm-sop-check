@@ -2,6 +2,7 @@
 __pycache__/
 .pytest_cache/
 .venv/
+.venv-vlm/
 venv/
 build/
 dist/

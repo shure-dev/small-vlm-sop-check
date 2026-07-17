@@ -193,6 +193,8 @@ def create_app(
         for run_id, comparison in discover_run_comparisons(repo_root).items():
             if comparison.dataset_id != dataset or comparison.reference_revision != "human":
                 continue
+            if comparison.run.get("inference", {}).get("event_subset") is True:
+                continue
             if not _uses_current_sop(comparison, unit):
                 continue
             unit_comparison = comparison.for_unit(unit)

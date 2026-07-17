@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
-"""Qwen2.5-VL-3Bへ20秒動画を直接入力し、eventごとの秒区間を保存する。"""
+"""MLX-VLMへ20秒動画を直接入力し、eventごとの秒区間を保存する。"""
 from __future__ import annotations
 
 import argparse
 import datetime
+import hashlib
 import json
 import re
 import sys
@@ -22,13 +23,15 @@ from run_local_prediction import (  # noqa: E402
     DATASET_ID, SPLIT_ID, build_inputs_lock, git_revision, hf_snapshot_revision,
 )
 from run_marlin_prediction import (  # noqa: E402
-    VIDEO_WIDTH, ensure_video, validate_queries, write_json_atomic,
+    VIDEO_WIDTH, ensure_video, validate_queries, video_metadata, write_json_atomic,
 )
 
 
 DEFAULT_MODEL = "mlx-community/Qwen2.5-VL-3B-Instruct-4bit"
 PROMPT_TEMPLATE = """Event: {query}
 Locate this event in the 20-second video. Return exactly one JSON object: {{"start_s": number, "end_s": number}}. If the event is absent, return {{"start_s": null, "end_s": null}}. Times are seconds from video start."""
+PROMPT_TEMPLATE_NO_REASONING = """Event: {query}
+Locate this event in the 20-second video. Do not output reasoning, analysis, or <think> tags. Start the response with {{ and return exactly one JSON object: {{"start_s": number, "end_s": number}}. Both numbers must be between 0.0 and 20.0, with start_s less than end_s. If the event is absent, return {{"start_s": null, "end_s": null}}. Times are seconds from video start (0.0)."""
 
 
 def parse_span(text: str) -> tuple[float, float] | None:
@@ -63,14 +66,30 @@ def normalize(run_id: str, unit_id: str, raw: dict[str, Any]) -> dict[str, Any]:
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--queries", required=True)
+    parser.add_argument(
+        "--allow-event-subset", action="store_true",
+        help="annotation差分診断用。各unitのqueryをSOP event IDの非空部分集合として許可",
+    )
     parser.add_argument("--run-id", required=True)
     parser.add_argument("--model", default=DEFAULT_MODEL)
+    parser.add_argument(
+        "--upstream-model",
+        help="量子化・変換モデルの上流model ID（例: openbmb/MiniCPM-V-4.6）",
+    )
     parser.add_argument("--model-name", default="Qwen2.5-VL-3B video grounding")
     parser.add_argument("--model-parameters-b", type=float, default=3.0)
     parser.add_argument("--video-dir", default=str(ROOT / "out" / "model-videos"))
     parser.add_argument("--fps", type=float, default=2.0)
     parser.add_argument("--max-pixels", type=int, default=50176)
     parser.add_argument("--max-tokens", type=int, default=100)
+    parser.add_argument(
+        "--suppress-reasoning", action="store_true",
+        help="thinking modelへreasoningを出さずJSONから開始するよう明示する",
+    )
+    parser.add_argument(
+        "--json-prefill", action="store_true",
+        help="assistant応答を { でprefillし、構造化JSONの続きを生成させる",
+    )
     args = parser.parse_args()
     if not 0 < args.model_parameters_b <= 4.0:
         raise SystemExit(
@@ -78,10 +97,17 @@ def main() -> None:
         )
     query_path = Path(args.queries).resolve()
     queries = json.loads(query_path.read_text(encoding="utf-8"))
-    validate_queries(queries, require_sop_match=True)
+    validate_queries(
+        queries,
+        require_sop_match=True,
+        allow_event_subset=args.allow_event_subset,
+    )
     run_dir = ROOT / "runs" / args.run_id
     if (run_dir / "run.yaml").exists():
         raise SystemExit(f"既存runは不変です。上書きしません: {run_dir}")
+
+    query_snapshot = run_dir / "queries.json"
+    write_json_atomic(query_snapshot, queries)
 
     pending = []
     for unit_id, events in queries.items():
@@ -100,6 +126,10 @@ def main() -> None:
         print(f"[qwen-video] loading {args.model}; pending={len(pending)}", flush=True)
         model, processor = load(args.model)
 
+    prompt_template = (
+        PROMPT_TEMPLATE_NO_REASONING if args.suppress_reasoning else PROMPT_TEMPLATE
+    )
+
     for unit_index, (unit_id, events) in enumerate(queries.items(), 1):
         raw_path = run_dir / "raw" / f"{unit_id}.json"
         raw = json.loads(raw_path.read_text(encoding="utf-8")) if raw_path.exists() else {
@@ -111,32 +141,47 @@ def main() -> None:
                 continue
             from mlx_vlm import apply_chat_template, generate
             video = video or ensure_video(unit_id, Path(args.video_dir))
-            instruction = PROMPT_TEMPLATE.format(query=query)
-            prompt = apply_chat_template(processor, model.config, instruction,
-                                         video=str(video), fps=args.fps,
-                                         max_pixels=args.max_pixels)
+            instruction = prompt_template.format(query=query)
+            template_options = {"enable_thinking": False} if args.suppress_reasoning else {}
+            prompt = apply_chat_template(
+                processor, model.config, instruction,
+                video=str(video), fps=args.fps, max_pixels=args.max_pixels,
+                **template_options,
+            )
+            if args.json_prefill:
+                prompt += "{"
             result = generate(model, processor, prompt, video=str(video), fps=args.fps,
                               max_tokens=args.max_tokens, temperature=0, verbose=False)
+            response_text = ("{" + result.text) if args.json_prefill else result.text
             raw["events"][event_id] = {
-                "query": query, "prompt": instruction, "response": result.text,
+                "query": query, "prompt": instruction, "response": response_text,
                 "prompt_tokens": result.prompt_tokens,
                 "generation_tokens": result.generation_tokens,
                 "peak_memory_gb": result.peak_memory,
             }
             write_json_atomic(raw_path, raw)
             print(f"[qwen-video] {unit_index}/{len(queries)} {unit_id} {event_id}: "
-                  f"{result.text.strip()}", flush=True)
+                  f"{response_text.strip()}", flush=True)
         write_json_atomic(run_dir / "predictions" / f"{unit_id}.json",
                           normalize(args.run_id, unit_id, raw))
 
     units = list(queries)
-    write_json_atomic(run_dir / "inputs.lock.json", build_inputs_lock(units))
+    input_lock = build_inputs_lock(units)
+    input_lock["queries_sha256"] = hashlib.sha256(
+        query_snapshot.read_bytes()
+    ).hexdigest()
+    input_lock["videos"] = {
+        unit_id: video_metadata(Path(args.video_dir) / f"{unit_id}.mp4")
+        for unit_id in units
+    }
+    write_json_atomic(run_dir / "inputs.lock.json", input_lock)
     revision = hf_snapshot_revision(args.model)
     run_doc = {
         "run_id": args.run_id, "kind": "prediction", "status": "complete",
         "immutable": True, "created_at": datetime.date.today().isoformat(),
         "model": {"name": args.model_name, "role": "local_small_vlm_temporal_grounding",
                   "id": args.model, "revision": revision,
+                  "upstream_id": args.upstream_model,
                   "parameters_b": args.model_parameters_b},
         "dataset": {"id": DATASET_ID, "split": SPLIT_ID}, "target_units": units,
         "ground_truth_used": False, "metrics": None,
@@ -144,9 +189,17 @@ def main() -> None:
         "notes": ["Full 20-second video input; human GT is never read by inference."],
         "inference": {
             "backend": "mlx-vlm", "method": "per-event video prompting",
-            "query_file": str(query_path.relative_to(ROOT)),
-            "query_ontology": "unit_sop",
-            "prompt_template": PROMPT_TEMPLATE, "video_fps": args.fps,
+            "query_file": str(query_snapshot.relative_to(ROOT)),
+            "query_source": (str(query_path.relative_to(ROOT))
+                             if query_path.is_relative_to(ROOT) else str(query_path)),
+            "query_ontology": (
+                "unit_sop_event_subset" if args.allow_event_subset else "unit_sop"
+            ),
+            "event_subset": args.allow_event_subset,
+            "prompt_template": prompt_template,
+            "suppress_reasoning": args.suppress_reasoning,
+            "json_prefill": args.json_prefill,
+            "video_fps": args.fps,
             "video_width": VIDEO_WIDTH, "max_pixels": args.max_pixels,
             "max_tokens": args.max_tokens,
             "temperature": 0,

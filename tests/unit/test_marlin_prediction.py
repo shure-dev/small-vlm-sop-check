@@ -2,6 +2,8 @@ import importlib.util
 import sys
 from pathlib import Path
 
+import pytest
+
 
 SCRIPT = Path(__file__).resolve().parents[2] / "tools" / "benchmark" / "run_marlin_prediction.py"
 sys.path.insert(0, str(SCRIPT.parent))
@@ -45,3 +47,30 @@ def test_normalize_prediction_preserves_fractional_boundaries():
     prediction = MODULE.normalize_prediction("run", "unit", raw)
 
     assert prediction["events"]["event"] == [{"start_s": 0.6, "end_s": 1.1}]
+
+
+def test_validate_queries_allows_explicit_nonempty_sop_subset(monkeypatch):
+    monkeypatch.setattr(MODULE, "unit_paths", lambda _unit: {"sop": Path("unused")})
+    monkeypatch.setattr(
+        MODULE, "load_sop",
+        lambda _path: {"events": [{"id": "changed"}, {"id": "unchanged"}]},
+    )
+
+    MODULE.validate_queries(
+        {"unit": {"changed": "changed query"}},
+        require_sop_match=True,
+        allow_event_subset=True,
+    )
+
+
+def test_validate_queries_rejects_subset_without_explicit_flag(monkeypatch):
+    monkeypatch.setattr(MODULE, "unit_paths", lambda _unit: {"sop": Path("unused")})
+    monkeypatch.setattr(
+        MODULE, "load_sop",
+        lambda _path: {"events": [{"id": "changed"}, {"id": "unchanged"}]},
+    )
+
+    with pytest.raises(SystemExit, match="missing"):
+        MODULE.validate_queries(
+            {"unit": {"changed": "changed query"}}, require_sop_match=True
+        )

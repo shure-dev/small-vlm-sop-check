@@ -11,7 +11,7 @@ from small_vlm_sop_check.apps.server import create_app
 ROOT = Path(__file__).resolve().parents[2]
 
 
-def test_api_loads_all_complete_units_and_available_marlin_comparisons():
+def test_api_loads_all_complete_units_and_available_model_comparisons():
     client = TestClient(create_app(root=ROOT))
     assert '<div id="root"></div>' in client.get("/").text
     bootstrap = client.get("/api/bootstrap").json()
@@ -38,7 +38,12 @@ def test_api_loads_all_complete_units_and_available_marlin_comparisons():
         comparison_units.add(unit_id)
         model_keys = [run["model"].get("id") or run["model"]["name"] for run in runs]
         assert len(model_keys) == len(set(model_keys))
-        assert all(run["model"]["name"] == "Marlin-2B temporal grounding" for run in runs)
+        assert all(run["model"]["name"] in {
+            "Marlin-2B temporal grounding",
+            "MiniCPM-V 4.6 video grounding",
+            "Qwen3.5-4B video grounding",
+            "Qwen3-VL-4B video grounding",
+        } for run in runs)
         assert all(run["comparison"]["summary"]["mean_tiou"] is not None for run in runs)
         assert all(
             isinstance(event["event_id"], str)
@@ -59,7 +64,16 @@ def test_api_loads_all_complete_units_and_available_marlin_comparisons():
 
     run_targets = set()
     for run_path in (ROOT / "runs").glob("*/run.yaml"):
-        run_targets.update(yaml.safe_load(run_path.read_text(encoding="utf-8"))["target_units"])
+        run = yaml.safe_load(run_path.read_text(encoding="utf-8"))
+        if run.get("inference", {}).get("event_subset") is True:
+            continue
+        lock = json.loads((run_path.parent / "inputs.lock.json").read_text(encoding="utf-8"))
+        for unit_id in run["target_units"]:
+            current_sop_sha = hashlib.sha256(
+                (ROOT / "datasets/factory_ego/sops" / unit_id / "sop.yaml").read_bytes()
+            ).hexdigest()
+            if lock["units"][unit_id]["sop_sha256"] == current_sop_sha:
+                run_targets.add(unit_id)
     assert comparison_units == run_targets
 
 
