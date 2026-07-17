@@ -1,0 +1,37 @@
+{
+  "unit_id": "f004_w005_heat_press",
+  "annotation_revision": "human",
+  "interval_convention": "half-open_seconds",
+  "event_labels": {
+    "raise_heat_press_handle": "作業者がヒートプレス機のオレンジ色グリップ付きハンドルを持ち上げ、上板を開いている",
+    "remove_white_fabric_from_heat_press": "作業者が開いたヒートプレス機から白い布製品を右側の作業台へ移して広げている",
+    "separate_white_fabric_from_stack": "作業者が左側に重なった白い布製品から1枚の縁をつまみ、引き離して持ち上げている",
+    "align_and_fold_white_fabric_on_table": "作業者が取り出した白い布製品を中央の作業台へ載せ、両手で折り返しながら端を揃えている"
+  },
+  "events": {
+    "raise_heat_press_handle": [
+      {
+        "start_s": 2,
+        "end_s": 3.5
+      }
+    ],
+    "remove_white_fabric_from_heat_press": [
+      {
+        "start_s": 3.5,
+        "end_s": 7
+      }
+    ],
+    "separate_white_fabric_from_stack": [
+      {
+        "start_s": 7,
+        "end_s": 11.5
+      }
+    ],
+    "align_and_fold_white_fabric_on_table": [
+      {
+        "start_s": 11.5,
+        "end_s": 14.5
+      }
+    ]
+  }
+}

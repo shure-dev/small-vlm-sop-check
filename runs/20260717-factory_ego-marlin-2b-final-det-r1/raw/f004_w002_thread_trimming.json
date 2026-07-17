@@ -1,0 +1,29 @@
+{
+  "unit_id": "f004_w002_thread_trimming",
+  "model_id": "lunahr/Marlin-2B-ungated",
+  "model_revision": "de783b96b80f477c5e665d2202571a84cb0761da",
+  "events": {
+    "trim_threads_with_snips": {
+      "query": "a worker uses blue-handled scissors to cut loose threads from a white garment on the table",
+      "result": {
+        "raw": "From 8.0 to 13.8.",
+        "span": [
+          8.0,
+          13.8
+        ],
+        "format_ok": true
+      }
+    },
+    "spread_white_garment_on_table": {
+      "query": "a worker unfolds and spreads a white garment flat on the work table",
+      "result": {
+        "raw": "From 0.0 to 4.4.",
+        "span": [
+          0.0,
+          4.4
+        ],
+        "format_ok": true
+      }
+    }
+  }
+}

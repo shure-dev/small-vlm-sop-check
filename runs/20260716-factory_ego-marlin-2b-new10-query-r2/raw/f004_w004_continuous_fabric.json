@@ -1,0 +1,51 @@
+{
+  "unit_id": "f004_w004_continuous_fabric",
+  "model_id": "lunahr/Marlin-2B-ungated",
+  "model_revision": "de783b96b80f477c5e665d2202571a84cb0761da",
+  "events": {
+    "move_black_garment_to_upper_left": {
+      "query": "the worker repeatedly lifts one black garment clear of the center workspace with both hands and carries it to the growing pile at the upper-left of the table, before pulling a different garment toward the sewing machine",
+      "result": {
+        "raw": "From 0.0 to 19.7.",
+        "span": [
+          0.0,
+          19.7
+        ],
+        "format_ok": true
+      }
+    },
+    "spread_garment_in_front_of_sewing_machine": {
+      "query": "the worker pulls a black garment from the upper work area down toward their body with both hands and opens it flat across the center table directly in front of the sewing machine",
+      "result": {
+        "raw": "From 12.0 to 15.0.",
+        "span": [
+          12.0,
+          15.0
+        ],
+        "format_ok": true
+      }
+    },
+    "align_garment_edge_layers": {
+      "query": "after spreading the black garment flat, the worker uses both hands at the near edge to pinch the two fabric layers together and match their edges before taking them to the presser foot",
+      "result": {
+        "raw": "From 12.0 to 19.0.",
+        "span": [
+          12.0,
+          19.0
+        ],
+        "format_ok": true
+      }
+    },
+    "feed_garment_edge_under_presser_foot": {
+      "query": "the worker brings the already aligned black garment edge from the center table to the sewing-machine needle and pushes that edge directly beneath the presser foot",
+      "result": {
+        "raw": "From 14.0 to 19.0.",
+        "span": [
+          14.0,
+          19.0
+        ],
+        "format_ok": true
+      }
+    }
+  }
+}

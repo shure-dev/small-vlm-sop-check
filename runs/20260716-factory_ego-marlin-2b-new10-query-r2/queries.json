@@ -1,0 +1,69 @@
+{
+  "f004_w004_continuous_fabric": {
+    "move_black_garment_to_upper_left": "the worker repeatedly lifts one black garment clear of the center workspace with both hands and carries it to the growing pile at the upper-left of the table, before pulling a different garment toward the sewing machine",
+    "spread_garment_in_front_of_sewing_machine": "the worker pulls a black garment from the upper work area down toward their body with both hands and opens it flat across the center table directly in front of the sewing machine",
+    "align_garment_edge_layers": "after spreading the black garment flat, the worker uses both hands at the near edge to pinch the two fabric layers together and match their edges before taking them to the presser foot",
+    "feed_garment_edge_under_presser_foot": "the worker brings the already aligned black garment edge from the center table to the sewing-machine needle and pushes that edge directly beneath the presser foot"
+  },
+  "f004_w005_heat_press": {
+    "adjust_white_fabric_edge": "before touching the heat-press handle, the worker uses both fingertips to make small local adjustments to the near edge of a white fabric item already lying flat on the right-hand worktable, without lifting or folding the item",
+    "raise_heat_press_handle": "a worker lifts the orange-gripped handle of a heat press and opens the upper platen",
+    "remove_white_fabric_from_heat_press": "after the upper platen is fully raised, the worker reaches under the open heat press, grasps the white fabric item rather than the orange handle, pulls it horizontally out from beneath the platen, carries it to the right-hand worktable, and spreads it flat",
+    "separate_white_fabric_from_stack": "the worker reaches to the pile of white fabric items on the left, catches the near edge of the top item, peels that single item away from the stack, and continues lifting it until the separated fabric is held free in both hands",
+    "align_and_fold_white_fabric_on_table": "a worker places a white fabric item on the center worktable, folds its sides, and aligns the edges with both hands"
+  },
+  "f004_w005_overlock_seaming": {
+    "guide_pink_fabric_under_presser_foot": "with both hands beside the sewing-machine needle, the worker continuously steers the edge of pink fabric while the fabric advances beneath the presser foot",
+    "remove_pink_fabric_from_sewing_machine": "after a sewing pass, the worker pulls the sewn pink fabric away from the needle and presser foot and moves that completed piece toward the pile at the upper left",
+    "take_next_pink_fabric_from_pile": "with the previous sewn piece moved aside, the worker reaches into the pink fabric pile at the upper left, separates one new piece, and brings that piece down to the center workspace",
+    "spread_and_align_pink_fabric_edges": "at the center of the table away from the presser foot, the worker opens one pink fabric piece wide, then pinches and follows its long edge with both hands to align the two layers before sewing",
+    "position_pink_fabric_at_presser_foot": "after aligning the long pink fabric edge on the center table, the worker carries that aligned edge upward to the sewing-machine needle and seats it at the presser foot before the fabric begins advancing"
+  },
+  "f004_w006_curvilinear_seam": {
+    "align_curved_gray_fabric_edges": "a worker pinches the curved edges of gray fabric with both hands and aligns the overlapping edges",
+    "position_gray_fabric_at_presser_foot": "a worker brings the aligned gray fabric edge to the sewing machine needle area and positions it under the presser foot",
+    "guide_gray_fabric_under_presser_foot": "a worker feeds the curved edge of gray fabric under the sewing machine presser foot while turning and guiding it with both hands"
+  },
+  "f004_w006_edge_binding": {
+    "guide_gray_garment_bound_edge_under_presser_foot": "a worker feeds the navy-bound edge of a gray garment under the sewing machine presser foot and guides it with both hands",
+    "remove_gray_garment_from_sewing_machine": "a worker pulls a gray garment toward themselves and away from the sewing machine needle area",
+    "trim_excess_navy_binding_with_scissors": "a worker holds the edge of a gray garment with the left hand and uses large reddish-brown scissors in the right hand to cut the protruding navy binding",
+    "align_navy_bound_edge": "a worker pinches the navy-bound edge of a gray garment with both hands and repeatedly repositions their fingers along the edge to straighten it",
+    "turn_and_spread_gray_garment": "a single quick turnover immediately after the first long alignment of the navy-bound edge: the worker lifts the gray garment with both hands, flips it so the inner seam faces upward, and lays it back on the table before beginning to pull the loose white thread; exclude the later repeated edge alignment",
+    "pull_loose_white_thread_from_seam": "a worker pinches a loose white thread protruding from an inner seam of a gray garment and repeatedly pulls it toward themselves",
+    "position_gray_garment_edge_at_presser_foot": "after pulling the loose white thread, the worker lifts the navy-bound edge of the gray garment toward the sewing-machine needle and briefly seats that edge directly at the presser foot; stop when the edge is positioned, before the following sustained two-handed feeding and guiding begins"
+  },
+  "f005_w001_semi_automatic": {
+    "remove_ring_part_from_machine_spindle": "both hands lift the red-copper-wound circular part completely off the central upright black spindle, leaving the spindle exposed, and move the detached part down toward the lower left",
+    "place_ring_part_on_machine_spindle": "the worker brings a red-copper-wound circular part up from below and lowers its center opening onto the upright black spindle until the part is seated on the machine",
+    "arrange_white_cord_by_hand": "with both hands simultaneously at the mounted circular part, the worker pinches a loose white cord with bare fingers and lays it into the gaps between the red-copper windings, before reaching for the controls or using tweezers",
+    "press_illuminated_control_switch": "the worker's right fingertip physically depresses the glowing pink-white round pushbutton on the right control panel while the left hand steadies the circular wound part",
+    "reach_and_return_with_black_tweezers": "starting with an empty right hand near the machine, the worker extends the right arm out above the control panel and then brings the arm back down holding black tweezers, before the tweezers approach the white cord",
+    "position_black_tweezers_at_white_cord": "a worker brings the tip of black tweezers toward the white cord on the ring-shaped part and aligns the tip with the cord",
+    "tuck_white_cord_with_black_tweezers": "the tips of black tweezers visibly contact the white cord and push it down into a gap between the red-copper windings, followed by a final finger adjustment of the cord",
+    "reach_toward_control_panel_top": "after finishing the white-cord adjustment with black tweezers, the worker keeps the left hand on the circular part and raises the right hand away from the cord toward the top surface of the control panel"
+  },
+  "f005_w010_manual_lathe": {
+    "turn_center_hex_with_box_wrench": "a worker steadies a circular metal fixture on the lathe spindle with the left hand and repeatedly turns its center hex using a silver box-end wrench in the right hand",
+    "place_box_wrench_on_carriage": "after the repeated wrench turns are finished, the worker lifts the silver box-end wrench completely off the center hex, carries the wrench rightward across the lathe, and releases it onto the flat top of the carriage; this is the brief carry-and-place action, not the earlier wrench turning",
+    "press_left_lathe_control": "immediately after placing the wrench on the carriage and before the spindle begins visibly rotating, the worker reaches the left hand to the small pale rectangular push button in the red housing below and to the left of the spindle, presses it once, and withdraws the hand",
+    "operate_front_carriage_handle": "a worker grips and operates the large black handwheel on the front side of the lathe carriage with the left hand"
+  },
+  "f005_w011_cnc_machine": {
+    "carry_square_fixture_to_cnc_opening": "a worker carries a square metal fixture with an orange face and central hole in the right hand while walking to the open CNC machine",
+    "position_square_fixture_inside_cnc": "a worker presses a square metal fixture against the vertical mounting area inside the CNC machine and adjusts its position with the right hand",
+    "press_illuminated_orange_control": "a worker presses the illuminated orange round button on the CNC machine control panel with the left hand",
+    "press_lower_right_silver_control": "after adjusting the square fixture inside the open CNC machine, the worker briefly presses the small unlit metallic circular control near the lower-right corner of the control panel with the left index finger; this is the lower silver control, not the illuminated orange button pressed earlier",
+    "close_cnc_sliding_door": "a worker grips the black vertical handle of the CNC machine with the left hand and closes the sliding door",
+    "move_orange_square_fixture_on_table": "while standing at the worktable, the worker's right hand grasps one orange-faced square metal fixture, lifts it only across the tabletop, places it in the adjacent tabletop position, and continues adjusting it until the hand finishes the placement; exclude walking from the CNC machine and the initial reach toward the table"
+  },
+  "f006_w004_bulk_material": {
+    "move_ribbed_cylinder_to_orange_cart": "the complete pick-and-place cycle in which the right hand takes one vertically ribbed hollow metal cylinder from the central bin, carries it rightward over the orange cart, lowers it inside the orange cart, and releases it",
+    "move_ribbed_cylinder_to_metal_table": "the complete pick-and-place cycle in which the right hand takes one vertically ribbed hollow metal cylinder from the central bin, carries it leftward onto the adjacent flat silver table, and releases it on that table rather than inside the orange cart",
+    "lift_ribbed_cylinder_from_bulk_container": "the worker's right hand grasps one vertically ribbed hollow metal cylinder in the central bulk bin and lifts it upward, with the clip ending before its destination is visible"
+  },
+  "f006_w005_compression_molding": {
+    "carry_and_align_silver_mold_on_press_table": "a worker carries a two-level silver mold with both hands onto the press table, pushes it under the cylindrical upper press tool, aligns its position, and supports it with the left hand",
+    "operate_blue_lower_control_lever": "the worker reaches below the main control panel to the small blue lower lever, grips and moves that blue lever, then releases it; exclude touching the silver mold or the upper panel buttons"
+  }
+}

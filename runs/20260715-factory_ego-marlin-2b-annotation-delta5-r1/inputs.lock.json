@@ -1,0 +1,87 @@
+{
+  "units": {
+    "f002_w003_fabric_folding": {
+      "dataset_id": "factory_ego",
+      "frames_manifest_sha256": "df4d43ca205c1944f8715ac1641f33530aee2dd873ad67817cbde156390702ea",
+      "sop_id": "f002_w003_fabric_folding",
+      "sop_sha256": "0cc48347bb740ad8d8105f97b1c39503fe1b82012322cb457bc8798bc6d5806a",
+      "split_id": "development",
+      "unit_meta_sha256": "181f6bb66ed7bb078dcabfbdcf637b6770a54e9f491d6974ee2848da44389c53"
+    },
+    "f003_w007_wax_pattern": {
+      "dataset_id": "factory_ego",
+      "frames_manifest_sha256": "8058aa4f7bbf6374b3bd433c67cfcdf79ea9a3c7c2d012bdfe55820e4d6b2177",
+      "sop_id": "f003_w007_wax_pattern",
+      "sop_sha256": "1a7066bf2dd86a1c0fd40afa037d57cb0a2056b3280737a6f93e6e9d25b52cf2",
+      "split_id": "development",
+      "unit_meta_sha256": "e6086279c88e84e58be7473e41ec1661f30f8f11e0bab102f01240d60fe06780"
+    },
+    "f003_w009_injection_molding": {
+      "dataset_id": "factory_ego",
+      "frames_manifest_sha256": "9c4ca865aee61e0ac2bd7e4186cfc1e2f7791916492aaa262cec7a811a40f6a0",
+      "sop_id": "f003_w009_injection_molding",
+      "sop_sha256": "0a9fe10c96eafe7a24903119d614f10532d71da488ec1a18950bb7a4e1ab29a2",
+      "split_id": "development",
+      "unit_meta_sha256": "f4cd01eb2689e409b626733d9d4b4fbea730419eb4f1466eef4f88157701cdbd"
+    },
+    "f003_w010_mold_preparation": {
+      "dataset_id": "factory_ego",
+      "frames_manifest_sha256": "71175039f7b7c244a4d26405f8b94f0e7723380624209ac8843f216907e54924",
+      "sop_id": "f003_w010_mold_preparation",
+      "sop_sha256": "e2273bd819b23cb3a4e03ad9e372b331cf88e320d5e39358fb5deeaa4899a4f1",
+      "split_id": "development",
+      "unit_meta_sha256": "ac9aa942ebdf1802c4fea8bc57babbd9fcff0c7f91f40dff800c2d9be8764c8a"
+    },
+    "f004_w002_thread_trimming": {
+      "dataset_id": "factory_ego",
+      "frames_manifest_sha256": "8b3497c89b62f79fc3dcad513fe7e623391fa683a2527355e8bf2dbc3afddd3d",
+      "sop_id": "f004_w002_thread_trimming",
+      "sop_sha256": "86b720af09b3e185623d6650d1505386916660c08f481e85b7e5ea3d76628be4",
+      "split_id": "development",
+      "unit_meta_sha256": "1241f6fbc818650cfe803df01c83ddf23d8fb02ed20e6e622141b48f08877e2f"
+    }
+  },
+  "queries_sha256": "b72a375af5f0f4c604fdcb803378cd1b8c094d2e30ada42169f5423e9c1db0ba",
+  "videos": {
+    "f002_w003_fabric_folding": {
+      "sha256": "cd7f87ca1337ceee36f06965e859eac81b7deb2f76d3af77724f1f08c71ec58e",
+      "width": 640,
+      "height": 360,
+      "avg_frame_rate": "2/1",
+      "n_frames": 40,
+      "duration_s": 20.0
+    },
+    "f003_w007_wax_pattern": {
+      "sha256": "208b78599a9ee9f3f55fb9f20b5e97fcb259443da88b7e69538f6fab60b5c43f",
+      "width": 640,
+      "height": 360,
+      "avg_frame_rate": "2/1",
+      "n_frames": 40,
+      "duration_s": 20.0
+    },
+    "f003_w009_injection_molding": {
+      "sha256": "fdd69d496a54fdb6ac0d76a08ef76f94820de7b957c357ad8de6fb8c22ebe8a5",
+      "width": 640,
+      "height": 360,
+      "avg_frame_rate": "2/1",
+      "n_frames": 40,
+      "duration_s": 20.0
+    },
+    "f003_w010_mold_preparation": {
+      "sha256": "938660a973cda1f6c1b274926c75dfc37a0edd5dfd4680fe80dc2c33bd698655",
+      "width": 640,
+      "height": 360,
+      "avg_frame_rate": "2/1",
+      "n_frames": 40,
+      "duration_s": 20.0
+    },
+    "f004_w002_thread_trimming": {
+      "sha256": "96285c386ad35ca88ba1d384430b9ec86f1a3137aa92207ba4bfcd62e53c686e",
+      "width": 640,
+      "height": 360,
+      "avg_frame_rate": "2/1",
+      "n_frames": 40,
+      "duration_s": 20.0
+    }
+  }
+}

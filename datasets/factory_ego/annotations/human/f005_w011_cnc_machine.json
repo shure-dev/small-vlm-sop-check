@@ -1,0 +1,51 @@
+{
+  "unit_id": "f005_w011_cnc_machine",
+  "annotation_revision": "human",
+  "interval_convention": "half-open_seconds",
+  "event_labels": {
+    "carry_square_fixture_to_cnc_opening": "作業者が橙色の面と中央穴がある四角い金属治具を右手で持ち、歩いてCNC機の開口部へ運んでいる",
+    "position_square_fixture_inside_cnc": "作業者が四角い金属治具をCNC機内の縦向き取り付け部へ押し当て、右手で位置を合わせている",
+    "press_illuminated_orange_control": "作業者がCNC機の操作盤にある点灯した橙色の丸ボタンを左手で押している",
+    "press_lower_right_silver_control": "作業者がCNC機の操作盤右下にある銀色の丸ボタンを左手で押している",
+    "close_cnc_sliding_door": "作業者がCNC機の黒い縦ハンドルを左手で握り、スライド扉を閉じている",
+    "move_orange_square_fixture_on_table": "作業者が作業台上の橙色の四角い金属治具を右手で持ち上げ、隣の位置へ移して置いている"
+  },
+  "events": {
+    "carry_square_fixture_to_cnc_opening": [
+      {
+        "start_s": 0,
+        "end_s": 4.5
+      }
+    ],
+    "position_square_fixture_inside_cnc": [
+      {
+        "start_s": 4.5,
+        "end_s": 7
+      }
+    ],
+    "press_illuminated_orange_control": [
+      {
+        "start_s": 7,
+        "end_s": 7.5
+      }
+    ],
+    "press_lower_right_silver_control": [
+      {
+        "start_s": 9.5,
+        "end_s": 10
+      }
+    ],
+    "close_cnc_sliding_door": [
+      {
+        "start_s": 11.5,
+        "end_s": 13.5
+      }
+    ],
+    "move_orange_square_fixture_on_table": [
+      {
+        "start_s": 16,
+        "end_s": 20
+      }
+    ]
+  }
+}

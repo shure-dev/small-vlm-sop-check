@@ -8,13 +8,8 @@ events:
   values:
   - 'yes'
   - 'no'
-- id: spread_garment_on_table
-  ask: 作業者が取り上げた薄青色の衣類を作業台の中央へ置き、平らに広げている
-  values:
-  - 'yes'
-  - 'no'
 - id: fold_garment_sides
-  ask: 作業者が作業台に広げた薄青色の衣類の左右を内側へ折り、形を整えている
+  ask: 作業者が薄青色の衣類の左右を内側へ折り、形を整えている
   values:
   - 'yes'
   - 'no'

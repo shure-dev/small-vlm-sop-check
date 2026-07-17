@@ -1,0 +1,22 @@
+{
+  "unit_id": "f003_w009_injection_molding",
+  "model_id": "mlx-community/Qwen3.5-4B-MLX-4bit",
+  "events": {
+    "remove_yellow_parts_from_mold": {
+      "query": "a worker removes small yellow molded parts from the open metal mold and places them on the tray to the right",
+      "prompt": "Event: a worker removes small yellow molded parts from the open metal mold and places them on the tray to the right\nLocate this event in the 20-second video. Return exactly one JSON object: {\"start_s\": number, \"end_s\": number}. If the event is absent, return {\"start_s\": null, \"end_s\": null}. Times are seconds from video start.",
+      "response": "```json\n[\n\t{\"start_s\": 1.0, \"end_s\": 5.0}\n]\n```",
+      "prompt_tokens": 4494,
+      "generation_tokens": 29,
+      "peak_memory_gb": 5.64242595
+    },
+    "hold_metal_rod_at_mold": {
+      "query": "a worker picks up and holds a thin metal rod beside the open mold",
+      "prompt": "Event: a worker picks up and holds a thin metal rod beside the open mold\nLocate this event in the 20-second video. Return exactly one JSON object: {\"start_s\": number, \"end_s\": number}. If the event is absent, return {\"start_s\": null, \"end_s\": null}. Times are seconds from video start.",
+      "response": "```json\n[\n    {\n        \"start_s\": 1.0,\n        \"end_s\": 5.0\n    }\n]\n```",
+      "prompt_tokens": 4487,
+      "generation_tokens": 36,
+      "peak_memory_gb": 5.64242595
+    }
+  }
+}

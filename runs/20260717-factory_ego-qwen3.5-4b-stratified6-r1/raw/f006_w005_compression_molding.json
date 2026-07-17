@@ -1,0 +1,22 @@
+{
+  "unit_id": "f006_w005_compression_molding",
+  "model_id": "mlx-community/Qwen3.5-4B-MLX-4bit",
+  "events": {
+    "carry_and_align_silver_mold_on_press_table": {
+      "query": "a worker carries a two-level silver mold with both hands onto the press table, pushes it under the cylindrical upper press tool, aligns its position, and supports it with the left hand",
+      "prompt": "Event: a worker carries a two-level silver mold with both hands onto the press table, pushes it under the cylindrical upper press tool, aligns its position, and supports it with the left hand\nLocate this event in the 20-second video. Return exactly one JSON object: {\"start_s\": number, \"end_s\": number}. If the event is absent, return {\"start_s\": null, \"end_s\": null}. Times are seconds from video start.",
+      "response": "```json\n{\n    \"start_s\": 1.0,\n    \"end_s\": 10.0\n}\n```",
+      "prompt_tokens": 4510,
+      "generation_tokens": 31,
+      "peak_memory_gb": 5.64242595
+    },
+    "operate_blue_lower_control_lever": {
+      "query": "a worker reaches toward the blue lever-shaped control below the control panel, grips it, and moves it",
+      "prompt": "Event: a worker reaches toward the blue lever-shaped control below the control panel, grips it, and moves it\nLocate this event in the 20-second video. Return exactly one JSON object: {\"start_s\": number, \"end_s\": number}. If the event is absent, return {\"start_s\": null, \"end_s\": null}. Times are seconds from video start.",
+      "response": "```json\n[\n\t{\"start_s\": 10.0, \"end_s\": 15.0}\n]\n```",
+      "prompt_tokens": 4493,
+      "generation_tokens": 31,
+      "peak_memory_gb": 5.64242595
+    }
+  }
+}

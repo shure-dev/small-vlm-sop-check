@@ -1,0 +1,38 @@
+{
+  "unit_id": "f004_w005_overlock_seaming",
+  "annotation_revision": "human",
+  "interval_convention": "half-open_seconds",
+  "event_labels": {
+    "guide_pink_fabric_under_presser_foot": "ピンク色の生地をミシンで縫合している",
+    "remove_pink_fabric_from_sewing_machine": "作業者がピンク色の生地を脇の生地の山へ移している",
+    "spread_and_align_pink_fabric_edges": "作業者が取り出したピンク色の生地を両手でもちあげて広げて調整している"
+  },
+  "events": {
+    "guide_pink_fabric_under_presser_foot": [
+      {
+        "start_s": 0,
+        "end_s": 1
+      },
+      {
+        "start_s": 16,
+        "end_s": 20
+      }
+    ],
+    "remove_pink_fabric_from_sewing_machine": [
+      {
+        "start_s": 1,
+        "end_s": 2.5
+      },
+      {
+        "start_s": 17,
+        "end_s": 18
+      }
+    ],
+    "spread_and_align_pink_fabric_edges": [
+      {
+        "start_s": 4,
+        "end_s": 14
+      }
+    ]
+  }
+}

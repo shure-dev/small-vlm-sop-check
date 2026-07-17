@@ -1,0 +1,51 @@
+{
+  "unit_id": "f005_w010_manual_lathe",
+  "model_id": "lunahr/Marlin-2B-ungated",
+  "model_revision": "de783b96b80f477c5e665d2202571a84cb0761da",
+  "events": {
+    "turn_center_hex_with_box_wrench": {
+      "query": "a worker steadies a circular metal fixture on the lathe spindle with the left hand and repeatedly turns its center hex using a silver box-end wrench in the right hand",
+      "result": {
+        "raw": "From 0.0 to 6.2.",
+        "span": [
+          0.0,
+          6.2
+        ],
+        "format_ok": true
+      }
+    },
+    "place_box_wrench_on_carriage": {
+      "query": "after the repeated wrench turns are finished, the worker lifts the silver box-end wrench completely off the center hex, carries the wrench rightward across the lathe, and releases it onto the flat top of the carriage; this is the brief carry-and-place action, not the earlier wrench turning",
+      "result": {
+        "raw": "From 6.0 to 8.0.",
+        "span": [
+          6.0,
+          8.0
+        ],
+        "format_ok": true
+      }
+    },
+    "press_left_lathe_control": {
+      "query": "immediately after placing the wrench on the carriage and before the spindle begins visibly rotating, the worker reaches the left hand to the small pale rectangular push button in the red housing below and to the left of the spindle, presses it once, and withdraws the hand",
+      "result": {
+        "raw": "From 6.5 to 8.5.",
+        "span": [
+          6.5,
+          8.5
+        ],
+        "format_ok": true
+      }
+    },
+    "operate_front_carriage_handle": {
+      "query": "a worker grips and operates the large black handwheel on the front side of the lathe carriage with the left hand",
+      "result": {
+        "raw": "From 11.8 to 12.5.",
+        "span": [
+          11.8,
+          12.5
+        ],
+        "format_ok": true
+      }
+    }
+  }
+}

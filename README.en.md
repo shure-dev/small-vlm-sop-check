@@ -11,8 +11,8 @@
 **Toward a Connected Worker platform that understands factory procedures in real time and catches critical deviations before they cause harm.**
 
 <p align="center">
-  <img src="docs/assets/factory_ego_temporal_grounding.gif" alt="Factory Ego interface comparing video, human spans, Marlin-2B spans, and event-level tIoU" width="960"><br>
-  <sub>Three Factory Ego experiments. Orange shows human spans; blue shows Marlin-2B predictions.</sub>
+  <img src="docs/assets/factory_ego_temporal_grounding.gif" alt="Annotation workspace playing Factory Ego clips with human spans, Marlin-2B spans, and per-clip tIoU" width="960"><br>
+  <sub>Ten Factory Ego clips playing back to back. Orange shows human spans; blue shows Marlin-2B predictions.</sub>
 </p>
 
 ## Catch procedural mistakes before they become incidents
@@ -43,17 +43,21 @@ The current work first establishes this temporal capability on short clips. Temp
 
 The primary pilot uses 20 fixed industrial first-person clips from [Egocentric-10K](https://huggingface.co/datasets/builddotai/Egocentric-10K). Each clip is 20 seconds at 2 fps. A human watches the footage, writes Japanese event descriptions, and marks the reference spans. External machine-generated annotations are not used as ground truth.
 
-Six clips with 25 reference occurrences are currently annotated and compared with Marlin-2B temporal-grounding output. The GIF above cycles through three examples.
+**All 20 clips are now annotated with 68 events and 81 reference spans.** Of the 20 clips, 13 have current ground-truth and input hashes matching the stored Marlin-2B run. We rank those 13 by per-clip Marlin mean tIoU and mechanically select the top two, the two nearest the median, and the bottom two. [Qwen3.5-4B](https://huggingface.co/Qwen/Qwen3.5-4B) and [Qwen3-VL-4B-Instruct](https://huggingface.co/Qwen/Qwen3-VL-4B-Instruct) receive the same English event descriptions and timestamp-JSON prompt. Times use half-open intervals from `0.0` seconds at the start of each clip.
 
-| Factory Ego experiment | Events | mean tIoU |
-|---|---:|---:|
-| Metal stamping | 4 | 0.816 |
-| Garment bagging | 4 | 0.725 |
-| Shirt folding | 4 | 0.645 |
+| Stratum | Marlin rank | 20-second clip | Events | Reference spans | Marlin-2B | Qwen3.5-4B | Qwen3-VL-4B |
+|---|---:|---|---:|---:|---:|---:|---:|
+| High | 1/13 | [Metal stamping workflow](datasets/factory_ego/sops/f001_w011_metal_stamping/sop.yaml) | 4 | 4 | **0.802** | 0.304 | 0.109 |
+| High | 2/13 | [Mold preparation](datasets/factory_ego/sops/f003_w010_mold_preparation/sop.yaml) | 1 | 1 | **0.719** | 0.500 | 0.000 |
+| Middle | 6/13 | [Curved-seam sewing](datasets/factory_ego/sops/f004_w006_curvilinear_seam/sop.yaml) | 3 | 3 | **0.560** | 0.095 | 0.315 |
+| Middle | 7/13 | [Compression molding](datasets/factory_ego/sops/f006_w005_compression_molding/sop.yaml) | 2 | 2 | 0.551 | **0.644** | 0.267 |
+| Low | 12/13 | [Injection molding](datasets/factory_ego/sops/f003_w009_injection_molding/sop.yaml) | 2 | 2 | 0.300 | **0.364** | 0.138 |
+| Low | 13/13 | [Sorting bulk metal parts](datasets/factory_ego/sops/f006_w004_bulk_material/sop.yaml) | 3 | 10 | **0.085** | 0.034 | 0.000 |
+| **Overall** | — | **6 clips** | **15** | **22** | **0.371** | **0.198** | **0.100** |
 
-Across all 25 reference occurrences, mean tIoU is `0.516` and `tIoU@0.5` F1 is `0.708`. The current Marlin `find()` interface returns one span per query, so its mean tIoU on the 21 single-span event IDs is `0.591`.
+tIoU@0.5 F1 is `0.541` for Marlin-2B, `0.270` for Qwen3.5-4B, and `0.054` for Qwen3-VL-4B. All three models emit one span per event, so they produce 15 predictions for 22 reference spans, including ten repetitions in the bulk-parts clip. All 15 Qwen outputs are syntactically valid and within the 20-second range. Both Qwen models use 4-bit MLX conversions, 2 fps video, 640-pixel width, and temperature 0, executed one model at a time. MLX peak memory is `5.64 GB` for Qwen3.5 and `4.76 GB` for Qwen3-VL.
 
-These are development diagnostics on clips and prompts used during iteration, not held-out benchmark accuracy. Fixed inputs and raw outputs are in [`runs/20260714-factory_ego-marlin-2b-reviewed6-tuned/`](runs/20260714-factory_ego-marlin-2b-reviewed6-tuned/); metrics and hashes are in [`evaluations/factory_ego_marlin_reviewed6.json`](evaluations/factory_ego_marlin_reviewed6.json).
+This stratification reduces the bias of reporting only Marlin's strongest clips, but it is still a development diagnostic selected by Marlin performance rather than a fair held-out evaluation. Fixed inputs, raw outputs, and evaluation hashes are available in the [Marlin evaluation](evaluations/factory_ego_marlin_stratified6.json), [Qwen3.5 evaluation](evaluations/factory_ego_qwen3.5_stratified6.json), and [Qwen3-VL evaluation](evaluations/factory_ego_qwen3-vl-4b_stratified6.json).
 
 ## Improvement loop
 
@@ -68,10 +72,11 @@ flowchart LR
     F --> E
 ```
 
-One web app switches between two workspaces:
+One web app unifies annotation and results review:
 
-- **Annotation** — save Japanese event descriptions, multiple spans, and an explicit absent state
-- **Results** — compare human and model spans on one timeline and inspect low-tIoU events first
+- **Thumbnail gallery** — browse the 20 clips with per-clip progress and mean tIoU, sorted by lowest tIoU first
+- **Video-editor timeline** — create and drag human spans next to model predictions on one screen; tIoU and F1 recompute live as spans move
+- **Dataset curation** — clips excluded from training and evaluation are flagged in `datasets/<dataset>/curation.json`
 
 Translation, inference, and training remain reproducible CLI stages outside the app. The original Japanese annotation is human ground truth and is never overwritten by a model prediction.
 

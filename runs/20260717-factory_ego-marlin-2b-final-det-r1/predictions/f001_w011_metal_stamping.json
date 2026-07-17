@@ -1,0 +1,32 @@
+{
+  "run_id": "20260717-factory_ego-marlin-2b-final-det-r1",
+  "unit_id": "f001_w011_metal_stamping",
+  "method": "temporal_grounding",
+  "interval_convention": "half-open_seconds",
+  "events": {
+    "feed_metal_strip_into_press": [
+      {
+        "start_s": 0.0,
+        "end_s": 7.0
+      }
+    ],
+    "walk_to_next_press": [
+      {
+        "start_s": 8.0,
+        "end_s": 13.0
+      }
+    ],
+    "pick_up_metal_sheets": [
+      {
+        "start_s": 14.5,
+        "end_s": 16.5
+      }
+    ],
+    "align_metal_sheet_stack": [
+      {
+        "start_s": 14.5,
+        "end_s": 19.0
+      }
+    ]
+  }
+}

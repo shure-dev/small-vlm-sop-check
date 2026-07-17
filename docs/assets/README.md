@@ -1,6 +1,6 @@
 # Demo asset attribution
 
-`factory_ego_temporal_grounding.gif` is a downsampled screen recording of the local review application. It contains short visual excerpts from three clips derived from [`builddotai/Egocentric-10K`](https://huggingface.co/datasets/builddotai/Egocentric-10K).
+`factory_ego_temporal_grounding.gif` is a downsampled screen recording of the local annotation workspace. It plays ten clips back to back at increased speed, derived from [`builddotai/Egocentric-10K`](https://huggingface.co/datasets/builddotai/Egocentric-10K).
 
 - Upstream dataset: Egocentric-10K
 - Upstream publisher: builddotai

@@ -9,7 +9,7 @@ events:
   - 'yes'
   - 'no'
 - id: pour_parts_from_bag
-  ask: 作業者が透明な袋を逆さにして、中の黒い金属部品を作業台の容器へ振り落としている
+  ask: 作業者が透明な袋から中の黒い金属部品を作業台へ落としている
   values:
   - 'yes'
   - 'no'

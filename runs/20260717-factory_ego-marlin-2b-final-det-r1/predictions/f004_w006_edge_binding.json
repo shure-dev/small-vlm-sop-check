@@ -1,0 +1,50 @@
+{
+  "run_id": "20260717-factory_ego-marlin-2b-final-det-r1",
+  "unit_id": "f004_w006_edge_binding",
+  "method": "temporal_grounding",
+  "interval_convention": "half-open_seconds",
+  "events": {
+    "guide_gray_garment_bound_edge_under_presser_foot": [
+      {
+        "start_s": 13.4,
+        "end_s": 15.4
+      }
+    ],
+    "remove_gray_garment_from_sewing_machine": [
+      {
+        "start_s": 12.0,
+        "end_s": 13.3
+      }
+    ],
+    "trim_excess_navy_binding_with_scissors": [
+      {
+        "start_s": 2.0,
+        "end_s": 5.0
+      }
+    ],
+    "align_navy_bound_edge": [
+      {
+        "start_s": 10.0,
+        "end_s": 12.3
+      }
+    ],
+    "turn_and_spread_gray_garment": [
+      {
+        "start_s": 12.0,
+        "end_s": 15.0
+      }
+    ],
+    "pull_loose_white_thread_from_seam": [
+      {
+        "start_s": 10.0,
+        "end_s": 12.2
+      }
+    ],
+    "position_gray_garment_edge_at_presser_foot": [
+      {
+        "start_s": 12.8,
+        "end_s": 15.0
+      }
+    ]
+  }
+}

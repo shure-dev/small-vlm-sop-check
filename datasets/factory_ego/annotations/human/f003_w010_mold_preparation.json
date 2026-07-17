@@ -1,0 +1,16 @@
+{
+  "unit_id": "f003_w010_mold_preparation",
+  "annotation_revision": "human",
+  "interval_convention": "half-open_seconds",
+  "event_labels": {
+    "place_yellow_mold_plate_on_container": "作業者が黄色い金型プレートを両手で持ち、青いコンテナの上へ被せるように置いている"
+  },
+  "events": {
+    "place_yellow_mold_plate_on_container": [
+      {
+        "start_s": 2,
+        "end_s": 5
+      }
+    ]
+  }
+}

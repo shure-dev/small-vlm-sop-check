@@ -1,0 +1,29 @@
+{
+  "unit_id": "f006_w005_compression_molding",
+  "model_id": "lunahr/Marlin-2B-ungated",
+  "model_revision": "de783b96b80f477c5e665d2202571a84cb0761da",
+  "events": {
+    "carry_and_align_silver_mold_on_press_table": {
+      "query": "a worker carries a two-level silver mold with both hands onto the press table, pushes it under the cylindrical upper press tool, aligns its position, and supports it with the left hand",
+      "result": {
+        "raw": "From 0.0 to 9.8.",
+        "span": [
+          0.0,
+          9.8
+        ],
+        "format_ok": true
+      }
+    },
+    "operate_blue_lower_control_lever": {
+      "query": "the worker reaches below the main control panel to the small blue lower lever, grips and moves that blue lever, then releases it; exclude touching the silver mold or the upper panel buttons",
+      "result": {
+        "raw": "From 11.5 to 19.7.",
+        "span": [
+          11.5,
+          19.7
+        ],
+        "format_ok": true
+      }
+    }
+  }
+}

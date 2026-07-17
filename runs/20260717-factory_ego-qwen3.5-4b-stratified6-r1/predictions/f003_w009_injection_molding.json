@@ -1,0 +1,20 @@
+{
+  "run_id": "20260717-factory_ego-qwen3.5-4b-stratified6-r1",
+  "unit_id": "f003_w009_injection_molding",
+  "method": "temporal_grounding",
+  "interval_convention": "half-open_seconds",
+  "events": {
+    "remove_yellow_parts_from_mold": [
+      {
+        "start_s": 1.0,
+        "end_s": 5.0
+      }
+    ],
+    "hold_metal_rod_at_mold": [
+      {
+        "start_s": 1.0,
+        "end_s": 5.0
+      }
+    ]
+  }
+}

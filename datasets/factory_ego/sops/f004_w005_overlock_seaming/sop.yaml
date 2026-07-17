@@ -1,5 +1,20 @@
 sop:
   id: f004_w005_overlock_seaming
-  name: f004 w005 overlock seaming
-  domain_hint: 工場作業を作業者視点で撮影した動画
-events: []
+  name: ピンク色生地の縁揃えとオーバーロックミシンへの送り
+  domain_hint: 作業者視点で、ピンク色の生地、生地の山、工業用ミシンを扱う20秒の工場動画
+events:
+- id: guide_pink_fabric_under_presser_foot
+  ask: ピンク色の生地をミシンで縫合している
+  values:
+  - 'yes'
+  - 'no'
+- id: remove_pink_fabric_from_sewing_machine
+  ask: 作業者がピンク色の生地を脇の生地の山へ移している
+  values:
+  - 'yes'
+  - 'no'
+- id: spread_and_align_pink_fabric_edges
+  ask: 作業者が取り出したピンク色の生地を両手でもちあげて広げて調整している
+  values:
+  - 'yes'
+  - 'no'

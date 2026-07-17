@@ -1,0 +1,40 @@
+{
+  "unit_id": "f004_w006_curvilinear_seam",
+  "model_id": "lunahr/Marlin-2B-ungated",
+  "model_revision": "de783b96b80f477c5e665d2202571a84cb0761da",
+  "events": {
+    "align_curved_gray_fabric_edges": {
+      "query": "a worker pinches the curved edges of gray fabric with both hands and aligns the overlapping edges",
+      "result": {
+        "raw": "From 0.0 to 3.5.",
+        "span": [
+          0.0,
+          3.5
+        ],
+        "format_ok": true
+      }
+    },
+    "position_gray_fabric_at_presser_foot": {
+      "query": "a worker brings the aligned gray fabric edge to the sewing machine needle area and positions it under the presser foot",
+      "result": {
+        "raw": "From 4.0 to 6.3.",
+        "span": [
+          4.0,
+          6.3
+        ],
+        "format_ok": true
+      }
+    },
+    "guide_gray_fabric_under_presser_foot": {
+      "query": "a worker feeds the curved edge of gray fabric under the sewing machine presser foot while turning and guiding it with both hands",
+      "result": {
+        "raw": "From 4.0 to 19.0.",
+        "span": [
+          4.0,
+          19.0
+        ],
+        "format_ok": true
+      }
+    }
+  }
+}

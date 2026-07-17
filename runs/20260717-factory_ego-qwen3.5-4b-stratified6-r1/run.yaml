@@ -1,0 +1,46 @@
+run_id: 20260717-factory_ego-qwen3.5-4b-stratified6-r1
+kind: prediction
+status: complete
+immutable: true
+created_at: '2026-07-17'
+model:
+  name: Qwen3.5-4B video grounding
+  role: local_small_vlm_temporal_grounding
+  id: mlx-community/Qwen3.5-4B-MLX-4bit
+  revision: 32f3e8ecf65426fc3306969496342d504bfa13f3
+  upstream_id: Qwen/Qwen3.5-4B
+  parameters_b: 4.0
+dataset:
+  id: factory_ego
+  split: development
+target_units:
+- f001_w011_metal_stamping
+- f003_w010_mold_preparation
+- f004_w006_curvilinear_seam
+- f006_w005_compression_molding
+- f003_w009_injection_molding
+- f006_w004_bulk_material
+ground_truth_used: false
+metrics: null
+inference_code_revision: 636011e59eb6433871364482d16ef4c4741ab654
+notes:
+- Full 20-second video input; human GT is never read by inference.
+inference:
+  backend: mlx-vlm
+  method: per-event video prompting
+  query_file: runs/20260717-factory_ego-qwen3.5-4b-stratified6-r1/queries.json
+  query_source: out/factory-ego-marlin-stratified6-current-queries.json
+  query_ontology: unit_sop
+  event_subset: false
+  prompt_template: 'Event: {query}
+
+    Locate this event in the 20-second video. Return exactly one JSON object: {{"start_s":
+    number, "end_s": number}}. If the event is absent, return {{"start_s": null, "end_s":
+    null}}. Times are seconds from video start.'
+  suppress_reasoning: false
+  json_prefill: false
+  video_fps: 2.0
+  video_width: 640
+  max_pixels: 50176
+  max_tokens: 100
+  temperature: 0

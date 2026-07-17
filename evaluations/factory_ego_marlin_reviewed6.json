@@ -1,6 +1,6 @@
 {
   "kind": "development_evaluation",
-  "created_at": "2026-07-15",
+  "created_at": "2026-07-16",
   "dataset": {
     "id": "factory_ego",
     "split": "development",
@@ -19,7 +19,7 @@
       "f001_w004_material_replenishment": "a8a3275760c3e60c5935686a17775e45e6a8e90e682b832d8b9abf74caa0c40a",
       "f001_w011_metal_stamping": "a7a856ea219fcc6b1c2e590ab0ce4aa8c4e8c8ac5e5cf8d3c3df0795af76252c",
       "f002_w002_garment_bagging": "04bc67d3ecd4a9d4fb7c21b1e7f04bf3d8d05ee361e0f083a2333998ca7c86b3",
-      "f002_w003_fabric_folding": "143c5a71a5a3a03b56cd044446fecad8bc65e4588ac8255a97384033f556cdb2",
+      "f002_w003_fabric_folding": "d5d26829b1c8f377457d988325038472a451ffc3a394bfb5e50447e24920348b",
       "f002_w005_garment_ironing": "7b0d49d2e0a0ef94758c8bd32a7b4096724887ff40e5097b81cd969c778d70dd",
       "f003_w005_metal_casting": "39da8d474d6eb730b26215c0413147a6b611d9fe3743fd245c42144ae1b614e1"
     },
@@ -34,13 +34,13 @@
   },
   "metrics": {
     "all_reference_occurrences": {
-      "reference_occurrences": 25,
-      "predicted_occurrences": 23,
-      "mean_tiou": 0.516169,
+      "reference_occurrences": 23,
+      "predicted_occurrences": 22,
+      "mean_tiou": 0.561053,
       "tiou_at_0_5": {
-        "precision": 0.73913,
-        "recall": 0.68,
-        "f1": 0.708333
+        "precision": 0.772727,
+        "recall": 0.73913,
+        "f1": 0.755556
       }
     },
     "single_span_event_ids": {
@@ -52,7 +52,7 @@
     "f001_w004_material_replenishment": 0.262673,
     "f001_w011_metal_stamping": 0.816162,
     "f002_w002_garment_bagging": 0.725,
-    "f002_w003_fabric_folding": 0.335714,
+    "f002_w003_fabric_folding": 0.503571,
     "f002_w005_garment_ironing": 0.645427,
     "f003_w005_metal_casting": 0.338889
   },

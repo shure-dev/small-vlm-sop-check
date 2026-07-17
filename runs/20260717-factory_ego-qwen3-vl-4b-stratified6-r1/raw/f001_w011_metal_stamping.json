@@ -1,0 +1,38 @@
+{
+  "unit_id": "f001_w011_metal_stamping",
+  "model_id": "mlx-community/Qwen3-VL-4B-Instruct-4bit",
+  "events": {
+    "feed_metal_strip_into_press": {
+      "query": "a worker feeds a long strip of metal into a press machine",
+      "prompt": "Event: a worker feeds a long strip of metal into a press machine\nLocate this event in the 20-second video. Return exactly one JSON object: {\"start_s\": number, \"end_s\": number}. If the event is absent, return {\"start_s\": null, \"end_s\": null}. Times are seconds from video start.",
+      "response": "{\"start_s\": 0.0, \"end_s\": 2.0}",
+      "prompt_tokens": 4481,
+      "generation_tokens": 19,
+      "peak_memory_gb": 4.762575305
+    },
+    "walk_to_next_press": {
+      "query": "a worker leaves one metal press and walks along the marked factory aisle to the neighboring press station",
+      "prompt": "Event: a worker leaves one metal press and walks along the marked factory aisle to the neighboring press station\nLocate this event in the 20-second video. Return exactly one JSON object: {\"start_s\": number, \"end_s\": number}. If the event is absent, return {\"start_s\": null, \"end_s\": null}. Times are seconds from video start.",
+      "response": "{\"start_s\": 15.0, \"end_s\": 20.0}",
+      "prompt_tokens": 4487,
+      "generation_tokens": 21,
+      "peak_memory_gb": 4.762920008
+    },
+    "pick_up_metal_sheets": {
+      "query": "a worker picks up metal sheets",
+      "prompt": "Event: a worker picks up metal sheets\nLocate this event in the 20-second video. Return exactly one JSON object: {\"start_s\": number, \"end_s\": number}. If the event is absent, return {\"start_s\": null, \"end_s\": null}. Times are seconds from video start.",
+      "response": "{\"start_s\": 0.0, \"end_s\": 2.0}",
+      "prompt_tokens": 4475,
+      "generation_tokens": 19,
+      "peak_memory_gb": 4.762920008
+    },
+    "align_metal_sheet_stack": {
+      "query": "a worker aligns and gathers metal sheets",
+      "prompt": "Event: a worker aligns and gathers metal sheets\nLocate this event in the 20-second video. Return exactly one JSON object: {\"start_s\": number, \"end_s\": number}. If the event is absent, return {\"start_s\": null, \"end_s\": null}. Times are seconds from video start.",
+      "response": "{\"start_s\": 0.0, \"end_s\": 20.0}",
+      "prompt_tokens": 4477,
+      "generation_tokens": 20,
+      "peak_memory_gb": 4.762920008
+    }
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "unit_id": "f003_w005_metal_casting",
+  "model_id": "lunahr/Marlin-2B-ungated",
+  "model_revision": "de783b96b80f477c5e665d2202571a84cb0761da",
+  "events": {
+    "carry_casting_bundle": {
+      "query": "the worker carries a connected bundle of silver cast metal parts in one hand from the worktable to a wooden crate",
+      "result": {
+        "raw": "From 3.4 to 7.0.",
+        "span": [
+          3.4,
+          7.0
+        ],
+        "format_ok": true
+      }
+    },
+    "put_casting_into_crate": {
+      "query": "the worker places the carried silver cast metal parts into the wooden crate in front",
+      "result": {
+        "raw": "From 4.0 to 5.7.",
+        "span": [
+          4.0,
+          5.7
+        ],
+        "format_ok": true
+      }
+    },
+    "pick_up_hammer": {
+      "query": "the worker picks up a metal hammer with a wooden handle from the worktable using the right hand",
+      "result": {
+        "raw": "From 1.2 to 2.1.",
+        "span": [
+          1.2,
+          2.1
+        ],
+        "format_ok": true
+      }
+    },
+    "hammer_casting": {
+      "query": "the worker repeatedly strikes the silver cast metal parts on the worktable with a wooden-handled metal hammer",
+      "result": {
+        "raw": "From 10.0 to 19.7.",
+        "span": [
+          10.0,
+          19.7
+        ],
+        "format_ok": true
+      }
+    }
+  }
+}

@@ -1,0 +1,84 @@
+{
+  "unit_id": "f005_w001_semi_automatic",
+  "model_id": "lunahr/Marlin-2B-ungated",
+  "model_revision": "de783b96b80f477c5e665d2202571a84cb0761da",
+  "events": {
+    "place_ring_part_on_machine_spindle": {
+      "query": "the worker places a ring-shaped part with visible red-orange windings onto the central vertical machine spindle and winds the white line around it",
+      "result": {
+        "raw": "From 6.0 to 19.0.",
+        "span": [
+          6.0,
+          19.0
+        ],
+        "format_ok": true
+      }
+    },
+    "arrange_white_cord_by_hand": {
+      "query": "the worker uses the fingers of both hands to guide and arrange the white cord between the windings of the ring-shaped part on the spindle",
+      "result": {
+        "raw": "From 6.4 to 13.8.",
+        "span": [
+          6.4,
+          13.8
+        ],
+        "format_ok": true
+      }
+    },
+    "press_illuminated_control_switch": {
+      "query": "the worker holds the ring-shaped part with the left hand while pressing the illuminated switch on the right control panel with the right hand",
+      "result": {
+        "raw": "From 10.0 to 11.3.",
+        "span": [
+          10.0,
+          11.3
+        ],
+        "format_ok": true
+      }
+    },
+    "reach_and_return_with_black_tweezers": {
+      "query": "the worker reaches the right arm above the control panel and returns to the ring-shaped part holding black tweezers",
+      "result": {
+        "raw": "From 14.0 to 15.7.",
+        "span": [
+          14.0,
+          15.7
+        ],
+        "format_ok": true
+      }
+    },
+    "position_black_tweezers_at_white_cord": {
+      "query": "the worker brings the tip of black tweezers toward the white cord on the ring-shaped part and aligns the tip with the cord",
+      "result": {
+        "raw": "From 14.0 to 17.0.",
+        "span": [
+          14.0,
+          17.0
+        ],
+        "format_ok": true
+      }
+    },
+    "tuck_white_cord_with_black_tweezers": {
+      "query": "the worker uses black tweezers and the fingers to push and arrange the white cord between the windings of the ring-shaped part",
+      "result": {
+        "raw": "From 14.0 to 18.2.",
+        "span": [
+          14.0,
+          18.2
+        ],
+        "format_ok": true
+      }
+    },
+    "reach_toward_control_panel_top": {
+      "query": "the worker holds the ring-shaped part with the left hand while reaching the right hand toward the top of the control panel",
+      "result": {
+        "raw": "From 10.0 to 11.3.",
+        "span": [
+          10.0,
+          11.3
+        ],
+        "format_ok": true
+      }
+    }
+  }
+}

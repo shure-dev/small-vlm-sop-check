@@ -1,0 +1,29 @@
+{
+  "f001_w011_metal_stamping": {
+    "feed_metal_strip_into_press": "a worker feeds a long strip of metal into a press machine",
+    "walk_to_next_press": "a worker leaves one metal press and walks along the marked factory aisle to the neighboring press station",
+    "pick_up_metal_sheets": "a worker picks up metal sheets",
+    "align_metal_sheet_stack": "a worker aligns and gathers metal sheets"
+  },
+  "f003_w010_mold_preparation": {
+    "place_yellow_mold_plate_on_container": "a worker places a yellow rectangular mold cover over the metal mold box"
+  },
+  "f004_w006_curvilinear_seam": {
+    "align_curved_gray_fabric_edges": "a worker pinches the curved edges of gray fabric with both hands and aligns the overlapping edges",
+    "position_gray_fabric_at_presser_foot": "a worker brings the aligned gray fabric edge to the sewing machine needle area and positions it under the presser foot",
+    "guide_gray_fabric_under_presser_foot": "a worker feeds the curved edge of gray fabric under the sewing machine presser foot while turning and guiding it with both hands"
+  },
+  "f006_w005_compression_molding": {
+    "carry_and_align_silver_mold_on_press_table": "a worker carries a two-level silver mold with both hands onto the press table, pushes it under the cylindrical upper press tool, aligns its position, and supports it with the left hand",
+    "operate_blue_lower_control_lever": "a worker reaches toward the blue lever-shaped control below the control panel, grips it, and moves it"
+  },
+  "f003_w009_injection_molding": {
+    "remove_yellow_parts_from_mold": "a worker removes small yellow molded parts from the open metal mold and places them on the tray to the right",
+    "hold_metal_rod_at_mold": "a worker picks up and holds a thin metal rod beside the open mold"
+  },
+  "f006_w004_bulk_material": {
+    "move_ribbed_cylinder_to_orange_cart": "a worker lifts a hollow metal cylinder with vertical ribs from the large center container using the right hand and places it into the orange cart-like container on the right",
+    "move_ribbed_cylinder_to_metal_table": "a worker lifts a hollow metal cylinder with vertical ribs from the large center container using the right hand and places it on the adjacent silver metal table",
+    "lift_ribbed_cylinder_from_bulk_container": "a worker lifts a hollow metal cylinder with vertical ribs from the large center container using the right hand"
+  }
+}

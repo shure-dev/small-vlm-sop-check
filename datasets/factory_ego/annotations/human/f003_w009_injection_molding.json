@@ -1,0 +1,23 @@
+{
+  "unit_id": "f003_w009_injection_molding",
+  "annotation_revision": "human",
+  "interval_convention": "half-open_seconds",
+  "event_labels": {
+    "remove_yellow_parts_from_mold": "作業者が青い手袋の手で、開いた金属金型から黄色い樹脂成形部品を取り出している",
+    "hold_metal_rod_at_mold": "作業者が金型の脇で細い金属棒を手に持っている"
+  },
+  "events": {
+    "remove_yellow_parts_from_mold": [
+      {
+        "start_s": 0,
+        "end_s": 5.5
+      }
+    ],
+    "hold_metal_rod_at_mold": [
+      {
+        "start_s": 9.5,
+        "end_s": 12
+      }
+    ]
+  }
+}

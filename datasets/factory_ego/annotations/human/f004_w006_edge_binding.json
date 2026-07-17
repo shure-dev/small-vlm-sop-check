@@ -1,0 +1,38 @@
+{
+  "unit_id": "f004_w006_edge_binding",
+  "annotation_revision": "human",
+  "interval_convention": "half-open_seconds",
+  "event_labels": {
+    "guide_gray_garment_bound_edge_under_presser_foot": "作業者が灰色の衣類の紺色で縁取られた端をミシンの押さえ金の下へ送り、両手で案内している",
+    "trim_excess_navy_binding_with_scissors": "作業者が左手で灰色の衣類端を押さえ、右手の大きな赤茶色の鋏で突き出た紺色の縁取り部分を切っている",
+    "align_navy_bound_edge": "作業者が灰色の衣類の紺色で縁取られた端を両手でつまみ、縁に沿って持ち替えながら形を揃えている"
+  },
+  "events": {
+    "guide_gray_garment_bound_edge_under_presser_foot": [
+      {
+        "start_s": 0,
+        "end_s": 1.5
+      },
+      {
+        "start_s": 14,
+        "end_s": 16
+      }
+    ],
+    "trim_excess_navy_binding_with_scissors": [
+      {
+        "start_s": 2,
+        "end_s": 5
+      }
+    ],
+    "align_navy_bound_edge": [
+      {
+        "start_s": 5.5,
+        "end_s": 10
+      },
+      {
+        "start_s": 16.5,
+        "end_s": 20
+      }
+    ]
+  }
+}

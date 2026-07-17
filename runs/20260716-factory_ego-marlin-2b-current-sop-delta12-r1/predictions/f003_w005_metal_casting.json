@@ -1,0 +1,32 @@
+{
+  "run_id": "20260716-factory_ego-marlin-2b-current-sop-delta12-r1",
+  "unit_id": "f003_w005_metal_casting",
+  "method": "temporal_grounding",
+  "interval_convention": "half-open_seconds",
+  "events": {
+    "carry_casting_bundle": [
+      {
+        "start_s": 3.4,
+        "end_s": 7.0
+      }
+    ],
+    "put_casting_into_crate": [
+      {
+        "start_s": 4.0,
+        "end_s": 5.7
+      }
+    ],
+    "pick_up_hammer": [
+      {
+        "start_s": 1.2,
+        "end_s": 2.1
+      }
+    ],
+    "hammer_casting": [
+      {
+        "start_s": 10.0,
+        "end_s": 19.7
+      }
+    ]
+  }
+}

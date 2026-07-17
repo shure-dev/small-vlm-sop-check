@@ -1,0 +1,23 @@
+{
+  "unit_id": "f004_w002_thread_trimming",
+  "annotation_revision": "human",
+  "interval_convention": "half-open_seconds",
+  "event_labels": {
+    "trim_threads_with_snips": "作業者が青緑色の糸切り鋏を持ち、白い衣類から出た余分な糸を切っている",
+    "spread_white_garment_on_table": "作業者が白い衣類を山から取り、作業台の上に広げている"
+  },
+  "events": {
+    "trim_threads_with_snips": [
+      {
+        "start_s": 7,
+        "end_s": 16.5
+      }
+    ],
+    "spread_white_garment_on_table": [
+      {
+        "start_s": 0.5,
+        "end_s": 5
+      }
+    ]
+  }
+}

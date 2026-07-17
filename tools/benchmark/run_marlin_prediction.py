@@ -50,7 +50,12 @@ def write_json_atomic(path: Path, value: object) -> None:
     os.replace(tmp, path)
 
 
-def validate_queries(queries: dict[str, dict[str, str]], *, require_sop_match: bool) -> None:
+def validate_queries(
+    queries: dict[str, dict[str, str]],
+    *,
+    require_sop_match: bool,
+    allow_event_subset: bool = False,
+) -> None:
     if not queries:
         raise SystemExit("queriesが空です")
     for unit_id, events in queries.items():
@@ -58,7 +63,8 @@ def validate_queries(queries: dict[str, dict[str, str]], *, require_sop_match: b
             sop = load_sop(unit_paths(unit_id)["sop"])
             expected = {event["id"] for event in sop["events"]}
             actual = set(events)
-            if actual != expected:
+            valid_ids = actual <= expected if allow_event_subset else actual == expected
+            if not actual or not valid_ids:
                 raise SystemExit(
                     f"queryのevent IDがSOPと一致しません: {unit_id} "
                     f"missing={sorted(expected - actual)} extra={sorted(actual - expected)}"
@@ -78,9 +84,12 @@ def ensure_video(unit_id: str, video_dir: Path) -> Path:
     out.parent.mkdir(parents=True, exist_ok=True)
     temporary = out.with_name(out.stem + ".tmp" + out.suffix)
     command = [
+        # -threads 1: マルチスレッドlibx264はエンコード結果が非決定的で、同一フレームでも
+        # 生成MP4のバイトが変わりMarlinの秒区間出力がぶれる。単一スレッドで決定論化し、
+        # runの再現性を確保する（再エンコードしても同じpredictionになる）。
         "ffmpeg", "-y", "-loglevel", "error", "-framerate", str(unit_fps(unit_id)),
         "-i", str(paths["frames"] / "f%04d.jpg"), "-c:v", "libx264", "-pix_fmt", "yuv420p",
-        "-vf", f"scale={VIDEO_WIDTH}:-2",
+        "-vf", f"scale={VIDEO_WIDTH}:-2", "-threads", "1",
         str(temporary),
     ]
     try:
@@ -168,6 +177,10 @@ def load_model(model_id: str, revision: str, device: str):
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--queries", required=True, help="unit -> event ID -> English query のJSON")
+    parser.add_argument(
+        "--allow-event-subset", action="store_true",
+        help="annotation差分診断用。各unitのqueryをSOP event IDの非空部分集合として許可",
+    )
     parser.add_argument("--run-id", required=True)
     parser.add_argument("--model", default=DEFAULT_MODEL)
     parser.add_argument("--revision", default=DEFAULT_REVISION,
@@ -189,7 +202,11 @@ def main() -> None:
         raise SystemExit(f"既存runは不変です。上書きしません: {run_dir}")
     query_path = Path(args.queries).resolve()
     queries = json.loads(query_path.read_text(encoding="utf-8"))
-    validate_queries(queries, require_sop_match=True)
+    validate_queries(
+        queries,
+        require_sop_match=True,
+        allow_event_subset=args.allow_event_subset,
+    )
     units = list(queries)
     query_snapshot = run_dir / "queries.json"
     write_json_atomic(query_snapshot, queries)
@@ -267,7 +284,10 @@ def main() -> None:
             "query_file": str(query_snapshot.relative_to(ROOT)),
             "query_source": (str(query_path.relative_to(ROOT))
                              if query_path.is_relative_to(ROOT) else str(query_path)),
-            "query_ontology": "unit_sop",
+            "query_ontology": (
+                "unit_sop_event_subset" if args.allow_event_subset else "unit_sop"
+            ),
+            "event_subset": args.allow_event_subset,
             "decoding": "greedy",
             "sampling_fps": sorted({unit_fps(unit) for unit in units}),
             "frame_input": "full video encoded from canonical gated frames",

@@ -1,0 +1,84 @@
+{
+  "unit_id": "f004_w006_edge_binding",
+  "model_id": "lunahr/Marlin-2B-ungated",
+  "model_revision": "de783b96b80f477c5e665d2202571a84cb0761da",
+  "events": {
+    "guide_gray_garment_bound_edge_under_presser_foot": {
+      "query": "a worker feeds the navy-bound edge of a gray garment under the sewing machine presser foot and guides it with both hands",
+      "result": {
+        "raw": "From 13.4 to 15.4.",
+        "span": [
+          13.4,
+          15.4
+        ],
+        "format_ok": true
+      }
+    },
+    "remove_gray_garment_from_sewing_machine": {
+      "query": "a worker pulls a gray garment toward themselves and away from the sewing machine needle area",
+      "result": {
+        "raw": "From 12.0 to 13.3.",
+        "span": [
+          12.0,
+          13.3
+        ],
+        "format_ok": true
+      }
+    },
+    "trim_excess_navy_binding_with_scissors": {
+      "query": "a worker holds the edge of a gray garment with the left hand and uses large reddish-brown scissors in the right hand to cut the protruding navy binding",
+      "result": {
+        "raw": "From 2.0 to 5.0.",
+        "span": [
+          2.0,
+          5.0
+        ],
+        "format_ok": true
+      }
+    },
+    "align_navy_bound_edge": {
+      "query": "a worker pinches the navy-bound edge of a gray garment with both hands and repeatedly repositions their fingers along the edge to straighten it",
+      "result": {
+        "raw": "From 10.0 to 12.3.",
+        "span": [
+          10.0,
+          12.3
+        ],
+        "format_ok": true
+      }
+    },
+    "turn_and_spread_gray_garment": {
+      "query": "a worker turns a gray garment over with both hands and spreads it back out on the worktable",
+      "result": {
+        "raw": "From 12.0 to 15.0.",
+        "span": [
+          12.0,
+          15.0
+        ],
+        "format_ok": true
+      }
+    },
+    "pull_loose_white_thread_from_seam": {
+      "query": "a worker pinches a loose white thread protruding from an inner seam of a gray garment and repeatedly pulls it toward themselves",
+      "result": {
+        "raw": "From 10.0 to 12.2.",
+        "span": [
+          10.0,
+          12.2
+        ],
+        "format_ok": true
+      }
+    },
+    "position_gray_garment_edge_at_presser_foot": {
+      "query": "a worker brings the edge of a gray garment to the sewing machine needle area and positions it at the presser foot",
+      "result": {
+        "raw": "From 12.8 to 15.0.",
+        "span": [
+          12.8,
+          15.0
+        ],
+        "format_ok": true
+      }
+    }
+  }
+}

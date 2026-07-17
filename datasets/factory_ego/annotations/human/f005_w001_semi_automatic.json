@@ -1,0 +1,51 @@
+{
+  "unit_id": "f005_w001_semi_automatic",
+  "annotation_revision": "human",
+  "interval_convention": "half-open_seconds",
+  "event_labels": {
+    "place_ring_part_on_machine_spindle": "作業者が赤橙色の巻線が見える円環状部品を機械中央の縦軸の治具で回転させて白い線を巻き付けている",
+    "arrange_white_cord_by_hand": "作業者が縦軸治具上の円環状部品から伸びる白いひも状材料を両手の指で巻線の間に沿わせて整えている",
+    "press_illuminated_control_switch": "作業者が左手で円環状部品を押さえながら、右手で右側の操作盤の照光スイッチを押している",
+    "reach_and_return_with_black_tweezers": "作業者が右腕を操作盤上方へ伸ばし、黒いピンセットを手にして円環状部品の手前へ戻している",
+    "position_black_tweezers_at_white_cord": "作業者が黒いピンセットの先端を円環状部品の白いひも状材料へ近づけ、位置を合わせている",
+    "tuck_white_cord_with_black_tweezers": "作業者が黒いピンセットと指で白いひも状材料を円環状部品の巻線の間へ押し込み、整えている"
+  },
+  "events": {
+    "place_ring_part_on_machine_spindle": [
+      {
+        "start_s": 14,
+        "end_s": 18
+      }
+    ],
+    "arrange_white_cord_by_hand": [
+      {
+        "start_s": 6.5,
+        "end_s": 8.5
+      }
+    ],
+    "press_illuminated_control_switch": [
+      {
+        "start_s": 9.5,
+        "end_s": 11
+      }
+    ],
+    "reach_and_return_with_black_tweezers": [
+      {
+        "start_s": 14,
+        "end_s": 17
+      }
+    ],
+    "position_black_tweezers_at_white_cord": [
+      {
+        "start_s": 14.5,
+        "end_s": 17
+      }
+    ],
+    "tuck_white_cord_with_black_tweezers": [
+      {
+        "start_s": 17,
+        "end_s": 19
+      }
+    ]
+  }
+}

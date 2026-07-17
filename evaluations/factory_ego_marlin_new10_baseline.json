@@ -1,0 +1,76 @@
+{
+  "kind": "development_evaluation",
+  "created_at": "2026-07-16",
+  "dataset": {
+    "id": "factory_ego",
+    "split": "development",
+    "reference_revision": "human",
+    "reference_status": "complete",
+    "unit_count": 10
+  },
+  "prediction_run_id": "20260715-factory_ego-marlin-2b-new10-baseline-r1",
+  "model": "Marlin-2B temporal grounding",
+  "formal_accuracy": false,
+  "inputs": {
+    "queries_sha256": "093d0fed6863a8a594a959ee42333e6004af525ecdb16ba8a4d471fa5ad8ff95",
+    "run_manifest_sha256": "5ce9fd41309e8ead742dac6602a0de5cf5610291713d46ef17a5989b6025456c",
+    "run_inputs_lock_sha256": "9693d35003d9484e30033ec10c49ac00e8f108d7a169cc7e34b6093ca6a4c42c",
+    "annotation_sha256": {
+      "f004_w004_continuous_fabric": "651fbecbc5ebcb9a7a151ea295d829cd74ee0698cb0dc1034895315ad2de284c",
+      "f004_w005_heat_press": "a4683cc84cade5479886f78fe7376ebf81f7377367328eb06982099193c485f7",
+      "f004_w005_overlock_seaming": "da8c4b2b64bbf1c84940eb1a50e80a0a6b1343f44db9bb31a02879454b71b5ea",
+      "f004_w006_curvilinear_seam": "fc461add0227ae16a7aba3f1b9e52020e151cce23d956c94f3f0f71e5f278d1f",
+      "f004_w006_edge_binding": "599e2e6677652691be409fdf3a5752631309f8c9d9cfee8e7583137b8ecef211",
+      "f005_w001_semi_automatic": "2a12bc7e16339b0f9aadc62aa00b4c73d37688b1ad826dc04d6eea49a7887bbd",
+      "f005_w010_manual_lathe": "2a19a773d6271b61c40987081a2a39a1dceb6aac6d2c3bfcb2c2867e7f941ecb",
+      "f005_w011_cnc_machine": "57f7752bf03dc84ea7bb4c1995a98107202935e0f9f176a05f53c8330962a7af",
+      "f006_w004_bulk_material": "16ecba518e9be5cf92c548456504445101c35a4b12a8bea05bebb47a7637c1d9",
+      "f006_w005_compression_molding": "32b36510dd6a79259be075c2fb17b17acd0e00a7475fa4ace07895b4a36763c5"
+    },
+    "prediction_sha256": {
+      "f004_w004_continuous_fabric": "d70a44626852a629ed62e6330cb90791672497dbb119a98b509c0b48775a7776",
+      "f004_w005_heat_press": "9be0a4ae78e62bec35da6a64fe9c3677a54a2fd43c1b43fcb5e48088ed8b488c",
+      "f004_w005_overlock_seaming": "a56a2fcc8a2eddc7babc8640e762e45e6ce3817c80d160a3db1639d3d2645386",
+      "f004_w006_curvilinear_seam": "056fa9958147bb9da3d431ee95c46b490032329fd8dd695d351a83493c87b332",
+      "f004_w006_edge_binding": "dd7cb47401c2ba6346757ecedf676a40969aad2572df7b9e99599380569393f9",
+      "f005_w001_semi_automatic": "28f63c8710e5c8b154168b748a9750191c549079b55b856c36831e735ec794fe",
+      "f005_w010_manual_lathe": "86b2a261d5b372d782e4abdcdcf801f1b0741d76652e9c6a5352cdab43b6749e",
+      "f005_w011_cnc_machine": "f0e3ece60105c74a71f44529f47ced1a29a2b2e70ae4c3ec2d9ef6b70f46268e",
+      "f006_w004_bulk_material": "efcfb073b6c0ebc5c657e351ca55bf4493a9576ff9f101851b3b33f4f8265217",
+      "f006_w005_compression_molding": "46919d2e6d19fbc67e6c1f26df552d406a97678492c4a4d6690883c0f23a81e4"
+    }
+  },
+  "metrics": {
+    "all_reference_occurrences": {
+      "reference_occurrences": 56,
+      "predicted_occurrences": 45,
+      "mean_tiou": 0.33479,
+      "tiou_at_0_5": {
+        "precision": 0.444444,
+        "recall": 0.357143,
+        "f1": 0.39604
+      }
+    },
+    "single_span_event_ids": {
+      "event_id_count": 39,
+      "mean_tiou": 0.450491
+    }
+  },
+  "per_unit_mean_tiou": {
+    "f004_w004_continuous_fabric": 0.370536,
+    "f004_w005_heat_press": 0.654231,
+    "f004_w005_overlock_seaming": 0.300719,
+    "f004_w006_curvilinear_seam": 0.633333,
+    "f004_w006_edge_binding": 0.240222,
+    "f005_w001_semi_automatic": 0.401044,
+    "f005_w010_manual_lathe": 0.4237,
+    "f005_w011_cnc_machine": 0.431429,
+    "f006_w004_bulk_material": 0.035,
+    "f006_w005_compression_molding": 0.550976
+  },
+  "limitations": [
+    "This is a development score on manually annotated clips, not a held-out test score.",
+    "Marlin find() returns one span per event query, so repeated human-reference occurrences cannot all be emitted by this interface.",
+    "The single-span metric is reported separately to expose the interface limitation; it does not replace the all-occurrence metric."
+  ]
+}

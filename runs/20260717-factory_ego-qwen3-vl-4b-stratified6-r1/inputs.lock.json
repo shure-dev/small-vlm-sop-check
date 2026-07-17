@@ -1,0 +1,103 @@
+{
+  "units": {
+    "f001_w011_metal_stamping": {
+      "dataset_id": "factory_ego",
+      "frames_manifest_sha256": "59ce7716ea258a2d3f6a880d5c3a5204abdfe76f54ae5ba6f1022ce3a4260328",
+      "sop_id": "f001_w011_metal_stamping",
+      "sop_sha256": "4961b20bd6d0a083d745631ea6c9b3bf8dcbacbfd8446d86facafd7c898ee553",
+      "split_id": "development",
+      "unit_meta_sha256": "a0ccbda2a3b52b61c5e2ee4d7a08a96722967c57c409914985b22a8f978792ef"
+    },
+    "f003_w010_mold_preparation": {
+      "dataset_id": "factory_ego",
+      "frames_manifest_sha256": "71175039f7b7c244a4d26405f8b94f0e7723380624209ac8843f216907e54924",
+      "sop_id": "f003_w010_mold_preparation",
+      "sop_sha256": "b07fee0c9a42409bd4501836feb111f3d96f5e82c1f244b02b978065cd5463d3",
+      "split_id": "development",
+      "unit_meta_sha256": "ac9aa942ebdf1802c4fea8bc57babbd9fcff0c7f91f40dff800c2d9be8764c8a"
+    },
+    "f004_w006_curvilinear_seam": {
+      "dataset_id": "factory_ego",
+      "frames_manifest_sha256": "7c168e54b7cae1eb99c548299b59f10d27f94b943576cfd3fed76c11f3838265",
+      "sop_id": "f004_w006_curvilinear_seam",
+      "sop_sha256": "499fdc026ebe7849b9ed0111a2fdf41fd0159aac718d0b7f74cb46410d067e37",
+      "split_id": "development",
+      "unit_meta_sha256": "885980f84fff21983143dedf64333db87f196bed00657f08ac73d0dd8b5e9bac"
+    },
+    "f006_w005_compression_molding": {
+      "dataset_id": "factory_ego",
+      "frames_manifest_sha256": "19fa545755947fb67d2d7017478cb48344fa631013a8da3338a1c6831909e1aa",
+      "sop_id": "f006_w005_compression_molding",
+      "sop_sha256": "b1f032162969014b5dd853c7096efd5c6004e19749f47b05c80a9ce6b74f6f19",
+      "split_id": "development",
+      "unit_meta_sha256": "d27d13517c3e3da7c38782ae2a409800bbaf6d6b81267aeef5aee5d47e58d8e8"
+    },
+    "f003_w009_injection_molding": {
+      "dataset_id": "factory_ego",
+      "frames_manifest_sha256": "9c4ca865aee61e0ac2bd7e4186cfc1e2f7791916492aaa262cec7a811a40f6a0",
+      "sop_id": "f003_w009_injection_molding",
+      "sop_sha256": "8d13af91eeaf0d7f7f5be0d696ddfe42e21268a9ed39678f37cc37055ce70483",
+      "split_id": "development",
+      "unit_meta_sha256": "f4cd01eb2689e409b626733d9d4b4fbea730419eb4f1466eef4f88157701cdbd"
+    },
+    "f006_w004_bulk_material": {
+      "dataset_id": "factory_ego",
+      "frames_manifest_sha256": "c814cb58848f323563ce2bb0465b098a9bd9660c5c7fd1e02d9fab7df82d1d62",
+      "sop_id": "f006_w004_bulk_material",
+      "sop_sha256": "dbda6562ec5741793e0feafcf7eff2944576b2b8339088842042ded4af4aa697",
+      "split_id": "development",
+      "unit_meta_sha256": "e587ae84767f5ed219576152d35d6691e9c769c8cdf443585a3612efa2233e83"
+    }
+  },
+  "queries_sha256": "523ff884c30a1d1beb09ca2bbfc93c0ac01404202862a32fe1b04abd086cdaa3",
+  "videos": {
+    "f001_w011_metal_stamping": {
+      "sha256": "76355dd81fb426dfc28dea8532b60a4cde418461a10c38c35d8f583992fa2763",
+      "width": 640,
+      "height": 360,
+      "avg_frame_rate": "2/1",
+      "n_frames": 40,
+      "duration_s": 20.0
+    },
+    "f003_w010_mold_preparation": {
+      "sha256": "5be476e02ba4d16c7f1d8102aab058399f43f25fe4b159d61c083218f18db59c",
+      "width": 640,
+      "height": 360,
+      "avg_frame_rate": "2/1",
+      "n_frames": 40,
+      "duration_s": 20.0
+    },
+    "f004_w006_curvilinear_seam": {
+      "sha256": "9bdf78b066546c408cf58166ba2908141f71cf1709e2f5557c7db91aab4aa27b",
+      "width": 640,
+      "height": 360,
+      "avg_frame_rate": "2/1",
+      "n_frames": 40,
+      "duration_s": 20.0
+    },
+    "f006_w005_compression_molding": {
+      "sha256": "c96c9983571c300c6657439b789c93597c6c03af7f060d93c322ee9ee8642014",
+      "width": 640,
+      "height": 360,
+      "avg_frame_rate": "2/1",
+      "n_frames": 40,
+      "duration_s": 20.0
+    },
+    "f003_w009_injection_molding": {
+      "sha256": "ca145641c4efce84a31959cce2d042d2556b649777bb9383fff034daf0f27d18",
+      "width": 640,
+      "height": 360,
+      "avg_frame_rate": "2/1",
+      "n_frames": 40,
+      "duration_s": 20.0
+    },
+    "f006_w004_bulk_material": {
+      "sha256": "8a2c0ec5c3bec8fe323130e88a9475248007c683ba8b5eca8d8dec17950fac32",
+      "width": 640,
+      "height": 360,
+      "avg_frame_rate": "2/1",
+      "n_frames": 40,
+      "duration_s": 20.0
+    }
+  }
+}

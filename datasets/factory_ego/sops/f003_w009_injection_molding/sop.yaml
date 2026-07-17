@@ -1,5 +1,11 @@
 sop:
   id: f003_w009_injection_molding
-  name: f003 w009 injection molding
-  domain_hint: 工場作業を作業者視点で撮影した動画
-events: []
+  name: 金型からの黄色い成形部品の取り出し
+  domain_hint: 作業者視点で、射出成形機、黄色い樹脂成形部品、細い金属棒、青い手袋を扱う20秒の工場動画
+events:
+- id: remove_yellow_parts_from_mold
+  ask: 作業者が青い手袋の手で、開いた金属金型から黄色い樹脂成形部品を取り出している
+  values: ['yes', 'no']
+- id: hold_metal_rod_at_mold
+  ask: 作業者が金型の脇で細い金属棒を手に持っている
+  values: ['yes', 'no']

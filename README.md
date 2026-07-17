@@ -11,8 +11,8 @@
 **工場の作業手順をリアルタイムに理解し、重大な手順逸脱を問題が起きる前に捉えるConnected Worker向け小型VLMの開発基盤を目指します。**
 
 <p align="center">
-  <img src="docs/assets/factory_ego_temporal_grounding.gif" alt="Factory Egoの動画、人手区間、Marlin-2Bのモデル区間、イベント別tIoUを比較する画面" width="960"><br>
-  <sub>Factory Egoの3実験。橙が人手区間、青がMarlin-2Bの予測区間です。</sub>
+  <img src="docs/assets/factory_ego_temporal_grounding.gif" alt="Factory Egoの動画、人手区間、Marlin-2Bのモデル区間、動画別tIoUを表示するアノテーションワークスペース" width="960"><br>
+  <sub>Factory Egoの10本を連続再生。橙が人手区間、青がMarlin-2Bの予測区間です。</sub>
 </p>
 
 ## 手順の間違いを、問題が起きる前に捉える
@@ -43,17 +43,21 @@
 
 主対象は、[Egocentric-10K](https://huggingface.co/datasets/builddotai/Egocentric-10K)から固定した20本の工場一人称動画です。各動画は20秒・2fpsで、人間が映像を見ながら日本語のイベント文と正解区間を作ります。外部の機械生成アノテーションは正解データとして使いません。
 
-現在は6本、25区間の人手アノテーションを作成し、Marlin-2BのTemporal Grounding出力と比較しています。冒頭のGIFには次の3本を掲載しています。
+現在は**20本すべてに68イベント・81正解区間**の人手アノテーションが完了しています。現行GTと入力hashが一致する13動画をMarlin-2Bの動画別mean tIoUで順位付けし、上位2本、中央値付近の2本、下位2本を機械的に選びました。同じ英語イベント文と時刻JSONプロンプトで[Qwen3.5-4B](https://huggingface.co/Qwen/Qwen3.5-4B)と[Qwen3-VL-4B-Instruct](https://huggingface.co/Qwen/Qwen3-VL-4B-Instruct)を比較しています。時刻は動画先頭を`0.0秒`とするhalf-open intervalです。
 
-| Factory Ego実験 | イベント数 | mean tIoU |
-|---|---:|---:|
-| 金属プレス | 4 | 0.816 |
-| 衣類の袋詰め | 4 | 0.725 |
-| シャツの折り畳み | 4 | 0.645 |
+| 層 | Marlin順位 | 20秒動画 | イベント数 | 正解区間 | Marlin-2B | Qwen3.5-4B | Qwen3-VL-4B |
+|---|---:|---|---:|---:|---:|---:|---:|
+| 高 | 1/13 | [金属プレス工程](datasets/factory_ego/sops/f001_w011_metal_stamping/sop.yaml) | 4 | 4 | **0.802** | 0.304 | 0.109 |
+| 高 | 2/13 | [金型準備](datasets/factory_ego/sops/f003_w010_mold_preparation/sop.yaml) | 1 | 1 | **0.719** | 0.500 | 0.000 |
+| 中 | 6/13 | [曲線縫製](datasets/factory_ego/sops/f004_w006_curvilinear_seam/sop.yaml) | 3 | 3 | **0.560** | 0.095 | 0.315 |
+| 中 | 7/13 | [圧縮成形](datasets/factory_ego/sops/f006_w005_compression_molding/sop.yaml) | 2 | 2 | 0.551 | **0.644** | 0.267 |
+| 低 | 12/13 | [射出成形](datasets/factory_ego/sops/f003_w009_injection_molding/sop.yaml) | 2 | 2 | 0.300 | **0.364** | 0.138 |
+| 低 | 13/13 | [バルク材の仕分け](datasets/factory_ego/sops/f006_w004_bulk_material/sop.yaml) | 3 | 10 | **0.085** | 0.034 | 0.000 |
+| **全体** | — | **6動画** | **15** | **22** | **0.371** | **0.198** | **0.100** |
 
-6本・全25正解区間ではmean tIoUが`0.516`、`tIoU@0.5` F1が`0.708`です。同一イベントが複数回起きる動画に対し、現在のMarlin `find()`は1 queryにつき1区間しか返せないため、単一区間の21 event IDに限るとmean tIoUは`0.591`です。
+tIoU@0.5 F1はMarlin-2Bが`0.541`、Qwen3.5-4Bが`0.270`、Qwen3-VL-4Bが`0.054`でした。3モデルとも1イベントにつき1区間だけを返すため、10回発生するバルク材動画を含む22正解区間に対して予測は15区間です。両Qwenは全15件が構文・範囲とも有効でした。4bit MLX変換を使い、2fps・幅640px・temperature 0で1モデルずつ実行しています。MLXのpeak memoryはQwen3.5が`5.64GB`、Qwen3-VLが`4.76GB`でした。
 
-これらはイベント定義とプロンプトの調整にも使ったdevelopmentデータ上の診断値であり、未見動画に対する正式なベンチマーク精度ではありません。固定した入力とraw出力は [`runs/20260714-factory_ego-marlin-2b-reviewed6-tuned/`](runs/20260714-factory_ego-marlin-2b-reviewed6-tuned/)、評価値とhashは [`evaluations/factory_ego_marlin_reviewed6.json`](evaluations/factory_ego_marlin_reviewed6.json) から確認できます。
+この層化はMarlinの高得点動画だけに偏る問題を減らしますが、Marlinの成績を基準に選んだdevelopment診断であり、公平な未見データ評価ではありません。固定した入力・raw出力・評価hashは[Marlin評価](evaluations/factory_ego_marlin_stratified6.json)、[Qwen3.5評価](evaluations/factory_ego_qwen3.5_stratified6.json)、[Qwen3-VL評価](evaluations/factory_ego_qwen3-vl-4b_stratified6.json)から再計算できます。
 
 ## 改善ループ
 
@@ -68,10 +72,11 @@ flowchart LR
     F --> E
 ```
 
-一つのWebアプリで、次の二つを切り替えます。
+一つのWebアプリに、アノテーションと結果レビューを統合しています。
 
-- **アノテーション** — 動画を見て、日本語のイベント文と複数の発生区間、明示的な非該当を保存
-- **結果レビュー** — 人手区間とモデル区間を同じタイムラインに表示し、低tIoUのイベントから確認
+- **サムネイルギャラリー** — 20本の進捗と動画別mean tIoUを一覧し、tIoUが低い順に並べ替えて弱い動画から確認
+- **動画編集ソフト型タイムライン** — 日本語イベント文と発生区間の作成・ドラッグ調整、モデル予測との比較を同じ画面で実施。区間を動かすとtIoUとF1が即時に再計算されます
+- **データセット管理** — 学習・評価から外す動画は除外フラグとして `datasets/<dataset>/curation.json` に保存
 
 推論、翻訳、学習はアプリ内で実行せず、再現可能なCLI工程として分離します。日本語アノテーションは人手の正本として残り、モデル出力が上書きすることはありません。
 

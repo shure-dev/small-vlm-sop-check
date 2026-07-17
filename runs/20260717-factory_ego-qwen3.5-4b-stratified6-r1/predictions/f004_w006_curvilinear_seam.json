@@ -1,0 +1,26 @@
+{
+  "run_id": "20260717-factory_ego-qwen3.5-4b-stratified6-r1",
+  "unit_id": "f004_w006_curvilinear_seam",
+  "method": "temporal_grounding",
+  "interval_convention": "half-open_seconds",
+  "events": {
+    "align_curved_gray_fabric_edges": [
+      {
+        "start_s": 0.0,
+        "end_s": 1.0
+      }
+    ],
+    "position_gray_fabric_at_presser_foot": [
+      {
+        "start_s": 0.0,
+        "end_s": 1.0
+      }
+    ],
+    "guide_gray_fabric_under_presser_foot": [
+      {
+        "start_s": 0.0,
+        "end_s": 1.0
+      }
+    ]
+  }
+}

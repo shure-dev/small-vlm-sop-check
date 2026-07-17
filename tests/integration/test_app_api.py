@@ -1,3 +1,4 @@
+import hashlib
 import json
 from pathlib import Path
 
@@ -10,16 +11,18 @@ from small_vlm_sop_check.apps.server import create_app
 ROOT = Path(__file__).resolve().parents[2]
 
 
-def test_api_loads_complete_units_and_marlin_comparisons():
+def test_api_loads_all_complete_units_and_available_model_comparisons():
     client = TestClient(create_app(root=ROOT))
     assert '<div id="root"></div>' in client.get("/").text
     bootstrap = client.get("/api/bootstrap").json()
-    complete = [
-        unit for unit in bootstrap["units"]
-        if unit["dataset"] == "factory_ego" and unit["annotation_state"] == "complete"
-    ]
-    assert len(complete) == 6
+    factory_units = [unit for unit in bootstrap["units"] if unit["dataset"] == "factory_ego"]
+    complete = [unit for unit in factory_units if unit["annotation_state"] == "complete"]
+    assert len(factory_units) == 20
+    assert {unit["unit_id"] for unit in complete} == {
+        unit["unit_id"] for unit in factory_units
+    }
 
+    comparison_units = set()
     for complete_unit in complete:
         unit_id = complete_unit["unit_id"]
         unit = client.get(f"/api/units/factory_ego/{unit_id}").json()
@@ -30,12 +33,48 @@ def test_api_loads_complete_units_and_marlin_comparisons():
         assert unit["media_url"].endswith("/media")
 
         runs = client.get(f"/api/comparisons/factory_ego/{unit_id}").json()["runs"]
-        assert runs[0]["run_id"] == "20260714-factory_ego-marlin-2b-reviewed6-tuned"
-        assert runs[0]["comparison"]["summary"]["mean_tiou"] is not None
+        if not runs:
+            continue
+        comparison_units.add(unit_id)
+        model_keys = [run["model"].get("id") or run["model"]["name"] for run in runs]
+        assert len(model_keys) == len(set(model_keys))
+        assert all(run["model"]["name"] in {
+            "Marlin-2B temporal grounding",
+            "MiniCPM-V 4.6 video grounding",
+            "Qwen3.5-4B video grounding",
+            "Qwen3-VL-4B video grounding",
+        } for run in runs)
+        assert all(run["comparison"]["summary"]["mean_tiou"] is not None for run in runs)
         assert all(
             isinstance(event["event_id"], str)
-            for event in runs[0]["comparison"]["events"]
+            for run in runs for event in run["comparison"]["events"]
         )
+        current_sop_sha = hashlib.sha256(
+            (
+                ROOT / "datasets" / "factory_ego" / "sops" / unit_id / "sop.yaml"
+            ).read_bytes()
+        ).hexdigest()
+        for run in runs:
+            lock = json.loads(
+                (ROOT / "runs" / run["run_id"] / "inputs.lock.json").read_text(
+                    encoding="utf-8"
+                )
+            )
+            assert lock["units"][unit_id]["sop_sha256"] == current_sop_sha
+
+    run_targets = set()
+    for run_path in (ROOT / "runs").glob("*/run.yaml"):
+        run = yaml.safe_load(run_path.read_text(encoding="utf-8"))
+        if run.get("inference", {}).get("event_subset") is True:
+            continue
+        lock = json.loads((run_path.parent / "inputs.lock.json").read_text(encoding="utf-8"))
+        for unit_id in run["target_units"]:
+            current_sop_sha = hashlib.sha256(
+                (ROOT / "datasets/factory_ego/sops" / unit_id / "sop.yaml").read_bytes()
+            ).hexdigest()
+            if lock["units"][unit_id]["sop_sha256"] == current_sop_sha:
+                run_targets.add(unit_id)
+    assert comparison_units == run_targets
 
 
 def _temporary_dataset(tmp_path: Path) -> tuple[Path, str]:

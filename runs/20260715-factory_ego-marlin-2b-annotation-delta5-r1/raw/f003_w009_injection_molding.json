@@ -1,0 +1,29 @@
+{
+  "unit_id": "f003_w009_injection_molding",
+  "model_id": "lunahr/Marlin-2B-ungated",
+  "model_revision": "de783b96b80f477c5e665d2202571a84cb0761da",
+  "events": {
+    "event_001": {
+      "query": "a worker removes small yellow molded parts from the open metal mold and places them on the tray to the right",
+      "result": {
+        "raw": "From 4.0 to 9.0.",
+        "span": [
+          4.0,
+          9.0
+        ],
+        "format_ok": true
+      }
+    },
+    "event_002": {
+      "query": "a worker picks up and holds a thin metal rod beside the open mold",
+      "result": {
+        "raw": "From 9.5 to 11.0.",
+        "span": [
+          9.5,
+          11.0
+        ],
+        "format_ok": true
+      }
+    }
+  }
+}

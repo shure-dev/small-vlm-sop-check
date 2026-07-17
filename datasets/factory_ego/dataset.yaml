@@ -8,7 +8,7 @@ upstream:
   access: gated_contact_information_required
 benchmark_state:
   human_ground_truth:
-    status: partial
+    status: complete
     revision: human
   formal_accuracy_available: false
 unit_count: 20

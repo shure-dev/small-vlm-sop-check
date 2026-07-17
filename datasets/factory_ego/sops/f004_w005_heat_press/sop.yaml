@@ -1,5 +1,25 @@
 sop:
   id: f004_w005_heat_press
-  name: f004 w005 heat press
-  domain_hint: 工場作業を作業者視点で撮影した動画
-events: []
+  name: ヒートプレス後の白い布製品の取り出しと折り畳み
+  domain_hint: 作業者視点で、白い布製品、ヒートプレス機、作業台を扱う20秒の工場動画
+events:
+- id: raise_heat_press_handle
+  ask: 作業者がヒートプレス機のオレンジ色グリップ付きハンドルを持ち上げ、上板を開いている
+  values:
+  - 'yes'
+  - 'no'
+- id: remove_white_fabric_from_heat_press
+  ask: 作業者が開いたヒートプレス機から白い布製品を右側の作業台へ移して広げている
+  values:
+  - 'yes'
+  - 'no'
+- id: separate_white_fabric_from_stack
+  ask: 作業者が左側に重なった白い布製品から1枚の縁をつまみ、引き離して持ち上げている
+  values:
+  - 'yes'
+  - 'no'
+- id: align_and_fold_white_fabric_on_table
+  ask: 作業者が取り出した白い布製品を中央の作業台へ載せ、両手で折り返しながら端を揃えている
+  values:
+  - 'yes'
+  - 'no'

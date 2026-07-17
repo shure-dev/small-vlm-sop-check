@@ -1,5 +1,11 @@
 sop:
   id: f004_w002_thread_trimming
-  name: f004 w002 thread trimming
-  domain_hint: 工場作業を作業者視点で撮影した動画
-events: []
+  name: 白い衣類の糸切りと作業台への展開
+  domain_hint: 作業者視点で、白い衣類、青緑色の糸切り鋏、作業台を扱う20秒の工場動画
+events:
+- id: trim_threads_with_snips
+  ask: 作業者が青緑色の糸切り鋏を持ち、白い衣類から出た余分な糸を切っている
+  values: ['yes', 'no']
+- id: spread_white_garment_on_table
+  ask: 作業者が白い衣類を山から取り、作業台の上に広げている
+  values: ['yes', 'no']

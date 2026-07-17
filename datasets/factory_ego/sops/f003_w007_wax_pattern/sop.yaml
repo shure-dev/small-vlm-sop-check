@@ -1,5 +1,20 @@
 sop:
   id: f003_w007_wax_pattern
-  name: f003 w007 wax pattern
-  domain_hint: 工場作業を作業者視点で撮影した動画
-events: []
+  name: 黄色い蝋部品の房の清掃と乾燥ラックへの配置
+  domain_hint: 作業者視点で、黄色い蝋部品の房、色付きの棒状の道具、奥に並ぶ房のトレーを扱う20秒の工場動画（ロストワックス鋳造の原型準備）
+events:
+- id: clean_wax_cluster_with_rod
+  ask: 作業者が黄色い蝋部品の房を片手で持ち、先端が色付きの細い棒状の道具で房の表面をなぞって整えている
+  values:
+  - 'yes'
+  - 'no'
+- id: mark_wax_cluster_with_white_tool
+  ask: 作業者が黄色い蝋部品の房を両手で中央に持ち、白いチョークで黄色い部品に印を付けている
+  values:
+  - 'yes'
+  - 'no'
+- id: place_wax_cluster_on_rack
+  ask: 作業者が黄色い蝋部品の房を、作業台奥に並ぶ同種の房のトレーへ腕を伸ばして置いている
+  values:
+  - 'yes'
+  - 'no'

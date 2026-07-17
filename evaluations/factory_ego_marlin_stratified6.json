@@ -1,0 +1,326 @@
+{
+  "kind": "development_evaluation",
+  "created_at": "2026-07-17",
+  "dataset": {
+    "id": "factory_ego",
+    "split": "development",
+    "reference_revision": "human",
+    "unit_count": 6,
+    "event_count": 15,
+    "unit_ids": [
+      "f001_w011_metal_stamping",
+      "f003_w009_injection_molding",
+      "f003_w010_mold_preparation",
+      "f004_w006_curvilinear_seam",
+      "f006_w004_bulk_material",
+      "f006_w005_compression_molding"
+    ]
+  },
+  "prediction_run_id": "20260717-factory_ego-marlin-2b-final-det-r1",
+  "model": "Marlin-2B temporal grounding",
+  "formal_accuracy": false,
+  "scope": "all events in the selected run target units",
+  "inputs": {
+    "queries_sha256": "1c87666c94ebd977403bdab64537b2d0d67e097101ef50325ff1e6c7631a4461",
+    "run_manifest_sha256": "96193364416dabd030c87cb9749ed6def2c7cfbfa0cad6b74fa3d420f87a5e19",
+    "run_inputs_lock_sha256": "6db77418c4e5300a2e928455bc870f29381fc1910dcaffa518007a20fe5895a1",
+    "annotation_sha256": {
+      "f001_w011_metal_stamping": "a7a856ea219fcc6b1c2e590ab0ce4aa8c4e8c8ac5e5cf8d3c3df0795af76252c",
+      "f003_w009_injection_molding": "b20afc44dcd20bd818c47c9fca804e923220dae3208e1bb1d6fd4ece1f738ab9",
+      "f003_w010_mold_preparation": "983706265af37103cd7fd238f9a536a42b6ad9e6f40c2ed0aa4ba8791f021efd",
+      "f004_w006_curvilinear_seam": "fc461add0227ae16a7aba3f1b9e52020e151cce23d956c94f3f0f71e5f278d1f",
+      "f006_w004_bulk_material": "16ecba518e9be5cf92c548456504445101c35a4b12a8bea05bebb47a7637c1d9",
+      "f006_w005_compression_molding": "32b36510dd6a79259be075c2fb17b17acd0e00a7475fa4ace07895b4a36763c5"
+    },
+    "prediction_sha256": {
+      "f001_w011_metal_stamping": "4a1430dacd6a43ba14216a570212e27469754fb55d1549b8e36475086bec06d1",
+      "f003_w009_injection_molding": "2e7daf1913b6ca3f65b3ecb2a119fda1b08647ab123ab2aedf33cf0cbe03b42e",
+      "f003_w010_mold_preparation": "c5fccb213a52cb6383d3be8c709fd51f3ec8512ff6239ec7f3aee27c05b3d939",
+      "f004_w006_curvilinear_seam": "aabba1bd93873e58605c84b772e684f3cde719d560a43e5f9a34fe8b6bfa913d",
+      "f006_w004_bulk_material": "be806f9e3141d4b4ca2411d016a844522f6d280db4758902e42b336bea33a314",
+      "f006_w005_compression_molding": "575f9cb129d3a45d8204efb81bd7052b9796dfbb1bbf99b2025912935e0dc5f0"
+    }
+  },
+  "metrics": {
+    "reference_occurrences": 22,
+    "predicted_occurrences": 15,
+    "mean_tiou": 0.370835,
+    "tiou_at_0_5": {
+      "tp": 10,
+      "fp": 5,
+      "fn": 12,
+      "precision": 0.666667,
+      "recall": 0.454545,
+      "f1": 0.540541
+    }
+  },
+  "per_unit_mean_tiou": {
+    "f001_w011_metal_stamping": 0.802273,
+    "f003_w009_injection_molding": 0.3,
+    "f003_w010_mold_preparation": 0.71875,
+    "f004_w006_curvilinear_seam": 0.559524,
+    "f006_w004_bulk_material": 0.085,
+    "f006_w005_compression_molding": 0.550975
+  },
+  "per_event": [
+    {
+      "unit_id": "f001_w011_metal_stamping",
+      "event_id": "feed_metal_strip_into_press",
+      "event_label": "作業者が細長い帯状の金属材料を両手で支え、プレス機の加工位置へ送り込んでいる",
+      "query": "a worker feeds a long strip of metal into a press machine",
+      "reference_occurrences": 1,
+      "predicted_occurrences": 1,
+      "mean_tiou": 1.0,
+      "tiou_at_0_5": {
+        "tp": 1,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      }
+    },
+    {
+      "unit_id": "f001_w011_metal_stamping",
+      "event_id": "walk_to_next_press",
+      "event_label": "作業者が最初のプレス機を離れ、通路を歩いて隣のプレス機へ移動している",
+      "query": "a worker leaves one metal press and walks along the marked factory aisle to the neighboring press station",
+      "reference_occurrences": 1,
+      "predicted_occurrences": 1,
+      "mean_tiou": 0.909091,
+      "tiou_at_0_5": {
+        "tp": 1,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      }
+    },
+    {
+      "unit_id": "f001_w011_metal_stamping",
+      "event_id": "pick_up_metal_sheets",
+      "event_label": "作業者がプレス機の材料置き場から薄い長方形の金属板を複数枚つかんで持ち上げている",
+      "query": "a worker picks up metal sheets",
+      "reference_occurrences": 1,
+      "predicted_occurrences": 1,
+      "mean_tiou": 0.8,
+      "tiou_at_0_5": {
+        "tp": 1,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      }
+    },
+    {
+      "unit_id": "f001_w011_metal_stamping",
+      "event_id": "align_metal_sheet_stack",
+      "event_label": "作業者が持ち上げた薄い金属板の束の端を両手で揃えている",
+      "query": "a worker aligns and gathers metal sheets",
+      "reference_occurrences": 1,
+      "predicted_occurrences": 1,
+      "mean_tiou": 0.5,
+      "tiou_at_0_5": {
+        "tp": 1,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      }
+    },
+    {
+      "unit_id": "f003_w009_injection_molding",
+      "event_id": "remove_yellow_parts_from_mold",
+      "event_label": "作業者が青い手袋の手で、開いた金属金型から黄色い樹脂成形部品を取り出している",
+      "query": "a worker removes small yellow molded parts from the open metal mold and places them on the tray to the right",
+      "reference_occurrences": 1,
+      "predicted_occurrences": 1,
+      "mean_tiou": 0.0,
+      "tiou_at_0_5": {
+        "tp": 0,
+        "fp": 1,
+        "fn": 1,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": null
+      }
+    },
+    {
+      "unit_id": "f003_w009_injection_molding",
+      "event_id": "hold_metal_rod_at_mold",
+      "event_label": "作業者が金型の脇で細い金属棒を手に持っている",
+      "query": "a worker picks up and holds a thin metal rod beside the open mold",
+      "reference_occurrences": 1,
+      "predicted_occurrences": 1,
+      "mean_tiou": 0.6,
+      "tiou_at_0_5": {
+        "tp": 1,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      }
+    },
+    {
+      "unit_id": "f003_w010_mold_preparation",
+      "event_id": "place_yellow_mold_plate_on_container",
+      "event_label": "作業者が黄色い金型プレートを両手で持ち、青いコンテナの上へ被せるように置いている",
+      "query": "a worker places a yellow rectangular mold cover over the metal mold box",
+      "reference_occurrences": 1,
+      "predicted_occurrences": 1,
+      "mean_tiou": 0.71875,
+      "tiou_at_0_5": {
+        "tp": 1,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      }
+    },
+    {
+      "unit_id": "f004_w006_curvilinear_seam",
+      "event_id": "align_curved_gray_fabric_edges",
+      "event_label": "作業者が灰色の生地の曲線状の端を両手でつまみ、重ねた縁を揃えている",
+      "query": "a worker pinches the curved edges of gray fabric with both hands and aligns the overlapping edges",
+      "reference_occurrences": 1,
+      "predicted_occurrences": 1,
+      "mean_tiou": 1.0,
+      "tiou_at_0_5": {
+        "tp": 1,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      }
+    },
+    {
+      "unit_id": "f004_w006_curvilinear_seam",
+      "event_id": "position_gray_fabric_at_presser_foot",
+      "event_label": "作業者が揃えた灰色の生地端をミシンの針元へ運び、押さえ金の下へ合わせている",
+      "query": "a worker brings the aligned gray fabric edge to the sewing machine needle area and positions it under the presser foot",
+      "reference_occurrences": 1,
+      "predicted_occurrences": 1,
+      "mean_tiou": 0.178571,
+      "tiou_at_0_5": {
+        "tp": 0,
+        "fp": 1,
+        "fn": 1,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": null
+      }
+    },
+    {
+      "unit_id": "f004_w006_curvilinear_seam",
+      "event_id": "guide_gray_fabric_under_presser_foot",
+      "event_label": "作業者が灰色の生地の曲線状の端をミシンの押さえ金の下へ送りながら、両手で向きを変えて案内している",
+      "query": "a worker feeds the curved edge of gray fabric under the sewing machine presser foot while turning and guiding it with both hands",
+      "reference_occurrences": 1,
+      "predicted_occurrences": 1,
+      "mean_tiou": 0.5,
+      "tiou_at_0_5": {
+        "tp": 1,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      }
+    },
+    {
+      "unit_id": "f006_w004_bulk_material",
+      "event_id": "move_ribbed_cylinder_to_orange_cart",
+      "event_label": "作業者が中央の大型容器から外周に縦溝のある中空円筒形金属部品を右手で持ち上げ、右側の橙色台車状容器へ移して置いている",
+      "query": "a worker lifts a hollow metal cylinder with vertical ribs from the large center container using the right hand and places it into the orange cart-like container on the right",
+      "reference_occurrences": 4,
+      "predicted_occurrences": 1,
+      "mean_tiou": 0.075,
+      "tiou_at_0_5": {
+        "tp": 0,
+        "fp": 1,
+        "fn": 4,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": null
+      }
+    },
+    {
+      "unit_id": "f006_w004_bulk_material",
+      "event_id": "move_ribbed_cylinder_to_metal_table",
+      "event_label": "作業者が中央の大型容器から外周に縦溝のある中空円筒形金属部品を右手で持ち上げ、隣の銀色作業台へ移して置いている",
+      "query": "a worker lifts a hollow metal cylinder with vertical ribs from the large center container using the right hand and places it on the adjacent silver metal table",
+      "reference_occurrences": 5,
+      "predicted_occurrences": 1,
+      "mean_tiou": 0.11,
+      "tiou_at_0_5": {
+        "tp": 1,
+        "fp": 0,
+        "fn": 4,
+        "precision": 1.0,
+        "recall": 0.2,
+        "f1": 0.333333
+      }
+    },
+    {
+      "unit_id": "f006_w004_bulk_material",
+      "event_id": "lift_ribbed_cylinder_from_bulk_container",
+      "event_label": "作業者が中央の大型容器から外周に縦溝のある中空円筒形金属部品を右手で持ち上げている",
+      "query": "a worker lifts a hollow metal cylinder with vertical ribs from the large center container using the right hand",
+      "reference_occurrences": 1,
+      "predicted_occurrences": 1,
+      "mean_tiou": 0.0,
+      "tiou_at_0_5": {
+        "tp": 0,
+        "fp": 1,
+        "fn": 1,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": null
+      }
+    },
+    {
+      "unit_id": "f006_w005_compression_molding",
+      "event_id": "carry_and_align_silver_mold_on_press_table",
+      "event_label": "作業者が銀色の二段金型を両手でプレス機の台上へ運び、円筒状の上部押し型の下で押し動かして位置を合わせ、左手で支えている",
+      "query": "a worker carries a two-level silver mold with both hands onto the press table, pushes it under the cylindrical upper press tool, aligns its position, and supports it with the left hand",
+      "reference_occurrences": 1,
+      "predicted_occurrences": 1,
+      "mean_tiou": 0.98,
+      "tiou_at_0_5": {
+        "tp": 1,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      }
+    },
+    {
+      "unit_id": "f006_w005_compression_molding",
+      "event_id": "operate_blue_lower_control_lever",
+      "event_label": "作業者が操作盤下部の青いレバー状部へ手を伸ばし、握って動かしている",
+      "query": "a worker reaches toward the blue lever-shaped control below the control panel, grips it, and moves it",
+      "reference_occurrences": 1,
+      "predicted_occurrences": 1,
+      "mean_tiou": 0.121951,
+      "tiou_at_0_5": {
+        "tp": 0,
+        "fp": 1,
+        "fn": 1,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": null
+      }
+    }
+  ],
+  "limitations": [
+    "Development evaluation, not a held-out score.",
+    "Only the selected units and their events from run queries.json are evaluated."
+  ]
+}
