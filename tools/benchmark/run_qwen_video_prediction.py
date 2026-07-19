@@ -1,5 +1,9 @@
 #!/usr/bin/env python3
-"""MLX-VLMへ20秒動画を直接入力し、eventごとの秒区間を保存する。"""
+"""MLX-VLMへ20秒動画を直接入力し、eventごとの秒区間を保存する。
+
+ファイル名は過去runとの互換性のためqwenのままだが、mlx-vlmが対応する任意の
+4B以下モデルを同じprompt・prediction契約で実行できる。
+"""
 from __future__ import annotations
 
 import argparse
@@ -34,8 +38,8 @@ PROMPT_TEMPLATE_NO_REASONING = """Event: {query}
 Locate this event in the 20-second video. Do not output reasoning, analysis, or <think> tags. Start the response with {{ and return exactly one JSON object: {{"start_s": number, "end_s": number}}. Both numbers must be between 0.0 and 20.0, with start_s less than end_s. If the event is absent, return {{"start_s": null, "end_s": null}}. Times are seconds from video start (0.0)."""
 
 
-def parse_span(text: str) -> tuple[float, float] | None:
-    """fenceや説明が混ざっても最初のJSON objectだけを厳密に読む。"""
+def parse_response(text: str) -> tuple[bool, tuple[float, float] | None]:
+    """最初のJSON objectを読み、形式の成否と区間を分離して返す。"""
     for match in re.finditer(r"\{", text):
         try:
             value, _ = json.JSONDecoder().raw_decode(text[match.start():])
@@ -45,14 +49,19 @@ def parse_span(text: str) -> tuple[float, float] | None:
             continue
         start, end = value.get("start_s"), value.get("end_s")
         if start is None and end is None:
-            return None
+            return True, None
         try:
             start, end = float(start), float(end)
         except (TypeError, ValueError):
             continue
         if 0 <= start < end <= 20:
-            return start, end
-    return None
+            return True, (start, end)
+    return False, None
+
+
+def parse_span(text: str) -> tuple[float, float] | None:
+    """後方互換用。形式不正とイベント不在はいずれも区間なしへ正規化する。"""
+    return parse_response(text)[1]
 
 
 def normalize(run_id: str, unit_id: str, raw: dict[str, Any]) -> dict[str, Any]:
@@ -83,6 +92,16 @@ def main() -> None:
     parser.add_argument("--max-pixels", type=int, default=50176)
     parser.add_argument("--max-tokens", type=int, default=100)
     parser.add_argument(
+        "--run-root", type=Path, default=ROOT / "runs",
+        help="run保存先。スモークではout配下を指定し、正式runと分離する",
+    )
+    parser.add_argument("--skip-index", action="store_true",
+                        help="runs/index.jsonlへ追記しない（スモーク用）")
+    parser.add_argument("--max-units", type=int,
+                        help="query先頭から実行するunit数（スモーク用）")
+    parser.add_argument("--max-events-per-unit", type=int,
+                        help="各unitのquery先頭から実行するevent数（スモーク用）")
+    parser.add_argument(
         "--suppress-reasoning", action="store_true",
         help="thinking modelへreasoningを出さずJSONから開始するよう明示する",
     )
@@ -97,12 +116,25 @@ def main() -> None:
         )
     query_path = Path(args.queries).resolve()
     queries = json.loads(query_path.read_text(encoding="utf-8"))
+    smoke_subset = args.max_units is not None or args.max_events_per_unit is not None
+    if args.max_units is not None:
+        if args.max_units < 1:
+            raise SystemExit("--max-unitsは1以上が必要です")
+        queries = dict(list(queries.items())[:args.max_units])
+    if args.max_events_per_unit is not None:
+        if args.max_events_per_unit < 1:
+            raise SystemExit("--max-events-per-unitは1以上が必要です")
+        queries = {
+            unit_id: dict(list(events.items())[:args.max_events_per_unit])
+            for unit_id, events in queries.items()
+        }
     validate_queries(
         queries,
         require_sop_match=True,
-        allow_event_subset=args.allow_event_subset,
+        allow_event_subset=args.allow_event_subset or smoke_subset,
     )
-    run_dir = ROOT / "runs" / args.run_id
+    run_root = args.run_root.resolve()
+    run_dir = run_root / args.run_id
     if (run_dir / "run.yaml").exists():
         raise SystemExit(f"既存runは不変です。上書きしません: {run_dir}")
 
@@ -123,7 +155,7 @@ def main() -> None:
     model = processor = None
     if pending:
         from mlx_vlm import load
-        print(f"[qwen-video] loading {args.model}; pending={len(pending)}", flush=True)
+        print(f"[video-vlm] loading {args.model}; pending={len(pending)}", flush=True)
         model, processor = load(args.model)
 
     prompt_template = (
@@ -135,6 +167,8 @@ def main() -> None:
         raw = json.loads(raw_path.read_text(encoding="utf-8")) if raw_path.exists() else {
             "unit_id": unit_id, "model_id": args.model, "events": {},
         }
+        if raw.get("model_id") != args.model:
+            raise SystemExit(f"resume rawのmodelが異なります: {raw_path}")
         video = None
         for event_id, query in events.items():
             if event_id in raw["events"]:
@@ -160,7 +194,7 @@ def main() -> None:
                 "peak_memory_gb": result.peak_memory,
             }
             write_json_atomic(raw_path, raw)
-            print(f"[qwen-video] {unit_index}/{len(queries)} {unit_id} {event_id}: "
+            print(f"[video-vlm] {unit_index}/{len(queries)} {unit_id} {event_id}: "
                   f"{response_text.strip()}", flush=True)
         write_json_atomic(run_dir / "predictions" / f"{unit_id}.json",
                           normalize(args.run_id, unit_id, raw))
@@ -193,9 +227,10 @@ def main() -> None:
             "query_source": (str(query_path.relative_to(ROOT))
                              if query_path.is_relative_to(ROOT) else str(query_path)),
             "query_ontology": (
-                "unit_sop_event_subset" if args.allow_event_subset else "unit_sop"
+                "unit_sop_event_subset"
+                if args.allow_event_subset or smoke_subset else "unit_sop"
             ),
-            "event_subset": args.allow_event_subset,
+            "event_subset": args.allow_event_subset or smoke_subset,
             "prompt_template": prompt_template,
             "suppress_reasoning": args.suppress_reasoning,
             "json_prefill": args.json_prefill,
@@ -207,14 +242,17 @@ def main() -> None:
     }
     (run_dir / "run.yaml").write_text(
         yaml.safe_dump(run_doc, allow_unicode=True, sort_keys=False), encoding="utf-8")
-    with (ROOT / "runs" / "index.jsonl").open("a", encoding="utf-8") as handle:
-        handle.write(json.dumps({"dataset": DATASET_ID, "formal_accuracy": None,
-                                 "kind": "prediction", "model": args.model_name,
-                                 "role": "local_small_vlm_temporal_grounding",
-                                 "run_id": args.run_id, "split": SPLIT_ID,
-                                 "unit_count": len(units)}, ensure_ascii=False,
-                                sort_keys=True) + "\n")
-    print(f"[qwen-video] 完了: {run_dir}")
+    if not args.skip_index:
+        if run_root != (ROOT / "runs").resolve():
+            raise SystemExit("--skip-indexなしでは--run-rootをruns以外にできません")
+        with (ROOT / "runs" / "index.jsonl").open("a", encoding="utf-8") as handle:
+            handle.write(json.dumps({"dataset": DATASET_ID, "formal_accuracy": None,
+                                     "kind": "prediction", "model": args.model_name,
+                                     "role": "local_small_vlm_temporal_grounding",
+                                     "run_id": args.run_id, "split": SPLIT_ID,
+                                     "unit_count": len(units)}, ensure_ascii=False,
+                                    sort_keys=True) + "\n")
+    print(f"[video-vlm] 完了: {run_dir}")
 
 
 if __name__ == "__main__":

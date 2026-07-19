@@ -1,0 +1,38 @@
+{
+  "unit_id": "f005_w010_manual_lathe",
+  "model_id": "mlx-community/Qwen3.5-4B-MLX-4bit",
+  "events": {
+    "turn_center_hex_with_box_wrench": {
+      "query": "a worker steadies a circular metal fixture on the lathe spindle with the left hand and repeatedly turns its center hex using a silver box-end wrench in the right hand",
+      "prompt": "Event: a worker steadies a circular metal fixture on the lathe spindle with the left hand and repeatedly turns its center hex using a silver box-end wrench in the right hand\nLocate this event in the 20-second video. Do not output reasoning, analysis, or <think> tags. Start the response with { and return exactly one JSON object: {\"start_s\": number, \"end_s\": number}. Both numbers must be between 0.0 and 20.0, with start_s less than end_s. If the event is absent, return {\"start_s\": null, \"end_s\": null}. Times are seconds from video start (0.0).",
+      "response": "{\n\"start_s\": 0.0,\n\"end_s\": 1.0\n}",
+      "prompt_tokens": 4552,
+      "generation_tokens": 23,
+      "peak_memory_gb": 5.642655326
+    },
+    "place_box_wrench_on_carriage": {
+      "query": "a worker removes a silver box-end wrench from the center hex on the lathe spindle and places the wrench on the carriage to the right",
+      "prompt": "Event: a worker removes a silver box-end wrench from the center hex on the lathe spindle and places the wrench on the carriage to the right\nLocate this event in the 20-second video. Do not output reasoning, analysis, or <think> tags. Start the response with { and return exactly one JSON object: {\"start_s\": number, \"end_s\": number}. Both numbers must be between 0.0 and 20.0, with start_s less than end_s. If the event is absent, return {\"start_s\": null, \"end_s\": null}. Times are seconds from video start (0.0).",
+      "response": "{\n\"start_s\": 1.0,\n\"end_s\": 4.0\n}",
+      "prompt_tokens": 4546,
+      "generation_tokens": 23,
+      "peak_memory_gb": 5.642655326
+    },
+    "press_left_lathe_control": {
+      "query": "a worker presses the red-and-white square control below the lathe spindle with the left hand",
+      "prompt": "Event: a worker presses the red-and-white square control below the lathe spindle with the left hand\nLocate this event in the 20-second video. Do not output reasoning, analysis, or <think> tags. Start the response with { and return exactly one JSON object: {\"start_s\": number, \"end_s\": number}. Both numbers must be between 0.0 and 20.0, with start_s less than end_s. If the event is absent, return {\"start_s\": null, \"end_s\": null}. Times are seconds from video start (0.0).",
+      "response": "{\n\"start_s\": 1.0,\n\"end_s\": 3.0\n}",
+      "prompt_tokens": 4537,
+      "generation_tokens": 23,
+      "peak_memory_gb": 5.642655326
+    },
+    "operate_front_carriage_handle": {
+      "query": "a worker grips and operates the large black handwheel on the front side of the lathe carriage with the left hand",
+      "prompt": "Event: a worker grips and operates the large black handwheel on the front side of the lathe carriage with the left hand\nLocate this event in the 20-second video. Do not output reasoning, analysis, or <think> tags. Start the response with { and return exactly one JSON object: {\"start_s\": number, \"end_s\": number}. Both numbers must be between 0.0 and 20.0, with start_s less than end_s. If the event is absent, return {\"start_s\": null, \"end_s\": null}. Times are seconds from video start (0.0).",
+      "response": "{\n  \"start_s\": 12.0,\n  \"end_s\": 15.0\n}",
+      "prompt_tokens": 4542,
+      "generation_tokens": 27,
+      "peak_memory_gb": 5.642655326
+    }
+  }
+}

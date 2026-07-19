@@ -1,0 +1,30 @@
+{
+  "unit_id": "f001_w004_material_replenishment",
+  "model_id": "mlx-community/Qwen3.5-0.8B-MLX-4bit",
+  "events": {
+    "fasten_part_with_driver": {
+      "query": "a worker assembles a part using a driver tool",
+      "prompt": "Event: a worker assembles a part using a driver tool\nLocate this event in the 20-second video. Do not output reasoning, analysis, or <think> tags. Start the response with { and return exactly one JSON object: {\"start_s\": number, \"end_s\": number}. Both numbers must be between 0.0 and 20.0, with start_s less than end_s. If the event is absent, return {\"start_s\": null, \"end_s\": null}. Times are seconds from video start (0.0).",
+      "response": "```json\n[{\"start_s\": 1.0, \"end_s\": 2.0}]\n```",
+      "prompt_tokens": 4529,
+      "generation_tokens": 25,
+      "peak_memory_gb": 2.211622248
+    },
+    "pour_parts_from_bag": {
+      "query": "a worker turns a bag upside down and pours the parts out",
+      "prompt": "Event: a worker turns a bag upside down and pours the parts out\nLocate this event in the 20-second video. Do not output reasoning, analysis, or <think> tags. Start the response with { and return exactly one JSON object: {\"start_s\": number, \"end_s\": number}. Both numbers must be between 0.0 and 20.0, with start_s less than end_s. If the event is absent, return {\"start_s\": null, \"end_s\": null}. Times are seconds from video start (0.0).",
+      "response": "```json\n[0.0, 1.0]\n```",
+      "prompt_tokens": 4531,
+      "generation_tokens": 16,
+      "peak_memory_gb": 2.299669864
+    },
+    "roll_empty_bag": {
+      "query": "a worker rolls up a bag",
+      "prompt": "Event: a worker rolls up a bag\nLocate this event in the 20-second video. Do not output reasoning, analysis, or <think> tags. Start the response with { and return exactly one JSON object: {\"start_s\": number, \"end_s\": number}. Both numbers must be between 0.0 and 20.0, with start_s less than end_s. If the event is absent, return {\"start_s\": null, \"end_s\": null}. Times are seconds from video start (0.0).",
+      "response": "```json\n[{\"start_s\": 19.5, \"end_s\": 21.0}]\n```",
+      "prompt_tokens": 4525,
+      "generation_tokens": 27,
+      "peak_memory_gb": 2.299669864
+    }
+  }
+}

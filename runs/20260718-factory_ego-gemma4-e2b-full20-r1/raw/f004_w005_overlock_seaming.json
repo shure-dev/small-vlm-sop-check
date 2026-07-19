@@ -1,0 +1,30 @@
+{
+  "unit_id": "f004_w005_overlock_seaming",
+  "model_id": "mlx-community/gemma-4-e2b-it-4bit",
+  "events": {
+    "guide_pink_fabric_under_presser_foot": {
+      "query": "a worker feeds the edge of pink fabric under the sewing machine presser foot while guiding it with both hands",
+      "prompt": "Event: a worker feeds the edge of pink fabric under the sewing machine presser foot while guiding it with both hands\nLocate this event in the 20-second video. Return exactly one JSON object: {\"start_s\": number, \"end_s\": number}. If the event is absent, return {\"start_s\": null, \"end_s\": null}. Times are seconds from video start.",
+      "response": "```json\n{\"start_s\": 0.0, \"end_s\": 0.12}\n```",
+      "prompt_tokens": 2493,
+      "generation_tokens": 27,
+      "peak_memory_gb": 6.583075992
+    },
+    "remove_pink_fabric_from_sewing_machine": {
+      "query": "a worker pulls pink fabric away from the sewing machine needle area and moves it aside",
+      "prompt": "Event: a worker pulls pink fabric away from the sewing machine needle area and moves it aside\nLocate this event in the 20-second video. Return exactly one JSON object: {\"start_s\": number, \"end_s\": number}. If the event is absent, return {\"start_s\": null, \"end_s\": null}. Times are seconds from video start.",
+      "response": "```json\n{\"start_s\": 0.0, \"end_s\": 0.1}\n```",
+      "prompt_tokens": 2488,
+      "generation_tokens": 26,
+      "peak_memory_gb": 6.583075992
+    },
+    "spread_and_align_pink_fabric_edges": {
+      "query": "a worker spreads a piece of pink fabric with both hands and follows its edge with their fingers to align the overlapping edges",
+      "prompt": "Event: a worker spreads a piece of pink fabric with both hands and follows its edge with their fingers to align the overlapping edges\nLocate this event in the 20-second video. Return exactly one JSON object: {\"start_s\": number, \"end_s\": number}. If the event is absent, return {\"start_s\": null, \"end_s\": null}. Times are seconds from video start.",
+      "response": "```json\n{\"start_s\": 0.0, \"end_s\": 0.1}\n```",
+      "prompt_tokens": 2495,
+      "generation_tokens": 26,
+      "peak_memory_gb": 6.583075992
+    }
+  }
+}

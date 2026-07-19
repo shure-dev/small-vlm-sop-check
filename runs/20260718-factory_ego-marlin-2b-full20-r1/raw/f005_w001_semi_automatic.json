@@ -1,0 +1,73 @@
+{
+  "unit_id": "f005_w001_semi_automatic",
+  "model_id": "lunahr/Marlin-2B-ungated",
+  "model_revision": "de783b96b80f477c5e665d2202571a84cb0761da",
+  "events": {
+    "place_ring_part_on_machine_spindle": {
+      "query": "a worker places a ring-shaped part onto the central machine spindle",
+      "result": {
+        "raw": "From 14.0 to 18.0.",
+        "span": [
+          14.0,
+          18.0
+        ],
+        "format_ok": true
+      }
+    },
+    "arrange_white_cord_by_hand": {
+      "query": "a worker arranges the white cord on the ring-shaped part with both hands",
+      "result": {
+        "raw": "From 6.5 to 11.0.",
+        "span": [
+          6.5,
+          11.0
+        ],
+        "format_ok": true
+      }
+    },
+    "press_illuminated_control_switch": {
+      "query": "a worker presses the illuminated switch on the right control panel",
+      "result": {
+        "raw": "From 10.0 to 11.5.",
+        "span": [
+          10.0,
+          11.5
+        ],
+        "format_ok": true
+      }
+    },
+    "reach_and_return_with_black_tweezers": {
+      "query": "a worker reaches to the right and returns holding black tweezers",
+      "result": {
+        "raw": "From 14.0 to 15.0.",
+        "span": [
+          14.0,
+          15.0
+        ],
+        "format_ok": true
+      }
+    },
+    "position_black_tweezers_at_white_cord": {
+      "query": "a worker brings the black tweezers to the white cord on the ring part",
+      "result": {
+        "raw": "From 14.0 to 15.0.",
+        "span": [
+          14.0,
+          15.0
+        ],
+        "format_ok": true
+      }
+    },
+    "tuck_white_cord_with_black_tweezers": {
+      "query": "a worker tucks the white cord with black tweezers",
+      "result": {
+        "raw": "From 14.5 to 18.5.",
+        "span": [
+          14.5,
+          18.5
+        ],
+        "format_ok": true
+      }
+    }
+  }
+}

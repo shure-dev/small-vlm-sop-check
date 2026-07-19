@@ -1,0 +1,22 @@
+{
+  "unit_id": "f003_w009_injection_molding",
+  "model_id": "mlx-community/Qwen3.5-2B-MLX-4bit",
+  "events": {
+    "remove_yellow_parts_from_mold": {
+      "query": "a worker removes small yellow molded parts from the open metal mold and places them on the tray to the right",
+      "prompt": "Event: a worker removes small yellow molded parts from the open metal mold and places them on the tray to the right\nLocate this event in the 20-second video. Do not output reasoning, analysis, or <think> tags. Start the response with { and return exactly one JSON object: {\"start_s\": number, \"end_s\": number}. Both numbers must be between 0.0 and 20.0, with start_s less than end_s. If the event is absent, return {\"start_s\": null, \"end_s\": null}. Times are seconds from video start (0.0).",
+      "response": "```json\n{\n\"start_s\": 1.0,\n\"end_s\": 10.0\n}\n```",
+      "prompt_tokens": 4540,
+      "generation_tokens": 29,
+      "peak_memory_gb": 3.471323978
+    },
+    "hold_metal_rod_at_mold": {
+      "query": "a worker picks up and holds a thin metal rod beside the open mold",
+      "prompt": "Event: a worker picks up and holds a thin metal rod beside the open mold\nLocate this event in the 20-second video. Do not output reasoning, analysis, or <think> tags. Start the response with { and return exactly one JSON object: {\"start_s\": number, \"end_s\": number}. Both numbers must be between 0.0 and 20.0, with start_s less than end_s. If the event is absent, return {\"start_s\": null, \"end_s\": null}. Times are seconds from video start (0.0).",
+      "response": "```json\n{\n\"start_s\": 1.0,\n\"end_s\": 10.0\n}\n```",
+      "prompt_tokens": 4533,
+      "generation_tokens": 29,
+      "peak_memory_gb": 3.471323978
+    }
+  }
+}

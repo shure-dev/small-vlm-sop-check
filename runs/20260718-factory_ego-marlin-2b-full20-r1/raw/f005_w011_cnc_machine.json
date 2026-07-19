@@ -1,0 +1,73 @@
+{
+  "unit_id": "f005_w011_cnc_machine",
+  "model_id": "lunahr/Marlin-2B-ungated",
+  "model_revision": "de783b96b80f477c5e665d2202571a84cb0761da",
+  "events": {
+    "carry_square_fixture_to_cnc_opening": {
+      "query": "a worker carries a square metal fixture with an orange face and central hole in the right hand while walking to the open CNC machine",
+      "result": {
+        "raw": "From 1.2 to 5.0.",
+        "span": [
+          1.2,
+          5.0
+        ],
+        "format_ok": true
+      }
+    },
+    "position_square_fixture_inside_cnc": {
+      "query": "a worker presses a square metal fixture against the vertical mounting area inside the CNC machine and adjusts its position with the right hand",
+      "result": {
+        "raw": "From 10.0 to 13.0.",
+        "span": [
+          10.0,
+          13.0
+        ],
+        "format_ok": true
+      }
+    },
+    "press_illuminated_orange_control": {
+      "query": "a worker presses the illuminated orange round button on the CNC machine control panel with the left hand",
+      "result": {
+        "raw": "From 6.8 to 7.5.",
+        "span": [
+          6.8,
+          7.5
+        ],
+        "format_ok": true
+      }
+    },
+    "press_lower_right_silver_control": {
+      "query": "a worker presses the silver round button at the lower-right of the CNC machine control panel with the left hand",
+      "result": {
+        "raw": "From 6.9 to 7.6.",
+        "span": [
+          6.9,
+          7.6
+        ],
+        "format_ok": true
+      }
+    },
+    "close_cnc_sliding_door": {
+      "query": "a worker grips the black vertical handle of the CNC machine with the left hand and closes the sliding door",
+      "result": {
+        "raw": "From 11.4 to 13.0.",
+        "span": [
+          11.4,
+          13.0
+        ],
+        "format_ok": true
+      }
+    },
+    "move_orange_square_fixture_on_table": {
+      "query": "a worker lifts an orange square metal fixture from the worktable with the right hand, moves it to the adjacent position, and sets it down",
+      "result": {
+        "raw": "From 14.0 to 19.0.",
+        "span": [
+          14.0,
+          19.0
+        ],
+        "format_ok": true
+      }
+    }
+  }
+}

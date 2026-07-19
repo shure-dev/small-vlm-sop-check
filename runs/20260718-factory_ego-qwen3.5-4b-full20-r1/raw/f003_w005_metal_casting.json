@@ -1,0 +1,38 @@
+{
+  "unit_id": "f003_w005_metal_casting",
+  "model_id": "mlx-community/Qwen3.5-4B-MLX-4bit",
+  "events": {
+    "carry_casting_bundle": {
+      "query": "a worker carries a connected bundle of silver cast-metal parts by hand from the work table toward a wooden crate",
+      "prompt": "Event: a worker carries a connected bundle of silver cast-metal parts by hand from the work table toward a wooden crate\nLocate this event in the 20-second video. Do not output reasoning, analysis, or <think> tags. Start the response with { and return exactly one JSON object: {\"start_s\": number, \"end_s\": number}. Both numbers must be between 0.0 and 20.0, with start_s less than end_s. If the event is absent, return {\"start_s\": null, \"end_s\": null}. Times are seconds from video start (0.0).",
+      "response": "{\n\"start_s\": 1.0,\n\"end_s\": 5.0\n}",
+      "prompt_tokens": 4540,
+      "generation_tokens": 23,
+      "peak_memory_gb": 5.642573406
+    },
+    "put_casting_into_crate": {
+      "query": "a worker lowers the connected silver casting into the wooden crate directly in front of him",
+      "prompt": "Event: a worker lowers the connected silver casting into the wooden crate directly in front of him\nLocate this event in the 20-second video. Do not output reasoning, analysis, or <think> tags. Start the response with { and return exactly one JSON object: {\"start_s\": number, \"end_s\": number}. Both numbers must be between 0.0 and 20.0, with start_s less than end_s. If the event is absent, return {\"start_s\": null, \"end_s\": null}. Times are seconds from video start (0.0).",
+      "response": "{\n\"start_s\": 1.0,\n\"end_s\": 3.0\n}",
+      "prompt_tokens": 4535,
+      "generation_tokens": 23,
+      "peak_memory_gb": 5.642573406
+    },
+    "pick_up_hammer": {
+      "query": "after returning from the crate, a worker reaches to the work table and lifts the wooden-handled hammer with his right hand",
+      "prompt": "Event: after returning from the crate, a worker reaches to the work table and lifts the wooden-handled hammer with his right hand\nLocate this event in the 20-second video. Do not output reasoning, analysis, or <think> tags. Start the response with { and return exactly one JSON object: {\"start_s\": number, \"end_s\": number}. Both numbers must be between 0.0 and 20.0, with start_s less than end_s. If the event is absent, return {\"start_s\": null, \"end_s\": null}. Times are seconds from video start (0.0).",
+      "response": "{\n\"start_s\": 1.0,\n\"end_s\": 3.0\n}",
+      "prompt_tokens": 4543,
+      "generation_tokens": 23,
+      "peak_memory_gb": 5.642573406
+    },
+    "hammer_casting": {
+      "query": "a worker repeatedly strikes silver cast-metal parts on the work table with a wooden-handled hammer",
+      "prompt": "Event: a worker repeatedly strikes silver cast-metal parts on the work table with a wooden-handled hammer\nLocate this event in the 20-second video. Do not output reasoning, analysis, or <think> tags. Start the response with { and return exactly one JSON object: {\"start_s\": number, \"end_s\": number}. Both numbers must be between 0.0 and 20.0, with start_s less than end_s. If the event is absent, return {\"start_s\": null, \"end_s\": null}. Times are seconds from video start (0.0).",
+      "response": "{\n\"start_s\": 1.0,\n\"end_s\": 19.0\n}",
+      "prompt_tokens": 4537,
+      "generation_tokens": 24,
+      "peak_memory_gb": 5.642573406
+    }
+  }
+}

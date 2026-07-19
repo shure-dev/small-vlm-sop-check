@@ -1,0 +1,40 @@
+{
+  "unit_id": "f004_w005_overlock_seaming",
+  "model_id": "lunahr/Marlin-2B-ungated",
+  "model_revision": "de783b96b80f477c5e665d2202571a84cb0761da",
+  "events": {
+    "guide_pink_fabric_under_presser_foot": {
+      "query": "a worker feeds the edge of pink fabric under the sewing machine presser foot while guiding it with both hands",
+      "result": {
+        "raw": "From 14.0 to 16.8.",
+        "span": [
+          14.0,
+          16.8
+        ],
+        "format_ok": true
+      }
+    },
+    "remove_pink_fabric_from_sewing_machine": {
+      "query": "a worker pulls pink fabric away from the sewing machine needle area and moves it aside",
+      "result": {
+        "raw": "From 17.0 to 19.6.",
+        "span": [
+          17.0,
+          19.6
+        ],
+        "format_ok": true
+      }
+    },
+    "spread_and_align_pink_fabric_edges": {
+      "query": "a worker spreads a piece of pink fabric with both hands and follows its edge with their fingers to align the overlapping edges",
+      "result": {
+        "raw": "From 14.0 to 17.0.",
+        "span": [
+          14.0,
+          17.0
+        ],
+        "format_ok": true
+      }
+    }
+  }
+}

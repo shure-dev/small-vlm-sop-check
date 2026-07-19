@@ -1,0 +1,30 @@
+{
+  "unit_id": "f004_w006_curvilinear_seam",
+  "model_id": "mlx-community/Qwen3.5-0.8B-MLX-4bit",
+  "events": {
+    "align_curved_gray_fabric_edges": {
+      "query": "a worker pinches the curved edges of gray fabric with both hands and aligns the overlapping edges",
+      "prompt": "Event: a worker pinches the curved edges of gray fabric with both hands and aligns the overlapping edges\nLocate this event in the 20-second video. Do not output reasoning, analysis, or <think> tags. Start the response with { and return exactly one JSON object: {\"start_s\": number, \"end_s\": number}. Both numbers must be between 0.0 and 20.0, with start_s less than end_s. If the event is absent, return {\"start_s\": null, \"end_s\": null}. Times are seconds from video start (0.0).",
+      "response": "```json\n{\n  \"start_s\": 10.3,\n  \"end_s\": 12.1\n}\n```",
+      "prompt_tokens": 4538,
+      "generation_tokens": 32,
+      "peak_memory_gb": 2.299719016
+    },
+    "position_gray_fabric_at_presser_foot": {
+      "query": "a worker brings the aligned gray fabric edge to the sewing machine needle area and positions it under the presser foot",
+      "prompt": "Event: a worker brings the aligned gray fabric edge to the sewing machine needle area and positions it under the presser foot\nLocate this event in the 20-second video. Do not output reasoning, analysis, or <think> tags. Start the response with { and return exactly one JSON object: {\"start_s\": number, \"end_s\": number}. Both numbers must be between 0.0 and 20.0, with start_s less than end_s. If the event is absent, return {\"start_s\": null, \"end_s\": null}. Times are seconds from video start (0.0).",
+      "response": "```json\n{\n  \"start_s\": 10.7,\n  \"end_s\": 12.5\n}\n```",
+      "prompt_tokens": 4541,
+      "generation_tokens": 32,
+      "peak_memory_gb": 2.299719016
+    },
+    "guide_gray_fabric_under_presser_foot": {
+      "query": "a worker feeds the curved edge of gray fabric under the sewing machine presser foot while turning and guiding it with both hands",
+      "prompt": "Event: a worker feeds the curved edge of gray fabric under the sewing machine presser foot while turning and guiding it with both hands\nLocate this event in the 20-second video. Do not output reasoning, analysis, or <think> tags. Start the response with { and return exactly one JSON object: {\"start_s\": number, \"end_s\": number}. Both numbers must be between 0.0 and 20.0, with start_s less than end_s. If the event is absent, return {\"start_s\": null, \"end_s\": null}. Times are seconds from video start (0.0).",
+      "response": "```json\n{\n\"start_s\": 0.0,\n\"end_s\": 10.0\n}\n```",
+      "prompt_tokens": 4543,
+      "generation_tokens": 29,
+      "peak_memory_gb": 2.299719016
+    }
+  }
+}

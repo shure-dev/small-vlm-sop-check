@@ -19,7 +19,7 @@ dependencies = [
 [project.optional-dependencies]
 vlm = [
   "opencv-python>=4.8",
-  "mlx-vlm>=0.6.0",
+  "mlx-vlm>=0.6.3",
   "mlx>=0.20.0",
 ]
 marlin = [

@@ -1,0 +1,30 @@
+{
+  "unit_id": "f004_w006_curvilinear_seam",
+  "model_id": "mlx-community/Qwen3-VL-2B-Instruct-4bit",
+  "events": {
+    "align_curved_gray_fabric_edges": {
+      "query": "a worker pinches the curved edges of gray fabric with both hands and aligns the overlapping edges",
+      "prompt": "Event: a worker pinches the curved edges of gray fabric with both hands and aligns the overlapping edges\nLocate this event in the 20-second video. Return exactly one JSON object: {\"start_s\": number, \"end_s\": number}. If the event is absent, return {\"start_s\": null, \"end_s\": null}. Times are seconds from video start.",
+      "response": "```json\n{\n\"start_s\": 11,\n\"end_s\": 24\n}\n```",
+      "prompt_tokens": 4488,
+      "generation_tokens": 23,
+      "peak_memory_gb": 3.280522717
+    },
+    "position_gray_fabric_at_presser_foot": {
+      "query": "a worker brings the aligned gray fabric edge to the sewing machine needle area and positions it under the presser foot",
+      "prompt": "Event: a worker brings the aligned gray fabric edge to the sewing machine needle area and positions it under the presser foot\nLocate this event in the 20-second video. Return exactly one JSON object: {\"start_s\": number, \"end_s\": number}. If the event is absent, return {\"start_s\": null, \"end_s\": null}. Times are seconds from video start.",
+      "response": "```json\n{\n\"start_s\": 10,\n\"end_s\": 24\n}\n```",
+      "prompt_tokens": 4491,
+      "generation_tokens": 23,
+      "peak_memory_gb": 3.280522717
+    },
+    "guide_gray_fabric_under_presser_foot": {
+      "query": "a worker feeds the curved edge of gray fabric under the sewing machine presser foot while turning and guiding it with both hands",
+      "prompt": "Event: a worker feeds the curved edge of gray fabric under the sewing machine presser foot while turning and guiding it with both hands\nLocate this event in the 20-second video. Return exactly one JSON object: {\"start_s\": number, \"end_s\": number}. If the event is absent, return {\"start_s\": null, \"end_s\": null}. Times are seconds from video start.",
+      "response": "```json\n{\n\"start_s\": 11,\n\"end_s\": 24\n}\n```",
+      "prompt_tokens": 4493,
+      "generation_tokens": 23,
+      "peak_memory_gb": 3.280522717
+    }
+  }
+}

@@ -927,7 +927,7 @@ requires-dist = [
     { name = "httpx2", marker = "extra == 'test'", specifier = ">=2.5" },
     { name = "huggingface-hub", marker = "extra == 'fetch'", specifier = ">=0.30" },
     { name = "mlx", marker = "extra == 'vlm'", specifier = ">=0.20.0" },
-    { name = "mlx-vlm", marker = "extra == 'vlm'", specifier = ">=0.6.0" },
+    { name = "mlx-vlm", marker = "extra == 'vlm'", specifier = ">=0.6.3" },
     { name = "opencv-python", marker = "extra == 'fetch'", specifier = ">=4.8" },
     { name = "opencv-python", marker = "extra == 'vlm'", specifier = ">=4.8" },
     { name = "pytest", marker = "extra == 'test'", specifier = ">=8.0" },

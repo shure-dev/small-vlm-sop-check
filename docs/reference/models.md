@@ -8,7 +8,7 @@
 |---|---|---|
 | `qwen3-2b` / `qwen3-4b` | Qwen3-VL 2B / 4B | 2BはJSON出力が崩れやすい |
 | `qwen3.5-0.8b` / `qwen3.5-2b` / `qwen3.5-4b` | Qwen3.5 0.8B / 2B / 4B | 早期fusionのネイティブVLM |
-| `lfm2.5-1.6b` | LFM2.5-VL 1.6B | mlx-vlm 0.6.4以上が必要 |
+| `lfm2.5-1.6b` | LFM2.5-VL 1.6B | mlx-vlm 0.6.3では変換重みとprojector実装が不一致 |
 | `qwen2.5-3b` | Qwen2.5-VL-3B | — |
 | `internvl3-2b` | InternVL3-2B | — |
 | `gemma4-e2b` | Gemma4-E2B | — |
@@ -31,6 +31,8 @@ sop-check models
 思考過程を使う場合は `--prefill '' --max-tokens 1024` などに変更します。ただし、このプロジェクトのフレームごとの質問回答では、短いyes/no JSONを安定して返す設定を優先しています。
 
 新規の標準実験は4B以下に限定します。過去に取得済みの7Bモデル結果は比較履歴として残しますが、CLIの推奨aliasからは外しています。必要な任意モデルはフルmodel IDで明示指定できます。
+
+全動画Temporal Groundingの動作可否はフレーム分類と異なります。2026-07-18のmodel matrixでは、MiniCPM-V-4.6は20秒外の時刻を返し、InternVL3-2BとLFM2.5-VL-1.6Bは現行MLX動画経路のruntime互換性ゲートを通過しませんでした。失敗をモデル精度と混同せず、条件と理由は[集約artifact](../../evaluations/factory_ego_model_matrix_v1.json)へ残します。
 
 ## SmolVLM2について
 

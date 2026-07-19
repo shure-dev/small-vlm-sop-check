@@ -1,0 +1,32 @@
+{
+  "run_id": "20260718-factory_ego-qwen3.5-0.8b-full20-r1",
+  "unit_id": "f004_w005_heat_press",
+  "method": "temporal_grounding",
+  "interval_convention": "half-open_seconds",
+  "events": {
+    "raise_heat_press_handle": [
+      {
+        "start_s": 15.0,
+        "end_s": 18.0
+      }
+    ],
+    "remove_white_fabric_from_heat_press": [
+      {
+        "start_s": 10.0,
+        "end_s": 12.0
+      }
+    ],
+    "separate_white_fabric_from_stack": [
+      {
+        "start_s": 11.3,
+        "end_s": 12.5
+      }
+    ],
+    "align_and_fold_white_fabric_on_table": [
+      {
+        "start_s": 1.0,
+        "end_s": 2.0
+      }
+    ]
+  }
+}

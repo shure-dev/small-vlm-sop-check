@@ -1,0 +1,16 @@
+{
+  "run_id": "20260718-factory_ego-gemma4-e2b-full20-r1",
+  "unit_id": "f003_w007_wax_pattern",
+  "method": "temporal_grounding",
+  "interval_convention": "half-open_seconds",
+  "events": {
+    "clean_wax_cluster_with_rod": [
+      {
+        "start_s": 0.0,
+        "end_s": 0.1
+      }
+    ],
+    "mark_wax_cluster_with_white_tool": null,
+    "place_wax_cluster_on_rack": null
+  }
+}

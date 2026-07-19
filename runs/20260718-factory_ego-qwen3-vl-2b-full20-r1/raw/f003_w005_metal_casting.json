@@ -1,0 +1,38 @@
+{
+  "unit_id": "f003_w005_metal_casting",
+  "model_id": "mlx-community/Qwen3-VL-2B-Instruct-4bit",
+  "events": {
+    "carry_casting_bundle": {
+      "query": "a worker carries a connected bundle of silver cast-metal parts by hand from the work table toward a wooden crate",
+      "prompt": "Event: a worker carries a connected bundle of silver cast-metal parts by hand from the work table toward a wooden crate\nLocate this event in the 20-second video. Return exactly one JSON object: {\"start_s\": number, \"end_s\": number}. If the event is absent, return {\"start_s\": null, \"end_s\": null}. Times are seconds from video start.",
+      "response": "```json\n{\n \"start_s\": 10,\n \"end_s\": 20\n}\n```",
+      "prompt_tokens": 4490,
+      "generation_tokens": 23,
+      "peak_memory_gb": 3.280522717
+    },
+    "put_casting_into_crate": {
+      "query": "a worker lowers the connected silver casting into the wooden crate directly in front of him",
+      "prompt": "Event: a worker lowers the connected silver casting into the wooden crate directly in front of him\nLocate this event in the 20-second video. Return exactly one JSON object: {\"start_s\": number, \"end_s\": number}. If the event is absent, return {\"start_s\": null, \"end_s\": null}. Times are seconds from video start.",
+      "response": "```json\n{\n \"start_s\": 14,\n \"end_s\": 24\n}\n```",
+      "prompt_tokens": 4485,
+      "generation_tokens": 23,
+      "peak_memory_gb": 3.280522717
+    },
+    "pick_up_hammer": {
+      "query": "after returning from the crate, a worker reaches to the work table and lifts the wooden-handled hammer with his right hand",
+      "prompt": "Event: after returning from the crate, a worker reaches to the work table and lifts the wooden-handled hammer with his right hand\nLocate this event in the 20-second video. Return exactly one JSON object: {\"start_s\": number, \"end_s\": number}. If the event is absent, return {\"start_s\": null, \"end_s\": null}. Times are seconds from video start.",
+      "response": "```json\n{\n \"start_s\": 14,\n \"end_s\": 27\n}\n```",
+      "prompt_tokens": 4493,
+      "generation_tokens": 23,
+      "peak_memory_gb": 3.280522717
+    },
+    "hammer_casting": {
+      "query": "a worker repeatedly strikes silver cast-metal parts on the work table with a wooden-handled hammer",
+      "prompt": "Event: a worker repeatedly strikes silver cast-metal parts on the work table with a wooden-handled hammer\nLocate this event in the 20-second video. Return exactly one JSON object: {\"start_s\": number, \"end_s\": number}. If the event is absent, return {\"start_s\": null, \"end_s\": null}. Times are seconds from video start.",
+      "response": "```json\n{\n \"start_s\": 10,\n \"end_s\": 20\n}\n```",
+      "prompt_tokens": 4487,
+      "generation_tokens": 23,
+      "peak_memory_gb": 3.280522717
+    }
+  }
+}

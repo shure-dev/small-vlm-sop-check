@@ -1,0 +1,38 @@
+{
+  "unit_id": "f004_w004_continuous_fabric",
+  "model_id": "mlx-community/Qwen3-VL-2B-Instruct-4bit",
+  "events": {
+    "move_black_garment_to_upper_left": {
+      "query": "a worker lifts a black garment with both hands and moves it to the upper-left side of the worktable",
+      "prompt": "Event: a worker lifts a black garment with both hands and moves it to the upper-left side of the worktable\nLocate this event in the 20-second video. Return exactly one JSON object: {\"start_s\": number, \"end_s\": number}. If the event is absent, return {\"start_s\": null, \"end_s\": null}. Times are seconds from video start.",
+      "response": "```json\n{\n\"start_s\": 0,\n\"end_s\": 10\n}\n```",
+      "prompt_tokens": 4490,
+      "generation_tokens": 22,
+      "peak_memory_gb": 3.280522717
+    },
+    "spread_garment_in_front_of_sewing_machine": {
+      "query": "a worker pulls a black garment toward themselves with both hands and spreads it on the table in front of the sewing machine",
+      "prompt": "Event: a worker pulls a black garment toward themselves with both hands and spreads it on the table in front of the sewing machine\nLocate this event in the 20-second video. Return exactly one JSON object: {\"start_s\": number, \"end_s\": number}. If the event is absent, return {\"start_s\": null, \"end_s\": null}. Times are seconds from video start.",
+      "response": "```json\n{\n    \"start_s\": 10,\n    \"end_s\": 24\n}\n```",
+      "prompt_tokens": 4492,
+      "generation_tokens": 25,
+      "peak_memory_gb": 3.280522717
+    },
+    "align_garment_edge_layers": {
+      "query": "a worker pinches the edge of a black garment with both hands and aligns the overlapping fabric layers",
+      "prompt": "Event: a worker pinches the edge of a black garment with both hands and aligns the overlapping fabric layers\nLocate this event in the 20-second video. Return exactly one JSON object: {\"start_s\": number, \"end_s\": number}. If the event is absent, return {\"start_s\": null, \"end_s\": null}. Times are seconds from video start.",
+      "response": "```json\n{\n\"start_s\": 10,\n\"end_s\": 20\n}\n```",
+      "prompt_tokens": 4489,
+      "generation_tokens": 23,
+      "peak_memory_gb": 3.280522717
+    },
+    "feed_garment_edge_under_presser_foot": {
+      "query": "a worker feeds the aligned edge of a black garment under the sewing machine presser foot",
+      "prompt": "Event: a worker feeds the aligned edge of a black garment under the sewing machine presser foot\nLocate this event in the 20-second video. Return exactly one JSON object: {\"start_s\": number, \"end_s\": number}. If the event is absent, return {\"start_s\": null, \"end_s\": null}. Times are seconds from video start.",
+      "response": "```json\n{\n\"start_s\": 11,\n\"end_s\": 24\n}\n```",
+      "prompt_tokens": 4486,
+      "generation_tokens": 23,
+      "peak_memory_gb": 3.280522717
+    }
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "unit_id": "f001_w011_metal_stamping",
+  "model_id": "mlx-community/Qwen3.5-2B-MLX-4bit",
+  "events": {
+    "feed_metal_strip_into_press": {
+      "query": "a worker feeds a long strip of metal into a press machine",
+      "prompt": "Event: a worker feeds a long strip of metal into a press machine\nLocate this event in the 20-second video. Do not output reasoning, analysis, or <think> tags. Start the response with { and return exactly one JSON object: {\"start_s\": number, \"end_s\": number}. Both numbers must be between 0.0 and 20.0, with start_s less than end_s. If the event is absent, return {\"start_s\": null, \"end_s\": null}. Times are seconds from video start (0.0).",
+      "response": "{\n\"start_s\": 1.0,\n\"end_s\": 10.0\n}",
+      "prompt_tokens": 4531,
+      "generation_tokens": 24,
+      "peak_memory_gb": 3.471274826
+    },
+    "walk_to_next_press": {
+      "query": "a worker leaves one metal press and walks along the marked factory aisle to the neighboring press station",
+      "prompt": "Event: a worker leaves one metal press and walks along the marked factory aisle to the neighboring press station\nLocate this event in the 20-second video. Do not output reasoning, analysis, or <think> tags. Start the response with { and return exactly one JSON object: {\"start_s\": number, \"end_s\": number}. Both numbers must be between 0.0 and 20.0, with start_s less than end_s. If the event is absent, return {\"start_s\": null, \"end_s\": null}. Times are seconds from video start (0.0).",
+      "response": "```json\n{\n\"start_s\": 1.0,\n\"end_s\": 10.0\n}\n```",
+      "prompt_tokens": 4537,
+      "generation_tokens": 29,
+      "peak_memory_gb": 3.471307594
+    },
+    "pick_up_metal_sheets": {
+      "query": "a worker picks up metal sheets",
+      "prompt": "Event: a worker picks up metal sheets\nLocate this event in the 20-second video. Do not output reasoning, analysis, or <think> tags. Start the response with { and return exactly one JSON object: {\"start_s\": number, \"end_s\": number}. Both numbers must be between 0.0 and 20.0, with start_s less than end_s. If the event is absent, return {\"start_s\": null, \"end_s\": null}. Times are seconds from video start (0.0).",
+      "response": "{\n\"start_s\": 0.0,\n\"end_s\": 1.0\n}",
+      "prompt_tokens": 4525,
+      "generation_tokens": 23,
+      "peak_memory_gb": 3.471307594
+    },
+    "align_metal_sheet_stack": {
+      "query": "a worker aligns and gathers metal sheets",
+      "prompt": "Event: a worker aligns and gathers metal sheets\nLocate this event in the 20-second video. Do not output reasoning, analysis, or <think> tags. Start the response with { and return exactly one JSON object: {\"start_s\": number, \"end_s\": number}. Both numbers must be between 0.0 and 20.0, with start_s less than end_s. If the event is absent, return {\"start_s\": null, \"end_s\": null}. Times are seconds from video start (0.0).",
+      "response": "{\n\"start_s\": 0.0,\n\"end_s\": 10.0\n}",
+      "prompt_tokens": 4527,
+      "generation_tokens": 24,
+      "peak_memory_gb": 3.471307594
+    }
+  }
+}

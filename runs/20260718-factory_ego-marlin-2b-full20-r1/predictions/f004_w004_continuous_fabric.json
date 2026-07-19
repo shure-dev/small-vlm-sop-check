@@ -1,0 +1,32 @@
+{
+  "run_id": "20260718-factory_ego-marlin-2b-full20-r1",
+  "unit_id": "f004_w004_continuous_fabric",
+  "method": "temporal_grounding",
+  "interval_convention": "half-open_seconds",
+  "events": {
+    "move_black_garment_to_upper_left": [
+      {
+        "start_s": 12.0,
+        "end_s": 13.6
+      }
+    ],
+    "spread_garment_in_front_of_sewing_machine": [
+      {
+        "start_s": 12.0,
+        "end_s": 15.0
+      }
+    ],
+    "align_garment_edge_layers": [
+      {
+        "start_s": 14.0,
+        "end_s": 17.0
+      }
+    ],
+    "feed_garment_edge_under_presser_foot": [
+      {
+        "start_s": 16.0,
+        "end_s": 19.0
+      }
+    ]
+  }
+}

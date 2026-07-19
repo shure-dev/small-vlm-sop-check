@@ -43,6 +43,11 @@ def test_api_loads_all_complete_units_and_available_model_comparisons():
             "MiniCPM-V 4.6 video grounding",
             "Qwen3.5-4B video grounding",
             "Qwen3-VL-4B video grounding",
+            "Qwen3.5-0.8B 4-bit",
+            "Qwen3.5-2B 4-bit",
+            "Qwen3.5-4B 4-bit",
+            "Qwen3-VL-2B-Instruct 4-bit",
+            "Gemma 4 E2B IT 4-bit",
         } for run in runs)
         assert all(run["comparison"]["summary"]["mean_tiou"] is not None for run in runs)
         assert all(

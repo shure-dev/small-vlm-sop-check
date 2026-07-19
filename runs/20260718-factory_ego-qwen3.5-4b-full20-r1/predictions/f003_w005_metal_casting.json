@@ -1,0 +1,32 @@
+{
+  "run_id": "20260718-factory_ego-qwen3.5-4b-full20-r1",
+  "unit_id": "f003_w005_metal_casting",
+  "method": "temporal_grounding",
+  "interval_convention": "half-open_seconds",
+  "events": {
+    "carry_casting_bundle": [
+      {
+        "start_s": 1.0,
+        "end_s": 5.0
+      }
+    ],
+    "put_casting_into_crate": [
+      {
+        "start_s": 1.0,
+        "end_s": 3.0
+      }
+    ],
+    "pick_up_hammer": [
+      {
+        "start_s": 1.0,
+        "end_s": 3.0
+      }
+    ],
+    "hammer_casting": [
+      {
+        "start_s": 1.0,
+        "end_s": 19.0
+      }
+    ]
+  }
+}

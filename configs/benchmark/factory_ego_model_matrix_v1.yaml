@@ -1,0 +1,127 @@
+benchmark_id: factory_ego_model_matrix_v1
+dataset: factory_ego
+split: development
+queries: out/factory-ego-benchmark-v1-queries.json
+unit_count: 20
+event_query_count: 68
+task: temporal_grounding
+prompt_condition: shared_event_query_and_timestamp_json_contract
+limits:
+  max_parameters_b: 4.0
+  video_fps: 2.0
+  video_width: 640
+  max_pixels: 50176
+  max_tokens: 100
+  temperature: 0
+
+# statusはスモーク後に更新する。unsupportedも削除せず、再現可能な失敗理由を残す。
+models:
+  - key: qwen3.5-0.8b
+    model: mlx-community/Qwen3.5-0.8B-MLX-4bit
+    upstream_model: Qwen/Qwen3.5-0.8B
+    name: Qwen3.5-0.8B 4-bit
+    parameters_b: 0.8
+    family: qwen
+    suppress_reasoning: true
+  - key: qwen3.5-2b
+    model: mlx-community/Qwen3.5-2B-MLX-4bit
+    upstream_model: Qwen/Qwen3.5-2B
+    name: Qwen3.5-2B 4-bit
+    parameters_b: 2.0
+    family: qwen
+    suppress_reasoning: true
+  - key: qwen3.5-4b
+    model: mlx-community/Qwen3.5-4B-MLX-4bit
+    upstream_model: Qwen/Qwen3.5-4B
+    name: Qwen3.5-4B 4-bit
+    parameters_b: 4.0
+    family: qwen
+    suppress_reasoning: true
+  - key: qwen3-vl-2b
+    model: mlx-community/Qwen3-VL-2B-Instruct-4bit
+    upstream_model: Qwen/Qwen3-VL-2B-Instruct
+    name: Qwen3-VL-2B-Instruct 4-bit
+    parameters_b: 2.0
+    family: qwen
+  - key: qwen3-vl-4b
+    model: mlx-community/Qwen3-VL-4B-Instruct-4bit
+    upstream_model: Qwen/Qwen3-VL-4B-Instruct
+    name: Qwen3-VL-4B-Instruct 4-bit
+    parameters_b: 4.0
+    family: qwen
+    full_enabled: false
+    full_exclusion_reason: user_removed_from_this_full_matrix
+  - key: qwen2.5-vl-3b
+    model: mlx-community/Qwen2.5-VL-3B-Instruct-4bit
+    upstream_model: Qwen/Qwen2.5-VL-3B-Instruct
+    name: Qwen2.5-VL-3B-Instruct 4-bit
+    parameters_b: 3.0
+    family: qwen
+    full_enabled: false
+    full_exclusion_reason: user_removed_from_this_full_matrix
+  - key: minicpm-v-4.6
+    model: mlx-community/MiniCPM-V-4.6-4bit
+    upstream_model: openbmb/MiniCPM-V-4.6
+    name: MiniCPM-V-4.6 4-bit
+    parameters_b: 1.3
+    family: minicpm
+    suppress_reasoning: true
+    json_prefill: true
+  - key: internvl3-2b
+    model: mlx-community/InternVL3-2B-4bit
+    upstream_model: OpenGVLab/InternVL3-2B
+    name: InternVL3-2B 4-bit
+    parameters_b: 2.0
+    family: internvl
+  - key: lfm2.5-vl-1.6b
+    model: mlx-community/LFM2.5-VL-1.6B-4bit
+    upstream_model: LiquidAI/LFM2.5-VL-1.6B
+    name: LFM2.5-VL-1.6B 4-bit
+    parameters_b: 1.6
+    family: lfm
+  - key: gemma4-e2b
+    model: mlx-community/gemma-4-e2b-it-4bit
+    upstream_model: google/gemma-4-e2b-it
+    name: Gemma 4 E2B IT 4-bit
+    parameters_b: 2.0
+    parameter_note: effective_parameter_tier
+    family: gemma
+  - key: smolvlm2-256m
+    model: mlx-community/SmolVLM2-256M-Video-Instruct-mlx
+    upstream_model: HuggingFaceTB/SmolVLM2-256M-Video-Instruct
+    name: SmolVLM2-256M Video Instruct MLX
+    parameters_b: 0.256
+    family: smolvlm
+  - key: smolvlm2-500m
+    model: mlx-community/SmolVLM2-500M-Video-Instruct-mlx
+    upstream_model: HuggingFaceTB/SmolVLM2-500M-Video-Instruct
+    name: SmolVLM2-500M Video Instruct MLX
+    parameters_b: 0.5
+    family: smolvlm
+  - key: smolvlm2-2.2b
+    model: mlx-community/SmolVLM2-2.2B-Instruct-mlx
+    upstream_model: HuggingFaceTB/SmolVLM2-2.2B-Instruct
+    name: SmolVLM2-2.2B Instruct MLX
+    parameters_b: 2.2
+    family: smolvlm
+  - key: fastvlm-0.5b
+    model: mlx-community/FastVLM-0.5B-bf16
+    name: FastVLM-0.5B BF16
+    parameters_b: 0.5
+    family: fastvlm
+  - key: fastvlm-1.5b
+    model: InsightKeeper/FastVLM-1.5B-MLX-4bit
+    name: FastVLM-1.5B MLX 4-bit
+    parameters_b: 1.5
+    family: fastvlm
+  - key: perception-lm-1b
+    model: mlx-community/Perception-LM-1B
+    name: Perception-LM-1B
+    parameters_b: 1.0
+    family: perception_lm
+
+existing_baselines:
+  - key: marlin-2b
+    run_id: 20260717-factory_ego-marlin-2b-final-det-r1
+    name: Marlin-2B temporal grounding
+    parameters_b: 2.0

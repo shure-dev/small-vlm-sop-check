@@ -1,0 +1,38 @@
+{
+  "unit_id": "f002_w002_garment_bagging",
+  "model_id": "mlx-community/gemma-4-e2b-it-4bit",
+  "events": {
+    "pick_garment_from_stack": {
+      "query": "a worker grasps the top folded garment from a stack and lifts it away from the stack",
+      "prompt": "Event: a worker grasps the top folded garment from a stack and lifts it away from the stack\nLocate this event in the 20-second video. Return exactly one JSON object: {\"start_s\": number, \"end_s\": number}. If the event is absent, return {\"start_s\": null, \"end_s\": null}. Times are seconds from video start.",
+      "response": "```json\n{\"start_s\": 0.0, \"end_s\": 0.1}\n```",
+      "prompt_tokens": 2490,
+      "generation_tokens": 26,
+      "peak_memory_gb": 6.490162936
+    },
+    "insert_garment_into_bag": {
+      "query": "a worker puts a folded garment into a plastic bag",
+      "prompt": "Event: a worker puts a folded garment into a plastic bag\nLocate this event in the 20-second video. Return exactly one JSON object: {\"start_s\": number, \"end_s\": number}. If the event is absent, return {\"start_s\": null, \"end_s\": null}. Times are seconds from video start.",
+      "response": "```json\n{\"start_s\": 0.0, \"end_s\": 0.1}\n```",
+      "prompt_tokens": 2482,
+      "generation_tokens": 26,
+      "peak_memory_gb": 6.490163004
+    },
+    "seal_bag_flap": {
+      "query": "after the garment is inside, a worker folds and presses the narrow adhesive edge of the clear plastic bag to seal it",
+      "prompt": "Event: after the garment is inside, a worker folds and presses the narrow adhesive edge of the clear plastic bag to seal it\nLocate this event in the 20-second video. Return exactly one JSON object: {\"start_s\": number, \"end_s\": number}. If the event is absent, return {\"start_s\": null, \"end_s\": null}. Times are seconds from video start.",
+      "response": "```json\n{\"start_s\": 0.00, \"end_s\": 0.00}\n```",
+      "prompt_tokens": 2495,
+      "generation_tokens": 28,
+      "peak_memory_gb": 6.490163004
+    },
+    "place_package_to_right": {
+      "query": "a worker lifts the finished sealed garment package from the table and carries it to the right",
+      "prompt": "Event: a worker lifts the finished sealed garment package from the table and carries it to the right\nLocate this event in the 20-second video. Return exactly one JSON object: {\"start_s\": number, \"end_s\": number}. If the event is absent, return {\"start_s\": null, \"end_s\": null}. Times are seconds from video start.",
+      "response": "```json\n{\"start_s\": 0.0, \"end_s\": 0.1}\n```",
+      "prompt_tokens": 2489,
+      "generation_tokens": 26,
+      "peak_memory_gb": 6.490163004
+    }
+  }
+}

@@ -17,3 +17,8 @@ def test_parse_span_accepts_fenced_json_and_absent():
 def test_parse_span_rejects_out_of_video_and_partial_null():
     assert MODULE.parse_span('{"start_s": 19, "end_s": 21}') is None
     assert MODULE.parse_span('{"start_s": null, "end_s": 2}') is None
+
+
+def test_parse_response_distinguishes_absent_from_invalid():
+    assert MODULE.parse_response('{"start_s": null, "end_s": null}') == (True, None)
+    assert MODULE.parse_response('I cannot tell') == (False, None)

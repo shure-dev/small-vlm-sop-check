@@ -1,0 +1,38 @@
+{
+  "unit_id": "f002_w005_garment_ironing",
+  "model_id": "mlx-community/Qwen3.5-4B-MLX-4bit",
+  "events": {
+    "place_folding_board": {
+      "query": "a worker places a white rectangular folding board in the center of a light-purple shirt and aligns the board with both hands",
+      "prompt": "Event: a worker places a white rectangular folding board in the center of a light-purple shirt and aligns the board with both hands\nLocate this event in the 20-second video. Do not output reasoning, analysis, or <think> tags. Start the response with { and return exactly one JSON object: {\"start_s\": number, \"end_s\": number}. Both numbers must be between 0.0 and 20.0, with start_s less than end_s. If the event is absent, return {\"start_s\": null, \"end_s\": null}. Times are seconds from video start (0.0).",
+      "response": "{\n\"start_s\": 0.0,\n\"end_s\": 5.0\n}",
+      "prompt_tokens": 4543,
+      "generation_tokens": 23,
+      "peak_memory_gb": 5.642573406
+    },
+    "fold_shirt_around_board": {
+      "query": "a worker folds the left and right sides of a light-purple shirt inward around a white folding board",
+      "prompt": "Event: a worker folds the left and right sides of a light-purple shirt inward around a white folding board\nLocate this event in the 20-second video. Do not output reasoning, analysis, or <think> tags. Start the response with { and return exactly one JSON object: {\"start_s\": number, \"end_s\": number}. Both numbers must be between 0.0 and 20.0, with start_s less than end_s. If the event is absent, return {\"start_s\": null, \"end_s\": null}. Times are seconds from video start (0.0).",
+      "response": "{\n\"start_s\": 0.0,\n\"end_s\": 5.0\n}",
+      "prompt_tokens": 4538,
+      "generation_tokens": 23,
+      "peak_memory_gb": 5.642573406
+    },
+    "turn_and_neaten_folded_shirt": {
+      "query": "a worker lifts the folded light-purple shirt, turns it over to the front, and straightens its shape with both hands",
+      "prompt": "Event: a worker lifts the folded light-purple shirt, turns it over to the front, and straightens its shape with both hands\nLocate this event in the 20-second video. Do not output reasoning, analysis, or <think> tags. Start the response with { and return exactly one JSON object: {\"start_s\": number, \"end_s\": number}. Both numbers must be between 0.0 and 20.0, with start_s less than end_s. If the event is absent, return {\"start_s\": null, \"end_s\": null}. Times are seconds from video start (0.0).",
+      "response": "{\n\"start_s\": 10.0,\n\"end_s\": 15.0\n}",
+      "prompt_tokens": 4543,
+      "generation_tokens": 25,
+      "peak_memory_gb": 5.642573406
+    },
+    "stack_folded_shirt": {
+      "query": "a worker places the finished folded light-purple shirt on top of the completed stack at the upper side of the table",
+      "prompt": "Event: a worker places the finished folded light-purple shirt on top of the completed stack at the upper side of the table\nLocate this event in the 20-second video. Do not output reasoning, analysis, or <think> tags. Start the response with { and return exactly one JSON object: {\"start_s\": number, \"end_s\": number}. Both numbers must be between 0.0 and 20.0, with start_s less than end_s. If the event is absent, return {\"start_s\": null, \"end_s\": null}. Times are seconds from video start (0.0).",
+      "response": "{\n\"start_s\": 15.0,\n\"end_s\": 18.0\n}",
+      "prompt_tokens": 4541,
+      "generation_tokens": 25,
+      "peak_memory_gb": 5.642573406
+    }
+  }
+}

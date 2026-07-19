@@ -1,0 +1,30 @@
+{
+  "unit_id": "f001_w004_material_replenishment",
+  "model_id": "mlx-community/gemma-4-e2b-it-4bit",
+  "events": {
+    "fasten_part_with_driver": {
+      "query": "a worker assembles a part using a driver tool",
+      "prompt": "Event: a worker assembles a part using a driver tool\nLocate this event in the 20-second video. Return exactly one JSON object: {\"start_s\": number, \"end_s\": number}. If the event is absent, return {\"start_s\": null, \"end_s\": null}. Times are seconds from video start.",
+      "response": "```json\n{\"start_s\": 0.0, \"end_s\": 0.1}\n```",
+      "prompt_tokens": 2482,
+      "generation_tokens": 26,
+      "peak_memory_gb": 6.489636872
+    },
+    "pour_parts_from_bag": {
+      "query": "a worker turns a bag upside down and pours the parts out",
+      "prompt": "Event: a worker turns a bag upside down and pours the parts out\nLocate this event in the 20-second video. Return exactly one JSON object: {\"start_s\": number, \"end_s\": number}. If the event is absent, return {\"start_s\": null, \"end_s\": null}. Times are seconds from video start.",
+      "response": "```json\n{\"start_s\": 0.15, \"end_s\": 0.25}\n```",
+      "prompt_tokens": 2484,
+      "generation_tokens": 28,
+      "peak_memory_gb": 6.490162936
+    },
+    "roll_empty_bag": {
+      "query": "a worker rolls up a bag",
+      "prompt": "Event: a worker rolls up a bag\nLocate this event in the 20-second video. Return exactly one JSON object: {\"start_s\": number, \"end_s\": number}. If the event is absent, return {\"start_s\": null, \"end_s\": null}. Times are seconds from video start.",
+      "response": "```json\n{\"start_s\": 0.15, \"end_s\": 0.25}\n```",
+      "prompt_tokens": 2478,
+      "generation_tokens": 28,
+      "peak_memory_gb": 6.490162936
+    }
+  }
+}

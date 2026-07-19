@@ -1,0 +1,15 @@
+{
+  "run_id": "20260718-factory_ego-qwen3-vl-2b-full20-r1",
+  "unit_id": "f003_w009_injection_molding",
+  "method": "temporal_grounding",
+  "interval_convention": "half-open_seconds",
+  "events": {
+    "remove_yellow_parts_from_mold": null,
+    "hold_metal_rod_at_mold": [
+      {
+        "start_s": 0.0,
+        "end_s": 10.0
+      }
+    ]
+  }
+}

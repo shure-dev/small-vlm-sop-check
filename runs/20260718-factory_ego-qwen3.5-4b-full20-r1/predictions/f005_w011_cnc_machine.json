@@ -1,0 +1,44 @@
+{
+  "run_id": "20260718-factory_ego-qwen3.5-4b-full20-r1",
+  "unit_id": "f005_w011_cnc_machine",
+  "method": "temporal_grounding",
+  "interval_convention": "half-open_seconds",
+  "events": {
+    "carry_square_fixture_to_cnc_opening": [
+      {
+        "start_s": 1.0,
+        "end_s": 10.0
+      }
+    ],
+    "position_square_fixture_inside_cnc": [
+      {
+        "start_s": 1.0,
+        "end_s": 4.0
+      }
+    ],
+    "press_illuminated_orange_control": [
+      {
+        "start_s": 1.0,
+        "end_s": 3.0
+      }
+    ],
+    "press_lower_right_silver_control": [
+      {
+        "start_s": 1.0,
+        "end_s": 3.0
+      }
+    ],
+    "close_cnc_sliding_door": [
+      {
+        "start_s": 1.0,
+        "end_s": 4.0
+      }
+    ],
+    "move_orange_square_fixture_on_table": [
+      {
+        "start_s": 1.0,
+        "end_s": 4.0
+      }
+    ]
+  }
+}

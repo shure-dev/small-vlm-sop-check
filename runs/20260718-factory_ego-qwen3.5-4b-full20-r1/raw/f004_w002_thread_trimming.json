@@ -1,0 +1,22 @@
+{
+  "unit_id": "f004_w002_thread_trimming",
+  "model_id": "mlx-community/Qwen3.5-4B-MLX-4bit",
+  "events": {
+    "trim_threads_with_snips": {
+      "query": "a worker uses blue-handled scissors to cut loose threads from a white garment on the table",
+      "prompt": "Event: a worker uses blue-handled scissors to cut loose threads from a white garment on the table\nLocate this event in the 20-second video. Do not output reasoning, analysis, or <think> tags. Start the response with { and return exactly one JSON object: {\"start_s\": number, \"end_s\": number}. Both numbers must be between 0.0 and 20.0, with start_s less than end_s. If the event is absent, return {\"start_s\": null, \"end_s\": null}. Times are seconds from video start (0.0).",
+      "response": "{\n\"start_s\": 10.0,\n\"end_s\": 15.0\n}",
+      "prompt_tokens": 4537,
+      "generation_tokens": 25,
+      "peak_memory_gb": 5.642573406
+    },
+    "spread_white_garment_on_table": {
+      "query": "a worker unfolds and spreads a white garment flat on the work table",
+      "prompt": "Event: a worker unfolds and spreads a white garment flat on the work table\nLocate this event in the 20-second video. Do not output reasoning, analysis, or <think> tags. Start the response with { and return exactly one JSON object: {\"start_s\": number, \"end_s\": number}. Both numbers must be between 0.0 and 20.0, with start_s less than end_s. If the event is absent, return {\"start_s\": null, \"end_s\": null}. Times are seconds from video start (0.0).",
+      "response": "{\n\"start_s\": 0.0,\n\"end_s\": 5.0\n}",
+      "prompt_tokens": 4532,
+      "generation_tokens": 23,
+      "peak_memory_gb": 5.642573406
+    }
+  }
+}

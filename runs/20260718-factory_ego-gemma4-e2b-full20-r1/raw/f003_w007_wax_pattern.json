@@ -1,0 +1,30 @@
+{
+  "unit_id": "f003_w007_wax_pattern",
+  "model_id": "mlx-community/gemma-4-e2b-it-4bit",
+  "events": {
+    "clean_wax_cluster_with_rod": {
+      "query": "a worker cleans a cluster of small yellow wax parts using a thin handheld brush or rod",
+      "prompt": "Event: a worker cleans a cluster of small yellow wax parts using a thin handheld brush or rod\nLocate this event in the 20-second video. Return exactly one JSON object: {\"start_s\": number, \"end_s\": number}. If the event is absent, return {\"start_s\": null, \"end_s\": null}. Times are seconds from video start.",
+      "response": "```json\n{\"start_s\": 0.0, \"end_s\": 0.1}\n```",
+      "prompt_tokens": 2489,
+      "generation_tokens": 26,
+      "peak_memory_gb": 6.490163004
+    },
+    "mark_wax_cluster_with_white_tool": {
+      "query": "a worker makes a white mark on the small yellow wax part held in their hands",
+      "prompt": "Event: a worker makes a white mark on the small yellow wax part held in their hands\nLocate this event in the 20-second video. Return exactly one JSON object: {\"start_s\": number, \"end_s\": number}. If the event is absent, return {\"start_s\": null, \"end_s\": null}. Times are seconds from video start.",
+      "response": "```json\n{\"start_s\": 0.00, \"end_s\": 0.00}\n```",
+      "prompt_tokens": 2488,
+      "generation_tokens": 28,
+      "peak_memory_gb": 6.583075992
+    },
+    "place_wax_cluster_on_rack": {
+      "query": "a worker places the cluster of small yellow wax parts onto the tray filled with similar yellow parts",
+      "prompt": "Event: a worker places the cluster of small yellow wax parts onto the tray filled with similar yellow parts\nLocate this event in the 20-second video. Return exactly one JSON object: {\"start_s\": number, \"end_s\": number}. If the event is absent, return {\"start_s\": null, \"end_s\": null}. Times are seconds from video start.",
+      "response": "```json\n{\"start_s\": 0.00, \"end_s\": 0.00}\n```",
+      "prompt_tokens": 2490,
+      "generation_tokens": 28,
+      "peak_memory_gb": 6.583075992
+    }
+  }
+}
