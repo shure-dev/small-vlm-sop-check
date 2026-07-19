@@ -1,0 +1,54 @@
+{
+  "unit_id": "f005_w001_semi_automatic",
+  "model_id": "mlx-community/Qwen3.5-4B-MLX-4bit",
+  "events": {
+    "place_ring_part_on_machine_spindle": {
+      "query": "a worker places a ring-shaped part onto the central machine spindle",
+      "prompt": "Event: a worker places a ring-shaped part onto the central machine spindle\nLocate this event in the 20-second video. Do not output reasoning, analysis, or <think> tags. Start the response with { and return exactly one JSON object: {\"start_s\": number, \"end_s\": number}. Both numbers must be between 0.0 and 20.0, with start_s less than end_s. If the event is absent, return {\"start_s\": null, \"end_s\": null}. Times are seconds from video start (0.0).",
+      "response": "{\n\"start_s\": 0.0,\n\"end_s\": 5.0\n}",
+      "prompt_tokens": 4531,
+      "generation_tokens": 23,
+      "peak_memory_gb": 5.642655326
+    },
+    "arrange_white_cord_by_hand": {
+      "query": "a worker arranges the white cord on the ring-shaped part with both hands",
+      "prompt": "Event: a worker arranges the white cord on the ring-shaped part with both hands\nLocate this event in the 20-second video. Do not output reasoning, analysis, or <think> tags. Start the response with { and return exactly one JSON object: {\"start_s\": number, \"end_s\": number}. Both numbers must be between 0.0 and 20.0, with start_s less than end_s. If the event is absent, return {\"start_s\": null, \"end_s\": null}. Times are seconds from video start (0.0).",
+      "response": "{\n\"start_s\": 1.0,\n\"end_s\": 5.0\n}",
+      "prompt_tokens": 4534,
+      "generation_tokens": 23,
+      "peak_memory_gb": 5.642655326
+    },
+    "press_illuminated_control_switch": {
+      "query": "a worker presses the illuminated switch on the right control panel",
+      "prompt": "Event: a worker presses the illuminated switch on the right control panel\nLocate this event in the 20-second video. Do not output reasoning, analysis, or <think> tags. Start the response with { and return exactly one JSON object: {\"start_s\": number, \"end_s\": number}. Both numbers must be between 0.0 and 20.0, with start_s less than end_s. If the event is absent, return {\"start_s\": null, \"end_s\": null}. Times are seconds from video start (0.0).",
+      "response": "{\n\"start_s\": 10.0,\n\"end_s\": 15.0\n}",
+      "prompt_tokens": 4530,
+      "generation_tokens": 25,
+      "peak_memory_gb": 5.642655326
+    },
+    "reach_and_return_with_black_tweezers": {
+      "query": "a worker reaches to the right and returns holding black tweezers",
+      "prompt": "Event: a worker reaches to the right and returns holding black tweezers\nLocate this event in the 20-second video. Do not output reasoning, analysis, or <think> tags. Start the response with { and return exactly one JSON object: {\"start_s\": number, \"end_s\": number}. Both numbers must be between 0.0 and 20.0, with start_s less than end_s. If the event is absent, return {\"start_s\": null, \"end_s\": null}. Times are seconds from video start (0.0).",
+      "response": "{\n\"start_s\": 1.0,\n\"end_s\": 4.0\n}",
+      "prompt_tokens": 4532,
+      "generation_tokens": 23,
+      "peak_memory_gb": 5.642655326
+    },
+    "position_black_tweezers_at_white_cord": {
+      "query": "a worker brings the black tweezers to the white cord on the ring part",
+      "prompt": "Event: a worker brings the black tweezers to the white cord on the ring part\nLocate this event in the 20-second video. Do not output reasoning, analysis, or <think> tags. Start the response with { and return exactly one JSON object: {\"start_s\": number, \"end_s\": number}. Both numbers must be between 0.0 and 20.0, with start_s less than end_s. If the event is absent, return {\"start_s\": null, \"end_s\": null}. Times are seconds from video start (0.0).",
+      "response": "{\n\"start_s\": 1.0,\n\"end_s\": 4.0\n}",
+      "prompt_tokens": 4535,
+      "generation_tokens": 23,
+      "peak_memory_gb": 5.642655326
+    },
+    "tuck_white_cord_with_black_tweezers": {
+      "query": "a worker tucks the white cord with black tweezers",
+      "prompt": "Event: a worker tucks the white cord with black tweezers\nLocate this event in the 20-second video. Do not output reasoning, analysis, or <think> tags. Start the response with { and return exactly one JSON object: {\"start_s\": number, \"end_s\": number}. Both numbers must be between 0.0 and 20.0, with start_s less than end_s. If the event is absent, return {\"start_s\": null, \"end_s\": null}. Times are seconds from video start (0.0).",
+      "response": "{\n\"start_s\": 10.0,\n\"end_s\": 15.0\n}",
+      "prompt_tokens": 4531,
+      "generation_tokens": 25,
+      "peak_memory_gb": 5.642655326
+    }
+  }
+}

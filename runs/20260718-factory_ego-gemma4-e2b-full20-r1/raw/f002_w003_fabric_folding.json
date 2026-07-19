@@ -1,0 +1,30 @@
+{
+  "unit_id": "f002_w003_fabric_folding",
+  "model_id": "mlx-community/gemma-4-e2b-it-4bit",
+  "events": {
+    "take_garment_from_stack": {
+      "query": "a worker grasps the top light-blue folded garment and removes it from the stack",
+      "prompt": "Event: a worker grasps the top light-blue folded garment and removes it from the stack\nLocate this event in the 20-second video. Return exactly one JSON object: {\"start_s\": number, \"end_s\": number}. If the event is absent, return {\"start_s\": null, \"end_s\": null}. Times are seconds from video start.",
+      "response": "```json\n{\"start_s\": 0.00, \"end_s\": 0.00}\n```",
+      "prompt_tokens": 2489,
+      "generation_tokens": 28,
+      "peak_memory_gb": 6.490163004
+    },
+    "fold_garment_sides": {
+      "query": "a worker folds the left and right sides of a light-blue garment inward and straightens the folded garment on the table",
+      "prompt": "Event: a worker folds the left and right sides of a light-blue garment inward and straightens the folded garment on the table\nLocate this event in the 20-second video. Return exactly one JSON object: {\"start_s\": number, \"end_s\": number}. If the event is absent, return {\"start_s\": null, \"end_s\": null}. Times are seconds from video start.",
+      "response": "```json\n{\"start_s\": 0.00, \"end_s\": 0.00}\n```",
+      "prompt_tokens": 2496,
+      "generation_tokens": 28,
+      "peak_memory_gb": 6.490163004
+    },
+    "pick_up_hanger": {
+      "query": "a worker reaches to the pile of black clothes hangers on the left and lifts one black hanger",
+      "prompt": "Event: a worker reaches to the pile of black clothes hangers on the left and lifts one black hanger\nLocate this event in the 20-second video. Return exactly one JSON object: {\"start_s\": number, \"end_s\": number}. If the event is absent, return {\"start_s\": null, \"end_s\": null}. Times are seconds from video start.",
+      "response": "```json\n{\"start_s\": 0.0, \"end_s\": 0.1}\n```",
+      "prompt_tokens": 2490,
+      "generation_tokens": 26,
+      "peak_memory_gb": 6.490163004
+    }
+  }
+}

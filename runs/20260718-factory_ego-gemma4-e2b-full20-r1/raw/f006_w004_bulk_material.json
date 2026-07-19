@@ -1,0 +1,30 @@
+{
+  "unit_id": "f006_w004_bulk_material",
+  "model_id": "mlx-community/gemma-4-e2b-it-4bit",
+  "events": {
+    "move_ribbed_cylinder_to_orange_cart": {
+      "query": "a worker lifts a hollow metal cylinder with vertical ribs from the large center container using the right hand and places it into the orange cart-like container on the right",
+      "prompt": "Event: a worker lifts a hollow metal cylinder with vertical ribs from the large center container using the right hand and places it into the orange cart-like container on the right\nLocate this event in the 20-second video. Return exactly one JSON object: {\"start_s\": number, \"end_s\": number}. If the event is absent, return {\"start_s\": null, \"end_s\": null}. Times are seconds from video start.",
+      "response": "```json\n{\"start_s\": 0.00, \"end_s\": 0.00}\n```",
+      "prompt_tokens": 2504,
+      "generation_tokens": 28,
+      "peak_memory_gb": 6.583075992
+    },
+    "move_ribbed_cylinder_to_metal_table": {
+      "query": "a worker lifts a hollow metal cylinder with vertical ribs from the large center container using the right hand and places it on the adjacent silver metal table",
+      "prompt": "Event: a worker lifts a hollow metal cylinder with vertical ribs from the large center container using the right hand and places it on the adjacent silver metal table\nLocate this event in the 20-second video. Return exactly one JSON object: {\"start_s\": number, \"end_s\": number}. If the event is absent, return {\"start_s\": null, \"end_s\": null}. Times are seconds from video start.",
+      "response": "```json\n{\"start_s\": 0.00, \"end_s\": 0.00}\n```",
+      "prompt_tokens": 2500,
+      "generation_tokens": 28,
+      "peak_memory_gb": 6.583075992
+    },
+    "lift_ribbed_cylinder_from_bulk_container": {
+      "query": "a worker lifts a hollow metal cylinder with vertical ribs from the large center container using the right hand",
+      "prompt": "Event: a worker lifts a hollow metal cylinder with vertical ribs from the large center container using the right hand\nLocate this event in the 20-second video. Return exactly one JSON object: {\"start_s\": number, \"end_s\": number}. If the event is absent, return {\"start_s\": null, \"end_s\": null}. Times are seconds from video start.",
+      "response": "```json\n{\"start_s\": 0.00, \"end_s\": 0.00}\n```",
+      "prompt_tokens": 2491,
+      "generation_tokens": 28,
+      "peak_memory_gb": 6.583075992
+    }
+  }
+}

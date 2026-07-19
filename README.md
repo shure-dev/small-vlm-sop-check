@@ -43,21 +43,20 @@
 
 主対象は、[Egocentric-10K](https://huggingface.co/datasets/builddotai/Egocentric-10K)から固定した20本の工場一人称動画です。各動画は20秒・2fpsで、人間が映像を見ながら日本語のイベント文と正解区間を作ります。外部の機械生成アノテーションは正解データとして使いません。
 
-現在は**20本すべてに68イベント・81正解区間**の人手アノテーションが完了しています。現行GTと入力hashが一致する13動画をMarlin-2Bの動画別mean tIoUで順位付けし、上位2本、中央値付近の2本、下位2本を機械的に選びました。同じ英語イベント文と時刻JSONプロンプトで[Qwen3.5-4B](https://huggingface.co/Qwen/Qwen3.5-4B)と[Qwen3-VL-4B-Instruct](https://huggingface.co/Qwen/Qwen3-VL-4B-Instruct)を比較しています。時刻は動画先頭を`0.0秒`とするhalf-open intervalです。
+現在は**20本すべてに68イベント・81正解区間**の人手アノテーションが完了しています。現行SOPと完全一致する68件の英語queryを固定し、全20秒動画を2fps・幅640pxで入力して、4B以下の候補を同じ時刻JSON契約で比較しました。時刻は動画先頭を`0.0秒`とするhalf-open intervalです。
 
-| 層 | Marlin順位 | 20秒動画 | イベント数 | 正解区間 | Marlin-2B | Qwen3.5-4B | Qwen3-VL-4B |
-|---|---:|---|---:|---:|---:|---:|---:|
-| 高 | 1/13 | [金属プレス工程](datasets/factory_ego/sops/f001_w011_metal_stamping/sop.yaml) | 4 | 4 | **0.802** | 0.304 | 0.109 |
-| 高 | 2/13 | [金型準備](datasets/factory_ego/sops/f003_w010_mold_preparation/sop.yaml) | 1 | 1 | **0.719** | 0.500 | 0.000 |
-| 中 | 6/13 | [曲線縫製](datasets/factory_ego/sops/f004_w006_curvilinear_seam/sop.yaml) | 3 | 3 | **0.560** | 0.095 | 0.315 |
-| 中 | 7/13 | [圧縮成形](datasets/factory_ego/sops/f006_w005_compression_molding/sop.yaml) | 2 | 2 | 0.551 | **0.644** | 0.267 |
-| 低 | 12/13 | [射出成形](datasets/factory_ego/sops/f003_w009_injection_molding/sop.yaml) | 2 | 2 | 0.300 | **0.364** | 0.138 |
-| 低 | 13/13 | [バルク材の仕分け](datasets/factory_ego/sops/f006_w004_bulk_material/sop.yaml) | 3 | 10 | **0.085** | 0.034 | 0.000 |
-| **全体** | — | **6動画** | **15** | **22** | **0.371** | **0.198** | **0.100** |
+| モデル | 規模 | 予測区間 | mean tIoU | tIoU@0.5 P | R | F1 | peak memory |
+|---|---:|---:|---:|---:|---:|---:|---:|
+| **Marlin-2B** | 2B | 68 | **0.400** | **0.559** | **0.469** | **0.510** | — |
+| Qwen3.5-4B | 4B | 68 | 0.178 | 0.206 | 0.173 | 0.188 | 5.64GB |
+| Qwen3.5-2B | 2B | 68 | 0.129 | 0.088 | 0.074 | 0.081 | 3.47GB |
+| Qwen3-VL-2B | 2B | 41 | 0.110 | 0.146 | 0.074 | 0.098 | 3.28GB |
+| Qwen3.5-0.8B | 0.8B | 64 | 0.076 | 0.078 | 0.062 | 0.069 | 2.30GB |
+| Gemma 4 E2B | E2B | 53 | 0.030 | 0.019 | 0.012 | 0.015 | 6.58GB |
 
-tIoU@0.5 F1はMarlin-2Bが`0.541`、Qwen3.5-4Bが`0.270`、Qwen3-VL-4Bが`0.054`でした。3モデルとも1イベントにつき1区間だけを返すため、10回発生するバルク材動画を含む22正解区間に対して予測は15区間です。両Qwenは全15件が構文・範囲とも有効でした。4bit MLX変換を使い、2fps・幅640px・temperature 0で1モデルずつ実行しています。MLXのpeak memoryはQwen3.5が`5.64GB`、Qwen3-VLが`4.76GB`でした。
+Marlin-2Bは専用の`find(video, event)`を使い、他のモデルは4bit MLX変換へ同じevent文とJSON promptを1件ずつ与えています。各モデルは1イベントにつき最大1区間を返すため、繰り返し動作を含む81正解区間に対してrecall上限があります。これは全動画がdevelopment splitに属する診断値であり、未見test精度ではありません。
 
-この層化はMarlinの高得点動画だけに偏る問題を減らしますが、Marlinの成績を基準に選んだdevelopment診断であり、公平な未見データ評価ではありません。固定した入力・raw出力・評価hashは[Marlin評価](evaluations/factory_ego_marlin_stratified6.json)、[Qwen3.5評価](evaluations/factory_ego_qwen3.5_stratified6.json)、[Qwen3-VL評価](evaluations/factory_ego_qwen3-vl-4b_stratified6.json)から再計算できます。
+MiniCPM-V-4.6、InternVL3-2B、LFM2.5-VL-1.6B、SmolVLM2 3種、FastVLM 2種、Perception-LM-1Bも1動画でスモークしました。MiniCPMは20秒の範囲外を返し、残りは現行MLX変換・動画processorとの互換エラーだったためfull runへ進めていません。Qwen2.5-VL-3BとQwen3-VL-4Bはスモーク通過後、今回のfull matrixから明示的に除外しました。固定したrun、評価hash、失敗理由は[集約artifact](evaluations/factory_ego_model_matrix_v1.json)から追跡できます。
 
 ## 改善ループ
 

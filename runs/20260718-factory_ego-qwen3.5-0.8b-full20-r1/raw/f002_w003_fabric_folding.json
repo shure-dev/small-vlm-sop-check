@@ -1,0 +1,30 @@
+{
+  "unit_id": "f002_w003_fabric_folding",
+  "model_id": "mlx-community/Qwen3.5-0.8B-MLX-4bit",
+  "events": {
+    "take_garment_from_stack": {
+      "query": "a worker grasps the top light-blue folded garment and removes it from the stack",
+      "prompt": "Event: a worker grasps the top light-blue folded garment and removes it from the stack\nLocate this event in the 20-second video. Do not output reasoning, analysis, or <think> tags. Start the response with { and return exactly one JSON object: {\"start_s\": number, \"end_s\": number}. Both numbers must be between 0.0 and 20.0, with start_s less than end_s. If the event is absent, return {\"start_s\": null, \"end_s\": null}. Times are seconds from video start (0.0).",
+      "response": "```json\n{\n\"start_s\": 10.3,\n\"end_s\": 12.0\n}\n```",
+      "prompt_tokens": 4535,
+      "generation_tokens": 30,
+      "peak_memory_gb": 2.299686248
+    },
+    "fold_garment_sides": {
+      "query": "a worker folds the left and right sides of a light-blue garment inward and straightens the folded garment on the table",
+      "prompt": "Event: a worker folds the left and right sides of a light-blue garment inward and straightens the folded garment on the table\nLocate this event in the 20-second video. Do not output reasoning, analysis, or <think> tags. Start the response with { and return exactly one JSON object: {\"start_s\": number, \"end_s\": number}. Both numbers must be between 0.0 and 20.0, with start_s less than end_s. If the event is absent, return {\"start_s\": null, \"end_s\": null}. Times are seconds from video start (0.0).",
+      "response": "```json\n{\n    \"start_s\": 0.0,\n    \"end_s\": 10.0\n}\n```",
+      "prompt_tokens": 4542,
+      "generation_tokens": 31,
+      "peak_memory_gb": 2.299686248
+    },
+    "pick_up_hanger": {
+      "query": "a worker reaches to the pile of black clothes hangers on the left and lifts one black hanger",
+      "prompt": "Event: a worker reaches to the pile of black clothes hangers on the left and lifts one black hanger\nLocate this event in the 20-second video. Do not output reasoning, analysis, or <think> tags. Start the response with { and return exactly one JSON object: {\"start_s\": number, \"end_s\": number}. Both numbers must be between 0.0 and 20.0, with start_s less than end_s. If the event is absent, return {\"start_s\": null, \"end_s\": null}. Times are seconds from video start (0.0).",
+      "response": "```json\n[{\"start_s\": 1.0, \"end_s\": 2.0}]\n```",
+      "prompt_tokens": 4539,
+      "generation_tokens": 25,
+      "peak_memory_gb": 2.299686248
+    }
+  }
+}

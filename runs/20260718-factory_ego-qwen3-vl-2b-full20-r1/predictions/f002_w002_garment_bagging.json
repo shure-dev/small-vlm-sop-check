@@ -1,0 +1,27 @@
+{
+  "run_id": "20260718-factory_ego-qwen3-vl-2b-full20-r1",
+  "unit_id": "f002_w002_garment_bagging",
+  "method": "temporal_grounding",
+  "interval_convention": "half-open_seconds",
+  "events": {
+    "pick_garment_from_stack": [
+      {
+        "start_s": 10.0,
+        "end_s": 20.0
+      }
+    ],
+    "insert_garment_into_bag": [
+      {
+        "start_s": 10.0,
+        "end_s": 20.0
+      }
+    ],
+    "seal_bag_flap": null,
+    "place_package_to_right": [
+      {
+        "start_s": 10.0,
+        "end_s": 20.0
+      }
+    ]
+  }
+}

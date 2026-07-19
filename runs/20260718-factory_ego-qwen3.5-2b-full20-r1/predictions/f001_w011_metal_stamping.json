@@ -1,0 +1,32 @@
+{
+  "run_id": "20260718-factory_ego-qwen3.5-2b-full20-r1",
+  "unit_id": "f001_w011_metal_stamping",
+  "method": "temporal_grounding",
+  "interval_convention": "half-open_seconds",
+  "events": {
+    "feed_metal_strip_into_press": [
+      {
+        "start_s": 1.0,
+        "end_s": 10.0
+      }
+    ],
+    "walk_to_next_press": [
+      {
+        "start_s": 1.0,
+        "end_s": 10.0
+      }
+    ],
+    "pick_up_metal_sheets": [
+      {
+        "start_s": 0.0,
+        "end_s": 1.0
+      }
+    ],
+    "align_metal_sheet_stack": [
+      {
+        "start_s": 0.0,
+        "end_s": 10.0
+      }
+    ]
+  }
+}

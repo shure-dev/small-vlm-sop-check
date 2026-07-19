@@ -1,0 +1,38 @@
+{
+  "unit_id": "f004_w005_heat_press",
+  "model_id": "mlx-community/Qwen3.5-2B-MLX-4bit",
+  "events": {
+    "raise_heat_press_handle": {
+      "query": "a worker lifts the orange handle of the heat press and opens it",
+      "prompt": "Event: a worker lifts the orange handle of the heat press and opens it\nLocate this event in the 20-second video. Do not output reasoning, analysis, or <think> tags. Start the response with { and return exactly one JSON object: {\"start_s\": number, \"end_s\": number}. Both numbers must be between 0.0 and 20.0, with start_s less than end_s. If the event is absent, return {\"start_s\": null, \"end_s\": null}. Times are seconds from video start (0.0).",
+      "response": "{\n  \"start_s\": 1.0,\n  \"end_s\": 4.0\n}",
+      "prompt_tokens": 4532,
+      "generation_tokens": 25,
+      "peak_memory_gb": 3.471323978
+    },
+    "remove_white_fabric_from_heat_press": {
+      "query": "a worker pulls a white fabric item out from under the open heat press",
+      "prompt": "Event: a worker pulls a white fabric item out from under the open heat press\nLocate this event in the 20-second video. Do not output reasoning, analysis, or <think> tags. Start the response with { and return exactly one JSON object: {\"start_s\": number, \"end_s\": number}. Both numbers must be between 0.0 and 20.0, with start_s less than end_s. If the event is absent, return {\"start_s\": null, \"end_s\": null}. Times are seconds from video start (0.0).",
+      "response": "```json\n{\n\"start_s\": 1.0,\n\"end_s\": 10.0\n}\n```",
+      "prompt_tokens": 4533,
+      "generation_tokens": 29,
+      "peak_memory_gb": 3.471323978
+    },
+    "separate_white_fabric_from_stack": {
+      "query": "a worker separates one white fabric item from the stack on the left and lifts it",
+      "prompt": "Event: a worker separates one white fabric item from the stack on the left and lifts it\nLocate this event in the 20-second video. Do not output reasoning, analysis, or <think> tags. Start the response with { and return exactly one JSON object: {\"start_s\": number, \"end_s\": number}. Both numbers must be between 0.0 and 20.0, with start_s less than end_s. If the event is absent, return {\"start_s\": null, \"end_s\": null}. Times are seconds from video start (0.0).",
+      "response": "```json\n{\n\"start_s\": 1.0,\n\"end_s\": 4.0\n}\n```",
+      "prompt_tokens": 4535,
+      "generation_tokens": 28,
+      "peak_memory_gb": 3.471323978
+    },
+    "align_and_fold_white_fabric_on_table": {
+      "query": "a worker folds a white fabric item on the table with both hands",
+      "prompt": "Event: a worker folds a white fabric item on the table with both hands\nLocate this event in the 20-second video. Do not output reasoning, analysis, or <think> tags. Start the response with { and return exactly one JSON object: {\"start_s\": number, \"end_s\": number}. Both numbers must be between 0.0 and 20.0, with start_s less than end_s. If the event is absent, return {\"start_s\": null, \"end_s\": null}. Times are seconds from video start (0.0).",
+      "response": "{\n  \"start_s\": 1.0,\n  \"end_s\": 10.0\n}",
+      "prompt_tokens": 4532,
+      "generation_tokens": 26,
+      "peak_memory_gb": 3.471323978
+    }
+  }
+}

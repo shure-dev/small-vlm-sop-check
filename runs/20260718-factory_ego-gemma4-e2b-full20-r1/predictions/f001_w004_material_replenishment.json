@@ -1,0 +1,26 @@
+{
+  "run_id": "20260718-factory_ego-gemma4-e2b-full20-r1",
+  "unit_id": "f001_w004_material_replenishment",
+  "method": "temporal_grounding",
+  "interval_convention": "half-open_seconds",
+  "events": {
+    "fasten_part_with_driver": [
+      {
+        "start_s": 0.0,
+        "end_s": 0.1
+      }
+    ],
+    "pour_parts_from_bag": [
+      {
+        "start_s": 0.15,
+        "end_s": 0.25
+      }
+    ],
+    "roll_empty_bag": [
+      {
+        "start_s": 0.15,
+        "end_s": 0.25
+      }
+    ]
+  }
+}

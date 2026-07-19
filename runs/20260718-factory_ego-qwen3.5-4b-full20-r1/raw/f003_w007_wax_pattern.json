@@ -1,0 +1,30 @@
+{
+  "unit_id": "f003_w007_wax_pattern",
+  "model_id": "mlx-community/Qwen3.5-4B-MLX-4bit",
+  "events": {
+    "clean_wax_cluster_with_rod": {
+      "query": "a worker cleans a cluster of small yellow wax parts using a thin handheld brush or rod",
+      "prompt": "Event: a worker cleans a cluster of small yellow wax parts using a thin handheld brush or rod\nLocate this event in the 20-second video. Do not output reasoning, analysis, or <think> tags. Start the response with { and return exactly one JSON object: {\"start_s\": number, \"end_s\": number}. Both numbers must be between 0.0 and 20.0, with start_s less than end_s. If the event is absent, return {\"start_s\": null, \"end_s\": null}. Times are seconds from video start (0.0).",
+      "response": "{\n\"start_s\": 0.0,\n\"end_s\": 10.0\n}",
+      "prompt_tokens": 4536,
+      "generation_tokens": 24,
+      "peak_memory_gb": 5.642573406
+    },
+    "mark_wax_cluster_with_white_tool": {
+      "query": "a worker makes a white mark on the small yellow wax part held in their hands",
+      "prompt": "Event: a worker makes a white mark on the small yellow wax part held in their hands\nLocate this event in the 20-second video. Do not output reasoning, analysis, or <think> tags. Start the response with { and return exactly one JSON object: {\"start_s\": number, \"end_s\": number}. Both numbers must be between 0.0 and 20.0, with start_s less than end_s. If the event is absent, return {\"start_s\": null, \"end_s\": null}. Times are seconds from video start (0.0).",
+      "response": "{\n\"start_s\": 1.0,\n\"end_s\": 4.0\n}",
+      "prompt_tokens": 4535,
+      "generation_tokens": 23,
+      "peak_memory_gb": 5.642573406
+    },
+    "place_wax_cluster_on_rack": {
+      "query": "a worker places the cluster of small yellow wax parts onto the tray filled with similar yellow parts",
+      "prompt": "Event: a worker places the cluster of small yellow wax parts onto the tray filled with similar yellow parts\nLocate this event in the 20-second video. Do not output reasoning, analysis, or <think> tags. Start the response with { and return exactly one JSON object: {\"start_s\": number, \"end_s\": number}. Both numbers must be between 0.0 and 20.0, with start_s less than end_s. If the event is absent, return {\"start_s\": null, \"end_s\": null}. Times are seconds from video start (0.0).",
+      "response": "{\n\"start_s\": 12.0,\n\"end_s\": 15.0\n}",
+      "prompt_tokens": 4537,
+      "generation_tokens": 25,
+      "peak_memory_gb": 5.642573406
+    }
+  }
+}

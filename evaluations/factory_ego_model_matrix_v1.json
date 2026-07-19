@@ -1,0 +1,217 @@
+{
+  "benchmark_id": "factory_ego_model_matrix_v1",
+  "kind": "development_model_matrix",
+  "created_at": "2026-07-18",
+  "formal_accuracy": false,
+  "dataset": {
+    "id": "factory_ego",
+    "split": "development",
+    "unit_count": 20,
+    "event_count": 68,
+    "reference_occurrences": 81
+  },
+  "task": "temporal_grounding",
+  "config": "configs/benchmark/factory_ego_model_matrix_v1.yaml",
+  "config_sha256": "5621eb06639945184daa663555a9e074b9132d9bbfc3465f7458c000cb09027f",
+  "results": [
+    {
+      "key": "marlin-2b",
+      "model": "Marlin-2B temporal grounding",
+      "run_id": "20260718-factory_ego-marlin-2b-full20-r1",
+      "evaluation": "evaluations/marlin-2b-full20-r1.json",
+      "evaluation_sha256": "7ee4622fd52624752cd0230dad16441541cc30ad7ee0671a6a94d1e6b6a061ab",
+      "run_manifest_sha256": "c896cc04d63314564d1733a615b69eca4c4653be9269945e03590769f5054e3d",
+      "metrics": {
+        "reference_occurrences": 81,
+        "predicted_occurrences": 68,
+        "mean_tiou": 0.399861,
+        "tiou_at_0_5": {
+          "tp": 38,
+          "fp": 30,
+          "fn": 43,
+          "precision": 0.558824,
+          "recall": 0.469136,
+          "f1": 0.510067
+        }
+      }
+    },
+    {
+      "key": "qwen3.5-4b",
+      "model": "Qwen3.5-4B 4-bit",
+      "run_id": "20260718-factory_ego-qwen3.5-4b-full20-r1",
+      "evaluation": "evaluations/qwen3.5-4b-full20-r1.json",
+      "evaluation_sha256": "210689453598dd121c86e5643c23680c8c9eb802c576732d049307a0ee2493a6",
+      "run_manifest_sha256": "af3ad88b945e510bf69c5be7ef8ae3ddab08d602e7c9bcae851bdd01b342628c",
+      "metrics": {
+        "reference_occurrences": 81,
+        "predicted_occurrences": 68,
+        "mean_tiou": 0.178403,
+        "tiou_at_0_5": {
+          "tp": 14,
+          "fp": 54,
+          "fn": 67,
+          "precision": 0.205882,
+          "recall": 0.17284,
+          "f1": 0.187919
+        }
+      }
+    },
+    {
+      "key": "qwen3.5-2b",
+      "model": "Qwen3.5-2B 4-bit",
+      "run_id": "20260718-factory_ego-qwen3.5-2b-full20-r1",
+      "evaluation": "evaluations/qwen3.5-2b-full20-r1.json",
+      "evaluation_sha256": "a3120866a16984da7a42c1151437cfe2a8d659e72d4322da280f8b1dbdeae5fd",
+      "run_manifest_sha256": "6b36d23298b15dd42a07a0ab1e98201297e1cccf44cbdb6350b2e957fa148cac",
+      "metrics": {
+        "reference_occurrences": 81,
+        "predicted_occurrences": 68,
+        "mean_tiou": 0.12881,
+        "tiou_at_0_5": {
+          "tp": 6,
+          "fp": 62,
+          "fn": 75,
+          "precision": 0.088235,
+          "recall": 0.074074,
+          "f1": 0.080537
+        }
+      }
+    },
+    {
+      "key": "qwen3-vl-2b",
+      "model": "Qwen3-VL-2B-Instruct 4-bit",
+      "run_id": "20260718-factory_ego-qwen3-vl-2b-full20-r1",
+      "evaluation": "evaluations/qwen3-vl-2b-full20-r1.json",
+      "evaluation_sha256": "47b0ccbaffda3be0f31a6f4aa5be01b108369d35be5be1c33ddedd943ccd136b",
+      "run_manifest_sha256": "b1f9593d1e291b333a090f2ed755493f4ae04b3d89159a1a545a3e0f5ec7d91b",
+      "metrics": {
+        "reference_occurrences": 81,
+        "predicted_occurrences": 41,
+        "mean_tiou": 0.110431,
+        "tiou_at_0_5": {
+          "tp": 6,
+          "fp": 35,
+          "fn": 75,
+          "precision": 0.146341,
+          "recall": 0.074074,
+          "f1": 0.098361
+        }
+      }
+    },
+    {
+      "key": "qwen3.5-0.8b",
+      "model": "Qwen3.5-0.8B 4-bit",
+      "run_id": "20260718-factory_ego-qwen3.5-0.8b-full20-r1",
+      "evaluation": "evaluations/qwen3.5-0.8b-full20-r1.json",
+      "evaluation_sha256": "3aff525f4996795998fb7cc69f1cb542e1d1edd30923352d04c30b7ec4ad3458",
+      "run_manifest_sha256": "afc57542f520bc4f3567dda5841c5983e5aa5219b373eb7a8f9b5f589c767f78",
+      "metrics": {
+        "reference_occurrences": 81,
+        "predicted_occurrences": 64,
+        "mean_tiou": 0.075909,
+        "tiou_at_0_5": {
+          "tp": 5,
+          "fp": 59,
+          "fn": 76,
+          "precision": 0.078125,
+          "recall": 0.061728,
+          "f1": 0.068966
+        }
+      }
+    },
+    {
+      "key": "gemma4-e2b",
+      "model": "Gemma 4 E2B IT 4-bit",
+      "run_id": "20260718-factory_ego-gemma4-e2b-full20-r1",
+      "evaluation": "evaluations/gemma4-e2b-full20-r1.json",
+      "evaluation_sha256": "6b91dcc0a3eb3bd6d79216a6a6bfb4d96c9e05de5e63c0d252f1ed088086c3ee",
+      "run_manifest_sha256": "45d58d09a62b75caf1b0b91d43b65a8693045fe2f42af9256f9784b22ae581c5",
+      "metrics": {
+        "reference_occurrences": 81,
+        "predicted_occurrences": 53,
+        "mean_tiou": 0.029819,
+        "tiou_at_0_5": {
+          "tp": 1,
+          "fp": 52,
+          "fn": 80,
+          "precision": 0.018868,
+          "recall": 0.012346,
+          "f1": 0.014925
+        }
+      }
+    }
+  ],
+  "smoke_failures": [
+    {
+      "key": "minicpm-v-4.6",
+      "model": "MiniCPM-V-4.6 4-bit",
+      "status": "failed_output_contract",
+      "reason": "20秒の範囲外を返してoutput contract不成立: { \"start_s\": 0.0, \"end_s\": 100.0 }"
+    },
+    {
+      "key": "internvl3-2b",
+      "model": "InternVL3-2B 4-bit",
+      "status": "failed_runtime",
+      "reason": "mlx-vlmの動画processorでimage_features未初期化"
+    },
+    {
+      "key": "lfm2.5-vl-1.6b",
+      "model": "LFM2.5-VL-1.6B 4-bit",
+      "status": "failed_runtime",
+      "reason": "MLX重みと実装の不一致（projector layer norm不足）"
+    },
+    {
+      "key": "smolvlm2-256m",
+      "model": "SmolVLM2-256M Video Instruct MLX",
+      "status": "failed_runtime",
+      "reason": "MLX動画入力のimage token数と抽出40 frameが不一致"
+    },
+    {
+      "key": "smolvlm2-500m",
+      "model": "SmolVLM2-500M Video Instruct MLX",
+      "status": "failed_runtime",
+      "reason": "MLX動画入力のimage token数と抽出40 frameが不一致"
+    },
+    {
+      "key": "smolvlm2-2.2b",
+      "model": "SmolVLM2-2.2B Instruct MLX",
+      "status": "failed_runtime",
+      "reason": "MLX動画入力のimage token数と抽出40 frameが不一致"
+    },
+    {
+      "key": "fastvlm-0.5b",
+      "model": "FastVLM-0.5B BF16",
+      "status": "failed_runtime",
+      "reason": "変換repositoryのprocessor依存ファイル不足"
+    },
+    {
+      "key": "fastvlm-1.5b",
+      "model": "FastVLM-1.5B MLX 4-bit",
+      "status": "failed_runtime",
+      "reason": "MLX重みとprojector実装の不一致"
+    },
+    {
+      "key": "perception-lm-1b",
+      "model": "Perception-LM-1B",
+      "status": "failed_runtime",
+      "reason": "変換snapshotにconfig.jsonがなくロード不可"
+    }
+  ],
+  "excluded_from_full_run": [
+    {
+      "key": "qwen3-vl-4b",
+      "model": "Qwen3-VL-4B-Instruct 4-bit",
+      "reason": "user_removed_from_this_full_matrix"
+    },
+    {
+      "key": "qwen2.5-vl-3b",
+      "model": "Qwen2.5-VL-3B-Instruct 4-bit",
+      "reason": "user_removed_from_this_full_matrix"
+    }
+  ],
+  "limitations": [
+    "All clips belong to the development split; this is not held-out accuracy.",
+    "Each generative VLM was asked for at most one span per event while GT may contain repetitions.",
+    "A smoke failure records runtime compatibility, not an intrinsic model-quality score."
+  ]
+}

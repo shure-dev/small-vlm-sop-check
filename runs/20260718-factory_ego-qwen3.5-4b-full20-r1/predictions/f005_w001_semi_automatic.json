@@ -1,0 +1,44 @@
+{
+  "run_id": "20260718-factory_ego-qwen3.5-4b-full20-r1",
+  "unit_id": "f005_w001_semi_automatic",
+  "method": "temporal_grounding",
+  "interval_convention": "half-open_seconds",
+  "events": {
+    "place_ring_part_on_machine_spindle": [
+      {
+        "start_s": 0.0,
+        "end_s": 5.0
+      }
+    ],
+    "arrange_white_cord_by_hand": [
+      {
+        "start_s": 1.0,
+        "end_s": 5.0
+      }
+    ],
+    "press_illuminated_control_switch": [
+      {
+        "start_s": 10.0,
+        "end_s": 15.0
+      }
+    ],
+    "reach_and_return_with_black_tweezers": [
+      {
+        "start_s": 1.0,
+        "end_s": 4.0
+      }
+    ],
+    "position_black_tweezers_at_white_cord": [
+      {
+        "start_s": 1.0,
+        "end_s": 4.0
+      }
+    ],
+    "tuck_white_cord_with_black_tweezers": [
+      {
+        "start_s": 10.0,
+        "end_s": 15.0
+      }
+    ]
+  }
+}

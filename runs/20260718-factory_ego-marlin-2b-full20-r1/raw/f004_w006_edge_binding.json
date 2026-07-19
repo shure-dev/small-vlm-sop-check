@@ -1,0 +1,40 @@
+{
+  "unit_id": "f004_w006_edge_binding",
+  "model_id": "lunahr/Marlin-2B-ungated",
+  "model_revision": "de783b96b80f477c5e665d2202571a84cb0761da",
+  "events": {
+    "guide_gray_garment_bound_edge_under_presser_foot": {
+      "query": "a worker feeds the navy-bound edge of a gray garment under the sewing machine presser foot and guides it with both hands",
+      "result": {
+        "raw": "From 13.4 to 15.2.",
+        "span": [
+          13.4,
+          15.2
+        ],
+        "format_ok": true
+      }
+    },
+    "trim_excess_navy_binding_with_scissors": {
+      "query": "a worker holds the edge of a gray garment with the left hand and uses large reddish-brown scissors in the right hand to cut the protruding navy binding",
+      "result": {
+        "raw": "From 1.9 to 4.8.",
+        "span": [
+          1.9,
+          4.8
+        ],
+        "format_ok": true
+      }
+    },
+    "align_navy_bound_edge": {
+      "query": "a worker pinches the navy-bound edge of a gray garment with both hands and repeatedly repositions their fingers along the edge to straighten it",
+      "result": {
+        "raw": "From 16.5 to 19.6.",
+        "span": [
+          16.5,
+          19.6
+        ],
+        "format_ok": true
+      }
+    }
+  }
+}

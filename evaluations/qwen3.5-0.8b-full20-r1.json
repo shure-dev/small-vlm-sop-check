@@ -1,0 +1,1283 @@
+{
+  "kind": "development_evaluation",
+  "created_at": "2026-07-18",
+  "dataset": {
+    "id": "factory_ego",
+    "split": "development",
+    "reference_revision": "human",
+    "unit_count": 20,
+    "event_count": 68,
+    "unit_ids": [
+      "f001_w004_material_replenishment",
+      "f001_w011_metal_stamping",
+      "f002_w002_garment_bagging",
+      "f002_w003_fabric_folding",
+      "f002_w005_garment_ironing",
+      "f003_w005_metal_casting",
+      "f003_w007_wax_pattern",
+      "f003_w009_injection_molding",
+      "f003_w010_mold_preparation",
+      "f004_w002_thread_trimming",
+      "f004_w004_continuous_fabric",
+      "f004_w005_heat_press",
+      "f004_w005_overlock_seaming",
+      "f004_w006_curvilinear_seam",
+      "f004_w006_edge_binding",
+      "f005_w001_semi_automatic",
+      "f005_w010_manual_lathe",
+      "f005_w011_cnc_machine",
+      "f006_w004_bulk_material",
+      "f006_w005_compression_molding"
+    ]
+  },
+  "prediction_run_id": "20260718-factory_ego-qwen3.5-0.8b-full20-r1",
+  "model": "Qwen3.5-0.8B 4-bit",
+  "formal_accuracy": false,
+  "scope": "all events in the run target units",
+  "inputs": {
+    "queries_sha256": "9eff2a0e46bb1d49c0cfc96b2c48ab4f3c94b6ce3656607c9ee28b2bd70891cc",
+    "run_manifest_sha256": "afc57542f520bc4f3567dda5841c5983e5aa5219b373eb7a8f9b5f589c767f78",
+    "run_inputs_lock_sha256": "2316f05e4ec0e911900cd2464d857f09a6acaa256844be11ab4b2072ce6b8d2c",
+    "annotation_sha256": {
+      "f001_w004_material_replenishment": "2d4f8a1be1acae359c587490b784253ea60199e065e6706db29ed229647ddab0",
+      "f001_w011_metal_stamping": "a7a856ea219fcc6b1c2e590ab0ce4aa8c4e8c8ac5e5cf8d3c3df0795af76252c",
+      "f002_w002_garment_bagging": "04bc67d3ecd4a9d4fb7c21b1e7f04bf3d8d05ee361e0f083a2333998ca7c86b3",
+      "f002_w003_fabric_folding": "d5d26829b1c8f377457d988325038472a451ffc3a394bfb5e50447e24920348b",
+      "f002_w005_garment_ironing": "7b0d49d2e0a0ef94758c8bd32a7b4096724887ff40e5097b81cd969c778d70dd",
+      "f003_w005_metal_casting": "39da8d474d6eb730b26215c0413147a6b611d9fe3743fd245c42144ae1b614e1",
+      "f003_w007_wax_pattern": "1c43ff8a2016de8de81c52769bb2620cc56952a2df9544b947118cd191bd3aa9",
+      "f003_w009_injection_molding": "b20afc44dcd20bd818c47c9fca804e923220dae3208e1bb1d6fd4ece1f738ab9",
+      "f003_w010_mold_preparation": "983706265af37103cd7fd238f9a536a42b6ad9e6f40c2ed0aa4ba8791f021efd",
+      "f004_w002_thread_trimming": "cde472e98b092e02ea16b94026a8239737b2e5ecf24aa55cabbbb50b68c34b6a",
+      "f004_w004_continuous_fabric": "651fbecbc5ebcb9a7a151ea295d829cd74ee0698cb0dc1034895315ad2de284c",
+      "f004_w005_heat_press": "9e53b33d01c6e243c5e58e92935fa416bdb1c90f759953af13d81ae66d759ac8",
+      "f004_w005_overlock_seaming": "5dd19b9095e42571457cddbfc4827ff20da61d47fcba3db61f6fd7028077d6be",
+      "f004_w006_curvilinear_seam": "fc461add0227ae16a7aba3f1b9e52020e151cce23d956c94f3f0f71e5f278d1f",
+      "f004_w006_edge_binding": "94ac928f593aec3d2c7530cfe47e3921e4fef0e58c6340e8b293011aeb182a8a",
+      "f005_w001_semi_automatic": "afc661a2c40fe5a52566e74fce4120714d503367702e1210b10fc54ef52d75be",
+      "f005_w010_manual_lathe": "972dfdcd7c1b938e01ea2e364ae3e62453ba149c48ae995cfd14e410cbe9e37b",
+      "f005_w011_cnc_machine": "57f7752bf03dc84ea7bb4c1995a98107202935e0f9f176a05f53c8330962a7af",
+      "f006_w004_bulk_material": "16ecba518e9be5cf92c548456504445101c35a4b12a8bea05bebb47a7637c1d9",
+      "f006_w005_compression_molding": "32b36510dd6a79259be075c2fb17b17acd0e00a7475fa4ace07895b4a36763c5"
+    },
+    "prediction_sha256": {
+      "f001_w004_material_replenishment": "3908a6bf513c07a334933ce80dfe9fde734574141b62842fa0289a8ad84aa100",
+      "f001_w011_metal_stamping": "a8513cb83659f2e5c1b91a714407b6634b2d09df8ae78b33b008586ac6be4e5a",
+      "f002_w002_garment_bagging": "61c27866ca38e366e4e9f01b32e16309fafb746f26fa223373f10fbaf097a633",
+      "f002_w003_fabric_folding": "aa45cd6a4e2a2c2076a385e3a0e8e625863555c9489991807b07e6e2862803f1",
+      "f002_w005_garment_ironing": "b67924d1d3d90e15fd5aa3d6ed3a3b7d7544b8e31d518db6176539124b452fe6",
+      "f003_w005_metal_casting": "63732c89612e4358e34159e404002d6e532d29c48275f8d35771607a15775bca",
+      "f003_w007_wax_pattern": "b26123a0b267eca5a18d3443a27413a1a4efc02831e32b82313c06268b90d013",
+      "f003_w009_injection_molding": "d1dfc6b4811fac4d801d71fbbe34975fcc5d184c45d66f74f7efe06295dc4493",
+      "f003_w010_mold_preparation": "dcdf70a769b5ca123e95af40dfe6ee31eb92fdca358c99d5f15cc8c318041a15",
+      "f004_w002_thread_trimming": "74f3a6566355ebb765822d8154672a812fa89452f50f26acbe2d4009112e5c11",
+      "f004_w004_continuous_fabric": "421f3c246d302898e93623b041d893ad33a5e97b511f36d67ddad2e217ba58a5",
+      "f004_w005_heat_press": "52c16ad1b7b5e219e07926667d08fded57d2b82ff4611848c13b49fcbe733b93",
+      "f004_w005_overlock_seaming": "ed610ee9918f786965ff12fb411394d9d1ba9ae0c10a5f812a16f06a34f82ba7",
+      "f004_w006_curvilinear_seam": "3f6fac08d3716533db71cd15ad3e31cef38291297f7a0273189fc868a2376d5a",
+      "f004_w006_edge_binding": "15b7c60d696c7371cc1ddfb67a88d532fcfd6ae00f896592f8d1878c3fd45791",
+      "f005_w001_semi_automatic": "574b7549005912979fce6f07ec41a2d1be4fe165fd2d4fba66dff14e6b8d804c",
+      "f005_w010_manual_lathe": "68d5e5d5a0c77ca1485bbea861f0af287eafacc1c9161d7cd2f54875374df2d1",
+      "f005_w011_cnc_machine": "745e1adbd170a90492034a2ccced5e6aa228bcd77c80cdafded6a7e7652b43b6",
+      "f006_w004_bulk_material": "c833e8883b319b78e2dafc087a711b568777a69072d2da6a7a0b6e7f2fb4ca34",
+      "f006_w005_compression_molding": "f716ec119c66377881814f18350841ecdb9d0ed6a8d7daee595cfb16060eb1cb"
+    }
+  },
+  "metrics": {
+    "reference_occurrences": 81,
+    "predicted_occurrences": 64,
+    "mean_tiou": 0.075909,
+    "tiou_at_0_5": {
+      "tp": 5,
+      "fp": 59,
+      "fn": 76,
+      "precision": 0.078125,
+      "recall": 0.061728,
+      "f1": 0.068966
+    }
+  },
+  "per_unit_mean_tiou": {
+    "f001_w004_material_replenishment": 0.166667,
+    "f001_w011_metal_stamping": 0.160714,
+    "f002_w002_garment_bagging": 0.0,
+    "f002_w003_fabric_folding": 0.0,
+    "f002_w005_garment_ironing": 0.068182,
+    "f003_w005_metal_casting": 0.0,
+    "f003_w007_wax_pattern": 0.0,
+    "f003_w009_injection_molding": 0.181818,
+    "f003_w010_mold_preparation": 0.0,
+    "f004_w002_thread_trimming": 0.07,
+    "f004_w004_continuous_fabric": 0.020833,
+    "f004_w005_heat_press": 0.009091,
+    "f004_w005_overlock_seaming": 0.133333,
+    "f004_w006_curvilinear_seam": 0.152778,
+    "f004_w006_edge_binding": 0.133333,
+    "f005_w001_semi_automatic": 0.116071,
+    "f005_w010_manual_lathe": 0.038462,
+    "f005_w011_cnc_machine": 0.101042,
+    "f006_w004_bulk_material": 0.039091,
+    "f006_w005_compression_molding": 0.235294
+  },
+  "per_event": [
+    {
+      "unit_id": "f001_w004_material_replenishment",
+      "event_id": "fasten_part_with_driver",
+      "event_label": "作業者が吊り下げ式の電動ドライバーを金属部品に押し当てて締結している",
+      "query": "a worker assembles a part using a driver tool",
+      "reference_occurrences": 1,
+      "predicted_occurrences": 1,
+      "mean_tiou": 0.5,
+      "tiou_at_0_5": {
+        "tp": 1,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      }
+    },
+    {
+      "unit_id": "f001_w004_material_replenishment",
+      "event_id": "pour_parts_from_bag",
+      "event_label": "作業者が透明な袋から中の黒い金属部品を作業台へ落としている",
+      "query": "a worker turns a bag upside down and pours the parts out",
+      "reference_occurrences": 1,
+      "predicted_occurrences": 0,
+      "mean_tiou": 0.0,
+      "tiou_at_0_5": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 1,
+        "precision": null,
+        "recall": 0.0,
+        "f1": null
+      }
+    },
+    {
+      "unit_id": "f001_w004_material_replenishment",
+      "event_id": "roll_empty_bag",
+      "event_label": "作業者が空になった透明な袋を両手で巻いて小さくまとめている",
+      "query": "a worker rolls up a bag",
+      "reference_occurrences": 1,
+      "predicted_occurrences": 0,
+      "mean_tiou": 0.0,
+      "tiou_at_0_5": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 1,
+        "precision": null,
+        "recall": 0.0,
+        "f1": null
+      }
+    },
+    {
+      "unit_id": "f001_w011_metal_stamping",
+      "event_id": "feed_metal_strip_into_press",
+      "event_label": "作業者が細長い帯状の金属材料を両手で支え、プレス機の加工位置へ送り込んでいる",
+      "query": "a worker feeds a long strip of metal into a press machine",
+      "reference_occurrences": 1,
+      "predicted_occurrences": 1,
+      "mean_tiou": 0.142857,
+      "tiou_at_0_5": {
+        "tp": 0,
+        "fp": 1,
+        "fn": 1,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": null
+      }
+    },
+    {
+      "unit_id": "f001_w011_metal_stamping",
+      "event_id": "walk_to_next_press",
+      "event_label": "作業者が最初のプレス機を離れ、通路を歩いて隣のプレス機へ移動している",
+      "query": "a worker leaves one metal press and walks along the marked factory aisle to the neighboring press station",
+      "reference_occurrences": 1,
+      "predicted_occurrences": 1,
+      "mean_tiou": 0.5,
+      "tiou_at_0_5": {
+        "tp": 1,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      }
+    },
+    {
+      "unit_id": "f001_w011_metal_stamping",
+      "event_id": "pick_up_metal_sheets",
+      "event_label": "作業者がプレス機の材料置き場から薄い長方形の金属板を複数枚つかんで持ち上げている",
+      "query": "a worker picks up metal sheets",
+      "reference_occurrences": 1,
+      "predicted_occurrences": 1,
+      "mean_tiou": 0.0,
+      "tiou_at_0_5": {
+        "tp": 0,
+        "fp": 1,
+        "fn": 1,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": null
+      }
+    },
+    {
+      "unit_id": "f001_w011_metal_stamping",
+      "event_id": "align_metal_sheet_stack",
+      "event_label": "作業者が持ち上げた薄い金属板の束の端を両手で揃えている",
+      "query": "a worker aligns and gathers metal sheets",
+      "reference_occurrences": 1,
+      "predicted_occurrences": 1,
+      "mean_tiou": 0.0,
+      "tiou_at_0_5": {
+        "tp": 0,
+        "fp": 1,
+        "fn": 1,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": null
+      }
+    },
+    {
+      "unit_id": "f002_w002_garment_bagging",
+      "event_id": "pick_garment_from_stack",
+      "event_label": "作業者が積み重なった折り畳み衣類の一番上を手でつかんで持ち上げている",
+      "query": "a worker grasps the top folded garment from a stack and lifts it away from the stack",
+      "reference_occurrences": 1,
+      "predicted_occurrences": 0,
+      "mean_tiou": 0.0,
+      "tiou_at_0_5": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 1,
+        "precision": null,
+        "recall": 0.0,
+        "f1": null
+      }
+    },
+    {
+      "unit_id": "f002_w002_garment_bagging",
+      "event_id": "insert_garment_into_bag",
+      "event_label": "作業者が折り畳まれた衣類を透明な包装袋の開口部から中へ滑り込ませている",
+      "query": "a worker puts a folded garment into a plastic bag",
+      "reference_occurrences": 1,
+      "predicted_occurrences": 1,
+      "mean_tiou": 0.0,
+      "tiou_at_0_5": {
+        "tp": 0,
+        "fp": 1,
+        "fn": 1,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": null
+      }
+    },
+    {
+      "unit_id": "f002_w002_garment_bagging",
+      "event_id": "seal_bag_flap",
+      "event_label": "作業者が透明な包装袋の粘着フラップを折り返し、指で押さえて封をしている",
+      "query": "after the garment is inside, a worker folds and presses the narrow adhesive edge of the clear plastic bag to seal it",
+      "reference_occurrences": 1,
+      "predicted_occurrences": 1,
+      "mean_tiou": 0.0,
+      "tiou_at_0_5": {
+        "tp": 0,
+        "fp": 1,
+        "fn": 1,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": null
+      }
+    },
+    {
+      "unit_id": "f002_w002_garment_bagging",
+      "event_id": "place_package_to_right",
+      "event_label": "作業者が封をした衣類の包装を持ち上げ、作業台の右側へ移して置いている",
+      "query": "a worker lifts the finished sealed garment package from the table and carries it to the right",
+      "reference_occurrences": 1,
+      "predicted_occurrences": 1,
+      "mean_tiou": 0.0,
+      "tiou_at_0_5": {
+        "tp": 0,
+        "fp": 1,
+        "fn": 1,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": null
+      }
+    },
+    {
+      "unit_id": "f002_w003_fabric_folding",
+      "event_id": "take_garment_from_stack",
+      "event_label": "作業者が積み重なった薄青色の衣類の一番上をつかみ、山から取り上げている",
+      "query": "a worker grasps the top light-blue folded garment and removes it from the stack",
+      "reference_occurrences": 2,
+      "predicted_occurrences": 1,
+      "mean_tiou": 0.0,
+      "tiou_at_0_5": {
+        "tp": 0,
+        "fp": 1,
+        "fn": 2,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": null
+      }
+    },
+    {
+      "unit_id": "f002_w003_fabric_folding",
+      "event_id": "fold_garment_sides",
+      "event_label": "作業者が薄青色の衣類の左右を内側へ折り、形を整えている",
+      "query": "a worker folds the left and right sides of a light-blue garment inward and straightens the folded garment on the table",
+      "reference_occurrences": 1,
+      "predicted_occurrences": 1,
+      "mean_tiou": 0.0,
+      "tiou_at_0_5": {
+        "tp": 0,
+        "fp": 1,
+        "fn": 1,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": null
+      }
+    },
+    {
+      "unit_id": "f002_w003_fabric_folding",
+      "event_id": "pick_up_hanger",
+      "event_label": "作業者が作業台左側に積まれた黒いハンガーを一本つかんで持ち上げている",
+      "query": "a worker reaches to the pile of black clothes hangers on the left and lifts one black hanger",
+      "reference_occurrences": 1,
+      "predicted_occurrences": 1,
+      "mean_tiou": 0.0,
+      "tiou_at_0_5": {
+        "tp": 0,
+        "fp": 1,
+        "fn": 1,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": null
+      }
+    },
+    {
+      "unit_id": "f002_w005_garment_ironing",
+      "event_id": "place_folding_board",
+      "event_label": "作業者が白い長方形の折り畳み板を薄紫色のシャツの中央に置き、両手で位置を合わせている",
+      "query": "a worker places a white rectangular folding board in the center of a light-purple shirt and aligns the board with both hands",
+      "reference_occurrences": 1,
+      "predicted_occurrences": 1,
+      "mean_tiou": 0.272727,
+      "tiou_at_0_5": {
+        "tp": 0,
+        "fp": 1,
+        "fn": 1,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": null
+      }
+    },
+    {
+      "unit_id": "f002_w005_garment_ironing",
+      "event_id": "fold_shirt_around_board",
+      "event_label": "作業者が薄紫色のシャツの左右を白い折り畳み板に沿って内側へ折っている",
+      "query": "a worker folds the left and right sides of a light-purple shirt inward around a white folding board",
+      "reference_occurrences": 1,
+      "predicted_occurrences": 1,
+      "mean_tiou": 0.0,
+      "tiou_at_0_5": {
+        "tp": 0,
+        "fp": 1,
+        "fn": 1,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": null
+      }
+    },
+    {
+      "unit_id": "f002_w005_garment_ironing",
+      "event_id": "turn_and_neaten_folded_shirt",
+      "event_label": "作業者が折り畳んだ薄紫色のシャツを持ち上げて表に返し、両手で形を整えている",
+      "query": "a worker lifts the folded light-purple shirt, turns it over to the front, and straightens its shape with both hands",
+      "reference_occurrences": 1,
+      "predicted_occurrences": 1,
+      "mean_tiou": 0.0,
+      "tiou_at_0_5": {
+        "tp": 0,
+        "fp": 1,
+        "fn": 1,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": null
+      }
+    },
+    {
+      "unit_id": "f002_w005_garment_ironing",
+      "event_id": "stack_folded_shirt",
+      "event_label": "作業者が完成した薄紫色の折り畳みシャツを作業台上側の完成品の山へ重ねている",
+      "query": "a worker places the finished folded light-purple shirt on top of the completed stack at the upper side of the table",
+      "reference_occurrences": 1,
+      "predicted_occurrences": 1,
+      "mean_tiou": 0.0,
+      "tiou_at_0_5": {
+        "tp": 0,
+        "fp": 1,
+        "fn": 1,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": null
+      }
+    },
+    {
+      "unit_id": "f003_w005_metal_casting",
+      "event_id": "carry_casting_bundle",
+      "event_label": "作業者が連なった銀色の鋳物部品を片手で持ち、作業台から木箱まで運んでいる",
+      "query": "a worker carries a connected bundle of silver cast-metal parts by hand from the work table toward a wooden crate",
+      "reference_occurrences": 1,
+      "predicted_occurrences": 1,
+      "mean_tiou": 0.0,
+      "tiou_at_0_5": {
+        "tp": 0,
+        "fp": 1,
+        "fn": 1,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": null
+      }
+    },
+    {
+      "unit_id": "f003_w005_metal_casting",
+      "event_id": "put_casting_into_crate",
+      "event_label": "作業者が運んだ銀色の鋳物部品を正面の木箱の中へ入れている",
+      "query": "a worker lowers the connected silver casting into the wooden crate directly in front of him",
+      "reference_occurrences": 1,
+      "predicted_occurrences": 1,
+      "mean_tiou": 0.0,
+      "tiou_at_0_5": {
+        "tp": 0,
+        "fp": 1,
+        "fn": 1,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": null
+      }
+    },
+    {
+      "unit_id": "f003_w005_metal_casting",
+      "event_id": "pick_up_hammer",
+      "event_label": "作業者が作業台に置かれた木柄の金属ハンマーを右手で持ち上げている",
+      "query": "after returning from the crate, a worker reaches to the work table and lifts the wooden-handled hammer with his right hand",
+      "reference_occurrences": 1,
+      "predicted_occurrences": 1,
+      "mean_tiou": 0.0,
+      "tiou_at_0_5": {
+        "tp": 0,
+        "fp": 1,
+        "fn": 1,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": null
+      }
+    },
+    {
+      "unit_id": "f003_w005_metal_casting",
+      "event_id": "hammer_casting",
+      "event_label": "作業者が木柄の金属ハンマーで作業台上の銀色の鋳物部品を繰り返し叩いている",
+      "query": "a worker repeatedly strikes silver cast-metal parts on the work table with a wooden-handled hammer",
+      "reference_occurrences": 1,
+      "predicted_occurrences": 1,
+      "mean_tiou": 0.0,
+      "tiou_at_0_5": {
+        "tp": 0,
+        "fp": 1,
+        "fn": 1,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": null
+      }
+    },
+    {
+      "unit_id": "f003_w007_wax_pattern",
+      "event_id": "clean_wax_cluster_with_rod",
+      "event_label": "作業者が黄色い蝋部品の房を片手で持ち、先端が色付きの細い棒状の道具で房の表面をなぞって整えている",
+      "query": "a worker cleans a cluster of small yellow wax parts using a thin handheld brush or rod",
+      "reference_occurrences": 2,
+      "predicted_occurrences": 1,
+      "mean_tiou": 0.0,
+      "tiou_at_0_5": {
+        "tp": 0,
+        "fp": 1,
+        "fn": 2,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": null
+      }
+    },
+    {
+      "unit_id": "f003_w007_wax_pattern",
+      "event_id": "mark_wax_cluster_with_white_tool",
+      "event_label": "作業者が黄色い蝋部品の房を両手で中央に持ち、白いチョークで黄色い部品に印を付けている",
+      "query": "a worker makes a white mark on the small yellow wax part held in their hands",
+      "reference_occurrences": 1,
+      "predicted_occurrences": 1,
+      "mean_tiou": 0.0,
+      "tiou_at_0_5": {
+        "tp": 0,
+        "fp": 1,
+        "fn": 1,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": null
+      }
+    },
+    {
+      "unit_id": "f003_w007_wax_pattern",
+      "event_id": "place_wax_cluster_on_rack",
+      "event_label": "作業者が黄色い蝋部品の房を、作業台奥に並ぶ同種の房のトレーへ腕を伸ばして置いている",
+      "query": "a worker places the cluster of small yellow wax parts onto the tray filled with similar yellow parts",
+      "reference_occurrences": 1,
+      "predicted_occurrences": 1,
+      "mean_tiou": 0.0,
+      "tiou_at_0_5": {
+        "tp": 0,
+        "fp": 1,
+        "fn": 1,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": null
+      }
+    },
+    {
+      "unit_id": "f003_w009_injection_molding",
+      "event_id": "remove_yellow_parts_from_mold",
+      "event_label": "作業者が青い手袋の手で、開いた金属金型から黄色い樹脂成形部品を取り出している",
+      "query": "a worker removes small yellow molded parts from the open metal mold and places them on the tray to the right",
+      "reference_occurrences": 1,
+      "predicted_occurrences": 1,
+      "mean_tiou": 0.0,
+      "tiou_at_0_5": {
+        "tp": 0,
+        "fp": 1,
+        "fn": 1,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": null
+      }
+    },
+    {
+      "unit_id": "f003_w009_injection_molding",
+      "event_id": "hold_metal_rod_at_mold",
+      "event_label": "作業者が金型の脇で細い金属棒を手に持っている",
+      "query": "a worker picks up and holds a thin metal rod beside the open mold",
+      "reference_occurrences": 1,
+      "predicted_occurrences": 1,
+      "mean_tiou": 0.363636,
+      "tiou_at_0_5": {
+        "tp": 0,
+        "fp": 1,
+        "fn": 1,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": null
+      }
+    },
+    {
+      "unit_id": "f003_w010_mold_preparation",
+      "event_id": "place_yellow_mold_plate_on_container",
+      "event_label": "作業者が黄色い金型プレートを両手で持ち、青いコンテナの上へ被せるように置いている",
+      "query": "a worker places a yellow rectangular mold cover over the metal mold box",
+      "reference_occurrences": 1,
+      "predicted_occurrences": 1,
+      "mean_tiou": 0.0,
+      "tiou_at_0_5": {
+        "tp": 0,
+        "fp": 1,
+        "fn": 1,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": null
+      }
+    },
+    {
+      "unit_id": "f004_w002_thread_trimming",
+      "event_id": "trim_threads_with_snips",
+      "event_label": "作業者が青緑色の糸切り鋏を持ち、白い衣類から出た余分な糸を切っている",
+      "query": "a worker uses blue-handled scissors to cut loose threads from a white garment on the table",
+      "reference_occurrences": 1,
+      "predicted_occurrences": 1,
+      "mean_tiou": 0.0,
+      "tiou_at_0_5": {
+        "tp": 0,
+        "fp": 1,
+        "fn": 1,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": null
+      }
+    },
+    {
+      "unit_id": "f004_w002_thread_trimming",
+      "event_id": "spread_white_garment_on_table",
+      "event_label": "作業者が白い衣類を山から取り、作業台の上に広げている",
+      "query": "a worker unfolds and spreads a white garment flat on the work table",
+      "reference_occurrences": 1,
+      "predicted_occurrences": 1,
+      "mean_tiou": 0.14,
+      "tiou_at_0_5": {
+        "tp": 0,
+        "fp": 1,
+        "fn": 1,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": null
+      }
+    },
+    {
+      "unit_id": "f004_w004_continuous_fabric",
+      "event_id": "move_black_garment_to_upper_left",
+      "event_label": "作業者が黒い衣類を両手で持ち上げ、作業台の左上側へ移している",
+      "query": "a worker lifts a black garment with both hands and moves it to the upper-left side of the worktable",
+      "reference_occurrences": 1,
+      "predicted_occurrences": 1,
+      "mean_tiou": 0.083333,
+      "tiou_at_0_5": {
+        "tp": 0,
+        "fp": 1,
+        "fn": 1,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": null
+      }
+    },
+    {
+      "unit_id": "f004_w004_continuous_fabric",
+      "event_id": "spread_garment_in_front_of_sewing_machine",
+      "event_label": "作業者が作業台上の黒い衣類を両手で手元へ引き寄せ、ミシン前に広げている",
+      "query": "a worker pulls a black garment toward themselves with both hands and spreads it on the table in front of the sewing machine",
+      "reference_occurrences": 1,
+      "predicted_occurrences": 1,
+      "mean_tiou": 0.0,
+      "tiou_at_0_5": {
+        "tp": 0,
+        "fp": 1,
+        "fn": 1,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": null
+      }
+    },
+    {
+      "unit_id": "f004_w004_continuous_fabric",
+      "event_id": "align_garment_edge_layers",
+      "event_label": "作業者が黒い衣類の縁を両手でつまみ、端の重なりを揃えている",
+      "query": "a worker pinches the edge of a black garment with both hands and aligns the overlapping fabric layers",
+      "reference_occurrences": 1,
+      "predicted_occurrences": 1,
+      "mean_tiou": 0.0,
+      "tiou_at_0_5": {
+        "tp": 0,
+        "fp": 1,
+        "fn": 1,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": null
+      }
+    },
+    {
+      "unit_id": "f004_w004_continuous_fabric",
+      "event_id": "feed_garment_edge_under_presser_foot",
+      "event_label": "作業者が揃えた黒い衣類の縁をミシンの押さえ金の下へ送り込んでいる",
+      "query": "a worker feeds the aligned edge of a black garment under the sewing machine presser foot",
+      "reference_occurrences": 1,
+      "predicted_occurrences": 1,
+      "mean_tiou": 0.0,
+      "tiou_at_0_5": {
+        "tp": 0,
+        "fp": 1,
+        "fn": 1,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": null
+      }
+    },
+    {
+      "unit_id": "f004_w005_heat_press",
+      "event_id": "raise_heat_press_handle",
+      "event_label": "作業者がヒートプレス機のオレンジ色グリップ付きハンドルを持ち上げ、上板を開いている",
+      "query": "a worker lifts the orange handle of the heat press and opens it",
+      "reference_occurrences": 1,
+      "predicted_occurrences": 1,
+      "mean_tiou": 0.0,
+      "tiou_at_0_5": {
+        "tp": 0,
+        "fp": 1,
+        "fn": 1,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": null
+      }
+    },
+    {
+      "unit_id": "f004_w005_heat_press",
+      "event_id": "remove_white_fabric_from_heat_press",
+      "event_label": "作業者が開いたヒートプレス機から白い布製品を右側の作業台へ移して広げている",
+      "query": "a worker pulls a white fabric item out from under the open heat press",
+      "reference_occurrences": 1,
+      "predicted_occurrences": 1,
+      "mean_tiou": 0.0,
+      "tiou_at_0_5": {
+        "tp": 0,
+        "fp": 1,
+        "fn": 1,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": null
+      }
+    },
+    {
+      "unit_id": "f004_w005_heat_press",
+      "event_id": "separate_white_fabric_from_stack",
+      "event_label": "作業者が左側に重なった白い布製品から1枚の縁をつまみ、引き離して持ち上げている",
+      "query": "a worker separates one white fabric item from the stack on the left and lifts it",
+      "reference_occurrences": 1,
+      "predicted_occurrences": 1,
+      "mean_tiou": 0.036364,
+      "tiou_at_0_5": {
+        "tp": 0,
+        "fp": 1,
+        "fn": 1,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": null
+      }
+    },
+    {
+      "unit_id": "f004_w005_heat_press",
+      "event_id": "align_and_fold_white_fabric_on_table",
+      "event_label": "作業者が取り出した白い布製品を中央の作業台へ載せ、両手で折り返しながら端を揃えている",
+      "query": "a worker folds a white fabric item on the table with both hands",
+      "reference_occurrences": 1,
+      "predicted_occurrences": 1,
+      "mean_tiou": 0.0,
+      "tiou_at_0_5": {
+        "tp": 0,
+        "fp": 1,
+        "fn": 1,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": null
+      }
+    },
+    {
+      "unit_id": "f004_w005_overlock_seaming",
+      "event_id": "guide_pink_fabric_under_presser_foot",
+      "event_label": "ピンク色の生地をミシンで縫合している",
+      "query": "a worker feeds the edge of pink fabric under the sewing machine presser foot while guiding it with both hands",
+      "reference_occurrences": 2,
+      "predicted_occurrences": 0,
+      "mean_tiou": 0.0,
+      "tiou_at_0_5": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 2,
+        "precision": null,
+        "recall": 0.0,
+        "f1": null
+      }
+    },
+    {
+      "unit_id": "f004_w005_overlock_seaming",
+      "event_id": "remove_pink_fabric_from_sewing_machine",
+      "event_label": "作業者がピンク色の生地を脇の生地の山へ移している",
+      "query": "a worker pulls pink fabric away from the sewing machine needle area and moves it aside",
+      "reference_occurrences": 2,
+      "predicted_occurrences": 1,
+      "mean_tiou": 0.333333,
+      "tiou_at_0_5": {
+        "tp": 1,
+        "fp": 0,
+        "fn": 1,
+        "precision": 1.0,
+        "recall": 0.5,
+        "f1": 0.666667
+      }
+    },
+    {
+      "unit_id": "f004_w005_overlock_seaming",
+      "event_id": "spread_and_align_pink_fabric_edges",
+      "event_label": "作業者が取り出したピンク色の生地を両手でもちあげて広げて調整している",
+      "query": "a worker spreads a piece of pink fabric with both hands and follows its edge with their fingers to align the overlapping edges",
+      "reference_occurrences": 1,
+      "predicted_occurrences": 1,
+      "mean_tiou": 0.0,
+      "tiou_at_0_5": {
+        "tp": 0,
+        "fp": 1,
+        "fn": 1,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": null
+      }
+    },
+    {
+      "unit_id": "f004_w006_curvilinear_seam",
+      "event_id": "align_curved_gray_fabric_edges",
+      "event_label": "作業者が灰色の生地の曲線状の端を両手でつまみ、重ねた縁を揃えている",
+      "query": "a worker pinches the curved edges of gray fabric with both hands and aligns the overlapping edges",
+      "reference_occurrences": 1,
+      "predicted_occurrences": 1,
+      "mean_tiou": 0.0,
+      "tiou_at_0_5": {
+        "tp": 0,
+        "fp": 1,
+        "fn": 1,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": null
+      }
+    },
+    {
+      "unit_id": "f004_w006_curvilinear_seam",
+      "event_id": "position_gray_fabric_at_presser_foot",
+      "event_label": "作業者が揃えた灰色の生地端をミシンの針元へ運び、押さえ金の下へ合わせている",
+      "query": "a worker brings the aligned gray fabric edge to the sewing machine needle area and positions it under the presser foot",
+      "reference_occurrences": 1,
+      "predicted_occurrences": 1,
+      "mean_tiou": 0.0,
+      "tiou_at_0_5": {
+        "tp": 0,
+        "fp": 1,
+        "fn": 1,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": null
+      }
+    },
+    {
+      "unit_id": "f004_w006_curvilinear_seam",
+      "event_id": "guide_gray_fabric_under_presser_foot",
+      "event_label": "作業者が灰色の生地の曲線状の端をミシンの押さえ金の下へ送りながら、両手で向きを変えて案内している",
+      "query": "a worker feeds the curved edge of gray fabric under the sewing machine presser foot while turning and guiding it with both hands",
+      "reference_occurrences": 1,
+      "predicted_occurrences": 1,
+      "mean_tiou": 0.458333,
+      "tiou_at_0_5": {
+        "tp": 0,
+        "fp": 1,
+        "fn": 1,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": null
+      }
+    },
+    {
+      "unit_id": "f004_w006_edge_binding",
+      "event_id": "guide_gray_garment_bound_edge_under_presser_foot",
+      "event_label": "作業者が灰色の衣類の紺色で縁取られた端をミシンの押さえ金の下へ送り、両手で案内している",
+      "query": "a worker feeds the navy-bound edge of a gray garment under the sewing machine presser foot and guides it with both hands",
+      "reference_occurrences": 2,
+      "predicted_occurrences": 1,
+      "mean_tiou": 0.333333,
+      "tiou_at_0_5": {
+        "tp": 1,
+        "fp": 0,
+        "fn": 1,
+        "precision": 1.0,
+        "recall": 0.5,
+        "f1": 0.666667
+      }
+    },
+    {
+      "unit_id": "f004_w006_edge_binding",
+      "event_id": "trim_excess_navy_binding_with_scissors",
+      "event_label": "作業者が左手で灰色の衣類端を押さえ、右手の大きな赤茶色の鋏で突き出た紺色の縁取り部分を切っている",
+      "query": "a worker holds the edge of a gray garment with the left hand and uses large reddish-brown scissors in the right hand to cut the protruding navy binding",
+      "reference_occurrences": 1,
+      "predicted_occurrences": 1,
+      "mean_tiou": 0.0,
+      "tiou_at_0_5": {
+        "tp": 0,
+        "fp": 1,
+        "fn": 1,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": null
+      }
+    },
+    {
+      "unit_id": "f004_w006_edge_binding",
+      "event_id": "align_navy_bound_edge",
+      "event_label": "作業者が灰色の衣類の紺色で縁取られた端を両手でつまみ、縁に沿って持ち替えながら形を揃えている",
+      "query": "a worker pinches the navy-bound edge of a gray garment with both hands and repeatedly repositions their fingers along the edge to straighten it",
+      "reference_occurrences": 2,
+      "predicted_occurrences": 1,
+      "mean_tiou": 0.0,
+      "tiou_at_0_5": {
+        "tp": 0,
+        "fp": 1,
+        "fn": 2,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": null
+      }
+    },
+    {
+      "unit_id": "f005_w001_semi_automatic",
+      "event_id": "place_ring_part_on_machine_spindle",
+      "event_label": "作業者が赤橙色の巻線が見える円環状部品を機械中央の縦軸の治具で回転させて白い線を巻き付けている",
+      "query": "a worker places a ring-shaped part onto the central machine spindle",
+      "reference_occurrences": 1,
+      "predicted_occurrences": 1,
+      "mean_tiou": 0.125,
+      "tiou_at_0_5": {
+        "tp": 0,
+        "fp": 1,
+        "fn": 1,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": null
+      }
+    },
+    {
+      "unit_id": "f005_w001_semi_automatic",
+      "event_id": "arrange_white_cord_by_hand",
+      "event_label": "作業者が縦軸治具上の円環状部品から伸びる白いひも状材料を両手の指で巻線の間に沿わせて整えている",
+      "query": "a worker arranges the white cord on the ring-shaped part with both hands",
+      "reference_occurrences": 1,
+      "predicted_occurrences": 1,
+      "mean_tiou": 0.0,
+      "tiou_at_0_5": {
+        "tp": 0,
+        "fp": 1,
+        "fn": 1,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": null
+      }
+    },
+    {
+      "unit_id": "f005_w001_semi_automatic",
+      "event_id": "press_illuminated_control_switch",
+      "event_label": "作業者が左手で円環状部品を押さえながら、右手で右側の操作盤の照光スイッチを押している",
+      "query": "a worker presses the illuminated switch on the right control panel",
+      "reference_occurrences": 1,
+      "predicted_occurrences": 1,
+      "mean_tiou": 0.0,
+      "tiou_at_0_5": {
+        "tp": 0,
+        "fp": 1,
+        "fn": 1,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": null
+      }
+    },
+    {
+      "unit_id": "f005_w001_semi_automatic",
+      "event_id": "reach_and_return_with_black_tweezers",
+      "event_label": "作業者が右腕を操作盤上方へ伸ばし、黒いピンセットを手にして円環状部品の手前へ戻している",
+      "query": "a worker reaches to the right and returns holding black tweezers",
+      "reference_occurrences": 1,
+      "predicted_occurrences": 1,
+      "mean_tiou": 0.5,
+      "tiou_at_0_5": {
+        "tp": 1,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      }
+    },
+    {
+      "unit_id": "f005_w001_semi_automatic",
+      "event_id": "position_black_tweezers_at_white_cord",
+      "event_label": "作業者が黒いピンセットの先端を円環状部品の白いひも状材料へ近づけ、位置を合わせている",
+      "query": "a worker brings the black tweezers to the white cord on the ring part",
+      "reference_occurrences": 1,
+      "predicted_occurrences": 1,
+      "mean_tiou": 0.071429,
+      "tiou_at_0_5": {
+        "tp": 0,
+        "fp": 1,
+        "fn": 1,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": null
+      }
+    },
+    {
+      "unit_id": "f005_w001_semi_automatic",
+      "event_id": "tuck_white_cord_with_black_tweezers",
+      "event_label": "作業者が黒いピンセットと指で白いひも状材料を円環状部品の巻線の間へ押し込み、整えている",
+      "query": "a worker tucks the white cord with black tweezers",
+      "reference_occurrences": 1,
+      "predicted_occurrences": 1,
+      "mean_tiou": 0.0,
+      "tiou_at_0_5": {
+        "tp": 0,
+        "fp": 1,
+        "fn": 1,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": null
+      }
+    },
+    {
+      "unit_id": "f005_w010_manual_lathe",
+      "event_id": "turn_center_hex_with_box_wrench",
+      "event_label": "作業者が左手で旋盤主軸側の円形金属治具を押さえ、右手の銀色メガネレンチを中央の六角部へ掛け直しながら繰り返し回している",
+      "query": "a worker steadies a circular metal fixture on the lathe spindle with the left hand and repeatedly turns its center hex using a silver box-end wrench in the right hand",
+      "reference_occurrences": 1,
+      "predicted_occurrences": 1,
+      "mean_tiou": 0.153846,
+      "tiou_at_0_5": {
+        "tp": 0,
+        "fp": 1,
+        "fn": 1,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": null
+      }
+    },
+    {
+      "unit_id": "f005_w010_manual_lathe",
+      "event_id": "place_box_wrench_on_carriage",
+      "event_label": "作業者が銀色メガネレンチを旋盤右側の往復台上へ置いている",
+      "query": "a worker removes a silver box-end wrench from the center hex on the lathe spindle and places the wrench on the carriage to the right",
+      "reference_occurrences": 1,
+      "predicted_occurrences": 1,
+      "mean_tiou": 0.0,
+      "tiou_at_0_5": {
+        "tp": 0,
+        "fp": 1,
+        "fn": 1,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": null
+      }
+    },
+    {
+      "unit_id": "f005_w010_manual_lathe",
+      "event_id": "press_left_lathe_control",
+      "event_label": "作業者が旋盤左の赤白色の四角い操作部を左手で操作している",
+      "query": "a worker presses the red-and-white square control below the lathe spindle with the left hand",
+      "reference_occurrences": 1,
+      "predicted_occurrences": 1,
+      "mean_tiou": 0.0,
+      "tiou_at_0_5": {
+        "tp": 0,
+        "fp": 1,
+        "fn": 1,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": null
+      }
+    },
+    {
+      "unit_id": "f005_w010_manual_lathe",
+      "event_id": "operate_front_carriage_handle",
+      "event_label": "作業者が左手で旋盤往復台の手前側にある黒い大径ハンドルを握って操作している",
+      "query": "a worker grips and operates the large black handwheel on the front side of the lathe carriage with the left hand",
+      "reference_occurrences": 1,
+      "predicted_occurrences": 1,
+      "mean_tiou": 0.0,
+      "tiou_at_0_5": {
+        "tp": 0,
+        "fp": 1,
+        "fn": 1,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": null
+      }
+    },
+    {
+      "unit_id": "f005_w011_cnc_machine",
+      "event_id": "carry_square_fixture_to_cnc_opening",
+      "event_label": "作業者が橙色の面と中央穴がある四角い金属治具を右手で持ち、歩いてCNC機の開口部へ運んでいる",
+      "query": "a worker carries a square metal fixture with an orange face and central hole in the right hand while walking to the open CNC machine",
+      "reference_occurrences": 1,
+      "predicted_occurrences": 1,
+      "mean_tiou": 0.45,
+      "tiou_at_0_5": {
+        "tp": 0,
+        "fp": 1,
+        "fn": 1,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": null
+      }
+    },
+    {
+      "unit_id": "f005_w011_cnc_machine",
+      "event_id": "position_square_fixture_inside_cnc",
+      "event_label": "作業者が四角い金属治具をCNC機内の縦向き取り付け部へ押し当て、右手で位置を合わせている",
+      "query": "a worker presses a square metal fixture against the vertical mounting area inside the CNC machine and adjusts its position with the right hand",
+      "reference_occurrences": 1,
+      "predicted_occurrences": 1,
+      "mean_tiou": 0.0,
+      "tiou_at_0_5": {
+        "tp": 0,
+        "fp": 1,
+        "fn": 1,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": null
+      }
+    },
+    {
+      "unit_id": "f005_w011_cnc_machine",
+      "event_id": "press_illuminated_orange_control",
+      "event_label": "作業者がCNC機の操作盤にある点灯した橙色の丸ボタンを左手で押している",
+      "query": "a worker presses the illuminated orange round button on the CNC machine control panel with the left hand",
+      "reference_occurrences": 1,
+      "predicted_occurrences": 1,
+      "mean_tiou": 0.0,
+      "tiou_at_0_5": {
+        "tp": 0,
+        "fp": 1,
+        "fn": 1,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": null
+      }
+    },
+    {
+      "unit_id": "f005_w011_cnc_machine",
+      "event_id": "press_lower_right_silver_control",
+      "event_label": "作業者がCNC機の操作盤右下にある銀色の丸ボタンを左手で押している",
+      "query": "a worker presses the silver round button at the lower-right of the CNC machine control panel with the left hand",
+      "reference_occurrences": 1,
+      "predicted_occurrences": 1,
+      "mean_tiou": 0.0,
+      "tiou_at_0_5": {
+        "tp": 0,
+        "fp": 1,
+        "fn": 1,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": null
+      }
+    },
+    {
+      "unit_id": "f005_w011_cnc_machine",
+      "event_id": "close_cnc_sliding_door",
+      "event_label": "作業者がCNC機の黒い縦ハンドルを左手で握り、スライド扉を閉じている",
+      "query": "a worker grips the black vertical handle of the CNC machine with the left hand and closes the sliding door",
+      "reference_occurrences": 1,
+      "predicted_occurrences": 1,
+      "mean_tiou": 0.15625,
+      "tiou_at_0_5": {
+        "tp": 0,
+        "fp": 1,
+        "fn": 1,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": null
+      }
+    },
+    {
+      "unit_id": "f005_w011_cnc_machine",
+      "event_id": "move_orange_square_fixture_on_table",
+      "event_label": "作業者が作業台上の橙色の四角い金属治具を右手で持ち上げ、隣の位置へ移して置いている",
+      "query": "a worker lifts an orange square metal fixture from the worktable with the right hand, moves it to the adjacent position, and sets it down",
+      "reference_occurrences": 1,
+      "predicted_occurrences": 1,
+      "mean_tiou": 0.0,
+      "tiou_at_0_5": {
+        "tp": 0,
+        "fp": 1,
+        "fn": 1,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": null
+      }
+    },
+    {
+      "unit_id": "f006_w004_bulk_material",
+      "event_id": "move_ribbed_cylinder_to_orange_cart",
+      "event_label": "作業者が中央の大型容器から外周に縦溝のある中空円筒形金属部品を右手で持ち上げ、右側の橙色台車状容器へ移して置いている",
+      "query": "a worker lifts a hollow metal cylinder with vertical ribs from the large center container using the right hand and places it into the orange cart-like container on the right",
+      "reference_occurrences": 4,
+      "predicted_occurrences": 1,
+      "mean_tiou": 0.022727,
+      "tiou_at_0_5": {
+        "tp": 0,
+        "fp": 1,
+        "fn": 4,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": null
+      }
+    },
+    {
+      "unit_id": "f006_w004_bulk_material",
+      "event_id": "move_ribbed_cylinder_to_metal_table",
+      "event_label": "作業者が中央の大型容器から外周に縦溝のある中空円筒形金属部品を右手で持ち上げ、隣の銀色作業台へ移して置いている",
+      "query": "a worker lifts a hollow metal cylinder with vertical ribs from the large center container using the right hand and places it on the adjacent silver metal table",
+      "reference_occurrences": 5,
+      "predicted_occurrences": 1,
+      "mean_tiou": 0.06,
+      "tiou_at_0_5": {
+        "tp": 0,
+        "fp": 1,
+        "fn": 5,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": null
+      }
+    },
+    {
+      "unit_id": "f006_w004_bulk_material",
+      "event_id": "lift_ribbed_cylinder_from_bulk_container",
+      "event_label": "作業者が中央の大型容器から外周に縦溝のある中空円筒形金属部品を右手で持ち上げている",
+      "query": "a worker lifts a hollow metal cylinder with vertical ribs from the large center container using the right hand",
+      "reference_occurrences": 1,
+      "predicted_occurrences": 1,
+      "mean_tiou": 0.0,
+      "tiou_at_0_5": {
+        "tp": 0,
+        "fp": 1,
+        "fn": 1,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": null
+      }
+    },
+    {
+      "unit_id": "f006_w005_compression_molding",
+      "event_id": "carry_and_align_silver_mold_on_press_table",
+      "event_label": "作業者が銀色の二段金型を両手でプレス機の台上へ運び、円筒状の上部押し型の下で押し動かして位置を合わせ、左手で支えている",
+      "query": "a worker carries a two-level silver mold with both hands onto the press table, pushes it under the cylindrical upper press tool, aligns its position, and supports it with the left hand",
+      "reference_occurrences": 1,
+      "predicted_occurrences": 1,
+      "mean_tiou": 0.0,
+      "tiou_at_0_5": {
+        "tp": 0,
+        "fp": 1,
+        "fn": 1,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": null
+      }
+    },
+    {
+      "unit_id": "f006_w005_compression_molding",
+      "event_id": "operate_blue_lower_control_lever",
+      "event_label": "作業者が操作盤下部の青いレバー状部へ手を伸ばし、握って動かしている",
+      "query": "a worker reaches toward the blue lever-shaped control below the control panel, grips it, and moves it",
+      "reference_occurrences": 1,
+      "predicted_occurrences": 1,
+      "mean_tiou": 0.470588,
+      "tiou_at_0_5": {
+        "tp": 0,
+        "fp": 1,
+        "fn": 1,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": null
+      }
+    }
+  ],
+  "limitations": [
+    "Development evaluation, not a held-out score.",
+    "Only the selected units and their events from run queries.json are evaluated."
+  ]
+}

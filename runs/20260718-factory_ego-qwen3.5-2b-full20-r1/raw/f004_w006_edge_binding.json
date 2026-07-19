@@ -1,0 +1,30 @@
+{
+  "unit_id": "f004_w006_edge_binding",
+  "model_id": "mlx-community/Qwen3.5-2B-MLX-4bit",
+  "events": {
+    "guide_gray_garment_bound_edge_under_presser_foot": {
+      "query": "a worker feeds the navy-bound edge of a gray garment under the sewing machine presser foot and guides it with both hands",
+      "prompt": "Event: a worker feeds the navy-bound edge of a gray garment under the sewing machine presser foot and guides it with both hands\nLocate this event in the 20-second video. Do not output reasoning, analysis, or <think> tags. Start the response with { and return exactly one JSON object: {\"start_s\": number, \"end_s\": number}. Both numbers must be between 0.0 and 20.0, with start_s less than end_s. If the event is absent, return {\"start_s\": null, \"end_s\": null}. Times are seconds from video start (0.0).",
+      "response": "{\n\"start_s\": 1.0,\n\"end_s\": 10.0\n}",
+      "prompt_tokens": 4543,
+      "generation_tokens": 24,
+      "peak_memory_gb": 3.471323978
+    },
+    "trim_excess_navy_binding_with_scissors": {
+      "query": "a worker holds the edge of a gray garment with the left hand and uses large reddish-brown scissors in the right hand to cut the protruding navy binding",
+      "prompt": "Event: a worker holds the edge of a gray garment with the left hand and uses large reddish-brown scissors in the right hand to cut the protruding navy binding\nLocate this event in the 20-second video. Do not output reasoning, analysis, or <think> tags. Start the response with { and return exactly one JSON object: {\"start_s\": number, \"end_s\": number}. Both numbers must be between 0.0 and 20.0, with start_s less than end_s. If the event is absent, return {\"start_s\": null, \"end_s\": null}. Times are seconds from video start (0.0).",
+      "response": "{\n  \"start_s\": 1.0,\n  \"end_s\": 10.0\n}",
+      "prompt_tokens": 4551,
+      "generation_tokens": 26,
+      "peak_memory_gb": 3.471356746
+    },
+    "align_navy_bound_edge": {
+      "query": "a worker pinches the navy-bound edge of a gray garment with both hands and repeatedly repositions their fingers along the edge to straighten it",
+      "prompt": "Event: a worker pinches the navy-bound edge of a gray garment with both hands and repeatedly repositions their fingers along the edge to straighten it\nLocate this event in the 20-second video. Do not output reasoning, analysis, or <think> tags. Start the response with { and return exactly one JSON object: {\"start_s\": number, \"end_s\": number}. Both numbers must be between 0.0 and 20.0, with start_s less than end_s. If the event is absent, return {\"start_s\": null, \"end_s\": null}. Times are seconds from video start (0.0).",
+      "response": "{\n\"start_s\": 1.0,\n\"end_s\": 10.0\n}",
+      "prompt_tokens": 4547,
+      "generation_tokens": 24,
+      "peak_memory_gb": 3.471356746
+    }
+  }
+}

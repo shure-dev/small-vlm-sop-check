@@ -1,0 +1,22 @@
+{
+  "unit_id": "f004_w002_thread_trimming",
+  "model_id": "mlx-community/gemma-4-e2b-it-4bit",
+  "events": {
+    "trim_threads_with_snips": {
+      "query": "a worker uses blue-handled scissors to cut loose threads from a white garment on the table",
+      "prompt": "Event: a worker uses blue-handled scissors to cut loose threads from a white garment on the table\nLocate this event in the 20-second video. Return exactly one JSON object: {\"start_s\": number, \"end_s\": number}. If the event is absent, return {\"start_s\": null, \"end_s\": null}. Times are seconds from video start.",
+      "response": "```json\n{\"start_s\": 0.0, \"end_s\": 0.1}\n```",
+      "prompt_tokens": 2490,
+      "generation_tokens": 26,
+      "peak_memory_gb": 6.583075992
+    },
+    "spread_white_garment_on_table": {
+      "query": "a worker unfolds and spreads a white garment flat on the work table",
+      "prompt": "Event: a worker unfolds and spreads a white garment flat on the work table\nLocate this event in the 20-second video. Return exactly one JSON object: {\"start_s\": number, \"end_s\": number}. If the event is absent, return {\"start_s\": null, \"end_s\": null}. Times are seconds from video start.",
+      "response": "```json\n{\"start_s\": 0.0, \"end_s\": 0.5}\n```",
+      "prompt_tokens": 2485,
+      "generation_tokens": 26,
+      "peak_memory_gb": 6.583075992
+    }
+  }
+}

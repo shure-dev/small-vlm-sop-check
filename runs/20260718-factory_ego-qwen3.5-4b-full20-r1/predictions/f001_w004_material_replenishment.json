@@ -1,0 +1,26 @@
+{
+  "run_id": "20260718-factory_ego-qwen3.5-4b-full20-r1",
+  "unit_id": "f001_w004_material_replenishment",
+  "method": "temporal_grounding",
+  "interval_convention": "half-open_seconds",
+  "events": {
+    "fasten_part_with_driver": [
+      {
+        "start_s": 1.0,
+        "end_s": 10.0
+      }
+    ],
+    "pour_parts_from_bag": [
+      {
+        "start_s": 1.0,
+        "end_s": 3.0
+      }
+    ],
+    "roll_empty_bag": [
+      {
+        "start_s": 1.0,
+        "end_s": 3.0
+      }
+    ]
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "run_id": "20260718-factory_ego-qwen3.5-4b-full20-r1",
+  "unit_id": "f006_w004_bulk_material",
+  "method": "temporal_grounding",
+  "interval_convention": "half-open_seconds",
+  "events": {
+    "move_ribbed_cylinder_to_orange_cart": [
+      {
+        "start_s": 1.0,
+        "end_s": 3.0
+      }
+    ],
+    "move_ribbed_cylinder_to_metal_table": [
+      {
+        "start_s": 1.0,
+        "end_s": 3.0
+      }
+    ],
+    "lift_ribbed_cylinder_from_bulk_container": [
+      {
+        "start_s": 1.0,
+        "end_s": 3.0
+      }
+    ]
+  }
+}

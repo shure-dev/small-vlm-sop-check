@@ -1,0 +1,14 @@
+{
+  "unit_id": "f003_w010_mold_preparation",
+  "model_id": "mlx-community/gemma-4-e2b-it-4bit",
+  "events": {
+    "place_yellow_mold_plate_on_container": {
+      "query": "a worker places a yellow rectangular mold cover over the metal mold box",
+      "prompt": "Event: a worker places a yellow rectangular mold cover over the metal mold box\nLocate this event in the 20-second video. Return exactly one JSON object: {\"start_s\": number, \"end_s\": number}. If the event is absent, return {\"start_s\": null, \"end_s\": null}. Times are seconds from video start.",
+      "response": "```json\n{\"start_s\": 0.11, \"end_s\": 0.14}\n```",
+      "prompt_tokens": 2485,
+      "generation_tokens": 28,
+      "peak_memory_gb": 6.583075992
+    }
+  }
+}

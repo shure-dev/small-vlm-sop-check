@@ -1,0 +1,26 @@
+{
+  "run_id": "20260718-factory_ego-gemma4-e2b-full20-r1",
+  "unit_id": "f004_w006_edge_binding",
+  "method": "temporal_grounding",
+  "interval_convention": "half-open_seconds",
+  "events": {
+    "guide_gray_garment_bound_edge_under_presser_foot": [
+      {
+        "start_s": 0.0,
+        "end_s": 2.0
+      }
+    ],
+    "trim_excess_navy_binding_with_scissors": [
+      {
+        "start_s": 0.12,
+        "end_s": 0.2
+      }
+    ],
+    "align_navy_bound_edge": [
+      {
+        "start_s": 0.0,
+        "end_s": 2.0
+      }
+    ]
+  }
+}

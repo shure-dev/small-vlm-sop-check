@@ -1,0 +1,22 @@
+{
+  "run_id": "20260718-factory_ego-qwen3-vl-2b-full20-r1",
+  "unit_id": "f005_w010_manual_lathe",
+  "method": "temporal_grounding",
+  "interval_convention": "half-open_seconds",
+  "events": {
+    "turn_center_hex_with_box_wrench": [
+      {
+        "start_s": 10.0,
+        "end_s": 20.0
+      }
+    ],
+    "place_box_wrench_on_carriage": null,
+    "press_left_lathe_control": [
+      {
+        "start_s": 10.0,
+        "end_s": 17.0
+      }
+    ],
+    "operate_front_carriage_handle": null
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "unit_id": "f004_w005_overlock_seaming",
+  "model_id": "mlx-community/Qwen3.5-0.8B-MLX-4bit",
+  "events": {
+    "guide_pink_fabric_under_presser_foot": {
+      "query": "a worker feeds the edge of pink fabric under the sewing machine presser foot while guiding it with both hands",
+      "prompt": "Event: a worker feeds the edge of pink fabric under the sewing machine presser foot while guiding it with both hands\nLocate this event in the 20-second video. Do not output reasoning, analysis, or <think> tags. Start the response with { and return exactly one JSON object: {\"start_s\": number, \"end_s\": number}. Both numbers must be between 0.0 and 20.0, with start_s less than end_s. If the event is absent, return {\"start_s\": null, \"end_s\": null}. Times are seconds from video start (0.0).",
+      "response": "```json\n[0.0, 1.0]\n```",
+      "prompt_tokens": 4540,
+      "generation_tokens": 16,
+      "peak_memory_gb": 2.299719016
+    },
+    "remove_pink_fabric_from_sewing_machine": {
+      "query": "a worker pulls pink fabric away from the sewing machine needle area and moves it aside",
+      "prompt": "Event: a worker pulls pink fabric away from the sewing machine needle area and moves it aside\nLocate this event in the 20-second video. Do not output reasoning, analysis, or <think> tags. Start the response with { and return exactly one JSON object: {\"start_s\": number, \"end_s\": number}. Both numbers must be between 0.0 and 20.0, with start_s less than end_s. If the event is absent, return {\"start_s\": null, \"end_s\": null}. Times are seconds from video start (0.0).",
+      "response": "```json\n[{\"start_s\": 1.0, \"end_s\": 2.0}]\n```",
+      "prompt_tokens": 4535,
+      "generation_tokens": 25,
+      "peak_memory_gb": 2.299719016
+    },
+    "spread_and_align_pink_fabric_edges": {
+      "query": "a worker spreads a piece of pink fabric with both hands and follows its edge with their fingers to align the overlapping edges",
+      "prompt": "Event: a worker spreads a piece of pink fabric with both hands and follows its edge with their fingers to align the overlapping edges\nLocate this event in the 20-second video. Do not output reasoning, analysis, or <think> tags. Start the response with { and return exactly one JSON object: {\"start_s\": number, \"end_s\": number}. Both numbers must be between 0.0 and 20.0, with start_s less than end_s. If the event is absent, return {\"start_s\": null, \"end_s\": null}. Times are seconds from video start (0.0).",
+      "response": "```json\n{\n    \"start_s\": 0.0,\n    \"end_s\": 1.0\n}\n```",
+      "prompt_tokens": 4542,
+      "generation_tokens": 30,
+      "peak_memory_gb": 2.299719016
+    }
+  }
+}

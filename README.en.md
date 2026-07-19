@@ -43,21 +43,20 @@ The current work first establishes this temporal capability on short clips. Temp
 
 The primary pilot uses 20 fixed industrial first-person clips from [Egocentric-10K](https://huggingface.co/datasets/builddotai/Egocentric-10K). Each clip is 20 seconds at 2 fps. A human watches the footage, writes Japanese event descriptions, and marks the reference spans. External machine-generated annotations are not used as ground truth.
 
-**All 20 clips are now annotated with 68 events and 81 reference spans.** Of the 20 clips, 13 have current ground-truth and input hashes matching the stored Marlin-2B run. We rank those 13 by per-clip Marlin mean tIoU and mechanically select the top two, the two nearest the median, and the bottom two. [Qwen3.5-4B](https://huggingface.co/Qwen/Qwen3.5-4B) and [Qwen3-VL-4B-Instruct](https://huggingface.co/Qwen/Qwen3-VL-4B-Instruct) receive the same English event descriptions and timestamp-JSON prompt. Times use half-open intervals from `0.0` seconds at the start of each clip.
+**All 20 clips are now annotated with 68 events and 81 reference spans.** We freeze 68 English queries that exactly match the current SOPs and compare candidate models on every 20-second clip using 2 fps, 640-pixel video and a shared timestamp-JSON contract. Times use half-open intervals from `0.0` seconds at the start of each clip.
 
-| Stratum | Marlin rank | 20-second clip | Events | Reference spans | Marlin-2B | Qwen3.5-4B | Qwen3-VL-4B |
-|---|---:|---|---:|---:|---:|---:|---:|
-| High | 1/13 | [Metal stamping workflow](datasets/factory_ego/sops/f001_w011_metal_stamping/sop.yaml) | 4 | 4 | **0.802** | 0.304 | 0.109 |
-| High | 2/13 | [Mold preparation](datasets/factory_ego/sops/f003_w010_mold_preparation/sop.yaml) | 1 | 1 | **0.719** | 0.500 | 0.000 |
-| Middle | 6/13 | [Curved-seam sewing](datasets/factory_ego/sops/f004_w006_curvilinear_seam/sop.yaml) | 3 | 3 | **0.560** | 0.095 | 0.315 |
-| Middle | 7/13 | [Compression molding](datasets/factory_ego/sops/f006_w005_compression_molding/sop.yaml) | 2 | 2 | 0.551 | **0.644** | 0.267 |
-| Low | 12/13 | [Injection molding](datasets/factory_ego/sops/f003_w009_injection_molding/sop.yaml) | 2 | 2 | 0.300 | **0.364** | 0.138 |
-| Low | 13/13 | [Sorting bulk metal parts](datasets/factory_ego/sops/f006_w004_bulk_material/sop.yaml) | 3 | 10 | **0.085** | 0.034 | 0.000 |
-| **Overall** | — | **6 clips** | **15** | **22** | **0.371** | **0.198** | **0.100** |
+| Model | Size | Predicted spans | mean tIoU | tIoU@0.5 P | R | F1 | Peak memory |
+|---|---:|---:|---:|---:|---:|---:|---:|
+| **Marlin-2B** | 2B | 68 | **0.400** | **0.559** | **0.469** | **0.510** | — |
+| Qwen3.5-4B | 4B | 68 | 0.178 | 0.206 | 0.173 | 0.188 | 5.64 GB |
+| Qwen3.5-2B | 2B | 68 | 0.129 | 0.088 | 0.074 | 0.081 | 3.47 GB |
+| Qwen3-VL-2B | 2B | 41 | 0.110 | 0.146 | 0.074 | 0.098 | 3.28 GB |
+| Qwen3.5-0.8B | 0.8B | 64 | 0.076 | 0.078 | 0.062 | 0.069 | 2.30 GB |
+| Gemma 4 E2B | E2B | 53 | 0.030 | 0.019 | 0.012 | 0.015 | 6.58 GB |
 
-tIoU@0.5 F1 is `0.541` for Marlin-2B, `0.270` for Qwen3.5-4B, and `0.054` for Qwen3-VL-4B. All three models emit one span per event, so they produce 15 predictions for 22 reference spans, including ten repetitions in the bulk-parts clip. All 15 Qwen outputs are syntactically valid and within the 20-second range. Both Qwen models use 4-bit MLX conversions, 2 fps video, 640-pixel width, and temperature 0, executed one model at a time. MLX peak memory is `5.64 GB` for Qwen3.5 and `4.76 GB` for Qwen3-VL.
+Marlin-2B uses its dedicated `find(video, event)` interface. The other models receive the same event text and JSON prompt one query at a time through 4-bit MLX conversions. Each model emits at most one span per event, which limits recall against the 81 references containing repeated actions. Every clip belongs to the development split, so these are diagnostic values rather than held-out test accuracy.
 
-This stratification reduces the bias of reporting only Marlin's strongest clips, but it is still a development diagnostic selected by Marlin performance rather than a fair held-out evaluation. Fixed inputs, raw outputs, and evaluation hashes are available in the [Marlin evaluation](evaluations/factory_ego_marlin_stratified6.json), [Qwen3.5 evaluation](evaluations/factory_ego_qwen3.5_stratified6.json), and [Qwen3-VL evaluation](evaluations/factory_ego_qwen3-vl-4b_stratified6.json).
+We also smoke-tested MiniCPM-V-4.6, InternVL3-2B, LFM2.5-VL-1.6B, three SmolVLM2 variants, two FastVLM variants, and Perception-LM-1B. MiniCPM returned a timestamp outside the 20-second contract; the others encountered compatibility errors in the current MLX conversion or video processor and therefore did not advance to full runs. Qwen2.5-VL-3B and Qwen3-VL-4B passed smoke tests but were explicitly excluded from this full matrix. Immutable runs, evaluation hashes, and failure reasons are linked from the [aggregate artifact](evaluations/factory_ego_model_matrix_v1.json).
 
 ## Improvement loop
 

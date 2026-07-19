@@ -1,0 +1,22 @@
+{
+  "run_id": "20260718-factory_ego-qwen3-vl-2b-full20-r1",
+  "unit_id": "f002_w005_garment_ironing",
+  "method": "temporal_grounding",
+  "interval_convention": "half-open_seconds",
+  "events": {
+    "place_folding_board": [
+      {
+        "start_s": 0.0,
+        "end_s": 5.0
+      }
+    ],
+    "fold_shirt_around_board": [
+      {
+        "start_s": 10.0,
+        "end_s": 20.0
+      }
+    ],
+    "turn_and_neaten_folded_shirt": null,
+    "stack_folded_shirt": null
+  }
+}

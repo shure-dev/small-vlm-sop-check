@@ -1,0 +1,14 @@
+{
+  "run_id": "20260718-factory_ego-marlin-2b-full20-r1",
+  "unit_id": "f003_w010_mold_preparation",
+  "method": "temporal_grounding",
+  "interval_convention": "half-open_seconds",
+  "events": {
+    "place_yellow_mold_plate_on_container": [
+      {
+        "start_s": 1.8,
+        "end_s": 3.3
+      }
+    ]
+  }
+}
