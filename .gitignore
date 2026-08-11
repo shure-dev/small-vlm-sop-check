@@ -1,0 +1,20 @@
+# データ・成果物(実体はGitに入れない。取得手順はREADME)
+data/*
+!data/README.md
+!data/manifest.json
+runs/
+training_runs/*
+!training_runs/README.md
+out/
+
+# レポート・PDF(公開リポジトリには含めない)
+reports/
+*.pdf
+
+# Python
+__pycache__/
+*.pyc
+.venv*/
+
+# OS
+.DS_Store

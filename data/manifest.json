@@ -1,0 +1,243 @@
+{
+  "dataset": "ego4d_goalstep",
+  "purpose": "realtime step tracking demo (train=SFT, valid=eval)",
+  "selection_criteria": {
+    "goal_prefix": "COOKING",
+    "duration_s": [
+      300,
+      1200
+    ],
+    "min_steps": 8,
+    "min_coverage": 0.85,
+    "max_overlap_s": 1.0,
+    "min_vocab": 6,
+    "exclude_groups": true
+  },
+  "videos": [
+    {
+      "uid": "9b58e3ab-7b6d-4e79-9eea-c21420b0eedc",
+      "split": "train",
+      "duration_s": 510.2,
+      "goal": "COOKING:MAKE_OMELET",
+      "n_steps": 9,
+      "n_vocab": 7,
+      "coverage": 1.0
+    },
+    {
+      "uid": "9b14c997-a2a2-4920-84e2-8278c66e860a",
+      "split": "train",
+      "duration_s": 1063.1,
+      "goal": "COOKING:PREPARE_NUT",
+      "n_steps": 8,
+      "n_vocab": 7,
+      "coverage": 0.997
+    },
+    {
+      "uid": "cf95d6a4-6ad7-462c-9700-9f04bd993667",
+      "split": "train",
+      "duration_s": 519.1,
+      "goal": "COOKING:MAKE_SALAD",
+      "n_steps": 14,
+      "n_vocab": 12,
+      "coverage": 0.99
+    },
+    {
+      "uid": "526d389b-a187-4c63-a5c6-c36bd66266b6",
+      "split": "train",
+      "duration_s": 953.1,
+      "goal": "COOKING:MAKE_BREAD",
+      "n_steps": 24,
+      "n_vocab": 7,
+      "coverage": 0.99
+    },
+    {
+      "uid": "3a03f541-a520-4b67-87b2-f9c79f9b54ee",
+      "split": "train",
+      "duration_s": 816.8,
+      "goal": "COOKING:MAKE_SAMOSA",
+      "n_steps": 9,
+      "n_vocab": 6,
+      "coverage": 0.985
+    },
+    {
+      "uid": "2dbb7845-1de0-4e26-877a-035c051d12a5",
+      "split": "train",
+      "duration_s": 750.2,
+      "goal": "COOKING:MAKE_BREAD",
+      "n_steps": 12,
+      "n_vocab": 9,
+      "coverage": 0.985
+    },
+    {
+      "uid": "216e3f0e-ccb9-4d54-ba56-d275fedbf52f",
+      "split": "train",
+      "duration_s": 680.4,
+      "goal": "COOKING:MAKING_MULTIPLE_RECIPES",
+      "n_steps": 26,
+      "n_vocab": 26,
+      "coverage": 0.982
+    },
+    {
+      "uid": "2978ddbc-cdc9-4bfa-9a7c-4bf056904010",
+      "split": "train",
+      "duration_s": 1053.2,
+      "goal": "COOKING:PREPARE_INGREDIENTS_GENERAL",
+      "n_steps": 19,
+      "n_vocab": 15,
+      "coverage": 0.977
+    },
+    {
+      "uid": "09bccca1-368b-4776-9433-3c8835837110",
+      "split": "train",
+      "duration_s": 309.4,
+      "goal": "COOKING:MAKE_PICKLED_DISH",
+      "n_steps": 11,
+      "n_vocab": 11,
+      "coverage": 0.977
+    },
+    {
+      "uid": "edc1869c-8a97-44fd-ab47-63fda4a54df9",
+      "split": "train",
+      "duration_s": 426.9,
+      "goal": "COOKING:MAKE_PASTA",
+      "n_steps": 9,
+      "n_vocab": 8,
+      "coverage": 0.975
+    },
+    {
+      "uid": "2413dce7-2c3e-43cd-8482-fbc3ed465adf",
+      "split": "train",
+      "duration_s": 1059.1,
+      "goal": "COOKING:MAKE_STIR_FRIED_RICE",
+      "n_steps": 15,
+      "n_vocab": 13,
+      "coverage": 0.974
+    },
+    {
+      "uid": "024713b7-b198-4502-a114-02ca0485353b",
+      "split": "train",
+      "duration_s": 1063.5,
+      "goal": "COOKING:MAKE_STIR_FRIED_DISH_GENERAL",
+      "n_steps": 16,
+      "n_vocab": 12,
+      "coverage": 0.974
+    },
+    {
+      "uid": "227165a6-277b-451c-bcda-1d2cf60577ab",
+      "split": "train",
+      "duration_s": 971.7,
+      "goal": "COOKING:MAKE_NOODLE_SOUP",
+      "n_steps": 20,
+      "n_vocab": 15,
+      "coverage": 0.971
+    },
+    {
+      "uid": "6c47fe78-9441-4b8e-8b16-f99a9c507c00",
+      "split": "train",
+      "duration_s": 486.3,
+      "goal": "COOKING:COOKING_GENERAL",
+      "n_steps": 10,
+      "n_vocab": 6,
+      "coverage": 0.969
+    },
+    {
+      "uid": "28fe3d66-382b-425a-8409-3cf17f5c8670",
+      "split": "train",
+      "duration_s": 1070.7,
+      "goal": "COOKING:COOKING_GENERAL",
+      "n_steps": 9,
+      "n_vocab": 7,
+      "coverage": 0.968
+    },
+    {
+      "uid": "1c795a0e-e718-466f-8bee-46febdc2b17a",
+      "split": "train",
+      "duration_s": 422.2,
+      "goal": "COOKING:MAKE_PASTA",
+      "n_steps": 15,
+      "n_vocab": 8,
+      "coverage": 0.966
+    },
+    {
+      "uid": "8c3e4a8e-f4dd-44f8-be1f-3b4d4d503556",
+      "split": "train",
+      "duration_s": 583.4,
+      "goal": "COOKING:MAKE_BREAD",
+      "n_steps": 13,
+      "n_vocab": 13,
+      "coverage": 0.965
+    },
+    {
+      "uid": "36248b1e-9ba7-4789-bbf5-b9e33e3ab408",
+      "split": "train",
+      "duration_s": 412.1,
+      "goal": "COOKING:MAKE_PASTA",
+      "n_steps": 10,
+      "n_vocab": 8,
+      "coverage": 0.964
+    },
+    {
+      "uid": "6b89ed88-54d3-427f-835f-6a5345206955",
+      "split": "train",
+      "duration_s": 897.7,
+      "goal": "COOKING:MAKE_SALAD",
+      "n_steps": 12,
+      "n_vocab": 12,
+      "coverage": 0.961
+    },
+    {
+      "uid": "eb2652af-7458-431a-a0a7-9e263594b910",
+      "split": "train",
+      "duration_s": 677.2,
+      "goal": "COOKING:MAKE_STEW_OR_SOUP",
+      "n_steps": 27,
+      "n_vocab": 24,
+      "coverage": 0.957
+    },
+    {
+      "uid": "47078bd8-6b58-458c-8c34-8d905e21079a",
+      "split": "valid",
+      "duration_s": 878.2,
+      "goal": "COOKING:COOKING_GENERAL",
+      "n_steps": 25,
+      "n_vocab": 19,
+      "coverage": 1.0
+    },
+    {
+      "uid": "80111886-6bab-4b16-aac6-1dfa42357d8b",
+      "split": "valid",
+      "duration_s": 753.0,
+      "goal": "COOKING:COOKING_GENERAL",
+      "n_steps": 9,
+      "n_vocab": 7,
+      "coverage": 0.988
+    },
+    {
+      "uid": "a8486c50-4576-41e3-a9ad-ee809e40c648",
+      "split": "valid",
+      "duration_s": 1039.5,
+      "goal": "COOKING:MAKE_TACO",
+      "n_steps": 12,
+      "n_vocab": 8,
+      "coverage": 0.986
+    },
+    {
+      "uid": "97c1c805-291f-4b2f-bef9-0495d9d2fc92",
+      "split": "valid",
+      "duration_s": 822.7,
+      "goal": "COOKING:MAKE_PASTRY",
+      "n_steps": 17,
+      "n_vocab": 9,
+      "coverage": 0.984
+    },
+    {
+      "uid": "d2606d87-2a9b-48df-96b2-5df1a4457215",
+      "split": "valid",
+      "duration_s": 594.5,
+      "goal": "COOKING:MAKE_PASTA",
+      "n_steps": 12,
+      "n_vocab": 8,
+      "coverage": 0.983
+    }
+  ]
+}
